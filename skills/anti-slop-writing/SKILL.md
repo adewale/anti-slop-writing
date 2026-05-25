@@ -1,18 +1,18 @@
 ---
 name: anti-slop-writing
-description: Review, draft, and rewrite prose to avoid common AI-writing tropes. Use for articles, slide copy, wiki pages, README text, emails, posts, scripts, and any important writing that must not read like generic LLM output.
+description: Use this skill to review, draft, and rewrite prose so it does not read like generic LLM output. Apply it to articles, slide copy, wiki pages, README text, emails, posts, scripts, product/DevRel copy, and important writing with AI tropes, inflated significance language, generic cadence, weak flow, or marketing fog.
 ---
 
 # Anti-Slop Writing
 
 Use this skill for any important writing or rewriting task.
 
-Local references:
+Load local references only when the task needs them:
 
 ```txt
-references/anti-slop-writing-doctrine.md
-references/flow-by-relation.md
-references/rewrite-patterns.md
+references/anti-slop-writing-doctrine.md — read for a full prose review or when changing the doctrine.
+references/flow-by-relation.md — read when paragraphs are locally clear but list-like, or when fixing transitions/conclusions.
+references/rewrite-patterns.md — read when producing multiple concrete rewrites or adding a new failure pattern.
 ```
 
 ## Core principle

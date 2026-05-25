@@ -1,0 +1,55 @@
+{
+  "skill_name": "anti-slop-writing",
+  "evals": [
+    {
+      "id": "generic-importance",
+      "prompt": "Review this sentence and rewrite it if needed: This underscores the importance of durable execution in modern software systems.",
+      "expected_output": "A critique that flags inflated importance language and replaces it with a concrete durable-execution mechanism.",
+      "assertions": [
+        "Identifies 'underscores the importance' or equivalent importance language as a slop tell.",
+        "Names the missing mechanism behind durable execution rather than only swapping adjectives.",
+        "Provides a concrete rewrite involving a failure, retry, checkpoint, receipt, or similar inspectable mechanism."
+      ]
+    },
+    {
+      "id": "decorative-contrast",
+      "prompt": "Review this line for AI-writing tells: The point is not the pelicans. The point is the process.",
+      "expected_output": "A critique that distinguishes earned contrast from decorative antithesis and rewrites by naming the relation between pelican and process.",
+      "assertions": [
+        "Does not ban short contrast automatically.",
+        "Classifies the line as compressed or decorative antithesis unless prior evidence earns it.",
+        "Rewrites the line by explaining how the pelican carries, exposes, or makes the process inspectable."
+      ]
+    },
+    {
+      "id": "weak-conclusion",
+      "prompt": "Review this ending:\n\nThe reusable structure is small and concrete: the runbook is source, the generated SVG is the build artifact, the lineage is the build history, the diff is the review surface, and the judge identity is part of the measurement.\n\nA benchmark is stronger when you can inspect the run that produced it.",
+      "expected_output": "A critique that says the final sentence is accurate but generic, then produces a carrier-bound conclusion.",
+      "assertions": [
+        "Says the final sentence is true or accurate but too generic.",
+        "Notes that the ending fails to return to the concrete carrier or pelican example.",
+        "Produces a rewrite using a relation such as 'Because the pelican project is small enough to inspect and strange enough to remember...'."
+      ]
+    },
+    {
+      "id": "product-tour-flow",
+      "prompt": "Fix the flow in this product section:\n\nThe Climb ranks the models.\n\nHead-to-Head is a filmstrip viewer.\n\nRunbook Diffs compares versions.",
+      "expected_output": "A rewrite that stops reading like a product tour by adding a level-of-detail hinge.",
+      "assertions": [
+        "Identifies that the sequence reads like a list or product tour.",
+        "Names the relation connecting the items, such as levels of detail or resolutions of inspection.",
+        "Rewrites around aggregate trajectory, round-by-round lineage, and source-level change or equivalent concrete levels."
+      ]
+    },
+    {
+      "id": "safe-essay-voice",
+      "prompt": "Review and rewrite this marketing sentence: In today's rapidly evolving landscape, teams need robust solutions that empower developers to build seamless experiences.",
+      "expected_output": "A critique that flags banned/default slop phrases, asks for concrete actors and capabilities, and cuts or rewrites the sentence.",
+      "assertions": [
+        "Flags 'In today\u2019s rapidly evolving landscape' or equivalent landscape framing as a slop tell.",
+        "Flags vague actors or capabilities such as teams, robust solutions, empower, or seamless experiences.",
+        "Produces a rewrite with a named actor, concrete capability, or specific user-visible result, or recommends cutting the sentence if no evidence exists."
+      ]
+    }
+  ]
+}

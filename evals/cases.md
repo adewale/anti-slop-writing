@@ -2,6 +2,8 @@
 
 Use these cases when hillclimbing the skill. A good answer should identify the failure mechanism and produce a concrete rewrite.
 
+The runnable source of truth is `evals/evals.json`; keep this file aligned as the human-readable explanation of those cases.
+
 ## Case 1 — generic importance
 
 Input:

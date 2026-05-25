@@ -1,0 +1,107 @@
+{
+  "skill_name": "anti-slop-writing",
+  "runs_per_query": 3,
+  "trigger_rate_threshold": 0.5,
+  "queries": [
+    {
+      "id": "pos-readme-polish",
+      "query": "Can you rewrite this README intro so it doesn't sound like generic AI copy?",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-article-conclusion",
+      "query": "This article ending feels true but flat. Help me make the conclusion more concrete.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-slide-copy",
+      "query": "Tighten these product slides and remove the marketing fog.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-email",
+      "query": "Polish this launch email, but keep it specific and not ChatGPT-ish.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-post",
+      "query": "Review this LinkedIn post for AI-writing tells before I publish it.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-wiki",
+      "query": "This wiki page has a lot of 'important to note' filler. Can you clean it up?",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-script",
+      "query": "Make this video script sound less like a safe essay and more grounded in examples.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-flow",
+      "query": "The paragraphs are individually clear, but the section reads like a list. Fix the flow.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-devrel",
+      "query": "Review this DevRel blog draft for vague claims and missing runnable evidence.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-tagline",
+      "query": "Can you replace the 'not just X but Y' line in this landing-page copy with something sharper?",
+      "should_trigger": true
+    },
+    {
+      "id": "neg-code-refactor",
+      "query": "Refactor this Python module to reduce duplication and add type hints.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-unit-tests",
+      "query": "Write unit tests for this retry helper and cover the timeout edge case.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-data-chart",
+      "query": "Load sales.csv and make a bar chart of revenue by month.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-grammar-only",
+      "query": "Fix typos and comma mistakes in this paragraph without changing the wording.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-factual-summary",
+      "query": "Summarize this API documentation into a list of endpoints and parameters.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-config-debug",
+      "query": "My GitHub Actions workflow fails on npm install. Debug the YAML.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-sql",
+      "query": "Optimize this SQL query and explain the query plan.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-format-json",
+      "query": "Convert this JSON file to YAML and preserve all keys.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-design-layout",
+      "query": "Create a CSS grid layout for a responsive dashboard.",
+      "should_trigger": false
+    },
+    {
+      "id": "neg-translation",
+      "query": "Translate this Spanish paragraph to English as literally as possible.",
+      "should_trigger": false
+    }
+  ]
+}

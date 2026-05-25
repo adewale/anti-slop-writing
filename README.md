@@ -77,10 +77,16 @@ Notes:
 skills/anti-slop-writing/SKILL.md     Installable skill instructions
 skills/anti-slop-writing/references/  Installable supporting doctrine and examples
 evals/evals.json                      Repo-only output evals and assertions
+evals/adversarial.json                Repo-only over-flagging and false-positive evals
+evals/rewrite-evals.json              Repo-only rewrite quality evals
 evals/trigger-queries.json            Repo-only trigger accuracy eval queries
 evals/cases.md                        Human-readable regression cases
-evals/results/latest.md               Latest recorded smoke eval results
+evals/failures/                       Curated failure corpus behind the doctrine
+evals/results/                        Recorded smoke eval results
+examples/cards/                       Compact before/after cards
 examples/                             Repo-only before/after examples
+LESSONS.md                            Lessons learned and overgeneralization boundaries
+CHANGELOG.md                          Doctrine, eval, compatibility, and docs changes
 scripts/validate.py                   Repo-only validation
 .github/workflows/validate.yml        GitHub Actions validation
 ```
@@ -95,6 +101,8 @@ Latest recorded smoke results are in `evals/results/latest.md`.
 |---|---:|
 | Manual regression cases (`evals/cases.md`) | 5/5 pass |
 | Machine-readable assertions (`evals/evals.json`) | 15/15 pass |
+| Adversarial false-positive checks (`evals/adversarial.json`) | see latest results |
+| Rewrite quality checks (`evals/rewrite-evals.json`) | see latest results |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 20/20 pass |
 
 These results catch regressions in the current doctrine. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts.
@@ -108,10 +116,12 @@ See `CONTRIBUTING.md` for the contribution rubric, required eval updates, and PR
 When improving the skill:
 
 1. Capture a concrete writing failure in `examples/` or `evals/cases.md`.
-2. Add or update the runnable case in `evals/evals.json`.
-3. If the change affects activation, update `evals/trigger-queries.json`.
-4. Make the smallest doctrine change in `skills/anti-slop-writing/SKILL.md` or `skills/anti-slop-writing/references/`.
-5. Run validation:
+2. Add or update the runnable case in `evals/evals.json`, `evals/rewrite-evals.json`, or `evals/adversarial.json`.
+3. Add the failure to `evals/failures/` or a compact card to `examples/cards/` when it teaches a reusable pattern.
+4. If the change affects activation, update `evals/trigger-queries.json`.
+5. Record the lesson in `LESSONS.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
+6. Make the smallest doctrine change in `skills/anti-slop-writing/SKILL.md` or `skills/anti-slop-writing/references/`.
+7. Run validation:
 
 ```bash
 python3 scripts/validate.py

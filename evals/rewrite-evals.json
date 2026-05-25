@@ -1,0 +1,56 @@
+{
+  "skill_name": "anti-slop-writing",
+  "purpose": "Evaluate rewrite quality, not only critique labeling.",
+  "evals": [
+    {
+      "id": "durable-execution-mechanism",
+      "prompt": "Rewrite without AI slop: This underscores the importance of durable execution in modern software systems.",
+      "expected_output": "A concrete sentence about resumable execution, retries, checkpoints, receipts, or equivalent mechanism.",
+      "assertions": [
+        "Removes 'underscores the importance' or equivalent inflated framing.",
+        "Includes a concrete durability mechanism such as retry, checkpoint, idempotency, receipt, lease, or resume.",
+        "Does not replace the phrase with another abstraction like 'critical capability' or 'robust foundation'."
+      ]
+    },
+    {
+      "id": "pelican-process-relation",
+      "prompt": "Rewrite by replacing rhythm with relation: The point is not the pelicans. The point is the process.",
+      "expected_output": "A sentence that explains how the pelican example carries or exposes the process.",
+      "assertions": [
+        "Removes or reduces the 'Not X. Y.' cadence.",
+        "Names the relation between the pelican and the process.",
+        "Keeps the concrete carrier instead of jumping to a generic process claim."
+      ]
+    },
+    {
+      "id": "product-tour-hinge",
+      "prompt": "Rewrite this list-like section into one flowing transition:\n\nThe Climb ranks the models.\n\nHead-to-Head is a filmstrip viewer.\n\nRunbook Diffs compares versions.",
+      "expected_output": "A transition that names the shared inspection levels or resolutions.",
+      "assertions": [
+        "Introduces a relation such as levels, resolutions, or inspection depth.",
+        "Preserves the three product surfaces and their distinct jobs.",
+        "Avoids turning the rewrite into marketing claims about seamless workflows or powerful insights."
+      ]
+    },
+    {
+      "id": "safe-essay-cut-or-concretize",
+      "prompt": "Rewrite or cut: In today's rapidly evolving landscape, teams need robust solutions that empower developers to build seamless experiences.",
+      "expected_output": "Either a concrete capability sentence or a recommendation to cut because no evidence is present.",
+      "assertions": [
+        "Removes landscape framing and vague empowerment language.",
+        "Names a concrete actor/action/result if rewriting.",
+        "Does not preserve unsupported claims of robustness or seamlessness."
+      ]
+    },
+    {
+      "id": "carrier-bound-ending",
+      "prompt": "Rewrite this ending so it returns to the concrete example:\n\nA benchmark is stronger when you can inspect the run that produced it.",
+      "expected_output": "A carrier-bound conclusion using the pelican project or another supplied concrete carrier.",
+      "assertions": [
+        "Does not merely restate the thesis.",
+        "Uses a concrete carrier with inspectable properties.",
+        "Names why the carrier helps the larger claim travel."
+      ]
+    }
+  ]
+}

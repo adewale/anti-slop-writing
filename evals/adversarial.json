@@ -1,0 +1,56 @@
+{
+  "skill_name": "anti-slop-writing",
+  "purpose": "Prevent the skill from over-flagging concise, technical, or intentionally quoted prose.",
+  "evals": [
+    {
+      "id": "earned-antithesis",
+      "prompt": "Review this paragraph after the preceding section has already shown how the pelican image and run log differ:\n\nThe pelican is the surface; the inspectable run is the point.",
+      "expected_output": "Keeps or lightly edits the antithesis because the prior context earns the contrast.",
+      "assertions": [
+        "Does not reject the sentence solely because it uses short antithesis.",
+        "Says the line can work if prior context established the carrier/process distinction.",
+        "If rewriting, preserves the carrier-versus-process relation rather than expanding into generic prose."
+      ]
+    },
+    {
+      "id": "robust-engineering-context",
+      "prompt": "Review this technical sentence: The retry queue is robust against worker crashes because every job is leased with a deadline and returned to the queue when the lease expires.",
+      "expected_output": "Allows 'robust' because the sentence immediately supplies the engineering mechanism.",
+      "assertions": [
+        "Does not flag 'robust' as slop when it is backed by lease/deadline/return mechanics.",
+        "Identifies the concrete mechanism that earns the claim.",
+        "Avoids replacing the sentence with vaguer prestige language."
+      ]
+    },
+    {
+      "id": "intentional-quote",
+      "prompt": "Review this sentence from a critique of bad copy: The draft literally says, 'In today's rapidly evolving landscape,' which is the first line I would cut.",
+      "expected_output": "Recognizes the banned phrase is quoted as the object of critique, not used as the writer's own framing.",
+      "assertions": [
+        "Does not treat the quoted phrase as an unambiguous failure of the surrounding sentence.",
+        "Notes that the sentence is already critiquing the phrase.",
+        "Only suggests tightening if it improves clarity without hiding the quote."
+      ]
+    },
+    {
+      "id": "specific-bullet-list",
+      "prompt": "Review this list:\n\n- Runbook is source\n- SVG is artifact\n- Diff is review surface\n- Judge identity is measurement context",
+      "expected_output": "Does not reject the list as fake structure because each bullet names a concrete mapping.",
+      "assertions": [
+        "Does not flag the bullets merely for being a list.",
+        "Recognizes that each bullet maps a concrete object to a role.",
+        "If improving, adds a hinge or sentence only when relation/context is missing."
+      ]
+    },
+    {
+      "id": "short-direct-answer",
+      "prompt": "Review this answer: Use the smaller model for drafts; reserve the expensive model for final judgment passes.",
+      "expected_output": "Keeps the direct recommendation unless surrounding context requires evidence or tradeoffs.",
+      "assertions": [
+        "Does not inflate the sentence into a generic strategy paragraph.",
+        "Recognizes the concrete operational distinction between drafts and judgment passes.",
+        "Suggests adding evidence only if the claim needs support in context."
+      ]
+    }
+  ]
+}

@@ -25,13 +25,14 @@ Current eval dimensions:
 | Product-tour flow | Adds a relation or level-of-detail hinge when paragraphs read like a list. |
 | Safe essay voice | Replaces vague actors and marketing fog with concrete action/result, or cuts the line. |
 
-The machine-readable assertions live in `evals/evals.json`. The companion explanations live in `evals/cases.md`.
+The machine-readable assertions live in `evals/evals.json`. Rewrite-specific checks live in `evals/rewrite-evals.json`; false-positive checks live in `evals/adversarial.json`. The companion explanations live in `evals/cases.md` and `evals/failures/`.
 
 ## What to update
 
 | Change type | Required updates |
 |---|---|
-| New detector or doctrine rule | Add/update `evals/evals.json` and usually `evals/cases.md` or `examples/`. |
+| New detector or doctrine rule | Add/update `evals/evals.json`, `evals/rewrite-evals.json`, `evals/failures/`, and usually `evals/cases.md` or `examples/cards/`. |
+| False-positive or over-flagging fix | Add/update `evals/adversarial.json`. |
 | Trigger/activation wording | Add/update `evals/trigger-queries.json`. |
 | Reference-only clarification | Update the relevant file in `skills/anti-slop-writing/references/`. |
 | Install/runtime compatibility | Update `README.md` and, if needed, `skills/anti-slop-writing/SKILL.md` frontmatter. |
@@ -45,7 +46,8 @@ Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. A us
 2. Name the failure mechanism.
 3. Add the smallest rule that catches it.
 4. Add or update a before/after example or eval assertion.
-5. Run validation:
+5. Record the lesson in `LESSONS.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
+6. Run validation:
 
 ```bash
 python3 scripts/validate.py

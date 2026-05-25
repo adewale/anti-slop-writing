@@ -1,47 +1,32 @@
 # Latest eval results
 
 Date: 2026-05-25
-Skill version: current `skills/anti-slop-writing/SKILL.md` behavior; later README/contributor-doc edits do not change the evaluated doctrine.
 
-These smoke evals were run from fresh subagent context. They check that the skill catches the repo's regression failures and satisfies the assertion set. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` artifacts or observed multi-run trigger rates.
+These smoke evals were run from fresh subagent context. They check that the skill catches the repo's regression failures, avoids the new adversarial false-positive cases, and satisfies rewrite-quality assertions. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` artifacts or observed multi-run trigger rates.
 
-## Original manual evals
+## Results
 
-Source: `evals/cases.md`
-
-Result: **5/5 pass**
-
-| Case | Result | Evidence |
+| Eval set | Score | Source |
 |---|---:|---|
-| generic importance | PASS | Flags “underscores the importance” and requires a concrete durable-execution mechanism. |
-| decorative contrast | PASS | Does not ban contrast; classifies compressed/decorative antithesis and rewrites the relation. |
-| weak conclusion | PASS | Identifies the accurate-but-generic ending and returns to the pelican carrier. |
-| product-tour flow | PASS | Catches list/product-tour flow and adds a level-of-detail hinge. |
-| safe essay voice | PASS | Flags landscape/robust/empower/seamless and requires concrete actor/action/result. |
+| Manual regression cases | 5/5 cases | `evals/cases.md` |
+| Machine-readable output assertions | 15/15 assertions | `evals/evals.json` |
+| Adversarial false-positive assertions | 15/15 assertions | `evals/adversarial.json` |
+| Rewrite-quality assertions | 15/15 assertions | `evals/rewrite-evals.json` |
+| Trigger-query label sanity | 20/20 labels | `evals/trigger-queries.json` |
 
-## Machine-readable output evals
+## What changed in this eval expansion
 
-Source: `evals/evals.json`
+Before the expansion, the suite already passed the original manual cases, output assertions, and trigger-label checks. The expansion added coverage rather than raising those ceiling scores:
 
-Result: **15/15 assertions pass**
+- adversarial examples for earned antithesis, valid technical `robust`, quoted bad phrases, useful concrete lists, and short direct answers;
+- rewrite evals that require concrete mechanisms, named relations, and carrier-bound endings;
+- a curated failure corpus under `evals/failures/`;
+- before/after cards under `examples/cards/`;
+- `LESSONS.md` to record what not to overgeneralize;
+- `CHANGELOG.md` to track doctrine and eval changes.
 
-| Eval | Assertions |
-|---|---:|
-| `generic-importance` | 3/3 |
-| `decorative-contrast` | 3/3 |
-| `weak-conclusion` | 3/3 |
-| `product-tour-flow` | 3/3 |
-| `safe-essay-voice` | 3/3 |
+## Assessment
 
-## Trigger-query sanity check
+The project is better covered. The original eval scores stayed at ceiling, while the new evals add protection against two important regressions: over-flagging good prose and producing critique without a strong rewrite.
 
-Source: `evals/trigger-queries.json`
-
-Result: **20/20 labels pass**
-
-| Group | Result |
-|---|---:|
-| should trigger | 10/10 |
-| should not trigger | 10/10 |
-
-This was a description/label sanity check: a fresh evaluator judged whether each query should activate the skill from the `SKILL.md` frontmatter description. It does not replace an observed trigger-rate run in Pi, Claude Code, Codex, or OpenCode.
+Remaining gap: these are smoke evals and label sanity checks. They do not replace observed trigger-rate runs in Pi, Claude Code, Codex, or OpenCode.

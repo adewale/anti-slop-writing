@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILL_DIR = ROOT / "skills" / "anti-slop-writing"
 SKILL = SKILL_DIR / "SKILL.md"
 SKILL_EVALS = ROOT / "evals" / "evals.json"
+ADVERSARIAL_EVALS = ROOT / "evals" / "adversarial.json"
+REWRITE_EVALS = ROOT / "evals" / "rewrite-evals.json"
 TRIGGER_QUERIES = ROOT / "evals" / "trigger-queries.json"
 MANUAL_CASES = ROOT / "evals" / "cases.md"
 
@@ -20,6 +22,8 @@ REQUIRED = [
     ROOT / "README.md",
     ROOT / "AGENTS.md",
     ROOT / "CONTRIBUTING.md",
+    ROOT / "CHANGELOG.md",
+    ROOT / "LESSONS.md",
     ROOT / "LICENSE",
     ROOT / ".gitignore",
     ROOT / ".github" / "workflows" / "validate.yml",
@@ -28,10 +32,24 @@ REQUIRED = [
     SKILL_DIR / "references" / "flow-by-relation.md",
     SKILL_DIR / "references" / "rewrite-patterns.md",
     SKILL_EVALS,
+    ADVERSARIAL_EVALS,
+    REWRITE_EVALS,
     TRIGGER_QUERIES,
     ROOT / "examples" / "pelican-conclusion-before-after.md",
+    ROOT / "examples" / "cards" / "generic-importance.md",
+    ROOT / "examples" / "cards" / "decorative-contrast.md",
+    ROOT / "examples" / "cards" / "weak-conclusion.md",
+    ROOT / "examples" / "cards" / "product-tour-flow.md",
+    ROOT / "examples" / "cards" / "safe-essay-voice.md",
     MANUAL_CASES,
+    ROOT / "evals" / "failures" / "generic-importance.md",
+    ROOT / "evals" / "failures" / "decorative-contrast.md",
+    ROOT / "evals" / "failures" / "weak-conclusion.md",
+    ROOT / "evals" / "failures" / "product-tour-flow.md",
+    ROOT / "evals" / "failures" / "safe-essay-voice.md",
     ROOT / "evals" / "results" / "latest.md",
+    ROOT / "evals" / "results" / "2026-05-25-before.md",
+    ROOT / "evals" / "results" / "2026-05-25-after.md",
 ]
 
 REQUIRED_SKILL_PHRASES = [
@@ -121,32 +139,38 @@ def validate_frontmatter(text: str) -> None:
         fail(f"SKILL.md compatibility exceeds 500 chars: {len(compatibility)}")
 
 
-def validate_skill_evals() -> None:
-    data = load_json(SKILL_EVALS)
+def validate_eval_file(path: Path, min_count: int = 1) -> None:
+    data = load_json(path)
     if data.get("skill_name") != "anti-slop-writing":
-        fail("evals/evals.json skill_name must be anti-slop-writing")
+        fail(f"{path.relative_to(ROOT)} skill_name must be anti-slop-writing")
     evals = data.get("evals")
-    if not isinstance(evals, list) or len(evals) < 5:
-        fail("evals/evals.json must contain at least 5 evals")
+    if not isinstance(evals, list) or len(evals) < min_count:
+        fail(f"{path.relative_to(ROOT)} must contain at least {min_count} evals")
 
     ids: set[str] = set()
     for index, case in enumerate(evals, start=1):
         if not isinstance(case, dict):
-            fail(f"eval #{index} must be an object")
+            fail(f"{path.relative_to(ROOT)} eval #{index} must be an object")
         case_id = case.get("id")
         if not isinstance(case_id, str) or not case_id:
-            fail(f"eval #{index} missing string id")
+            fail(f"{path.relative_to(ROOT)} eval #{index} missing string id")
         if case_id in ids:
-            fail(f"duplicate eval id: {case_id}")
+            fail(f"duplicate eval id in {path.relative_to(ROOT)}: {case_id}")
         ids.add(case_id)
         for field in ["prompt", "expected_output"]:
             if not isinstance(case.get(field), str) or not case[field].strip():
-                fail(f"eval {case_id} missing non-empty {field}")
+                fail(f"{path.relative_to(ROOT)} eval {case_id} missing non-empty {field}")
         assertions = case.get("assertions")
         if not isinstance(assertions, list) or len(assertions) < 2:
-            fail(f"eval {case_id} must have at least 2 assertions")
+            fail(f"{path.relative_to(ROOT)} eval {case_id} must have at least 2 assertions")
         if not all(isinstance(item, str) and item.strip() for item in assertions):
-            fail(f"eval {case_id} assertions must be non-empty strings")
+            fail(f"{path.relative_to(ROOT)} eval {case_id} assertions must be non-empty strings")
+
+
+def validate_skill_evals() -> None:
+    validate_eval_file(SKILL_EVALS, min_count=5)
+    validate_eval_file(ADVERSARIAL_EVALS, min_count=5)
+    validate_eval_file(REWRITE_EVALS, min_count=5)
 
 
 def validate_with_skills_ref() -> None:
@@ -210,7 +234,7 @@ def main() -> int:
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
+    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/failures/", "examples/cards/", "LESSONS.md", "CHANGELOG.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 

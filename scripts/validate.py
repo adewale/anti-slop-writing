@@ -21,6 +21,7 @@ REQUIRED = [
     ROOT / "AGENTS.md",
     ROOT / "LICENSE",
     ROOT / ".gitignore",
+    ROOT / ".github" / "workflows" / "validate.yml",
     SKILL,
     SKILL_DIR / "references" / "anti-slop-writing-doctrine.md",
     SKILL_DIR / "references" / "flow-by-relation.md",
@@ -29,6 +30,7 @@ REQUIRED = [
     TRIGGER_QUERIES,
     ROOT / "examples" / "pelican-conclusion-before-after.md",
     MANUAL_CASES,
+    ROOT / "evals" / "results" / "latest.md",
 ]
 
 REQUIRED_SKILL_PHRASES = [
@@ -93,15 +95,27 @@ def validate_frontmatter(text: str) -> None:
         fail("SKILL.md name must be lowercase letters/numbers/hyphens, no leading/trailing/consecutive hyphens, max 64 chars")
     if name != SKILL_DIR.name:
         fail(f"SKILL.md name must match parent directory: {SKILL_DIR.name}")
+    if name in {"anthropic", "claude"}:
+        fail("SKILL.md name must not use Claude reserved words")
+    if "<" in name or ">" in name:
+        fail("SKILL.md name must not contain XML tags")
 
     if not description:
         fail("SKILL.md frontmatter missing description")
     if len(description) > 1024:
         fail(f"SKILL.md description exceeds 1024 chars: {len(description)}")
+    if "<" in description or ">" in description:
+        fail("SKILL.md description must not contain XML tags")
     if "Use" not in description and "use" not in description:
         fail("SKILL.md description should say when to use the skill")
 
+    license_name = fields.get("license")
+    if license_name != "MIT":
+        fail("SKILL.md license should be MIT")
+
     compatibility = fields.get("compatibility")
+    if not compatibility:
+        fail("SKILL.md frontmatter missing compatibility")
     if compatibility and len(compatibility) > 500:
         fail(f"SKILL.md compatibility exceeds 500 chars: {len(compatibility)}")
 
@@ -195,7 +209,7 @@ def main() -> int:
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "with_skill", "old_skill"]:
+    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/results/latest.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 

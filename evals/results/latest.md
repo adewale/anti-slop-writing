@@ -1,9 +1,9 @@
 # Latest eval results
 
 Date: 2026-05-25
-Commit: `bd5370e` plus pending GitHub-readiness docs/CI changes
+Skill version: current `skills/anti-slop-writing/SKILL.md` behavior; later README/contributor-doc edits do not change the evaluated doctrine.
 
-These are smoke evals run from fresh subagent context. They verify that the current skill instructions satisfy the repo's regression cases and assertion set. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` artifacts or observed multi-run trigger rates.
+These smoke evals were run from fresh subagent context. They check that the skill catches the repo's regression failures and satisfies the assertion set. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` artifacts or observed multi-run trigger rates.
 
 ## Original manual evals
 
@@ -44,4 +44,4 @@ Result: **20/20 labels pass**
 | should trigger | 10/10 |
 | should not trigger | 10/10 |
 
-This was a description/label sanity check: a fresh evaluator judged whether each query should activate the skill from the `SKILL.md` frontmatter description. It was not an observed client-specific trigger-rate run.
+This was a description/label sanity check: a fresh evaluator judged whether each query should activate the skill from the `SKILL.md` frontmatter description. It does not replace an observed trigger-rate run in Pi, Claude Code, Codex, or OpenCode.

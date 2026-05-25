@@ -1,6 +1,6 @@
 # Pelican conclusion before/after
 
-This example captures the flow-by-relation lesson that improved the anti-slop skill.
+This example records the failure that added the conclusion rule: a true final sentence can still fail when it leaves the concrete carrier behind.
 
 ## Weak ending
 
@@ -18,7 +18,7 @@ A benchmark is stronger when you can inspect the run that produced it.
 
 ## Problem
 
-The final sentence is true, but generic. It could end many essays about evaluation observability. It does not return to the pelican as the concrete carrier, and it does not encode why this weird example helps the larger claim travel.
+The final sentence is true, but generic. It could end many essays about evaluation observability. It does not return to the pelican as the concrete carrier, so the reader loses the small, inspectable object that made the claim memorable.
 
 ## Better ending
 
@@ -42,4 +42,4 @@ The better ending uses hypotaxis to bind the concrete carrier to the transferabl
 Because [concrete carrier has useful properties], it can carry [larger claim].
 ```
 
-A conclusion should not only restate the thesis. It should show why this example was the right vehicle for the thesis.
+A conclusion should do more than restate the thesis. It should show why this example was the right vehicle for the thesis.

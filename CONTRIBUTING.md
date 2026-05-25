@@ -1,6 +1,6 @@
 # Contributing
 
-This project improves by hillclimbing from real writing failures. Do not add advice because it sounds reasonable; add doctrine only when an example proves the old skill missed something.
+This project improves by hillclimbing from real writing failures. Do not add advice because it sounds reasonable. Add doctrine when an example shows the current skill missing, over-flagging, or producing a weaker rewrite.
 
 ## Contribution bar
 
@@ -11,7 +11,7 @@ A useful contribution does at least one of these:
 - tightens an existing rule so future rewrites get better;
 - improves eval coverage or validation without bloating the installable skill.
 
-Avoid contributions that only add broad writing advice, synonym lists, or taste claims without a concrete failure case.
+Avoid PRs that only add broad writing advice, synonym lists, or taste claims. “Avoid vague wording” is not enough; show the vague line, name the failure, and give the rewrite the skill should produce.
 
 ## Rubric
 
@@ -37,7 +37,7 @@ The machine-readable assertions live in `evals/evals.json`. The companion explan
 | Install/runtime compatibility | Update `README.md` and, if needed, `skills/anti-slop-writing/SKILL.md` frontmatter. |
 | Validation behavior | Update `scripts/validate.py` and document the check if contributors need to know it. |
 
-Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. Repo-only material belongs in `evals/`, `examples/`, `scripts/`, or docs at the repository root.
+Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. A user who copies only `skills/anti-slop-writing/` should get the runtime behavior. Repo-only material belongs in `evals/`, `examples/`, `scripts/`, or root docs.
 
 ## Development loop
 
@@ -51,7 +51,7 @@ Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. Repo
 python3 scripts/validate.py
 ```
 
-If you changed prose rules, manually test the skill against at least one affected case in `evals/cases.md`.
+If you changed prose rules, manually test the skill against at least one affected case in `evals/cases.md`. Quote the before/after in the PR so reviewers can see what improved.
 
 ## PR checklist
 

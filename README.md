@@ -30,7 +30,13 @@ skills/anti-slop-writing/
 └── references/
 ```
 
-For clients that support the shared `.agents/skills` convention:
+With the Skills CLI:
+
+```bash
+npx skills add https://github.com/adewale/anti-slop-writing --skill anti-slop-writing
+```
+
+Or copy the directory to a shared Agent Skills location:
 
 ```bash
 mkdir -p ~/.agents/skills
@@ -47,7 +53,7 @@ Use the anti-slop-writing skill to review this README intro. Flag slop tells and
 
 ## Compatible agents and clients
 
-The skill is instruction-only: no scripts, package installs, network calls, or runtime dependencies. It follows the Agent Skills directory shape: a folder named `anti-slop-writing` containing `SKILL.md` with valid frontmatter.
+The skill is instruction-only. It gives the agent prose-editing rules and examples; it does not run scripts, install packages, call the network, or require a runtime. The installable unit is a folder named `anti-slop-writing` containing `SKILL.md` with valid frontmatter.
 
 | Client | Status | Install location |
 |---|---|---|
@@ -56,7 +62,7 @@ The skill is instruction-only: no scripts, package installs, network calls, or r
 | Codex | Compatible | `.agents/skills/anti-slop-writing/` or `~/.agents/skills/anti-slop-writing/` |
 | OpenCode | Compatible | `.opencode/skills/anti-slop-writing/`, `.agents/skills/anti-slop-writing/`, or global equivalents |
 | claude.ai | Compatible as a custom Skill | Upload a zip of `skills/anti-slop-writing/` through custom Skills settings |
-| Claude API | Compatible if uploaded as a custom Skill | Upload through the Skills API and use with code execution |
+| Claude API | Compatible as a custom Skill | Upload through the Skills API and use with code execution |
 
 Notes:
 
@@ -79,7 +85,7 @@ scripts/validate.py                   Repo-only validation
 .github/workflows/validate.yml        GitHub Actions validation
 ```
 
-Do not copy `evals/`, `examples/`, `scripts/`, or `.github/` into a user’s skill directory unless you are developing the skill itself.
+Copy `evals/`, `examples/`, `scripts/`, and `.github/` only when you are working on this repository. They are not part of the runtime skill.
 
 ## Current eval status
 
@@ -91,7 +97,7 @@ Latest recorded smoke results are in `evals/results/latest.md`.
 | Machine-readable assertions (`evals/evals.json`) | 15/15 pass |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 20/20 pass |
 
-These are smoke evals, not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts.
+These results catch regressions in the current doctrine. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts.
 
 ## Contributing
 
@@ -113,7 +119,7 @@ python3 scripts/validate.py
 
 The validator also runs `skills-ref validate skills/anti-slop-writing` when `skills-ref` is installed.
 
-If prose rules changed, manually test the skill against at least one case in `evals/cases.md`.
+If prose rules changed, manually test the skill against at least one affected case in `evals/cases.md`. A rule is not done until it improves a specific rewrite, not just the wording of the doctrine.
 
 ## Full eval workflow
 

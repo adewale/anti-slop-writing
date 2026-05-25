@@ -1,6 +1,6 @@
 # Agent instructions
 
-This repo packages the `anti-slop-writing` skill as an independent, hillclimbable project.
+This repo packages `anti-slop-writing` as an installable Agent Skill plus repo-only eval machinery. Keep that boundary visible: users copy `skills/anti-slop-writing/`; contributors work in `evals/`, `examples/`, `scripts/`, and root docs.
 
 ## Rules
 
@@ -29,4 +29,4 @@ If you change prose rules, also manually test the skill against at least one cas
 4. Add a before/after example.
 5. Re-run validation.
 
-Do not optimize for sounding wise. Optimize for making future rewrites better.
+Do not optimize for sounding wise. Optimize for the next agent producing a better concrete rewrite.

@@ -19,6 +19,7 @@ MANUAL_CASES = ROOT / "evals" / "cases.md"
 REQUIRED = [
     ROOT / "README.md",
     ROOT / "AGENTS.md",
+    ROOT / "CONTRIBUTING.md",
     ROOT / "LICENSE",
     ROOT / ".gitignore",
     ROOT / ".github" / "workflows" / "validate.yml",
@@ -209,7 +210,7 @@ def main() -> int:
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/results/latest.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
+    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 

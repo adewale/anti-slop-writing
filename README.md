@@ -93,6 +93,10 @@ Latest recorded smoke results are in `evals/results/latest.md`.
 
 These are smoke evals, not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts.
 
+## Contributing
+
+See `CONTRIBUTING.md` for the contribution rubric, required eval updates, and PR checklist.
+
 ## Development workflow
 
 When improving the skill:

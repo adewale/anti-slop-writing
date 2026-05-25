@@ -1,41 +1,28 @@
 # Anti-Slop Writing
 
-Anti-Slop Writing is an agent skill for editing prose so it does not read like generic LLM output.
+Anti-Slop Writing is an Agent Skill that helps coding agents review, draft, and rewrite prose so it does not read like generic LLM output.
 
-It is built around one rule:
+Core rule:
 
 > Sharp detail beats inflated significance.
 
-The skill is for articles, READMEs, slide copy, wiki pages, emails, posts, scripts, and any important writing where generic cadence, prestige abstractions, and fake structure would weaken the work.
+Use it for READMEs, articles, slide copy, wiki pages, emails, launch posts, scripts, product copy, and DevRel writing where generic cadence, prestige abstractions, or marketing fog would weaken the work.
 
-## What it does
+## Why use it
 
-The skill helps an agent:
+The skill gives an agent concrete editing tests instead of broad writing advice. It helps the agent:
 
-- find vague importance language;
-- replace rhythm with relation;
-- prefer hypotaxis when the relation matters;
-- make paragraphs flow by cause, contrast, dependency, inference, or level change;
-- turn generic endings into conclusions that return to the concrete carrier;
-- preserve useful compressed lines while removing cadence that pretends to be judgment.
+- replace vague importance language with specific mechanisms;
+- detect canned AI-writing rhythms such as decorative contrast and “not just X but Y”;
+- improve paragraph flow by naming cause, contrast, dependency, inference, or level change;
+- turn generic conclusions into endings that return to the concrete carrier;
+- preserve useful compression while removing cadence that pretends to be judgment.
 
-## Repository layout
+## Quick start
 
-```txt
-skills/anti-slop-writing/SKILL.md     The installable skill instructions
-skills/anti-slop-writing/references/  Installable supporting doctrine and examples
-evals/evals.json                      Repo-only output evals and assertions
-evals/trigger-queries.json            Repo-only trigger accuracy eval queries
-evals/cases.md                        Human-readable regression cases for hillclimbing
-evals/results/latest.md               Latest recorded smoke eval results
-examples/                             Repo-only before/after examples
-scripts/validate.py                   Repo-only project and skill validation
-.github/workflows/validate.yml        GitHub Actions validation
-```
+### What to install
 
-## What to install
-
-Install only this directory:
+Install only the skill directory:
 
 ```txt
 skills/anti-slop-writing/
@@ -43,54 +30,78 @@ skills/anti-slop-writing/
 └── references/
 ```
 
-Everything else in this repository (`evals/`, `examples/`, `scripts/`, `.github/`) is for developing and evaluating the skill.
-
-## Install / use
-
-Copy `skills/anti-slop-writing/` into a skills directory supported by your agent harness.
-
-Common locations:
-
-```txt
-Pi project:          .pi/skills/anti-slop-writing/
-Pi global:           ~/.pi/agent/skills/anti-slop-writing/
-Claude Code project: .claude/skills/anti-slop-writing/
-Claude Code global:  ~/.claude/skills/anti-slop-writing/
-claude.ai:           upload a zip of skills/anti-slop-writing/ through custom Skills settings
-Codex project/user:  .agents/skills/anti-slop-writing/ or ~/.agents/skills/anti-slop-writing/
-OpenCode project:    .opencode/skills/anti-slop-writing/ or .agents/skills/anti-slop-writing/
-OpenCode global:     ~/.config/opencode/skills/anti-slop-writing/ or ~/.agents/skills/anti-slop-writing/
-```
-
-Example:
+For clients that support the shared `.agents/skills` convention:
 
 ```bash
 mkdir -p ~/.agents/skills
 cp -R skills/anti-slop-writing ~/.agents/skills/
 ```
 
-Then ask the agent to use the `anti-slop-writing` skill when drafting, reviewing, or rewriting important prose.
+Then ask your agent to use `anti-slop-writing` when reviewing or rewriting prose.
 
-## Client compatibility
+Example prompt:
 
-This is an instruction-only Agent Skill: it has a `SKILL.md`, supporting `references/`, no executable scripts, no package installs, and no network requirement.
+```txt
+Use the anti-slop-writing skill to review this README intro. Flag slop tells and give a concrete rewrite.
+```
 
-Compatibility checks from current client docs:
+## Compatible agents and clients
 
-- Agent Skills / Pi: directory contains `SKILL.md`; frontmatter has valid `name` and `description`; references use paths relative to the skill root.
-- Claude / Claude Code / claude.ai: name is lowercase/hyphenated, under 64 chars, and does not use reserved words; description is under 1024 chars and says when to use the skill; claude.ai custom skills are uploaded as zip files.
-- Codex: supports Agent Skills in `.agents/skills`; descriptions should front-load key trigger words because Codex may shorten long skill lists; packaging as a Codex plugin is optional for broader distribution.
-- OpenCode: supports `.opencode/skills`, `.claude/skills`, and `.agents/skills`; requires the `name` to match the skill directory and the description to be 1–1024 chars.
+The skill is instruction-only: no scripts, package installs, network calls, or runtime dependencies. It follows the Agent Skills directory shape: a folder named `anti-slop-writing` containing `SKILL.md` with valid frontmatter.
 
-## Hillclimbing workflow
+| Client | Status | Install location |
+|---|---|---|
+| Pi | Compatible | `.pi/skills/anti-slop-writing/` or `~/.pi/agent/skills/anti-slop-writing/` |
+| Claude Code | Compatible | `.claude/skills/anti-slop-writing/` or `~/.claude/skills/anti-slop-writing/` |
+| Codex | Compatible | `.agents/skills/anti-slop-writing/` or `~/.agents/skills/anti-slop-writing/` |
+| OpenCode | Compatible | `.opencode/skills/anti-slop-writing/`, `.agents/skills/anti-slop-writing/`, or global equivalents |
+| claude.ai | Compatible as a custom Skill | Upload a zip of `skills/anti-slop-writing/` through custom Skills settings |
+| Claude API | Compatible if uploaded as a custom Skill | Upload through the Skills API and use with code execution |
+
+Notes:
+
+- Codex plugin packaging is not included; direct skill-folder installation works for local/project use.
+- OpenCode also discovers Claude-compatible and `.agents/skills` locations.
+- The `name` matches the directory, uses lowercase hyphenated form, and stays under 64 characters.
+- The `description` is under 1024 characters and front-loads the trigger words Codex/OpenCode/Claude use for skill selection.
+
+## What gets installed vs what is for development
+
+```txt
+skills/anti-slop-writing/SKILL.md     Installable skill instructions
+skills/anti-slop-writing/references/  Installable supporting doctrine and examples
+evals/evals.json                      Repo-only output evals and assertions
+evals/trigger-queries.json            Repo-only trigger accuracy eval queries
+evals/cases.md                        Human-readable regression cases
+evals/results/latest.md               Latest recorded smoke eval results
+examples/                             Repo-only before/after examples
+scripts/validate.py                   Repo-only validation
+.github/workflows/validate.yml        GitHub Actions validation
+```
+
+Do not copy `evals/`, `examples/`, `scripts/`, or `.github/` into a user’s skill directory unless you are developing the skill itself.
+
+## Current eval status
+
+Latest recorded smoke results are in `evals/results/latest.md`.
+
+| Eval set | Result |
+|---|---:|
+| Manual regression cases (`evals/cases.md`) | 5/5 pass |
+| Machine-readable assertions (`evals/evals.json`) | 15/15 pass |
+| Trigger-query sanity check (`evals/trigger-queries.json`) | 20/20 pass |
+
+These are smoke evals, not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts.
+
+## Development workflow
 
 When improving the skill:
 
-1. Add or update one concrete example in `examples/` or `evals/cases.md`.
-2. Add or update the runnable case in `evals/evals.json`; this JSON is the source of truth for output evals.
-3. If the change affects activation, add or update `evals/trigger-queries.json`.
-4. Update `skills/anti-slop-writing/SKILL.md` or a reference file.
-5. Run:
+1. Capture a concrete writing failure in `examples/` or `evals/cases.md`.
+2. Add or update the runnable case in `evals/evals.json`.
+3. If the change affects activation, update `evals/trigger-queries.json`.
+4. Make the smallest doctrine change in `skills/anti-slop-writing/SKILL.md` or `skills/anti-slop-writing/references/`.
+5. Run validation:
 
 ```bash
 python3 scripts/validate.py
@@ -98,14 +109,11 @@ python3 scripts/validate.py
 
 The validator also runs `skills-ref validate skills/anti-slop-writing` when `skills-ref` is installed.
 
-6. Test the skill on the eval case manually with an agent.
-7. Record the improvement in the README or eval case if the new rule catches something the old rule missed.
+If prose rules changed, manually test the skill against at least one case in `evals/cases.md`.
 
-The point is to avoid a skill that only accumulates advice. Each new rule should come from a real failure or a better rewrite.
+## Full eval workflow
 
-## Eval workflow
-
-Use a clean workspace per iteration, for example:
+Use a clean workspace per iteration:
 
 ```txt
 eval-workspace/iteration-1/
@@ -127,14 +135,14 @@ For each case in `evals/evals.json`:
 2. Run the same prompt with the previous committed skill, a copied snapshot, or no skill and save the result under `old_skill/outputs/`.
 3. Grade each assertion as pass/fail with quoted evidence in `grading.json`.
 4. Record tokens/duration in `timing.json` when the harness exposes them.
-5. Summarize pass-rate, qualitative feedback, token cost, and time cost in `benchmark.json`.
+5. Summarize pass rate, qualitative feedback, token cost, and time cost in `benchmark.json`.
 
-Trigger evals are separate: run the prompts in `evals/trigger-queries.json` multiple times and compare observed skill-load rate against `should_trigger`. Use near-miss negatives as well as obvious positives.
+Trigger evals are separate: run the prompts in `evals/trigger-queries.json` multiple times and compare observed skill-load rate against `should_trigger`.
 
-## Current doctrine
+## Doctrine snapshot
 
 - More detail, earned importance.
-- Code fences are for payloads, not emphasis.
+- Code fences are for payloads, commands, examples, and fixtures.
 - Punch is seasoning. Mechanism is the meal.
 - Flow improves when each paragraph makes the next question possible.
 - A conclusion should return to the concrete carrier, name what changed, and state what transfers.

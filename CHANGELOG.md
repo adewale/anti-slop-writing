@@ -8,12 +8,19 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 - Added adversarial evals to prevent over-flagging earned contrast, technical use of `robust`, quoted bad phrases, useful lists, and short direct answers.
 - Added rewrite evals that score concrete output quality, not just critique labels.
+- Added meta-evals for ceiling effects, metric artifacts, capability drift, trigger drift, and judge drift.
 - Added a curated failure corpus under `evals/failures/`.
 - Added before/after cards under `examples/cards/` for fast inspection of core patterns.
+
+### Doctrine
+
+- Added a final self-check and one bounded judge-refine pass for high-stakes prose.
 
 ### Docs
 
 - Added `LESSONS.md` to record what each failure taught and what not to overgeneralize.
+- Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early.
+- Added `docs/eval-runbook-notes.md` to record the external runbook and eval-drift ideas that shaped this iteration.
 
 ## [0.1.0] - 2026-05-25
 

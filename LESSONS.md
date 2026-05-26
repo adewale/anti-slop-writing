@@ -2,6 +2,44 @@
 
 This file records why doctrine changed. Each lesson should point to a concrete failure, the smallest rule that addressed it, and the boundary that prevents overgeneralization.
 
+## 2026-05-25 — Runbooks prevent premature completion
+
+### Failure
+
+An agent can update one artifact, summarize success, and skip the eval, changelog, lesson, or failure corpus update that made the change complete.
+
+### What changed
+
+The repo now has `runbooks/hillclimb-skill.md`, with an output manifest, evaluation criteria, bounded iteration loop, common fixes, and final verification commands.
+
+### What not to overgeneralize
+
+Not every small typo fix needs a runbook. Use it when a change touches doctrine, evals, rubric, or multiple repository artifacts.
+
+### Eval coverage
+
+- `evals/meta-evals.json`: `ceiling-effect-detection`, `metric-artifact-check`
+- `runbooks/hillclimb-skill.md`
+
+## 2026-05-25 — Evals can go stale while staying green
+
+### Failure
+
+A suite can pass 100% because it only measures old failure modes. A new model may stop using banned phrases while creating a different kind of slop: fake precision, unnamed sources, or unsupported specificity.
+
+### What changed
+
+The repo now has `evals/meta-evals.json` to check for ceiling effects, metric artifacts, trigger drift, judge drift, and new failure modes.
+
+### What not to overgeneralize
+
+Do not treat every all-pass run as suspicious. Treat it as a prompt to ask whether the suite still distinguishes good output from merely compliant output.
+
+### Eval coverage
+
+- `evals/meta-evals.json`: all cases
+- `docs/eval-runbook-notes.md`
+
 ## 2026-05-25 — Importance language hides missing mechanism
 
 ### Failure

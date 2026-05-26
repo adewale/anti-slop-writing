@@ -220,6 +220,20 @@ Better ending:
 Because the pelican project is small enough to inspect and strange enough to remember, it works as a compact carrier for the larger claim: a benchmark is stronger when you can inspect the run that produced it.
 ```
 
+## Final self-check
+
+Before saying the edit is done:
+
+```txt
+Did I answer the user's actual request: review, rewrite, draft, or all three?
+Did every flagged slop tell get a concrete rewrite or a reason to cut?
+Does each rewrite name the mechanism, relation, actor/action/result, or concrete carrier?
+Did I preserve earned compression instead of expanding it into bland explanation?
+Did I avoid introducing new prestige abstractions or banned fallback phrases?
+```
+
+For high-stakes prose, do one bounded judge-refine pass: score specificity, evidence fit, relation clarity, and rhythm on 1-5; improve the weakest dimension once.
+
 ## Critique output format
 
 When reviewing existing prose, use:

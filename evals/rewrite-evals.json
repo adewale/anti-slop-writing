@@ -51,6 +51,17 @@
         "Uses a concrete carrier with inspectable properties.",
         "Names why the carrier helps the larger claim travel."
       ]
+    },
+    {
+      "id": "multi-issue-output-manifest",
+      "prompt": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.",
+      "expected_output": "A response that handles both numbered inputs, flags each distinct failure mechanism, and provides a concrete rewrite for each line.",
+      "assertions": [
+        "Addresses both input lines rather than only the first or a general summary.",
+        "For line 1, removes inflated importance/robust-experience language and asks for or supplies a concrete mechanism.",
+        "For line 2, classifies the contrast as compressed or decorative unless context earns it and rewrites by naming the dashboard-to-insight relation.",
+        "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing."
+      ]
     }
   ]
 }

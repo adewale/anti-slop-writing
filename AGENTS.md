@@ -23,10 +23,13 @@ If you change prose rules, also manually test the skill against at least one cas
 
 ## Hillclimbing pattern
 
+Use `runbooks/hillclimb-skill.md` when a change touches doctrine, evals, rubric, lessons, changelog, or multiple repo artifacts.
+
 1. Capture a real writing failure.
 2. Name the failure mechanism.
 3. Add the smallest rule that catches it.
 4. Add a before/after example.
-5. Re-run validation.
+5. Add adversarial or meta-eval coverage when the rule could overgeneralize or the suite looks too easy.
+6. Re-run validation.
 
 Do not optimize for sounding wise. Optimize for the next agent producing a better concrete rewrite.

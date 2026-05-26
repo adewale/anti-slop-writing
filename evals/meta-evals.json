@@ -1,0 +1,56 @@
+{
+  "skill_name": "anti-slop-writing",
+  "purpose": "Evaluate whether the eval suite itself is becoming stale, brittle, or too easy.",
+  "evals": [
+    {
+      "id": "ceiling-effect-detection",
+      "prompt": "The skill passes 100% of current evals. Review this eval suite and recommend what to do next.",
+      "expected_output": "Does not declare victory from ceiling scores; identifies missing harder cases, adversarial cases, or observed trigger runs.",
+      "assertions": [
+        "Treats all-pass scores as a coverage warning, not proof that the skill is done.",
+        "Recommends adding harder or adversarial cases tied to real failures.",
+        "Mentions at least one missing measurement such as observed trigger rates, false positives, rewrite quality, or judge drift."
+      ]
+    },
+    {
+      "id": "metric-artifact-check",
+      "prompt": "An eval passes when a rewrite contains the words 'checkpoint' and 'retry'. A model outputs: 'This is a robust checkpoint retry solution that empowers durable workflows.' Should the eval pass?",
+      "expected_output": "Rejects keyword matching as a metric artifact and asks for evidence that the mechanism is actually expressed.",
+      "assertions": [
+        "Says the example should not pass solely because it contains target keywords.",
+        "Explains that keyword assertions can reward slop with the right vocabulary.",
+        "Proposes a stronger assertion about concrete behavior or inspectable mechanism."
+      ]
+    },
+    {
+      "id": "regime-shift-new-slop",
+      "prompt": "A new model stops using banned phrases but produces clinically precise-sounding sentences with fake numbers and unnamed sources. How should the eval suite adapt?",
+      "expected_output": "Recognizes a new failure mode outside the old phrase list and proposes new cases around evidence provenance and unsupported specificity.",
+      "assertions": [
+        "Does not rely only on the existing banned phrase list.",
+        "Names unsupported specificity, fake precision, or provenance gaps as a new failure mechanism.",
+        "Recommends adding new evals or failure corpus entries for the new pattern."
+      ]
+    },
+    {
+      "id": "trigger-drift-cross-client",
+      "prompt": "Codex starts invoking the skill for grammar-only typo fixes. What should change?",
+      "expected_output": "Treats this as trigger drift and proposes near-miss negative queries or description tightening without weakening legitimate prose-edit triggers.",
+      "assertions": [
+        "Identifies the issue as false-positive trigger drift.",
+        "Recommends adding or updating near-miss negatives in trigger evals.",
+        "Suggests tightening the description boundary rather than removing broad writing-use triggers blindly."
+      ]
+    },
+    {
+      "id": "judge-drift-evidence",
+      "prompt": "Two graders disagree on whether a rewrite is better: one likes the cadence, the other says it hides the relation. What should the eval process require?",
+      "expected_output": "Requires evidence-backed grading, a concrete before/after comparison, and possibly a human review or rubric clarification.",
+      "assertions": [
+        "Does not resolve the disagreement by taste alone.",
+        "Requires quoted evidence from the rewrite or source.",
+        "Recommends clarifying the rubric or adding an eval case when the disagreement exposes a recurring ambiguity."
+      ]
+    }
+  ]
+}

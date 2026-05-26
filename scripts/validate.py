@@ -55,6 +55,7 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-25-before.md",
     ROOT / "evals" / "results" / "2026-05-25-after.md",
     ROOT / "evals" / "results" / "2026-05-25-runbook-eval-drift.md",
+    ROOT / "evals" / "results" / "2026-05-25-adversarial-expansion.md",
 ]
 
 REQUIRED_SKILL_PHRASES = [
@@ -174,7 +175,7 @@ def validate_eval_file(path: Path, min_count: int = 1) -> None:
 
 def validate_skill_evals() -> None:
     validate_eval_file(SKILL_EVALS, min_count=5)
-    validate_eval_file(ADVERSARIAL_EVALS, min_count=5)
+    validate_eval_file(ADVERSARIAL_EVALS, min_count=12)
     validate_eval_file(REWRITE_EVALS, min_count=6)
     validate_eval_file(META_EVALS, min_count=5)
 

@@ -51,6 +51,76 @@
         "Recognizes the concrete operational distinction between drafts and judgment passes.",
         "Suggests adding evidence only if the claim needs support in context."
       ]
+    },
+    {
+      "id": "exact-not-just-distinction",
+      "prompt": "Review this sentence: This is not just a cache invalidation bug; it is a data-loss bug, because expired sessions can overwrite the newer profile record during replay.",
+      "expected_output": "Keeps or lightly tightens the contrast because 'not just' marks a real severity distinction backed by a concrete mechanism.",
+      "assertions": [
+        "Does not reject the sentence solely because it uses 'not just'.",
+        "Recognizes that the contrast changes the failure class from cache invalidation to data loss.",
+        "Preserves the concrete mechanism involving expired sessions, overwrite, newer profile record, or replay."
+      ]
+    },
+    {
+      "id": "controlled-variable-staccato",
+      "prompt": "Review this line in an experiment write-up after the setup has defined the controlled comparison: Same prompt. Same seed. Different judge.",
+      "expected_output": "Allows the staccato line if it records a controlled-variable comparison already established by context.",
+      "assertions": [
+        "Does not reject the line solely because it matches the 'Same X. Same Y. Different Z.' rhythm.",
+        "Identifies the line as potentially earned compression when prior context establishes the experiment design.",
+        "If rewriting, preserves the controlled-variable relation among prompt, seed, and judge."
+      ]
+    },
+    {
+      "id": "concrete-comparison-table",
+      "prompt": "Review this table from a README:\n\n| Failure mode | Old behavior | New behavior |\n|---|---|---|\n| Step 4 timeout | Restart whole run | Retry step 4 from checkpoint |\n| Judge crash | Lose score | Requeue judging job |",
+      "expected_output": "Does not flag the table as fake structure because each row compares concrete behavior across named failure modes.",
+      "assertions": [
+        "Does not reject the table merely because it uses table formatting.",
+        "Recognizes that each row contains a concrete failure mode and behavior change.",
+        "If improving, suggests a short hinge or caption rather than converting the table into vague prose."
+      ]
+    },
+    {
+      "id": "legitimate-three-step-sequence",
+      "prompt": "Review this sentence: The importer parses the CSV, validates each row against the schema, and writes rejected rows to rejects.csv.",
+      "expected_output": "Keeps the three-part sequence because the items are ordered concrete operations, not decorative rule-of-three rhythm.",
+      "assertions": [
+        "Does not reject the sentence solely because it has three coordinated parts.",
+        "Recognizes parse, validate, and write-rejects as concrete pipeline steps.",
+        "Avoids expanding the sentence into a generic paragraph about data quality."
+      ]
+    },
+    {
+      "id": "direct-warning-with-evidence",
+      "prompt": "Review this warning: Important: deleting the bucket also deletes the retained audit logs, so export logs before running the cleanup command.",
+      "expected_output": "Allows the direct warning because the importance is tied to a concrete irreversible consequence and action.",
+      "assertions": [
+        "Does not flag 'Important:' as slop when it introduces a specific destructive consequence.",
+        "Identifies the concrete risk: deleting retained audit logs.",
+        "Preserves the required action: export logs before cleanup."
+      ]
+    },
+    {
+      "id": "specific-source-backed-highlight",
+      "prompt": "Review this release note: The trace highlights the retry loop: attempt 3 fails with ECONNRESET, attempt 4 reuses the checkpoint, and the receipt keeps both attempts.",
+      "expected_output": "Allows 'highlights' because the sentence points to specific trace evidence rather than using it as empty emphasis.",
+      "assertions": [
+        "Does not flag 'highlights' as empty emphasis when it points to named trace evidence.",
+        "Identifies the concrete evidence: attempts 3 and 4, ECONNRESET, checkpoint, and receipt.",
+        "Avoids replacing the sentence with broader claims about observability or resilience."
+      ]
+    },
+    {
+      "id": "concise-imperative-runbook-step",
+      "prompt": "Review this runbook step: Retry only the failed step; keep the previous outputs; write the new receipt before summarizing the run.",
+      "expected_output": "Keeps the concise imperative because it gives concrete ordered actions and completion evidence.",
+      "assertions": [
+        "Does not demand a named actor when imperative runbook style is appropriate.",
+        "Recognizes the concrete actions: retry failed step, keep outputs, write receipt.",
+        "Does not inflate the instruction into a motivational explanation about durable execution."
+      ]
     }
   ]
 }

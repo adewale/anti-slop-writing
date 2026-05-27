@@ -166,9 +166,11 @@ Trigger evals are separate: run the prompts in `evals/trigger-queries.json` mult
 
 ## Doctrine snapshot
 
+The doctrine compresses to five rules. The full versions live in `skills/anti-slop-writing/SKILL.md` and the references.
+
 - More detail, earned importance.
 - Code fences are for payloads, commands, examples, and fixtures.
-- Punch is seasoning. Mechanism is the meal.
+- A punchy line without a named mechanism still reads as slop.
 - Flow improves when each paragraph makes the next question possible.
 - A conclusion should return to the concrete carrier, name what changed, and state what transfers.
 

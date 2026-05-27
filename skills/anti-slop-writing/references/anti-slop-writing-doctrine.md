@@ -69,11 +69,68 @@ It's important to note that
 A testament to
 Not just X, but Y
 This is where X comes in
+Whether you're X or Y
+While X, Y is also important
+Despite ongoing challenges, X continues to thrive
+Looking ahead, X will play an increasingly pivotal role
 In conclusion
 Overall
 Ultimately
 I hope this helps
 ```
+
+## Copula displacement
+
+AI prose often replaces plain `is/are` with `serves as`, `stands as`, `features`, `marks`, or `represents`. The verb sounds more substantial but only inflates a copula. Replace with plain `is` or with a specific action verb that names what the subject concretely does.
+
+Keep the displaced verb when it does concrete work — enumeration, definition, or location:
+
+```txt
+The retry policy serves three distinct failure modes: connection timeout, oversized payload, and dependency outage.
+```
+
+`Serves` is doing the job of introducing an enumeration; replacing it with `is` would lose the enumeration. Flag the verb only when the sentence collapses to a plain copula with no concrete enumeration, definition, or location work.
+
+## Hedged symmetry
+
+Patterns such as `Whether you're a beginner or an expert`, `Whether X or Y, our framework helps`, and `While X is true, Y is also important` address every possible reader and every possible value at once. The symmetry sounds balanced but commits to nothing.
+
+Replace by picking a specific reader and naming a concrete tradeoff. Keep the structure only when the symmetry names a real branching condition with distinct downstream behavior:
+
+```txt
+Whether the worker crashes before or after the receipt is written determines whether recovery retries the job or marks it complete.
+```
+
+The two branches trigger different concrete behavior, which earns the symmetry.
+
+## Outline-shaped conclusions
+
+Beyond the generic-thesis ending, two specific templates appear so often they qualify as outline shapes:
+
+```txt
+Despite ongoing challenges, X continues to thrive in an evolving landscape.
+Looking ahead, X will play an increasingly pivotal role.
+```
+
+Neither names a specific challenge, a specific future move, or a concrete carrier. Cut both or return to a carrier from the body of the piece followed by a specific next step or claim.
+
+## Em-dash cadence
+
+Em-dashes are not slop on their own. Professional human writers use them. The failure pattern is the decorative cluster: five or six em-dashes in a paragraph, each acting as emphasis instead of bracketing a parenthetical or appositive.
+
+Bad:
+
+```txt
+The system is fast — really fast — and reliable — at scale — with a clean API — that just works.
+```
+
+Good (one earned em-dash, defining a term inline):
+
+```txt
+The orphaned stream — the one where the original readable was lost but the chunks survived in SQLite — can still be finalized and persisted.
+```
+
+Reduce the count; keep dashes that bracket inline definitions or genuine asides.
 
 ## High-risk words
 
@@ -105,7 +162,11 @@ transformative
 groundbreaking
 seamless
 robust outside engineering context
+serves as (as copula displacement)
+stands as (as copula displacement)
 ```
+
+The list is time-dated. Words enter and leave based on model behavior in a given generation. `delve` peaked in 2023-2024 LLM outputs and dropped roughly 80% during 2025; it stays on the list because older models and slower-drifting deployments still produce it, but the list itself should be re-profiled against a current human-vs-LLM corpus rather than maintained by taste. The Antislop research showed that some slop patterns appear over 1,000 times more frequently in LLM output than in human text; a frequency-based re-profile is more honest than vibes.
 
 ## Better replacements
 

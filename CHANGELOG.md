@@ -11,16 +11,24 @@ All notable changes to this project are recorded here. This changelog tracks doc
 - Added meta-evals for ceiling effects, metric artifacts, capability drift, trigger drift, and judge drift.
 - Added a curated failure corpus under `evals/failures/`.
 - Added before/after cards under `examples/cards/` for fast inspection of core patterns.
+- Added evals for copula displacement (`serves as`, `stands as`), hedged symmetry (`Whether X or Y`, `While X, Y is also important`), outline-shaped conclusions (`Despite challenges, X continues to thrive`, `Looking ahead, X will play a pivotal role`), and decorative em-dash clusters; each with an adversarial counterpart where the pattern is earned.
+- Added a `word-list-drift` meta-eval that treats high-risk word and phrase lists as time-dated detectors keyed to model generation.
+- Added trigger queries for hedged-symmetry rewrites (positive) and mechanical em-dash replacement (negative).
+- Added manual cases 6-9 in `evals/cases.md` aligned with the new JSON evals.
 
 ### Doctrine
 
 - Added a final self-check and one bounded judge-refine pass for high-stakes prose.
+- Added detectors for copula displacement, hedged symmetry, em-dash cadence, and outline-shaped conclusion templates to SKILL.md and the doctrine reference.
+- Added editing-pass steps for displaced copulas, hedged symmetry, outline conclusion templates, and decorative em-dash clusters.
+- Added a note that high-risk word and phrase lists are time-dated and should be re-profiled against a current human-vs-LLM corpus; `delve` is the cautionary example.
 
 ### Docs
 
 - Added `LESSONS.md` to record what each failure taught and what not to overgeneralize.
 - Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early.
 - Added `docs/eval-runbook-notes.md` to record the external runbook and eval-drift ideas that shaped this iteration.
+- Added five lesson entries dated 2026-05-27 covering copula displacement, hedged symmetry, outline conclusions, em-dash cadence, and word-list drift.
 
 ## [0.1.0] - 2026-05-25
 

@@ -143,3 +143,101 @@ Some high-risk words are valid in technical contexts. `Robust` is acceptable whe
 - `evals/adversarial.json`: `robust-engineering-context`
 - `evals/rewrite-evals.json`: `safe-essay-cut-or-concretize`
 - `evals/failures/safe-essay-voice.md`
+
+## 2026-05-27 — Copula displacement hides concrete verbs
+
+### Failure
+
+`The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.`
+
+### What changed
+
+The skill now flags `serves as`, `stands as`, `features`, `marks`, and `represents` as copula displacement when they replace plain `is/are` without doing concrete work. The rewrite should use `is` or a specific action verb (`shows`, `lists`, `routes`, `surfaces`).
+
+### What not to overgeneralize
+
+Keep the displaced verb when it does concrete enumeration, definition, or location work. `The retry policy serves three distinct failure modes: ...` is earned; `serves` introduces a real list.
+
+### Eval coverage
+
+- `evals/evals.json`: `copula-displacement`
+- `evals/adversarial.json`: `serves-as-enumeration`
+- `evals/rewrite-evals.json`: `copula-displacement-to-is`
+
+## 2026-05-27 — Hedged symmetry refuses to commit
+
+### Failure
+
+`Whether you're a beginner or an expert, our framework scales to your needs. While simplicity matters, power is also important.`
+
+### What changed
+
+The skill now flags `Whether you're X or Y` and `While X, Y is also important` as hedged symmetry that addresses every possible reader and every possible value at once. The rewrite should pick a specific reader and a concrete tradeoff.
+
+### What not to overgeneralize
+
+Keep the structure when it names a real branching condition with distinct downstream behavior. `Whether the worker crashes before or after the receipt is written determines whether recovery retries or marks complete` is earned: the two branches trigger different recovery paths.
+
+### Eval coverage
+
+- `evals/evals.json`: `hedged-symmetry`
+- `evals/adversarial.json`: `branching-condition-symmetry`
+- `evals/rewrite-evals.json`: `hedged-symmetry-commit`
+- `evals/trigger-queries.json`: `pos-hedged-symmetry`
+
+## 2026-05-27 — Outline conclusions are templates, not closings
+
+### Failure
+
+`Despite ongoing challenges, the team continues to thrive in an evolving landscape. Looking ahead, the platform will play an increasingly pivotal role in the AI ecosystem.`
+
+### What changed
+
+The conclusion test now explicitly rejects two templates: `Despite challenges, X continues to thrive` and `Looking ahead, X will play an increasingly pivotal role`. Neither names a specific challenge, a specific next move, or a concrete carrier.
+
+### What not to overgeneralize
+
+Conclusions about challenges or future direction can still work when they cite a specific challenge from the body or a specific next step. The template is the failure, not the topic.
+
+### Eval coverage
+
+- `evals/evals.json`: `outline-conclusion-template`
+- `evals/rewrite-evals.json`: `outline-conclusion-carrier-bound`
+
+## 2026-05-27 — Em-dashes are not slop; clusters are
+
+### Failure
+
+`The system is fast — really fast — and reliable — at scale — with a clean API — that just works.`
+
+### What changed
+
+The skill now distinguishes decorative em-dash clusters (cadence-for-emphasis) from earned em-dashes that bracket a parenthetical or appositive. The rewrite reduces the count and keeps only earned dashes.
+
+### What not to overgeneralize
+
+Em-dashes are not banned. Professional human writers use them, and a single dash bracketing an inline definition (`The orphaned stream — the one where the original readable was lost but the chunks survived in SQLite — can still be finalized`) is earned. The cluster is the failure.
+
+### Eval coverage
+
+- `evals/evals.json`: `em-dash-cluster`
+- `evals/adversarial.json`: `em-dash-earned`
+- `evals/trigger-queries.json`: `neg-em-dash-mechanical`
+
+## 2026-05-27 — High-risk word lists are time-dated
+
+### Failure
+
+External research showed `delve` usage in 2025 LLM outputs dropped roughly 80% from its 2023-2024 peak, while new patterns such as copula displacement and hedged symmetry became more visible. A static word list maintained by taste becomes a stale detector.
+
+### What changed
+
+The doctrine reference and SKILL.md now note that the high-risk word and phrase lists are time-dated detectors. Entries should be re-profiled against a current human-vs-LLM corpus before being added or removed. The Antislop research finding that some slop patterns appear over 1,000 times more frequently in LLM output than in human text is the reference frequency-based test.
+
+### What not to overgeneralize
+
+Do not strip `delve` or other older entries blindly. Slower-drifting models and older outputs still produce them. The lesson is about maintenance method (corpus profiling), not list deletion.
+
+### Eval coverage
+
+- `evals/meta-evals.json`: `word-list-drift`

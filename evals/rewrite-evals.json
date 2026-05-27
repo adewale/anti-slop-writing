@@ -62,6 +62,36 @@
         "For line 2, classifies the contrast as compressed or decorative unless context earns it and rewrites by naming the dashboard-to-insight relation.",
         "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing."
       ]
+    },
+    {
+      "id": "copula-displacement-to-is",
+      "prompt": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.",
+      "expected_output": "A rewrite that uses plain 'is' or a specific action verb in place of 'serves as' and 'represents', and that names the concrete coordination job.",
+      "assertions": [
+        "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb describing what the library actually does.",
+        "Names the concrete coordination job (for example: leasing, queueing, routing, leader election, fanout) rather than 'key piece of infrastructure'.",
+        "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'."
+      ]
+    },
+    {
+      "id": "hedged-symmetry-commit",
+      "prompt": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.",
+      "expected_output": "A rewrite that picks a specific reader, names the actual tradeoff between speed and correctness, and drops the symmetric hedge.",
+      "assertions": [
+        "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
+        "Commits to a concrete tradeoff, for example by saying which to prioritize when speed and correctness conflict, or by naming the specific case where the linter helps most.",
+        "Names a specific reader or use case rather than addressing every possible reader at once."
+      ]
+    },
+    {
+      "id": "outline-conclusion-carrier-bound",
+      "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.",
+      "expected_output": "A carrier-bound conclusion that names a specific challenge, a specific concrete project or run, and a specific next step or claim.",
+      "assertions": [
+        "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+        "Names a specific challenge the platform actually faces or a specific concrete carrier (a run, a feature, a customer outcome) rather than 'ongoing challenges in the landscape'.",
+        "Replaces 'pivotal role' with a concrete claim about what durable execution does in a named workflow."
+      ]
     }
   ]
 }

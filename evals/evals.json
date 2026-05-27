@@ -50,6 +50,46 @@
         "Flags vague actors or capabilities such as teams, robust solutions, empower, or seamless experiences.",
         "Produces a rewrite with a named actor, concrete capability, or specific user-visible result, or recommends cutting the sentence if no evidence exists."
       ]
+    },
+    {
+      "id": "copula-displacement",
+      "prompt": "Review this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.",
+      "expected_output": "A critique that flags copula displacement (serves as, stands as) and inflated significance, then rewrites with plain verbs and concrete capability.",
+      "assertions": [
+        "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation rather than concrete description.",
+        "Notes that 'serves as the central hub' hides the plain copula 'is' or a more specific action verb the sentence is avoiding.",
+        "Provides a rewrite that either uses plain 'is' or names what the dashboard concretely does (shows, lists, routes, surfaces) and what content it shows."
+      ]
+    },
+    {
+      "id": "hedged-symmetry",
+      "prompt": "Review this intro: Whether you're a beginner or an expert, our framework scales to your needs. While simplicity matters, power is also important.",
+      "expected_output": "A critique that flags the Whether/Or and While/also-important structures as hedged symmetry that refuses to commit, then rewrites by picking the actual reader and the actual tradeoff.",
+      "assertions": [
+        "Identifies 'Whether you're a beginner or an expert' and 'While X, Y is also important' as hedged symmetry that addresses every possible reader and every possible value.",
+        "Notes that symmetric hedges of this shape avoid committing to a reader, a priority, or a tradeoff and therefore carry no information.",
+        "Rewrites by naming a specific reader or use case and by stating the concrete tradeoff between simplicity and power as it shows up in this framework, rather than asserting both matter."
+      ]
+    },
+    {
+      "id": "outline-conclusion-template",
+      "prompt": "Review this ending: Despite ongoing challenges, the team continues to thrive in an evolving landscape. Looking ahead, the platform will play an increasingly pivotal role in the AI ecosystem.",
+      "expected_output": "A critique that flags the Despite-challenges-X-continues-to-thrive and Looking-ahead-pivotal-role templates as outline-shaped conclusions, then asks for either a cut or a carrier-bound ending.",
+      "assertions": [
+        "Identifies the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play an increasingly pivotal role' structures as templated outline conclusions, not earned closings.",
+        "Notes that neither sentence names a specific challenge, a specific future move, or a concrete carrier from the body of the piece.",
+        "Either recommends cutting both sentences or rewrites to return to a concrete carrier and a specific next step or claim the team will take."
+      ]
+    },
+    {
+      "id": "em-dash-cluster",
+      "prompt": "Review this paragraph for cadence tells: The system is fast \u2014 really fast \u2014 and reliable \u2014 at scale \u2014 with a clean API \u2014 and a great developer experience \u2014 that just works.",
+      "expected_output": "A critique that flags the decorative em-dash cluster as cadence-as-emphasis, distinguishes it from earned parenthetical or appositive use, and rewrites by removing decorative dashes while keeping any earned ones.",
+      "assertions": [
+        "Flags the repeated em-dashes as decorative cadence-for-emphasis rather than earned parenthetical or appositive insertion.",
+        "Does not claim em-dashes are always slop; names the specific failure as overuse-for-emphasis in a cluster, not the punctuation mark itself.",
+        "Rewrites by reducing the dash count, replacing decorative dashes with commas or periods, and keeping at most one dash where it carries a parenthetical or appositive."
+      ]
     }
   ]
 }

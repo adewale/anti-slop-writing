@@ -102,6 +102,16 @@
       "id": "neg-translation",
       "query": "Translate this Spanish paragraph to English as literally as possible.",
       "should_trigger": false
+    },
+    {
+      "id": "neg-em-dash-mechanical",
+      "query": "Replace every em-dash in this document with a comma.",
+      "should_trigger": false
+    },
+    {
+      "id": "pos-hedged-symmetry",
+      "query": "This intro hedges between beginner and expert with 'Whether you're X or Y'. Help me commit to one register.",
+      "should_trigger": true
     }
   ]
 }

@@ -1,9 +1,11 @@
 {
   "skill_name": "anti-slop-writing",
   "purpose": "Prevent the skill from over-flagging concise, technical, or intentionally quoted prose.",
+  "schema_notes": "Each case has split=tune|holdout. Holdout cases are scored at end-of-round and at merge; doctrine must not be edited in response to a holdout failure (write a new failure case instead). See docs/hillclimb-improvements.md.",
   "evals": [
     {
       "id": "earned-antithesis",
+      "split": "tune",
       "prompt": "Review this paragraph after the preceding section has already shown how the pelican image and run log differ:\n\nThe pelican is the surface; the inspectable run is the point.",
       "expected_output": "Keeps or lightly edits the antithesis because the prior context earns the contrast.",
       "assertions": [
@@ -14,6 +16,7 @@
     },
     {
       "id": "robust-engineering-context",
+      "split": "tune",
       "prompt": "Review this technical sentence: The retry queue is robust against worker crashes because every job is leased with a deadline and returned to the queue when the lease expires.",
       "expected_output": "Allows 'robust' because the sentence immediately supplies the engineering mechanism.",
       "assertions": [
@@ -24,6 +27,7 @@
     },
     {
       "id": "intentional-quote",
+      "split": "tune",
       "prompt": "Review this sentence from a critique of bad copy: The draft literally says, 'In today's rapidly evolving landscape,' which is the first line I would cut.",
       "expected_output": "Recognizes the banned phrase is quoted as the object of critique, not used as the writer's own framing.",
       "assertions": [
@@ -34,6 +38,7 @@
     },
     {
       "id": "specific-bullet-list",
+      "split": "tune",
       "prompt": "Review this list:\n\n- Runbook is source\n- SVG is artifact\n- Diff is review surface\n- Judge identity is measurement context",
       "expected_output": "Does not reject the list as fake structure because each bullet names a concrete mapping.",
       "assertions": [
@@ -44,6 +49,7 @@
     },
     {
       "id": "short-direct-answer",
+      "split": "tune",
       "prompt": "Review this answer: Use the smaller model for drafts; reserve the expensive model for final judgment passes.",
       "expected_output": "Keeps the direct recommendation unless surrounding context requires evidence or tradeoffs.",
       "assertions": [
@@ -54,6 +60,7 @@
     },
     {
       "id": "exact-not-just-distinction",
+      "split": "tune",
       "prompt": "Review this sentence: This is not just a cache invalidation bug; it is a data-loss bug, because expired sessions can overwrite the newer profile record during replay.",
       "expected_output": "Keeps or lightly tightens the contrast because 'not just' marks a real severity distinction backed by a concrete mechanism.",
       "assertions": [
@@ -64,6 +71,7 @@
     },
     {
       "id": "controlled-variable-staccato",
+      "split": "tune",
       "prompt": "Review this line in an experiment write-up after the setup has defined the controlled comparison: Same prompt. Same seed. Different judge.",
       "expected_output": "Allows the staccato line if it records a controlled-variable comparison already established by context.",
       "assertions": [
@@ -74,6 +82,7 @@
     },
     {
       "id": "concrete-comparison-table",
+      "split": "tune",
       "prompt": "Review this table from a README:\n\n| Failure mode | Old behavior | New behavior |\n|---|---|---|\n| Step 4 timeout | Restart whole run | Retry step 4 from checkpoint |\n| Judge crash | Lose score | Requeue judging job |",
       "expected_output": "Does not flag the table as fake structure because each row compares concrete behavior across named failure modes.",
       "assertions": [
@@ -84,6 +93,7 @@
     },
     {
       "id": "legitimate-three-step-sequence",
+      "split": "tune",
       "prompt": "Review this sentence: The importer parses the CSV, validates each row against the schema, and writes rejected rows to rejects.csv.",
       "expected_output": "Keeps the three-part sequence because the items are ordered concrete operations, not decorative rule-of-three rhythm.",
       "assertions": [
@@ -94,6 +104,7 @@
     },
     {
       "id": "direct-warning-with-evidence",
+      "split": "tune",
       "prompt": "Review this warning: Important: deleting the bucket also deletes the retained audit logs, so export logs before running the cleanup command.",
       "expected_output": "Allows the direct warning because the importance is tied to a concrete irreversible consequence and action.",
       "assertions": [
@@ -104,6 +115,7 @@
     },
     {
       "id": "specific-source-backed-highlight",
+      "split": "tune",
       "prompt": "Review this release note: The trace highlights the retry loop: attempt 3 fails with ECONNRESET, attempt 4 reuses the checkpoint, and the receipt keeps both attempts.",
       "expected_output": "Allows 'highlights' because the sentence points to specific trace evidence rather than using it as empty emphasis.",
       "assertions": [
@@ -114,12 +126,46 @@
     },
     {
       "id": "concise-imperative-runbook-step",
+      "split": "tune",
       "prompt": "Review this runbook step: Retry only the failed step; keep the previous outputs; write the new receipt before summarizing the run.",
       "expected_output": "Keeps the concise imperative because it gives concrete ordered actions and completion evidence.",
       "assertions": [
         "Does not demand a named actor when imperative runbook style is appropriate.",
         "Recognizes the concrete actions: retry failed step, keep outputs, write receipt.",
         "Does not inflate the instruction into a motivational explanation about durable execution."
+      ]
+    },
+    {
+      "id": "earned-importance-immediate-mechanism",
+      "split": "holdout",
+      "prompt": "Review this paragraph: This change is important because it removes the only path by which a duplicate webhook can overwrite a settled order. The dedup key is now derived from (order_id, event_id), so retries from the upstream provider are idempotent.",
+      "expected_output": "Allows the word 'important' because the next sentence supplies a concrete mechanism that earns it.",
+      "assertions": [
+        "Does not flag 'important' when the very next clause names the consequence and the mechanism.",
+        "Recognizes (order_id, event_id) dedup and idempotent retries as the earning evidence.",
+        "Does not propose a rewrite that strips the explanatory ordering."
+      ]
+    },
+    {
+      "id": "cost-benefit-not-just-earning-the-contrast",
+      "split": "holdout",
+      "prompt": "Review this sentence: This is not just a latency optimization; it changes the failure model, because the request now completes locally even when the central service is down.",
+      "expected_output": "Keeps the 'not just' contrast because it marks a real category shift backed by a named behavior change.",
+      "assertions": [
+        "Does not reject solely because the sentence uses 'not just'.",
+        "Identifies the category shift from latency to availability/failure-model.",
+        "Preserves the concrete behavior: local completion when the central service is down."
+      ]
+    },
+    {
+      "id": "research-methods-staccato",
+      "split": "holdout",
+      "prompt": "Review this line from a methods section after the experimental design has been described: Held-out cases. Paired bootstrap. Sign-flip permutation.",
+      "expected_output": "Allows the staccato fragment as earned compression because it labels three already-described methodological choices, not a rhythm flourish.",
+      "assertions": [
+        "Does not reject the fragment solely because of the Same-style rhythm.",
+        "Identifies each fragment as a label for a methodological choice already established earlier.",
+        "If rewriting, preserves the three labels rather than expanding them into prose that re-explains what the methods section already covered."
       ]
     }
   ]

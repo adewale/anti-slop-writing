@@ -2,6 +2,42 @@
 
 This file records why doctrine changed. Each lesson should point to a concrete failure, the smallest rule that addressed it, and the boundary that prevents overgeneralization.
 
+The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
+
+## 2026-05-29 — Iteration loop needed a held-out gate
+
+### Failure
+
+The hillclimb loop scored every eval case after every edit. Adaptive querying against a fixed set inflates apparent improvement: the writer of a doctrine change sees the score of the next case and steers accordingly. Without a held-out split the loop accepts edits that overfit the tuning cases (Dwork et al., STOC 2015; Blum & Hardt, ICML 2015), and without a statistical gate it accepts single-case deltas that are within seed and judge noise (Miller, arXiv 2411.00640; Bowyer et al., ICML 2025).
+
+### What changed
+
+The repo now has, end to end:
+
+- Per-case `split: "tune" | "holdout"` on every eval file.
+- `scripts/score_delta.py` for paired-bootstrap and sign-flip permutation gating; the runbook requires ACCEPT on the holdout split before merge.
+- Per-instance `dynamic_rubric` and orthogonal `graded_dimensions` schema on rewrite-eval cases.
+- Near-miss `near-neg-` trigger negatives in `evals/trigger-queries.json` to test the false-positive arm.
+- Saturation stop condition, Pareto-front carryforward, length budget per round, cross-family judge protocol, length-normalized judging, eval-rot refresh policy — all documented in `runbooks/hillclimb-skill.md`.
+- `evals/rejected-edits.md` graveyard so the same failed edit does not get relitigated.
+- `docs/hillclimb-improvements.md` with sources for each change.
+
+### What not to overgeneralize
+
+- The split is structural; it only protects against overfit if the rule "never edit doctrine in response to a holdout failure" is actually followed. A holdout failure that drives a doctrine change converts the holdout back into a tune case.
+- Statistical gating is a noise filter, not a quality judgment. A change can clear the gate and still be wrong on the merits.
+- Cross-family judging dilutes self-preference; it does not eliminate it. Human spot-checks remain the ground truth when judges disagree.
+
+### Eval coverage
+
+- `evals/evals.json`: added holdout cases `fake-precision-unnamed-source`, `stacked-rule-of-three`, `abstract-system-noun-stack`.
+- `evals/adversarial.json`: added holdout cases `earned-importance-immediate-mechanism`, `cost-benefit-not-just-earning-the-contrast`, `research-methods-staccato`.
+- `evals/rewrite-evals.json`: added holdout cases `fake-precision-rewrite-finance`, `product-tour-rewrite-developer-tools` (both with `dynamic_rubric` + `graded_dimensions`).
+- `evals/meta-evals.json`: added holdout cases `noise-vs-signal-on-small-suite`, `judge-self-preference`.
+- `evals/trigger-queries.json`: added 6 near-miss negatives and split positives across tune/holdout.
+- `scripts/score_delta.py`, `scripts/validate.py` (split + schema enforcement).
+- `docs/hillclimb-improvements.md` (single source of truth for the 13 changes).
+
 ## 2026-05-25 — Runbooks prevent premature completion
 
 ### Failure

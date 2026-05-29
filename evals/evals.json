@@ -1,18 +1,25 @@
 {
   "skill_name": "anti-slop-writing",
+  "schema_notes": "Each case has split=tune|holdout. Tune cases drive doctrine iteration. Holdout cases are scored at end-of-round and at merge; doctrine must not be edited in response to a holdout failure (write a new failure case instead). See docs/hillclimb-improvements.md.",
   "evals": [
     {
       "id": "generic-importance",
+      "split": "tune",
       "prompt": "Review this sentence and rewrite it if needed: This underscores the importance of durable execution in modern software systems.",
       "expected_output": "A critique that flags inflated importance language and replaces it with a concrete durable-execution mechanism.",
       "assertions": [
         "Identifies 'underscores the importance' or equivalent importance language as a slop tell.",
         "Names the missing mechanism behind durable execution rather than only swapping adjectives.",
         "Provides a concrete rewrite involving a failure, retry, checkpoint, receipt, or similar inspectable mechanism."
+      ],
+      "graded_dimensions": [
+        {"name": "specificity", "scale": "1-5", "rubric": "5 = names a concrete inspectable mechanism; 3 = swaps one abstraction for another; 1 = restates importance."},
+        {"name": "mechanism-presence", "scale": "1-5", "rubric": "5 = retry/checkpoint/receipt/lease/idempotency named; 1 = no mechanism at all."}
       ]
     },
     {
       "id": "decorative-contrast",
+      "split": "tune",
       "prompt": "Review this line for AI-writing tells: The point is not the pelicans. The point is the process.",
       "expected_output": "A critique that distinguishes earned contrast from decorative antithesis and rewrites by naming the relation between pelican and process.",
       "assertions": [
@@ -23,6 +30,7 @@
     },
     {
       "id": "weak-conclusion",
+      "split": "tune",
       "prompt": "Review this ending:\n\nThe reusable structure is small and concrete: the runbook is source, the generated SVG is the build artifact, the lineage is the build history, the diff is the review surface, and the judge identity is part of the measurement.\n\nA benchmark is stronger when you can inspect the run that produced it.",
       "expected_output": "A critique that says the final sentence is accurate but generic, then produces a carrier-bound conclusion.",
       "assertions": [
@@ -33,6 +41,7 @@
     },
     {
       "id": "product-tour-flow",
+      "split": "tune",
       "prompt": "Fix the flow in this product section:\n\nThe Climb ranks the models.\n\nHead-to-Head is a filmstrip viewer.\n\nRunbook Diffs compares versions.",
       "expected_output": "A rewrite that stops reading like a product tour by adding a level-of-detail hinge.",
       "assertions": [
@@ -43,12 +52,52 @@
     },
     {
       "id": "safe-essay-voice",
+      "split": "tune",
       "prompt": "Review and rewrite this marketing sentence: In today's rapidly evolving landscape, teams need robust solutions that empower developers to build seamless experiences.",
       "expected_output": "A critique that flags banned/default slop phrases, asks for concrete actors and capabilities, and cuts or rewrites the sentence.",
       "assertions": [
-        "Flags 'In today\u2019s rapidly evolving landscape' or equivalent landscape framing as a slop tell.",
+        "Flags 'In today’s rapidly evolving landscape' or equivalent landscape framing as a slop tell.",
         "Flags vague actors or capabilities such as teams, robust solutions, empower, or seamless experiences.",
         "Produces a rewrite with a named actor, concrete capability, or specific user-visible result, or recommends cutting the sentence if no evidence exists."
+      ]
+    },
+    {
+      "id": "fake-precision-unnamed-source",
+      "split": "holdout",
+      "prompt": "Review this product update sentence: The new caching layer delivers 47% faster page loads and reduces infrastructure costs by approximately a third.",
+      "expected_output": "A critique that flags unsupported specificity and asks for provenance, baseline, and the workload the numbers were measured on.",
+      "assertions": [
+        "Treats the 47% and one-third figures as unsupported until source, baseline, and workload are named.",
+        "Asks for the measurement: which page, which population, which traffic mix, which prior baseline.",
+        "Rewrites by either naming the source and conditions or by removing the precise numbers and stating the effect qualitatively."
+      ],
+      "graded_dimensions": [
+        {"name": "provenance", "scale": "1-5", "rubric": "5 = names source, baseline, and conditions; 1 = restates the unsupported number."}
+      ]
+    },
+    {
+      "id": "stacked-rule-of-three",
+      "split": "holdout",
+      "prompt": "Review this paragraph for AI rhythm tells: We instrumented the pipeline, we tightened the rubric, and we shipped a new judge. We measured before, we measured after, and we measured the gap. The result is a system that learns from its own runs, scales with the workload, and improves with each iteration.",
+      "expected_output": "A critique that flags the stacked rule-of-three rhythm and asks whether each triplet earns its own structure, then rewrites with varied rhythm.",
+      "assertions": [
+        "Flags the repeated three-clause structure as decorative rhythm rather than earned parallelism.",
+        "Distinguishes the operational triplet (instrument, rubric, judge) from the empty closing triplet (learns, scales, improves).",
+        "Rewrites by breaking the rhythm where the parallelism is decorative and keeping it only where the items are genuinely coordinate."
+      ]
+    },
+    {
+      "id": "abstract-system-noun-stack",
+      "split": "holdout",
+      "prompt": "Review this sentence: The orchestration layer provides observability primitives that enable optimization of resource utilization across heterogeneous compute environments.",
+      "expected_output": "A critique that names the noun-heavy abstraction stack and produces a rewrite with concrete actors, verbs, and named compute.",
+      "assertions": [
+        "Identifies the nominalization stack (orchestration, observability, optimization, utilization) as the failure mechanism.",
+        "Asks who runs the orchestration, what it observes, what optimization is performed, on which compute.",
+        "Rewrites with a named actor and concrete verb instead of stacked nouns."
+      ],
+      "graded_dimensions": [
+        {"name": "nominalization-reduction", "scale": "1-5", "rubric": "5 = abstract nouns replaced by verbs and named actors; 1 = added more abstractions."}
       ]
     }
   ]

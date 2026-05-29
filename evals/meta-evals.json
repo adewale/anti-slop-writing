@@ -1,9 +1,11 @@
 {
   "skill_name": "anti-slop-writing",
   "purpose": "Evaluate whether the eval suite itself is becoming stale, brittle, or too easy.",
+  "schema_notes": "Each case has split=tune|holdout. Holdout meta-evals catch suite pathologies that tuning rounds cannot diagnose by definition. See docs/hillclimb-improvements.md.",
   "evals": [
     {
       "id": "ceiling-effect-detection",
+      "split": "tune",
       "prompt": "The skill passes 100% of current evals. Review this eval suite and recommend what to do next.",
       "expected_output": "Does not declare victory from ceiling scores; identifies missing harder cases, adversarial cases, or observed trigger runs.",
       "assertions": [
@@ -14,6 +16,7 @@
     },
     {
       "id": "metric-artifact-check",
+      "split": "tune",
       "prompt": "An eval passes when a rewrite contains the words 'checkpoint' and 'retry'. A model outputs: 'This is a robust checkpoint retry solution that empowers durable workflows.' Should the eval pass?",
       "expected_output": "Rejects keyword matching as a metric artifact and asks for evidence that the mechanism is actually expressed.",
       "assertions": [
@@ -24,6 +27,7 @@
     },
     {
       "id": "regime-shift-new-slop",
+      "split": "tune",
       "prompt": "A new model stops using banned phrases but produces clinically precise-sounding sentences with fake numbers and unnamed sources. How should the eval suite adapt?",
       "expected_output": "Recognizes a new failure mode outside the old phrase list and proposes new cases around evidence provenance and unsupported specificity.",
       "assertions": [
@@ -34,6 +38,7 @@
     },
     {
       "id": "trigger-drift-cross-client",
+      "split": "tune",
       "prompt": "Codex starts invoking the skill for grammar-only typo fixes. What should change?",
       "expected_output": "Treats this as trigger drift and proposes near-miss negative queries or description tightening without weakening legitimate prose-edit triggers.",
       "assertions": [
@@ -44,12 +49,35 @@
     },
     {
       "id": "judge-drift-evidence",
+      "split": "tune",
       "prompt": "Two graders disagree on whether a rewrite is better: one likes the cadence, the other says it hides the relation. What should the eval process require?",
       "expected_output": "Requires evidence-backed grading, a concrete before/after comparison, and possibly a human review or rubric clarification.",
       "assertions": [
         "Does not resolve the disagreement by taste alone.",
         "Requires quoted evidence from the rewrite or source.",
         "Recommends clarifying the rubric or adding an eval case when the disagreement exposes a recurring ambiguity."
+      ]
+    },
+    {
+      "id": "noise-vs-signal-on-small-suite",
+      "split": "holdout",
+      "prompt": "After a doctrine change, the rewrite-eval suite (N=8 cases) moves from 7/8 to 8/8. The PR author claims this proves the change worked. What should the runbook require before accepting?",
+      "expected_output": "Treats a single-case delta on an 8-case suite as within noise; requires a paired statistical test on the per-case scores and a holdout check before merge.",
+      "assertions": [
+        "Identifies a 7/8 -> 8/8 change on N=8 as within plausible seed/judge noise.",
+        "Asks for a paired bootstrap or sign-flip permutation on per-case score deltas, not a raw count comparison.",
+        "Requires that the holdout split, not the tuning split, gates the merge decision."
+      ]
+    },
+    {
+      "id": "judge-self-preference",
+      "split": "holdout",
+      "prompt": "All rewrite evals are graded by a single Claude judge. The skill is also drafted with Claude. A reviewer notes that the suite reliably prefers the Claude-drafted candidate over the human-drafted candidate even when both meet the binary assertions. What should the eval suite do?",
+      "expected_output": "Identifies LLM-as-judge self-preference, requires a cross-family judge ensemble or human spot-check, and flags single-family grading as a known bias risk.",
+      "assertions": [
+        "Names self-preference / same-family judging as a known bias mechanism.",
+        "Requires at least one judge from a different model family, or human review, before promoting the change.",
+        "Does not propose 'change the prompt to the judge' as a sufficient fix on its own."
       ]
     }
   ]

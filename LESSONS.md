@@ -228,7 +228,7 @@ Em-dashes are not banned. Professional human writers use them, and a single dash
 
 ### Failure
 
-External research showed `delve` usage in 2025 LLM outputs dropped roughly 80% from its 2023-2024 peak, while new patterns such as copula displacement and hedged symmetry became more visible. A static word list maintained by taste becomes a stale detector.
+External reporting showed `delve` usage in LLM outputs dropped off sharply during 2025 after a 2023-2024 peak, while new patterns such as copula displacement and hedged symmetry became more visible. A static word list maintained by taste becomes a stale detector.
 
 ### What changed
 
@@ -241,3 +241,21 @@ Do not strip `delve` or other older entries blindly. Slower-drifting models and 
 ### Eval coverage
 
 - `evals/meta-evals.json`: `word-list-drift`
+
+## 2026-05-27 — The skill author injected fake precision (caught on review)
+
+### Failure
+
+While adding the word-list-drift material, the change introduced an unsourced statistic: that `delve` usage "dropped roughly 80%" in 2025. The public reporting describes the decline only qualitatively ("dropped off sharply"); the 80% figure was invented. This is the exact unsupported-specificity / fake-precision failure that `regime-shift-new-slop` warns about — reproduced inside the anti-slop doctrine itself, by the person writing it.
+
+### What changed
+
+Replaced the invented percentage with the qualitative claim the source actually supports, in the doctrine reference, the `word-list-drift` meta-eval prompt, and this file. Added an explicit instruction in the doctrine reference not to manufacture a drop percentage for `delve`.
+
+### What not to overgeneralize
+
+Sourced quantitative claims are good and wanted: the Antislop 1,000x figure stays because the paper states it. The rule is provenance, not number-avoidance. Cite the figure the source gives; do not invent precision the source lacks. A clean-looking statistic is the most persuasive form of slop, which is why it has to clear the same evidence bar as any other claim.
+
+### Eval coverage
+
+- `evals/meta-evals.json`: `regime-shift-new-slop` (the pre-existing guard this violation should have tripped), `word-list-drift`

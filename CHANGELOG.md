@@ -28,7 +28,12 @@ All notable changes to this project are recorded here. This changelog tracks doc
 - Added `LESSONS.md` to record what each failure taught and what not to overgeneralize.
 - Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early.
 - Added `docs/eval-runbook-notes.md` to record the external runbook and eval-drift ideas that shaped this iteration.
-- Added five lesson entries dated 2026-05-27 covering copula displacement, hedged symmetry, outline conclusions, em-dash cadence, and word-list drift.
+- Added six lesson entries dated 2026-05-27 covering copula displacement, hedged symmetry, outline conclusions, em-dash cadence, word-list drift, and an injected-fake-precision self-correction.
+- Recorded a live smoke run (`evals/results/2026-05-27-smoke-run.md`) and an independent cold-grader pass that re-judged the verdict-sensitive assertions without the doctrine loaded.
+
+### Fixed
+
+- Removed an unsourced "roughly 80%" drop figure for `delve` from the doctrine reference, the `word-list-drift` meta-eval, and `LESSONS.md`; the public reporting supports only a qualitative decline. Added an explicit instruction not to invent the percentage. This was the anti-slop doctrine reproducing the fake-precision failure it warns against.
 
 ## [0.1.0] - 2026-05-25
 

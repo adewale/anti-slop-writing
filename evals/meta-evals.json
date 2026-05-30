@@ -54,7 +54,7 @@
     },
     {
       "id": "word-list-drift",
-      "prompt": "External research shows 'delve' usage in 2025 LLM outputs dropped roughly 80% from its 2023-2024 peak, while new patterns such as copula displacement and hedged symmetry have become more visible. What should change in the high-risk word list?",
+      "prompt": "External reporting says 'delve' usage in LLM outputs dropped off sharply during 2025 after peaking in 2023-2024 (no precise figure is given in the source), while new patterns such as copula displacement and hedged symmetry have become more visible. What should change in the high-risk word list?",
       "expected_output": "Treats the high-risk word list as a time-dated detector keyed to specific model generations, recommends a re-profile against a current human-vs-LLM corpus, and does not delete 'delve' blindly.",
       "assertions": [
         "Recognizes the high-risk word list as time-bound to specific model generations rather than permanent doctrine.",

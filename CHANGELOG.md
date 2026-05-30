@@ -13,6 +13,7 @@ All notable changes to this project are recorded here. This changelog tracks doc
 - Added five eval cases for the emphasis-source diagnostic, all with proper splits: `evals/evals.json` → `borrowed-emphasis` (tune), `paragraph-scale-borrowed-emphasis` (tune); `evals/rewrite-evals.json` → `emphasis-source-flatten` (tune); `evals/adversarial.json` → `earned-emphasis-from-idea` (holdout), `earned-paragraph-escalation` (holdout). Plus `evals/failures/borrowed-emphasis.md` and `examples/cards/borrowed-emphasis.md`.
 - Added `evals/blinded-eval-harness.md`: doctrine A/B comparison with anonymized labels and a rate-study procedure for behaviors that vary run-to-run. Extends the standard `docs/judge-protocol.md` apply-judge separation with the additional discipline a fair doctrine comparison requires.
 - Added `evals/rejected-edits.md` entry: paragraph-scale ladder guidance on the emphasis-source test was tried and reverted as inert (rate study: 3/3 vs 3/3 on both decisive prompts).
+- Ran the held-out regression check under the new protocol: this branch's doctrine scores 10/10 on the upstream's holdout cases, matching the 2026-05-29 baseline case-for-case. Per-case delta is exactly 0.0 on every joined case. The procedural emphasis-source change does not regress any upstream holdout case. Full run in `evals/results/2026-05-30-holdout-regression-check/` with outputs, judgments, scores, joined delta, and captured gate output.
 
 ### Hillclimb infrastructure
 

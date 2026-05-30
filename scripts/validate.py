@@ -70,6 +70,10 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-27-emphasis-source-experiment.md",
     ROOT / "evals" / "results" / "2026-05-28-emphasis-source-procedural" / "scores.jsonl",
     ROOT / "evals" / "results" / "2026-05-28-emphasis-source-procedural" / "README.md",
+    ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "README.md",
+    ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "scores.jsonl",
+    ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "delta.jsonl",
+    ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "gate-output.txt",
 ]
 
 REQUIRED_SKILL_PHRASES = [

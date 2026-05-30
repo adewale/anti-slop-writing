@@ -1,0 +1,8 @@
+Verdict: revise
+Slop tells: suspect-precision figure ("18.4%") with no source, baseline, time window, or population; vague quantifier ("most institutional clients") doing the work of a real denominator.
+Specificity missing: who measured this, against what baseline (the prior internal model? a benchmark index? buy-and-hold?), over what period, and for which set of clients (how many, what mandate, what AUM band).
+Inflated claim: a single-decimal point estimate implies measurement rigor the sentence does not supply.
+Flow break: not applicable — single sentence.
+Concrete rewrite: On the books of business we have measured, the risk model produced better portfolio outcomes than the prior approach. Ask author before keeping any number: (a) what benchmark are we comparing against, (b) over what window, (c) how many client books are in the sample and how were they selected, (d) which outcome metric (drawdown reduction, Sharpe, tracking error, realized vs. predicted vol). Once those are pinned, the sentence can read, for example: "Across the N client books we backtested from <start> to <end>, the model reduced realized drawdown versus the prior approach by <X> on average, measured against <benchmark>." If those facts are not available, cut the number entirely and keep the qualitative claim.
+Rewrite check: passes self-detectors — no bare number substituted, no rule-of-three, no X-not-Y cadence, no em-dash antithesis, no banned prestige phrases, no invented benchmark or sample size; the fallback either names what to ask or removes the quantitative claim.
+Remembered line: A point estimate that cannot name its baseline is a vibe, not a measurement.

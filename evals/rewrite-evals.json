@@ -14,8 +14,16 @@
         "Does not replace the phrase with another abstraction like 'critical capability' or 'robust foundation'."
       ],
       "graded_dimensions": [
-        {"name": "specificity", "scale": "1-5", "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement."},
-        {"name": "length-control", "scale": "1-5", "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."}
+        {
+          "name": "specificity",
+          "scale": "1-5",
+          "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
       ]
     },
     {
@@ -29,7 +37,11 @@
         "Keeps the concrete carrier instead of jumping to a generic process claim."
       ],
       "graded_dimensions": [
-        {"name": "relation-clarity", "scale": "1-5", "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation."}
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation."
+        }
       ]
     },
     {
@@ -66,6 +78,45 @@
       ]
     },
     {
+      "id": "rewrite-reuses-flagged-pattern",
+      "split": "tune",
+      "prompt": "Review this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nIn March I attended ATmosphere in Vancouver, a conference organized around ATproto, the open protocol that powers Bluesky. I was an early investor in Bluesky, and I backed it because I was excited about the protocol underneath, not just the app. What I didn't fully anticipate was the community that would grow up around ATproto independent of Bluesky itself. ATmosphere made that visible.\n\nThe community is unusually authentic. Developers, researchers, artists, people just interested in what the internet could be. Not trying to build the next ad platform. Trying to figure out what good social infrastructure actually looks like.\n\nATproto lets you store structured records in a data server (your PDS) that you own and can move. That's not incidental. It's the design.",
+      "expected_output": "A per-item critique using the format from SKILL.md. The review should not invent specific people, projects, or events at ATmosphere (the post does not list any). For 'That's not incidental. It's the design.', the review should weigh the prior sentence (which supplies the mechanism of PDS ownership/movability) when classifying the antithesis. Any Concrete rewrite should not reuse the source's X-not-Y / em-dash-antithesis cadence for decorative effect. Any `ask-author` fallback must also pass the same detectors.",
+      "assertions": [
+        "Does not invent specific people, projects, or events at the ATmosphere conference (for example, a named PDS operator count, a labeler experiment topic, a feed-generator timeline) that the source paragraph does not contain.",
+        "For the line 'That's not incidental. It's the design.', applies the Staccato contrast test honestly: the prior sentence evidences movability ('you own and can move') but does not evidence intentionality, so only one side of the contrast is supported. The verdict is therefore `revise` (compressed antithesis) with a rewrite that names what makes portability the design, or `ask-author` if the design rationale would have to be invented. A `keep` verdict on this line is wrong because the intentionality side is unsupported.",
+        "Any Concrete rewrite for the 'community is unusually authentic' paragraph does not name specific projects or counts (number of friends, type of experiment, duration of a build) absent from the source.",
+        "Does not produce any Concrete rewrite of the form 'X is the design, not Y' or 'X, not Y' that reproduces the flagged cadence under different words.",
+        "Any `ask-author` fallback rewrite for the 'community is unusually authentic' paragraph does not itself invent topic pairs (for example, 'portability and moderation tooling, not growth loops or ad inventory') or use X-not-Y cadence."
+      ]
+    },
+    {
+      "id": "rewrite-asks-or-cuts-when-fact-missing",
+      "split": "tune",
+      "prompt": "Review this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nThe actual implementation took about a working day. Hugo for static site generation, Cloudflare Pages for hosting, and Sequoia to handle the ATproto publishing step. The pipeline: write a post, push to GitHub, CI publishes the ATproto record, builds the site, deploys it.\n\nCurrent coding tools made it practical to add features that would otherwise get cut. The cover images on each post (the 1200x630 cards used for social previews and Bluesky thumbnails) are generated by a Node.js script using Satori and the same brand fonts as the site. Title and description go in, image comes out, with a sidecar file so they can be regenerated if the branding changes. Without good tooling that kind of thing stays on the 'someday' list.",
+      "expected_output": "A per-item critique using the format from SKILL.md. The topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.' should receive an `ask-author` verdict (the post never names the tool) or a recommendation to cut the topic sentence and let the paragraph below carry the work. The review should not name a specific tool (Claude Code, Cursor, Copilot, Aider, etc.) or invent timing claims (hours, weekends) that the source does not contain. Any `ask-author` fallback rewrite must itself pass the same detectors as the source.",
+      "assertions": [
+        "Does not assert a specific tool name (for example, Claude Code, Cursor, Copilot, Aider, Sonnet, Codex) anywhere in the Concrete rewrite for the topic sentence, because the source paragraph does not name a tool.",
+        "For the topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.', uses the `ask-author` verdict, recommends cutting, or rewrites by drawing only on what the rest of the paragraph already supplies (Node.js, Satori, sidecar file).",
+        "Does not invent a timing claim (a number of hours, days, weekends, or a before/after duration) that the source paragraph does not contain.",
+        "Does not substitute a different vague abstraction (for example, 'modern tooling', 'AI-assisted workflows', 'agentic coding') for the original 'current coding tools'.",
+        "Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics."
+      ]
+    },
+    {
+      "id": "rewrite-passes-own-slop-detectors",
+      "split": "tune",
+      "prompt": "Review this paragraph (the ending of the same Joe Beda post) using the Critique output format. The post fails the Conclusion test: it ends on a colophon and license line without returning to the concrete carrier the title set up ('a URL I own'). Pay attention to the requirement that any Concrete rewrite must itself pass the same detectors as the source, including the Avoid-by-default phrases list and the rule-of-three / em-dash / decorative-closure patterns.\n\nThere's a colophon page that documents everything: fonts, colors, cover image spec, how the ATproto pipeline works. It's an old web tradition I'm glad to revive. The source is also on GitHub, dual-licensed: infrastructure under CC0, content under CC BY-NC-ND 4.0.",
+      "expected_output": "A per-item critique using the format from SKILL.md. If the review proposes a carrier-bound closing rewrite (returning to 'a URL I own', this blog post as a PDS record, or the standard.site stack), the rewrite must itself pass the doctrine. It must not end with decorative closure ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps'), must not stack an em-dash rule-of-three list as a closer, and must not invent infrastructure or claims absent from the post. The `Rewrite check` field should appear and should either confirm the rewrite passes the detectors or name the detector it fails.",
+      "assertions": [
+        "No Concrete rewrite ends on a banned decorative closure phrase ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps').",
+        "No Concrete rewrite uses an em-dash rule-of-three list as a final closer (for example, '\u2014 Hugo, standard.site, my PDS \u2014' followed by a summary sentence).",
+        "The `Rewrite check` field is present on at least one item where a Concrete rewrite is produced, and either confirms the rewrite passes the self-detectors or names the failed detector and offers a second pass.",
+        "Any carrier-bound rewrite draws its carrier (the URL, the PDS record, the colophon, the standard.site stack) from the source rather than inventing a new stack element.",
+        "Any rule-of-three or parenthetical-example list in a rewrite contains only items the source paragraph or the larger post actually contains; it does not invent additional list members."
+      ]
+    },
+    {
       "id": "multi-issue-output-manifest",
       "split": "tune",
       "prompt": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.",
@@ -92,8 +143,16 @@
         "minimum_criteria": 3
       },
       "graded_dimensions": [
-        {"name": "provenance", "scale": "1-5", "rubric": "5 = source, baseline, and population named; 1 = number preserved without context."},
-        {"name": "length-control", "scale": "1-5", "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."}
+        {
+          "name": "provenance",
+          "scale": "1-5",
+          "rubric": "5 = source, baseline, and population named; 1 = number preserved without context."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."
+        }
       ]
     },
     {
@@ -103,7 +162,7 @@
       "expected_output": "A rewrite that names the relation among the three surfaces (e.g. capture, re-execution, ordering of the same event stream).",
       "assertions": [
         "Names the shared object the three surfaces operate on (the event stream).",
-        "Identifies the relation: capture, re-execution, ordering — or equivalent.",
+        "Identifies the relation: capture, re-execution, ordering \u2014 or equivalent.",
         "Does not preserve the bullet-or-paragraph product-tour cadence."
       ],
       "dynamic_rubric": {
@@ -111,7 +170,11 @@
         "minimum_criteria": 3
       },
       "graded_dimensions": [
-        {"name": "relation-clarity", "scale": "1-5", "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list."}
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list."
+        }
       ]
     }
   ]

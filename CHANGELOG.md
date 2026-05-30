@@ -22,14 +22,22 @@ All notable changes to this project are recorded here. This changelog tracks doc
 ### Evals
 
 - Added adversarial evals to prevent over-flagging earned contrast, technical use of `robust`, quoted bad phrases, useful lists, short direct answers, exact `not just` distinctions, controlled-variable staccato, concrete tables, ordered three-step sequences, direct warnings, source-backed `highlights`, and imperative runbook steps.
+- Added adversarial evals from a generalization test on a Paul Graham essay: `earned-antithesis-synthesis-pg`, `cataphoric-label-defined-in-paragraph`, and `escalating-magnitude-triple` lock in false-positive resistance against dense earned human rhetoric the doctrine was not tuned on.
+- Added meta-evals `single-source-overfitting` (repeated tuning against one document does not prove generalization) and `earned-rhetoric-false-positive-rate` (how to read a near-zero flag rate on clean prose honestly).
 - Added rewrite evals that score concrete output quality, not just critique labels.
+- Added rewrite evals covering rewrites that reuse the flagged cadence under different punctuation (`rewrite-reuses-flagged-pattern`) and rewrites that should ask the author or cut instead of inventing a specific (`rewrite-asks-or-cuts-when-fact-missing`).
 - Added meta-evals for ceiling effects, metric artifacts, capability drift, trigger drift, and judge drift.
-- Added a curated failure corpus under `evals/failures/`.
+- Added a curated failure corpus under `evals/failures/`, including `rewrite-reuses-flagged-pattern.md`.
 - Added before/after cards under `examples/cards/` for fast inspection of core patterns.
 
 ### Doctrine
 
 - Added a final self-check and one bounded judge-refine pass for high-stakes prose.
+- Extended the Final self-check to require running the same detectors on the rewrite and to require asking or cutting when a rewrite would need a fact not present in the source.
+- Added `ask-author` as a verdict in the Critique output format, with a triggering rule in the Default editing pass: do not invent a tool, person, count, or timing to fill the Concrete rewrite slot when the source paragraph does not supply it.
+- Tightened the antithesis classification rule: read the prior sentence in the paragraph before grading contrast as compressed or decorative. Anchored on a real failure from joe.dev/posts/thinking-out-loud where the skill graded earned contrast as decorative because it scored the sentence alone.
+- Added a mandatory `Rewrite check` field to the Critique output format so the same detectors run against every Concrete rewrite (including ask-author fallbacks) inside the per-item loop, not at end-of-document. Added a "Rewrites must pass the same detectors as the source" section to `references/rewrite-patterns.md` with real before/after pairs from the joe.dev review.
+- Clarified the Staccato contrast test in `SKILL.md` with the both-sides test: an antithesis is earned only when both sides of the contrast are evidenced in the prior prose, not when only the topic of the contrast was mentioned. Carries the joe.dev pair as the canonical compressed example. Corrected the eval assertion and failure-file claims that previously framed the model's compressed verdict on `That's not incidental. It's the design.` as a misclassification.
 
 ### Docs
 

@@ -237,3 +237,261 @@ Some high-risk words are valid in technical contexts. `Robust` is acceptable whe
 - `evals/adversarial.json`: `robust-engineering-context`
 - `evals/rewrite-evals.json`: `safe-essay-cut-or-concretize`
 - `evals/failures/safe-essay-voice.md`
+## 2026-05-26 — Rewrites must pass the same detectors as the source
+
+### Failure
+
+A critique correctly flagged `That's not incidental. It's the design.` as
+compressed antithesis hiding the mechanism. The proposed rewrite,
+`Portability isn't a feature bolted on — it's where the protocol starts.`,
+reproduced the same contrast shape with an em-dash. In the same review,
+two adjacent rewrites invented specifics the source did not contain
+(named projects that were not in evidence; before/after timing numbers
+the author had not supplied).
+
+### What changed
+
+The Final self-check now asks whether the rewrite reuses the cadence it
+just flagged under different punctuation, and whether any rewrite that
+needs a missing fact asked the author or recommended cutting instead of
+inventing a confident-sounding specific.
+
+### What not to overgeneralize
+
+Do not refuse to rewrite whenever a sentence is short or contains a
+contrast. Earned antithesis still works after the mechanism is
+established. The rule applies when the rewrite is the place the
+mechanism should appear and the cadence is doing the work instead.
+
+### Eval coverage
+
+- `evals/rewrite-evals.json`: `rewrite-reuses-flagged-pattern`, `rewrite-asks-or-cuts-when-fact-missing`
+- `evals/failures/rewrite-reuses-flagged-pattern.md`
+
+### Follow-up
+
+An A/B run on 2026-05-27 scored 7/8 with-skill vs 7/8 without-skill: the
+self-check question did not change observed behavior. The 2026-05-28
+revision below is the corrected iteration, anchored on the real source
+material (joe.dev/posts/thinking-out-loud) rather than a synthetic case.
+
+## 2026-05-28 — Critique format must permit ask-author, or it invites invention
+
+### Failure
+
+The skill was run against Joe Beda's real post
+[Thinking out loud, with a URL I own](https://joe.dev/posts/thinking-out-loud/)
+using the SKILL.md doctrine and the Critique output format. The critique
+contained roughly ten invented specifics in its rewrites: a tool name
+the post never used (`Claude Code turned the cover-image generator from
+a someday-item into an afternoon` — the source paragraph names Node.js
+and Satori but no tool); fabricated events at a conference the model
+did not attend (`PDS for fifty friends, a labeler experiment for
+academic citations, a feed generator written over a weekend`); invented
+timing (`Two years ago`, `a working day`, `cost an hour`); and invented
+infrastructure (`Apache process`, `HTML into a directory`). The
+rewrites also reused the very cadence the items flagged: `Portability
+is the design, not a future feature` replaced `That's not incidental.
+It's the design.` — same `X, not Y` shape, different words.
+
+### Why the previous lesson did not fix it
+
+The previous self-check question lives at the end of the editing pass.
+The model writes the critique linearly, item by item, and never circles
+back. More important: the `Concrete rewrite` slot in the format is
+required. When the only honest revision needs a fact the source does
+not supply, the format gives the model no syntactically valid way to
+say "I would need to ask," so it invents instead.
+
+### What changed
+
+The Critique output format gained `ask-author` as a verdict. The skill
+now says: when the line could be improved but the improvement needs a
+tool name, person, count, timing claim, or named mechanism that is not
+in the source paragraph, the verdict is `ask-author` and the
+`Concrete rewrite` slot names what to ask, with a fallback (cut, or
+keep and let the next sentences carry the work). Default editing pass
+step 7 was extended in parallel: replace vague actors with named
+sources, named uncertainty, or an `ask-author` note — do not invent a
+name to fill a slot. The classification rule for antithesis was also
+tightened to require reading the prior sentence; the joe.dev case
+showed the staccato-contrast classifier grading earned contrast as
+decorative when it scored the sentence alone.
+
+### What not to overgeneralize
+
+`ask-author` is not a license to refuse rewrites whenever something is
+mildly underspecified. Use it only when the missing fact is the
+revision (a specific tool, a specific count, a specific event) and the
+source paragraph does not supply it. If the paragraph already supplies
+the mechanism — as it does for `That's not incidental. It's the design.`
+— the verdict is usually `keep`, not `ask-author`.
+
+### Eval coverage
+
+- `evals/rewrite-evals.json`: `rewrite-reuses-flagged-pattern` (rewritten with real joe.dev paragraph context), `rewrite-asks-or-cuts-when-fact-missing` (rewritten with real joe.dev paragraph context)
+- `evals/failures/rewrite-reuses-flagged-pattern.md` (rewritten to capture the real before/after from the joe.dev critique)
+- `evals/results/2026-05-28-joe-beda-before.md` and `2026-05-28-joe-beda-after.md`
+
+## 2026-05-28 — Rewrites must pass the same detectors as the source, inside the same loop
+
+### Failure
+
+The ask-author iteration eliminated major inventions at the verdict
+level but the rewrites themselves still contained slop the doctrine
+bans. On the same joe.dev post: a rule-of-three with three invented
+list members (`Google Reader, Posterous, Svbtle`); a rule-of-three list
+that fabricated a standard.site schema enumeration; an em-dash
+rule-of-three closer ending on `That was the point.` — a stand-in for
+the banned `In conclusion / Overall / Ultimately`; and an `ask-author`
+fallback that itself invented topic pairs (`portability and moderation
+tooling, not growth loops or ad inventory`) and used X-not-Y cadence.
+The model correctly used `ask-author` at the verdict level, then
+ignored the same rule when writing the fallback.
+
+### Why the previous lesson did not fix it
+
+The previous self-check questions live at the end of `SKILL.md`. The
+model writes the per-item critique linearly and never circles back to
+apply the Final self-check. Without a per-item slot for the rewrite
+self-grade, the slop check does not fire on the rewrite — even when
+the same model just flagged the same pattern on the source one item
+earlier.
+
+### What changed
+
+The Critique output format now includes a mandatory `Rewrite check`
+field. Whenever a `Concrete rewrite` is produced (including a fallback
+inside an `ask-author` block), the model must state whether the
+rewrite contains rule-of-three, X-not-Y, em-dash antithesis, banned
+avoid-by-default phrases, prestige adjectives, decorative closure, or
+invented facts. If it does, the rewrite is itself a `revise` and the
+model either rewrites again or escalates to `ask-author`. The new
+field sits inside the per-item loop, so the check fires when the
+rewrite is fresh rather than at end-of-document. A new "Rewrites must
+pass the same detectors as the source" section in
+`references/rewrite-patterns.md` carries the real joe.dev before/after
+pairs as worked examples.
+
+### Boundary
+
+`passes self-detectors` is a real allowed outcome. The check is not a
+demand that every rewrite avoid every short cadence — earned
+compression, named-tool lists, and short declarative closers all
+remain legitimate moves. The check is a demand that the model
+distinguish them honestly from their decorative versions.
+
+### Eval coverage
+
+- `evals/rewrite-evals.json`: `rewrite-reuses-flagged-pattern`, `rewrite-asks-or-cuts-when-fact-missing` (both strengthened with rewrite-self-check assertions), `rewrite-passes-own-slop-detectors` (new case using the joe.dev ending paragraph, where the previous iteration's `That was the point.` closure appeared)
+- `evals/results/2026-05-28-rewrite-check-before.md` and `2026-05-28-rewrite-check-after.md`
+- `skills/anti-slop-writing/references/rewrite-patterns.md` ("Rewrites must pass the same detectors as the source" section)
+
+### What this iteration did not fix (correction below)
+
+The original draft of this section claimed the staccato classifier
+was misgrading `That's not incidental. It's the design.` across three
+iterations. See the next lesson for the correction.
+
+## 2026-05-28 — When a model keeps "failing" the same way, suspect the doctrine
+
+### Failure
+
+Across three iterations on joe.dev/posts/thinking-out-loud, the
+critique kept grading `That's not incidental. It's the design.` as
+compressed or decorative antithesis, while the contemporaneous
+result notes kept calling that a misclassification. The notes claimed
+the contrast should be earned because the prior sentence supplies
+movability.
+
+### What was actually wrong
+
+The doctrine, not the model. The original Staccato contrast test
+definition (`Earned antithesis: the contrast names a real distinction
+already evidenced`) was ambiguous between two readings:
+
+(a) Earned = the topic of the contrast was evidenced (movability was
+mentioned).
+(b) Earned = both sides of the contrast were evidenced (both
+movability and intentionality were shown).
+
+Reading (a) makes the joe.dev line earned. Reading (b) makes it
+compressed, because the prior sentence evidences movability but not
+intentionality — the `by design vs incidental` distinction is a new
+claim added on cadence alone. The model applied reading (b)
+consistently and correctly across three iterations, including on the
+adjacent line `That's what I want. My words, at a URL I own.` (kept
+as earned because both sides — the platform failures above and the
+URL-ownership alternative above — were already shown). The result
+notes applied reading (a) and incorrectly labeled the model wrong.
+
+### What changed
+
+`SKILL.md`'s Staccato contrast test now states the both-sides test
+explicitly and carries the joe.dev pair as the canonical compressed
+example. The Pattern C section of `evals/failures/rewrite-reuses-flagged-pattern.md`
+was withdrawn. The assertion in `evals/rewrite-evals.json` that
+previously expected `keep` on this line was updated to require
+`revise` with a mechanism-naming rewrite, or `ask-author` if the
+design rationale would have to be invented. The two affected result
+notes carry retraction sections.
+
+### What not to overgeneralize
+
+This does not mean every model verdict should be assumed correct.
+The previous two iterations identified real model failures (invention,
+cadence-reused rewrites, slop in rewrites) and produced doctrine
+changes that moved measurable metrics. This lesson is specifically
+about the situation where (1) the model produces the same verdict
+across multiple iterations, (2) the verdict applies the doctrine
+consistently across cases, and (3) the analyst's "this is wrong"
+intuition cannot be reduced to a precise rule. In that situation the
+doctrine is the prime suspect.
+
+### Eval coverage
+
+- `skills/anti-slop-writing/SKILL.md` (Staccato contrast test now uses both-sides test with worked examples from joe.dev)
+- `evals/rewrite-evals.json`: `rewrite-reuses-flagged-pattern` (assertion corrected)
+- `evals/failures/rewrite-reuses-flagged-pattern.md` (Pattern C withdrawn; rule list updated)
+- `evals/results/2026-05-28-joe-beda-after.md` and `2026-05-28-rewrite-check-after.md` (retraction sections added)
+
+## 2026-05-28 — Tuning against one document needs a generalization check
+
+### Failure (risk, not a bug)
+
+Four consecutive doctrine iterations (ask-author verdict, Rewrite check
+field, both-sides staccato clarification) were all tuned against one
+post: joe.dev/posts/thinking-out-loud. Each moved a metric on that
+post. But metric movement on the tuning document cannot distinguish a
+doctrine rule that fixes a real, repeatable failure from one that
+merely fits that document's quirks.
+
+### What changed
+
+Ran the doctrine against a real text it was never tuned on — Paul
+Graham's "How to Write Usefully", chosen because it is dense with the
+exact surface patterns the doctrine targets (short antithesis,
+rule-of-three) but is almost entirely earned human rhetoric. The
+doctrine flagged 0 of 15 paragraphs while still discriminating (it
+named the demagogue line as earned-leaning-compressed and "more
+fundamental" as a too-mild soft spot). A naive cadence-only classifier
+would have wrongly flagged four paragraphs; the both-sides test
+rescued them on text it had not seen. That is the evidence the rule
+generalizes. The false-positive resistance was locked in as adversarial
+cases so a future change cannot silently regress it.
+
+### What not to overgeneralize
+
+Zero flags is not automatically a pass. It was a pass here because the
+document is genuinely clean and the per-item reasoning was inspectable
+and discriminating. The complementary test is still missing: run a
+deliberately sloppy real document and confirm the flag rate rises. A
+clean-document test only exercises the false-positive half of
+calibration.
+
+### Eval coverage
+
+- `evals/adversarial.json`: `earned-antithesis-synthesis-pg`, `cataphoric-label-defined-in-paragraph`, `escalating-magnitude-triple`
+- `evals/meta-evals.json`: `single-source-overfitting`, `earned-rhetoric-false-positive-rate`
+- `evals/results/2026-05-28-generalization-pg.md`
+

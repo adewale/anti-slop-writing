@@ -35,7 +35,7 @@ Every eval case carries a `split` field: `tune` (used to diagnose and iterate do
 |---|---|
 | New detector or doctrine rule | Add/update `evals/evals.json`, `evals/rewrite-evals.json`, `evals/failures/`, and usually `evals/cases.md` or `examples/cards/`. New cases must carry `split: "tune"` or `split: "holdout"`. |
 | False-positive or over-flagging fix | Add/update `evals/adversarial.json`. |
-| Eval-suite weakness or ceiling effect | Add/update `evals/meta-evals.json` and record the lesson in `LESSONS.md`. |
+| Eval-suite weakness or ceiling effect | Add/update `evals/meta-evals.json` and record the lesson in `Lessons_learned.md`. |
 | Trigger/activation wording | Add/update `evals/trigger-queries.json`. Near-miss false positives must use the `near-neg-` id prefix. |
 | Rejected doctrine edit | Add an entry to `evals/rejected-edits.md` so the same failed move is not retried. |
 | Reference-only clarification | Update the relevant file in `skills/anti-slop-writing/references/`. |
@@ -52,7 +52,7 @@ Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. A us
 3. Use `runbooks/hillclimb-skill.md` when the change affects multiple artifacts.
 4. Add the smallest rule that catches it.
 5. Add or update a before/after example or eval assertion.
-6. Record the lesson in `LESSONS.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
+6. Record the lesson in `Lessons_learned.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
 7. Run validation:
 
 ```bash

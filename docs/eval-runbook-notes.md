@@ -28,7 +28,7 @@ Concrete changes:
 - `evals/meta-evals.json` checks for ceiling effects, metric artifacts, trigger drift, judge drift, and new failure modes.
 - `evals/rewrite-evals.json` separates rewrite quality from critique labeling.
 - `evals/adversarial.json` checks false positives and overgeneralization.
-- `LESSONS.md` records what not to overgeneralize.
+- `Lessons_learned.md` records what not to overgeneralize.
 
 The practical test is whether a new model could pass the old evals while failing in a new way. If yes, add a meta-eval or failure-corpus entry before changing doctrine.
 

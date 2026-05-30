@@ -23,7 +23,7 @@ The task is not complete until every applicable artifact exists and is non-empty
 - Failure record in `evals/failures/` when the change comes from a new failure mechanism.
 - Rejected-edit entry in `evals/rejected-edits.md` when an attempted change failed an eval and was discarded.
 - Before/after card in `examples/cards/` when the pattern should be easy to inspect.
-- Lesson entry in `LESSONS.md` when doctrine changes.
+- Lesson entry in `Lessons_learned.md` when doctrine changes.
 - Changelog entry in `CHANGELOG.md` when doctrine, eval coverage, compatibility, or contributor workflow changes.
 - Eval result note in `evals/results/` when scores are captured.
 
@@ -120,7 +120,7 @@ test -s evals/adversarial.json
 test -s evals/meta-evals.json
 test -s evals/rejected-edits.md
 test -s CHANGELOG.md
-test -s LESSONS.md
+test -s Lessons_learned.md
 test -s docs/hillclimb-improvements.md
 test -x scripts/score_delta.py
 ```

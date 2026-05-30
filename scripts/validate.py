@@ -24,7 +24,7 @@ REQUIRED = [
     ROOT / "AGENTS.md",
     ROOT / "CONTRIBUTING.md",
     ROOT / "CHANGELOG.md",
-    ROOT / "LESSONS.md",
+    ROOT / "Lessons_learned.md",
     ROOT / "LICENSE",
     ROOT / "docs" / "eval-runbook-notes.md",
     ROOT / "docs" / "hillclimb-improvements.md",
@@ -299,7 +299,7 @@ def main() -> int:
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "LESSONS.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
+    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 

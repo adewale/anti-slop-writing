@@ -29,7 +29,7 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 ### Docs
 
-- Added `LESSONS.md` to record what each failure taught and what not to overgeneralize.
+- Added `Lessons_learned.md` (originally `LESSONS.md`) to record what each failure taught and what not to overgeneralize.
 - Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early; rewritten to include the held-out gate, statistical gating, cross-family judge protocol, length normalization, saturation stop, Pareto-front carryforward, length budget, and eval-rot refresh policy.
 - Added `docs/eval-runbook-notes.md` to record the external runbook and eval-drift ideas that shaped this iteration.
 - Added `docs/hillclimb-improvements.md` as the single source of truth for the thirteen hillclimb-infrastructure changes and their citations.

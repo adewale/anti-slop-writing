@@ -87,7 +87,7 @@ evals/rejected-edits.md               Graveyard of doctrine edits that failed an
 evals/results/                        Recorded smoke eval results
 examples/cards/                       Compact before/after cards
 examples/                             Repo-only before/after examples
-LESSONS.md                            Lessons learned and overgeneralization boundaries
+Lessons_learned.md                    Lessons learned and overgeneralization boundaries
 CHANGELOG.md                          Doctrine, eval, compatibility, and docs changes
 runbooks/hillclimb-skill.md           Runbook for bounded skill-improvement loops
 docs/eval-runbook-notes.md            Source notes for runbook/eval-drift ideas
@@ -127,7 +127,7 @@ When improving the skill:
 3. Add or update the runnable case in `evals/evals.json`, `evals/rewrite-evals.json`, `evals/adversarial.json`, or `evals/meta-evals.json`.
 4. Add the failure to `evals/failures/` or a compact card to `examples/cards/` when it teaches a reusable pattern.
 5. If the change affects activation, update `evals/trigger-queries.json`.
-6. Record the lesson in `LESSONS.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
+6. Record the lesson in `Lessons_learned.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
 7. Make the smallest doctrine change in `skills/anti-slop-writing/SKILL.md` or `skills/anti-slop-writing/references/`.
 8. Run validation:
 

@@ -4,6 +4,64 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-05-29 — Doctrine reaches the surface layer; the discourse layer is unaddressed
+
+### Failure
+
+[StoryScope, arXiv 2604.03136](https://arxiv.org/abs/2604.03136) reports 93.2% F1 on human-vs-AI fiction detection *after excluding surface stylistic features*. The current `anti-slop-writing` skill operates almost entirely at the surface stylistic level — banned phrases, cadence, "not just X but Y," staccato contrast. There is a discourse-layer of slop — over-explained themes, flat escalation across paragraphs, single-track whole-piece structure — that the doctrine does not reach.
+
+### What changed
+
+Nothing yet in the installable skill. This entry is deliberately a gap marker. The 13 hillclimb-infrastructure changes committed earlier on 2026-05-29 made the loop sound; they did not extend the doctrine surface. The next round of doctrine work should add tune cases at the paragraph-flow and whole-piece-shape layer (over-explained takeaway, flat escalation, missing counter-evidence) and let the new held-out gate decide whether the rules generalize.
+
+### What not to overgeneralize
+
+Most StoryScope findings are fiction-specific — dream sequences, character description, moral ambiguity, temporal complexity. Do not transfer those to non-fiction prose. The in-scope transfers are narrow: over-explained themes, flat escalation, single-track structure. Also: StoryScope studied ~5,000-word stories; most prose this skill edits is shorter, so discourse-level rules may apply weakly until pieces cross some length threshold.
+
+### Eval coverage
+
+- None yet. This is a gap marker, not a closed loop.
+- Future doctrine should add tune cases under `evals/evals.json` or a new file for whole-piece-shape diagnostics, plus paired adversarial cases in `evals/adversarial.json` for earned single-track structure (a how-to guide is single-track by design).
+
+## 2026-05-29 — Rewrite-eval grading inherited known judge biases
+
+### Failure
+
+The rewrite-eval suite was graded by a single static rubric and (implicitly) a single judge family. Documented judge biases — self-preference ([Panickssery, Bowman, Feng, NeurIPS 2024](https://arxiv.org/abs/2404.13076)), length ([Dubois et al., Length-Controlled AlpacaEval](https://arxiv.org/abs/2404.04475)), style-over-substance ([Wu & Aji, arXiv 2307.03025](https://arxiv.org/abs/2307.03025)), criteria drift ([Shankar et al., EvalGen, UIST 2024](https://arxiv.org/abs/2404.12272)) — were not specifically guarded against. For an anti-slop skill, length-without-mechanism is precisely the failure being fought, so length bias is a direct attack on the eval's discriminating power.
+
+### What changed
+
+The runbook now requires a cross-family judge ensemble, length normalization, orthogonal `graded_dimensions`, and a per-instance `dynamic_rubric` where the eval supplies one. Two holdout meta-evals were added: `judge-self-preference` and `noise-vs-signal-on-small-suite` in `evals/meta-evals.json`. Rewrite cases now carry a `length-control` graded dimension.
+
+### What not to overgeneralize
+
+Cross-family judging dilutes self-preference but does not eliminate it. Length normalization can mask cases where the rewrite genuinely needs to be longer (e.g. when the original conflated two failure modes). The judge layer cannot be "fixed" — it can only be diluted, audited, and spot-checked against humans. Goodhart is an impossibility result, not a warning ([Skalse et al., NeurIPS 2022](https://arxiv.org/abs/2209.13085)): no non-trivial proxy is safe under unbounded optimization, so the loop's structure (splits, gates, ensembles) carries the load, not the judge prompt.
+
+### Eval coverage
+
+- `evals/meta-evals.json`: `judge-self-preference`, `noise-vs-signal-on-small-suite` (both holdout).
+- `evals/rewrite-evals.json`: `graded_dimensions` with a `length-control` axis on `durable-execution-mechanism` and on `fake-precision-rewrite-finance`.
+- `runbooks/hillclimb-skill.md` "Judge protocol" section.
+
+## 2026-05-29 — Basic eval design beats exotic optimization for prose tasks
+
+### Failure
+
+The deep research into SkillOpt, ACE, TextGrad, GEPA, DSPy/MIPRO, Trace/OptoPrime, and SAMMO produced a tempting list of automated optimizers. For a manually-iterated prose skill where the judge layer is the weakest link, adopting any of them would reliably find the grader's gaming behavior. Meanwhile the simplest published interventions — [WritingBench's per-instance dynamic rubrics](https://arxiv.org/pdf/2503.05244) (84% vs 58% human alignment) and length-controlled judging — are cheap and produce the largest measured wins in the corpus.
+
+### What changed
+
+The Tier-S / Tier-A / Tier-B priority order in `docs/hillclimb-improvements.md` put structural basics (held-out split, statistical gating, per-instance rubrics) before exotic machinery. The "Out of scope, deliberately" section names ACE-style curators, TextGrad, SkillOpt, DSPy, and GEPA-as-code as not adopted at this scale.
+
+### What not to overgeneralize
+
+The automated methods are not dismissed. They are appropriate for scripted loops at larger scale, where the grader is robust and the loss function is reliable. For this repo, they would amplify judge weakness. The decision is scale-and-domain dependent, not a permanent verdict. Revisit when (a) the loop is scripted, (b) the judge ensemble has been calibrated against humans on a labeled set, and (c) eval-set scale exceeds the few-hundred-cases regime where small-sample CI corrections still dominate.
+
+### Eval coverage
+
+- `docs/hillclimb-improvements.md` "Out of scope, deliberately" section.
+- Adoption priority is reflected in the runbook (held-out + statistical gate appear before any exotic-method language).
+
 ## 2026-05-29 — Iteration loop needed a held-out gate
 
 ### Failure

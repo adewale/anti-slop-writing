@@ -72,7 +72,7 @@ Source: [GEPA, arXiv 2507.19457](https://arxiv.org/abs/2507.19457) (ICLR 2026 Or
 
 ### 10. Formal rejected-edit buffer
 
-`evals/rejected-edits.md` is a new structured log. Every rejected edit gets an entry: the edit, the eval case that rejected it, and the reason. `LESSONS.md` continues to record durable "what not to overgeneralize" lessons; `rejected-edits.md` records the per-attempt graveyard so future iterations don't relitigate the same failed move.
+`evals/rejected-edits.md` is a new structured log. Every rejected edit gets an entry: the edit, the eval case that rejected it, and the reason. `Lessons_learned.md` continues to record durable "what not to overgeneralize" lessons; `rejected-edits.md` records the per-attempt graveyard so future iterations don't relitigate the same failed move.
 
 Source: SkillOpt's rejected-edit buffer ([arXiv 2605.23904](https://arxiv.org/abs/2605.23904)) and the Darwin Gödel Machine archive ([arXiv 2505.22954](https://arxiv.org/abs/2505.22954)). Practitioner precedent: ExpeL's insight pool ([arXiv 2308.10144](https://arxiv.org/abs/2308.10144)).
 

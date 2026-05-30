@@ -162,11 +162,11 @@ transformative
 groundbreaking
 seamless
 robust outside engineering context
-serves as (as copula displacement)
-stands as (as copula displacement)
 ```
 
 The list is time-dated. Words enter and leave based on model behavior in a given generation. `delve` peaked in 2023-2024 LLM outputs and, by 2025 reporting, dropped off sharply; it stays on the list because older models and slower-drifting deployments still produce it, but the list itself should be re-profiled against a current human-vs-LLM corpus rather than maintained by taste. The Antislop research reported that some slop patterns appear over 1,000 times more frequently in LLM output than in human text; a frequency-based re-profile is more honest than vibes. (Do not invent a precise drop percentage for `delve`; the public reporting describes the decline qualitatively.)
+
+Copula constructions such as `serves as` and `stands as` are deliberately kept out of this words list. They are two-word templates whose verdict is context-dependent: keep when the verb does concrete enumeration, definition, or location work; replace when it only inflates a copula. They live in the dedicated "Copula displacement" section above. Placing them in a flat words list would lose that context and risk over-flagging earned uses such as `The retry policy serves three distinct failure modes: ...`.
 
 ## Better replacements
 

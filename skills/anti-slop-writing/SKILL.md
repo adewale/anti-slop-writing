@@ -150,11 +150,11 @@ transformative
 groundbreaking
 seamless
 robust outside engineering context
-serves as (as copula displacement)
-stands as (as copula displacement)
 ```
 
 Note: the word and phrase lists above are time-dated detectors. They reflect patterns observed in current model generations and will drift. Re-profile against a current human-vs-LLM corpus before adding or removing entries; `delve` is the cautionary example of a high-risk word whose frequency in LLM output dropped sharply during 2025.
+
+Copula constructions such as `serves as` and `stands as` are intentionally NOT in this words list. They are two-word templates whose verdict depends on context (enumeration, definition, or location work) and live in the detector section above, in the doctrine reference, and in editing-pass step 15. Keeping them out of the bare words list prevents context-free auto-flagging.
 
 ## Staccato contrast test
 

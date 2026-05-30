@@ -246,7 +246,7 @@ Do not strip `delve` or other older entries blindly. Slower-drifting models and 
 
 ### Failure
 
-While adding the word-list-drift material, the change introduced an unsourced statistic: that `delve` usage "dropped roughly 80%" in 2025. The public reporting describes the decline only qualitatively ("dropped off sharply"); the 80% figure was invented. This is the exact unsupported-specificity / fake-precision failure that `regime-shift-new-slop` warns about — reproduced inside the anti-slop doctrine itself, by the person writing it.
+While adding the word-list-drift material, the change introduced an unsourced statistic: that `delve` usage "dropped roughly 80%" in 2025. The public reporting describes the decline only qualitatively ("dropped off sharply"); the 80% figure was invented. This reproduces the exact unsupported-specificity / fake-precision failure that `regime-shift-new-slop` warns about, inside the anti-slop doctrine itself, by the person writing it.
 
 ### What changed
 

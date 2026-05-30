@@ -34,6 +34,8 @@ All notable changes to this project are recorded here. This changelog tracks doc
 ### Fixed
 
 - Removed an unsourced "roughly 80%" drop figure for `delve` from the doctrine reference, the `word-list-drift` meta-eval, and `LESSONS.md`; the public reporting supports only a qualitative decline. Added an explicit instruction not to invent the percentage. This was the anti-slop doctrine reproducing the fake-precision failure it warns against.
+- Moved the `serves as` and `stands as` entries out of the SKILL.md and doctrine-reference words lists into the dedicated copula-displacement detector sections only. They are two-word context-dependent templates, not single lexemes, and a flat words list would risk over-flagging earned uses such as `The retry policy serves three distinct failure modes: ...`.
+- Fixed three trailing additive em-dashes in this session's own prose (one in `LESSONS.md`, two in `evals/results/2026-05-27-smoke-run.md`) that tripped the new em-dash detector. Replaced with commas or restructured clauses.
 
 ## [0.1.0] - 2026-05-25
 

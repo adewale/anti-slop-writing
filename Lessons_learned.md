@@ -27,7 +27,7 @@ Most StoryScope findings are fiction-specific — dream sequences, character des
 
 ### Failure
 
-The rewrite-eval suite was graded by a single static rubric and (implicitly) a single judge family. Documented judge biases — self-preference ([Panickssery, Bowman, Feng, NeurIPS 2024](https://arxiv.org/abs/2404.13076)), length ([Dubois et al., Length-Controlled AlpacaEval](https://arxiv.org/abs/2404.04475)), style-over-substance ([Wu & Aji, arXiv 2307.03025](https://arxiv.org/abs/2307.03025)), criteria drift ([Shankar et al., EvalGen, UIST 2024](https://arxiv.org/abs/2404.12272)) — were not specifically guarded against. For an anti-slop skill, length-without-mechanism is precisely the failure being fought, so length bias is a direct attack on the eval's discriminating power.
+The rewrite-eval suite was graded by a single static rubric and (implicitly) a single judge family. Documented judge biases — self-preference ([Panickssery, Bowman, Feng, NeurIPS 2024](https://arxiv.org/abs/2404.13076)), length ([Dubois et al., Length-Controlled AlpacaEval](https://arxiv.org/abs/2404.04475)), style-over-substance ([Wu & Aji, arXiv 2307.03025](https://arxiv.org/abs/2307.03025)), criteria drift ([Shankar et al., EvalGen, UIST 2024](https://arxiv.org/abs/2404.12272)) — were not specifically guarded against. For an anti-slop skill, longer-sounds-better is the slop pattern the skill targets, so a length-biased judge rewards the exact failure the skill is supposed to catch.
 
 ### What changed
 
@@ -35,7 +35,7 @@ The runbook now requires a cross-family judge ensemble, length normalization, or
 
 ### What not to overgeneralize
 
-Cross-family judging dilutes self-preference but does not eliminate it. Length normalization can mask cases where the rewrite genuinely needs to be longer (e.g. when the original conflated two failure modes). The judge layer cannot be "fixed" — it can only be diluted, audited, and spot-checked against humans. Goodhart is an impossibility result, not a warning ([Skalse et al., NeurIPS 2022](https://arxiv.org/abs/2209.13085)): no non-trivial proxy is safe under unbounded optimization, so the loop's structure (splits, gates, ensembles) carries the load, not the judge prompt.
+Cross-family judging dilutes self-preference but does not eliminate it. Length normalization can mask cases where the rewrite genuinely needs to be longer (e.g. when the original conflated two failure modes). The judge layer cannot be "fixed" — it can only be diluted, audited, and spot-checked against humans. Goodhart is an impossibility result, not a warning ([Skalse et al., NeurIPS 2022](https://arxiv.org/abs/2209.13085)): no non-trivial proxy is safe under unbounded optimization, so the held-out split, the score-delta gate, and the cross-family ensemble are what protect the loop, not the judge prompt itself.
 
 ### Eval coverage
 
@@ -55,7 +55,7 @@ The Tier-S / Tier-A / Tier-B priority order in `docs/hillclimb-improvements.md` 
 
 ### What not to overgeneralize
 
-The automated methods are not dismissed. They are appropriate for scripted loops at larger scale, where the grader is robust and the loss function is reliable. For this repo, they would amplify judge weakness. The decision is scale-and-domain dependent, not a permanent verdict. Revisit when (a) the loop is scripted, (b) the judge ensemble has been calibrated against humans on a labeled set, and (c) eval-set scale exceeds the few-hundred-cases regime where small-sample CI corrections still dominate.
+The automated methods are not dismissed. They are appropriate for scripted loops at larger scale, where the judge has been calibrated against human scores on a labeled set and the loss function is verifiable. For this repo, they would amplify judge weakness. The decision is scale-and-domain dependent, not a permanent verdict. Revisit when (a) the loop is scripted, (b) the judge ensemble has been calibrated against humans on a labeled set, and (c) eval-set scale exceeds the few-hundred-cases regime where small-sample CI corrections still dominate.
 
 ### Eval coverage
 

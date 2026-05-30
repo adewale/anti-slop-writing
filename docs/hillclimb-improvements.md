@@ -10,7 +10,7 @@ The motivating problem: the existing `runbooks/hillclimb-skill.md` had no held-o
 
 Each eval file now carries a `split` field per case: `tune` (used to diagnose and iterate) or `holdout` (scored at the end of a round and at PR merge, never used to write doctrine). The split is roughly 60/40 tune/holdout on each suite.
 
-The rule: never write a doctrine change in response to a holdout failure. Write a new failure case for the next round instead. A holdout failure that drives a doctrine change converts the holdout back into a tune case and defeats the purpose of the split.
+The rule: never write a doctrine change in response to a holdout failure. Write a new failure case for the next round instead. A holdout failure that drives a doctrine change converts the holdout back into a tune case.
 
 Source: Dwork, Feldman, Hardt, Pitassi, Reingold, Roth, *Preserving Statistical Validity in Adaptive Data Analysis* ([STOC 2015, arXiv 1411.2664](https://arxiv.org/abs/1411.2664)); the companion *Reusable holdout* in [Science 2015](https://www.science.org/doi/10.1126/science.aaa9375). Practitioner precedent: [Anthropic Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) (60/40 split, select by held-out score) and [LangChain Better Harness](https://www.langchain.com/blog/better-harness-a-recipe-for-harness-hill-climbing-with-evals).
 
@@ -18,7 +18,7 @@ Source: Dwork, Feldman, Hardt, Pitassi, Reingold, Roth, *Preserving Statistical 
 
 Added `scripts/score_delta.py` for paired bootstrap and beta-binomial CIs on accept/reject decisions. The runbook now requires running it for any close call: if the CI on the score delta overlaps zero, the edit is not accepted.
 
-The default test is a sign-flip permutation on per-case deltas; with N ≤ 20 cases per suite, CLT-based standard errors are dramatically too tight, so the helper avoids them.
+The default test is a sign-flip permutation on per-case deltas; with N ≤ 20 cases per suite, CLT-based standard errors understate uncertainty, so the helper avoids them.
 
 Source: Miller, *Adding Error Bars to Evals* (Anthropic, [arXiv 2411.00640](https://arxiv.org/abs/2411.00640), Nov 2024); Bowyer, Aitchison, Ivanova, *Don't Use the CLT in LLM Evals With Fewer Than a Few Hundred Datapoints* ([ICML 2025 Spotlight, arXiv 2503.01747](https://arxiv.org/abs/2503.01747)). Acceptance-gate precedent: Blum & Hardt, *The Ladder* ([ICML 2015, arXiv 1502.04585](https://arxiv.org/abs/1502.04585)).
 
@@ -52,7 +52,7 @@ Source: Panickssery, Bowman, Feng, *LLM Evaluators Recognize and Favor Their Own
 
 ### 7. Length-controlled judging
 
-The runbook's judge protocol now records candidate length and either normalizes by word count or applies a length-counterfactual adjustment (longer answers do not get preference unless an orthogonal-axis check confirms they earn it). For an anti-slop skill specifically, length-without-mechanism is the failure mode being fought.
+The runbook's judge protocol now records candidate length and either normalizes by word count or applies a length-counterfactual adjustment (longer answers do not get preference unless an orthogonal-axis check confirms they earn it). For an anti-slop skill specifically, longer-sounds-better is the slop pattern the skill targets, and a length-biased judge rewards exactly that.
 
 Source: Dubois et al., *Length-Controlled AlpacaEval* ([arXiv 2404.04475](https://arxiv.org/abs/2404.04475)) — length is the single most exploitable judge confound.
 

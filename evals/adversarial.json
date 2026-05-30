@@ -167,6 +167,39 @@
         "Identifies each fragment as a label for a methodological choice already established earlier.",
         "If rewriting, preserves the three labels rather than expanding them into prose that re-explains what the methods section already covered."
       ]
+    },
+    {
+      "id": "earned-antithesis-synthesis-pg",
+      "split": "holdout",
+      "prompt": "Review this final sentence of a paragraph. The paragraph has already shown two poles: vaporous academic writing that is correct but vague, and the bold-but-false rhetoric of demagogues.\n\nPrecision and correctness are like opposing forces. It's easy to satisfy one if you ignore the other. The converse of vaporous academic writing is the bold, but false, rhetoric of demagogues. Useful writing is bold, but true.",
+      "expected_output": "Keeps 'Useful writing is bold, but true.' as earned antithesis because both poles (bold like the demagogue, true like the precise academic) were evidenced in the same paragraph.",
+      "assertions": [
+        "Does not flag 'Useful writing is bold, but true.' as decorative or compressed antithesis solely because it is a short contrast.",
+        "Applies the both-sides test and notes that both poles of the contrast were evidenced in the prior prose.",
+        "Does not rewrite the synthesis line into longer generic prose that loses the compression."
+      ]
+    },
+    {
+      "id": "cataphoric-label-defined-in-paragraph",
+      "split": "holdout",
+      "prompt": "Review this paragraph:\n\nMy strategy is loose, then tight. I write the first draft of an essay fast, trying out all kinds of ideas. Then I spend days rewriting it very carefully.",
+      "expected_output": "Keeps 'loose, then tight' because it is a cataphoric label immediately defined by the two sentences that follow (loose = fast first draft, tight = days of careful rewriting). Both sides of the contrast are evidenced in the same paragraph.",
+      "assertions": [
+        "Does not flag the two-word contrast 'loose, then tight' as decorative slop on cadence alone.",
+        "Recognizes that the following two sentences define both sides of the contrast, which earns the compression.",
+        "Does not demand a named tool, metric, or external source to keep the line."
+      ]
+    },
+    {
+      "id": "escalating-magnitude-triple",
+      "split": "holdout",
+      "prompt": "Review this passage:\n\nIf you write a bad sentence, you don't publish it. You delete it and try again. Often you abandon whole branches of four or five paragraphs. Sometimes a whole essay.",
+      "expected_output": "Keeps the three-part escalation because each unit carries a distinct concrete magnitude (a sentence, four or five paragraphs, a whole essay) rather than supplying decorative parallel closure.",
+      "assertions": [
+        "Does not flag the three short sentences as rule-of-three slop.",
+        "Recognizes the escalation by concrete magnitude: a sentence, then four or five paragraphs, then a whole essay.",
+        "Does not collapse the escalation into a single generic sentence that loses the magnitudes."
+      ]
     }
   ]
 }

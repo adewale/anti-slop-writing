@@ -57,13 +57,22 @@ REQUIRED = [
     ROOT / "evals" / "failures" / "weak-conclusion.md",
     ROOT / "evals" / "failures" / "product-tour-flow.md",
     ROOT / "evals" / "failures" / "safe-essay-voice.md",
+    ROOT / "evals" / "failures" / "rewrite-reuses-flagged-pattern.md",
     ROOT / "evals" / "results" / "latest.md",
     ROOT / "evals" / "results" / "2026-05-25-before.md",
     ROOT / "evals" / "results" / "2026-05-25-after.md",
     ROOT / "evals" / "results" / "2026-05-25-runbook-eval-drift.md",
     ROOT / "evals" / "results" / "2026-05-25-adversarial-expansion.md",
+    ROOT / "evals" / "results" / "2026-05-27-rewrite-self-check.md",
+    ROOT / "evals" / "results" / "2026-05-28-joe-beda-before.md",
+    ROOT / "evals" / "results" / "2026-05-28-joe-beda-after.md",
+    ROOT / "evals" / "results" / "2026-05-28-rewrite-check-before.md",
+    ROOT / "evals" / "results" / "2026-05-28-rewrite-check-after.md",
+    ROOT / "evals" / "results" / "2026-05-28-generalization-pg.md",
     ROOT / "evals" / "results" / "2026-05-29-baseline.md",
     ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl",
+    ROOT / "evals" / "results" / "2026-05-30-rebaseline.md",
+    ROOT / "evals" / "results" / "rebaseline-2026-05-30" / "scores.jsonl",
 ]
 
 REQUIRED_SKILL_PHRASES = [

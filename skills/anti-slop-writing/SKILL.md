@@ -76,7 +76,7 @@ Before finalizing prose:
 4. Remove “not just X but Y” unless it is the exact point.
 5. Cut superficial “highlighting/underscoring” clauses.
 6. Check every claim of importance against evidence.
-7. Replace vague actors with named sources or uncertainty.
+7. Replace vague actors with named sources, named uncertainty, or an `ask-author` note that says what to ask. Do not invent a name, count, tool, or timing to fill a `Concrete rewrite` slot.
 8. Collapse redundant bullets.
 9. Vary sentence rhythm deliberately.
 10. Audit staccato contrast cadence by identifying the hidden relation: contrast, evidence scope, cause, consequence, exception, or scope control.
@@ -143,13 +143,21 @@ robust outside engineering context
 
 ## Staccato contrast test
 
-Do not treat every short contrast as slop. First classify it:
+Do not treat every short contrast as slop. First classify it. The test is whether each *side* of the contrast is supported by the prior prose, not just whether the topic of the contrast was mentioned.
 
 ```txt
-Earned antithesis: the contrast names a real distinction already evidenced. Keep or use once.
-Compressed antithesis: the contrast is true but hides the mechanism. Expand into the relation.
-Decorative antithesis: the contrast supplies closure without evidence. Cut or replace.
+Earned antithesis: both sides of the contrast are evidenced in the prior sentences. The contrast lands a distinction the reader can already verify. Keep or use once.
+Compressed antithesis: one side is evidenced; the other side is a leap or a new claim. The cadence implies the contrast before evidence is given. Expand into the relation by naming the unsupported side directly.
+Decorative antithesis: neither side is evidenced. The contrast supplies closure without content. Cut or replace.
 ```
+
+Worked examples from the same source (joe.dev/posts/thinking-out-loud):
+
+Earned: the post evidences both the failure of platforms (Medium pivoted, Twitter, LinkedIn) and the alternative (you owned your domain, you ran a server). The closer `That's what I want. My words, at a URL I own, without anyone in the middle.` lands a distinction whose both sides were shown.
+
+Compressed: the prior sentence evidences movability — `ATproto lets you store structured records in a data server (your PDS) that you own and can move.` — but does not evidence intentionality. The closer `That's not incidental. It's the design.` asserts intentionality on cadence alone. The rewrite should name what makes portability the design (the protocol property that keeps record identity stable across PDS moves), not assert it.
+
+Decorative: `The point is not the pelicans. The point is the process.` Neither the pelican carrier nor the process is evidenced before the contrast. Rewrite by naming the relation: `The pelican is useful because it gives the process a small, inspectable carrier.`
 
 Rewrite rules:
 
@@ -230,6 +238,8 @@ Did every flagged slop tell get a concrete rewrite or a reason to cut?
 Does each rewrite name the mechanism, relation, actor/action/result, or concrete carrier?
 Did I preserve earned compression instead of expanding it into bland explanation?
 Did I avoid introducing new prestige abstractions or banned fallback phrases?
+Did I run the same detectors on my rewrite that I ran on the source? In particular, does my rewrite reuse the cadence I just flagged (em-dash antithesis, "X isn't A, it's B", short parallel clauses) under different punctuation?
+When a rewrite needs a fact not in the source (a name, a number, a tool, a mechanism), did I ask the author or recommend cutting, rather than inventing a confident-sounding specific?
 ```
 
 For high-stakes prose, do one bounded judge-refine pass: score specificity, evidence fit, relation clarity, and rhythm on 1-5; improve the weakest dimension once.
@@ -239,14 +249,39 @@ For high-stakes prose, do one bounded judge-refine pass: score specificity, evid
 When reviewing existing prose, use:
 
 ```txt
-Verdict: keep / revise / reject
+Verdict: keep / revise / ask-author / reject
 Slop tells:
 Specificity missing:
 Inflated claim:
 Flow break:
 Concrete rewrite:
+Rewrite check:
 Remembered line:
 ```
+
+Use `ask-author` when the line is genuinely improvable but the fix would
+need a fact the source paragraph does not supply: a tool name, a person,
+a count, a timing claim, a named mechanism, a specific event. Name what
+to ask in the `Concrete rewrite` slot — for example,
+`Ask author: which coding tool? Cursor, Claude Code, Copilot, Aider, other?` —
+and offer a fallback (cut, or keep with the next sentences carrying the
+work). Do not invent the missing fact to fill the `Concrete rewrite`
+slot. The same rule applies to any fallback rewrite inside an
+`ask-author` block: a fallback that invents is worse than no fallback.
+
+`Rewrite check` is mandatory. State whether your `Concrete rewrite`
+(including any `ask-author` fallback) contains any of: rule-of-three,
+X-not-Y / negative parallelism, em-dash antithesis, banned avoid-by-default
+phrases, prestige adjectives, decorative closure ("That was the point",
+"In conclusion", "Overall", "Ultimately"), or invented facts. If the
+rewrite would have been a `revise` flag on a source paragraph, it should
+be a `revise` flag on itself: rewrite again or escalate to `ask-author`.
+If the rewrite passes, write `passes self-detectors`.
+
+When classifying antithesis or staccato contrast, read the prior sentence
+of the same paragraph first. If it supplies the mechanism the contrast
+points at, the contrast is earned. Do not grade earned contrast as
+compressed or decorative on the strength of cadence alone.
 
 ## Tone target
 

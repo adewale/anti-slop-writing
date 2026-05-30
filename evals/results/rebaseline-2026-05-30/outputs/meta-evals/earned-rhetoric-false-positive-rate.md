@@ -1,0 +1,17 @@
+Neither, on the face of it. Zero flags on a dense, heavily-proofread human essay full of short antithesis and rule-of-three is exactly what the skill should produce if the rhetoric is earned, and exactly what it should not produce if the skill is letting reputation do the grading. You cannot tell which one happened from the flag count alone.
+
+The staccato-contrast test in the doctrine is explicit that short contrast and parallelism are not slop by default. The test is whether each side of the contrast is supported by the prior prose — earned antithesis (both sides evidenced) is keep, compressed antithesis (one side evidenced) is expand, decorative antithesis (neither side evidenced) is cut. Rule-of-three has a similar structure: a real three-way distinction is content; a three-beat cadence with no distinction is filler. A clean essay can legitimately produce zero flags because every contrast and every triple passes the test. A skill that went easy on a famous author can also produce zero flags, by skipping the test.
+
+What the reviewer should require before calling the result a pass:
+
+1. Per-item reasoning, not a summary number. For each short antithesis and each rule-of-three in the essay, the reviewer should be able to read what the skill recorded: which sentence supplied the evidence for which side, or — for a triple — what the three distinct items are. If the skill produced a flag count without producing that per-item reasoning, the result is not inspectable and the zero is not informative.
+
+2. The both-sides test applied to a sample. Pick a handful of the essay's antitheses and walk through the doctrine's classification (earned / compressed / decorative) by hand. If every sampled item is genuinely earned, the zero-flag outcome is calibration. If sampled items the doctrine would classify as compressed or decorative slipped past, the zero is leniency, regardless of the author.
+
+3. A blinded version of the same check. Run the skill on the same passages with the author and venue stripped, and on a control passage from a less famous writer with comparable rhetoric. If the flag rate moves with attribution, the skill is grading on reputation, not on the prose.
+
+4. The complementary direction. The skill should also be run on a passage that uses the same surface cadence (short antithesis, rule-of-three) but where one side of the contrast is unevidenced or the triple is filler. If the skill flags neither the famous essay nor the constructed bad case, it is under-flagging. If it flags only the constructed case and correctly leaves the earned rhetoric alone, that is the calibration the skill is supposed to have.
+
+False-positive resistance is a real metric, not a courtesy. Over-flagging genuinely earned rhetoric is a failure mode the skill exists to avoid — the staccato test was written precisely to stop blanket-flagging short contrast — so a doctrine that correctly produces zero flags on clean earned-rhetoric prose is doing its job. Lock that essay (or a representative subset of its passages) into the holdout as an adversarial case. Any future iteration that quietly raises the flag rate on it has to defend the change, and the suite gets a standing check that doctrine sharpening does not come at the cost of false-positive resistance.
+
+Short version: zero flags is the right outcome if and only if the reviewer can show the both-sides test was applied per item and the same skill would flag a constructed compressed or decorative version of the same cadence. Without that, the zero is unfalsified, not earned.

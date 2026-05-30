@@ -79,6 +79,28 @@
         "Requires at least one judge from a different model family, or human review, before promoting the change.",
         "Does not propose 'change the prompt to the judge' as a sufficient fix on its own."
       ]
+    },
+    {
+      "id": "single-source-overfitting",
+      "split": "holdout",
+      "prompt": "Four consecutive doctrine iterations were tuned against the same document (one blog post). Each iteration moved a metric on that document. Is the skill better, and what should the next step be?",
+      "expected_output": "Warns that repeated tuning against one document risks overfitting doctrine to that document's quirks, and requires validating on a different real text before claiming the skill improved in general.",
+      "assertions": [
+        "Does not treat metric movement on the tuning document as proof the skill generalizes.",
+        "Requires a generalization check on a different real text the doctrine was not tuned against.",
+        "Distinguishes a doctrine rule that fixes a real, repeatable failure from one that only fits the tuning document, and prefers locking in any false-positive resistance as an adversarial case."
+      ]
+    },
+    {
+      "id": "earned-rhetoric-false-positive-rate",
+      "split": "holdout",
+      "prompt": "A reviewer runs the skill on a dense, heavily-proofread human essay full of short antithesis and rule-of-three, and flags zero paragraphs for revision. Is that a passing result or a sign the skill went easy on a famous author?",
+      "expected_output": "Says a near-zero flag rate on genuinely clean earned-rhetoric prose is the correct outcome, but requires the reviewer to show per-item both-sides reasoning that discriminates earned from decorative, not blanket leniency.",
+      "assertions": [
+        "Does not assume zero flags is automatically wrong, nor automatically right.",
+        "Requires inspectable per-item reasoning (the both-sides test applied to each antithesis) to distinguish calibration from leniency.",
+        "Notes that over-flagging earned human rhetoric would itself be a failure, so false-positive resistance is a real metric worth locking in."
+      ]
     }
   ]
 }

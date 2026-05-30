@@ -33,6 +33,7 @@ REQUIRED = [
     ROOT / "scripts" / "score_delta.py",
     ROOT / "scripts" / "run_evals.py",
     ROOT / "evals" / "rejected-edits.md",
+    ROOT / "evals" / "blinded-eval-harness.md",
     ROOT / "TODO.md",
     ROOT / ".gitignore",
     ROOT / ".github" / "workflows" / "validate.yml",

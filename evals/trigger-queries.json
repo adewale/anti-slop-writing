@@ -2,105 +2,162 @@
   "skill_name": "anti-slop-writing",
   "runs_per_query": 3,
   "trigger_rate_threshold": 0.5,
+  "schema_notes": "Each query has split=tune|holdout. Negatives prefixed near- are deliberate near-miss false-positive traps: they share surface vocabulary with positive triggers but should not load the skill. See docs/hillclimb-improvements.md.",
   "queries": [
     {
       "id": "pos-readme-polish",
+      "split": "tune",
       "query": "Can you rewrite this README intro so it doesn't sound like generic AI copy?",
       "should_trigger": true
     },
     {
       "id": "pos-article-conclusion",
+      "split": "tune",
       "query": "This article ending feels true but flat. Help me make the conclusion more concrete.",
       "should_trigger": true
     },
     {
       "id": "pos-slide-copy",
+      "split": "tune",
       "query": "Tighten these product slides and remove the marketing fog.",
       "should_trigger": true
     },
     {
       "id": "pos-email",
+      "split": "tune",
       "query": "Polish this launch email, but keep it specific and not ChatGPT-ish.",
       "should_trigger": true
     },
     {
       "id": "pos-post",
+      "split": "tune",
       "query": "Review this LinkedIn post for AI-writing tells before I publish it.",
       "should_trigger": true
     },
     {
       "id": "pos-wiki",
+      "split": "tune",
       "query": "This wiki page has a lot of 'important to note' filler. Can you clean it up?",
       "should_trigger": true
     },
     {
       "id": "pos-script",
+      "split": "holdout",
       "query": "Make this video script sound less like a safe essay and more grounded in examples.",
       "should_trigger": true
     },
     {
       "id": "pos-flow",
+      "split": "holdout",
       "query": "The paragraphs are individually clear, but the section reads like a list. Fix the flow.",
       "should_trigger": true
     },
     {
       "id": "pos-devrel",
+      "split": "holdout",
       "query": "Review this DevRel blog draft for vague claims and missing runnable evidence.",
       "should_trigger": true
     },
     {
       "id": "pos-tagline",
+      "split": "holdout",
       "query": "Can you replace the 'not just X but Y' line in this landing-page copy with something sharper?",
       "should_trigger": true
     },
     {
       "id": "neg-code-refactor",
+      "split": "tune",
       "query": "Refactor this Python module to reduce duplication and add type hints.",
       "should_trigger": false
     },
     {
       "id": "neg-unit-tests",
+      "split": "tune",
       "query": "Write unit tests for this retry helper and cover the timeout edge case.",
       "should_trigger": false
     },
     {
       "id": "neg-data-chart",
+      "split": "tune",
       "query": "Load sales.csv and make a bar chart of revenue by month.",
       "should_trigger": false
     },
     {
       "id": "neg-grammar-only",
+      "split": "tune",
       "query": "Fix typos and comma mistakes in this paragraph without changing the wording.",
       "should_trigger": false
     },
     {
       "id": "neg-factual-summary",
+      "split": "tune",
       "query": "Summarize this API documentation into a list of endpoints and parameters.",
       "should_trigger": false
     },
     {
       "id": "neg-config-debug",
+      "split": "tune",
       "query": "My GitHub Actions workflow fails on npm install. Debug the YAML.",
       "should_trigger": false
     },
     {
       "id": "neg-sql",
+      "split": "tune",
       "query": "Optimize this SQL query and explain the query plan.",
       "should_trigger": false
     },
     {
       "id": "neg-format-json",
+      "split": "tune",
       "query": "Convert this JSON file to YAML and preserve all keys.",
       "should_trigger": false
     },
     {
       "id": "neg-design-layout",
+      "split": "tune",
       "query": "Create a CSS grid layout for a responsive dashboard.",
       "should_trigger": false
     },
     {
       "id": "neg-translation",
+      "split": "holdout",
       "query": "Translate this Spanish paragraph to English as literally as possible.",
+      "should_trigger": false
+    },
+    {
+      "id": "near-neg-fact-check-blog",
+      "split": "holdout",
+      "query": "Fact-check this blog post and tell me which claims aren't sourced.",
+      "should_trigger": false
+    },
+    {
+      "id": "near-neg-link-check-readme",
+      "split": "holdout",
+      "query": "Check that every link in this README still resolves and update the broken ones.",
+      "should_trigger": false
+    },
+    {
+      "id": "near-neg-draft-status-email",
+      "split": "holdout",
+      "query": "Draft a project status email from these bullet points for me to send tomorrow.",
+      "should_trigger": false
+    },
+    {
+      "id": "near-neg-storyboard-script",
+      "split": "holdout",
+      "query": "Break this video script into storyboard scenes with shot directions.",
+      "should_trigger": false
+    },
+    {
+      "id": "near-neg-slides-export",
+      "split": "holdout",
+      "query": "Export these slides to PDF and rename them with today's date.",
+      "should_trigger": false
+    },
+    {
+      "id": "near-neg-docx-from-dataset",
+      "split": "holdout",
+      "query": "Generate a docx report from this dataset and email it to the team.",
       "should_trigger": false
     }
   ]

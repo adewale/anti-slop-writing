@@ -4,6 +4,21 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 ## [Unreleased]
 
+### Hillclimb infrastructure
+
+- Added `scripts/run_evals.py`, an execution runner with `prepare` / `grade` / `join` subcommands over the eval suites, filtered by split. Orchestration only — the repo is instruction-only, so model calls are done by sub-agents.
+- Added `docs/judge-protocol.md`, the file-based apply → judge → grade protocol that sub-agents follow, with the strict judgment-line format `run_evals.py grade` consumes.
+- Added a clean scored baseline: `evals/results/2026-05-29-baseline.md` plus `evals/results/baseline-2026-05-29/` (38 skill-applied outputs, per-assertion judgments, 26 trigger decisions, `scores.jsonl`). Binary assertions are at ceiling (115/115, 26/26 trigger); the `length-control` graded dimension fails on two rewrites, which on inspection is a rubric-calibration bug (it penalizes mechanism-adding rewrites for exceeding input length), not a skill regression — recorded as the first eval-calibration item for the next round.
+- Added `TODO.md` tracking the blocked discourse-layer failure-example item and the cross-family-judge follow-up.
+- Added tune/holdout split to every eval file (`evals/evals.json`, `evals/adversarial.json`, `evals/rewrite-evals.json`, `evals/meta-evals.json`, `evals/trigger-queries.json`). Holdout cases are scored only at end-of-round and at merge; doctrine must not be edited in response to a holdout failure.
+- Added `scripts/score_delta.py` for paired-bootstrap and sign-flip-permutation gating; the runbook now requires ACCEPT on the holdout split before merge.
+- Added `dynamic_rubric` (per-instance criteria) and `graded_dimensions` (orthogonal 1-5 axes) schema fields on rewrite-eval cases.
+- Added `near-neg-` near-miss negatives to `evals/trigger-queries.json` (fact-check, link-check, draft-from-bullets, storyboard, slide-export, docx-from-dataset).
+- Added new holdout cases to every suite: `fake-precision-unnamed-source`, `stacked-rule-of-three`, `abstract-system-noun-stack`, `earned-importance-immediate-mechanism`, `cost-benefit-not-just-earning-the-contrast`, `research-methods-staccato`, `fake-precision-rewrite-finance`, `product-tour-rewrite-developer-tools`, `noise-vs-signal-on-small-suite`, `judge-self-preference`.
+- Updated `scripts/validate.py` to enforce per-case split, minimum holdout counts per suite, and the `near-neg-` near-miss requirement on trigger queries.
+- Added `evals/rejected-edits.md` graveyard so previously rejected edits are not relitigated.
+- Added `docs/hillclimb-improvements.md` with sources for all thirteen changes (Dwork, Blum & Hardt, Miller, Bowyer, WritingBench, FLASK, BFCL, Panickssery, Dubois, Hamel/Shankar, GEPA, SkillOpt, Decagon, Schaeffer).
+
 ### Evals
 
 - Added adversarial evals to prevent over-flagging earned contrast, technical use of `robust`, quoted bad phrases, useful lists, short direct answers, exact `not just` distinctions, controlled-variable staccato, concrete tables, ordered three-step sequences, direct warnings, source-backed `highlights`, and imperative runbook steps.
@@ -18,9 +33,10 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 ### Docs
 
-- Added `LESSONS.md` to record what each failure taught and what not to overgeneralize.
-- Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early.
+- Added `Lessons_learned.md` (originally `LESSONS.md`) to record what each failure taught and what not to overgeneralize.
+- Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early; rewritten to include the held-out gate, statistical gating, cross-family judge protocol, length normalization, saturation stop, Pareto-front carryforward, length budget, and eval-rot refresh policy.
 - Added `docs/eval-runbook-notes.md` to record the external runbook and eval-drift ideas that shaped this iteration.
+- Added `docs/hillclimb-improvements.md` as the single source of truth for the thirteen hillclimb-infrastructure changes and their citations.
 
 ## [0.1.0] - 2026-05-25
 

@@ -1,0 +1,26 @@
+{"id": "pos-readme-polish", "split": "tune", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "README text + generic AI copy is explicitly in scope"}
+{"id": "pos-article-conclusion", "split": "tune", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "article with flat/weak conclusion matches flow scope"}
+{"id": "pos-slide-copy", "split": "tune", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "slide copy + marketing fog named directly"}
+{"id": "pos-email", "split": "tune", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "emails + ChatGPT-ish AI trope removal in scope"}
+{"id": "pos-post", "split": "tune", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "posts + AI-writing tells named directly"}
+{"id": "pos-wiki", "split": "tune", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "wiki pages + inflated-significance filler in scope"}
+{"id": "pos-script", "split": "holdout", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "scripts + generic safe-essay cadence in scope"}
+{"id": "pos-flow", "split": "holdout", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "list-like prose with weak flow named directly"}
+{"id": "pos-devrel", "split": "holdout", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "DevRel copy + vague/foggy claims in scope"}
+{"id": "pos-tagline", "split": "holdout", "should_trigger": true, "predicted_trigger": true, "correct": true, "rationale": "product/landing copy with 'not just X but Y' AI trope"}
+{"id": "neg-code-refactor", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "code refactor, not prose"}
+{"id": "neg-unit-tests", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "writing tests, not prose"}
+{"id": "neg-data-chart", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "data/charting task, not prose"}
+{"id": "neg-grammar-only", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "mechanical typo fix, no style/trope rewrite"}
+{"id": "neg-factual-summary", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "structured doc summary, not slop rewrite"}
+{"id": "neg-config-debug", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "YAML/CI debugging, not prose"}
+{"id": "neg-sql", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "SQL optimization, not prose"}
+{"id": "neg-format-json", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "format conversion, not prose"}
+{"id": "neg-design-layout", "split": "tune", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "CSS layout, not prose"}
+{"id": "neg-translation", "split": "holdout", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "literal translation, not style rewrite"}
+{"id": "near-neg-fact-check-blog", "split": "holdout", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "sourcing/fact-check, not prose-style work"}
+{"id": "near-neg-link-check-readme", "split": "holdout", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "link resolution despite README vocab, not prose"}
+{"id": "near-neg-draft-status-email", "split": "holdout", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "plain drafting from bullets, no slop/style concern"}
+{"id": "near-neg-storyboard-script", "split": "holdout", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "storyboard/shot breakdown, not prose rewrite"}
+{"id": "near-neg-slides-export", "split": "holdout", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "PDF export/rename file ops despite slides vocab"}
+{"id": "near-neg-docx-from-dataset", "split": "holdout", "should_trigger": false, "predicted_trigger": false, "correct": true, "rationale": "data-to-docx report, not prose rewrite"}

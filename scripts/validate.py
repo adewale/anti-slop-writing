@@ -24,10 +24,16 @@ REQUIRED = [
     ROOT / "AGENTS.md",
     ROOT / "CONTRIBUTING.md",
     ROOT / "CHANGELOG.md",
-    ROOT / "LESSONS.md",
+    ROOT / "Lessons_learned.md",
     ROOT / "LICENSE",
     ROOT / "docs" / "eval-runbook-notes.md",
+    ROOT / "docs" / "hillclimb-improvements.md",
+    ROOT / "docs" / "judge-protocol.md",
     ROOT / "runbooks" / "hillclimb-skill.md",
+    ROOT / "scripts" / "score_delta.py",
+    ROOT / "scripts" / "run_evals.py",
+    ROOT / "evals" / "rejected-edits.md",
+    ROOT / "TODO.md",
     ROOT / ".gitignore",
     ROOT / ".github" / "workflows" / "validate.yml",
     SKILL,
@@ -56,6 +62,8 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-25-after.md",
     ROOT / "evals" / "results" / "2026-05-25-runbook-eval-drift.md",
     ROOT / "evals" / "results" / "2026-05-25-adversarial-expansion.md",
+    ROOT / "evals" / "results" / "2026-05-29-baseline.md",
+    ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl",
 ]
 
 REQUIRED_SKILL_PHRASES = [
@@ -145,7 +153,31 @@ def validate_frontmatter(text: str) -> None:
         fail(f"SKILL.md compatibility exceeds 500 chars: {len(compatibility)}")
 
 
-def validate_eval_file(path: Path, min_count: int = 1) -> None:
+VALID_SPLITS = {"tune", "holdout"}
+
+
+def validate_graded_dimensions(path: Path, case_id: str, dims: Any) -> None:
+    if not isinstance(dims, list) or not dims:
+        fail(f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions must be a non-empty list when present")
+    for i, dim in enumerate(dims, start=1):
+        if not isinstance(dim, dict):
+            fail(f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions[{i}] must be an object")
+        for field in ("name", "scale", "rubric"):
+            if not isinstance(dim.get(field), str) or not dim[field].strip():
+                fail(f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions[{i}] missing non-empty {field}")
+
+
+def validate_dynamic_rubric(path: Path, case_id: str, rubric: Any) -> None:
+    if not isinstance(rubric, dict):
+        fail(f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric must be an object when present")
+    if not isinstance(rubric.get("instruction"), str) or not rubric["instruction"].strip():
+        fail(f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric missing non-empty instruction")
+    min_criteria = rubric.get("minimum_criteria")
+    if not isinstance(min_criteria, int) or min_criteria < 2:
+        fail(f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric.minimum_criteria must be int >= 2")
+
+
+def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> None:
     data = load_json(path)
     if data.get("skill_name") != "anti-slop-writing":
         fail(f"{path.relative_to(ROOT)} skill_name must be anti-slop-writing")
@@ -154,6 +186,8 @@ def validate_eval_file(path: Path, min_count: int = 1) -> None:
         fail(f"{path.relative_to(ROOT)} must contain at least {min_count} evals")
 
     ids: set[str] = set()
+    holdout_count = 0
+    tune_count = 0
     for index, case in enumerate(evals, start=1):
         if not isinstance(case, dict):
             fail(f"{path.relative_to(ROOT)} eval #{index} must be an object")
@@ -171,13 +205,56 @@ def validate_eval_file(path: Path, min_count: int = 1) -> None:
             fail(f"{path.relative_to(ROOT)} eval {case_id} must have at least 2 assertions")
         if not all(isinstance(item, str) and item.strip() for item in assertions):
             fail(f"{path.relative_to(ROOT)} eval {case_id} assertions must be non-empty strings")
+        split = case.get("split")
+        if split not in VALID_SPLITS:
+            fail(f"{path.relative_to(ROOT)} eval {case_id} split must be one of {sorted(VALID_SPLITS)}")
+        if split == "holdout":
+            holdout_count += 1
+        else:
+            tune_count += 1
+        if "graded_dimensions" in case:
+            validate_graded_dimensions(path, case_id, case["graded_dimensions"])
+        if "dynamic_rubric" in case:
+            validate_dynamic_rubric(path, case_id, case["dynamic_rubric"])
+
+    if holdout_count < min_holdout:
+        fail(f"{path.relative_to(ROOT)} must contain at least {min_holdout} holdout cases (found {holdout_count})")
+    if tune_count < 1:
+        fail(f"{path.relative_to(ROOT)} must contain at least 1 tune case (found {tune_count})")
 
 
 def validate_skill_evals() -> None:
-    validate_eval_file(SKILL_EVALS, min_count=5)
-    validate_eval_file(ADVERSARIAL_EVALS, min_count=12)
-    validate_eval_file(REWRITE_EVALS, min_count=6)
-    validate_eval_file(META_EVALS, min_count=5)
+    validate_eval_file(SKILL_EVALS, min_count=8, min_holdout=2)
+    validate_eval_file(ADVERSARIAL_EVALS, min_count=15, min_holdout=2)
+    validate_eval_file(REWRITE_EVALS, min_count=8, min_holdout=2)
+    validate_eval_file(META_EVALS, min_count=7, min_holdout=2)
+
+
+def validate_baseline_scores() -> None:
+    path = ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl"
+    seen: set[str] = set()
+    count = 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError as exc:
+            fail(f"invalid JSON in {path.relative_to(ROOT)}: {exc}")
+        for field in ("id", "split", "score"):
+            if field not in record:
+                fail(f"{path.relative_to(ROOT)} record missing {field}: {record}")
+        if record["split"] not in VALID_SPLITS:
+            fail(f"{path.relative_to(ROOT)} record {record['id']} has invalid split")
+        if not isinstance(record["score"], (int, float)) or not 0 <= record["score"] <= 1:
+            fail(f"{path.relative_to(ROOT)} record {record['id']} score must be in [0,1]")
+        if record["id"] in seen:
+            fail(f"{path.relative_to(ROOT)} duplicate id: {record['id']}")
+        seen.add(record["id"])
+        count += 1
+    if count < 30:
+        fail(f"{path.relative_to(ROOT)} baseline must score at least 30 cases (found {count})")
 
 
 def validate_with_skills_ref() -> None:
@@ -198,6 +275,8 @@ def validate_trigger_queries() -> None:
 
     positives = 0
     negatives = 0
+    holdout = 0
+    near_miss_negatives = 0
     for index, query in enumerate(queries, start=1):
         if not isinstance(query, dict):
             fail(f"trigger query #{index} must be an object")
@@ -207,11 +286,22 @@ def validate_trigger_queries() -> None:
         should_trigger = query.get("should_trigger")
         if not isinstance(should_trigger, bool):
             fail(f"trigger query {query['id']} should_trigger must be boolean")
+        split = query.get("split")
+        if split not in VALID_SPLITS:
+            fail(f"trigger query {query['id']} split must be one of {sorted(VALID_SPLITS)}")
         positives += int(should_trigger)
         negatives += int(not should_trigger)
+        if split == "holdout":
+            holdout += 1
+        if query["id"].startswith("near-neg-"):
+            near_miss_negatives += 1
 
     if positives < 5 or negatives < 5:
         fail("trigger queries must include at least 5 positives and 5 negatives")
+    if holdout < 4:
+        fail(f"trigger queries must include at least 4 holdout queries (found {holdout})")
+    if near_miss_negatives < 4:
+        fail(f"trigger queries must include at least 4 near-neg- near-miss negatives (found {near_miss_negatives})")
 
 
 def main() -> int:
@@ -238,10 +328,11 @@ def main() -> int:
 
     validate_skill_evals()
     validate_trigger_queries()
+    validate_baseline_scores()
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "LESSONS.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
+    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 

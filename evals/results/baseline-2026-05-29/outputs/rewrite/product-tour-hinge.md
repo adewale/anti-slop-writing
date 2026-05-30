@@ -1,0 +1,1 @@
+The three surfaces inspect the same models at different resolutions: The Climb ranks them across the whole field, Head-to-Head zooms to a frame-by-frame filmstrip of two runs side by side, and Runbook Diffs drops to the line level to show what changed between versions.

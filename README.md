@@ -76,21 +76,27 @@ Notes:
 ```txt
 skills/anti-slop-writing/SKILL.md     Installable skill instructions
 skills/anti-slop-writing/references/  Installable supporting doctrine and examples
-evals/evals.json                      Repo-only output evals and assertions
-evals/adversarial.json                Repo-only over-flagging and false-positive evals
-evals/rewrite-evals.json              Repo-only rewrite quality evals
-evals/meta-evals.json                 Repo-only eval-suite health checks
-evals/trigger-queries.json            Repo-only trigger accuracy eval queries
+evals/evals.json                      Repo-only output evals (tune + holdout split)
+evals/adversarial.json                Repo-only over-flagging evals (tune + holdout split)
+evals/rewrite-evals.json              Repo-only rewrite quality evals (with dynamic_rubric and graded_dimensions)
+evals/meta-evals.json                 Repo-only eval-suite health checks (tune + holdout split)
+evals/trigger-queries.json            Repo-only trigger accuracy queries with near-neg- near-miss negatives
 evals/cases.md                        Human-readable regression cases
 evals/failures/                       Curated failure corpus behind the doctrine
-evals/results/                        Recorded smoke eval results
+evals/rejected-edits.md               Graveyard of doctrine edits that failed an eval
+evals/results/                        Recorded smoke eval results and the scored baseline
 examples/cards/                       Compact before/after cards
 examples/                             Repo-only before/after examples
-LESSONS.md                            Lessons learned and overgeneralization boundaries
+TODO.md                               Tracked work, including the blocked failure-example item
+Lessons_learned.md                    Lessons learned and overgeneralization boundaries
 CHANGELOG.md                          Doctrine, eval, compatibility, and docs changes
 runbooks/hillclimb-skill.md           Runbook for bounded skill-improvement loops
 docs/eval-runbook-notes.md            Source notes for runbook/eval-drift ideas
+docs/hillclimb-improvements.md        Cited rationale for the 13 hillclimb infrastructure changes
+docs/judge-protocol.md                Sub-agent apply / judge / grade protocol
 scripts/validate.py                   Repo-only validation
+scripts/score_delta.py                Paired-bootstrap / sign-flip gate for accept/reject
+scripts/run_evals.py                  Execution runner: prepare / grade / join over eval suites
 .github/workflows/validate.yml        GitHub Actions validation
 ```
 
@@ -98,18 +104,20 @@ Copy `evals/`, `examples/`, `scripts/`, and `.github/` only when you are working
 
 ## Current eval status
 
-Latest recorded smoke results are in `evals/results/latest.md`.
+Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite is split into `tune` cases (used during iteration) and `holdout` cases (scored at end-of-round and at merge only).
 
-| Eval set | Result |
-|---|---:|
-| Manual regression cases (`evals/cases.md`) | 5/5 pass |
-| Machine-readable assertions (`evals/evals.json`) | 15/15 pass |
-| Adversarial false-positive checks (`evals/adversarial.json`) | see latest results |
-| Rewrite quality checks (`evals/rewrite-evals.json`) | see latest results |
-| Eval-suite health checks (`evals/meta-evals.json`) | see latest results |
-| Trigger-query sanity check (`evals/trigger-queries.json`) | 20/20 pass |
+| Eval set | Tune cases | Holdout cases |
+|---|---:|---:|
+| Machine-readable assertions (`evals/evals.json`) | 5 | 3 |
+| Adversarial false-positive checks (`evals/adversarial.json`) | 12 | 3 |
+| Rewrite quality checks (`evals/rewrite-evals.json`) | 6 | 2 |
+| Eval-suite health checks (`evals/meta-evals.json`) | 5 | 2 |
+| Trigger-query sanity check (`evals/trigger-queries.json`) | 16 | 10 |
+| Manual regression cases (`evals/cases.md`) | 5 cases | n/a |
 
-These results catch regressions in the current doctrine. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts.
+A full scored baseline of the current skill across every tune and holdout case is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. The binary assertions are at ceiling (115/115, 26/26 trigger); the `length-control` graded axis fails on two rewrites, which on inspection is a rubric-calibration bug rather than a skill defect (it penalizes adding a mechanism). The discriminating signal for real doctrine work now waits on the discourse-layer cases that do not yet exist (see `TODO.md`).
+
+These results catch regressions in the current doctrine. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts. Use `scripts/score_delta.py` for paired-bootstrap and sign-flip-permutation gating on any close-call accept/reject. The full discipline (held-out gate, statistical gating, judge protocol, Pareto-front carryforward, length budget) is documented in `docs/hillclimb-improvements.md`.
 
 ## Contributing
 
@@ -124,7 +132,7 @@ When improving the skill:
 3. Add or update the runnable case in `evals/evals.json`, `evals/rewrite-evals.json`, `evals/adversarial.json`, or `evals/meta-evals.json`.
 4. Add the failure to `evals/failures/` or a compact card to `examples/cards/` when it teaches a reusable pattern.
 5. If the change affects activation, update `evals/trigger-queries.json`.
-6. Record the lesson in `LESSONS.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
+6. Record the lesson in `Lessons_learned.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
 7. Make the smallest doctrine change in `skills/anti-slop-writing/SKILL.md` or `skills/anti-slop-writing/references/`.
 8. Run validation:
 

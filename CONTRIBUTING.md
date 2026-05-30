@@ -27,17 +27,21 @@ Current eval dimensions:
 
 The machine-readable assertions live in `evals/evals.json`. Rewrite-specific checks live in `evals/rewrite-evals.json`; false-positive checks live in `evals/adversarial.json`; eval-suite health checks live in `evals/meta-evals.json`. The companion explanations live in `evals/cases.md` and `evals/failures/`.
 
+Every eval case carries a `split` field: `tune` (used to diagnose and iterate doctrine) or `holdout` (scored only at end-of-round and at merge). Never edit doctrine in response to a holdout failure — write a new tune case for the next round instead. See `docs/hillclimb-improvements.md` for the rationale and `runbooks/hillclimb-skill.md` for the loop.
+
 ## What to update
 
 | Change type | Required updates |
 |---|---|
-| New detector or doctrine rule | Add/update `evals/evals.json`, `evals/rewrite-evals.json`, `evals/failures/`, and usually `evals/cases.md` or `examples/cards/`. |
+| New detector or doctrine rule | Add/update `evals/evals.json`, `evals/rewrite-evals.json`, `evals/failures/`, and usually `evals/cases.md` or `examples/cards/`. New cases must carry `split: "tune"` or `split: "holdout"`. |
 | False-positive or over-flagging fix | Add/update `evals/adversarial.json`. |
-| Eval-suite weakness or ceiling effect | Add/update `evals/meta-evals.json` and record the lesson in `LESSONS.md`. |
-| Trigger/activation wording | Add/update `evals/trigger-queries.json`. |
+| Eval-suite weakness or ceiling effect | Add/update `evals/meta-evals.json` and record the lesson in `Lessons_learned.md`. |
+| Trigger/activation wording | Add/update `evals/trigger-queries.json`. Near-miss false positives must use the `near-neg-` id prefix. |
+| Rejected doctrine edit | Add an entry to `evals/rejected-edits.md` so the same failed move is not retried. |
 | Reference-only clarification | Update the relevant file in `skills/anti-slop-writing/references/`. |
 | Install/runtime compatibility | Update `README.md` and, if needed, `skills/anti-slop-writing/SKILL.md` frontmatter. |
 | Validation behavior | Update `scripts/validate.py` and document the check if contributors need to know it. |
+| Score-delta gating | Use `scripts/score_delta.py` for any close-call accept/reject. Report the CI and verdict in the PR. |
 
 Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. A user who copies only `skills/anti-slop-writing/` should get the runtime behavior. Repo-only material belongs in `evals/`, `examples/`, `scripts/`, or root docs.
 
@@ -48,7 +52,7 @@ Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. A us
 3. Use `runbooks/hillclimb-skill.md` when the change affects multiple artifacts.
 4. Add the smallest rule that catches it.
 5. Add or update a before/after example or eval assertion.
-6. Record the lesson in `LESSONS.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
+6. Record the lesson in `Lessons_learned.md` and the change in `CHANGELOG.md` when doctrine or eval coverage changes.
 7. Run validation:
 
 ```bash
@@ -61,6 +65,9 @@ If you changed prose rules, manually test the skill against at least one affecte
 
 - [ ] The change is tied to a concrete failure, example, or eval gap.
 - [ ] New doctrine has a matching eval case or before/after example.
+- [ ] New eval cases carry a `split` of `tune` or `holdout`.
+- [ ] If an attempt was rejected, the entry is in `evals/rejected-edits.md`.
+- [ ] `scripts/score_delta.py` ACCEPTs on the holdout split for any close-call doctrine change (CI and verdict quoted in the PR).
 - [ ] The installable skill remains limited to `skills/anti-slop-writing/`.
 - [ ] `python3 scripts/validate.py` passes.
 - [ ] Any changed docs say what to do, not just what to value.

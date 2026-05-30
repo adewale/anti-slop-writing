@@ -1,0 +1,1 @@
+Because the pelican project is small enough to read end to end and odd enough to stick in memory, it carries the larger claim better than any abstract argument could: a benchmark is stronger when you can open the run that produced it and see how the number was made.

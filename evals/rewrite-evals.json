@@ -1,29 +1,40 @@
 {
   "skill_name": "anti-slop-writing",
   "purpose": "Evaluate rewrite quality, not only critique labeling.",
+  "schema_notes": "Each case has split=tune|holdout. Cases may carry dynamic_rubric (per-instance criteria derived from the brief) and graded_dimensions (orthogonal axes scored 1-5). The binary assertions remain the CI gate; graded dimensions feed the statistical gate in scripts/score_delta.py. See docs/hillclimb-improvements.md.",
   "evals": [
     {
       "id": "durable-execution-mechanism",
+      "split": "tune",
       "prompt": "Rewrite without AI slop: This underscores the importance of durable execution in modern software systems.",
       "expected_output": "A concrete sentence about resumable execution, retries, checkpoints, receipts, or equivalent mechanism.",
       "assertions": [
         "Removes 'underscores the importance' or equivalent inflated framing.",
         "Includes a concrete durability mechanism such as retry, checkpoint, idempotency, receipt, lease, or resume.",
         "Does not replace the phrase with another abstraction like 'critical capability' or 'robust foundation'."
+      ],
+      "graded_dimensions": [
+        {"name": "specificity", "scale": "1-5", "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement."},
+        {"name": "length-control", "scale": "1-5", "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."}
       ]
     },
     {
       "id": "pelican-process-relation",
+      "split": "tune",
       "prompt": "Rewrite by replacing rhythm with relation: The point is not the pelicans. The point is the process.",
       "expected_output": "A sentence that explains how the pelican example carries or exposes the process.",
       "assertions": [
         "Removes or reduces the 'Not X. Y.' cadence.",
         "Names the relation between the pelican and the process.",
         "Keeps the concrete carrier instead of jumping to a generic process claim."
+      ],
+      "graded_dimensions": [
+        {"name": "relation-clarity", "scale": "1-5", "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation."}
       ]
     },
     {
       "id": "product-tour-hinge",
+      "split": "tune",
       "prompt": "Rewrite this list-like section into one flowing transition:\n\nThe Climb ranks the models.\n\nHead-to-Head is a filmstrip viewer.\n\nRunbook Diffs compares versions.",
       "expected_output": "A transition that names the shared inspection levels or resolutions.",
       "assertions": [
@@ -34,6 +45,7 @@
     },
     {
       "id": "safe-essay-cut-or-concretize",
+      "split": "tune",
       "prompt": "Rewrite or cut: In today's rapidly evolving landscape, teams need robust solutions that empower developers to build seamless experiences.",
       "expected_output": "Either a concrete capability sentence or a recommendation to cut because no evidence is present.",
       "assertions": [
@@ -44,6 +56,7 @@
     },
     {
       "id": "carrier-bound-ending",
+      "split": "tune",
       "prompt": "Rewrite this ending so it returns to the concrete example:\n\nA benchmark is stronger when you can inspect the run that produced it.",
       "expected_output": "A carrier-bound conclusion using the pelican project or another supplied concrete carrier.",
       "assertions": [
@@ -54,6 +67,7 @@
     },
     {
       "id": "multi-issue-output-manifest",
+      "split": "tune",
       "prompt": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.",
       "expected_output": "A response that handles both numbered inputs, flags each distinct failure mechanism, and provides a concrete rewrite for each line.",
       "assertions": [
@@ -61,6 +75,43 @@
         "For line 1, removes inflated importance/robust-experience language and asks for or supplies a concrete mechanism.",
         "For line 2, classifies the contrast as compressed or decorative unless context earns it and rewrites by naming the dashboard-to-insight relation.",
         "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing."
+      ]
+    },
+    {
+      "id": "fake-precision-rewrite-finance",
+      "split": "holdout",
+      "prompt": "Rewrite this without preserving unsupported precision: Our risk model improves portfolio outcomes by 18.4% on average across most institutional clients.",
+      "expected_output": "A rewrite that either names the source, baseline, time window, and population, or removes the unsupported number and states the effect qualitatively.",
+      "assertions": [
+        "Removes the 18.4% figure unless the rewrite immediately names source, baseline, and population.",
+        "Replaces 'most institutional clients' with a specific population or removes the quantifier.",
+        "Does not substitute another bare number or a vaguer prestige phrase."
+      ],
+      "dynamic_rubric": {
+        "instruction": "Before grading, draft 3-5 case-specific criteria from the brief above. Sample criteria: provenance named, baseline stated, population specified, time window given, alternative-cause acknowledged.",
+        "minimum_criteria": 3
+      },
+      "graded_dimensions": [
+        {"name": "provenance", "scale": "1-5", "rubric": "5 = source, baseline, and population named; 1 = number preserved without context."},
+        {"name": "length-control", "scale": "1-5", "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."}
+      ]
+    },
+    {
+      "id": "product-tour-rewrite-developer-tools",
+      "split": "holdout",
+      "prompt": "Rewrite this section so it stops reading like a product tour:\n\nWebhook Sink receives events.\n\nReplay Console re-runs stored events.\n\nTimeline View shows event order.",
+      "expected_output": "A rewrite that names the relation among the three surfaces (e.g. capture, re-execution, ordering of the same event stream).",
+      "assertions": [
+        "Names the shared object the three surfaces operate on (the event stream).",
+        "Identifies the relation: capture, re-execution, ordering — or equivalent.",
+        "Does not preserve the bullet-or-paragraph product-tour cadence."
+      ],
+      "dynamic_rubric": {
+        "instruction": "Generate 3-5 per-instance criteria. Sample: shared object named, relation type identified, hinge sentence supplied, no marketing fog introduced, three surfaces still distinguishable.",
+        "minimum_criteria": 3
+      },
+      "graded_dimensions": [
+        {"name": "relation-clarity", "scale": "1-5", "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list."}
       ]
     }
   ]

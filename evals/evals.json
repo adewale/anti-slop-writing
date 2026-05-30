@@ -13,8 +13,16 @@
         "Provides a concrete rewrite involving a failure, retry, checkpoint, receipt, or similar inspectable mechanism."
       ],
       "graded_dimensions": [
-        {"name": "specificity", "scale": "1-5", "rubric": "5 = names a concrete inspectable mechanism; 3 = swaps one abstraction for another; 1 = restates importance."},
-        {"name": "mechanism-presence", "scale": "1-5", "rubric": "5 = retry/checkpoint/receipt/lease/idempotency named; 1 = no mechanism at all."}
+        {
+          "name": "specificity",
+          "scale": "1-5",
+          "rubric": "5 = names a concrete inspectable mechanism; 3 = swaps one abstraction for another; 1 = restates importance."
+        },
+        {
+          "name": "mechanism-presence",
+          "scale": "1-5",
+          "rubric": "5 = retry/checkpoint/receipt/lease/idempotency named; 1 = no mechanism at all."
+        }
       ]
     },
     {
@@ -72,7 +80,11 @@
         "Rewrites by either naming the source and conditions or by removing the precise numbers and stating the effect qualitatively."
       ],
       "graded_dimensions": [
-        {"name": "provenance", "scale": "1-5", "rubric": "5 = names source, baseline, and conditions; 1 = restates the unsupported number."}
+        {
+          "name": "provenance",
+          "scale": "1-5",
+          "rubric": "5 = names source, baseline, and conditions; 1 = restates the unsupported number."
+        }
       ]
     },
     {
@@ -97,8 +109,34 @@
         "Rewrites with a named actor and concrete verb instead of stacked nouns."
       ],
       "graded_dimensions": [
-        {"name": "nominalization-reduction", "scale": "1-5", "rubric": "5 = abstract nouns replaced by verbs and named actors; 1 = added more abstractions."}
+        {
+          "name": "nominalization-reduction",
+          "scale": "1-5",
+          "rubric": "5 = abstract nouns replaced by verbs and named actors; 1 = added more abstractions."
+        }
       ]
+    },
+    {
+      "id": "borrowed-emphasis",
+      "prompt": "Review and rewrite this line: Durable execution isn't just retry logic. It is a new programming model.",
+      "expected_output": "A critique that applies the emphasis-source test, shows that flattening the cadence leaves a generic claim, and rewrites by naming a concrete mechanism so the emphasis comes from the idea.",
+      "assertions": [
+        "Demonstrates the emphasis-source test by flattening the cadence (e.g., 'Durable execution is a new programming model') and noting that the remaining claim is generic.",
+        "Identifies what is missing as actor, mechanism, or limit, not just an additional adjective or stronger noun.",
+        "Rewrite sources its emphasis from a named durable-execution mechanism such as step-level retry, preserved outputs, recorded state, or resumable workflow, rather than from another contrast cadence or prestige abstraction."
+      ],
+      "split": "tune"
+    },
+    {
+      "id": "paragraph-scale-borrowed-emphasis",
+      "prompt": "Review and rewrite this paragraph:\n\nMost teams treat observability as a tool problem. Better teams treat it as a culture problem. The best teams treat it as a design problem. Each shift moves observability earlier in the system lifecycle, until the question becomes how to design systems that can be inspected at all.",
+      "expected_output": "A critique that identifies the cross-sentence escalation cadence as the source of emphasis, not the individual sentences, and rewrites with a named observability design mechanism.",
+      "assertions": [
+        "Identifies the three-step cross-sentence escalation ('X teams treat it as Y problem' repeated with rising adjectives) as borrowed-pattern emphasis carried by structure, not by any individual sentence's antithesis.",
+        "Demonstrates flattening the escalation and showing the remaining claim is generic — for example, 'observability should be considered during system design, not only during incident response' — with no actor, mechanism, or limit.",
+        "Rewrite names a concrete observability design decision such as schema chosen at instrumentation time, cardinality budget, sampling rule, named span attributes, or an explicit team action, instead of preserving the tiered 'good/better/best' hierarchy or substituting another rhythmic pattern."
+      ],
+      "split": "tune"
     }
   ]
 }

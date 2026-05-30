@@ -237,3 +237,71 @@ Some high-risk words are valid in technical contexts. `Robust` is acceptable whe
 - `evals/adversarial.json`: `robust-engineering-context`
 - `evals/rewrite-evals.json`: `safe-essay-cut-or-concretize`
 - `evals/failures/safe-essay-voice.md`
+
+## 2026-05-28 — A variance gap is not a doctrine gap
+
+### Failure
+
+A round of the emphasis-source blinded A/B showed that the paragraph-scale flatten (`C4.A2`) was not produced in one sample: the agent reached for the syntax-relation connective on the observability escalation instead of flattening it. The tempting read was a doctrine gap — the emphasis-source test said "flatten the line," with no handle for a multi-sentence ladder — so guidance was added to flatten whole ladders, with a guard to keep ordered timelines.
+
+A second blinded round (15/15 vs 15/15) and then a rate study (3/3 vs 3/3 on flatten-the-ladder, 3/3 vs 3/3 on keep-the-timeline) showed the guidance was inert. The baseline already flattened escalation ladders reliably and already kept timelines. The original miss was sampling variance, not a capability the doctrine lacked.
+
+### What changed
+
+Nothing, in the end. The provisional doctrine change was reverted; the rate-study method was added to `evals/blinded-eval-harness.md`.
+
+### What not to overgeneralize
+
+Before adding doctrine to fix a single observed miss, check whether the miss reproduces. One failed sample can be run-to-run variance; a rate study (N samples, behavioral classification, compare rates) tells you whether the capability is actually absent. Adding words to fix noise leaves dead text the skill's own "contribution must justify length" bar would cut. The discipline: hypothesize, measure, and when the result is null, remove your own change rather than keep it or loosen the assertion to manufacture a win.
+
+### Eval coverage
+
+- `evals/results/2026-05-27-emphasis-source-experiment.md` Round 6.
+- `evals/blinded-eval-harness.md` rate-study section.
+- `evals/rejected-edits.md` records the rejected ladder-guidance edit.
+
+## 2026-05-28 — An assertion can test for the label instead of the behavior
+
+### Failure
+
+In the emphasis-source blinded A/B, the scorer flagged the original `C3.A2` assertion as ambiguous: "Recognizes that applying the emphasis-source test (flatten the cadence) would lose the symmetric drop/re-add operation." On an adversarial keep-case, a correct critique says "keep, the symmetry is load-bearing" — it does not need to name or perform a specific doctrine test. The assertion was demanding a vocabulary move (invoke the named test) rather than the underlying judgment, which is the same keyword-stuffing anti-pattern the runbook warns about, inverted onto the grader.
+
+### What changed
+
+`C3.A2` and `C5.A2` were rewritten to reward recognizing that the structure carries distinct, non-redundant content, with "explicitly performing a flatten is sufficient but not required." Under the cleaned wording both doctrines pass both cases — the false failures disappeared.
+
+### What not to overgeneralize
+
+A keep-case assertion should test that the agent does not misclassify, not that it recites a procedure. A flag-case assertion may legitimately require a specific artifact (e.g., the flattened sentence) when producing that artifact is the behavior under test. The line: require the artifact when the artifact is the point; never require the artifact's *name*.
+
+### Eval coverage
+
+- `evals/adversarial.json` holdout: `earned-emphasis-from-idea` (`A2`), `earned-paragraph-escalation` (`A2`).
+- `evals/blinded-eval-harness.md` assertion-design rules.
+
+## 2026-05-28 — Procedures produce artifacts; labels do not. The statistical gate is a separate question.
+
+### Failure
+
+Adding the named Starkman tests (`Emphasis-source test`, `Syntax-relation test`) to `SKILL.md` as labels — phrased as questions to ask — did not change agent behavior in a blinded A/B (13/15 vs 13/15). Both doctrines reached the diagnostic by inference from `Unseeing frame` and the staccato contrast test. The named labels were inert.
+
+Rewording the same tests as procedures — "to apply, write the flattened version of the line in your critique" — produced a measurable behavioral change in the critique text. The procedural agent reliably wrote the flattened sentence and called the residual generic. The labeled agent gestured ("flatten it and the line collapses") without producing the artifact.
+
+### What changed
+
+`SKILL.md` carries the procedural wording of both tests. The behavioral evidence is recorded in `evals/results/2026-05-27-emphasis-source-experiment.md` (Rounds 4–5).
+
+### What not to overgeneralize
+
+The observed +1/+2 deltas in the blinded A/B do **not** pass the new statistical gate added in PR #2 (paired-bootstrap CI overlaps zero at N=5, sign-flip p=1.0). The doctrine change is retained on qualitative behavioral evidence, not as a gated score improvement. Two distinct claims live here, and both are true:
+
+- Procedures cause a specific observable artifact to appear in the output; labels do not. This is qualitative and reproducible.
+- A small-N delta on five cases is not statistically significant. The right way to convert the qualitative claim into a gated score improvement is more cases, not more confidence in the existing few.
+
+Procedural language costs words. Use it where the assertion has a specific observable artifact in mind. Do not procedural-ize tests whose value is interpretive judgment ("classify this contrast as earned, compressed, or decorative") — for those, the label and three-way split is the procedure.
+
+### Eval coverage
+
+- `evals/results/2026-05-27-emphasis-source-experiment.md` Rounds 3–5 and the gate disposition.
+- `evals/results/2026-05-28-emphasis-source-procedural/scores.jsonl` per-case audit trail.
+- `evals/blinded-eval-harness.md`.

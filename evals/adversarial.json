@@ -167,6 +167,28 @@
         "Identifies each fragment as a label for a methodological choice already established earlier.",
         "If rewriting, preserves the three labels rather than expanding them into prose that re-explains what the methods section already covered."
       ]
+    },
+    {
+      "id": "earned-emphasis-from-idea",
+      "prompt": "Review this sentence: The migration drops the column; the rollback re-adds it. Either direction is a single ALTER, and either direction can be tested in seconds.",
+      "expected_output": "Keeps the antithesis because flattening it would lose the drop-versus-readd distinction the rest of the sentence is built on.",
+      "assertions": [
+        "Does not flag the semicolon contrast as decorative when the surrounding clauses immediately supply the mechanism (single ALTER, testable in seconds).",
+        "Recognizes that the two clauses carry distinct, non-redundant content (the symmetric drop/re-add operation), so removing the contrast would lose information the claim depends on; explicitly performing a flatten is sufficient but not required.",
+        "If rewriting, preserves the drop-versus-readd symmetry rather than collapsing it into generic 'reversible migration' or 'safe rollback' language."
+      ],
+      "split": "holdout"
+    },
+    {
+      "id": "earned-paragraph-escalation",
+      "prompt": "Review this paragraph from a deploy runbook:\n\nAt minute 0, the deploy creates four new pods. At minute 2, the new pods pass readiness checks and start receiving traffic. At minute 4, the old pods stop receiving new connections and drain in-flight requests. At minute 6, the old pods terminate and the deploy is complete.",
+      "expected_output": "Keeps the four-step parallel structure because each step records a distinct event at a named timestamp.",
+      "assertions": [
+        "Does not flag the four parallel 'At minute N, ...' openings as borrowed-pattern emphasis, because each step records a distinct concrete event.",
+        "Recognizes that the parallel structure carries distinct, non-redundant content (a different event at each timestamp), so collapsing it would lose the timeline the paragraph exists to convey; explicitly performing a flatten is sufficient but not required.",
+        "If rewriting, preserves the four ordered events with their timestamps rather than collapsing into a generic rolling-deploy description."
+      ],
+      "split": "holdout"
     }
   ]
 }

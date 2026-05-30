@@ -84,16 +84,19 @@ evals/trigger-queries.json            Repo-only trigger accuracy queries with ne
 evals/cases.md                        Human-readable regression cases
 evals/failures/                       Curated failure corpus behind the doctrine
 evals/rejected-edits.md               Graveyard of doctrine edits that failed an eval
-evals/results/                        Recorded smoke eval results
+evals/results/                        Recorded smoke eval results and the scored baseline
 examples/cards/                       Compact before/after cards
 examples/                             Repo-only before/after examples
+TODO.md                               Tracked work, including the blocked failure-example item
 Lessons_learned.md                    Lessons learned and overgeneralization boundaries
 CHANGELOG.md                          Doctrine, eval, compatibility, and docs changes
 runbooks/hillclimb-skill.md           Runbook for bounded skill-improvement loops
 docs/eval-runbook-notes.md            Source notes for runbook/eval-drift ideas
 docs/hillclimb-improvements.md        Cited rationale for the 13 hillclimb infrastructure changes
+docs/judge-protocol.md                Sub-agent apply / judge / grade protocol
 scripts/validate.py                   Repo-only validation
 scripts/score_delta.py                Paired-bootstrap / sign-flip gate for accept/reject
+scripts/run_evals.py                  Execution runner: prepare / grade / join over eval suites
 .github/workflows/validate.yml        GitHub Actions validation
 ```
 
@@ -111,6 +114,8 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 | Eval-suite health checks (`evals/meta-evals.json`) | 5 | 2 |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 16 | 10 |
 | Manual regression cases (`evals/cases.md`) | 5 cases | n/a |
+
+A full scored baseline of the current skill across every tune and holdout case is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. The binary assertions are at ceiling (115/115, 26/26 trigger); the `length-control` graded axis fails on two rewrites, which on inspection is a rubric-calibration bug rather than a skill defect (it penalizes adding a mechanism). The discriminating signal for real doctrine work now waits on the discourse-layer cases that do not yet exist (see `TODO.md`).
 
 These results catch regressions in the current doctrine. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts. Use `scripts/score_delta.py` for paired-bootstrap and sign-flip-permutation gating on any close-call accept/reject. The full discipline (held-out gate, statistical gating, judge protocol, Pareto-front carryforward, length budget) is documented in `docs/hillclimb-improvements.md`.
 

@@ -28,9 +28,12 @@ REQUIRED = [
     ROOT / "LICENSE",
     ROOT / "docs" / "eval-runbook-notes.md",
     ROOT / "docs" / "hillclimb-improvements.md",
+    ROOT / "docs" / "judge-protocol.md",
     ROOT / "runbooks" / "hillclimb-skill.md",
     ROOT / "scripts" / "score_delta.py",
+    ROOT / "scripts" / "run_evals.py",
     ROOT / "evals" / "rejected-edits.md",
+    ROOT / "TODO.md",
     ROOT / ".gitignore",
     ROOT / ".github" / "workflows" / "validate.yml",
     SKILL,
@@ -59,6 +62,8 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-25-after.md",
     ROOT / "evals" / "results" / "2026-05-25-runbook-eval-drift.md",
     ROOT / "evals" / "results" / "2026-05-25-adversarial-expansion.md",
+    ROOT / "evals" / "results" / "2026-05-29-baseline.md",
+    ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl",
 ]
 
 REQUIRED_SKILL_PHRASES = [
@@ -225,6 +230,33 @@ def validate_skill_evals() -> None:
     validate_eval_file(META_EVALS, min_count=7, min_holdout=2)
 
 
+def validate_baseline_scores() -> None:
+    path = ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl"
+    seen: set[str] = set()
+    count = 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError as exc:
+            fail(f"invalid JSON in {path.relative_to(ROOT)}: {exc}")
+        for field in ("id", "split", "score"):
+            if field not in record:
+                fail(f"{path.relative_to(ROOT)} record missing {field}: {record}")
+        if record["split"] not in VALID_SPLITS:
+            fail(f"{path.relative_to(ROOT)} record {record['id']} has invalid split")
+        if not isinstance(record["score"], (int, float)) or not 0 <= record["score"] <= 1:
+            fail(f"{path.relative_to(ROOT)} record {record['id']} score must be in [0,1]")
+        if record["id"] in seen:
+            fail(f"{path.relative_to(ROOT)} duplicate id: {record['id']}")
+        seen.add(record["id"])
+        count += 1
+    if count < 30:
+        fail(f"{path.relative_to(ROOT)} baseline must score at least 30 cases (found {count})")
+
+
 def validate_with_skills_ref() -> None:
     if not shutil.which("skills-ref"):
         return
@@ -296,6 +328,7 @@ def main() -> int:
 
     validate_skill_evals()
     validate_trigger_queries()
+    validate_baseline_scores()
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")

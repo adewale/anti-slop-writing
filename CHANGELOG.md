@@ -6,6 +6,10 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 ### Hillclimb infrastructure
 
+- Added `scripts/run_evals.py`, an execution runner with `prepare` / `grade` / `join` subcommands over the eval suites, filtered by split. Orchestration only — the repo is instruction-only, so model calls are done by sub-agents.
+- Added `docs/judge-protocol.md`, the file-based apply → judge → grade protocol that sub-agents follow, with the strict judgment-line format `run_evals.py grade` consumes.
+- Added a clean scored baseline: `evals/results/2026-05-29-baseline.md` plus `evals/results/baseline-2026-05-29/` (38 skill-applied outputs, per-assertion judgments, 26 trigger decisions, `scores.jsonl`). Binary assertions are at ceiling (115/115, 26/26 trigger); the `length-control` graded dimension fails on two rewrites, which on inspection is a rubric-calibration bug (it penalizes mechanism-adding rewrites for exceeding input length), not a skill regression — recorded as the first eval-calibration item for the next round.
+- Added `TODO.md` tracking the blocked discourse-layer failure-example item and the cross-family-judge follow-up.
 - Added tune/holdout split to every eval file (`evals/evals.json`, `evals/adversarial.json`, `evals/rewrite-evals.json`, `evals/meta-evals.json`, `evals/trigger-queries.json`). Holdout cases are scored only at end-of-round and at merge; doctrine must not be edited in response to a holdout failure.
 - Added `scripts/score_delta.py` for paired-bootstrap and sign-flip-permutation gating; the runbook now requires ACCEPT on the holdout split before merge.
 - Added `dynamic_rubric` (per-instance criteria) and `graded_dimensions` (orthogonal 1-5 axes) schema fields on rewrite-eval cases.

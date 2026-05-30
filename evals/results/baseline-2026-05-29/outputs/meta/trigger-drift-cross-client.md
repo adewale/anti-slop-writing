@@ -1,0 +1,13 @@
+This is false-positive trigger drift. The skill is firing on inputs it should ignore. A typo or grammar-only fix is not a prose-quality rewrite; loading the anti-slop machinery there wastes tokens, risks rewriting text the user wanted left alone, and trains users to distrust the trigger. The goal is to push the boundary back without clipping the legitimate writing-review use cases (articles, README copy, posts, DevRel prose) that are the skill's actual job.
+
+Diagnose before editing. "Codex started doing this" usually means one of two things: the description's scope language reads as broad enough to cover any text edit, or the trigger evals have no near-miss negatives, so nothing in the suite ever told the client where "review my writing" ends and "fix this typo" begins. Both are fixable, and neither requires narrowing the real triggers.
+
+What to change:
+
+1. Add near-miss negatives to the trigger evals. These are the highest-value cases because they sit just outside the boundary: "fix the typo in this sentence," "is it 'their' or 'there' here," "correct the grammar in this line," "change this date." Each should assert that the skill does NOT fire. Pair every negative with a positive that is genuinely close: "tighten this paragraph," "this reads like AI, rewrite it," "make this README section less generic" should still fire. The suite has to demonstrate it can separate the two, not just that it fires on the obvious positives.
+
+2. Tighten the description at the boundary, not at the core. Make the scope condition explicit: the skill is for improving prose quality, flow, and voice, not for mechanical correction. Add an explicit non-trigger clause, for example that it should not be invoked for spelling, grammar, or punctuation-only fixes, or single-word/single-character edits where the writing itself is not in question. Keep all the legitimate surfaces (articles, posts, emails, slide copy, docs) intact. The edit should subtract a class of inputs, not subtract use cases.
+
+3. Re-run trigger evals across clients, including Codex, after the description change. Trigger behavior is client-specific, so verify the new negatives pass on the client that drifted and that no positive regressed elsewhere.
+
+Avoid the blunt fix of deleting broad writing triggers to stop the typo cases. That trades a false-positive problem for a false-negative one and quietly kills the skill's reach. The reusable structure: trigger drift is a boundary problem, so fix it at the boundary, with paired near-miss positives and negatives that pin down exactly where the skill should and should not wake up.

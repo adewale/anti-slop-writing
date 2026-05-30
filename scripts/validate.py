@@ -71,6 +71,8 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-28-generalization-pg.md",
     ROOT / "evals" / "results" / "2026-05-29-baseline.md",
     ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl",
+    ROOT / "evals" / "results" / "2026-05-30-rebaseline.md",
+    ROOT / "evals" / "results" / "rebaseline-2026-05-30" / "scores.jsonl",
 ]
 
 REQUIRED_SKILL_PHRASES = [

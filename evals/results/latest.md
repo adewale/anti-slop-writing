@@ -50,3 +50,4 @@ Remaining gaps: a complementary calibration test on a deliberately sloppy real d
 | 2026-05-27 | `2026-05-27-rewrite-self-check.md` (failed iteration on synthetic prompts, superseded by 2026-05-28 sequence on real content) |
 | 2026-05-28 | `2026-05-28-joe-beda-before.md`, `2026-05-28-joe-beda-after.md`, `2026-05-28-rewrite-check-before.md`, `2026-05-28-rewrite-check-after.md`, `2026-05-28-generalization-pg.md` |
 | 2026-05-29 | `2026-05-29-baseline.md` and `baseline-2026-05-29/` |
+| 2026-05-30 | `2026-05-30-rebaseline.md` and `rebaseline-2026-05-30/` (holdout-only re-baseline under updated doctrine: 15/15 cases all-pass, no regression on the 10 joinable cases, the 5 net-new cases pass) |

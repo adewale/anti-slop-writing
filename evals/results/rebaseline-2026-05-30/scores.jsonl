@@ -1,0 +1,15 @@
+{"id": "earned-importance-immediate-mechanism", "split": "holdout", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "cost-benefit-not-just-earning-the-contrast", "split": "holdout", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "research-methods-staccato", "split": "holdout", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "earned-antithesis-synthesis-pg", "split": "holdout", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "cataphoric-label-defined-in-paragraph", "split": "holdout", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "escalating-magnitude-triple", "split": "holdout", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "fake-precision-unnamed-source", "split": "holdout", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "stacked-rule-of-three", "split": "holdout", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "abstract-system-noun-stack", "split": "holdout", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "noise-vs-signal-on-small-suite", "split": "holdout", "suite": "meta-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "judge-self-preference", "split": "holdout", "suite": "meta-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "single-source-overfitting", "split": "holdout", "suite": "meta-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "earned-rhetoric-false-positive-rate", "split": "holdout", "suite": "meta-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "fake-precision-rewrite-finance", "split": "holdout", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "product-tour-rewrite-developer-tools", "split": "holdout", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}

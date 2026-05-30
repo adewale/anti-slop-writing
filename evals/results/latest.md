@@ -38,8 +38,18 @@ Six new `near-neg-` near-miss negatives were added to `trigger-queries.json` (fa
 
 The project's iteration loop now has the structural defenses the field treats as standard (Dwork et al. on adaptive overfitting; Blum & Hardt's ladder mechanism; Miller and Bowyer on small-sample CIs). The remaining gap is the same one called out in the previous results note: observed multi-run trigger rates in Pi, Claude Code, Codex, and OpenCode, and end-to-end scored runs of the new holdout cases against an actual skill execution.
 
+## Doctrine change retained on qualitative evidence
+
+The emphasis-source and syntax-relation tests in `SKILL.md` were added (procedural wording) as part of the emphasis-source experiment described in `evals/results/2026-05-27-emphasis-source-experiment.md`. Five new eval cases were added with proper splits (`borrowed-emphasis`, `paragraph-scale-borrowed-emphasis`, `emphasis-source-flatten` as tune; `earned-emphasis-from-idea`, `earned-paragraph-escalation` as holdout).
+
+Under the new statistical gate (`scripts/score_delta.py`), the experiment's headline score claim does not clear the noise floor at N=5: bootstrap 95% CI `[+0.0000, +0.1998]`, sign-flip p=1.0, verdict REJECT. Per-case scores are in `evals/results/2026-05-28-emphasis-source-procedural/scores.jsonl`.
+
+The change is retained on qualitative behavioral evidence (the procedural agent reliably produces the flatten artifact in its critique; the labeled agent does not), not as a gated score improvement. The blinded harness used to surface that observation is `evals/blinded-eval-harness.md`.
+
 ## Previous results
 
 | Date | File |
 |---|---|
 | 2026-05-25 | `2026-05-25-before.md`, `2026-05-25-after.md`, `2026-05-25-adversarial-expansion.md`, `2026-05-25-runbook-eval-drift.md` |
+| 2026-05-27 | `2026-05-27-emphasis-source-experiment.md` |
+| 2026-05-28 | `2026-05-28-emphasis-source-procedural/` (per-case scores) |

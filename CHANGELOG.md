@@ -4,6 +4,16 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 ## [Unreleased]
 
+### Doctrine
+
+- Added two procedural detectors to `skills/anti-slop-writing/SKILL.md`: the **emphasis-source test** (write the flattened version of the line in the critique; judge whether the residual claim still names actor/mechanism/limit) and the **syntax-relation test** (restate the implied relation with a connective; if no connective fits without invention, the syntax was empty). Sourced from Ruth Starkman, "Model Style Is So Cringe." Retained on qualitative behavioral evidence: under the blinded harness the procedural wording reliably produces the flatten artifact in critique text while the labeled wording does not. The +1 score delta from the worked Round 5 does not pass `scripts/score_delta.py` at N=5 (CI overlaps zero, sign-flip p=1.0); recorded honestly in `evals/results/2026-05-27-emphasis-source-experiment.md` and the gate output in `evals/results/2026-05-28-emphasis-source-procedural/`.
+
+### Evals
+
+- Added five eval cases for the emphasis-source diagnostic, all with proper splits: `evals/evals.json` → `borrowed-emphasis` (tune), `paragraph-scale-borrowed-emphasis` (tune); `evals/rewrite-evals.json` → `emphasis-source-flatten` (tune); `evals/adversarial.json` → `earned-emphasis-from-idea` (holdout), `earned-paragraph-escalation` (holdout). Plus `evals/failures/borrowed-emphasis.md` and `examples/cards/borrowed-emphasis.md`.
+- Added `evals/blinded-eval-harness.md`: doctrine A/B comparison with anonymized labels and a rate-study procedure for behaviors that vary run-to-run. Extends the standard `docs/judge-protocol.md` apply-judge separation with the additional discipline a fair doctrine comparison requires.
+- Added `evals/rejected-edits.md` entry: paragraph-scale ladder guidance on the emphasis-source test was tried and reverted as inert (rate study: 3/3 vs 3/3 on both decisive prompts).
+
 ### Hillclimb infrastructure
 
 - Added `scripts/run_evals.py`, an execution runner with `prepare` / `grade` / `join` subcommands over the eval suites, filtered by split. Orchestration only — the repo is instruction-only, so model calls are done by sub-agents.

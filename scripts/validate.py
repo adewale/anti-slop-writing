@@ -67,6 +67,9 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-25-adversarial-expansion.md",
     ROOT / "evals" / "results" / "2026-05-29-baseline.md",
     ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl",
+    ROOT / "evals" / "results" / "2026-05-27-emphasis-source-experiment.md",
+    ROOT / "evals" / "results" / "2026-05-28-emphasis-source-procedural" / "scores.jsonl",
+    ROOT / "evals" / "results" / "2026-05-28-emphasis-source-procedural" / "README.md",
 ]
 
 REQUIRED_SKILL_PHRASES = [

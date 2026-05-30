@@ -1,0 +1,5 @@
+{"id": "borrowed-emphasis", "split": "tune", "before": 0.667, "after": 1.0}
+{"id": "emphasis-source-flatten", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "earned-emphasis-from-idea", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "paragraph-scale-borrowed-emphasis", "split": "tune", "before": 0.667, "after": 0.667}
+{"id": "earned-paragraph-escalation", "split": "holdout", "before": 1.0, "after": 1.0}

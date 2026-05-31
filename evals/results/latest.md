@@ -1,61 +1,36 @@
 # Latest eval results
 
-Date: 2026-05-29
+Date: 2026-05-30
 
-These smoke evals check that the skill catches the repo's regression failures, avoids adversarial false-positive cases, satisfies rewrite-quality assertions, notices eval-suite health problems such as ceiling effects and metric artifacts, and triggers correctly on prose-edit queries while declining on adjacent non-prose ones. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` artifacts or observed multi-run trigger rates.
+This note supersedes the 2026-05-29 infrastructure baseline after merging the branch work on procedural emphasis-source tests and rewrite self-check doctrine. The binary holdout suite is at ceiling, so `scripts/score_delta.py` reports `REJECT` for zero-delta runs: that is evidence of no measured improvement on the saturated baseline, not evidence of a regression.
 
-This iteration is an infrastructure update only; doctrine in `skills/anti-slop-writing/` did not change. Scores below are the pre-change baseline for the new holdout cases — they need to be rerun against an actual skill execution to populate real numbers. Until then, treat the holdout counts as the new measurement surface, not as scored results.
+## Current merged result notes
 
-## Schema changes
+- `evals/results/2026-05-30-holdout-regression-check/` — procedural emphasis-source / syntax-relation doctrine: 12/12 branch-run holdout cases passed; 10/10 comparable baseline cases stayed 1.0 → 1.0.
+- `evals/results/2026-05-30-rebaseline.md` and `evals/results/rebaseline-2026-05-30/` — ask-author / Rewrite check / both-sides Staccato doctrine: 15/15 holdout cases passed; 10/10 comparable baseline cases stayed 1.0 → 1.0.
+- `evals/results/2026-05-27-emphasis-source-experiment.md` — blinded A/B history for procedural-vs-label wording. The qualitative artifact improved (the agent wrote the flattened sentence), while the small-N statistical gate did not accept the score delta.
 
-| Suite | Old count | New tune count | New holdout count |
-|---|---:|---:|---:|
-| `evals/evals.json` | 5 | 5 | 3 |
-| `evals/adversarial.json` | 12 | 12 | 3 |
-| `evals/rewrite-evals.json` | 6 | 6 | 2 |
-| `evals/meta-evals.json` | 5 | 5 | 2 |
-| `evals/trigger-queries.json` | 20 | 16 | 10 |
+## How to read the score-delta output
 
-Six new `near-neg-` near-miss negatives were added to `trigger-queries.json` (fact-check, link-check, draft-from-bullets, storyboard, slide-export, docx-from-dataset). The docx case is taken from a real production bug, [anthropics/claude-code#43259](https://github.com/anthropics/claude-code/issues/43259).
+Existing holdout binary assertions are saturated. For both merged doctrine branches, the joined before/after rows against `baseline-2026-05-29/scores.jsonl` have mean delta `+0.0000`; the CI overlaps zero and the sign-flip p-value is 1.0. Under the runbook, that means the change is not statistically accepted as an improvement on the old holdout surface.
 
-## Held-out and rewrite-eval additions
+The safe interpretation is:
 
-- `evals/evals.json` holdout: `fake-precision-unnamed-source`, `stacked-rule-of-three`, `abstract-system-noun-stack`.
-- `evals/adversarial.json` holdout: `earned-importance-immediate-mechanism`, `cost-benefit-not-just-earning-the-contrast`, `research-methods-staccato`.
-- `evals/rewrite-evals.json` holdout: `fake-precision-rewrite-finance`, `product-tour-rewrite-developer-tools` — both with `dynamic_rubric` and `graded_dimensions`.
-- `evals/meta-evals.json` holdout: `noise-vs-signal-on-small-suite`, `judge-self-preference`.
+1. **No regression on existing holdouts.** The comparable holdout cases remained at 1.0.
+2. **New branch cases become future regression coverage.** Branch-added cases that were introduced with their doctrine are not proof of improvement over the old baseline.
+3. **Harder paired cases and/or graded dimensions are required** to make future improvements measurable above ceiling.
 
-## What changed in the infrastructure
+## Remaining measurement gaps
 
-- Tune/holdout split on every eval suite.
-- `scripts/score_delta.py` for paired-bootstrap + sign-flip-permutation accept/reject gating.
-- `dynamic_rubric` and `graded_dimensions` schema fields on rewrite cases.
-- `evals/rejected-edits.md` graveyard for previously rejected edits.
-- `runbooks/hillclimb-skill.md` rewritten with held-out gate, judge protocol, saturation stop, Pareto-front carryforward, length budget, and eval-rot refresh policy.
-- `docs/hillclimb-improvements.md` with sources for each change.
-
-## Assessment
-
-The project's iteration loop now has the structural defenses the field treats as standard (Dwork et al. on adaptive overfitting; Blum & Hardt's ladder mechanism; Miller and Bowyer on small-sample CIs). The remaining gap is the same one called out in the previous results note: observed multi-run trigger rates in Pi, Claude Code, Codex, and OpenCode, and end-to-end scored runs of the new holdout cases against an actual skill execution.
-
-## Doctrine change retained on qualitative evidence, confirmed no-regression on the held-out gate
-
-The emphasis-source and syntax-relation tests in `SKILL.md` were added (procedural wording) as part of the emphasis-source experiment described in `evals/results/2026-05-27-emphasis-source-experiment.md`. Five new eval cases were added with proper splits (`borrowed-emphasis`, `paragraph-scale-borrowed-emphasis`, `emphasis-source-flatten` as tune; `earned-emphasis-from-idea`, `earned-paragraph-escalation` as holdout).
-
-Under the new statistical gate (`scripts/score_delta.py`):
-
-- On the **session's own five cases** (N=5): CI `[+0.0000, +0.1998]`, sign-flip p=1.0 — REJECT. Per-case scores in `evals/results/2026-05-28-emphasis-source-procedural/scores.jsonl`.
-- On the **upstream's held-out cases** (N=10, joined against `baseline-2026-05-29`): per-case delta is exactly 0.0 for every case, CI `[+0.0000, +0.0000]` — REJECT mechanically, because both before and after are 1.0. This is what no-regression looks like when the baseline is at ceiling. Full run, including outputs and judgments, in `evals/results/2026-05-30-holdout-regression-check/`.
-
-The change is retained on (i) qualitative behavioral evidence — the procedural agent reliably produces the flatten artifact in its critique; the labeled agent does not — and (ii) the held-out regression check showing it does not break anything the upstream baseline got right. It is **not** a gated score improvement; the binary-assertion gate has no headroom against a ceiling baseline. The path to a gated positive is `graded_dimensions` on cases where the artifact matters, which is not in this branch.
-
-The blinded harness used to surface the behavioral observation is `evals/blinded-eval-harness.md`.
+- Cross-family or human spot-check for the same-family judge limitation noted in both 2026-05-30 result notes.
+- Observed trigger rates in Pi, Claude Code, Codex, and OpenCode, especially for near-miss negatives.
+- A paired before/after run on harder branch-specific cases that are scored against both the pre-integration skill snapshot and the merged candidate.
+- Graded dimensions on cases where binary assertions are already too easy.
 
 ## Previous results
 
 | Date | File |
 |---|---|
+| 2026-05-30 | `2026-05-30-holdout-regression-check/`, `2026-05-30-rebaseline.md` |
+| 2026-05-29 | `2026-05-29-baseline.md`, `baseline-2026-05-29/` |
 | 2026-05-25 | `2026-05-25-before.md`, `2026-05-25-after.md`, `2026-05-25-adversarial-expansion.md`, `2026-05-25-runbook-eval-drift.md` |
-| 2026-05-27 | `2026-05-27-emphasis-source-experiment.md` |
-| 2026-05-28 | `2026-05-28-emphasis-source-procedural/` (per-case scores) |
-| 2026-05-30 | `2026-05-30-holdout-regression-check/` (held-out scoring of this branch's doctrine vs the 2026-05-29 baseline; 10/10 maintained, delta exactly 0) |

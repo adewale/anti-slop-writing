@@ -1,0 +1,12 @@
+Split:         all-cases
+Cases:         12
+Mean delta:    +0.0819
+95% CI:        [-0.0833, +0.2625]
+Sign-flip p:   0.3753
+Verdict:       REJECT (CI overlaps zero; delta is within noise).
+Split:         holdout-only
+Cases:         4
+Mean delta:    +0.3125
+95% CI:        [+0.0000, +0.6250]
+Sign-flip p:   0.4924
+Verdict:       REJECT (CI overlaps zero; delta is within noise).

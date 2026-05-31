@@ -94,6 +94,7 @@ runbooks/hillclimb-skill.md           Runbook for bounded skill-improvement loop
 docs/eval-runbook-notes.md            Source notes for runbook/eval-drift ideas
 docs/hillclimb-improvements.md        Cited rationale for the 13 hillclimb infrastructure changes
 docs/judge-protocol.md                Sub-agent apply / judge / grade protocol
+docs/branch-mining-2026-05-30.md      Audit trail for mining the remote branches
 scripts/validate.py                   Repo-only validation
 scripts/score_delta.py                Paired-bootstrap / sign-flip gate for accept/reject
 scripts/run_evals.py                  Execution runner: prepare / grade / join over eval suites

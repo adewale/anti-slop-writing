@@ -1,0 +1,285 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "all",
+  "skill_path": "/tmp/asw-before-skill/SKILL.md",
+  "unit_count": 12,
+  "units": [
+    {
+      "suite": "selected-cases.json",
+      "id": "borrowed-emphasis",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this line: Durable execution isn't just retry logic. It is a new programming model.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this line: Durable execution isn't just retry logic. It is a new programming model.\n\nEXPECTED:\nA critique that applies the emphasis-source test, shows that flattening the cadence leaves a generic claim, and rewrites by naming a concrete mechanism so the emphasis comes from the idea.\n\nASSERTIONS (judge each independently):\n1. Demonstrates the emphasis-source test by flattening the cadence (e.g., 'Durable execution is a new programming model') and noting that the remaining claim is generic.\n2. Identifies what is missing as actor, mechanism, or limit, not just an additional adjective or stronger noun.\n3. Rewrite sources its emphasis from a named durable-execution mechanism such as step-level retry, preserved outputs, recorded state, or resumable workflow, rather than from another contrast cadence or prestige abstraction.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = writes the flattened claim and judges whether it still names actor/mechanism/limit; 3 = mentions flattening without showing it; 1 = no flatten artifact.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete durable-execution behavior; 3 = partial mechanism or generic actor; 1 = another prestige abstraction.\n\nEmit one JSON object: {\"id\": \"borrowed-emphasis\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Demonstrates the emphasis-source test by flattening the cadence (e.g., 'Durable execution is a new programming model') and noting that the remaining claim is generic.",
+        "Identifies what is missing as actor, mechanism, or limit, not just an additional adjective or stronger noun.",
+        "Rewrite sources its emphasis from a named durable-execution mechanism such as step-level retry, preserved outputs, recorded state, or resumable workflow, rather than from another contrast cadence or prestige abstraction."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = writes the flattened claim and judges whether it still names actor/mechanism/limit; 3 = mentions flattening without showing it; 1 = no flatten artifact."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete durable-execution behavior; 3 = partial mechanism or generic actor; 1 = another prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "paragraph-scale-borrowed-emphasis",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this paragraph:\n\nMost teams treat observability as a tool problem. Better teams treat it as a culture problem. The best teams treat it as a design problem. Each shift moves observability earlier in the system lifecycle, until the question becomes how to design systems that can be inspected at all.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this paragraph:\n\nMost teams treat observability as a tool problem. Better teams treat it as a culture problem. The best teams treat it as a design problem. Each shift moves observability earlier in the system lifecycle, until the question becomes how to design systems that can be inspected at all.\n\nEXPECTED:\nA critique that identifies the cross-sentence escalation cadence as the source of emphasis, not the individual sentences, and rewrites with a named observability design mechanism.\n\nASSERTIONS (judge each independently):\n1. Identifies the three-step cross-sentence escalation ('X teams treat it as Y problem' repeated with rising adjectives) as borrowed-pattern emphasis carried by structure, not by any individual sentence's antithesis.\n2. Demonstrates flattening the escalation and showing the remaining claim is generic — for example, 'observability should be considered during system design, not only during incident response' — with no actor, mechanism, or limit.\n3. Rewrite names a concrete observability design decision such as schema chosen at instrumentation time, cardinality budget, sampling rule, named span attributes, or an explicit team action, instead of preserving the tiered 'good/better/best' hierarchy or substituting another rhythmic pattern.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. ladder-flattening (1-5): 5 = flattens the whole good/better/best ladder to the plain residual claim and evaluates it; 3 = flags escalation but no residual claim; 1 = treats the ladder as earned without evidence.\n2. rewrite-mechanism (1-5): 5 = rewrite names an observability design mechanism such as schema, cardinality budget, sampling, span attributes, or team action; 1 = preserves tiered abstraction.\n\nEmit one JSON object: {\"id\": \"paragraph-scale-borrowed-emphasis\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the three-step cross-sentence escalation ('X teams treat it as Y problem' repeated with rising adjectives) as borrowed-pattern emphasis carried by structure, not by any individual sentence's antithesis.",
+        "Demonstrates flattening the escalation and showing the remaining claim is generic — for example, 'observability should be considered during system design, not only during incident response' — with no actor, mechanism, or limit.",
+        "Rewrite names a concrete observability design decision such as schema chosen at instrumentation time, cardinality budget, sampling rule, named span attributes, or an explicit team action, instead of preserving the tiered 'good/better/best' hierarchy or substituting another rhythmic pattern."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "ladder-flattening",
+          "scale": "1-5",
+          "rubric": "5 = flattens the whole good/better/best ladder to the plain residual claim and evaluates it; 3 = flags escalation but no residual claim; 1 = treats the ladder as earned without evidence."
+        },
+        {
+          "name": "rewrite-mechanism",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names an observability design mechanism such as schema, cardinality budget, sampling, span attributes, or team action; 1 = preserves tiered abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "holdout-borrowed-emphasis-release-safety",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this launch sentence: The safety review is not just a checklist. It is how we prove the release is ready.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this launch sentence: The safety review is not just a checklist. It is how we prove the release is ready.\n\nEXPECTED:\nA critique that flattens the contrast, shows the residual claim is generic, and rewrites with the concrete release-readiness mechanism rather than another prestige claim.\n\nASSERTIONS (judge each independently):\n1. Writes a flattened version of the claim with cadence removed and judges whether it still names a mechanism.\n2. Identifies the missing release-readiness mechanism: what the checklist verifies, blocks, signs off, or records.\n3. Rewrites with a concrete review artifact or gate (for example failing test evidence, rollback owner, sign-off record, canary metric) rather than preserving 'not just X / it is Y' cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened claim plus residual-generic judgment; 3 = flags borrowed emphasis without showing the flatten; 1 = no flatten.\n2. release-mechanism (1-5): 5 = concrete release gate/artifact named; 3 = generic safety language; 1 = prestige abstraction.\n\nEmit one JSON object: {\"id\": \"holdout-borrowed-emphasis-release-safety\", \"suite\": \"selected-cases.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Writes a flattened version of the claim with cadence removed and judges whether it still names a mechanism.",
+        "Identifies the missing release-readiness mechanism: what the checklist verifies, blocks, signs off, or records.",
+        "Rewrites with a concrete review artifact or gate (for example failing test evidence, rollback owner, sign-off record, canary metric) rather than preserving 'not just X / it is Y' cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened claim plus residual-generic judgment; 3 = flags borrowed emphasis without showing the flatten; 1 = no flatten."
+        },
+        {
+          "name": "release-mechanism",
+          "scale": "1-5",
+          "rubric": "5 = concrete release gate/artifact named; 3 = generic safety language; 1 = prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "rewrite-reuses-flagged-pattern",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nIn March I attended ATmosphere in Vancouver, a conference organized around ATproto, the open protocol that powers Bluesky. I was an early investor in Bluesky, and I backed it because I was excited about the protocol underneath, not just the app. What I didn't fully anticipate was the community that would grow up around ATproto independent of Bluesky itself. ATmosphere made that visible.\n\nThe community is unusually authentic. Developers, researchers, artists, people just interested in what the internet could be. Not trying to build the next ad platform. Trying to figure out what good social infrastructure actually looks like.\n\nATproto lets you store structured records in a data server (your PDS) that you own and can move. That's not incidental. It's the design.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nIn March I attended ATmosphere in Vancouver, a conference organized around ATproto, the open protocol that powers Bluesky. I was an early investor in Bluesky, and I backed it because I was excited about the protocol underneath, not just the app. What I didn't fully anticipate was the community that would grow up around ATproto independent of Bluesky itself. ATmosphere made that visible.\n\nThe community is unusually authentic. Developers, researchers, artists, people just interested in what the internet could be. Not trying to build the next ad platform. Trying to figure out what good social infrastructure actually looks like.\n\nATproto lets you store structured records in a data server (your PDS) that you own and can move. That's not incidental. It's the design.\n\nEXPECTED:\nA per-item critique using the format from SKILL.md. The review should not invent specific people, projects, or events at ATmosphere (the post does not list any). For 'That's not incidental. It's the design.', the review should weigh the prior sentence (which supplies the mechanism of PDS ownership/movability) when classifying the antithesis. Any Concrete rewrite should not reuse the source's X-not-Y / em-dash-antithesis cadence for decorative effect. Any `ask-author` fallback must also pass the same detectors.\n\nASSERTIONS (judge each independently):\n1. Does not invent specific people, projects, or events at the ATmosphere conference (for example, a named PDS operator count, a labeler experiment topic, a feed-generator timeline) that the source paragraph does not contain.\n2. For the line 'That's not incidental. It's the design.', applies the Staccato contrast test honestly: the prior sentence evidences movability ('you own and can move') but does not evidence intentionality, so only one side of the contrast is supported. The verdict is therefore `revise` (compressed antithesis) with a rewrite that names what makes portability the design, or `ask-author` if the design rationale would have to be invented. A `keep` verdict on this line is wrong because the intentionality side is unsupported.\n3. Any Concrete rewrite for the 'community is unusually authentic' paragraph does not name specific projects or counts (number of friends, type of experiment, duration of a build) absent from the source.\n4. Does not produce any Concrete rewrite of the form 'X is the design, not Y' or 'X, not Y' that reproduces the flagged cadence under different words.\n5. Any `ask-author` fallback rewrite for the 'community is unusually authentic' paragraph does not itself invent topic pairs (for example, 'portability and moderation tooling, not growth loops or ad inventory') or use X-not-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no invented people/projects/counts/timing/tools; 3 = ambiguous specificity; 1 = confident unsupported specifics.\n2. self-detector-use (1-5): 5 = Rewrite check catches or avoids X-not-Y, dash antithesis, invented facts; 1 = rewrite repeats flagged cadence without self-check.\n\nEmit one JSON object: {\"id\": \"rewrite-reuses-flagged-pattern\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent specific people, projects, or events at the ATmosphere conference (for example, a named PDS operator count, a labeler experiment topic, a feed-generator timeline) that the source paragraph does not contain.",
+        "For the line 'That's not incidental. It's the design.', applies the Staccato contrast test honestly: the prior sentence evidences movability ('you own and can move') but does not evidence intentionality, so only one side of the contrast is supported. The verdict is therefore `revise` (compressed antithesis) with a rewrite that names what makes portability the design, or `ask-author` if the design rationale would have to be invented. A `keep` verdict on this line is wrong because the intentionality side is unsupported.",
+        "Any Concrete rewrite for the 'community is unusually authentic' paragraph does not name specific projects or counts (number of friends, type of experiment, duration of a build) absent from the source.",
+        "Does not produce any Concrete rewrite of the form 'X is the design, not Y' or 'X, not Y' that reproduces the flagged cadence under different words.",
+        "Any `ask-author` fallback rewrite for the 'community is unusually authentic' paragraph does not itself invent topic pairs (for example, 'portability and moderation tooling, not growth loops or ad inventory') or use X-not-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no invented people/projects/counts/timing/tools; 3 = ambiguous specificity; 1 = confident unsupported specifics."
+        },
+        {
+          "name": "self-detector-use",
+          "scale": "1-5",
+          "rubric": "5 = Rewrite check catches or avoids X-not-Y, dash antithesis, invented facts; 1 = rewrite repeats flagged cadence without self-check."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "rewrite-asks-or-cuts-when-fact-missing",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nThe actual implementation took about a working day. Hugo for static site generation, Cloudflare Pages for hosting, and Sequoia to handle the ATproto publishing step. The pipeline: write a post, push to GitHub, CI publishes the ATproto record, builds the site, deploys it.\n\nCurrent coding tools made it practical to add features that would otherwise get cut. The cover images on each post (the 1200x630 cards used for social previews and Bluesky thumbnails) are generated by a Node.js script using Satori and the same brand fonts as the site. Title and description go in, image comes out, with a sidecar file so they can be regenerated if the branding changes. Without good tooling that kind of thing stays on the 'someday' list.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nThe actual implementation took about a working day. Hugo for static site generation, Cloudflare Pages for hosting, and Sequoia to handle the ATproto publishing step. The pipeline: write a post, push to GitHub, CI publishes the ATproto record, builds the site, deploys it.\n\nCurrent coding tools made it practical to add features that would otherwise get cut. The cover images on each post (the 1200x630 cards used for social previews and Bluesky thumbnails) are generated by a Node.js script using Satori and the same brand fonts as the site. Title and description go in, image comes out, with a sidecar file so they can be regenerated if the branding changes. Without good tooling that kind of thing stays on the 'someday' list.\n\nEXPECTED:\nA per-item critique using the format from SKILL.md. The topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.' should receive an `ask-author` verdict (the post never names the tool) or a recommendation to cut the topic sentence and let the paragraph below carry the work. The review should not name a specific tool (Claude Code, Cursor, Copilot, Aider, etc.) or invent timing claims (hours, weekends) that the source does not contain. Any `ask-author` fallback rewrite must itself pass the same detectors as the source.\n\nASSERTIONS (judge each independently):\n1. Does not assert a specific tool name (for example, Claude Code, Cursor, Copilot, Aider, Sonnet, Codex) anywhere in the Concrete rewrite for the topic sentence, because the source paragraph does not name a tool.\n2. For the topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.', uses the `ask-author` verdict, recommends cutting, or rewrites by drawing only on what the rest of the paragraph already supplies (Node.js, Satori, sidecar file).\n3. Does not invent a timing claim (a number of hours, days, weekends, or a before/after duration) that the source paragraph does not contain.\n4. Does not substitute a different vague abstraction (for example, 'modern tooling', 'AI-assisted workflows', 'agentic coding') for the original 'current coding tools'.\n5. Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. ask-or-cut-discipline (1-5): 5 = asks for the missing tool or cuts/uses only supplied facts; 1 = invents a tool or timing claim.\n2. fallback-cleanliness (1-5): 5 = fallback has no invented specifics or flagged cadence; 1 = fallback repeats the failure.\n\nEmit one JSON object: {\"id\": \"rewrite-asks-or-cuts-when-fact-missing\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not assert a specific tool name (for example, Claude Code, Cursor, Copilot, Aider, Sonnet, Codex) anywhere in the Concrete rewrite for the topic sentence, because the source paragraph does not name a tool.",
+        "For the topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.', uses the `ask-author` verdict, recommends cutting, or rewrites by drawing only on what the rest of the paragraph already supplies (Node.js, Satori, sidecar file).",
+        "Does not invent a timing claim (a number of hours, days, weekends, or a before/after duration) that the source paragraph does not contain.",
+        "Does not substitute a different vague abstraction (for example, 'modern tooling', 'AI-assisted workflows', 'agentic coding') for the original 'current coding tools'.",
+        "Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "ask-or-cut-discipline",
+          "scale": "1-5",
+          "rubric": "5 = asks for the missing tool or cuts/uses only supplied facts; 1 = invents a tool or timing claim."
+        },
+        {
+          "name": "fallback-cleanliness",
+          "scale": "1-5",
+          "rubric": "5 = fallback has no invented specifics or flagged cadence; 1 = fallback repeats the failure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "holdout-ask-author-ai-tooling",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph using the Critique output format. It comes from a launch post draft, and no source notes are available beyond the paragraph.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph using the Critique output format. It comes from a launch post draft, and no source notes are available beyond the paragraph.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.\n\nEXPECTED:\nA review that does not invent the assistant name, does not preserve the unsupported before/after timing, and uses ask-author or cuts until the missing source facts are supplied. Any fallback must pass Rewrite check.\n\nASSERTIONS (judge each independently):\n1. Does not name a specific assistant or model because the source paragraph does not provide one.\n2. Treats 'quarter-long' and 'one-week' as unsupported unless source/provenance is named, and either asks for the measurement or removes the timing claim.\n3. Uses `ask-author` or a cut/qualified rewrite for the missing tool and timing facts rather than filling the Concrete rewrite slot with confident specifics.\n4. Includes a `Rewrite check` that audits the rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no tool/model/timing invention; 3 = hedged but still implies unsupported facts; 1 = invents specifics.\n2. rewrite-check-integrity (1-5): 5 = Rewrite check explicitly covers invented facts and cadence; 1 = absent or false pass.\n\nEmit one JSON object: {\"id\": \"holdout-ask-author-ai-tooling\", \"suite\": \"selected-cases.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not name a specific assistant or model because the source paragraph does not provide one.",
+        "Treats 'quarter-long' and 'one-week' as unsupported unless source/provenance is named, and either asks for the measurement or removes the timing claim.",
+        "Uses `ask-author` or a cut/qualified rewrite for the missing tool and timing facts rather than filling the Concrete rewrite slot with confident specifics.",
+        "Includes a `Rewrite check` that audits the rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no tool/model/timing invention; 3 = hedged but still implies unsupported facts; 1 = invents specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = Rewrite check explicitly covers invented facts and cadence; 1 = absent or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "copula-displacement",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.\n\nEXPECTED:\nA critique that flags copula displacement (serves as, stands as) and inflated significance, then rewrites with plain verbs and concrete capability.\n\nASSERTIONS (judge each independently):\n1. Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation rather than concrete description.\n2. Notes that 'serves as the central hub' hides the plain copula 'is' or a more specific action verb the sentence is avoiding.\n3. Provides a rewrite that either uses plain 'is' or names what the dashboard concretely does (shows, lists, routes, surfaces) and what content it shows.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = replaces displaced copulas with concrete action verbs and named objects; 3 = uses plain 'is' but still vague; 1 = preserves serves/stands/represents inflation.\n\nEmit one JSON object: {\"id\": \"copula-displacement\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation rather than concrete description.",
+        "Notes that 'serves as the central hub' hides the plain copula 'is' or a more specific action verb the sentence is avoiding.",
+        "Provides a rewrite that either uses plain 'is' or names what the dashboard concretely does (shows, lists, routes, surfaces) and what content it shows."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = replaces displaced copulas with concrete action verbs and named objects; 3 = uses plain 'is' but still vague; 1 = preserves serves/stands/represents inflation."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "hedged-symmetry",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this intro: Whether you're a beginner or an expert, our framework scales to your needs. While simplicity matters, power is also important.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this intro: Whether you're a beginner or an expert, our framework scales to your needs. While simplicity matters, power is also important.\n\nEXPECTED:\nA critique that flags the Whether/Or and While/also-important structures as hedged symmetry that refuses to commit, then rewrites by picking the actual reader and the actual tradeoff.\n\nASSERTIONS (judge each independently):\n1. Identifies 'Whether you're a beginner or an expert' and 'While X, Y is also important' as hedged symmetry that addresses every possible reader and every possible value.\n2. Notes that symmetric hedges of this shape avoid committing to a reader, a priority, or a tradeoff and therefore carry no information.\n3. Rewrites by naming a specific reader or use case and by stating the concrete tradeoff between simplicity and power as it shows up in this framework, rather than asserting both matter.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and a concrete tradeoff; 3 = removes the hedge but remains broad; 1 = preserves both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"hedged-symmetry\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies 'Whether you're a beginner or an expert' and 'While X, Y is also important' as hedged symmetry that addresses every possible reader and every possible value.",
+        "Notes that symmetric hedges of this shape avoid committing to a reader, a priority, or a tradeoff and therefore carry no information.",
+        "Rewrites by naming a specific reader or use case and by stating the concrete tradeoff between simplicity and power as it shows up in this framework, rather than asserting both matter."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and a concrete tradeoff; 3 = removes the hedge but remains broad; 1 = preserves both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "outline-conclusion-template",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this ending: Despite ongoing challenges, the team continues to thrive in an evolving landscape. Looking ahead, the platform will play an increasingly pivotal role in the AI ecosystem.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this ending: Despite ongoing challenges, the team continues to thrive in an evolving landscape. Looking ahead, the platform will play an increasingly pivotal role in the AI ecosystem.\n\nEXPECTED:\nA critique that flags the Despite-challenges-X-continues-to-thrive and Looking-ahead-pivotal-role templates as outline-shaped conclusions, then asks for either a cut or a carrier-bound ending.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play an increasingly pivotal role' structures as templated outline conclusions, not earned closings.\n2. Notes that neither sentence names a specific challenge, a specific future move, or a concrete carrier from the body of the piece.\n3. Either recommends cutting both sentences or rewrites to return to a concrete carrier and a specific next step or claim the team will take.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = removes one template but keeps generic future language; 1 = preserves outline closure.\n\nEmit one JSON object: {\"id\": \"outline-conclusion-template\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play an increasingly pivotal role' structures as templated outline conclusions, not earned closings.",
+        "Notes that neither sentence names a specific challenge, a specific future move, or a concrete carrier from the body of the piece.",
+        "Either recommends cutting both sentences or rewrites to return to a concrete carrier and a specific next step or claim the team will take."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = removes one template but keeps generic future language; 1 = preserves outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "em-dash-cluster",
+      "split": "tune",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph for cadence tells: The system is fast — really fast — and reliable — at scale — with a clean API — and a great developer experience — that just works.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph for cadence tells: The system is fast — really fast — and reliable — at scale — with a clean API — and a great developer experience — that just works.\n\nEXPECTED:\nA critique that flags the decorative em-dash cluster as cadence-as-emphasis, distinguishes it from earned parenthetical or appositive use, and rewrites by removing decorative dashes while keeping any earned ones.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as decorative cadence-for-emphasis rather than earned parenthetical or appositive insertion.\n2. Does not claim em-dashes are always slop; names the specific failure as overuse-for-emphasis in a cluster, not the punctuation mark itself.\n3. Rewrites by reducing the dash count, replacing decorative dashes with commas or periods, and keeping at most one dash insertion or paired parenthetical where it carries a real aside or appositive.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags only the decorative cluster and preserves earned dash use; 3 = removes dashes mechanically; 1 = either bans all dashes or leaves the cluster intact.\n\nEmit one JSON object: {\"id\": \"em-dash-cluster\", \"suite\": \"selected-cases.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as decorative cadence-for-emphasis rather than earned parenthetical or appositive insertion.",
+        "Does not claim em-dashes are always slop; names the specific failure as overuse-for-emphasis in a cluster, not the punctuation mark itself.",
+        "Rewrites by reducing the dash count, replacing decorative dashes with commas or periods, and keeping at most one dash insertion or paired parenthetical where it carries a real aside or appositive."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags only the decorative cluster and preserves earned dash use; 3 = removes dashes mechanically; 1 = either bans all dashes or leaves the cluster intact."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "holdout-copula-hedged-outline-combo",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this product page ending: The analytics console serves as a unified hub for operational excellence. Whether you're a startup founder or an enterprise leader, it scales with your needs. Despite ongoing challenges in the data landscape, the platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in decision-making.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this product page ending: The analytics console serves as a unified hub for operational excellence. Whether you're a startup founder or an enterprise leader, it scales with your needs. Despite ongoing challenges in the data landscape, the platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in decision-making.\n\nEXPECTED:\nA critique that catches the displaced copula, hedged symmetry, and outline-shaped conclusion, then cuts or rewrites around a concrete user/action/result.\n\nASSERTIONS (judge each independently):\n1. Identifies 'serves as a unified hub' as copula displacement or equivalent verb inflation, not concrete product behavior.\n2. Identifies 'Whether you're a startup founder or an enterprise leader' as hedged symmetry that avoids choosing a reader/use case.\n3. Identifies the 'Despite ongoing challenges' and 'Looking ahead ... pivotal role' sentences as outline-shaped conclusions without a named challenge, carrier, or next step.\n4. Rewrites by choosing a specific user/use case and naming what the console shows, routes, or alerts on; or recommends cutting unsupported sentences.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. multi-detector-coverage (1-5): 5 = catches all three mechanisms and keeps their boundaries distinct; 3 = catches one or two; 1 = generic marketing critique only.\n2. specific-rewrite (1-5): 5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog.\n\nEmit one JSON object: {\"id\": \"holdout-copula-hedged-outline-combo\", \"suite\": \"selected-cases.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies 'serves as a unified hub' as copula displacement or equivalent verb inflation, not concrete product behavior.",
+        "Identifies 'Whether you're a startup founder or an enterprise leader' as hedged symmetry that avoids choosing a reader/use case.",
+        "Identifies the 'Despite ongoing challenges' and 'Looking ahead ... pivotal role' sentences as outline-shaped conclusions without a named challenge, carrier, or next step.",
+        "Rewrites by choosing a specific user/use case and naming what the console shows, routes, or alerts on; or recommends cutting unsupported sentences."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "multi-detector-coverage",
+          "scale": "1-5",
+          "rubric": "5 = catches all three mechanisms and keeps their boundaries distinct; 3 = catches one or two; 1 = generic marketing critique only."
+        },
+        {
+          "name": "specific-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "selected-cases.json",
+      "id": "holdout-earned-branching-dash-copula",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this runbook sentence: The cleanup job serves two failure modes: a manifest written before compaction finishes, and chunks compacted before the manifest is written. Whether the worker crashes before or after the manifest write determines whether recovery replays the chunk list or marks the segment sealed; the orphaned segment — chunks present in object storage but missing from the manifest — stays readable until then.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this runbook sentence: The cleanup job serves two failure modes: a manifest written before compaction finishes, and chunks compacted before the manifest is written. Whether the worker crashes before or after the manifest write determines whether recovery replays the chunk list or marks the segment sealed; the orphaned segment — chunks present in object storage but missing from the manifest — stays readable until then.\n\nEXPECTED:\nKeeps the prose because 'serves' introduces an enumeration, 'whether' names a real branch with different recovery behavior, and the em-dash brackets an inline definition.\n\nASSERTIONS (judge each independently):\n1. Does not flag 'serves two failure modes' as copula displacement because it introduces a concrete enumeration.\n2. Does not flag the 'Whether before or after' structure as hedged symmetry because the branches produce distinct recovery actions.\n3. Does not flag the em-dash parenthetical because it defines 'orphaned segment' with concrete storage/manifest facts.\n4. If editing, preserves the failure-mode enumeration, branch outcomes, and inline definition rather than collapsing them into a generic reliability sentence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n(none)\n\nEmit one JSON object: {\"id\": \"holdout-earned-branching-dash-copula\", \"suite\": \"selected-cases.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not flag 'serves two failure modes' as copula displacement because it introduces a concrete enumeration.",
+        "Does not flag the 'Whether before or after' structure as hedged symmetry because the branches produce distinct recovery actions.",
+        "Does not flag the em-dash parenthetical because it defines 'orphaned segment' with concrete storage/manifest facts.",
+        "If editing, preserves the failure-mode enumeration, branch outcomes, and inline definition rather than collapsing them into a generic reliability sentence."
+      ],
+      "graded_dimensions": [],
+      "dynamic_rubric": null
+    }
+  ]
+}

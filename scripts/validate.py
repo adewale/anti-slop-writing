@@ -29,6 +29,7 @@ REQUIRED = [
     ROOT / "docs" / "eval-runbook-notes.md",
     ROOT / "docs" / "hillclimb-improvements.md",
     ROOT / "docs" / "judge-protocol.md",
+    ROOT / "docs" / "branch-mining-2026-05-30.md",
     ROOT / "runbooks" / "hillclimb-skill.md",
     ROOT / "scripts" / "score_delta.py",
     ROOT / "scripts" / "run_evals.py",

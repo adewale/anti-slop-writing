@@ -61,6 +61,7 @@ All notable changes to this project are recorded here. This changelog tracks doc
 - Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early; rewritten to include the held-out gate, statistical gating, cross-family judge protocol, length normalization, saturation stop, Pareto-front carryforward, length budget, and eval-rot refresh policy.
 - Added `docs/eval-runbook-notes.md` to record the external runbook and eval-drift ideas that shaped this iteration.
 - Added `docs/hillclimb-improvements.md` as the single source of truth for the thirteen hillclimb-infrastructure changes and their citations.
+- Added `docs/branch-mining-2026-05-30.md` to document which remote-branch artifacts were merged, manually ported, or deliberately left behind as stale.
 
 ## [0.1.0] - 2026-05-25
 

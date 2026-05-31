@@ -1,0 +1,12 @@
+{"id": "borrowed-emphasis", "split": "tune", "before": 0.6667, "after": 0.6667}
+{"id": "copula-displacement", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "em-dash-cluster", "split": "tune", "before": 1.0, "after": 0.6667}
+{"id": "hedged-symmetry", "split": "tune", "before": 0.6667, "after": 0.6667}
+{"id": "holdout-ask-author-ai-tooling", "split": "holdout", "before": 0.25, "after": 1.0}
+{"id": "holdout-borrowed-emphasis-release-safety", "split": "holdout", "before": 0.6667, "after": 0.6667}
+{"id": "holdout-copula-hedged-outline-combo", "split": "holdout", "before": 0.5, "after": 1.0}
+{"id": "holdout-earned-branching-dash-copula", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "outline-conclusion-template", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "paragraph-scale-borrowed-emphasis", "split": "tune", "before": 0.6667, "after": 0.3333}
+{"id": "rewrite-asks-or-cuts-when-fact-missing", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "rewrite-reuses-flagged-pattern", "split": "tune", "before": 0.6, "after": 1.0}

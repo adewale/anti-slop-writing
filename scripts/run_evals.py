@@ -14,7 +14,8 @@ Subcommands:
   grade    Turn per-assertion judgments (emitted by judge sub-agents) into
            per-case scores plus a summary table. A case score is the fraction
            of its assertions that passed, so small movements show up as small
-           numbers rather than a censored 0/1.
+           numbers rather than a censored 0/1. With --include-graded, optional
+           1-5 graded_dimensions are normalized and averaged into the score.
 
   join     Merge a before-scores file and an after-scores file into the
            {id, split, before, after} JSONL that scripts/score_delta.py reads.
@@ -87,10 +88,22 @@ JUDGE_TEMPLATE = (
     "CASE PROMPT:\n{prompt}\n\n"
     "EXPECTED:\n{expected}\n\n"
     "ASSERTIONS (judge each independently):\n{assertions}\n\n"
+    "GRADED DIMENSIONS (score 1-5 when present):\n{graded_dimensions}\n\n"
     "Emit one JSON object: "
     '{{"id": "{id}", "suite": "{suite}", "split": "{split}", '
-    '"assertions": [{{"index": 1, "pass": true, "evidence": "<quote>"}}, ...]}}'
+    '"assertions": [{{"index": 1, "pass": true, "evidence": "<quote>"}}, ...], '
+    '"graded_dimensions": [{{"name": "<name>", "score": 5, "evidence": "<quote>"}}, ...]}}'
 )
+
+
+def format_graded_dimensions(case: dict) -> str:
+    dims = case.get("graded_dimensions")
+    if not dims:
+        return "(none)"
+    lines = []
+    for i, dim in enumerate(dims, start=1):
+        lines.append(f"{i}. {dim['name']} ({dim['scale']}): {dim['rubric']}")
+    return "\n".join(lines)
 
 
 def cmd_prepare(args: argparse.Namespace) -> int:
@@ -105,6 +118,7 @@ def cmd_prepare(args: argparse.Namespace) -> int:
         for case in select(cases, args.split):
             assertions = case.get("assertions", [])
             numbered = "\n".join(f"{i}. {a}" for i, a in enumerate(assertions, start=1))
+            graded_dimensions = case.get("graded_dimensions", [])
             units.append(
                 {
                     "suite": path.name,
@@ -115,11 +129,14 @@ def cmd_prepare(args: argparse.Namespace) -> int:
                         prompt=case["prompt"],
                         expected=case.get("expected_output", ""),
                         assertions=numbered,
+                        graded_dimensions=format_graded_dimensions(case),
                         id=case["id"],
                         suite=path.name,
                         split=case.get("split", "unknown"),
                     ),
                     "assertions": assertions,
+                    "graded_dimensions": graded_dimensions,
+                    "dynamic_rubric": case.get("dynamic_rubric"),
                 }
             )
     worklist = {
@@ -142,31 +159,61 @@ def cmd_prepare(args: argparse.Namespace) -> int:
 # --- grade -------------------------------------------------------------------
 
 
-def case_score(record: dict, path: Path, line_no: int) -> dict:
+def normalized_graded_scores(record: dict, path: Path, line_no: int) -> list[float]:
+    dims = record.get("graded_dimensions", [])
+    if dims in (None, []):
+        return []
+    if not isinstance(dims, list):
+        die(f"{path}:{line_no}: graded_dimensions must be a list when present")
+    scores: list[float] = []
+    for i, dim in enumerate(dims, start=1):
+        if not isinstance(dim, dict):
+            die(f"{path}:{line_no}: graded_dimensions[{i}] must be an object")
+        raw = dim.get("score")
+        if not isinstance(raw, (int, float)) or not 1 <= float(raw) <= 5:
+            die(f"{path}:{line_no}: graded_dimensions[{i}].score must be in [1,5]")
+        scores.append(float(raw) / 5)
+    return scores
+
+
+def case_score(record: dict, path: Path, line_no: int, include_graded: bool = False) -> dict:
     assertions = record.get("assertions")
     if not isinstance(assertions, list) or not assertions:
         die(f"{path}:{line_no}: record {record.get('id')} missing non-empty 'assertions'")
     passed = 0
+    assertion_values: list[float] = []
     for a in assertions:
         if isinstance(a, bool):
-            passed += int(a)
+            value = float(a)
         elif isinstance(a, dict) and isinstance(a.get("pass"), bool):
-            passed += int(a["pass"])
+            value = float(a["pass"])
         else:
             die(f"{path}:{line_no}: assertion must be bool or object with 'pass'")
+        passed += int(value)
+        assertion_values.append(value)
     n = len(assertions)
+    graded_values = normalized_graded_scores(record, path, line_no)
+    score_values = assertion_values + graded_values if include_graded else assertion_values
     split = record.get("split", "unknown")
     if "id" not in record:
         die(f"{path}:{line_no}: record missing 'id'")
-    return {
+    result = {
         "id": record["id"],
         "split": split,
         "suite": record.get("suite", path.stem),
-        "score": round(passed / n, 4),
+        "score": round(sum(score_values) / len(score_values), 4),
         "all_pass": passed == n,
         "n_passed": passed,
         "n_assertions": n,
     }
+    if include_graded or graded_values:
+        result["assertion_score"] = round(passed / n, 4)
+    if graded_values:
+        result["graded_score"] = round(sum(graded_values) / len(graded_values), 4)
+        result["n_graded_dimensions"] = len(graded_values)
+    if include_graded:
+        result["score_includes_graded"] = True
+    return result
 
 
 def cmd_grade(args: argparse.Namespace) -> int:
@@ -174,7 +221,7 @@ def cmd_grade(args: argparse.Namespace) -> int:
     scores: list[dict] = []
     seen: set[str] = set()
     for path, line_no, record in iter_lines(paths):
-        s = case_score(record, path, line_no)
+        s = case_score(record, path, line_no, include_graded=args.include_graded)
         if s["id"] in seen:
             die(f"duplicate id across judgment files: {s['id']}")
         seen.add(s["id"])
@@ -261,6 +308,7 @@ def main() -> int:
     p_grade.add_argument("judgments", nargs="+")
     p_grade.add_argument("--split", choices=["tune", "holdout", "all"], default="all")
     p_grade.add_argument("--out")
+    p_grade.add_argument("--include-graded", action="store_true", help="Include optional 1-5 graded_dimensions in the emitted score.")
     p_grade.set_defaults(func=cmd_grade)
 
     p_join = sub.add_parser("join", help="Merge before/after scores for score_delta.py.")

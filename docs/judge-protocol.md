@@ -31,13 +31,14 @@ Spawn one judge sub-agent per suite, distinct from the apply agent that produced
 
 1. Reads the suite file and the matching `outputs/<suite>/<id>.md`.
 2. Judges each assertion independently. An assertion passes only when the output clearly satisfies it, with a quoted snippet as evidence. Keyword presence alone is not a pass (see `evals/meta-evals.json` → `metric-artifact-check`).
-3. Writes one JSON object per line to `judgments/<suite>.jsonl`:
+3. When a case has `graded_dimensions`, scores each dimension from 1-5 with quoted evidence. A 5 means the output fully satisfies that dimension's rubric; a 1 means it fails the dimension or optimizes against it.
+4. Writes one JSON object per line to `judgments/<suite>.jsonl`:
 
 ```json
-{"id": "generic-importance", "suite": "evals.json", "split": "tune", "assertions": [{"index": 1, "pass": true, "evidence": "flags 'underscores the importance'"}, {"index": 2, "pass": true, "evidence": "names retry/checkpoint"}, {"index": 3, "pass": false, "evidence": "no concrete rewrite given"}]}
+{"id": "generic-importance", "suite": "evals.json", "split": "tune", "assertions": [{"index": 1, "pass": true, "evidence": "flags 'underscores the importance'"}, {"index": 2, "pass": true, "evidence": "names retry/checkpoint"}, {"index": 3, "pass": false, "evidence": "no concrete rewrite given"}], "graded_dimensions": [{"name": "specificity", "score": 4, "evidence": "names retry/checkpoint but not the failure mode"}]}
 ```
 
-`run_evals.py grade` reads exactly this format. The `assertions` array may also be a list of bare booleans if evidence is recorded elsewhere.
+`run_evals.py grade` reads this format. The `assertions` array may also be a list of bare booleans if evidence is recorded elsewhere. `graded_dimensions` is optional for cases that do not define it.
 
 ## Phase 3 — grade
 
@@ -49,6 +50,16 @@ python3 scripts/run_evals.py grade evals/results/baseline-YYYY-MM-DD/judgments/*
 ```
 
 A case score is the fraction of assertions that passed, so a change that fixes one of three assertions reads as +0.33, not a censored 0/1. The summary breaks scores down by split.
+
+For a branch-specific paired run where binary assertions are saturated, include graded dimensions in the score:
+
+```bash
+python3 scripts/run_evals.py grade evals/results/round/judgments/*.jsonl \
+  --include-graded \
+  --out evals/results/round/scores-with-graded.jsonl
+```
+
+With `--include-graded`, each 1-5 dimension is normalized to 0.2-1.0 and averaged with the binary assertion values for that case. Without the flag, legacy binary scores are unchanged.
 
 To compare two runs:
 

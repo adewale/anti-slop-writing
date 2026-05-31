@@ -1,0 +1,158 @@
+{
+  "unit_count": 7,
+  "chunk_index": 5,
+  "units": [
+    {
+      "id": "statproof-dash-community-post",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this community-post line for cadence tells: The meetup was small — thirty people — but electric — demos, debates, hallway debugging — the kind of energy that proves a movement is real.",
+      "expected_output": "Flags mixed earned and decorative dashes: the thirty-person aside may be earned, but cadence should not inflate movement proof.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The repeated em-dashes create a decorative cadence: “small — thirty people — but electric — demos, debates, hallway debugging —”. The thirty-person aside can stay because it is concrete, but the later dashes use rhythm to inflate the scene.\nSpecificity missing: What demos happened, what debates changed, what was debugged, who returned, what shipped, or what new contributors joined.\nInflated claim: “the kind of energy that proves a movement is real” claims movement-level proof from atmosphere.\nFlow break: The sentence jumps from meetup details to a movement claim without naming the evidence that connects them.\nConcrete rewrite: The meetup drew thirty people. People demoed projects, argued through implementation choices, and debugged in the hallway. To claim movement, add evidence: repeat attendance, new contributors, follow-up projects, or fixes that shipped after the event.\nRemembered line: Thirty people is a detail; a movement needs proof.",
+      "candidate_B": "Verdict: ask-author\nSlop tells: The repeated em-dash cluster uses cadence to inflate the line: “small — thirty people — but electric — demos, debates, hallway debugging — the kind of energy...” The “thirty people” aside is earned because it gives scale; the later dashes turn activity into proof before the proof exists.\nSpecificity missing: What made the meetup matter after the room emptied: repeat attendance, projects started, sign-ups, commits, working demos, or follow-up meetings?\nInflated claim: “the kind of energy that proves a movement is real” turns vibe into evidence.\nFlow break: The sentence jumps from attendance to atmosphere to movement-proof without naming the measurement that connects them.\nConcrete rewrite: The meetup drew thirty people. They spent the evening on demos, debates, and hallway debugging. To claim a movement, add the follow-up evidence: repeat attendance, projects started, sign-ups, commits, or another measurable result.\nRewrite check: passes self-detectors; the rewrite cuts the dash cluster, keeps the earned scale detail, and does not invent the missing measurement.\nRemembered line: Keep the thirty people; cut the proof until the follow-up exists.\n"
+    },
+    {
+      "id": "statproof-boundary-serves-enumeration",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this technical sentence: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.",
+      "expected_output": "Keeps the sentence or makes a small clarity edit because serves enumerates concrete queues and whether names real branch behavior.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "candidate_A": "Verdict: keep\nSlop tells: None. “Serves” is doing concrete work here because it introduces a real enumeration: latency-sensitive jobs, backfills, and retries. “Whether” is also earned because it names branch behavior tied to deadline and retry budget.\nSpecificity missing: None for this sentence-level review; the queues and preemption conditions are named.\nInflated claim: None.\nFlow break: None.\nConcrete rewrite: Keep: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.\nRewrite check: passes self-detectors; this is not a flat ban on “serves” or “whether” because both forms carry concrete mechanism.\nRemembered line: Keep the structure when the branch and the queues are real.\n",
+      "candidate_B": "Verdict: keep\nSlop tells: None. “Serves” is doing concrete work because it introduces three named queues: latency-sensitive jobs, backfills, and retries.\nSpecificity missing: None for the requested sentence. The second sentence names the branch behavior: a job waits or preempts based on deadline and retry budget.\nInflated claim: None.\nFlow break: None. The sentence moves from queue types to the rule that decides scheduling behavior.\nConcrete rewrite: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.\nRemembered line: Keep the structure because the verbs point to actual scheduler behavior, not generic importance."
+    },
+    {
+      "id": "statproof-boundary-dash-definition",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this database sentence: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.",
+      "expected_output": "Keeps the em-dash pair because it defines a term inline with concrete facts.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "candidate_A": "Verdict: keep\nSlop tells: None. The em-dash pair is earned because it defines “segment” inline as “the immutable block of rows referenced by the manifest.”\nSpecificity missing: None for the requested sentence. The reader action, checksum validation, segment definition, and storage location are all concrete.\nInflated claim: None.\nFlow break: None. The sentence preserves the operation order: open the manifest, validate the checksum, fetch the segment from object storage.\nConcrete rewrite: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.\nRemembered line: Keep the dashes when the aside defines the thing the reader is about to fetch.",
+      "candidate_B": "Verdict: keep\nSlop tells: None. The em-dash pair brackets an inline definition: “the immutable block of rows referenced by the manifest.” That is an earned appositive, not decorative dash cadence.\nSpecificity missing: None for this sentence-level review; the reader action, checksum validation, segment definition, manifest reference, and storage location are concrete.\nInflated claim: None.\nFlow break: None.\nConcrete rewrite: Keep: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.\nRewrite check: passes self-detectors; the dash pair is preserved because it defines a term, not because dashes are being used for emphasis.\nRemembered line: Keep the dash when it carries the definition.\n"
+    },
+    {
+      "id": "statproof-boundary-whether-branch",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this recovery sentence: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.",
+      "expected_output": "Keeps the whether structure because it names real branches with distinct outcomes.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "candidate_A": "Verdict: keep\nSlop tells: None. “Whether” is earned because it names two real branches and the sentence gives different outcomes for each one.\nSpecificity missing: None for the requested sentence. The branch point is when the leader fails relative to the commit index; the outcomes are discard before commit and replay after commit.\nInflated claim: None.\nFlow break: None. The sentence connects the condition directly to the recovery path.\nConcrete rewrite: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.\nRemembered line: Keep the contrast because it carries the mechanism, not just cadence.",
+      "candidate_B": "Verdict: keep\nSlop tells: None. “Whether” is earned because it names a real branching condition: leader failure before or after the commit index advances. Each branch has a distinct downstream behavior: discard the entry before commit, replay the log after commit.\nSpecificity missing: None for this sentence-level review; the condition and outcomes are named.\nInflated claim: None.\nFlow break: None.\nConcrete rewrite: Keep: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.\nRewrite check: passes self-detectors; this is not hedged symmetry because the syntax maps to two different recovery paths.\nRemembered line: Keep “whether” when the branches change the system behavior.\n"
+    },
+    {
+      "id": "statproof-boundary-stands-location",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this facilities sentence: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.",
+      "expected_output": "Does not flag stands/serves as copula displacement because the verbs locate a physical archive and name who uses it.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "candidate_A": "Verdict: keep\nSlop tells: None. “Stands” locates a physical archive, and “serves” names the people who use it.\nSpecificity missing: None for the requested sentence. It gives a location, “at the north end of the lab, next to the cold room,” and a concrete user need, “the original sample notebooks.”\nInflated claim: None.\nFlow break: None. The sentence moves from where the archive is to who uses it.\nConcrete rewrite: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.\nRemembered line: Do not cut verbs that locate a real object and name its users.",
+      "candidate_B": "Verdict: keep\nSlop tells: None. “Stands” locates a physical archive at the north end of the lab, next to the cold room. “Serves” names the users and their concrete need: researchers who need the original sample notebooks.\nSpecificity missing: None for this sentence-level review; the location, users, and object of use are named.\nInflated claim: None.\nFlow break: None.\nConcrete rewrite: Keep: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.\nRewrite check: passes self-detectors; this is not copula displacement because the verbs locate the archive and describe its use.\nRemembered line: Keep the verb when it points to a real place or use.\n"
+    },
+    {
+      "id": "statproof-boundary-earned-contrast",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this paragraph: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.",
+      "expected_output": "Keeps or lightly edits the final contrast because both sides are evidenced by the prior sentences.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "candidate_A": "Verdict: keep\nSlop tells: The final “not X / Y” shape is a common cadence tell, but here it is earned because the previous sentences supply the evidence: one prototype dropped failed events for throughput, while the other kept every event at lower throughput.\nSpecificity missing: None for the requested paragraph.\nInflated claim: None. “Durability problem” follows from “kept every event” versus “dropped failed events.”\nFlow break: None. The final contrast names the distinction the two prototype descriptions set up.\nConcrete rewrite: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.\nRemembered line: Keep antithesis when the evidence already makes both sides visible.",
+      "candidate_B": "Verdict: keep\nSlop tells: The final “not a speed problem / durability problem” cadence is a detector, but here it is earned. The prior sentences evidence both sides: the first prototype optimized throughput and dropped failed events; the second kept every event and accepted lower throughput.\nSpecificity missing: None for this paragraph-level review; throughput and event loss supply the mechanism behind the contrast.\nInflated claim: None.\nFlow break: None.\nConcrete rewrite: Keep: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.\nRewrite check: passes self-detectors; the negative parallelism is preserved because both sides are supported by the preceding facts, not by cadence alone.\nRemembered line: Keep the contrast when the evidence has already done the work.\n"
+    },
+    {
+      "id": "statproof-boundary-measured-dash",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this status sentence: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.",
+      "expected_output": "Keeps the dash aside because it supplies measurement provenance, not decorative rhythm.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "candidate_A": "Verdict: keep\nSlop tells: None. The em-dash pair supplies measurement provenance: logged-in dashboard sessions during the first week after launch. That aside qualifies the p95 improvement instead of adding decorative rhythm.\nSpecificity missing: None for this sentence-level review; the metric, before/after values, measurement population, time window, and error-rate result are named.\nInflated claim: None.\nFlow break: None.\nConcrete rewrite: Keep: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.\nRewrite check: passes self-detectors; the dash pair is earned because it brackets source and scope for the measurement.\nRemembered line: Keep the dash when it tells the reader where the number came from.\n",
+      "candidate_B": "Verdict: keep\nSlop tells: None. The em-dash aside is earned because it gives measurement provenance, not decorative rhythm.\nSpecificity missing: None for the requested sentence. It names the metric, the before-and-after values, the measured population, the time window, and the unchanged error-rate result.\nInflated claim: None.\nFlow break: None. The aside explains where the p95 measurement came from before the sentence returns to error rates.\nConcrete rewrite: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.\nRemembered line: Keep the dash pair when it carries the measurement source."
+    }
+  ]
+}

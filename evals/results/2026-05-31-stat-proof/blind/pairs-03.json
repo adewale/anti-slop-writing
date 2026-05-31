@@ -1,0 +1,153 @@
+{
+  "unit_count": 7,
+  "chunk_index": 3,
+  "units": [
+    {
+      "id": "statproof-hedged-docs-site",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this docs sentence: Whether you're learning the basics or optimizing production workloads, the guide gives you what you need. While examples are helpful, conceptual clarity is also important.",
+      "expected_output": "Flags generic reader spread and value balancing; rewrites around a concrete docs path.",
+      "assertions": [
+        "Identifies the 'basics vs production workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'examples vs conceptual clarity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete reader path, example, or production task, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells:\n- “Whether you're learning the basics or optimizing production workloads” tries to cover every reader instead of choosing the guide’s actual use case.\n- “While examples are helpful, conceptual clarity is also important” is balance filler; it names two virtues without showing a real tradeoff between them.\nSpecificity missing: the reader, the docs path, and the task the guide helps them finish.\nInflated claim: “gives you what you need” claims completeness without evidence.\nFlow break: the second sentence does not advance the first; it adds another safe value pair.\nConcrete rewrite: If you’re adding rate limits to an existing service, start with the quickstart, run the sample policy, then use the production checklist to set thresholds, alerts, and rollback steps.\nRemembered line: Name the path the reader should take; don’t promise the guide serves everyone.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Whether you're learning the basics or optimizing production workloads” is hedged symmetry: it tries to cover every reader instead of choosing the guide’s use case. “While examples are helpful, conceptual clarity is also important” is both-sides balance filler unless the paragraph names a real tradeoff between example-first learning and conceptual explanation.\nSpecificity missing: Who is using the guide, what task they are trying to finish, and what concrete path the guide gives them.\nInflated claim: “gives you what you need” claims completeness without naming the work the guide supports.\nFlow break: The second sentence balances two values instead of explaining how the chosen reader should move through the guide.\nConcrete rewrite: For a developer deploying the service for the first time, the guide gives one path: run the sample request, read the trace, set the timeout, and use the production checklist before rollout.\nRewrite check: passes self-detectors.\nRemembered line: Choose the reader, then name the path."
+    },
+    {
+      "id": "statproof-hedged-collab-app",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product intro: Whether your team is remote, hybrid, or in-office, the workspace keeps everyone aligned. While speed matters, alignment matters too.",
+      "expected_output": "Flags audience catch-all and balance filler; rewrites for concrete collaboration behavior.",
+      "assertions": [
+        "Identifies the 'remote/hybrid/in-office' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'speed vs alignment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete handoff, decision log, meeting, or task workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells:\n- “Whether your team is remote, hybrid, or in-office” is audience sprawl; it tries to include every workplace model instead of naming the collaboration problem.\n- “While speed matters, alignment matters too” is balance filler unless the copy names the tradeoff that slows or breaks work.\nSpecificity missing: the handoff, decision, meeting, or task workflow the product improves.\nInflated claim: “keeps everyone aligned” is too broad without a mechanism.\nFlow break: the second sentence repeats a safe value conflict rather than showing how the workspace changes team behavior.\nConcrete rewrite: For product teams handing work from design review to engineering, the workspace pins the decision log to the task, records the owner, and turns the meeting notes into the next three assignments.\nRemembered line: Alignment is not a value claim; it is a visible handoff.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Whether your team is remote, hybrid, or in-office” is audience catch-all symmetry: it tries to include every workplace model instead of choosing a collaboration problem. “While speed matters, alignment matters too” is balance filler unless the copy names the actual tradeoff.\nSpecificity missing: The handoff, decision, meeting, or task workflow where the workspace changes behavior.\nInflated claim: “keeps everyone aligned” claims an outcome without naming what is recorded or who uses it.\nFlow break: The intro moves from universal audience coverage to abstract values instead of showing one concrete collaboration moment.\nConcrete rewrite: After design review, the workspace puts the decision, owner, open questions, and next engineering task in the same thread, so the handoff can move without a recap meeting.\nRewrite check: passes self-detectors.\nRemembered line: Alignment is not a value claim; it is a recorded decision someone can act on."
+    },
+    {
+      "id": "statproof-hedged-database",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this database marketing copy: Whether you're building your first app or running mission-critical workloads, the database grows with you. While performance counts, developer happiness also counts.",
+      "expected_output": "Flags hedged symmetry and rewrites around a specific workload/tradeoff.",
+      "assertions": [
+        "Identifies the 'first app vs mission-critical workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'performance vs developer happiness' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete query, migration, failover, or setup tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells:\n- “Whether you're building your first app or running mission-critical workloads” is hedged audience symmetry; it avoids choosing the database workload the copy can actually prove.\n- “While performance counts, developer happiness also counts” is balance filler unless the paragraph names the setup or runtime tradeoff.\nSpecificity missing: the query, migration, failover path, or setup decision.\nInflated claim: “grows with you” gestures at scale without saying what changes when load increases.\nFlow break: the second sentence adds another abstract virtue instead of explaining the database mechanism.\nConcrete rewrite: For SaaS teams migrating customer tables without downtime, the database runs shadow reads against the new schema, promotes the replica only after error rates match, and keeps the rollback window open for the cutover.\nRemembered line: Choose the workload; make the tradeoff inspectable.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Whether you're building your first app or running mission-critical workloads” is hedged symmetry: it covers the widest possible audience instead of choosing a workload. “While performance counts, developer happiness also counts” is both-sides balance filler unless the copy names a real tradeoff.\nSpecificity missing: The query, migration, failover, or setup path the database improves.\nInflated claim: “grows with you” claims scale without naming the mechanism.\nFlow break: The second sentence adds another pair of abstractions instead of explaining how the database handles the chosen workload.\nConcrete rewrite: For a team migrating a read-heavy API, the database keeps the setup path short: inspect the slow query plan, add the index, run the failover drill, and switch traffic only after the replica catches up.\nRewrite check: passes self-detectors.\nRemembered line: Pick the workload before claiming the database scales."
+    },
+    {
+      "id": "statproof-outline-payments-post",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in the future of commerce.",
+      "expected_output": "Flags outline-shaped conclusion templates and asks for specific challenge/next step or cuts.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in payments ecosystem, a named change in checkout platform, or a next action for commerce."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "candidate_A": "Verdict: reject\nSlop tells:\n- “Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive” is outline-shaped closure: it gestures at difficulty, then asserts momentum without a carrier.\n- “Looking ahead, it will play an increasingly pivotal role in the future of commerce” is generic future-facing significance language with no next step.\nSpecificity missing: the payment failure, platform change, merchant action, or commerce behavior that earned the ending.\nInflated claim: “pivotal role” and “future of commerce” make the claim larger as the detail gets thinner.\nFlow break: the conclusion leaves the concrete checkout problem and floats into category-level importance.\nConcrete rewrite: When bank redirects fail during 3-D Secure, the new checkout rule offers a wallet fallback before the session expires; merchants should enable it before the next promo launch.\nRemembered line: End on the failed payment path, not the future of commerce.\n",
+      "candidate_B": "Verdict: reject\nSlop tells: “Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive” is an outline-shaped conclusion: it gestures at adversity and momentum without earning either claim. “Looking ahead, it will play an increasingly pivotal role in the future of commerce” is generic future-facing closure without a named next step.\nSpecificity missing: Which payments challenge changed, what the checkout platform now does differently, and what action the reader should take next.\nInflated claim: “continues to thrive,” “increasingly pivotal,” and “future of commerce” expand importance after the evidence has already ended.\nFlow break: The conclusion leaves the concrete carrier and closes on category-level optimism.\nConcrete rewrite: Cut both sentences unless the ending can return to a specific carrier. If the post showed payment failures, end on that mechanism: The next checkout improvement is smaller than the claim here: catch the failed card attempt, offer the saved wallet or bank-pay fallback, and measure whether fewer shoppers abandon at that step.\nRewrite check: contains a conditional example that must be source-checked before publication; no banned closure, prestige adjectives, decorative dash, or negative parallelism.\nRemembered line: End at the failure point, not at “the future of commerce.”"
+    },
+    {
+      "id": "statproof-outline-devtools-post",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve. Looking ahead, it will become an essential part of how teams build the next generation of applications.",
+      "expected_output": "Flags despite/looking-ahead template and rewrites to a carrier-bound ending or cut.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in software delivery, a named change in DevOps toolkit, or a next action for applications."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "candidate_A": "Verdict: reject\nSlop tells: “Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve” is an outline-shaped conclusion: it uses complexity as backdrop and evolution as unearned closure. “Looking ahead, it will become an essential part of how teams build the next generation of applications” is generic future-facing closure without a named next step.\nSpecificity missing: The delivery problem, the toolkit change, and the build action the reader should remember.\nInflated claim: “essential” and “next generation of applications” lift the claim above the evidence.\nFlow break: The ending swaps a concrete DevOps carrier for a broad forecast.\nConcrete rewrite: Cut both sentences unless the post can end on a named delivery mechanism. If the article showed flaky deploys, use that carrier: The useful change is narrower: the toolkit records the failed step, reruns only that job, and leaves the passing build artifacts intact for the next deploy.\nRewrite check: contains a conditional example that must be source-checked before publication; no banned closure, prestige adjectives, decorative dash, or negative parallelism.\nRemembered line: Close on the failed job the toolkit can rerun.",
+      "candidate_B": "Verdict: reject\nSlop tells:\n- “Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve” is outline-shaped closure: complexity appears only as a setup for an unearned progress claim.\n- “Looking ahead, it will become an essential part of how teams build the next generation of applications” is generic future closure with no named next action.\nSpecificity missing: the delivery bottleneck, toolkit change, pipeline step, or team behavior.\nInflated claim: “essential” and “next generation of applications” inflate the ending without evidence.\nFlow break: the conclusion stops tracking a concrete software-delivery problem and switches to broad importance.\nConcrete rewrite: When a deployment fails after tests pass, the toolkit links the failed check to the rollback runbook, assigns the owner, and lets the team rerun the pipeline after fixing the missing environment variable.\nRemembered line: End on the broken pipeline and the next command, not on the future of applications.\n"
+    },
+    {
+      "id": "statproof-outline-ai-research-post",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite unanswered questions in the AI landscape, this research direction continues to gain momentum. Looking ahead, it will play a pivotal role in shaping responsible innovation.",
+      "expected_output": "Flags generic future/pivotal closure and asks for specific question or result.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in AI landscape, a named change in research direction, or a next action for responsible innovation."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "candidate_A": "Verdict: reject\nSlop tells:\n- “Despite unanswered questions in the AI landscape, this research direction continues to gain momentum” is outline-shaped closure: the unanswered questions are unnamed, and momentum substitutes for evidence.\n- “Looking ahead, it will play a pivotal role in shaping responsible innovation” is generic future-facing significance language with no next step.\nSpecificity missing: the research question, result, limitation, dataset, or follow-up experiment.\nInflated claim: “pivotal role” and “responsible innovation” make the claim broader while the mechanism disappears.\nFlow break: the conclusion moves from research to category-level virtue without saying what transfers.\nConcrete rewrite: If the open question is benchmark contamination, end there: the next study should publish the held-out prompt set, run contamination checks against the training snapshot, and report the failure cases alongside the aggregate score.\nRemembered line: Name the unanswered question; do not bury it under momentum.\n",
+      "candidate_B": "Verdict: reject\nSlop tells: “Despite unanswered questions in the AI landscape, this research direction continues to gain momentum” is an outline-shaped conclusion: it names uncertainty and momentum without showing the reader what changed. “Looking ahead, it will play a pivotal role in shaping responsible innovation” is generic future-facing closure without a named next step.\nSpecificity missing: The unanswered question, the research result, and the next responsible-innovation action.\nInflated claim: “AI landscape,” “gain momentum,” “pivotal role,” and “responsible innovation” are abstract importance signals.\nFlow break: The conclusion leaves the research carrier and ends in institutional aspiration.\nConcrete rewrite: Cut both sentences unless the ending can return to the study’s concrete question. If the work measured model behavior under a safety constraint, end there: The next result to watch is whether the constraint still holds when the prompts move from lab examples to messy user requests.\nRewrite check: contains a conditional example that must be source-checked before publication; no banned closure, prestige adjectives, decorative dash, or negative parallelism.\nRemembered line: Name the unanswered question before claiming momentum."
+    },
+    {
+      "id": "statproof-outline-education-platform",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite persistent challenges in education, the platform continues to thrive across classrooms. Looking ahead, it will help redefine how students and teachers connect.",
+      "expected_output": "Flags outline conclusion and rewrites/cuts around named classroom behavior.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in education, a named change in platform, or a next action for students and teachers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "candidate_A": "Verdict: reject\nSlop tells:\n- “Despite persistent challenges in education, the platform continues to thrive across classrooms” is outline-shaped closure: it invokes difficulty, then claims success without naming the classroom mechanism.\n- “Looking ahead, it will help redefine how students and teachers connect” is generic future closure with no next action.\nSpecificity missing: the education challenge, platform change, teacher action, or student behavior.\nInflated claim: “redefine” makes the ending grander than the evidence.\nFlow break: the conclusion leaves the classroom and ends on a broad transformation claim.\nConcrete rewrite: When a student misses the lesson on linear equations, the platform sends the annotated problem set, lets the student record the stuck step, and gives the teacher one queue to answer before the next class.\nRemembered line: End with the missed lesson and the reply loop, not a promise to redefine connection.\n",
+      "candidate_B": "Verdict: reject\nSlop tells: “Despite persistent challenges in education, the platform continues to thrive across classrooms” is an outline-shaped conclusion: it borrows the challenge/thrive template without earning the closure. “Looking ahead, it will help redefine how students and teachers connect” is generic future-facing closure without a named next step.\nSpecificity missing: The classroom challenge, the platform behavior, and the student-teacher action that changed.\nInflated claim: “continues to thrive” and “redefine how students and teachers connect” make a broad significance claim with no carrier.\nFlow break: The conclusion moves away from classroom behavior into a category promise.\nConcrete rewrite: Cut both sentences unless the ending can point to a classroom action. If the platform helped with missed assignments, close there: The platform matters only if the teacher can see which students missed the prompt, send the follow-up, and get the next draft back before the lesson moves on.\nRewrite check: contains a conditional example that must be source-checked before publication; no banned closure, prestige adjectives, decorative dash, or negative parallelism.\nRemembered line: End with the classroom action, not the education promise."
+    }
+  ]
+}

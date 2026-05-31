@@ -1,0 +1,175 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "holdout",
+  "skill_path": "/tmp/asw-stat-before-skill/SKILL.md",
+  "unit_count": 7,
+  "units": [
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-growth-metric",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this case-study paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe onboarding redesign doubled activation in ten days. Our new personalization engine identified each user's intent, rebuilt the checklist, and made the product feel immediately useful.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this case-study paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe onboarding redesign doubled activation in ten days. Our new personalization engine identified each user's intent, rebuilt the checklist, and made the product feel immediately useful.\n\nEXPECTED:\nAsks for metric provenance and mechanism or cuts; no invented experiment details; rewrite check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-growth-metric\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-security-tool",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this security update using the Critique output format. No source notes are available beyond the paragraph.\n\nThe scanner found every critical vulnerability before launch. It understood our threat model, generated the patches, and gave the security team confidence to ship on schedule.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this security update using the Critique output format. No source notes are available beyond the paragraph.\n\nThe scanner found every critical vulnerability before launch. It understood our threat model, generated the patches, and gave the security team confidence to ship on schedule.\n\nEXPECTED:\nAsks for scanner identity/coverage/evidence or cuts unsupported certainty; no invented tool; rewrite check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-security-tool\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-revenue-ai",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this sales paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe new assistant turned stalled renewals into expansions. It read every account history, drafted the right follow-up, and helped the team recover seven figures in pipeline.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this sales paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe new assistant turned stalled renewals into expansions. It read every account history, drafted the right follow-up, and helped the team recover seven figures in pipeline.\n\nEXPECTED:\nAsks for assistant identity, measurement, and attribution; avoids invented revenue/tool details; rewrite check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-revenue-ai\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-dev-cycle",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this product-engineering paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe coding agent compressed the release cycle from six weeks to eight days. It wrote the database migration, updated the docs, and caught the edge cases our review process had missed.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this product-engineering paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe coding agent compressed the release cycle from six weeks to eight days. It wrote the database migration, updated the docs, and caught the edge cases our review process had missed.\n\nEXPECTED:\nAsks for tool/timing/provenance or cuts; avoids invented details; self-checks fallback.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-dev-cycle\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-support-deflection",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this support paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe help-center bot resolved most tickets without escalation. It learned our product language, knew when to hand off, and made customers feel heard without slowing the queue.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this support paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe help-center bot resolved most tickets without escalation. It learned our product language, knew when to hand off, and made customers feel heard without slowing the queue.\n\nEXPECTED:\nAsks for bot identity, resolution metric, handoff rule, and evidence; avoids feel-good unsupported rewrite; self-check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-support-deflection\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-observability-console",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product sentence: The observability console serves as the command center for modern operations and represents a key pillar of engineering excellence.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product sentence: The observability console serves as the command center for modern operations and represents a key pillar of engineering excellence.\n\nEXPECTED:\nFlags displaced copulas/prestige nouns and rewrites with concrete console behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies serves as the command center, represents a key pillar as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as shows traces, alerts, deploys, incidents, or ownership.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-observability-console\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies serves as the command center, represents a key pillar as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as shows traces, alerts, deploys, incidents, or ownership."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-permissions-service",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this architecture sentence: The permissions service stands as the backbone of secure collaboration and serves as a foundation for enterprise trust.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this architecture sentence: The permissions service stands as the backbone of secure collaboration and serves as a foundation for enterprise trust.\n\nEXPECTED:\nFlags stands/serves inflation and rewrites around concrete authorization behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies stands as the backbone, serves as a foundation as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as checks roles, denies actions, logs policy decisions, or scopes access.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-permissions-service\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies stands as the backbone, serves as a foundation as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as checks roles, denies actions, logs policy decisions, or scopes access."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ],
+  "chunk_index": 1
+}

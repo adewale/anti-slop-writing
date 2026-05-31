@@ -1,0 +1,6 @@
+Split:         holdout-only
+Cases:         42
+Mean delta:    +0.0669
+95% CI:        [+0.0245, +0.1167]
+Sign-flip p:   0.0074
+Verdict:       ACCEPT (improvement clears the noise floor).

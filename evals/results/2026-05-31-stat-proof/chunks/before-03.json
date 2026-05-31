@@ -1,0 +1,150 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "holdout",
+  "skill_path": "/tmp/asw-stat-before-skill/SKILL.md",
+  "unit_count": 7,
+  "units": [
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-docs-site",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this docs sentence: Whether you're learning the basics or optimizing production workloads, the guide gives you what you need. While examples are helpful, conceptual clarity is also important.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this docs sentence: Whether you're learning the basics or optimizing production workloads, the guide gives you what you need. While examples are helpful, conceptual clarity is also important.\n\nEXPECTED:\nFlags generic reader spread and value balancing; rewrites around a concrete docs path.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'basics vs production workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'examples vs conceptual clarity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete reader path, example, or production task, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-docs-site\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'basics vs production workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'examples vs conceptual clarity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete reader path, example, or production task, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-collab-app",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product intro: Whether your team is remote, hybrid, or in-office, the workspace keeps everyone aligned. While speed matters, alignment matters too.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product intro: Whether your team is remote, hybrid, or in-office, the workspace keeps everyone aligned. While speed matters, alignment matters too.\n\nEXPECTED:\nFlags audience catch-all and balance filler; rewrites for concrete collaboration behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'remote/hybrid/in-office' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'speed vs alignment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete handoff, decision log, meeting, or task workflow, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-collab-app\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'remote/hybrid/in-office' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'speed vs alignment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete handoff, decision log, meeting, or task workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-database",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this database marketing copy: Whether you're building your first app or running mission-critical workloads, the database grows with you. While performance counts, developer happiness also counts.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this database marketing copy: Whether you're building your first app or running mission-critical workloads, the database grows with you. While performance counts, developer happiness also counts.\n\nEXPECTED:\nFlags hedged symmetry and rewrites around a specific workload/tradeoff.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'first app vs mission-critical workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'performance vs developer happiness' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete query, migration, failover, or setup tradeoff, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-database\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'first app vs mission-critical workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'performance vs developer happiness' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete query, migration, failover, or setup tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-payments-post",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in the future of commerce.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in the future of commerce.\n\nEXPECTED:\nFlags outline-shaped conclusion templates and asks for specific challenge/next step or cuts.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in payments ecosystem, a named change in checkout platform, or a next action for commerce.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-payments-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in payments ecosystem, a named change in checkout platform, or a next action for commerce."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-devtools-post",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve. Looking ahead, it will become an essential part of how teams build the next generation of applications.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve. Looking ahead, it will become an essential part of how teams build the next generation of applications.\n\nEXPECTED:\nFlags despite/looking-ahead template and rewrites to a carrier-bound ending or cut.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in software delivery, a named change in DevOps toolkit, or a next action for applications.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-devtools-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in software delivery, a named change in DevOps toolkit, or a next action for applications."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-ai-research-post",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite unanswered questions in the AI landscape, this research direction continues to gain momentum. Looking ahead, it will play a pivotal role in shaping responsible innovation.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite unanswered questions in the AI landscape, this research direction continues to gain momentum. Looking ahead, it will play a pivotal role in shaping responsible innovation.\n\nEXPECTED:\nFlags generic future/pivotal closure and asks for specific question or result.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in AI landscape, a named change in research direction, or a next action for responsible innovation.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-ai-research-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in AI landscape, a named change in research direction, or a next action for responsible innovation."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-education-platform",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite persistent challenges in education, the platform continues to thrive across classrooms. Looking ahead, it will help redefine how students and teachers connect.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite persistent challenges in education, the platform continues to thrive across classrooms. Looking ahead, it will help redefine how students and teachers connect.\n\nEXPECTED:\nFlags outline conclusion and rewrites/cuts around named classroom behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in education, a named change in platform, or a next action for students and teachers.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-education-platform\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in education, a named change in platform, or a next action for students and teachers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ],
+  "chunk_index": 3
+}

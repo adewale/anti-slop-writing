@@ -1,0 +1,185 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "holdout",
+  "skill_path": "skills/anti-slop-writing/SKILL.md",
+  "unit_count": 7,
+  "units": [
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-cache-layer",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this architecture sentence: The cache layer is not just a speed boost. It is the foundation of a more responsive platform.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this architecture sentence: The cache layer is not just a speed boost. It is the foundation of a more responsive platform.\n\nEXPECTED:\nFlags borrowed not-just emphasis, tests the flattened claim, and rewrites around the concrete cache behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'cache layer is the foundation of a more responsive platform' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming what is cached, when it is invalidated, which request path or latency it changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-cache-layer\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'cache layer is the foundation of a more responsive platform' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming what is cached, when it is invalidated, which request path or latency it changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-incident-review",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this process sentence: The incident review is more than a retrospective. It is the engine of operational learning.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this process sentence: The incident review is more than a retrospective. It is the engine of operational learning.\n\nEXPECTED:\nFlags borrowed more-than emphasis, flattens the claim, and rewrites around a concrete review artifact or action.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'incident review is the engine of operational learning' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming which action item, owner, alert, runbook, or test changes after the review, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-incident-review\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'incident review is the engine of operational learning' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which action item, owner, alert, runbook, or test changes after the review, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-schema-registry",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this platform sentence: The schema registry is not merely a catalog. It is how data teams build trust at scale.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this platform sentence: The schema registry is not merely a catalog. It is how data teams build trust at scale.\n\nEXPECTED:\nFlags not-merely borrowed emphasis and rewrites with schema compatibility or ownership mechanics.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'schema registry is how data teams build trust at scale' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming who owns schema changes, compatibility checks, consumers, or deployment gates, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-schema-registry\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'schema registry is how data teams build trust at scale' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming who owns schema changes, compatibility checks, consumers, or deployment gates, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-feature-flag",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this launch sentence: Feature flags are not just switches. They are a strategy for safer product development.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this launch sentence: Feature flags are not just switches. They are a strategy for safer product development.\n\nEXPECTED:\nFlags not-just contrast cadence and rewrites around rollout, rollback, or exposure mechanics.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'feature flags are a strategy for safer product development' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming rollout percentage, kill switch, cohort, metric, or rollback path, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-feature-flag\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'feature flags are a strategy for safer product development' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming rollout percentage, kill switch, cohort, metric, or rollback path, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-test-suite",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this engineering sentence: The test suite is not just a safety net. It is the contract that keeps refactors honest.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this engineering sentence: The test suite is not just a safety net. It is the contract that keeps refactors honest.\n\nEXPECTED:\nFlags borrowed emphasis and rewrites around concrete refactor-protection behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'test suite is the contract that keeps refactors honest' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming which invariant, fixture, public behavior, or failing regression it catches, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-test-suite\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'test suite is the contract that keeps refactors honest' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which invariant, fixture, public behavior, or failing regression it catches, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-design-review",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product sentence: Design review is more than feedback. It is where the product vision becomes real.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product sentence: Design review is more than feedback. It is where the product vision becomes real.\n\nEXPECTED:\nFlags more-than borrowed emphasis and rewrites around concrete decision records or constraints.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'design review is where the product vision becomes real' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming which constraint, decision, rejected option, or user flow changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-design-review\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'design review is where the product vision becomes real' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which constraint, decision, rejected option, or user flow changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-ai-refactor",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this launch paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe AI pair programmer took the refactor from a month of cleanup to two afternoons. It mapped the legacy services, generated the migration plan, and fixed the flaky tests that had blocked the team for years.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this launch paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe AI pair programmer took the refactor from a month of cleanup to two afternoons. It mapped the legacy services, generated the migration plan, and fixed the flaky tests that had blocked the team for years.\n\nEXPECTED:\nUses ask-author or cuts unsupported tool/timing claims; does not invent assistant/model/source facts; includes a rewrite self-check.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-ai-refactor\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ],
+  "chunk_index": 0
+}

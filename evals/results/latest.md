@@ -1,8 +1,8 @@
 # Latest eval results
 
-Date: 2026-05-30
+Date: 2026-05-31
 
-This note supersedes the 2026-05-29 infrastructure baseline after merging the branch work on procedural emphasis-source tests and rewrite self-check doctrine. The binary holdout suite is at ceiling, so `scripts/score_delta.py` reports `REJECT` for zero-delta runs: that is evidence of no measured improvement on the saturated baseline, not evidence of a regression.
+This note supersedes the 2026-05-29 infrastructure baseline and the small 2026-05-30 branch-paired run. The old binary holdout suite is at ceiling, so zero-delta runs there remain useful only as no-regression checks. The 2026-05-31 fresh-holdout run is the current statistical proof surface for branch-mining improvements.
 
 ## Current merged result notes
 
@@ -10,10 +10,11 @@ This note supersedes the 2026-05-29 infrastructure baseline after merging the br
 - `evals/results/2026-05-30-rebaseline.md` and `evals/results/rebaseline-2026-05-30/` — ask-author / Rewrite check / both-sides Staccato doctrine: 15/15 holdout cases passed; 10/10 comparable baseline cases stayed 1.0 → 1.0.
 - `evals/results/2026-05-27-emphasis-source-experiment.md` — blinded A/B history for procedural-vs-label wording. The qualitative artifact improved (the agent wrote the flattened sentence), while the small-N statistical gate did not accept the score delta.
 - `evals/results/2026-05-30-branch-paired/` — paired pre-integration vs merged-doctrine run on harder branch-specific cases, fresh holdouts, and graded dimensions. Holdout means improved (binary 0.6042 → 0.9167; graded 0.6383 → 0.8917), but both all-case and holdout gates still REJECT because the CI overlaps zero.
+- `evals/results/2026-05-31-stat-proof/` — fresh 42-case holdout run with blind A/B pair judging. Binary holdout mean improved 0.9286 → 1.0000, 95% CI [+0.0317, +0.1190], p=0.0074; graded holdout mean improved 0.9319 → 0.9988, 95% CI [+0.0245, +0.1167], p=0.0074. Both gates ACCEPT under the available blind same-family judge.
 
 ## How to read the score-delta output
 
-Existing holdout binary assertions are saturated. For both merged doctrine branches, the joined before/after rows against `baseline-2026-05-29/scores.jsonl` have mean delta `+0.0000`; the CI overlaps zero and the sign-flip p-value is 1.0. Under the runbook, that means the change is not statistically accepted as an improvement on the old holdout surface.
+Existing holdout binary assertions are saturated. For both merged doctrine branches, the joined before/after rows against `baseline-2026-05-29/scores.jsonl` have mean delta `+0.0000`; the CI overlaps zero and the sign-flip p-value is 1.0. Under the runbook, that means the change is not statistically accepted as an improvement on the old holdout surface. Improvement should instead be read from the pre-registered fresh holdout in `2026-05-31-stat-proof/`.
 
 The safe interpretation is:
 
@@ -23,15 +24,15 @@ The safe interpretation is:
 
 ## Remaining measurement gaps
 
-- Cross-family or human spot-check for the same-family judge limitation noted in both 2026-05-30 result notes.
+- Cross-family or human confirmation for the 2026-05-31 proof run. An Anthropic rerun was attempted but failed because no Anthropic API key was configured.
 - Observed trigger rates in Pi, Claude Code, Codex, and OpenCode, especially for near-miss negatives.
-- More independent branch-specific holdout cases; the first paired run moved the mean but did not clear the gate at N=4 holdouts.
-- Cross-family or human judging for the branch-paired run; current apply/judge agents are same-family, so treat scores as coverage signals.
+- Future major versions still need fresh holdout refreshes from real usage traces; do not keep reusing the 2026-05-31 proof set for adaptive tuning.
 
 ## Previous results
 
 | Date | File |
 |---|---|
+| 2026-05-31 | `2026-05-31-stat-proof/` |
 | 2026-05-30 | `2026-05-30-holdout-regression-check/`, `2026-05-30-rebaseline.md`, `2026-05-30-branch-paired/` |
 | 2026-05-29 | `2026-05-29-baseline.md`, `baseline-2026-05-29/` |
 | 2026-05-25 | `2026-05-25-before.md`, `2026-05-25-after.md`, `2026-05-25-adversarial-expansion.md`, `2026-05-25-runbook-eval-drift.md` |

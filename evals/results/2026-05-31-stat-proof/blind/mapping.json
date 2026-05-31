@@ -1,0 +1,215 @@
+{
+  "seed": 20260531,
+  "mapping": [
+    {
+      "id": "statproof-borrowed-cache-layer",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-borrowed-incident-review",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-borrowed-schema-registry",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-borrowed-feature-flag",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-borrowed-test-suite",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-borrowed-design-review",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-ask-author-ai-refactor",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-ask-author-growth-metric",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-ask-author-security-tool",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-ask-author-revenue-ai",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-ask-author-dev-cycle",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-ask-author-support-deflection",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-copula-observability-console",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-copula-permissions-service",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-copula-data-contract",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-copula-developer-portal",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-copula-analytics-dashboard",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-copula-policy-engine",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-hedged-api-framework",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-hedged-analytics-tool",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-hedged-security-platform",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-hedged-docs-site",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-hedged-collab-app",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-hedged-database",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-outline-payments-post",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-outline-devtools-post",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-outline-ai-research-post",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-outline-education-platform",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-outline-climate-dashboard",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-outline-open-source-release",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-dash-reliability-api",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-dash-startup-platform",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-dash-data-pipeline",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-dash-mobile-sdk",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-dash-ops-tool",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-dash-community-post",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-boundary-serves-enumeration",
+      "A": "after",
+      "B": "before"
+    },
+    {
+      "id": "statproof-boundary-dash-definition",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-boundary-whether-branch",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-boundary-stands-location",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-boundary-earned-contrast",
+      "A": "before",
+      "B": "after"
+    },
+    {
+      "id": "statproof-boundary-measured-dash",
+      "A": "after",
+      "B": "before"
+    }
+  ]
+}

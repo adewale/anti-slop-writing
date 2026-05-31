@@ -1,0 +1,155 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "holdout",
+  "skill_path": "/tmp/asw-stat-before-skill/SKILL.md",
+  "unit_count": 7,
+  "units": [
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-community-post",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this community-post line for cadence tells: The meetup was small — thirty people — but electric — demos, debates, hallway debugging — the kind of energy that proves a movement is real.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this community-post line for cadence tells: The meetup was small — thirty people — but electric — demos, debates, hallway debugging — the kind of energy that proves a movement is real.\n\nEXPECTED:\nFlags mixed earned and decorative dashes: the thirty-person aside may be earned, but cadence should not inflate movement proof.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-community-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-serves-enumeration",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this technical sentence: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this technical sentence: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.\n\nEXPECTED:\nKeeps the sentence or makes a small clarity edit because serves enumerates concrete queues and whether names real branch behavior.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-serves-enumeration\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-dash-definition",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this database sentence: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this database sentence: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.\n\nEXPECTED:\nKeeps the em-dash pair because it defines a term inline with concrete facts.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-dash-definition\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-whether-branch",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this recovery sentence: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this recovery sentence: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.\n\nEXPECTED:\nKeeps the whether structure because it names real branches with distinct outcomes.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-whether-branch\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-stands-location",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this facilities sentence: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this facilities sentence: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.\n\nEXPECTED:\nDoes not flag stands/serves as copula displacement because the verbs locate a physical archive and name who uses it.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-stands-location\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-earned-contrast",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.\n\nEXPECTED:\nKeeps or lightly edits the final contrast because both sides are evidenced by the prior sentences.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-earned-contrast\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-measured-dash",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this status sentence: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this status sentence: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.\n\nEXPECTED:\nKeeps the dash aside because it supplies measurement provenance, not decorative rhythm.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-measured-dash\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ],
+  "chunk_index": 5
+}

@@ -1,0 +1,175 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "holdout",
+  "skill_path": "skills/anti-slop-writing/SKILL.md",
+  "unit_count": 7,
+  "units": [
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-climate-dashboard",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite the evolving climate-data landscape, the dashboard continues to grow in importance. Looking ahead, it will serve an increasingly pivotal role for decision-makers around the world.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite the evolving climate-data landscape, the dashboard continues to grow in importance. Looking ahead, it will serve an increasingly pivotal role for decision-makers around the world.\n\nEXPECTED:\nFlags evolving-landscape/pivotal-role ending and asks for named decision or cut.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in climate-data landscape, a named change in dashboard, or a next action for decision-makers.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-climate-dashboard\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in climate-data landscape, a named change in dashboard, or a next action for decision-makers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-open-source-release",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite challenges facing the open-source ecosystem, the project continues to flourish. Looking ahead, it will be central to how developers collaborate and innovate.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite challenges facing the open-source ecosystem, the project continues to flourish. Looking ahead, it will be central to how developers collaborate and innovate.\n\nEXPECTED:\nFlags generic ecosystem closer and rewrites around concrete project artifact or next step.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in open-source ecosystem, a named change in project, or a next action for developers.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-open-source-release\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in open-source ecosystem, a named change in project, or a next action for developers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-reliability-api",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this product sentence for cadence tells: The API is reliable — really reliable — under load — even during spikes — with clean errors — and fast retries — that developers can trust.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this product sentence for cadence tells: The API is reliable — really reliable — under load — even during spikes — with clean errors — and fast retries — that developers can trust.\n\nEXPECTED:\nFlags decorative dash cluster and rewrites by replacing cadence with measured facts or asks for evidence.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-reliability-api\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-startup-platform",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this landing-page sentence for cadence tells: The platform helps teams move faster — from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this landing-page sentence for cadence tells: The platform helps teams move faster — from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.\n\nEXPECTED:\nFlags dash pile-up and generic claims; rewrites by reducing decorative dashes.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-startup-platform\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-data-pipeline",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this engineering sentence for cadence tells: The pipeline is simple — one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this engineering sentence for cadence tells: The pipeline is simple — one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.\n\nEXPECTED:\nFlags decorative dash cadence and unsupported absolutes; rewrites with concrete pipeline behavior.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-data-pipeline\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-mobile-sdk",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this launch sentence for cadence tells: The SDK feels native — tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this launch sentence for cadence tells: The SDK feels native — tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.\n\nEXPECTED:\nFlags decorative dashes and praise labels; rewrites with concrete SDK facts or asks for evidence.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-mobile-sdk\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-ops-tool",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this product sentence for cadence tells: The tool gives operators one place to work — alerts — deploys — incidents — metrics — and the context to fix issues before customers notice.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this product sentence for cadence tells: The tool gives operators one place to work — alerts — deploys — incidents — metrics — and the context to fix issues before customers notice.\n\nEXPECTED:\nFlags dash list/cluster when it uses punctuation as structure; rewrites with a cleaner list and concrete context.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-ops-tool\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ],
+  "chunk_index": 4
+}

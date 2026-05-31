@@ -1,0 +1,150 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "holdout",
+  "skill_path": "/tmp/asw-stat-before-skill/SKILL.md",
+  "unit_count": 7,
+  "units": [
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-data-contract",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this data-platform sentence: The data contract represents a critical bridge between producers and consumers and marks a new era of reliable analytics.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this data-platform sentence: The data contract represents a critical bridge between producers and consumers and marks a new era of reliable analytics.\n\nEXPECTED:\nFlags represent/marks copula inflation and rewrites around schema or compatibility mechanics.\n\nASSERTIONS (judge each independently):\n1. Identifies represents a critical bridge, marks a new era as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as schema fields, compatibility checks, producer/consumer ownership, or deployment blocks.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-data-contract\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies represents a critical bridge, marks a new era as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as schema fields, compatibility checks, producer/consumer ownership, or deployment blocks."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-developer-portal",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this DevRel sentence: The developer portal serves as a gateway to innovation and features everything teams need to build better integrations.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this DevRel sentence: The developer portal serves as a gateway to innovation and features everything teams need to build better integrations.\n\nEXPECTED:\nFlags gateway/features abstraction and rewrites around concrete docs/API keys/examples.\n\nASSERTIONS (judge each independently):\n1. Identifies serves as a gateway, features everything as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as API keys, SDK examples, webhook docs, sample requests, or troubleshooting.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-developer-portal\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies serves as a gateway, features everything as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as API keys, SDK examples, webhook docs, sample requests, or troubleshooting."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-analytics-dashboard",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this launch sentence: The analytics dashboard stands as a testament to customer-centric design and serves as the single source of truth for business momentum.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this launch sentence: The analytics dashboard stands as a testament to customer-centric design and serves as the single source of truth for business momentum.\n\nEXPECTED:\nFlags testament/stands/serves inflation and rewrites around concrete dashboard contents.\n\nASSERTIONS (judge each independently):\n1. Identifies stands as a testament, serves as the single source as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as metrics, account changes, conversion events, filters, alerts, or exports.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-analytics-dashboard\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies stands as a testament, serves as the single source as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as metrics, account changes, conversion events, filters, alerts, or exports."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-policy-engine",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this compliance sentence: The policy engine represents the heart of our governance strategy and serves as a unified layer for organizational confidence.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this compliance sentence: The policy engine represents the heart of our governance strategy and serves as a unified layer for organizational confidence.\n\nEXPECTED:\nFlags copula displacement and confidence abstraction; rewrites around policy evaluation behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies represents the heart, serves as a unified layer as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as policy evaluation, approvals, blocks, audit logs, or exceptions.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-policy-engine\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies represents the heart, serves as a unified layer as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as policy evaluation, approvals, blocks, audit logs, or exceptions."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-api-framework",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product intro: Whether you're prototyping a weekend project or scaling a global platform, our API framework adapts to your workflow. While flexibility matters, reliability is equally important.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product intro: Whether you're prototyping a weekend project or scaling a global platform, our API framework adapts to your workflow. While flexibility matters, reliability is equally important.\n\nEXPECTED:\nFlags every-reader/every-value symmetry and rewrites for a concrete audience/tradeoff.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'prototyping vs global platform' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'flexibility vs reliability' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete API user, workflow, and reliability tradeoff, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-api-framework\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'prototyping vs global platform' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'flexibility vs reliability' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete API user, workflow, and reliability tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-analytics-tool",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this landing-page copy: Whether you're a solo founder or a Fortune 500 operator, the analytics tool meets you where you are. While depth is powerful, simplicity still matters.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this landing-page copy: Whether you're a solo founder or a Fortune 500 operator, the analytics tool meets you where you are. While depth is powerful, simplicity still matters.\n\nEXPECTED:\nFlags hedged symmetry and chooses a reader/use case.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'solo founder vs Fortune 500 operator' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'depth vs simplicity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete metric workflow or operator decision, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-analytics-tool\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'solo founder vs Fortune 500 operator' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'depth vs simplicity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete metric workflow or operator decision, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-security-platform",
+      "split": "holdout",
+      "apply_prompt": "Read /tmp/asw-stat-before-skill/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this security intro: Whether your team is just starting with compliance or managing a mature program, the platform supports every stage. While automation is essential, human judgment remains key.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this security intro: Whether your team is just starting with compliance or managing a mature program, the platform supports every stage. While automation is essential, human judgment remains key.\n\nEXPECTED:\nFlags both-sides hedge unless branches have different behavior, then rewrites around one compliance stage and tradeoff.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'starting compliance vs mature program' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'automation vs human judgment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete control owner, review step, or compliance workflow, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-security-platform\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'starting compliance vs mature program' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'automation vs human judgment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete control owner, review step, or compliance workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ],
+  "chunk_index": 2
+}

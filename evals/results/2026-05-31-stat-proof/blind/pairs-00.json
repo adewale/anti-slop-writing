@@ -1,0 +1,188 @@
+{
+  "unit_count": 7,
+  "chunk_index": 0,
+  "units": [
+    {
+      "id": "statproof-borrowed-cache-layer",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this architecture sentence: The cache layer is not just a speed boost. It is the foundation of a more responsive platform.",
+      "expected_output": "Flags borrowed not-just emphasis, tests the flattened claim, and rewrites around the concrete cache behavior.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'cache layer is the foundation of a more responsive platform' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming what is cached, when it is invalidated, which request path or latency it changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The sentence uses the “not just X. It is Y.” cadence to borrow emphasis from contrast instead of earning it with a concrete cache behavior.\nSpecificity missing: It does not say what is cached, when entries expire or get purged, which request path changes, or what latency limit improves.\nInflated claim: Flattened, the claim is “the cache layer is the foundation of a more responsive platform.” That still names a prestige role, not an actor, mechanism, or limit.\nFlow break: The line jumps from “speed boost” to “foundation” without showing the relation between a cache miss, a cache hit, and the user-facing response.\nConcrete rewrite: Cache the product catalog response at the edge and purge it when inventory changes; the product page can serve most reads without a database lookup, reducing the slow path instead of making the cache stand in for the whole platform.\nRemembered line: The cache matters when it removes a known lookup from a known request path.\n",
+      "candidate_B": "Verdict: ask-author\nSlop tells: The force comes from the borrowed contrast cadence: “not just a speed boost” sets up “foundation” as if the pattern itself proved the claim.\nSpecificity missing: What is cached, how stale entries are invalidated, which request path changes, and what latency or load limit improves.\nInflated claim: Flattened: “The cache layer is the foundation of a more responsive platform.” Without the contrast, the residual claim does not name an actor, mechanism, or limit; “foundation” and “responsive platform” carry prestige instead of evidence.\nFlow break: The sentence jumps from “speed boost” to platform-level importance without showing the cache behavior that earns the larger claim.\nConcrete rewrite: Ask author: what object is cached, when is it invalidated, and which path gets faster? If accurate: “Caching product records for 60 seconds, with purge-on-update invalidation, keeps repeat product-page reads off the primary database and lowers latency on cache hits.”\nRewrite check: The rewrite avoids the not-X-but-Y cadence, prestige nouns, decorative closure, and invented facts by marking the cache details as facts to confirm; passes self-detectors once those details are sourced.\nRemembered line: Name the key, the purge rule, and the path; otherwise it is just a speed claim.\n"
+    },
+    {
+      "id": "statproof-borrowed-incident-review",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this process sentence: The incident review is more than a retrospective. It is the engine of operational learning.",
+      "expected_output": "Flags borrowed more-than emphasis, flattens the claim, and rewrites around a concrete review artifact or action.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'incident review is the engine of operational learning' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which action item, owner, alert, runbook, or test changes after the review, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “More than a retrospective. It is the engine…” uses contrast cadence to make the review sound important before it names what changes after the meeting.\nSpecificity missing: It does not say which action item is created, who owns it, what alert changes, what runbook changes, or what test prevents a repeat.\nInflated claim: Flattened, the claim is “the incident review is the engine of operational learning.” That is still an abstraction; it does not name the mechanism that turns an incident into different operational behavior.\nFlow break: The sentence moves from meeting format to organization-wide learning without the intermediate artifact.\nConcrete rewrite: After each incident review, the on-call owner adds the missed checkout-queue alert to the runbook and assigns a due date; the next page tells responders which threshold fired and which mitigation to try first.\nRemembered line: An incident review earns its value when it changes the next page, test, or runbook.\n",
+      "candidate_B": "Verdict: ask-author\nSlop tells: “More than a retrospective” borrows emphasis from the contrast pattern, then “engine of operational learning” inflates the result without showing what changes.\nSpecificity missing: Which action item is created, who owns it, which alert, runbook, test, or deploy guard changes, and how completion is tracked.\nInflated claim: Flattened: “The incident review is the engine of operational learning.” Without the cadence, the line does not name an actor, mechanism, or limit; it turns a meeting into a prestige abstraction.\nFlow break: The sentence skips the handoff from review discussion to operational change.\nConcrete rewrite: Ask author: what artifact changes after the review? If accurate: “After each P1 review, the on-call owner must update the paging threshold and the runbook entry before the incident can be closed.”\nRewrite check: The rewrite does not reuse more-than/not-X cadence, does not add decorative closure, and uses concrete owner/action/artifact details only as facts to confirm; passes self-detectors once sourced.\nRemembered line: A review teaches only when it leaves a changed alert, runbook, test, or owner behind.\n"
+    },
+    {
+      "id": "statproof-borrowed-schema-registry",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this platform sentence: The schema registry is not merely a catalog. It is how data teams build trust at scale.",
+      "expected_output": "Flags not-merely borrowed emphasis and rewrites with schema compatibility or ownership mechanics.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'schema registry is how data teams build trust at scale' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming who owns schema changes, compatibility checks, consumers, or deployment gates, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “Not merely a catalog” borrows force from the contrast, then replaces the missing mechanism with “trust at scale.”\nSpecificity missing: It does not say who owns schema changes, which compatibility checks run, which consumers are protected, or what deploy gate stops a breaking change.\nInflated claim: Flattened, the claim is “the schema registry is how data teams build trust at scale.” That names a desired feeling, not the registry behavior that creates it.\nFlow break: The sentence skips from catalog to trust without explaining how schema publication affects producers and consumers.\nConcrete rewrite: The registry blocks an incompatible change to the orders schema until the owning team marks affected consumers and passes the compatibility check, so downstream jobs do not break on deploy.\nRemembered line: Trust comes from the gate that catches a breaking schema before consumers inherit it.\n",
+      "candidate_B": "Verdict: ask-author\nSlop tells: “Not merely a catalog” imports importance from the contrast, while “build trust at scale” replaces the registry mechanics with a broad virtue claim.\nSpecificity missing: Who owns schema changes, what compatibility check runs, which consumers are protected, and what deployment gate blocks unsafe changes.\nInflated claim: Flattened: “The schema registry is how data teams build trust at scale.” Without the contrast, the residual claim does not name the mechanism or limit; “trust at scale” is too vague to inspect.\nFlow break: The sentence moves from object label to organizational trust without explaining the schema-change workflow.\nConcrete rewrite: Ask author: what compatibility rule and ownership gate does the registry enforce? If accurate: “Schema owners must pass backward-compatibility checks and notify registered consumers before deploying event changes.”\nRewrite check: The rewrite avoids not-merely cadence, prestige abstraction, and invented specifics by presenting the mechanism as a fact to verify; passes self-detectors once sourced.\nRemembered line: Trust is earned by the compatibility check and the consumer gate, not by the word “scale.”\n"
+    },
+    {
+      "id": "statproof-borrowed-feature-flag",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this launch sentence: Feature flags are not just switches. They are a strategy for safer product development.",
+      "expected_output": "Flags not-just contrast cadence and rewrites around rollout, rollback, or exposure mechanics.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'feature flags are a strategy for safer product development' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming rollout percentage, kill switch, cohort, metric, or rollback path, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "candidate_A": "Verdict: ask-author\nSlop tells: “Not just switches” uses borrowed contrast to make “strategy for safer product development” feel bigger than the sentence proves.\nSpecificity missing: Rollout percentage, cohort, kill switch, guardrail metric, owner, and rollback path.\nInflated claim: Flattened: “Feature flags are a strategy for safer product development.” Without the rhythm, the claim still lacks a mechanism or limit; “safer” is unnamed.\nFlow break: The sentence jumps from the tool to the outcome without showing exposure control or rollback behavior.\nConcrete rewrite: Ask author: what rollout rule and rollback trigger does the flag enforce? If accurate: “Roll the checkout change to 5% of beta users behind a kill switch; expand while error rate and conversion stay within limits, and turn the flag off to roll back.”\nRewrite check: The rewrite avoids not-X-but-Y cadence, prestige abstractions, and invented project facts by marking the rollout details for confirmation; passes self-detectors once sourced.\nRemembered line: A feature flag is concrete when it names who sees the change and how to shut it off.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Not just switches” uses a familiar contrast cadence, then upgrades the noun to “strategy” without naming a rollout or rollback mechanism.\nSpecificity missing: It does not name the cohort, exposure percentage, kill switch, metric, owner, or rollback path.\nInflated claim: Flattened, the claim is “feature flags are a strategy for safer product development.” That still does not say what safety control the flag provides.\nFlow break: The sentence jumps from implementation detail to development philosophy before showing how a flag limits blast radius.\nConcrete rewrite: Ship the new checkout flow to 5% of logged-in users behind a kill switch; if payment errors rise, turn off the flag and stop exposure without redeploying.\nRemembered line: A flag is useful when it names who sees the change and how to shut it off.\n"
+    },
+    {
+      "id": "statproof-borrowed-test-suite",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this engineering sentence: The test suite is not just a safety net. It is the contract that keeps refactors honest.",
+      "expected_output": "Flags borrowed emphasis and rewrites around concrete refactor-protection behavior.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'test suite is the contract that keeps refactors honest' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which invariant, fixture, public behavior, or failing regression it catches, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "candidate_A": "Verdict: ask-author\nSlop tells: “Not just a safety net” borrows emphasis from contrast, and “contract that keeps refactors honest” turns test behavior into a moral abstraction.\nSpecificity missing: Which invariant, fixture, public behavior, or regression the tests protect during refactors.\nInflated claim: Flattened: “The test suite is the contract that keeps refactors honest.” Without cadence, the residual claim does not name what can fail or what the suite detects.\nFlow break: The sentence skips the link between refactoring and the observable behavior the tests guard.\nConcrete rewrite: Ask author: which invariant or regression does the suite catch? If accurate: “The invoice-total fixture blocks a refactor if rounding changes public totals or reopens the partial-refund tax regression.”\nRewrite check: The rewrite avoids the not-X-but-Y pattern, prestige wording, and invented facts by treating the invoice example as a detail to verify; passes self-detectors once sourced.\nRemembered line: A test suite earns the claim when it names the behavior a refactor is not allowed to change.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Not just a safety net” and “contract that keeps refactors honest” get their force from contrast and metaphor, not from a named invariant.\nSpecificity missing: It does not say which public behavior, fixture, invariant, or regression the suite protects.\nInflated claim: Flattened, the claim is “the test suite is the contract that keeps refactors honest.” That still hides the mechanism: a failing test tied to a behavior the refactor must preserve.\nFlow break: The sentence moves from a general test-suite metaphor to moral language about refactors without naming the check.\nConcrete rewrite: The checkout test fixes one public behavior: a saved cart keeps its item prices after the pricing service is refactored. If the new code drops that invariant, the regression test fails before deploy.\nRemembered line: A refactor is safer when the test names the behavior it is not allowed to change.\n"
+    },
+    {
+      "id": "statproof-borrowed-design-review",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product sentence: Design review is more than feedback. It is where the product vision becomes real.",
+      "expected_output": "Flags more-than borrowed emphasis and rewrites around concrete decision records or constraints.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'design review is where the product vision becomes real' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which constraint, decision, rejected option, or user flow changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "candidate_A": "Verdict: ask-author\nSlop tells: “More than feedback” borrows significance from contrast, then “where the product vision becomes real” swaps concrete product decisions for ceremony.\nSpecificity missing: Which constraint changed the design, which option was rejected, what user flow changed, and where the decision is recorded.\nInflated claim: Flattened: “Design review is where the product vision becomes real.” Without the cadence, the claim does not name an actor, mechanism, or limit; “vision becomes real” is decorative closure.\nFlow break: The sentence jumps from review discussion to product outcome without showing the decision artifact.\nConcrete rewrite: Ask author: what decision or constraint came out of the review? If accurate: “In design review, the team rejected the modal checkout because it hid shipping costs on mobile, recorded that constraint, and changed the flow before build started.”\nRewrite check: The rewrite avoids more-than cadence, prestige abstraction, and invented facts by marking the design decision as a fact to confirm; passes self-detectors once sourced.\nRemembered line: Design review matters when a constraint changes the flow.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “More than feedback” uses contrast cadence, and “where the product vision becomes real” substitutes a prestige abstraction for a decision.\nSpecificity missing: It does not name the constraint, rejected option, decision record, user flow, or prototype change that comes out of the review.\nInflated claim: Flattened, the claim is “design review is where the product vision becomes real.” That still does not identify an actor, mechanism, or limit.\nFlow break: The sentence jumps from feedback to realization without showing how a review changes the product.\nConcrete rewrite: In design review, the team records why guest checkout stays on one page and rejects the two-step flow because it adds an address screen for returning users; that decision changes the prototype before build.\nRemembered line: Design review matters when it records the constraint that changes the flow.\n"
+    },
+    {
+      "id": "statproof-ask-author-ai-refactor",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this launch paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe AI pair programmer took the refactor from a month of cleanup to two afternoons. It mapped the legacy services, generated the migration plan, and fixed the flaky tests that had blocked the team for years.",
+      "expected_output": "Uses ask-author or cuts unsupported tool/timing claims; does not invent assistant/model/source facts; includes a rewrite self-check.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The paragraph compresses a miracle story: “from a month of cleanup to two afternoons,” “mapped,” “generated,” and “fixed” make the tool sound like the proof.\nSpecificity missing: No source notes identify the AI pair programmer, the original estimate, the actual elapsed time, the migration-plan artifact, or the evidence that the flaky tests had blocked the team for years.\nInflated claim: The timing and causality are too confident without backing. The paragraph should not preserve “a month,” “two afternoons,” or “for years” as fact unless the author can cite them.\nFlow break: The prose stacks three outcomes without showing which work the tool did, which work the team verified, and what changed after the refactor.\nConcrete rewrite: Ask the author for the planning estimate, actual elapsed time, tool or model if relevant, migration-plan artifact, and test evidence. Without those notes: The team used an AI pair programmer during the refactor to map legacy services, draft a migration plan, and work through flaky tests. Keep the time savings only if the author can verify the original estimate and actual elapsed time.\nRemembered line: Don’t let the tool become the proof.\nRewrite check: The fallback adds no model, vendor, experiment, source, count, or new timing; it cuts the unsupported “month to two afternoons” and “for years” claims instead of reusing the miracle cadence.\n",
+      "candidate_B": "Verdict: ask-author\nSlop tells: The paragraph makes the AI tool the hero and stacks large outcome claims without source support: “from a month of cleanup to two afternoons,” “mapped the legacy services,” “generated the migration plan,” and “fixed the flaky tests.”\nSpecificity missing: Which AI pair-programming tool, what baseline estimated a month of cleanup, who measured the two afternoons, what service map or migration plan exists, and which flaky tests changed.\nInflated claim: The timing and causality claims are too strong without notes. Treat them as claims to verify, not facts to repeat.\nFlow break: The paragraph moves from schedule compression to three completed artifacts without showing evidence for the tool’s role in any step.\nConcrete rewrite: Ask author: which tool was used, how was the month-vs-two-afternoons comparison measured, and where are the service map, migration plan, and flaky-test fixes documented? Fallback if those cannot be sourced: “The refactor produced a service map, a migration plan, and fixes for flaky tests that had been blocking cleanup. Add evidence before crediting the AI pair programmer with the schedule change.”\nRewrite check: The fallback does not invent a model, vendor, source, count, or timing; it cuts the unsupported timing and tool-causality claim. It keeps the source-supplied artifact list, does not reuse the original hero cadence, and avoids not-X-but-Y contrast, prestige adjectives, em-dash antithesis, and decorative closure.\nRemembered line: Do not let the launch claim outrun the receipts.\n"
+    }
+  ]
+}

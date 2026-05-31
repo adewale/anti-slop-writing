@@ -1,0 +1,852 @@
+{
+  "skill_name": "anti-slop-writing",
+  "schema_notes": "Fresh pre-registered 2026-05-31 holdout for statistical proof. Cases were created before running before/after applications and were not used for doctrine edits.",
+  "evals": [
+    {
+      "id": "statproof-borrowed-cache-layer",
+      "split": "holdout",
+      "prompt": "Review and rewrite this architecture sentence: The cache layer is not just a speed boost. It is the foundation of a more responsive platform.",
+      "expected_output": "Flags borrowed not-just emphasis, tests the flattened claim, and rewrites around the concrete cache behavior.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'cache layer is the foundation of a more responsive platform' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming what is cached, when it is invalidated, which request path or latency it changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "statproof-borrowed-incident-review",
+      "split": "holdout",
+      "prompt": "Review and rewrite this process sentence: The incident review is more than a retrospective. It is the engine of operational learning.",
+      "expected_output": "Flags borrowed more-than emphasis, flattens the claim, and rewrites around a concrete review artifact or action.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'incident review is the engine of operational learning' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which action item, owner, alert, runbook, or test changes after the review, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "statproof-borrowed-schema-registry",
+      "split": "holdout",
+      "prompt": "Review and rewrite this platform sentence: The schema registry is not merely a catalog. It is how data teams build trust at scale.",
+      "expected_output": "Flags not-merely borrowed emphasis and rewrites with schema compatibility or ownership mechanics.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'schema registry is how data teams build trust at scale' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming who owns schema changes, compatibility checks, consumers, or deployment gates, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "statproof-borrowed-feature-flag",
+      "split": "holdout",
+      "prompt": "Review and rewrite this launch sentence: Feature flags are not just switches. They are a strategy for safer product development.",
+      "expected_output": "Flags not-just contrast cadence and rewrites around rollout, rollback, or exposure mechanics.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'feature flags are a strategy for safer product development' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming rollout percentage, kill switch, cohort, metric, or rollback path, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "statproof-borrowed-test-suite",
+      "split": "holdout",
+      "prompt": "Review and rewrite this engineering sentence: The test suite is not just a safety net. It is the contract that keeps refactors honest.",
+      "expected_output": "Flags borrowed emphasis and rewrites around concrete refactor-protection behavior.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'test suite is the contract that keeps refactors honest' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which invariant, fixture, public behavior, or failing regression it catches, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "statproof-borrowed-design-review",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product sentence: Design review is more than feedback. It is where the product vision becomes real.",
+      "expected_output": "Flags more-than borrowed emphasis and rewrites around concrete decision records or constraints.",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'design review is where the product vision becomes real' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which constraint, decision, rejected option, or user flow changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "statproof-ask-author-ai-refactor",
+      "split": "holdout",
+      "prompt": "Review this launch paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe AI pair programmer took the refactor from a month of cleanup to two afternoons. It mapped the legacy services, generated the migration plan, and fixed the flaky tests that had blocked the team for years.",
+      "expected_output": "Uses ask-author or cuts unsupported tool/timing claims; does not invent assistant/model/source facts; includes a rewrite self-check.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ]
+    },
+    {
+      "id": "statproof-ask-author-growth-metric",
+      "split": "holdout",
+      "prompt": "Review this case-study paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe onboarding redesign doubled activation in ten days. Our new personalization engine identified each user's intent, rebuilt the checklist, and made the product feel immediately useful.",
+      "expected_output": "Asks for metric provenance and mechanism or cuts; no invented experiment details; rewrite check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ]
+    },
+    {
+      "id": "statproof-ask-author-security-tool",
+      "split": "holdout",
+      "prompt": "Review this security update using the Critique output format. No source notes are available beyond the paragraph.\n\nThe scanner found every critical vulnerability before launch. It understood our threat model, generated the patches, and gave the security team confidence to ship on schedule.",
+      "expected_output": "Asks for scanner identity/coverage/evidence or cuts unsupported certainty; no invented tool; rewrite check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ]
+    },
+    {
+      "id": "statproof-ask-author-revenue-ai",
+      "split": "holdout",
+      "prompt": "Review this sales paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe new assistant turned stalled renewals into expansions. It read every account history, drafted the right follow-up, and helped the team recover seven figures in pipeline.",
+      "expected_output": "Asks for assistant identity, measurement, and attribution; avoids invented revenue/tool details; rewrite check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ]
+    },
+    {
+      "id": "statproof-ask-author-dev-cycle",
+      "split": "holdout",
+      "prompt": "Review this product-engineering paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe coding agent compressed the release cycle from six weeks to eight days. It wrote the database migration, updated the docs, and caught the edge cases our review process had missed.",
+      "expected_output": "Asks for tool/timing/provenance or cuts; avoids invented details; self-checks fallback.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ]
+    },
+    {
+      "id": "statproof-ask-author-support-deflection",
+      "split": "holdout",
+      "prompt": "Review this support paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe help-center bot resolved most tickets without escalation. It learned our product language, knew when to hand off, and made customers feel heard without slowing the queue.",
+      "expected_output": "Asks for bot identity, resolution metric, handoff rule, and evidence; avoids feel-good unsupported rewrite; self-check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ]
+    },
+    {
+      "id": "statproof-copula-observability-console",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product sentence: The observability console serves as the command center for modern operations and represents a key pillar of engineering excellence.",
+      "expected_output": "Flags displaced copulas/prestige nouns and rewrites with concrete console behavior.",
+      "assertions": [
+        "Identifies serves as the command center, represents a key pillar as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as shows traces, alerts, deploys, incidents, or ownership."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ]
+    },
+    {
+      "id": "statproof-copula-permissions-service",
+      "split": "holdout",
+      "prompt": "Review and rewrite this architecture sentence: The permissions service stands as the backbone of secure collaboration and serves as a foundation for enterprise trust.",
+      "expected_output": "Flags stands/serves inflation and rewrites around concrete authorization behavior.",
+      "assertions": [
+        "Identifies stands as the backbone, serves as a foundation as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as checks roles, denies actions, logs policy decisions, or scopes access."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ]
+    },
+    {
+      "id": "statproof-copula-data-contract",
+      "split": "holdout",
+      "prompt": "Review and rewrite this data-platform sentence: The data contract represents a critical bridge between producers and consumers and marks a new era of reliable analytics.",
+      "expected_output": "Flags represent/marks copula inflation and rewrites around schema or compatibility mechanics.",
+      "assertions": [
+        "Identifies represents a critical bridge, marks a new era as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as schema fields, compatibility checks, producer/consumer ownership, or deployment blocks."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ]
+    },
+    {
+      "id": "statproof-copula-developer-portal",
+      "split": "holdout",
+      "prompt": "Review and rewrite this DevRel sentence: The developer portal serves as a gateway to innovation and features everything teams need to build better integrations.",
+      "expected_output": "Flags gateway/features abstraction and rewrites around concrete docs/API keys/examples.",
+      "assertions": [
+        "Identifies serves as a gateway, features everything as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as API keys, SDK examples, webhook docs, sample requests, or troubleshooting."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ]
+    },
+    {
+      "id": "statproof-copula-analytics-dashboard",
+      "split": "holdout",
+      "prompt": "Review and rewrite this launch sentence: The analytics dashboard stands as a testament to customer-centric design and serves as the single source of truth for business momentum.",
+      "expected_output": "Flags testament/stands/serves inflation and rewrites around concrete dashboard contents.",
+      "assertions": [
+        "Identifies stands as a testament, serves as the single source as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as metrics, account changes, conversion events, filters, alerts, or exports."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ]
+    },
+    {
+      "id": "statproof-copula-policy-engine",
+      "split": "holdout",
+      "prompt": "Review and rewrite this compliance sentence: The policy engine represents the heart of our governance strategy and serves as a unified layer for organizational confidence.",
+      "expected_output": "Flags copula displacement and confidence abstraction; rewrites around policy evaluation behavior.",
+      "assertions": [
+        "Identifies represents the heart, serves as a unified layer as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as policy evaluation, approvals, blocks, audit logs, or exceptions."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ]
+    },
+    {
+      "id": "statproof-hedged-api-framework",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product intro: Whether you're prototyping a weekend project or scaling a global platform, our API framework adapts to your workflow. While flexibility matters, reliability is equally important.",
+      "expected_output": "Flags every-reader/every-value symmetry and rewrites for a concrete audience/tradeoff.",
+      "assertions": [
+        "Identifies the 'prototyping vs global platform' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'flexibility vs reliability' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete API user, workflow, and reliability tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ]
+    },
+    {
+      "id": "statproof-hedged-analytics-tool",
+      "split": "holdout",
+      "prompt": "Review and rewrite this landing-page copy: Whether you're a solo founder or a Fortune 500 operator, the analytics tool meets you where you are. While depth is powerful, simplicity still matters.",
+      "expected_output": "Flags hedged symmetry and chooses a reader/use case.",
+      "assertions": [
+        "Identifies the 'solo founder vs Fortune 500 operator' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'depth vs simplicity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete metric workflow or operator decision, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ]
+    },
+    {
+      "id": "statproof-hedged-security-platform",
+      "split": "holdout",
+      "prompt": "Review and rewrite this security intro: Whether your team is just starting with compliance or managing a mature program, the platform supports every stage. While automation is essential, human judgment remains key.",
+      "expected_output": "Flags both-sides hedge unless branches have different behavior, then rewrites around one compliance stage and tradeoff.",
+      "assertions": [
+        "Identifies the 'starting compliance vs mature program' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'automation vs human judgment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete control owner, review step, or compliance workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ]
+    },
+    {
+      "id": "statproof-hedged-docs-site",
+      "split": "holdout",
+      "prompt": "Review and rewrite this docs sentence: Whether you're learning the basics or optimizing production workloads, the guide gives you what you need. While examples are helpful, conceptual clarity is also important.",
+      "expected_output": "Flags generic reader spread and value balancing; rewrites around a concrete docs path.",
+      "assertions": [
+        "Identifies the 'basics vs production workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'examples vs conceptual clarity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete reader path, example, or production task, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ]
+    },
+    {
+      "id": "statproof-hedged-collab-app",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product intro: Whether your team is remote, hybrid, or in-office, the workspace keeps everyone aligned. While speed matters, alignment matters too.",
+      "expected_output": "Flags audience catch-all and balance filler; rewrites for concrete collaboration behavior.",
+      "assertions": [
+        "Identifies the 'remote/hybrid/in-office' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'speed vs alignment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete handoff, decision log, meeting, or task workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ]
+    },
+    {
+      "id": "statproof-hedged-database",
+      "split": "holdout",
+      "prompt": "Review and rewrite this database marketing copy: Whether you're building your first app or running mission-critical workloads, the database grows with you. While performance counts, developer happiness also counts.",
+      "expected_output": "Flags hedged symmetry and rewrites around a specific workload/tradeoff.",
+      "assertions": [
+        "Identifies the 'first app vs mission-critical workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'performance vs developer happiness' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete query, migration, failover, or setup tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ]
+    },
+    {
+      "id": "statproof-outline-payments-post",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in the future of commerce.",
+      "expected_output": "Flags outline-shaped conclusion templates and asks for specific challenge/next step or cuts.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in payments ecosystem, a named change in checkout platform, or a next action for commerce."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ]
+    },
+    {
+      "id": "statproof-outline-devtools-post",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve. Looking ahead, it will become an essential part of how teams build the next generation of applications.",
+      "expected_output": "Flags despite/looking-ahead template and rewrites to a carrier-bound ending or cut.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in software delivery, a named change in DevOps toolkit, or a next action for applications."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ]
+    },
+    {
+      "id": "statproof-outline-ai-research-post",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite unanswered questions in the AI landscape, this research direction continues to gain momentum. Looking ahead, it will play a pivotal role in shaping responsible innovation.",
+      "expected_output": "Flags generic future/pivotal closure and asks for specific question or result.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in AI landscape, a named change in research direction, or a next action for responsible innovation."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ]
+    },
+    {
+      "id": "statproof-outline-education-platform",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite persistent challenges in education, the platform continues to thrive across classrooms. Looking ahead, it will help redefine how students and teachers connect.",
+      "expected_output": "Flags outline conclusion and rewrites/cuts around named classroom behavior.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in education, a named change in platform, or a next action for students and teachers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ]
+    },
+    {
+      "id": "statproof-outline-climate-dashboard",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite the evolving climate-data landscape, the dashboard continues to grow in importance. Looking ahead, it will serve an increasingly pivotal role for decision-makers around the world.",
+      "expected_output": "Flags evolving-landscape/pivotal-role ending and asks for named decision or cut.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in climate-data landscape, a named change in dashboard, or a next action for decision-makers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ]
+    },
+    {
+      "id": "statproof-outline-open-source-release",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite challenges facing the open-source ecosystem, the project continues to flourish. Looking ahead, it will be central to how developers collaborate and innovate.",
+      "expected_output": "Flags generic ecosystem closer and rewrites around concrete project artifact or next step.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in open-source ecosystem, a named change in project, or a next action for developers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ]
+    },
+    {
+      "id": "statproof-dash-reliability-api",
+      "split": "holdout",
+      "prompt": "Review this product sentence for cadence tells: The API is reliable — really reliable — under load — even during spikes — with clean errors — and fast retries — that developers can trust.",
+      "expected_output": "Flags decorative dash cluster and rewrites by replacing cadence with measured facts or asks for evidence.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ]
+    },
+    {
+      "id": "statproof-dash-startup-platform",
+      "split": "holdout",
+      "prompt": "Review this landing-page sentence for cadence tells: The platform helps teams move faster — from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.",
+      "expected_output": "Flags dash pile-up and generic claims; rewrites by reducing decorative dashes.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ]
+    },
+    {
+      "id": "statproof-dash-data-pipeline",
+      "split": "holdout",
+      "prompt": "Review this engineering sentence for cadence tells: The pipeline is simple — one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.",
+      "expected_output": "Flags decorative dash cadence and unsupported absolutes; rewrites with concrete pipeline behavior.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ]
+    },
+    {
+      "id": "statproof-dash-mobile-sdk",
+      "split": "holdout",
+      "prompt": "Review this launch sentence for cadence tells: The SDK feels native — tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.",
+      "expected_output": "Flags decorative dashes and praise labels; rewrites with concrete SDK facts or asks for evidence.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ]
+    },
+    {
+      "id": "statproof-dash-ops-tool",
+      "split": "holdout",
+      "prompt": "Review this product sentence for cadence tells: The tool gives operators one place to work — alerts — deploys — incidents — metrics — and the context to fix issues before customers notice.",
+      "expected_output": "Flags dash list/cluster when it uses punctuation as structure; rewrites with a cleaner list and concrete context.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ]
+    },
+    {
+      "id": "statproof-dash-community-post",
+      "split": "holdout",
+      "prompt": "Review this community-post line for cadence tells: The meetup was small — thirty people — but electric — demos, debates, hallway debugging — the kind of energy that proves a movement is real.",
+      "expected_output": "Flags mixed earned and decorative dashes: the thirty-person aside may be earned, but cadence should not inflate movement proof.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ]
+    },
+    {
+      "id": "statproof-boundary-serves-enumeration",
+      "split": "holdout",
+      "prompt": "Review this technical sentence: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.",
+      "expected_output": "Keeps the sentence or makes a small clarity edit because serves enumerates concrete queues and whether names real branch behavior.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ]
+    },
+    {
+      "id": "statproof-boundary-dash-definition",
+      "split": "holdout",
+      "prompt": "Review this database sentence: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.",
+      "expected_output": "Keeps the em-dash pair because it defines a term inline with concrete facts.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ]
+    },
+    {
+      "id": "statproof-boundary-whether-branch",
+      "split": "holdout",
+      "prompt": "Review this recovery sentence: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.",
+      "expected_output": "Keeps the whether structure because it names real branches with distinct outcomes.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ]
+    },
+    {
+      "id": "statproof-boundary-stands-location",
+      "split": "holdout",
+      "prompt": "Review this facilities sentence: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.",
+      "expected_output": "Does not flag stands/serves as copula displacement because the verbs locate a physical archive and name who uses it.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ]
+    },
+    {
+      "id": "statproof-boundary-earned-contrast",
+      "split": "holdout",
+      "prompt": "Review this paragraph: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.",
+      "expected_output": "Keeps or lightly edits the final contrast because both sides are evidenced by the prior sentences.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ]
+    },
+    {
+      "id": "statproof-boundary-measured-dash",
+      "split": "holdout",
+      "prompt": "Review this status sentence: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.",
+      "expected_output": "Keeps the dash aside because it supplies measurement provenance, not decorative rhythm.",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ]
+    }
+  ]
+}

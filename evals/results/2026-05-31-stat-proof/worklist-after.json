@@ -1,0 +1,939 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-05-31",
+  "split": "holdout",
+  "skill_path": "skills/anti-slop-writing/SKILL.md",
+  "unit_count": 42,
+  "units": [
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-cache-layer",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this architecture sentence: The cache layer is not just a speed boost. It is the foundation of a more responsive platform.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this architecture sentence: The cache layer is not just a speed boost. It is the foundation of a more responsive platform.\n\nEXPECTED:\nFlags borrowed not-just emphasis, tests the flattened claim, and rewrites around the concrete cache behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'cache layer is the foundation of a more responsive platform' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming what is cached, when it is invalidated, which request path or latency it changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-cache-layer\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'cache layer is the foundation of a more responsive platform' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming what is cached, when it is invalidated, which request path or latency it changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-incident-review",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this process sentence: The incident review is more than a retrospective. It is the engine of operational learning.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this process sentence: The incident review is more than a retrospective. It is the engine of operational learning.\n\nEXPECTED:\nFlags borrowed more-than emphasis, flattens the claim, and rewrites around a concrete review artifact or action.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'incident review is the engine of operational learning' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming which action item, owner, alert, runbook, or test changes after the review, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-incident-review\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'incident review is the engine of operational learning' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which action item, owner, alert, runbook, or test changes after the review, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-schema-registry",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this platform sentence: The schema registry is not merely a catalog. It is how data teams build trust at scale.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this platform sentence: The schema registry is not merely a catalog. It is how data teams build trust at scale.\n\nEXPECTED:\nFlags not-merely borrowed emphasis and rewrites with schema compatibility or ownership mechanics.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'schema registry is how data teams build trust at scale' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming who owns schema changes, compatibility checks, consumers, or deployment gates, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-schema-registry\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'schema registry is how data teams build trust at scale' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming who owns schema changes, compatibility checks, consumers, or deployment gates, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-feature-flag",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this launch sentence: Feature flags are not just switches. They are a strategy for safer product development.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this launch sentence: Feature flags are not just switches. They are a strategy for safer product development.\n\nEXPECTED:\nFlags not-just contrast cadence and rewrites around rollout, rollback, or exposure mechanics.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'feature flags are a strategy for safer product development' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming rollout percentage, kill switch, cohort, metric, or rollback path, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-feature-flag\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'feature flags are a strategy for safer product development' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming rollout percentage, kill switch, cohort, metric, or rollback path, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-test-suite",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this engineering sentence: The test suite is not just a safety net. It is the contract that keeps refactors honest.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this engineering sentence: The test suite is not just a safety net. It is the contract that keeps refactors honest.\n\nEXPECTED:\nFlags borrowed emphasis and rewrites around concrete refactor-protection behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'test suite is the contract that keeps refactors honest' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming which invariant, fixture, public behavior, or failing regression it catches, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-test-suite\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'test suite is the contract that keeps refactors honest' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which invariant, fixture, public behavior, or failing regression it catches, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-borrowed-design-review",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product sentence: Design review is more than feedback. It is where the product vision becomes real.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product sentence: Design review is more than feedback. It is where the product vision becomes real.\n\nEXPECTED:\nFlags more-than borrowed emphasis and rewrites around concrete decision records or constraints.\n\nASSERTIONS (judge each independently):\n1. Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.\n2. Writes or paraphrases a flattened residual claim like 'design review is where the product vision becomes real' and judges whether it still names an actor, mechanism, or limit.\n3. Rewrites by naming which constraint, decision, rejected option, or user flow changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. flatten-artifact (1-5): 5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening.\n2. mechanism-specificity (1-5): 5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction.\n\nEmit one JSON object: {\"id\": \"statproof-borrowed-design-review\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the emphasis as borrowed from the contrast/cadence rather than from a concrete idea, and does not merely praise the sentence's rhythm.",
+        "Writes or paraphrases a flattened residual claim like 'design review is where the product vision becomes real' and judges whether it still names an actor, mechanism, or limit.",
+        "Rewrites by naming which constraint, decision, rejected option, or user flow changes, rather than substituting another prestige abstraction or another not-X-but-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened residual claim plus judgment; 3 = mentions cadence without showing the residual claim; 1 = no flattening."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete actor/mechanism/limit; 1 = rewrite keeps prestige abstraction."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-ai-refactor",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this launch paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe AI pair programmer took the refactor from a month of cleanup to two afternoons. It mapped the legacy services, generated the migration plan, and fixed the flaky tests that had blocked the team for years.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this launch paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe AI pair programmer took the refactor from a month of cleanup to two afternoons. It mapped the legacy services, generated the migration plan, and fixed the flaky tests that had blocked the team for years.\n\nEXPECTED:\nUses ask-author or cuts unsupported tool/timing claims; does not invent assistant/model/source facts; includes a rewrite self-check.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-ai-refactor\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-growth-metric",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this case-study paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe onboarding redesign doubled activation in ten days. Our new personalization engine identified each user's intent, rebuilt the checklist, and made the product feel immediately useful.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this case-study paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe onboarding redesign doubled activation in ten days. Our new personalization engine identified each user's intent, rebuilt the checklist, and made the product feel immediately useful.\n\nEXPECTED:\nAsks for metric provenance and mechanism or cuts; no invented experiment details; rewrite check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-growth-metric\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-security-tool",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this security update using the Critique output format. No source notes are available beyond the paragraph.\n\nThe scanner found every critical vulnerability before launch. It understood our threat model, generated the patches, and gave the security team confidence to ship on schedule.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this security update using the Critique output format. No source notes are available beyond the paragraph.\n\nThe scanner found every critical vulnerability before launch. It understood our threat model, generated the patches, and gave the security team confidence to ship on schedule.\n\nEXPECTED:\nAsks for scanner identity/coverage/evidence or cuts unsupported certainty; no invented tool; rewrite check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-security-tool\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-revenue-ai",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this sales paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe new assistant turned stalled renewals into expansions. It read every account history, drafted the right follow-up, and helped the team recover seven figures in pipeline.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this sales paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe new assistant turned stalled renewals into expansions. It read every account history, drafted the right follow-up, and helped the team recover seven figures in pipeline.\n\nEXPECTED:\nAsks for assistant identity, measurement, and attribution; avoids invented revenue/tool details; rewrite check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-revenue-ai\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-dev-cycle",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this product-engineering paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe coding agent compressed the release cycle from six weeks to eight days. It wrote the database migration, updated the docs, and caught the edge cases our review process had missed.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this product-engineering paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe coding agent compressed the release cycle from six weeks to eight days. It wrote the database migration, updated the docs, and caught the edge cases our review process had missed.\n\nEXPECTED:\nAsks for tool/timing/provenance or cuts; avoids invented details; self-checks fallback.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-dev-cycle\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-ask-author-support-deflection",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this support paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe help-center bot resolved most tickets without escalation. It learned our product language, knew when to hand off, and made customers feel heard without slowing the queue.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this support paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe help-center bot resolved most tickets without escalation. It learned our product language, knew when to hand off, and made customers feel heard without slowing the queue.\n\nEXPECTED:\nAsks for bot identity, resolution metric, handoff rule, and evidence; avoids feel-good unsupported rewrite; self-check present.\n\nASSERTIONS (judge each independently):\n1. Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.\n2. Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.\n3. Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics.\n2. rewrite-check-integrity (1-5): 5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass.\n\nEmit one JSON object: {\"id\": \"statproof-ask-author-support-deflection\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-observability-console",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product sentence: The observability console serves as the command center for modern operations and represents a key pillar of engineering excellence.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product sentence: The observability console serves as the command center for modern operations and represents a key pillar of engineering excellence.\n\nEXPECTED:\nFlags displaced copulas/prestige nouns and rewrites with concrete console behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies serves as the command center, represents a key pillar as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as shows traces, alerts, deploys, incidents, or ownership.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-observability-console\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies serves as the command center, represents a key pillar as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as shows traces, alerts, deploys, incidents, or ownership."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-permissions-service",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this architecture sentence: The permissions service stands as the backbone of secure collaboration and serves as a foundation for enterprise trust.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this architecture sentence: The permissions service stands as the backbone of secure collaboration and serves as a foundation for enterprise trust.\n\nEXPECTED:\nFlags stands/serves inflation and rewrites around concrete authorization behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies stands as the backbone, serves as a foundation as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as checks roles, denies actions, logs policy decisions, or scopes access.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-permissions-service\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies stands as the backbone, serves as a foundation as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as checks roles, denies actions, logs policy decisions, or scopes access."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-data-contract",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this data-platform sentence: The data contract represents a critical bridge between producers and consumers and marks a new era of reliable analytics.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this data-platform sentence: The data contract represents a critical bridge between producers and consumers and marks a new era of reliable analytics.\n\nEXPECTED:\nFlags represent/marks copula inflation and rewrites around schema or compatibility mechanics.\n\nASSERTIONS (judge each independently):\n1. Identifies represents a critical bridge, marks a new era as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as schema fields, compatibility checks, producer/consumer ownership, or deployment blocks.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-data-contract\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies represents a critical bridge, marks a new era as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as schema fields, compatibility checks, producer/consumer ownership, or deployment blocks."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-developer-portal",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this DevRel sentence: The developer portal serves as a gateway to innovation and features everything teams need to build better integrations.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this DevRel sentence: The developer portal serves as a gateway to innovation and features everything teams need to build better integrations.\n\nEXPECTED:\nFlags gateway/features abstraction and rewrites around concrete docs/API keys/examples.\n\nASSERTIONS (judge each independently):\n1. Identifies serves as a gateway, features everything as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as API keys, SDK examples, webhook docs, sample requests, or troubleshooting.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-developer-portal\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies serves as a gateway, features everything as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as API keys, SDK examples, webhook docs, sample requests, or troubleshooting."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-analytics-dashboard",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this launch sentence: The analytics dashboard stands as a testament to customer-centric design and serves as the single source of truth for business momentum.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this launch sentence: The analytics dashboard stands as a testament to customer-centric design and serves as the single source of truth for business momentum.\n\nEXPECTED:\nFlags testament/stands/serves inflation and rewrites around concrete dashboard contents.\n\nASSERTIONS (judge each independently):\n1. Identifies stands as a testament, serves as the single source as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as metrics, account changes, conversion events, filters, alerts, or exports.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-analytics-dashboard\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies stands as a testament, serves as the single source as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as metrics, account changes, conversion events, filters, alerts, or exports."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-copula-policy-engine",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this compliance sentence: The policy engine represents the heart of our governance strategy and serves as a unified layer for organizational confidence.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this compliance sentence: The policy engine represents the heart of our governance strategy and serves as a unified layer for organizational confidence.\n\nEXPECTED:\nFlags copula displacement and confidence abstraction; rewrites around policy evaluation behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies represents the heart, serves as a unified layer as copula displacement or equivalent verb inflation rather than concrete product behavior.\n2. Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.\n3. Rewrites with plain `is` or specific action verbs that name what the thing does, such as policy evaluation, approvals, blocks, audit logs, or exceptions.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. verb-concreteness (1-5): 5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain.\n\nEmit one JSON object: {\"id\": \"statproof-copula-policy-engine\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies represents the heart, serves as a unified layer as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as policy evaluation, approvals, blocks, audit logs, or exceptions."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-api-framework",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product intro: Whether you're prototyping a weekend project or scaling a global platform, our API framework adapts to your workflow. While flexibility matters, reliability is equally important.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product intro: Whether you're prototyping a weekend project or scaling a global platform, our API framework adapts to your workflow. While flexibility matters, reliability is equally important.\n\nEXPECTED:\nFlags every-reader/every-value symmetry and rewrites for a concrete audience/tradeoff.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'prototyping vs global platform' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'flexibility vs reliability' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete API user, workflow, and reliability tradeoff, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-api-framework\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'prototyping vs global platform' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'flexibility vs reliability' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete API user, workflow, and reliability tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-analytics-tool",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this landing-page copy: Whether you're a solo founder or a Fortune 500 operator, the analytics tool meets you where you are. While depth is powerful, simplicity still matters.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this landing-page copy: Whether you're a solo founder or a Fortune 500 operator, the analytics tool meets you where you are. While depth is powerful, simplicity still matters.\n\nEXPECTED:\nFlags hedged symmetry and chooses a reader/use case.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'solo founder vs Fortune 500 operator' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'depth vs simplicity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete metric workflow or operator decision, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-analytics-tool\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'solo founder vs Fortune 500 operator' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'depth vs simplicity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete metric workflow or operator decision, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-security-platform",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this security intro: Whether your team is just starting with compliance or managing a mature program, the platform supports every stage. While automation is essential, human judgment remains key.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this security intro: Whether your team is just starting with compliance or managing a mature program, the platform supports every stage. While automation is essential, human judgment remains key.\n\nEXPECTED:\nFlags both-sides hedge unless branches have different behavior, then rewrites around one compliance stage and tradeoff.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'starting compliance vs mature program' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'automation vs human judgment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete control owner, review step, or compliance workflow, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-security-platform\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'starting compliance vs mature program' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'automation vs human judgment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete control owner, review step, or compliance workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-docs-site",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this docs sentence: Whether you're learning the basics or optimizing production workloads, the guide gives you what you need. While examples are helpful, conceptual clarity is also important.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this docs sentence: Whether you're learning the basics or optimizing production workloads, the guide gives you what you need. While examples are helpful, conceptual clarity is also important.\n\nEXPECTED:\nFlags generic reader spread and value balancing; rewrites around a concrete docs path.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'basics vs production workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'examples vs conceptual clarity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete reader path, example, or production task, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-docs-site\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'basics vs production workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'examples vs conceptual clarity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete reader path, example, or production task, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-collab-app",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this product intro: Whether your team is remote, hybrid, or in-office, the workspace keeps everyone aligned. While speed matters, alignment matters too.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this product intro: Whether your team is remote, hybrid, or in-office, the workspace keeps everyone aligned. While speed matters, alignment matters too.\n\nEXPECTED:\nFlags audience catch-all and balance filler; rewrites for concrete collaboration behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'remote/hybrid/in-office' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'speed vs alignment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete handoff, decision log, meeting, or task workflow, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-collab-app\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'remote/hybrid/in-office' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'speed vs alignment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete handoff, decision log, meeting, or task workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-hedged-database",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview and rewrite this database marketing copy: Whether you're building your first app or running mission-critical workloads, the database grows with you. While performance counts, developer happiness also counts.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview and rewrite this database marketing copy: Whether you're building your first app or running mission-critical workloads, the database grows with you. While performance counts, developer happiness also counts.\n\nEXPECTED:\nFlags hedged symmetry and rewrites around a specific workload/tradeoff.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'first app vs mission-critical workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.\n2. Identifies the 'performance vs developer happiness' sentence as both-sides balance filler unless the paragraph names a real tradeoff.\n3. Rewrites by choosing a specific reader/use case and naming a concrete query, migration, failover, or setup tradeoff, rather than preserving all audiences and all values.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. commitment (1-5): 5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry.\n\nEmit one JSON object: {\"id\": \"statproof-hedged-database\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'first app vs mission-critical workloads' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'performance vs developer happiness' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete query, migration, failover, or setup tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-payments-post",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in the future of commerce.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite ongoing challenges in the payments ecosystem, our checkout platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in the future of commerce.\n\nEXPECTED:\nFlags outline-shaped conclusion templates and asks for specific challenge/next step or cuts.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in payments ecosystem, a named change in checkout platform, or a next action for commerce.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-payments-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in payments ecosystem, a named change in checkout platform, or a next action for commerce."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-devtools-post",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve. Looking ahead, it will become an essential part of how teams build the next generation of applications.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite the complexity of modern software delivery, our DevOps toolkit continues to evolve. Looking ahead, it will become an essential part of how teams build the next generation of applications.\n\nEXPECTED:\nFlags despite/looking-ahead template and rewrites to a carrier-bound ending or cut.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in software delivery, a named change in DevOps toolkit, or a next action for applications.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-devtools-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in software delivery, a named change in DevOps toolkit, or a next action for applications."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-ai-research-post",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite unanswered questions in the AI landscape, this research direction continues to gain momentum. Looking ahead, it will play a pivotal role in shaping responsible innovation.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite unanswered questions in the AI landscape, this research direction continues to gain momentum. Looking ahead, it will play a pivotal role in shaping responsible innovation.\n\nEXPECTED:\nFlags generic future/pivotal closure and asks for specific question or result.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in AI landscape, a named change in research direction, or a next action for responsible innovation.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-ai-research-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in AI landscape, a named change in research direction, or a next action for responsible innovation."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-education-platform",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite persistent challenges in education, the platform continues to thrive across classrooms. Looking ahead, it will help redefine how students and teachers connect.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite persistent challenges in education, the platform continues to thrive across classrooms. Looking ahead, it will help redefine how students and teachers connect.\n\nEXPECTED:\nFlags outline conclusion and rewrites/cuts around named classroom behavior.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in education, a named change in platform, or a next action for students and teachers.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-education-platform\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in education, a named change in platform, or a next action for students and teachers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-climate-dashboard",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite the evolving climate-data landscape, the dashboard continues to grow in importance. Looking ahead, it will serve an increasingly pivotal role for decision-makers around the world.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite the evolving climate-data landscape, the dashboard continues to grow in importance. Looking ahead, it will serve an increasingly pivotal role for decision-makers around the world.\n\nEXPECTED:\nFlags evolving-landscape/pivotal-role ending and asks for named decision or cut.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in climate-data landscape, a named change in dashboard, or a next action for decision-makers.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-climate-dashboard\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in climate-data landscape, a named change in dashboard, or a next action for decision-makers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-outline-open-source-release",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this conclusion: Despite challenges facing the open-source ecosystem, the project continues to flourish. Looking ahead, it will be central to how developers collaborate and innovate.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this conclusion: Despite challenges facing the open-source ecosystem, the project continues to flourish. Looking ahead, it will be central to how developers collaborate and innovate.\n\nEXPECTED:\nFlags generic ecosystem closer and rewrites around concrete project artifact or next step.\n\nASSERTIONS (judge each independently):\n1. Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.\n2. Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.\n3. Recommends cutting or rewriting around a concrete carrier: a specific challenge in open-source ecosystem, a named change in project, or a next action for developers.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. carrier-bound-ending (1-5): 5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure.\n\nEmit one JSON object: {\"id\": \"statproof-outline-open-source-release\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in open-source ecosystem, a named change in project, or a next action for developers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-reliability-api",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this product sentence for cadence tells: The API is reliable — really reliable — under load — even during spikes — with clean errors — and fast retries — that developers can trust.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this product sentence for cadence tells: The API is reliable — really reliable — under load — even during spikes — with clean errors — and fast retries — that developers can trust.\n\nEXPECTED:\nFlags decorative dash cluster and rewrites by replacing cadence with measured facts or asks for evidence.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-reliability-api\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-startup-platform",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this landing-page sentence for cadence tells: The platform helps teams move faster — from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this landing-page sentence for cadence tells: The platform helps teams move faster — from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.\n\nEXPECTED:\nFlags dash pile-up and generic claims; rewrites by reducing decorative dashes.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-startup-platform\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-data-pipeline",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this engineering sentence for cadence tells: The pipeline is simple — one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this engineering sentence for cadence tells: The pipeline is simple — one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.\n\nEXPECTED:\nFlags decorative dash cadence and unsupported absolutes; rewrites with concrete pipeline behavior.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-data-pipeline\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-mobile-sdk",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this launch sentence for cadence tells: The SDK feels native — tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this launch sentence for cadence tells: The SDK feels native — tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.\n\nEXPECTED:\nFlags decorative dashes and praise labels; rewrites with concrete SDK facts or asks for evidence.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-mobile-sdk\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-ops-tool",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this product sentence for cadence tells: The tool gives operators one place to work — alerts — deploys — incidents — metrics — and the context to fix issues before customers notice.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this product sentence for cadence tells: The tool gives operators one place to work — alerts — deploys — incidents — metrics — and the context to fix issues before customers notice.\n\nEXPECTED:\nFlags dash list/cluster when it uses punctuation as structure; rewrites with a cleaner list and concrete context.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-ops-tool\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-dash-community-post",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this community-post line for cadence tells: The meetup was small — thirty people — but electric — demos, debates, hallway debugging — the kind of energy that proves a movement is real.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this community-post line for cadence tells: The meetup was small — thirty people — but electric — demos, debates, hallway debugging — the kind of energy that proves a movement is real.\n\nEXPECTED:\nFlags mixed earned and decorative dashes: the thirty-person aside may be earned, but cadence should not inflate movement proof.\n\nASSERTIONS (judge each independently):\n1. Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.\n2. Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.\n3. Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. dash-calibration (1-5): 5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster.\n2. evidence-rewrite (1-5): 5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence.\n\nEmit one JSON object: {\"id\": \"statproof-dash-community-post\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-serves-enumeration",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this technical sentence: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this technical sentence: The scheduler serves three queues: latency-sensitive jobs, backfills, and retries. Whether a job waits or preempts depends on its deadline and the retry budget.\n\nEXPECTED:\nKeeps the sentence or makes a small clarity edit because serves enumerates concrete queues and whether names real branch behavior.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-serves-enumeration\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-dash-definition",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this database sentence: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this database sentence: The reader opens the manifest, validates the checksum, and then fetches the segment — the immutable block of rows referenced by the manifest — from object storage.\n\nEXPECTED:\nKeeps the em-dash pair because it defines a term inline with concrete facts.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-dash-definition\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-whether-branch",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this recovery sentence: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this recovery sentence: Whether the leader fails before or after the commit index advances changes the recovery path: before commit, the follower discards the entry; after commit, it replays the log.\n\nEXPECTED:\nKeeps the whether structure because it names real branches with distinct outcomes.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-whether-branch\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-stands-location",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this facilities sentence: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this facilities sentence: The archive stands at the north end of the lab, next to the cold room, and serves researchers who need the original sample notebooks.\n\nEXPECTED:\nDoes not flag stands/serves as copula displacement because the verbs locate a physical archive and name who uses it.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-stands-location\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-earned-contrast",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph: The first prototype optimized throughput and dropped failed events. The second prototype kept every event and accepted lower throughput. This was not a speed problem. It was a durability problem.\n\nEXPECTED:\nKeeps or lightly edits the final contrast because both sides are evidenced by the prior sentences.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-earned-contrast\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "fresh-holdout.json",
+      "id": "statproof-boundary-measured-dash",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this status sentence: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this status sentence: The migration cut p95 page-load time from 1.8s to 1.1s — measured on logged-in dashboard sessions during the first week after launch — and left error rates unchanged.\n\nEXPECTED:\nKeeps the dash aside because it supplies measurement provenance, not decorative rhythm.\n\nASSERTIONS (judge each independently):\n1. Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.\n2. If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.\n3. Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. boundary-calibration (1-5): 5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag.\n\nEmit one JSON object: {\"id\": \"statproof-boundary-measured-dash\", \"suite\": \"fresh-holdout.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not over-flag the surface pattern when the sentence supplies concrete enumeration, branch behavior, location, evidence, definition, or measurement provenance.",
+        "If editing, preserves the concrete mechanism and does not collapse it into a generic reliability/productivity sentence.",
+        "Explains the earned-use boundary rather than applying a flat ban to `serves`, `whether`, contrast, or em-dashes."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "boundary-calibration",
+          "scale": "1-5",
+          "rubric": "5 = clearly preserves earned structure and names why; 3 = edits harmlessly but vague; 1 = false-positive over-flag."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ]
+}

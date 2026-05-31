@@ -1,0 +1,178 @@
+{
+  "unit_count": 7,
+  "chunk_index": 4,
+  "units": [
+    {
+      "id": "statproof-outline-climate-dashboard",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite the evolving climate-data landscape, the dashboard continues to grow in importance. Looking ahead, it will serve an increasingly pivotal role for decision-makers around the world.",
+      "expected_output": "Flags evolving-landscape/pivotal-role ending and asks for named decision or cut.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in climate-data landscape, a named change in dashboard, or a next action for decision-makers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The ending is built from two generic closers: “Despite the evolving climate-data landscape” uses landscape fog, and “continues to grow in importance” claims significance without showing what changed. “Looking ahead” plus “increasingly pivotal role” is future-facing closure with no named decision, user, or next step.\nSpecificity missing: Which climate-data problem does the dashboard handle: stale observations, model uncertainty, regional gaps, alert thresholds, or conflicting sources?\nInflated claim: “Grow in importance” and “pivotal role” ask the reader to accept importance instead of seeing the dashboard’s mechanism.\nFlow break: The conclusion leaves the concrete dashboard and ends on a category claim that could fit any climate tool.\nConcrete rewrite: Cut the template and return to the carrier: “The dashboard is useful when it shows where the forecast changed, which stations are missing data, and what threshold triggered an alert. If decision-makers need a next step, name it: review the flagged regions before issuing the advisory.”\nRemembered line: End on the decision the dashboard changes, not on its importance.",
+      "candidate_B": "Verdict: ask-author\nSlop tells:\n- “Despite the evolving climate-data landscape, the dashboard continues to grow in importance” uses the outline-shaped “Despite complexity, X continues to gain importance” closer. It gestures at adversity without naming the challenge the dashboard actually answers.\n- “Looking ahead, it will serve an increasingly pivotal role” is generic future-facing closure. No next decision, user, or action is named.\nSpecificity missing: Which climate-data problem changed: latency, gaps, uncertainty bands, station coverage, model disagreement, or decision deadlines? Which decision-maker uses the dashboard, and what decision does it change?\nInflated claim: “grow in importance,” “increasingly pivotal role,” and “decision-makers around the world” claim significance without a carrier.\nFlow break: The ending leaves the evidence and switches to category-level importance language.\nConcrete rewrite: Ask author: name the dashboard change and the decision it supports. If that fact is unavailable, cut both sentences. Template: “The dashboard earns its place when it helps [named user] decide [specific action] despite [specific climate-data constraint].”\nRewrite check: passes self-detectors; the rewrite is a fill-in ask-author template, not a finished factual claim.\nRemembered line: End on the decision the dashboard changes, not on the dashboard’s importance."
+    },
+    {
+      "id": "statproof-outline-open-source-release",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this conclusion: Despite challenges facing the open-source ecosystem, the project continues to flourish. Looking ahead, it will be central to how developers collaborate and innovate.",
+      "expected_output": "Flags generic ecosystem closer and rewrites around concrete project artifact or next step.",
+      "assertions": [
+        "Identifies the 'Despite challenges/complexity/evolving landscape, X continues to thrive/evolve/gain momentum' structure as an outline-shaped conclusion, not earned closure.",
+        "Identifies the 'Looking ahead, X will play/become/serve a pivotal/essential/central role' structure as generic future-facing closure without a named next step.",
+        "Recommends cutting or rewriting around a concrete carrier: a specific challenge in open-source ecosystem, a named change in project, or a next action for developers."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = less generic but still future-foggy; 1 = keeps outline closure."
+        }
+      ],
+      "candidate_A": "Verdict: ask-author\nSlop tells:\n- “Despite challenges facing the open-source ecosystem, the project continues to flourish” is the outline-shaped “Despite challenges, X continues to thrive” ending. It names the ecosystem, not the pressure on this project.\n- “Looking ahead, it will be central to how developers collaborate and innovate” is generic future-facing closure. It predicts centrality without naming a release artifact, workflow, or next step.\nSpecificity missing: Which challenge matters here: maintainer bandwidth, dependency churn, governance, funding, security response, or contribution review? What did the project ship, and what should developers do next?\nInflated claim: “continues to flourish,” “central,” “collaborate,” and “innovate” are prestige labels unless tied to a concrete project behavior.\nFlow break: The conclusion leaves the release and climbs to ecosystem destiny.\nConcrete rewrite: Ask author: name the project artifact and the developer action it enables. If that fact is unavailable, cut the closer. Template: “The release matters if [specific artifact/change] lets developers [specific collaboration action] despite [specific open-source constraint].”\nRewrite check: passes self-detectors; the rewrite is an ask-author template and does not invent the missing fact.\nRemembered line: Close on what the release lets a contributor do next.",
+      "candidate_B": "Verdict: revise\nSlop tells: “Despite challenges facing the open-source ecosystem” is an outline-shaped setup, and “continues to flourish” supplies a happy ending without evidence. “Looking ahead” plus “central to how developers collaborate and innovate” is generic future closure with no project artifact or next action.\nSpecificity missing: Which challenge matters here: maintainer load, release trust, contribution review, security updates, or governance? What did the project ship or change?\nInflated claim: “Flourish,” “central,” “collaborate,” and “innovate” claim status instead of naming the mechanism.\nFlow break: The conclusion moves from the project to the ecosystem without showing what transfers.\nConcrete rewrite: “The release matters if it reduces a specific bottleneck: fewer manual review steps, signed packages, clearer maintainer ownership, or a documented migration path. Name that change and tell developers what to do next, such as upgrading, testing the new API, or moving issues to the new workflow.”\nRemembered line: End with the artifact developers can use, not with the ecosystem it supposedly transforms."
+    },
+    {
+      "id": "statproof-dash-reliability-api",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this product sentence for cadence tells: The API is reliable — really reliable — under load — even during spikes — with clean errors — and fast retries — that developers can trust.",
+      "expected_output": "Flags decorative dash cluster and rewrites by replacing cadence with measured facts or asks for evidence.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The repeated em-dashes form a cadence cluster: “reliable — really reliable — under load — even during spikes — with clean errors — and fast retries.” The punctuation is doing the emphasis work.\nSpecificity missing: Reliability needs measurements: uptime window, p95/p99 latency under load, spike size, error shape, retry policy, and failure behavior.\nInflated claim: “Really reliable” and “developers can trust” are praise labels unless tied to evidence.\nFlow break: The sentence lists claims at equal weight instead of showing which fact proves reliability.\nConcrete rewrite: “Under a 10k-request-per-minute spike, the API keeps p99 latency under 300 ms, returns typed error codes, and retries idempotent requests with exponential backoff.” If those numbers are not available, ask for them before making the claim.\nRemembered line: Dashes are not banned; an earned dash can hold a concrete aside, but this cluster should become evidence.",
+      "candidate_B": "Verdict: ask-author\nSlop tells:\n- The repeated em-dashes form a decorative cadence cluster: “reliable — really reliable — under load — even during spikes — with clean errors — and fast retries.” The punctuation is carrying emphasis that the facts do not yet support.\n- This is not a blanket em-dash ban. A dash can stay when it brackets a real aside or appositive definition; here the dashes mostly turn a list of claims into a drumbeat.\nSpecificity missing: What load, what spike size, what error behavior, what retry policy, and what measured reliability target?\nInflated claim: “really reliable” and “that developers can trust” are unsupported praise labels.\nFlow break: The sentence moves from claim to claim without saying which measurement proves reliability.\nConcrete rewrite: Ask author: provide the API’s SLO or uptime, sustained RPS, spike RPS, error contract, and retry behavior. Fallback: “The API’s reliability claim needs numbers: sustained load, spike behavior, error format, and retry limits.”\nRewrite check: passes self-detectors; the fallback reduces the dash cluster, avoids invented measurements, and asks for concrete evidence.\nRemembered line: Reliability is a number and a failure mode, not a dash rhythm."
+    },
+    {
+      "id": "statproof-dash-startup-platform",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this landing-page sentence for cadence tells: The platform helps teams move faster — from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.",
+      "expected_output": "Flags dash pile-up and generic claims; rewrites by reducing decorative dashes.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "candidate_A": "Verdict: ask-author\nSlop tells:\n- The repeated em-dashes create a decorative cadence cluster: “from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.” The rhythm is doing the persuasive work.\n- This is not a ban on em-dashes. Keep a dash when it adds a concrete aside, definition, or appositive; do not use five of them as list structure.\nSpecificity missing: How much faster, which meetings disappear, which decision changes, which handoff is cleaner, and what “scale” means for this product?\nInflated claim: “move faster,” “better decisions,” “cleaner handoffs,” and “outcomes that scale” are unsupported product praise.\nFlow break: The sentence lists benefits without naming the mechanism that produces them.\nConcrete rewrite: Ask author: supply one measured before/after or one concrete workflow. Fallback: “The platform claim needs evidence: the workflow it shortens, the meeting or handoff it removes, and the metric that improves.”\nRewrite check: passes self-detectors; the fallback removes the dash pile-up and asks for missing facts instead of inventing them.\nRemembered line: Name the workflow the platform changes.",
+      "candidate_B": "Verdict: revise\nSlop tells: The sentence leans on a dash pile-up: “from idea to launch — with fewer meetings — better decisions — cleaner handoffs — and outcomes that scale.” The cadence makes the claims feel connected before the mechanism is named.\nSpecificity missing: What part of the platform reduces meetings or improves handoffs: briefs, approvals, status updates, ownership, decision logs, or launch checklists?\nInflated claim: “Move faster,” “better decisions,” and “outcomes that scale” are marketing abstractions without proof.\nFlow break: The line jumps from workflow features to broad outcomes without explaining cause.\nConcrete rewrite: “The platform keeps briefs, approvals, and launch checklists in one workflow, so teams can see who owns the next decision and what is blocking release.” Add measured proof if available: fewer status meetings per sprint, shorter approval time, or lower handoff error rate.\nRemembered line: Keep a dash only for a real aside; do not use five of them as structure."
+    },
+    {
+      "id": "statproof-dash-data-pipeline",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this engineering sentence for cadence tells: The pipeline is simple — one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.",
+      "expected_output": "Flags decorative dash cadence and unsupported absolutes; rewrites with concrete pipeline behavior.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The repeated em-dashes create a sales rhythm: “one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.” The punctuation carries confidence the sentence has not earned.\nSpecificity missing: What does the pipeline actually do: validate schemas, backfill failed jobs, deduplicate records, alert on freshness, or publish lineage?\nInflated claim: “Simple,” “no late-night pages,” “clean data,” and “whenever the team needs it” are absolutes unless supported by behavior or numbers.\nFlow break: The sentence stacks benefits without naming the failure mode each feature prevents.\nConcrete rewrite: “The pipeline uses one config to define sources, schema checks, retries, and freshness alerts; when a job fails, it reruns the failed step instead of paging the team for a manual backfill.” If that is not true, ask for the actual retry, alerting, and freshness guarantees.\nRemembered line: Use evidence for reliability claims; do not let dash rhythm replace the mechanism.",
+      "candidate_B": "Verdict: ask-author\nSlop tells:\n- The repeated em-dashes are a decorative cadence cluster: “one config — no custom glue — no late-night pages — just clean data — whenever the team needs it.” The sentence uses punctuation to make absolutes feel earned.\n- This is not a blanket em-dash ban. A dash can remain when it introduces a concrete definition or aside; this sentence uses dashes as a serial hype pattern.\nSpecificity missing: What config format, which integrations require no glue, what paging scenario disappeared, what data-quality check runs, and what freshness target does “whenever” mean?\nInflated claim: “simple,” “no custom glue,” “no late-night pages,” “clean data,” and “whenever the team needs it” are absolutes without evidence.\nFlow break: The line jumps from simplicity to operational reliability to data quality without naming the pipeline behavior that connects them.\nConcrete rewrite: Ask author: provide the config surface, supported connectors, incident example or alert reduction, quality check, and freshness SLA. Fallback: “Describe the pipeline by its behavior: config surface, connector coverage, failure handling, data-quality checks, and freshness target.”\nRewrite check: passes self-detectors; the fallback reduces decorative dashes and asks for concrete pipeline facts.\nRemembered line: A pipeline is simple only when its failure behavior is visible."
+    },
+    {
+      "id": "statproof-dash-mobile-sdk",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this launch sentence for cadence tells: The SDK feels native — tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.",
+      "expected_output": "Flags decorative dashes and praise labels; rewrites with concrete SDK facts or asks for evidence.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The repeated em-dashes make a cadence list: “tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.” The structure turns praise labels into momentum.\nSpecificity missing: Give concrete SDK facts: package size, install command, setup steps, retry behavior, platform coverage, default settings, and analytics events captured.\nInflated claim: “Feels native,” “tiny,” “instant,” “beautiful,” and “just work” are subjective unless anchored in product behavior.\nFlow break: The sentence moves from developer experience to reliability to analytics without a relation.\nConcrete rewrite: “The SDK installs in one command, adds automatic retries for failed network calls, and records screen-view and purchase events with the default configuration.” Add the package size and setup time if those claims are important.\nRemembered line: An earned dash can introduce a precise aside; this dash chain should become a list of verifiable SDK facts.",
+      "candidate_B": "Verdict: ask-author\nSlop tells:\n- The repeated em-dashes form a decorative cadence cluster: “tiny install — instant setup — automatic retries — beautiful defaults — and analytics that just work.” The cadence substitutes for evidence.\n- This is not an em-dash ban. Keep a dash when it marks a concrete aside or appositive definition; cut the dash chain when it is only pacing a praise list.\nSpecificity missing: Package size, setup steps or time, retry policy, default configuration, and analytics events or guarantees.\nInflated claim: “feels native,” “tiny,” “instant,” “beautiful,” and “just work” are praise labels unless backed by SDK facts.\nFlow break: The sentence moves from developer feel to installation, reliability, defaults, and analytics without a mechanism tying them together.\nConcrete rewrite: Ask author: provide package size, install command or setup steps, retry defaults, default values, and analytics behavior. Fallback: “The SDK claim needs concrete facts: package size, setup path, retry policy, defaults, and analytics events.”\nRewrite check: passes self-detectors; the fallback removes the dash chain, avoids invented numbers, and asks for evidence.\nRemembered line: SDK copy should show the install path, not perform confidence."
+    },
+    {
+      "id": "statproof-dash-ops-tool",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this product sentence for cadence tells: The tool gives operators one place to work — alerts — deploys — incidents — metrics — and the context to fix issues before customers notice.",
+      "expected_output": "Flags dash list/cluster when it uses punctuation as structure; rewrites with a cleaner list and concrete context.",
+      "assertions": [
+        "Flags the repeated em-dashes as a decorative cluster or dash-based cadence carrying emphasis, not as automatically earned punctuation.",
+        "Distinguishes the failure from a blanket em-dash ban: earned appositive or parenthetical dash use may remain when it adds a concrete aside or definition.",
+        "Rewrites by reducing the dash count and replacing unsupported praise with concrete facts, or asks for the missing measurements rather than preserving the cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags the decorative cluster while preserving any earned aside; 3 = removes dashes mechanically; 1 = bans all dashes or leaves the cluster."
+        },
+        {
+          "name": "evidence-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = rewrite/ask names concrete measurements or facts; 1 = keeps praise cadence."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: The em-dashes turn a product list into cadence: “alerts — deploys — incidents — metrics — and the context.” The punctuation is standing in for structure.\nSpecificity missing: What context helps operators fix issues: linked deploys, owner, recent alert history, service graph, logs, traces, rollback status, or customer impact?\nInflated claim: “One place to work” and “before customers notice” need evidence or a concrete workflow.\nFlow break: The list names surfaces but does not show how they combine into an operator action.\nConcrete rewrite: “The tool puts alerts, deploys, incidents, and metrics in one view, then links each alert to the deploy, owner, logs, and affected customers so an operator can decide whether to roll back or page the service team.”\nRemembered line: Dashes are fine for a useful aside; this sentence needs a cleaner list and the context operators actually use.",
+      "candidate_B": "Verdict: revise\nSlop tells:\n- The repeated em-dashes turn a list into a decorative dash cluster: “alerts — deploys — incidents — metrics — and the context.” The sentence uses punctuation as structure instead of making the list readable.\n- This is not a blanket em-dash ban. A dash can stay for a real aside or definition; here commas or a tighter list would do the work better.\nSpecificity missing: What context appears beside alerts, deploys, incidents, and metrics: ownership, recent deploy, runbook, trace, customer impact, or timeline?\nInflated claim: “one place to work” and “fix issues before customers notice” need operational evidence or a named signal.\nFlow break: The line lists surfaces but does not explain how the tool connects them during an incident.\nConcrete rewrite: Ask author for the specific context field the tool adds. Fallback: “The tool puts alerts, deploys, incidents, and metrics in one workspace, then needs a named context signal before it can claim faster fixes.”\nRewrite check: passes self-detectors; the fallback reduces the dash cluster and does not invent the missing context.\nRemembered line: The useful claim is the context signal, not the dashboard list."
+    }
+  ]
+}

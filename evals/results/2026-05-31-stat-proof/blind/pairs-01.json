@@ -1,0 +1,178 @@
+{
+  "unit_count": 7,
+  "chunk_index": 1,
+  "units": [
+    {
+      "id": "statproof-ask-author-growth-metric",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this case-study paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe onboarding redesign doubled activation in ten days. Our new personalization engine identified each user's intent, rebuilt the checklist, and made the product feel immediately useful.",
+      "expected_output": "Asks for metric provenance and mechanism or cuts; no invented experiment details; rewrite check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "candidate_A": "Verdict: ask-author\nSlop tells: \"doubled activation in ten days,\" \"identified each user's intent,\" and \"made the product feel immediately useful\" ask the reader to trust a metric, a mechanism, and a sentiment claim without evidence.\nSpecificity missing: Define activation; name the baseline, cohort, measurement source, and ten-day window; explain how the personalization engine identified intent and how the checklist changed.\nInflated claim: The paragraph turns an unsupported outcome into a clean cause-and-effect story.\nFlow break: It states the result before showing the measurement or the mechanism that produced it.\nConcrete rewrite: Ask author: What activation event doubled, from what baseline, over which users, and where is the measurement? Which engine or intent signal changed the checklist? If those answers are not available, cut to: The onboarding redesign changed the checklist. Add activation data and intent evidence before claiming it doubled activation or made the product immediately useful.\nRewrite check: The fallback contains no invented tool, model, source, experiment, count, or timing. It avoids rule-of-three, X-not-Y contrast, em-dash antithesis, banned phrases, prestige adjectives, and decorative closure; passes self-detectors.\nRemembered line: Do not let the metric stand in for its measurement.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: \"doubled activation in ten days,\" \"identified each user's intent,\" and \"made the product feel immediately useful\" stack outcome, mechanism, and sentiment without proof.\nSpecificity missing: Ask the author for the activation definition, baseline, denominator, measurement window, and evidence that the personalization engine identified intent rather than simply changed checklist order.\nInflated claim: The paragraph treats the redesign as causal and the engine as perceptive, but it gives no source for the metric or the mechanism.\nFlow break: It jumps from a business result to an internal system claim before showing how activation was measured.\nConcrete rewrite: Until the metric and mechanism are sourced: The team redesigned onboarding and changed the checklist. Add the activation lift only if the author can show how it was measured.\nRemembered line: Do not let a ten-day number carry a mechanism the paragraph has not proved.\n"
+    },
+    {
+      "id": "statproof-ask-author-security-tool",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this security update using the Critique output format. No source notes are available beyond the paragraph.\n\nThe scanner found every critical vulnerability before launch. It understood our threat model, generated the patches, and gave the security team confidence to ship on schedule.",
+      "expected_output": "Asks for scanner identity/coverage/evidence or cuts unsupported certainty; no invented tool; rewrite check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: \"found every critical vulnerability,\" \"understood our threat model,\" and \"gave the security team confidence\" turn a security update into certainty and morale without evidence.\nSpecificity missing: Ask the author which scanner was used, what vulnerability classes it covered, what \"critical\" means, how findings were verified, and whether patches were generated, reviewed, or only suggested.\nInflated claim: \"Every\" and \"understood\" overstate coverage and agency unless the team can show scan scope, verification, and review records.\nFlow break: The sentence moves from detection to patch generation to confidence without naming the handoff or validation step.\nConcrete rewrite: Until those details are sourced: The scanner found critical vulnerabilities before launch, and the security team reviewed the fixes before shipping.\nRemembered line: Security prose should name coverage before it claims certainty.\n",
+      "candidate_B": "Verdict: ask-author\nSlop tells: \"found every critical vulnerability,\" \"understood our threat model,\" \"generated the patches,\" and \"gave the security team confidence\" make absolute coverage, model comprehension, authorship, and team-sentiment claims without support.\nSpecificity missing: Name the scanner; define \"critical\"; provide the vulnerability source, coverage boundary, false-negative check, patch authorship, and launch schedule evidence.\nInflated claim: \"Every\" turns a scan result into a guarantee.\nFlow break: The sentence jumps from scanner output to shipping confidence without showing review, remediation, or sign-off.\nConcrete rewrite: Ask author: Which scanner was used, what did it scan, which critical vulnerabilities did it find, and who verified the patches before launch? If those facts are not available, cut to: The scanner ran before launch. Add coverage and remediation evidence before saying it found every critical vulnerability, generated patches, or made the team safe to ship.\nRewrite check: The fallback contains no invented scanner, vendor, tool, model, source, count, experiment, or timing. It avoids rule-of-three, X-not-Y contrast, em-dash antithesis, banned phrases, prestige adjectives, and decorative closure; passes self-detectors.\nRemembered line: A security claim needs a boundary, not a superlative.\n"
+    },
+    {
+      "id": "statproof-ask-author-revenue-ai",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this sales paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe new assistant turned stalled renewals into expansions. It read every account history, drafted the right follow-up, and helped the team recover seven figures in pipeline.",
+      "expected_output": "Asks for assistant identity, measurement, and attribution; avoids invented revenue/tool details; rewrite check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: \"turned stalled renewals into expansions,\" \"read every account history,\" \"the right follow-up,\" and \"seven figures in pipeline\" make the assistant sound decisive without showing measurement or attribution.\nSpecificity missing: Ask the author what assistant was used, which account histories it accessed, how follow-ups were judged, what counts as recovered pipeline, and what portion is attributable to the assistant rather than sales work.\nInflated claim: The paragraph converts a support tool into revenue causality before proving source, scope, or dollar basis.\nFlow break: It jumps from account review to pipeline recovery without showing the sales step that changed the outcome.\nConcrete rewrite: Until the revenue attribution is sourced: The team used a new assistant to review renewal accounts and draft follow-ups. Add the pipeline figure only with the source and calculation.\nRemembered line: A revenue number is not a mechanism.\n",
+      "candidate_B": "Verdict: ask-author\nSlop tells: \"turned stalled renewals into expansions,\" \"read every account history,\" \"the right follow-up,\" and \"recover seven figures in pipeline\" compress tool identity, attribution, scope, judgment, and revenue measurement into one polished claim.\nSpecificity missing: Name the assistant; define the account-history scope; show how renewals became expansions; identify the pipeline source, amount definition, and attribution method.\nInflated claim: \"Every\" and \"the right\" make unverifiable completeness and quality claims.\nFlow break: The paragraph moves from assistant behavior to revenue recovery without showing the sales process between them.\nConcrete rewrite: Ask author: Which assistant was used, which account histories could it access, how was expansion attributed, and what source supports the seven-figure pipeline claim? If those facts are not available, cut to: The sales team used the assistant to draft renewal follow-ups. Add source data before claiming expansions or seven figures in recovered pipeline.\nRewrite check: The fallback contains no invented assistant, model, vendor, source, count, timing, experiment, or revenue detail. It avoids rule-of-three, X-not-Y contrast, em-dash antithesis, banned phrases, prestige adjectives, and decorative closure; passes self-detectors.\nRemembered line: Revenue copy has to show the ledger, not just the lift.\n"
+    },
+    {
+      "id": "statproof-ask-author-dev-cycle",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this product-engineering paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe coding agent compressed the release cycle from six weeks to eight days. It wrote the database migration, updated the docs, and caught the edge cases our review process had missed.",
+      "expected_output": "Asks for tool/timing/provenance or cuts; avoids invented details; self-checks fallback.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "candidate_A": "Verdict: ask-author\nSlop tells: \"compressed the release cycle from six weeks to eight days,\" \"wrote the database migration,\" \"updated the docs,\" and \"caught the edge cases\" assert timing, authorship, and review quality without provenance.\nSpecificity missing: Name the coding agent; define the release-cycle start and end points; provide baseline evidence for six weeks and eight days; show review records for the migration, docs, and edge cases.\nInflated claim: The paragraph attributes the whole schedule change to the agent before proving what the agent did.\nFlow break: It lists impressive tasks but does not show whether humans reviewed, accepted, or modified the work.\nConcrete rewrite: Ask author: Which coding agent was used, how were the six-week and eight-day periods measured, and what artifacts prove the migration, docs, and edge-case findings? If those facts are not available, cut to: The team used a coding agent during the release. Add tool identity, timing evidence, and artifact links before claiming it compressed the release cycle or caught missed edge cases.\nRewrite check: The fallback contains no invented tool, model, vendor, source, count, timing, experiment, migration detail, or edge-case detail. It avoids rule-of-three, X-not-Y contrast, em-dash antithesis, banned phrases, prestige adjectives, and decorative closure; passes self-detectors.\nRemembered line: A release-cycle claim needs clocks and artifacts.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: \"compressed the release cycle from six weeks to eight days,\" \"wrote the database migration,\" and \"caught the edge cases\" combine a large timing claim with broad agent capability and no proof.\nSpecificity missing: Ask the author which coding agent was used, how release-cycle length was measured, what the six-week baseline covers, who reviewed the migration, and which edge cases were caught.\nInflated claim: The sentence gives the agent credit for schedule compression and review quality without separating tool output from human review or process changes.\nFlow break: It moves from cycle time to migration, docs, and edge cases without showing which action shortened the release.\nConcrete rewrite: Until the timing and authorship are sourced: The team used a coding agent during the release to draft a migration, update docs, and surface review items. Add the six-weeks-to-eight-days claim only with measurement.\nRemembered line: Do not let the agent inherit the whole release story.\n"
+    },
+    {
+      "id": "statproof-ask-author-support-deflection",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review this support paragraph using the Critique output format. No source notes are available beyond the paragraph.\n\nThe help-center bot resolved most tickets without escalation. It learned our product language, knew when to hand off, and made customers feel heard without slowing the queue.",
+      "expected_output": "Asks for bot identity, resolution metric, handoff rule, and evidence; avoids feel-good unsupported rewrite; self-check present.",
+      "assertions": [
+        "Does not invent a specific tool, model, vendor, source, count, timing, or experiment that is absent from the paragraph.",
+        "Uses `ask-author`, recommends cutting, or writes a qualified fallback based only on supplied facts for the unsupported tool/metric/timing claims.",
+        "Includes a `Rewrite check` that audits the proposed rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no unsupported tool/model/metric/timing is invented or preserved as fact; 1 = confident invented specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = self-check explicitly covers invention and cadence; 1 = no self-check or false pass."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: \"resolved most tickets,\" \"learned our product language,\" \"knew when to hand off,\" and \"made customers feel heard\" use broad success language without a resolution metric or customer evidence.\nSpecificity missing: Ask the author which bot was used, how \"resolved\" and \"most\" were measured, what the handoff rule was, and what support or customer data shows customers felt heard.\nInflated claim: The paragraph attributes judgment, language learning, and customer sentiment to the bot without naming the evidence.\nFlow break: It moves from deflection to handoff quality to customer feeling without showing queue data or escalation outcomes.\nConcrete rewrite: Until those claims are sourced: The help-center bot handled some tickets before escalation and handed others to support. Add resolution rate, handoff criteria, and customer evidence if available.\nRemembered line: A support bot earns praise through resolution data, not warmth words.\n",
+      "candidate_B": "Verdict: ask-author\nSlop tells: \"resolved most tickets,\" \"learned our product language,\" \"knew when to hand off,\" and \"made customers feel heard\" turn an unsupported support metric, bot capability, routing rule, and sentiment claim into a smooth story.\nSpecificity missing: Name the bot; define \"resolved\" and \"most\"; provide ticket volume, escalation rate, queue-time comparison, handoff rule, and customer-sentiment evidence.\nInflated claim: \"Made customers feel heard\" is emotional closure without a survey, quote, or quality measure.\nFlow break: The paragraph jumps from automation to customer feeling without showing the handoff or queue evidence.\nConcrete rewrite: Ask author: Which bot was used, what share of tickets resolved without escalation, what rule triggered handoff, and what data shows queue speed or customer sentiment? If those facts are not available, cut to: The help-center bot handled support conversations and escalated some of them. Add resolution, handoff, queue, and customer evidence before claiming it resolved most tickets or made customers feel heard.\nRewrite check: The fallback contains no invented bot, model, vendor, source, count, timing, experiment, queue metric, or sentiment data. It avoids rule-of-three, X-not-Y contrast, em-dash antithesis, banned phrases, prestige adjectives, and decorative closure; passes self-detectors.\nRemembered line: Deflection copy needs the denominator.\n"
+    },
+    {
+      "id": "statproof-copula-observability-console",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product sentence: The observability console serves as the command center for modern operations and represents a key pillar of engineering excellence.",
+      "expected_output": "Flags displaced copulas/prestige nouns and rewrites with concrete console behavior.",
+      "assertions": [
+        "Identifies serves as the command center, represents a key pillar as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as shows traces, alerts, deploys, incidents, or ownership."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: \"serves as the command center\" and \"represents a key pillar\" are displaced copulas. They inflate a plain \"is\" and avoid saying what the console shows or lets operators do.\nSpecificity missing: Name the operational objects in the console: traces, alerts, deploys, incidents, owners, services, or whatever the product actually exposes.\nInflated claim: \"Modern operations\" and \"engineering excellence\" are prestige nouns without product behavior.\nFlow break: The sentence jumps to importance before it names the console's work.\nConcrete rewrite: Ask author which objects the console actually exposes. Pattern: The observability console shows traces, alerts, deploys, and incident owners in one view, so operators can see what changed before they page the next team.\nRewrite check: The pattern removes \"serves as\" and \"represents,\" uses concrete verbs and objects, and avoids X-not-Y contrast, em-dash antithesis, banned phrases, prestige adjectives, and decorative closure. The listed objects are source-dependent placeholders; confirm them before publishing. Once confirmed, passes self-detectors.\nRemembered line: Say what the console shows before saying what it means.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: \"serves as the command center,\" \"modern operations,\" \"represents a key pillar,\" and \"engineering excellence\" are prestige phrases that add importance instead of product behavior.\nSpecificity missing: Name what the console shows, who uses it, and what decision it helps them make.\nInflated claim: The sentence says the console is central, but it never shows the concrete work it performs.\nFlow break: The second clause repeats the status claim instead of adding a mechanism.\nConcrete rewrite: If accurate: The observability console shows traces, logs, metrics, and alerts for each service so on-call engineers can find the failing deploy.\nRemembered line: Show the signal the console puts in front of the operator.\n"
+    },
+    {
+      "id": "statproof-copula-permissions-service",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this architecture sentence: The permissions service stands as the backbone of secure collaboration and serves as a foundation for enterprise trust.",
+      "expected_output": "Flags stands/serves inflation and rewrites around concrete authorization behavior.",
+      "assertions": [
+        "Identifies stands as the backbone, serves as a foundation as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as checks roles, denies actions, logs policy decisions, or scopes access."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: \"stands as the backbone,\" \"serves as a foundation,\" \"secure collaboration,\" and \"enterprise trust\" turn architecture into status language.\nSpecificity missing: Name the permissions checks, the resources they protect, and what happens when a user lacks access.\nInflated claim: The sentence claims importance twice but gives no authorization behavior.\nFlow break: The second clause restates the first at a higher abstraction instead of explaining how the service works.\nConcrete rewrite: If accurate: The permissions service checks a user's role before each workspace action, denies unauthorized changes, and logs the policy decision for audit.\nRemembered line: Trust comes from the denied action and the audit trail, not from the backbone metaphor.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: \"stands as the backbone\" and \"serves as a foundation\" are displaced copulas. They turn plain \"is\" into architecture prestige and avoid the service's actual authorization behavior.\nSpecificity missing: Name what the service checks, denies, logs, scopes, or returns to other systems.\nInflated claim: \"Secure collaboration\" and \"enterprise trust\" are outcome abstractions until the sentence shows an access-control mechanism.\nFlow break: The sentence claims organizational significance before showing the permission decision path.\nConcrete rewrite: Ask author which authorization behaviors are true. Pattern: The permissions service checks roles and policy scopes before collaboration actions, denies requests outside a user's access, logs each decision for audit, and tells downstream services what the user can do.\nRewrite check: The pattern removes \"stands as\" and \"serves as,\" uses concrete verbs and objects, and avoids X-not-Y contrast, em-dash antithesis, banned phrases, prestige adjectives, and decorative closure. The listed behaviors are source-dependent placeholders; confirm them before publishing. Once confirmed, passes self-detectors.\nRemembered line: Trust is earned by the access decision, not by calling the service a backbone.\n"
+    }
+  ]
+}

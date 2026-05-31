@@ -1,0 +1,153 @@
+{
+  "unit_count": 7,
+  "chunk_index": 2,
+  "units": [
+    {
+      "id": "statproof-copula-data-contract",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this data-platform sentence: The data contract represents a critical bridge between producers and consumers and marks a new era of reliable analytics.",
+      "expected_output": "Flags represent/marks copula inflation and rewrites around schema or compatibility mechanics.",
+      "assertions": [
+        "Identifies represents a critical bridge, marks a new era as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as schema fields, compatibility checks, producer/consumer ownership, or deployment blocks."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “represents a critical bridge” and “marks a new era” are displaced copulas. They inflate plain “is” or avoid naming what the contract does.\nSpecificity missing: Which fields, owners, compatibility rules, consumer checks, or deployment gates make analytics more reliable?\nInflated claim: “critical bridge” and “new era” claim importance without a mechanism.\nFlow break: The sentence jumps from object to significance without showing the behavior between them.\nConcrete rewrite: Ask author: does the contract define schema fields and block breaking producer changes? If yes: The data contract defines each event field, type, owner, and compatibility rule; CI rejects producer changes that would break a consumer query.\nRewrite check: no rule-of-three, negative parallelism, em-dash antithesis, banned phrase, prestige adjective, or decorative closure; behavior claims are conditional and need author confirmation.\nRemembered line: The contract earns trust when it blocks a breaking schema change.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Represents a critical bridge” and “marks a new era” replace product behavior with importance language.\nSpecificity missing: The sentence does not say what the contract defines, who owns it, or what happens when a producer breaks compatibility.\nInflated claim: “Reliable analytics” is asserted without naming the check that protects reports.\nFlow break: Producers and consumers are named, but the sentence skips the mechanism between them.\nConcrete rewrite: The data contract defines required fields, ownership, and compatibility checks so producers know what they can change and consumers can catch breaking changes before dashboards update.\nRemembered line: Name the check, not the era.\n"
+    },
+    {
+      "id": "statproof-copula-developer-portal",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this DevRel sentence: The developer portal serves as a gateway to innovation and features everything teams need to build better integrations.",
+      "expected_output": "Flags gateway/features abstraction and rewrites around concrete docs/API keys/examples.",
+      "assertions": [
+        "Identifies serves as a gateway, features everything as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as API keys, SDK examples, webhook docs, sample requests, or troubleshooting."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “serves as a gateway” is a displaced copula, and “features everything” sounds concrete while refusing to enumerate anything. Both verbs make the portal sound useful without naming product behavior.\nSpecificity missing: Which API keys, SDK examples, webhook docs, sample requests, or troubleshooting steps are in the portal?\nInflated claim: “gateway to innovation” borrows importance from the metaphor instead of from a developer task.\nFlow break: The sentence moves from portal to outcome without the steps a developer would take.\nConcrete rewrite: Ask author: which portal assets are actually present? If true: The developer portal gives teams API keys, copyable sample requests, SDK examples, and webhook troubleshooting steps in one place.\nRewrite check: no rule-of-three, negative parallelism, em-dash antithesis, banned phrase, prestige adjective, or decorative closure; behavior claims are conditional and need author confirmation.\nRemembered line: A useful portal lets a developer make the first authenticated request without asking support.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Serves as a gateway to innovation” and “features everything” use prestige abstraction instead of saying what developers can do.\nSpecificity missing: The sentence does not name API keys, SDK examples, webhook docs, sample requests, or troubleshooting paths.\nInflated claim: “Build better integrations” is too broad unless the copy shows the integration task the portal improves.\nFlow break: The portal is praised before the reader learns what it contains.\nConcrete rewrite: The developer portal gives teams API keys, SDK examples, webhook docs, sample requests, and error guides so they can test an integration without asking support.\nRemembered line: If it is a portal, say what a developer can do there.\n"
+    },
+    {
+      "id": "statproof-copula-analytics-dashboard",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this launch sentence: The analytics dashboard stands as a testament to customer-centric design and serves as the single source of truth for business momentum.",
+      "expected_output": "Flags testament/stands/serves inflation and rewrites around concrete dashboard contents.",
+      "assertions": [
+        "Identifies stands as a testament, serves as the single source as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as metrics, account changes, conversion events, filters, alerts, or exports."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “stands as a testament” and “serves as the single source” are displaced copulas. They replace plain “is” or specific dashboard actions with prestige framing.\nSpecificity missing: Which metrics, account changes, conversion events, filters, alerts, or exports does the dashboard show?\nInflated claim: “customer-centric design” and “business momentum” are abstractions unless the sentence names what users can inspect or decide.\nFlow break: The sentence praises the dashboard before saying what is on it.\nConcrete rewrite: Ask author: which dashboard views and actions are real? If true: The dashboard shows pipeline revenue, conversion events, account changes, and alert filters; users can export the filtered view before the weekly business review.\nRewrite check: no rule-of-three, negative parallelism, em-dash antithesis, banned phrase, prestige adjective, or decorative closure; behavior claims are conditional and need author confirmation.\nRemembered line: The dashboard is useful when it shows the metric that changed and lets the team carry that view into the review.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Stands as a testament” and “serves as the single source of truth” make the dashboard sound important without showing what it shows.\nSpecificity missing: The sentence does not name the metrics, events, filters, alerts, or exports that make the dashboard useful.\nInflated claim: “Customer-centric design” and “business momentum” are abstractions without evidence.\nFlow break: The sentence jumps from design praise to business authority without a concrete feature connecting them.\nConcrete rewrite: The analytics dashboard shows ARR, conversion events, account changes, and churn risk in one filtered view; teams can export weekly changes or set alerts when a metric crosses a threshold.\nRemembered line: A dashboard earns trust by naming the metric and the action it triggers.\n"
+    },
+    {
+      "id": "statproof-copula-policy-engine",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this compliance sentence: The policy engine represents the heart of our governance strategy and serves as a unified layer for organizational confidence.",
+      "expected_output": "Flags copula displacement and confidence abstraction; rewrites around policy evaluation behavior.",
+      "assertions": [
+        "Identifies represents the heart, serves as a unified layer as copula displacement or equivalent verb inflation rather than concrete product behavior.",
+        "Explains that the verbs inflate plain `is/are` or avoid a specific action verb; does not treat the phrase as inherently valid because it sounds polished.",
+        "Rewrites with plain `is` or specific action verbs that name what the thing does, such as policy evaluation, approvals, blocks, audit logs, or exceptions."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = displaced copulas become concrete verbs with named objects; 3 = plain is but still vague; 1 = inflated copulas remain."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “represents the heart” and “serves as a unified layer” are displaced copulas. They inflate a plain role statement and avoid the verbs that would show policy behavior.\nSpecificity missing: Which policies are evaluated, what gets approved or blocked, where audit logs are written, and how exceptions move?\nInflated claim: “governance strategy” and “organizational confidence” claim trust without naming the enforcement path.\nFlow break: The sentence moves from component to enterprise value without the evaluation step.\nConcrete rewrite: Ask author: does the engine evaluate changes, block failures, log decisions, and route exceptions? If yes: The policy engine evaluates each change against approved rules, blocks noncompliant requests, records the decision in an audit log, and routes exceptions to the assigned approver.\nRewrite check: no rule-of-three, negative parallelism, em-dash antithesis, banned phrase, prestige adjective, or decorative closure; behavior claims are conditional and need author confirmation.\nRemembered line: Governance becomes real when the engine records why a request passed and who approved the exception.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Represents the heart” and “serves as a unified layer” inflate a simple product role instead of naming enforcement behavior.\nSpecificity missing: The sentence does not say which policies are evaluated, who approves exceptions, or what evidence is recorded.\nInflated claim: “Organizational confidence” is a vague benefit unless tied to approvals, blocks, or audit logs.\nFlow break: Governance strategy is invoked before the reader sees the policy engine operate.\nConcrete rewrite: The policy engine evaluates each access request against approved rules, blocks violations, records the decision in an audit log, and routes exceptions to the control owner.\nRemembered line: Confidence comes from the decision record, not the metaphor.\n"
+    },
+    {
+      "id": "statproof-hedged-api-framework",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this product intro: Whether you're prototyping a weekend project or scaling a global platform, our API framework adapts to your workflow. While flexibility matters, reliability is equally important.",
+      "expected_output": "Flags every-reader/every-value symmetry and rewrites for a concrete audience/tradeoff.",
+      "assertions": [
+        "Identifies the 'prototyping vs global platform' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'flexibility vs reliability' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete API user, workflow, and reliability tradeoff, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “Whether you're prototyping a weekend project or scaling a global platform” is hedged symmetry: it tries to cover every reader instead of choosing a use case. “While flexibility matters, reliability is equally important” is both-values filler unless the paragraph names a real tradeoff.\nSpecificity missing: Which API builder, workflow, failure mode, and reliability guarantee is this for?\nInflated claim: “adapts to your workflow” promises fit without saying what changes for the user.\nFlow break: The intro balances audiences and values before committing to a concrete job.\nConcrete rewrite: Ask author: which reader should this page win? If targeting backend teams shipping partner integrations: For a backend team adding a partner integration, the framework reads the OpenAPI spec to generate typed handlers and rejects deploys when contract tests find a response that no longer matches the documented shape. The tradeoff is less free-form routing in exchange for stable request and error shapes.\nRewrite check: no rule-of-three, negative parallelism, em-dash antithesis, banned phrase, prestige adjective, or decorative closure; audience and behavior claims are conditional and need author confirmation.\nRemembered line: Pick the workflow, then name the constraint that makes it reliable.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Whether you're prototyping a weekend project or scaling a global platform” tries to include every reader, and “flexibility matters, reliability is equally important” is balanced filler.\nSpecificity missing: The copy does not name the API user, deployment workflow, compatibility rule, or reliability tradeoff.\nInflated claim: “Adapts to your workflow” promises fit without saying what changes.\nFlow break: The second sentence adds a generic value pair instead of explaining the first sentence.\nConcrete rewrite: For platform teams moving a beta API into production, the framework validates request schemas, generates client stubs, and rejects deploys that break existing endpoints; flexibility stops where compatibility would fail.\nRemembered line: Choose the workflow before praising the framework.\n"
+    },
+    {
+      "id": "statproof-hedged-analytics-tool",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this landing-page copy: Whether you're a solo founder or a Fortune 500 operator, the analytics tool meets you where you are. While depth is powerful, simplicity still matters.",
+      "expected_output": "Flags hedged symmetry and chooses a reader/use case.",
+      "assertions": [
+        "Identifies the 'solo founder vs Fortune 500 operator' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'depth vs simplicity' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete metric workflow or operator decision, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “Whether you're a solo founder or a Fortune 500 operator” covers incompatible readers, and “depth is powerful, simplicity still matters” is balance without a decision.\nSpecificity missing: The copy does not name a metric workflow, operator decision, or tradeoff between detail and speed.\nInflated claim: “Meets you where you are” avoids saying what the tool helps the user decide.\nFlow break: The audience range is so wide that the next sentence can only retreat into generic values.\nConcrete rewrite: For a SaaS founder reviewing trial conversion each Monday, the analytics tool shows signup source, activation step, and churn signals in one cohort view, then flags the metric that moved since last week. Keep deep filters for investigating a drop, not for the first read.\nRemembered line: Pick the decision, then choose how much depth it needs.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Whether you're a solo founder or a Fortune 500 operator” is hedged symmetry: it avoids choosing the buyer or workflow. “While depth is powerful, simplicity still matters” is both-sides balance filler without a named tradeoff.\nSpecificity missing: Which metric workflow, operator decision, and reporting depth does the tool support?\nInflated claim: “meets you where you are” says fit without showing the interface or decision.\nFlow break: The copy tries to include everyone before saying what one user can do.\nConcrete rewrite: Ask author: which primary user and metric workflow matter most? If targeting a growth lead reviewing onboarding: The analytics tool shows activation and upgrade events by cohort and saves the weekly funnel view with the step where users drop before paid conversion. It trades open-ended modeling for a fixed funnel view so the operator can decide which onboarding step to fix first.\nRewrite check: no rule-of-three, negative parallelism, em-dash antithesis, banned phrase, prestige adjective, or decorative closure; audience and behavior claims are conditional and need author confirmation.\nRemembered line: Choose the operator, then write the decision the chart helps them make.\n"
+    },
+    {
+      "id": "statproof-hedged-security-platform",
+      "suite": "fresh-holdout.json",
+      "split": "holdout",
+      "prompt": "Review and rewrite this security intro: Whether your team is just starting with compliance or managing a mature program, the platform supports every stage. While automation is essential, human judgment remains key.",
+      "expected_output": "Flags both-sides hedge unless branches have different behavior, then rewrites around one compliance stage and tradeoff.",
+      "assertions": [
+        "Identifies the 'starting compliance vs mature program' framing as hedged symmetry that tries to cover every reader instead of choosing a use case.",
+        "Identifies the 'automation vs human judgment' sentence as both-sides balance filler unless the paragraph names a real tradeoff.",
+        "Rewrites by choosing a specific reader/use case and naming a concrete control owner, review step, or compliance workflow, rather than preserving all audiences and all values."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and concrete tradeoff; 3 = removes hedge but remains broad; 1 = keeps both-sides symmetry."
+        }
+      ],
+      "candidate_A": "Verdict: revise\nSlop tells: “Whether your team is just starting with compliance or managing a mature program” is hedged symmetry: it covers every maturity stage instead of choosing one workflow. “While automation is essential, human judgment remains key” is both-values filler unless the sentence names the handoff.\nSpecificity missing: Which control owner, review step, evidence request, exception path, or compliance stage is the platform built around?\nInflated claim: “supports every stage” promises breadth without showing distinct behavior.\nFlow break: The intro balances maturity stages and values before naming a concrete compliance task.\nConcrete rewrite: Ask author: which compliance stage and review path should lead? If targeting a team preparing its first SOC 2 evidence review: The platform maps each control to an owner and requests access-review evidence before audit week. It automates evidence collection while leaving exception approval with the control owner.\nRewrite check: no rule-of-three, negative parallelism, em-dash antithesis, banned phrase, prestige adjective, or decorative closure; audience and behavior claims are conditional and need author confirmation.\nRemembered line: The useful sentence is the handoff: what the system collects, and what the owner must still approve.\n",
+      "candidate_B": "Verdict: revise\nSlop tells: “Whether your team is just starting with compliance or managing a mature program” tries to cover every stage, and “automation is essential, human judgment remains key” is a generic both-sides sentence.\nSpecificity missing: The copy does not name a control owner, review step, evidence request, exception path, or audit workflow.\nInflated claim: “Supports every stage” is too broad unless each stage has different product behavior.\nFlow break: The sentence names a spectrum, then avoids choosing the workflow that matters.\nConcrete rewrite: For a compliance lead preparing SOC 2, the platform maps each control to an owner, collects evidence, and asks a reviewer to approve exceptions before audit export. Automate evidence collection; keep humans on exception approval.\nRemembered line: Name the compliance step where judgment enters.\n"
+    }
+  ]
+}

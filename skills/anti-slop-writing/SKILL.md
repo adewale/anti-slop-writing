@@ -61,6 +61,8 @@ Hypotaxis preference: when the relation matters, prefer subordination and connec
 Flow-by-relation test: paragraphs should make the next question possible, not merely sit beside each other in a plausible order. At section boundaries, name the relation: cause, contrast, dependency, inference, resolution, scope change, or level-of-detail change.
 Conclusion test: a conclusion should return to the concrete carrier, admit the limit if needed, and state the reusable structure. Avoid ending with a generic thesis sentence that could belong to any essay in the category.
 Unseeing frame: unsee the polished sentence into the machinery that made it feel true; inspect cadence, contrast, omitted relation, evidence scope, and abstraction leaks.
+Emphasis-source test: ask whether the emphasis comes from the idea or from a borrowed pattern. To apply, write the flattened version of the line in your critique (cadence removed, claim preserved) and judge whether the residual claim still names an actor, mechanism, or limit. If it collapses into a generic statement, the rhythm was carrying it; if it still lands, the idea was.
+Syntax-relation test: ask whether the syntax clarifies the relation between ideas or only suggests one. To apply, restate the implied relation in plain prose using a connective (because, although, when, where, once, so that). If you cannot supply the connective without inventing it, the syntax was standing in for a relation that was not there.
 Contribution bar: contribution must justify length; add judgment, framing, depth, or cut.
 DevRel pressure test: durable prose needs judgment, evidence, runnable artifacts, and taste.
 ```

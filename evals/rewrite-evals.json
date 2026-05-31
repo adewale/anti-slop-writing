@@ -14,8 +14,16 @@
         "Does not replace the phrase with another abstraction like 'critical capability' or 'robust foundation'."
       ],
       "graded_dimensions": [
-        {"name": "specificity", "scale": "1-5", "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement."},
-        {"name": "length-control", "scale": "1-5", "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."}
+        {
+          "name": "specificity",
+          "scale": "1-5",
+          "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
       ]
     },
     {
@@ -29,7 +37,11 @@
         "Keeps the concrete carrier instead of jumping to a generic process claim."
       ],
       "graded_dimensions": [
-        {"name": "relation-clarity", "scale": "1-5", "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation."}
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation."
+        }
       ]
     },
     {
@@ -92,8 +104,16 @@
         "minimum_criteria": 3
       },
       "graded_dimensions": [
-        {"name": "provenance", "scale": "1-5", "rubric": "5 = source, baseline, and population named; 1 = number preserved without context."},
-        {"name": "length-control", "scale": "1-5", "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."}
+        {
+          "name": "provenance",
+          "scale": "1-5",
+          "rubric": "5 = source, baseline, and population named; 1 = number preserved without context."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."
+        }
       ]
     },
     {
@@ -111,8 +131,23 @@
         "minimum_criteria": 3
       },
       "graded_dimensions": [
-        {"name": "relation-clarity", "scale": "1-5", "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list."}
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list."
+        }
       ]
+    },
+    {
+      "id": "emphasis-source-flatten",
+      "prompt": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.",
+      "expected_output": "A sentence whose emphasis comes from a named mechanism rather than from the not-just-X-but-Y rhythm.",
+      "assertions": [
+        "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
+        "Names a concrete durable-execution mechanism (step-level retry, preserved outputs, recorded state, resumable workflow, or equivalent) so the emphasis comes from the idea.",
+        "Does not substitute another inflated abstraction such as 'paradigm shift', 'fundamental rethink', or 'new way of thinking'."
+      ],
+      "split": "tune"
     }
   ]
 }

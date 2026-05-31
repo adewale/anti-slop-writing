@@ -38,8 +38,24 @@ Six new `near-neg-` near-miss negatives were added to `trigger-queries.json` (fa
 
 The project's iteration loop now has the structural defenses the field treats as standard (Dwork et al. on adaptive overfitting; Blum & Hardt's ladder mechanism; Miller and Bowyer on small-sample CIs). The remaining gap is the same one called out in the previous results note: observed multi-run trigger rates in Pi, Claude Code, Codex, and OpenCode, and end-to-end scored runs of the new holdout cases against an actual skill execution.
 
+## Doctrine change retained on qualitative evidence, confirmed no-regression on the held-out gate
+
+The emphasis-source and syntax-relation tests in `SKILL.md` were added (procedural wording) as part of the emphasis-source experiment described in `evals/results/2026-05-27-emphasis-source-experiment.md`. Five new eval cases were added with proper splits (`borrowed-emphasis`, `paragraph-scale-borrowed-emphasis`, `emphasis-source-flatten` as tune; `earned-emphasis-from-idea`, `earned-paragraph-escalation` as holdout).
+
+Under the new statistical gate (`scripts/score_delta.py`):
+
+- On the **session's own five cases** (N=5): CI `[+0.0000, +0.1998]`, sign-flip p=1.0 — REJECT. Per-case scores in `evals/results/2026-05-28-emphasis-source-procedural/scores.jsonl`.
+- On the **upstream's held-out cases** (N=10, joined against `baseline-2026-05-29`): per-case delta is exactly 0.0 for every case, CI `[+0.0000, +0.0000]` — REJECT mechanically, because both before and after are 1.0. This is what no-regression looks like when the baseline is at ceiling. Full run, including outputs and judgments, in `evals/results/2026-05-30-holdout-regression-check/`.
+
+The change is retained on (i) qualitative behavioral evidence — the procedural agent reliably produces the flatten artifact in its critique; the labeled agent does not — and (ii) the held-out regression check showing it does not break anything the upstream baseline got right. It is **not** a gated score improvement; the binary-assertion gate has no headroom against a ceiling baseline. The path to a gated positive is `graded_dimensions` on cases where the artifact matters, which is not in this branch.
+
+The blinded harness used to surface the behavioral observation is `evals/blinded-eval-harness.md`.
+
 ## Previous results
 
 | Date | File |
 |---|---|
 | 2026-05-25 | `2026-05-25-before.md`, `2026-05-25-after.md`, `2026-05-25-adversarial-expansion.md`, `2026-05-25-runbook-eval-drift.md` |
+| 2026-05-27 | `2026-05-27-emphasis-source-experiment.md` |
+| 2026-05-28 | `2026-05-28-emphasis-source-procedural/` (per-case scores) |
+| 2026-05-30 | `2026-05-30-holdout-regression-check/` (held-out scoring of this branch's doctrine vs the 2026-05-29 baseline; 10/10 maintained, delta exactly 0) |

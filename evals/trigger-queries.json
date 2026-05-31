@@ -159,6 +159,24 @@
       "split": "holdout",
       "query": "Generate a docx report from this dataset and email it to the team.",
       "should_trigger": false
+    },
+    {
+      "id": "neg-em-dash-mechanical",
+      "split": "tune",
+      "query": "Replace every em-dash in this document with a comma.",
+      "should_trigger": false
+    },
+    {
+      "id": "pos-hedged-symmetry",
+      "split": "tune",
+      "query": "This intro hedges between beginner and expert with 'Whether you're X or Y'. Help me commit to one register.",
+      "should_trigger": true
+    },
+    {
+      "id": "pos-outline-conclusion-template",
+      "split": "holdout",
+      "query": "This conclusion ends with 'Despite ongoing challenges' and 'Looking ahead, X will play a pivotal role.' Make it concrete instead.",
+      "should_trigger": true
     }
   ]
 }

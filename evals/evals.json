@@ -125,7 +125,19 @@
         "Identifies what is missing as actor, mechanism, or limit, not just an additional adjective or stronger noun.",
         "Rewrite sources its emphasis from a named durable-execution mechanism such as step-level retry, preserved outputs, recorded state, or resumable workflow, rather than from another contrast cadence or prestige abstraction."
       ],
-      "split": "tune"
+      "split": "tune",
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = writes the flattened claim and judges whether it still names actor/mechanism/limit; 3 = mentions flattening without showing it; 1 = no flatten artifact."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names a concrete durable-execution behavior; 3 = partial mechanism or generic actor; 1 = another prestige abstraction."
+        }
+      ]
     },
     {
       "id": "paragraph-scale-borrowed-emphasis",
@@ -136,7 +148,138 @@
         "Demonstrates flattening the escalation and showing the remaining claim is generic — for example, 'observability should be considered during system design, not only during incident response' — with no actor, mechanism, or limit.",
         "Rewrite names a concrete observability design decision such as schema chosen at instrumentation time, cardinality budget, sampling rule, named span attributes, or an explicit team action, instead of preserving the tiered 'good/better/best' hierarchy or substituting another rhythmic pattern."
       ],
-      "split": "tune"
+      "split": "tune",
+      "graded_dimensions": [
+        {
+          "name": "ladder-flattening",
+          "scale": "1-5",
+          "rubric": "5 = flattens the whole good/better/best ladder to the plain residual claim and evaluates it; 3 = flags escalation but no residual claim; 1 = treats the ladder as earned without evidence."
+        },
+        {
+          "name": "rewrite-mechanism",
+          "scale": "1-5",
+          "rubric": "5 = rewrite names an observability design mechanism such as schema, cardinality budget, sampling, span attributes, or team action; 1 = preserves tiered abstraction."
+        }
+      ]
+    },
+    {
+      "id": "copula-displacement",
+      "split": "tune",
+      "prompt": "Review this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.",
+      "expected_output": "A critique that flags copula displacement (serves as, stands as) and inflated significance, then rewrites with plain verbs and concrete capability.",
+      "assertions": [
+        "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation rather than concrete description.",
+        "Notes that 'serves as the central hub' hides the plain copula 'is' or a more specific action verb the sentence is avoiding.",
+        "Provides a rewrite that either uses plain 'is' or names what the dashboard concretely does (shows, lists, routes, surfaces) and what content it shows."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = replaces displaced copulas with concrete action verbs and named objects; 3 = uses plain 'is' but still vague; 1 = preserves serves/stands/represents inflation."
+        }
+      ]
+    },
+    {
+      "id": "hedged-symmetry",
+      "split": "tune",
+      "prompt": "Review this intro: Whether you're a beginner or an expert, our framework scales to your needs. While simplicity matters, power is also important.",
+      "expected_output": "A critique that flags the Whether/Or and While/also-important structures as hedged symmetry that refuses to commit, then rewrites by picking the actual reader and the actual tradeoff.",
+      "assertions": [
+        "Identifies 'Whether you're a beginner or an expert' and 'While X, Y is also important' as hedged symmetry that addresses every possible reader and every possible value.",
+        "Notes that symmetric hedges of this shape avoid committing to a reader, a priority, or a tradeoff and therefore carry no information.",
+        "Rewrites by naming a specific reader or use case and by stating the concrete tradeoff between simplicity and power as it shows up in this framework, rather than asserting both matter."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = chooses a specific reader/use case and a concrete tradeoff; 3 = removes the hedge but remains broad; 1 = preserves both-sides symmetry."
+        }
+      ]
+    },
+    {
+      "id": "outline-conclusion-template",
+      "split": "tune",
+      "prompt": "Review this ending: Despite ongoing challenges, the team continues to thrive in an evolving landscape. Looking ahead, the platform will play an increasingly pivotal role in the AI ecosystem.",
+      "expected_output": "A critique that flags the Despite-challenges-X-continues-to-thrive and Looking-ahead-pivotal-role templates as outline-shaped conclusions, then asks for either a cut or a carrier-bound ending.",
+      "assertions": [
+        "Identifies the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play an increasingly pivotal role' structures as templated outline conclusions, not earned closings.",
+        "Notes that neither sentence names a specific challenge, a specific future move, or a concrete carrier from the body of the piece.",
+        "Either recommends cutting both sentences or rewrites to return to a concrete carrier and a specific next step or claim the team will take."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = removes one template but keeps generic future language; 1 = preserves outline closure."
+        }
+      ]
+    },
+    {
+      "id": "em-dash-cluster",
+      "split": "tune",
+      "prompt": "Review this paragraph for cadence tells: The system is fast — really fast — and reliable — at scale — with a clean API — and a great developer experience — that just works.",
+      "expected_output": "A critique that flags the decorative em-dash cluster as cadence-as-emphasis, distinguishes it from earned parenthetical or appositive use, and rewrites by removing decorative dashes while keeping any earned ones.",
+      "assertions": [
+        "Flags the repeated em-dashes as decorative cadence-for-emphasis rather than earned parenthetical or appositive insertion.",
+        "Does not claim em-dashes are always slop; names the specific failure as overuse-for-emphasis in a cluster, not the punctuation mark itself.",
+        "Rewrites by reducing the dash count, replacing decorative dashes with commas or periods, and keeping at most one dash insertion or paired parenthetical where it carries a real aside or appositive."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags only the decorative cluster and preserves earned dash use; 3 = removes dashes mechanically; 1 = either bans all dashes or leaves the cluster intact."
+        }
+      ]
+    },
+    {
+      "id": "holdout-borrowed-emphasis-release-safety",
+      "split": "holdout",
+      "prompt": "Review and rewrite this launch sentence: The safety review is not just a checklist. It is how we prove the release is ready.",
+      "expected_output": "A critique that flattens the contrast, shows the residual claim is generic, and rewrites with the concrete release-readiness mechanism rather than another prestige claim.",
+      "assertions": [
+        "Writes a flattened version of the claim with cadence removed and judges whether it still names a mechanism.",
+        "Identifies the missing release-readiness mechanism: what the checklist verifies, blocks, signs off, or records.",
+        "Rewrites with a concrete review artifact or gate (for example failing test evidence, rollback owner, sign-off record, canary metric) rather than preserving 'not just X / it is Y' cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened claim plus residual-generic judgment; 3 = flags borrowed emphasis without showing the flatten; 1 = no flatten."
+        },
+        {
+          "name": "release-mechanism",
+          "scale": "1-5",
+          "rubric": "5 = concrete release gate/artifact named; 3 = generic safety language; 1 = prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "holdout-copula-hedged-outline-combo",
+      "split": "holdout",
+      "prompt": "Review this product page ending: The analytics console serves as a unified hub for operational excellence. Whether you're a startup founder or an enterprise leader, it scales with your needs. Despite ongoing challenges in the data landscape, the platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in decision-making.",
+      "expected_output": "A critique that catches the displaced copula, hedged symmetry, and outline-shaped conclusion, then cuts or rewrites around a concrete user/action/result.",
+      "assertions": [
+        "Identifies 'serves as a unified hub' as copula displacement or equivalent verb inflation, not concrete product behavior.",
+        "Identifies 'Whether you're a startup founder or an enterprise leader' as hedged symmetry that avoids choosing a reader/use case.",
+        "Identifies the 'Despite ongoing challenges' and 'Looking ahead ... pivotal role' sentences as outline-shaped conclusions without a named challenge, carrier, or next step.",
+        "Rewrites by choosing a specific user/use case and naming what the console shows, routes, or alerts on; or recommends cutting unsupported sentences."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "multi-detector-coverage",
+          "scale": "1-5",
+          "rubric": "5 = catches all three mechanisms and keeps their boundaries distinct; 3 = catches one or two; 1 = generic marketing critique only."
+        },
+        {
+          "name": "specific-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
+        }
+      ]
     }
   ]
 }

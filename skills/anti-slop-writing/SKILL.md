@@ -56,10 +56,13 @@ Use these checks before rewriting:
 AI-writing signs: superficial analysis, undue significance language, canned emphasis, negative parallelisms, rule-of-three overuse, formulaic dashes, table/bold formatting as fake structure.
 Rhetorical-style drift: watch noun-heavy abstractions, nominalizations, phrasal coordination, and informational density without mechanism.
 Practical AI-editing tells: repeated “Not X. Y.” rhythm, symmetrical paragraph length, parallel headings, and bullet + bold-header + colon patterns.
+Copula displacement: watch “serves as,” “stands as,” “features,” “marks,” and “represents” replacing plain “is/are.” Keep the verb when it does concrete work (enumerating, defining, locating); replace it when it only inflates a copula.
+Hedged symmetry: watch “Whether you’re X or Y,” “While X, Y is also important,” and similar templates that address every reader or every value at once. Keep the structure only when it names a real branching condition with distinct downstream behavior.
+Em-dash cadence: do not ban em-dashes; watch decorative clusters that use dashes for emphasis instead of for parenthetical or appositive insertion. Reduce count; keep dash insertions/pairs that bracket inline definitions or genuine asides.
 Rhetorical staccato: do not ban antithesis/parallelism; watch antithetical parataxis where rhythm implies the relation before evidence is unpacked.
 Hypotaxis preference: when the relation matters, prefer subordination and connective syntax over side-by-side clauses; use “because,” “although,” “when,” “while,” “where,” “once,” or an explicit summary noun to show which idea modifies which.
 Flow-by-relation test: paragraphs should make the next question possible, not merely sit beside each other in a plausible order. At section boundaries, name the relation: cause, contrast, dependency, inference, resolution, scope change, or level-of-detail change.
-Conclusion test: a conclusion should return to the concrete carrier, admit the limit if needed, and state the reusable structure. Avoid ending with a generic thesis sentence that could belong to any essay in the category.
+Conclusion test: a conclusion should return to the concrete carrier, admit the limit if needed, and state the reusable structure. Avoid ending with a generic thesis sentence that could belong to any essay in the category. Reject outline templates such as “Despite challenges, X continues to thrive” and “Looking ahead, X will play an increasingly pivotal role” unless backed by a specific challenge or named next step.
 Unseeing frame: unsee the polished sentence into the machinery that made it feel true; inspect cadence, contrast, omitted relation, evidence scope, and abstraction leaks.
 Emphasis-source test: ask whether the emphasis comes from the idea or from a borrowed pattern. To apply, write the flattened version of the line in your critique (cadence removed, claim preserved) and judge whether the residual claim still names an actor, mechanism, or limit. If it collapses into a generic statement, the rhythm was carrying it; if it still lands, the idea was.
 Syntax-relation test: ask whether the syntax clarifies the relation between ideas or only suggests one. To apply, restate the implied relation in plain prose using a connective (because, although, when, where, once, so that). If you cannot supply the connective without inventing it, the syntax was standing in for a relation that was not there.
@@ -86,7 +89,11 @@ Before finalizing prose:
 12. Check paragraph flow: each paragraph should answer the prior question or make the next question necessary. Add hinge sentences when sections read like a list.
 13. Check the conclusion: return to the concrete carrier, name what was made visible or solved, state what transfers, and avoid a generic final sentence.
 14. Replace rhythm with relation when the line still sounds good but has not named the mechanism.
-15. End with a concrete remembered line.
+15. Replace displaced copulas (“serves as,” “stands as,” “features,” “marks,” “represents”) with plain “is” or a specific action verb, unless the verb is doing concrete enumerating, defining, or locating work.
+16. Cut hedged symmetry (“Whether X or Y,” “While X, Y is also important”) and commit to a specific reader and a named tradeoff.
+17. Reject outline conclusion templates (“Despite challenges, X continues to thrive,” “Looking ahead, X will play a pivotal role”); replace with a carrier-bound ending or cut.
+18. Thin decorative em-dash clusters; keep at most one earned dash insertion/pair per sentence unless multiple insertions carry distinct definitions.
+19. End with a concrete remembered line.
 ```
 
 ## Avoid by default
@@ -107,6 +114,10 @@ Not only X, but also Y
 Same X. Same Y. Different Z.
 Not X. Y.
 This is where X comes in
+Whether you're X or Y
+While X, Y is also important
+Despite ongoing challenges, X continues to thrive
+Looking ahead, X will play an increasingly pivotal role
 In conclusion
 Overall
 Ultimately
@@ -142,6 +153,10 @@ groundbreaking
 seamless
 robust outside engineering context
 ```
+
+Note: the word and phrase lists above are time-dated detectors. They reflect patterns observed in current model generations and will drift. Re-profile against a current human-vs-LLM corpus before adding or removing entries; `delve` is the cautionary example of a high-risk word whose frequency in LLM output dropped sharply during 2025.
+
+Copula constructions such as `serves as` and `stands as` are intentionally not in the words list. They are two-word templates whose verdict depends on context: keep when the verb enumerates, defines, or locates; replace when it only inflates a copula.
 
 ## Staccato contrast test
 

@@ -108,16 +108,16 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 
 | Eval set | Tune cases | Holdout cases |
 |---|---:|---:|
-| Machine-readable assertions (`evals/evals.json`) | 5 | 3 |
-| Adversarial false-positive checks (`evals/adversarial.json`) | 12 | 3 |
-| Rewrite quality checks (`evals/rewrite-evals.json`) | 6 | 2 |
-| Eval-suite health checks (`evals/meta-evals.json`) | 5 | 2 |
-| Trigger-query sanity check (`evals/trigger-queries.json`) | 16 | 10 |
-| Manual regression cases (`evals/cases.md`) | 5 cases | n/a |
+| Machine-readable assertions (`evals/evals.json`) | 11 | 5 |
+| Adversarial false-positive checks (`evals/adversarial.json`) | 15 | 9 |
+| Rewrite quality checks (`evals/rewrite-evals.json`) | 13 | 3 |
+| Eval-suite health checks (`evals/meta-evals.json`) | 6 | 4 |
+| Trigger-query sanity check (`evals/trigger-queries.json`) | 17 | 12 |
+| Manual regression cases (`evals/cases.md`) | 10 cases | n/a |
 
-A full scored baseline of the current skill across every tune and holdout case is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. The binary assertions are at ceiling (115/115, 26/26 trigger); the `length-control` graded axis fails on two rewrites, which on inspection is a rubric-calibration bug rather than a skill defect (it penalizes adding a mechanism). The discriminating signal for real doctrine work now waits on the discourse-layer cases that do not yet exist (see `TODO.md`).
+A full scored baseline for the 2026-05-29 suite is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. Later doctrine branches added harder paired cases, graded dimensions, and fresh holdout cases; the newest status and no-regression notes are in `evals/results/latest.md`.
 
-These results catch regressions in the current doctrine. They are not a full benchmark with persisted `with_skill/` versus `old_skill/` run artifacts. Use `scripts/score_delta.py` for paired-bootstrap and sign-flip-permutation gating on any close-call accept/reject. The full discipline (held-out gate, statistical gating, judge protocol, Pareto-front carryforward, length budget) is documented in `docs/hillclimb-improvements.md`.
+The old binary assertions are at ceiling, so zero-delta score gates should be read as no-regression evidence, not proof of improvement. Use `scripts/score_delta.py` for paired-bootstrap and sign-flip-permutation gating on paired before/after runs, and add graded dimensions or fresh cases when ceiling effects hide the signal. The full discipline (held-out gate, statistical gating, judge protocol, Pareto-front carryforward, length budget) is documented in `docs/hillclimb-improvements.md`.
 
 ## Contributing
 

@@ -83,6 +83,8 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "gate-output.txt",
     ROOT / "evals" / "results" / "2026-05-30-rebaseline.md",
     ROOT / "evals" / "results" / "rebaseline-2026-05-30" / "scores.jsonl",
+    ROOT / "evals" / "results" / "2026-05-27-research-additions.md",
+    ROOT / "evals" / "results" / "2026-05-27-smoke-run.md",
 ]
 
 REQUIRED_SKILL_PHRASES = [

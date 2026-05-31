@@ -222,6 +222,51 @@
         "Recognizes the escalation by concrete magnitude: a sentence, then four or five paragraphs, then a whole essay.",
         "Does not collapse the escalation into a single generic sentence that loses the magnitudes."
       ]
+    },
+    {
+      "id": "serves-as-enumeration",
+      "split": "tune",
+      "prompt": "Review this sentence: The retry policy serves three distinct failure modes: connection timeout, oversized payload, and dependency outage.",
+      "expected_output": "Keeps the sentence because 'serves' is doing concrete work (enumerating handled failure modes) rather than displacing a plain copula.",
+      "assertions": [
+        "Does not flag 'serves' as copula displacement when it introduces a concrete enumeration.",
+        "Recognizes that the sentence names three specific failure modes the policy handles.",
+        "Avoids replacing the sentence with a vaguer construction that loses the enumerated failure modes."
+      ]
+    },
+    {
+      "id": "branching-condition-symmetry",
+      "split": "tune",
+      "prompt": "Review this technical note: Whether the worker crashes before or after the receipt is written determines whether recovery retries the job or marks it complete.",
+      "expected_output": "Keeps the Whether/Or because it names a real branching condition with distinct downstream behavior.",
+      "assertions": [
+        "Does not reject the sentence solely because it matches the 'Whether X or Y' shape associated with hedged symmetry.",
+        "Recognizes that the two branches (crash before vs after receipt write) trigger different concrete recovery behavior.",
+        "If editing, preserves the branching condition and the two distinct outcomes rather than collapsing them."
+      ]
+    },
+    {
+      "id": "em-dash-earned",
+      "split": "tune",
+      "prompt": "Review this sentence: The orphaned stream — the one where the original readable was lost but the chunks survived in SQLite — can still be finalized and persisted.",
+      "expected_output": "Keeps the em-dashes because they bracket a parenthetical that defines a specific technical term inline.",
+      "assertions": [
+        "Does not flag em-dashes when they bracket a parenthetical that adds concrete definition.",
+        "Recognizes the bracketed phrase as an inline definition of the technical term 'orphaned stream'.",
+        "Avoids splitting the sentence into separate sentences or parentheses if the inline em-dash form is the most readable."
+      ]
+    },
+    {
+      "id": "holdout-earned-branching-dash-copula",
+      "split": "holdout",
+      "prompt": "Review this runbook sentence: The cleanup job serves two failure modes: a manifest written before compaction finishes, and chunks compacted before the manifest is written. Whether the worker crashes before or after the manifest write determines whether recovery replays the chunk list or marks the segment sealed; the orphaned segment — chunks present in object storage but missing from the manifest — stays readable until then.",
+      "expected_output": "Keeps the prose because 'serves' introduces an enumeration, 'whether' names a real branch with different recovery behavior, and the em-dash brackets an inline definition.",
+      "assertions": [
+        "Does not flag 'serves two failure modes' as copula displacement because it introduces a concrete enumeration.",
+        "Does not flag the 'Whether before or after' structure as hedged symmetry because the branches produce distinct recovery actions.",
+        "Does not flag the em-dash parenthetical because it defines 'orphaned segment' with concrete storage/manifest facts.",
+        "If editing, preserves the failure-mode enumeration, branch outcomes, and inline definition rather than collapsing them into a generic reliability sentence."
+      ]
     }
   ]
 }

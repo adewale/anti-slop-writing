@@ -88,6 +88,18 @@
         "Any Concrete rewrite for the 'community is unusually authentic' paragraph does not name specific projects or counts (number of friends, type of experiment, duration of a build) absent from the source.",
         "Does not produce any Concrete rewrite of the form 'X is the design, not Y' or 'X, not Y' that reproduces the flagged cadence under different words.",
         "Any `ask-author` fallback rewrite for the 'community is unusually authentic' paragraph does not itself invent topic pairs (for example, 'portability and moderation tooling, not growth loops or ad inventory') or use X-not-Y cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no invented people/projects/counts/timing/tools; 3 = ambiguous specificity; 1 = confident unsupported specifics."
+        },
+        {
+          "name": "self-detector-use",
+          "scale": "1-5",
+          "rubric": "5 = Rewrite check catches or avoids X-not-Y, dash antithesis, invented facts; 1 = rewrite repeats flagged cadence without self-check."
+        }
       ]
     },
     {
@@ -101,6 +113,18 @@
         "Does not invent a timing claim (a number of hours, days, weekends, or a before/after duration) that the source paragraph does not contain.",
         "Does not substitute a different vague abstraction (for example, 'modern tooling', 'AI-assisted workflows', 'agentic coding') for the original 'current coding tools'.",
         "Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "ask-or-cut-discipline",
+          "scale": "1-5",
+          "rubric": "5 = asks for the missing tool or cuts/uses only supplied facts; 1 = invents a tool or timing claim."
+        },
+        {
+          "name": "fallback-cleanliness",
+          "scale": "1-5",
+          "rubric": "5 = fallback has no invented specifics or flagged cadence; 1 = fallback repeats the failure."
+        }
       ]
     },
     {
@@ -110,10 +134,17 @@
       "expected_output": "A per-item critique using the format from SKILL.md. If the review proposes a carrier-bound closing rewrite (returning to 'a URL I own', this blog post as a PDS record, or the standard.site stack), the rewrite must itself pass the doctrine. It must not end with decorative closure ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps'), must not stack an em-dash rule-of-three list as a closer, and must not invent infrastructure or claims absent from the post. The `Rewrite check` field should appear and should either confirm the rewrite passes the detectors or name the detector it fails.",
       "assertions": [
         "No Concrete rewrite ends on a banned decorative closure phrase ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps').",
-        "No Concrete rewrite uses an em-dash rule-of-three list as a final closer (for example, '\u2014 Hugo, standard.site, my PDS \u2014' followed by a summary sentence).",
+        "No Concrete rewrite uses an em-dash rule-of-three list as a final closer (for example, '— Hugo, standard.site, my PDS —' followed by a summary sentence).",
         "The `Rewrite check` field is present on at least one item where a Concrete rewrite is produced, and either confirms the rewrite passes the self-detectors or names the failed detector and offers a second pass.",
         "Any carrier-bound rewrite draws its carrier (the URL, the PDS record, the colophon, the standard.site stack) from the source rather than inventing a new stack element.",
         "Any rule-of-three or parenthetical-example list in a rewrite contains only items the source paragraph or the larger post actually contains; it does not invent additional list members."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "rewrite-self-audit",
+          "scale": "1-5",
+          "rubric": "5 = Rewrite check explicitly audits the produced rewrite and fixes any failed detector; 1 = no self-audit or decorative closer remains."
+        }
       ]
     },
     {
@@ -162,7 +193,7 @@
       "expected_output": "A rewrite that names the relation among the three surfaces (e.g. capture, re-execution, ordering of the same event stream).",
       "assertions": [
         "Names the shared object the three surfaces operate on (the event stream).",
-        "Identifies the relation: capture, re-execution, ordering \u2014 or equivalent.",
+        "Identifies the relation: capture, re-execution, ordering — or equivalent.",
         "Does not preserve the bullet-or-paragraph product-tour cadence."
       ],
       "dynamic_rubric": {
@@ -186,7 +217,97 @@
         "Names a concrete durable-execution mechanism (step-level retry, preserved outputs, recorded state, resumable workflow, or equivalent) so the emphasis comes from the idea.",
         "Does not substitute another inflated abstraction such as 'paradigm shift', 'fundamental rethink', or 'new way of thinking'."
       ],
-      "split": "tune"
+      "split": "tune",
+      "graded_dimensions": [
+        {
+          "name": "cadence-removal",
+          "scale": "1-5",
+          "rubric": "5 = removes not-just / less-more / antithesis cadence entirely; 3 = weakly reduces it; 1 = preserves or substitutes another contrast cadence."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = concrete step-level retry/preserved-output/state/resume mechanism; 1 = prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "copula-displacement-to-is",
+      "split": "tune",
+      "prompt": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.",
+      "expected_output": "A rewrite that uses plain 'is' or a specific action verb in place of 'serves as' and 'represents', and that names the concrete coordination job.",
+      "assertions": [
+        "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb describing what the library actually does.",
+        "Names the concrete coordination job (for example: leasing, queueing, routing, leader election, fanout) rather than 'key piece of infrastructure'.",
+        "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "concrete-verb",
+          "scale": "1-5",
+          "rubric": "5 = specific action verb and coordination mechanism; 3 = plain copula with partial detail; 1 = new prestige verb."
+        }
+      ]
+    },
+    {
+      "id": "hedged-symmetry-commit",
+      "split": "tune",
+      "prompt": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.",
+      "expected_output": "A rewrite that picks a specific reader, names the actual tradeoff between speed and correctness, and drops the symmetric hedge.",
+      "assertions": [
+        "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
+        "Commits to a concrete tradeoff, for example by saying which to prioritize when speed and correctness conflict, or by naming the specific case where the linter helps most.",
+        "Names a specific reader or use case rather than addressing every possible reader at once."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "tradeoff-commitment",
+          "scale": "1-5",
+          "rubric": "5 = clear priority/use case; 3 = weaker but less symmetric; 1 = both-sides hedge remains."
+        }
+      ]
+    },
+    {
+      "id": "outline-conclusion-carrier-bound",
+      "split": "tune",
+      "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.",
+      "expected_output": "A carrier-bound conclusion that names a specific challenge, a specific concrete project or run, and a specific next step or claim.",
+      "assertions": [
+        "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+        "Names a specific challenge the platform actually faces or a specific concrete carrier (a run, a feature, a customer outcome) rather than 'ongoing challenges in the landscape'.",
+        "Replaces 'pivotal role' with a concrete claim about what durable execution does in a named workflow."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-specificity",
+          "scale": "1-5",
+          "rubric": "5 = named challenge/carrier/next step; 3 = one concrete element; 1 = outline template remains."
+        }
+      ]
+    },
+    {
+      "id": "holdout-ask-author-ai-tooling",
+      "split": "holdout",
+      "prompt": "Review this paragraph using the Critique output format. It comes from a launch post draft, and no source notes are available beyond the paragraph.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.",
+      "expected_output": "A review that does not invent the assistant name, does not preserve the unsupported before/after timing, and uses ask-author or cuts until the missing source facts are supplied. Any fallback must pass Rewrite check.",
+      "assertions": [
+        "Does not name a specific assistant or model because the source paragraph does not provide one.",
+        "Treats 'quarter-long' and 'one-week' as unsupported unless source/provenance is named, and either asks for the measurement or removes the timing claim.",
+        "Uses `ask-author` or a cut/qualified rewrite for the missing tool and timing facts rather than filling the Concrete rewrite slot with confident specifics.",
+        "Includes a `Rewrite check` that audits the rewrite or fallback for invented facts and reused cadence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no tool/model/timing invention; 3 = hedged but still implies unsupported facts; 1 = invents specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = Rewrite check explicitly covers invented facts and cadence; 1 = absent or false pass."
+        }
+      ]
     }
   ]
 }

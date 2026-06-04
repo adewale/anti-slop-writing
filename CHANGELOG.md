@@ -32,7 +32,7 @@ All notable changes to this project are recorded here. This changelog tracks doc
 - Added `dynamic_rubric` (per-instance criteria) and `graded_dimensions` (orthogonal 1-5 axes) schema fields on rewrite-eval cases.
 - Added `near-neg-` near-miss negatives to `evals/trigger-queries.json` (fact-check, link-check, draft-from-bullets, storyboard, slide-export, docx-from-dataset).
 - Added new holdout cases to every suite: `fake-precision-unnamed-source`, `stacked-rule-of-three`, `abstract-system-noun-stack`, `earned-importance-immediate-mechanism`, `cost-benefit-not-just-earning-the-contrast`, `research-methods-staccato`, `fake-precision-rewrite-finance`, `product-tour-rewrite-developer-tools`, `noise-vs-signal-on-small-suite`, `judge-self-preference`.
-- Updated `scripts/validate.py` to enforce per-case split, minimum holdout counts per suite, and the `near-neg-` near-miss requirement on trigger queries.
+- Updated `scripts/validate.py` to enforce per-case split, minimum holdout counts per suite, the `near-neg-` near-miss requirement on trigger queries, and the root `skills.sh.json` display config.
 - Added `evals/rejected-edits.md` graveyard so previously rejected edits are not relitigated.
 - Added `docs/hillclimb-improvements.md` with sources for all thirteen changes (Dwork, Blum & Hardt, Miller, Bowyer, WritingBench, FLASK, BFCL, Panickssery, Dubois, Hamel/Shankar, GEPA, SkillOpt, Decagon, Schaeffer).
 
@@ -58,6 +58,7 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 ### Docs
 
+- Added the skills.sh badge, canonical Skills CLI install command, telemetry opt-out note, and root `skills.sh.json` display grouping.
 - Added `Lessons_learned.md` (originally `LESSONS.md`) to record what each failure taught and what not to overgeneralize.
 - Added `runbooks/hillclimb-skill.md` to keep multi-artifact skill improvements from stopping early; rewritten to include the held-out gate, statistical gating, cross-family judge protocol, length normalization, saturation stop, Pareto-front carryforward, length budget, and eval-rot refresh policy.
 - Added `docs/eval-runbook-notes.md` to record the external runbook and eval-drift ideas that shaped this iteration.

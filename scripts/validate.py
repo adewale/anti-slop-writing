@@ -18,12 +18,14 @@ REWRITE_EVALS = ROOT / "evals" / "rewrite-evals.json"
 META_EVALS = ROOT / "evals" / "meta-evals.json"
 TRIGGER_QUERIES = ROOT / "evals" / "trigger-queries.json"
 MANUAL_CASES = ROOT / "evals" / "cases.md"
+SKILLS_SH_CONFIG = ROOT / "skills.sh.json"
 
 REQUIRED = [
     ROOT / "README.md",
     ROOT / "AGENTS.md",
     ROOT / "CONTRIBUTING.md",
     ROOT / "CHANGELOG.md",
+    ROOT / "skills.sh.json",
     ROOT / "Lessons_learned.md",
     ROOT / "LICENSE",
     ROOT / "docs" / "eval-runbook-notes.md",
@@ -279,6 +281,34 @@ def validate_baseline_scores() -> None:
         fail(f"{path.relative_to(ROOT)} baseline must score at least 30 cases (found {count})")
 
 
+def validate_skills_sh_config() -> None:
+    data = load_json(SKILLS_SH_CONFIG)
+    schema = data.get("$schema")
+    if schema is not None and schema != "https://skills.sh/schemas/skills.sh.schema.json":
+        fail("skills.sh.json $schema must be https://skills.sh/schemas/skills.sh.schema.json")
+    if data.get("notGrouped", "bottom") not in {"top", "bottom"}:
+        fail("skills.sh.json notGrouped must be top or bottom")
+    groupings = data.get("groupings")
+    if not isinstance(groupings, list) or not groupings:
+        fail("skills.sh.json groupings must be a non-empty list")
+    listed_skills: set[str] = set()
+    for index, group in enumerate(groupings, start=1):
+        if not isinstance(group, dict):
+            fail(f"skills.sh.json group #{index} must be an object")
+        title = group.get("title")
+        if not isinstance(title, str) or not title.strip():
+            fail(f"skills.sh.json group #{index} missing non-empty title")
+        skills = group.get("skills")
+        if not isinstance(skills, list) or not skills:
+            fail(f"skills.sh.json group {title!r} must list at least one skill")
+        for skill in skills:
+            if not isinstance(skill, str) or not NAME_RE.fullmatch(skill):
+                fail(f"skills.sh.json group {title!r} has invalid skill slug: {skill!r}")
+            listed_skills.add(skill)
+    if SKILL_DIR.name not in listed_skills:
+        fail(f"skills.sh.json must include {SKILL_DIR.name}")
+
+
 def validate_with_skills_ref() -> None:
     if not shutil.which("skills-ref"):
         return
@@ -350,11 +380,12 @@ def main() -> int:
 
     validate_skill_evals()
     validate_trigger_queries()
+    validate_skills_sh_config()
     validate_baseline_scores()
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
+    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "skills.sh", "DISABLE_TELEMETRY=1", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 

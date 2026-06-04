@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Writing",
+      "description": "Skills for reviewing and rewriting prose without generic LLM cadence.",
+      "skills": [
+        "anti-slop-writing"
+      ]
+    }
+  ]
+}

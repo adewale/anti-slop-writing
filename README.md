@@ -1,5 +1,7 @@
 # Anti-Slop Writing
 
+[![skills.sh](https://skills.sh/b/adewale/anti-slop-writing)](https://skills.sh/adewale/anti-slop-writing)
+
 Anti-Slop Writing is an Agent Skill that helps coding agents review, draft, and rewrite prose so it does not read like generic LLM output.
 
 Core rule:
@@ -33,8 +35,10 @@ skills/anti-slop-writing/
 With the Skills CLI:
 
 ```bash
-npx skills add https://github.com/adewale/anti-slop-writing --skill anti-slop-writing
+npx skills add adewale/anti-slop-writing
 ```
+
+This is also the install signal skills.sh uses to discover the repository and update the badge/listing. The CLI sends anonymous install telemetry by default; opt out with `DISABLE_TELEMETRY=1`.
 
 Or copy the directory to a shared Agent Skills location:
 
@@ -98,10 +102,11 @@ docs/branch-mining-2026-05-30.md      Audit trail for mining the remote branches
 scripts/validate.py                   Repo-only validation
 scripts/score_delta.py                Paired-bootstrap / sign-flip gate for accept/reject
 scripts/run_evals.py                  Execution runner: prepare / grade / join over eval suites
+skills.sh.json                        Repo-only skills.sh display grouping, used after telemetry sees the repo
 .github/workflows/validate.yml        GitHub Actions validation
 ```
 
-Copy `evals/`, `examples/`, `scripts/`, and `.github/` only when you are working on this repository. They are not part of the runtime skill.
+Copy `evals/`, `examples/`, `scripts/`, `.github/`, and `skills.sh.json` only when you are working on this repository. They are not part of the runtime skill.
 
 ## Current eval status
 

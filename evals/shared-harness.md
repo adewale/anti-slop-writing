@@ -3,13 +3,13 @@
 This repo participates in the shared Skill Eval Harness:
 
 - Repo: https://github.com/adewale/skill-eval-harness
-- Version: `>=0.1.0`
+- Version: `>=0.1.1`
 - Manifest: `evals/shared-benchmark.json`
 
-Install the harness from GitHub:
+Install the harness from GitHub with [uv](https://docs.astral.sh/uv/):
 
 ```sh
-python3 -m pip install git+https://github.com/adewale/skill-eval-harness.git@v0.1.0
+uv tool install git+https://github.com/adewale/skill-eval-harness.git@v0.1.1
 ```
 
 Splits:

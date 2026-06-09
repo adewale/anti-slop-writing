@@ -1,0 +1,593 @@
+{
+  "version": 1,
+  "skill_name": "anti-slop-writing",
+  "skill_paths": [
+    "skills/anti-slop-writing/SKILL.md"
+  ],
+  "old_skill_paths": [],
+  "variants": [
+    "with_skill",
+    "without_skill"
+  ],
+  "optional_variants": [
+    "old_skill"
+  ],
+  "split_policy": {
+    "tune": "Visible cases used during iteration. Failures may drive skill/reference edits.",
+    "holdout": "Hidden cases scored only at end-of-round or merge. Prefer prompt_ref files outside committed docs/examples.",
+    "holdback": "Examples not shown in SKILL.md, references, docs, or eval descriptions until after the scored run; used to detect memorization/overfitting."
+  },
+  "run_protocol": {
+    "paired": "Run with_skill and without_skill in the same round; optionally run old_skill from a pinned artifact/branch.",
+    "outputs": "Save outputs as runs/<case_id>/<variant>/output.md and metadata as runs/<case_id>/<variant>/metadata.json.",
+    "metadata": [
+      "elapsed_ms",
+      "input_tokens",
+      "output_tokens",
+      "total_tokens",
+      "model"
+    ],
+    "analyst_pass": "After benchmark, review saturated, flaky, non-discriminating, and with-skill-failed cases before editing the skill."
+  },
+  "notes": "Benchmark repo: improve freshness and discriminating power, not volume.",
+  "cases": [
+    {
+      "id": "pos-readme-pivotal-no-mechanism",
+      "split": "tune",
+      "kind": "rewrite",
+      "prompt": "Rewrite this README intro so it stops sounding like generic AI output: 'Our platform is a pivotal, robust, transformative solution for modern teams.'",
+      "expected_behavior": [
+        "Remove inflated significance terms.",
+        "Replace with concrete mechanism or ask for missing facts rather than inventing."
+      ],
+      "assertions": [
+        {
+          "name": "flags-inflation",
+          "type": "contains_any",
+          "values": [
+            "pivotal",
+            "robust",
+            "transformative",
+            "mechanism",
+            "concrete"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Specificity over synonyms",
+            "Does not invent product details",
+            "Cadence is less generic"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "pos-devrel-borrowed-cadence",
+      "split": "tune",
+      "kind": "critique",
+      "prompt": "This DevRel launch post sounds borrowed from every AI-written launch: 'Today marks a new chapter. Developers can now move faster, build smarter, and unlock possibilities.' Diagnose and rewrite only if you can preserve facts.",
+      "expected_behavior": [
+        "Identify borrowed launch cadence.",
+        "Remove vague unlock/faster/smarter claims or ask for facts."
+      ],
+      "assertions": [
+        {
+          "name": "flags-borrowed-cadence",
+          "type": "contains_any",
+          "values": [
+            "borrowed",
+            "cadence",
+            "unlock",
+            "facts",
+            "specific"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Fact preservation",
+            "Cadence removal"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "pos-relation-hinge",
+      "split": "tune",
+      "kind": "rewrite",
+      "prompt": "Improve paragraph flow by adding the missing relation hinge, without changing facts: 'The queue stores retries. The worker polls every minute. Failed jobs keep reappearing.'",
+      "expected_behavior": [
+        "Add explicit relation between retries, polling, and reappearing jobs."
+      ],
+      "assertions": [
+        {
+          "name": "has-relation-hinge",
+          "type": "contains_any",
+          "values": [
+            "because",
+            "so",
+            "therefore",
+            "as a result",
+            "when"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Relation is accurate",
+            "No extra claims"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "pos-conclusion-concrete-carrier",
+      "split": "tune",
+      "kind": "rewrite",
+      "prompt": "Rewrite this conclusion so it returns to the concrete carrier: 'In conclusion, this represents a fundamental shift in how teams approach reliability.' Earlier paragraph was about idempotency keys preventing duplicate charges after retry storms.",
+      "expected_behavior": [
+        "Return to idempotency keys / duplicate charges / retry storms.",
+        "Remove generic conclusion language."
+      ],
+      "assertions": [
+        {
+          "name": "returns-to-carrier",
+          "type": "contains_any",
+          "values": [
+            "idempotency",
+            "duplicate",
+            "retry"
+          ]
+        },
+        {
+          "name": "removes-generic-conclusion",
+          "type": "excludes_any",
+          "values": [
+            "In conclusion",
+            "fundamental shift"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Conclusion test",
+            "Concrete carrier"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "neg-quoted-bad-phrases",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Proofread this critique without flagging the quoted examples as the author's own prose: 'Avoid phrases like “unlock potential” and “pivotal moment” in launch copy.'",
+      "expected_behavior": [
+        "Do not over-flag quoted bad phrases used as critique."
+      ],
+      "assertions": [
+        {
+          "name": "recognizes-quotation",
+          "type": "contains_any",
+          "values": [
+            "quoted",
+            "example",
+            "not flag",
+            "not the author's prose"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "False-positive restraint"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "neg-earned-em-dash",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review for AI slop but preserve earned punctuation: 'The fix was small — a single idempotency key — but it stopped duplicate charges during retries.'",
+      "expected_behavior": [
+        "Do not ban the em dash/appositive when it carries concrete contrast."
+      ],
+      "assertions": [
+        {
+          "name": "earned-appositive",
+          "type": "contains_any",
+          "values": [
+            "earned",
+            "keep",
+            "works",
+            "concrete contrast"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "False-positive restraint",
+            "Explains why punctuation is earned"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "neg-runbook-imperatives",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Check whether these direct runbook imperatives need rewriting: 'Run migrations. Verify row counts. Roll back if duplicate keys appear.'",
+      "expected_behavior": [
+        "Recognize direct imperatives as acceptable, not generic AI prose."
+      ],
+      "assertions": [
+        {
+          "name": "runbook-ok",
+          "type": "contains_any",
+          "values": [
+            "imperative",
+            "direct",
+            "leave",
+            "works"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "neg-human-antithesis",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review this essay sentence in context: after two paragraphs about a failed archive, it says 'We saved the data and lost the memory.'",
+      "expected_behavior": [
+        "Do not flatten earned antithesis supported by prior context."
+      ],
+      "assertions": [
+        {
+          "name": "earned-antithesis",
+          "type": "contains_any",
+          "values": [
+            "earned",
+            "antithesis",
+            "context",
+            "do not"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Human essay tolerance"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "neg-robust-with-mechanism",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review for AI slop. A style checklist says words like `robust` can be suspect; decide whether this sentence actually needs de-slop. Return `Verdict: keep`, `Verdict: revise`, or `Verdict: ask-author` first, then one sentence of rationale: 'The queue is robust because each job has an idempotency key, a retry receipt, and a dead-letter cutoff.'",
+      "expected_behavior": [
+        "Return a keep verdict, not a rewrite request.",
+        "Explain that robust is earned by concrete engineering mechanisms: idempotency key, retry receipt, dead-letter cutoff.",
+        "Do not offer a synonym-only rewrite that treats robust as broad or fluffy."
+      ],
+      "assertions": [
+        {
+          "name": "keep-verdict",
+          "type": "regex",
+          "pattern": "(?m)^\\s*Verdict:\\s*keep\\b",
+          "description": "First line should keep the sentence rather than revise it."
+        },
+        {
+          "name": "names-key-earning-mechanisms",
+          "type": "contains_all",
+          "values": [
+            "idempotency",
+            "dead-letter"
+          ],
+          "description": "Must name the concrete mechanisms that make robust earned."
+        },
+        {
+          "name": "names-retry-mechanism",
+          "type": "contains_any",
+          "values": [
+            "retry receipt",
+            "retry tracking",
+            "retry"
+          ],
+          "description": "Must connect robustness to a retry-related mechanism, not generic specificity."
+        },
+        {
+          "name": "no-revise-verdict",
+          "type": "not_regex",
+          "pattern": "(?m)^\\s*Verdict:\\s*(revise|ask-author|reject)\\b|\\b(needs de-slop|needs de-sloping|should be revised|robust[\\\"”’']?\\s+is\\s+broad)\\b",
+          "description": "Should not over-flag the watch-list word when it is mechanism-backed."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "False-positive restraint",
+            "Mechanism earns the engineering qualifier",
+            "No synonym-only rewrite"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "trig-readme-sounds-ai",
+      "split": "tune",
+      "kind": "trigger",
+      "prompt": "Trigger decision eval. User prompt: this README sounds AI; tighten it\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
+      "expected_behavior": [
+        "Should return TRIGGER for this skill."
+      ],
+      "assertions": [
+        {
+          "name": "expected-trigger-label",
+          "type": "regex",
+          "pattern": "(?m)^\\s*TRIGGER\\b",
+          "description": "First line must be the exact trigger decision label."
+        }
+      ],
+      "tags": [
+        "trigger"
+      ]
+    },
+    {
+      "id": "trig-talk-intro",
+      "split": "tune",
+      "kind": "trigger",
+      "prompt": "Trigger decision eval. User prompt: tighten this talk intro so it sounds less like generic launch copy\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
+      "expected_behavior": [
+        "Should return TRIGGER for this skill."
+      ],
+      "assertions": [
+        {
+          "name": "expected-trigger-label",
+          "type": "regex",
+          "pattern": "(?m)^\\s*TRIGGER\\b",
+          "description": "First line must be the exact trigger decision label."
+        }
+      ],
+      "tags": [
+        "trigger"
+      ]
+    },
+    {
+      "id": "trig-grammar-only",
+      "split": "tune",
+      "kind": "trigger",
+      "prompt": "Trigger decision eval. User prompt: proofread only for grammar; preserve wording and cadence\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
+      "expected_behavior": [
+        "Should return NO_TRIGGER for this skill."
+      ],
+      "assertions": [
+        {
+          "name": "expected-trigger-label",
+          "type": "regex",
+          "pattern": "(?m)^\\s*NO_TRIGGER\\b",
+          "description": "First line must be the exact trigger decision label."
+        }
+      ],
+      "tags": [
+        "trigger"
+      ]
+    },
+    {
+      "id": "trig-legal-boilerplate",
+      "split": "tune",
+      "kind": "trigger",
+      "prompt": "Trigger decision eval. User prompt: preserve this legal boilerplate exactly except typo fixes\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
+      "expected_behavior": [
+        "Should return NO_TRIGGER for this skill."
+      ],
+      "assertions": [
+        {
+          "name": "expected-trigger-label",
+          "type": "regex",
+          "pattern": "(?m)^\\s*NO_TRIGGER\\b",
+          "description": "First line must be the exact trigger decision label."
+        }
+      ],
+      "tags": [
+        "trigger"
+      ]
+    },
+    {
+      "id": "trig-generic-marketing-intentional",
+      "split": "tune",
+      "kind": "trigger",
+      "prompt": "Trigger decision eval. User prompt: intentionally write generic marketing copy for a placeholder mockup\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
+      "expected_behavior": [
+        "Should return NO_TRIGGER for this skill."
+      ],
+      "assertions": [
+        {
+          "name": "expected-trigger-label",
+          "type": "regex",
+          "pattern": "(?m)^\\s*NO_TRIGGER\\b",
+          "description": "First line must be the exact trigger decision label."
+        }
+      ],
+      "tags": [
+        "trigger"
+      ]
+    },
+    {
+      "id": "holdout-fresh-llm-readme-2026-01",
+      "split": "holdout",
+      "kind": "rewrite",
+      "scenario": "Fresh 2026 LLM-output README intro sample",
+      "prompt_ref": "holdout/fresh-llm-readme-2026-01.txt",
+      "expected_behavior": [
+        "Score specificity, fact preservation, cadence removal, and false-positive restraint."
+      ],
+      "assertions": [
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Specificity",
+            "Fact preservation",
+            "Cadence removal"
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "holdback-human-essay-antithesis-01",
+      "split": "holdback",
+      "kind": "adversarial",
+      "scenario": "Private holdback case. Exact scenario and answer key live outside committed docs/eval descriptions.",
+      "prompt_ref": "holdback/human-essay-antithesis-01.txt",
+      "answer_ref": "holdback/answers/human-essay-antithesis-01.json",
+      "expected_behavior": [
+        "Private holdback scoring: load prompt and answer key only for the scored run, then reveal after scoring if desired."
+      ],
+      "assertions": [
+        {
+          "name": "private-holdback-review",
+          "type": "judge",
+          "rubric": [
+            "Use the private answer key; do not rely on public manifest wording."
+          ]
+        }
+      ],
+      "tags": [
+        "holdback-private"
+      ]
+    },
+    {
+      "id": "pos-rewrite-keeps-mechanism-not-template",
+      "split": "tune",
+      "kind": "rewrite",
+      "prompt": "Rewrite this product paragraph without generic launch-copy cadence: 'Today marks a pivotal moment for secure collaboration. Our robust platform unlocks faster workflows for every modern team.' The only facts available are: the product rejects unsigned webhook retries and stores a retry receipt for each delivery.",
+      "expected_behavior": [
+        "Remove pivotal/robust/unlock/faster generic claims.",
+        "Keep only the webhook retry receipt mechanism; do not invent broader platform benefits."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-concrete-mechanism",
+          "type": "contains_all",
+          "values": [
+            "unsigned webhook",
+            "retry receipt"
+          ]
+        },
+        {
+          "name": "removes-launch-cliches",
+          "type": "not_regex",
+          "pattern": "(?i)\\b(pivotal|robust|unlock|faster workflows|modern teams|today marks)\\b"
+        },
+        {
+          "name": "round-2-qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Concrete carrier preserved",
+            "No invented product claims",
+            "Cadence less generic"
+          ]
+        }
+      ],
+      "tags": [
+        "round-2",
+        "anthropic-gap",
+        "rewrite-quality"
+      ]
+    },
+    {
+      "id": "round3-fixture-mechanism-copy",
+      "split": "tune",
+      "kind": "rewrite",
+      "files": [
+        "fixtures/round3-mechanism-copy/input.md"
+      ],
+      "prompt": "Use the attached fixture. Rewrite the draft into honest README copy. Preserve only source-backed mechanism; do not invent broad benefits.",
+      "expected_behavior": [
+        "Use HMAC/webhook retry receipt facts.",
+        "Remove generic launch copy and unsupported platform/productivity claims."
+      ],
+      "assertions": [
+        {
+          "name": "uses-fixture-mechanism",
+          "type": "contains_all",
+          "values": [
+            "HMAC",
+            "retry receipt"
+          ]
+        },
+        {
+          "name": "removes-generic-benefits",
+          "type": "not_regex",
+          "pattern": "(?i)\\b(pivotal|transformative|unlock|modern productivity|fast-moving teams|collaboration platform)\\b"
+        },
+        {
+          "name": "round-3-qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Grounded in fixture facts",
+            "No invented benefits",
+            "Less generic cadence"
+          ]
+        }
+      ],
+      "tags": [
+        "round-3",
+        "fixture-backed",
+        "audit-manifest"
+      ]
+    }
+  ],
+  "ablations": [
+    {
+      "id": "no-staccato-contrast-test",
+      "removed_component": "staccato contrast test",
+      "expected_regressions": [
+        "Misses generic rhythm and over/under-applies sentence-shortening."
+      ],
+      "applies_to_cases": []
+    },
+    {
+      "id": "no-flow-conclusion-guidance",
+      "removed_component": "flow-by-relation and conclusion guidance",
+      "expected_regressions": [
+        "Fails relation-hinge and concrete-carrier conclusion cases."
+      ],
+      "applies_to_cases": []
+    },
+    {
+      "id": "no-do-not-invent-details",
+      "removed_component": "do-not-invent concrete details rule",
+      "expected_regressions": [
+        "Hallucinates mechanisms in underspecified prose."
+      ],
+      "applies_to_cases": []
+    },
+    {
+      "id": "no-phrase-detectors",
+      "removed_component": "phrase-list/source-backed detectors while keeping relation tests",
+      "expected_regressions": [
+        "Misses borrowed-cadence and inflated-importance positives."
+      ],
+      "applies_to_cases": []
+    }
+  ]
+}

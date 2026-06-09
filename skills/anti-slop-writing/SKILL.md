@@ -1,6 +1,6 @@
 ---
 name: anti-slop-writing
-description: Use this skill to review, draft, and rewrite prose so it does not read like generic LLM output. Apply it to articles, slide copy, wiki pages, README text, emails, posts, scripts, product/DevRel copy, and important writing with AI tropes, inflated significance language, generic cadence, weak flow, or marketing fog.
+description: Use this skill to review, tighten, draft, and rewrite prose so it does not read like generic LLM output, AI writing, bland marketing, or generic launch copy. Apply it when the user asks to make writing less generic/AI-sounding, tighten a talk intro, sharpen presentation/slide copy, or improve articles, wiki pages, README text, emails, posts, scripts, product/DevRel copy, launch copy, and other important writing with AI tropes, inflated significance language, generic cadence, weak flow, or marketing fog.
 license: MIT
 compatibility: Agent Skills clients including Pi, Claude Code, Codex, and OpenCode. Instruction-only skill; no scripts, package installs, or network access required.
 ---
@@ -157,6 +157,19 @@ robust outside engineering context
 Note: the word and phrase lists above are time-dated detectors. They reflect patterns observed in current model generations and will drift. Re-profile against a current human-vs-LLM corpus before adding or removing entries; `delve` is the cautionary example of a high-risk word whose frequency in LLM output dropped sharply during 2025.
 
 Copula constructions such as `serves as` and `stands as` are intentionally not in the words list. They are two-word templates whose verdict depends on context: keep when the verb enumerates, defines, or locates; replace when it only inflates a copula.
+
+## False-positive restraint
+
+Treat detector hits as hypotheses, not verdicts. If the same sentence or nearby context supplies the mechanism, failure mode, measurement, or boundary that earns the term, return `Verdict: keep` and name that support.
+
+Example:
+
+```txt
+Keep: "The queue is robust because each job has an idempotency key, a retry receipt, and a dead-letter cutoff."
+Why: "robust" is an engineering qualifier earned by the deduplication, retry-tracking, and dead-letter mechanisms.
+```
+
+Do not offer a synonym-only rewrite just because a watch-list word appears.
 
 ## Staccato contrast test
 

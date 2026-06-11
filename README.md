@@ -49,6 +49,8 @@ cp -R skills/anti-slop-writing ~/.agents/skills/
 
 Then ask your agent to use `anti-slop-writing` when reviewing or rewriting prose.
 
+The repo also includes `package.json` metadata so Pi can install it from Git and discover `skills/anti-slop-writing`.
+
 Example prompt:
 
 ```txt
@@ -63,8 +65,9 @@ The skill is instruction-only. It gives the agent prose-editing rules and exampl
 |---|---|---|
 | Pi | Compatible | `.pi/skills/anti-slop-writing/` or `~/.pi/agent/skills/anti-slop-writing/` |
 | Claude Code | Compatible | `.claude/skills/anti-slop-writing/` or `~/.claude/skills/anti-slop-writing/` |
-| Codex | Compatible | `.agents/skills/anti-slop-writing/` or `~/.agents/skills/anti-slop-writing/` |
+| Codex | Compatible | `.codex/skills/anti-slop-writing/`, `.agents/skills/anti-slop-writing/`, or global equivalents |
 | OpenCode | Compatible | `.opencode/skills/anti-slop-writing/`, `.agents/skills/anti-slop-writing/`, or global equivalents |
+| Gemini CLI | Compatible | `.gemini/skills/anti-slop-writing/`, `~/.gemini/skills/anti-slop-writing/`, or `.agents/skills/anti-slop-writing/` |
 | claude.ai | Compatible as a custom Skill | Upload a zip of `skills/anti-slop-writing/` through custom Skills settings |
 | Claude API | Compatible as a custom Skill | Upload through the Skills API and use with code execution |
 

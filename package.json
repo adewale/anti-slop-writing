@@ -1,0 +1,35 @@
+{
+  "name": "anti-slop-writing",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Agent Skill for reviewing and rewriting prose so it does not read like generic LLM output.",
+  "keywords": [
+    "agent-skills",
+    "codex",
+    "opencode",
+    "pi",
+    "gemini",
+    "claude-code"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adewale/anti-slop-writing.git"
+  },
+  "homepage": "https://github.com/adewale/anti-slop-writing#readme",
+  "skill": {
+    "entry": "skills/anti-slop-writing/SKILL.md",
+    "harnesses": [
+      "codex",
+      "opencode",
+      "pi",
+      "gemini",
+      "claude-code"
+    ]
+  },
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}

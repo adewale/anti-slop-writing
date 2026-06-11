@@ -3,13 +3,13 @@
 This repo participates in the shared Skill Eval Harness:
 
 - Repo: https://github.com/adewale/skill-eval-harness
-- Version: `>=0.2.0`
+- Version: `>=0.3.0`
 - Manifest: `evals/shared-benchmark.json`
 
 Install the harness from GitHub with [uv](https://docs.astral.sh/uv/):
 
 ```sh
-uv tool install git+https://github.com/adewale/skill-eval-harness.git@v0.2.0
+uv tool install git+https://github.com/adewale/skill-eval-harness.git@v0.3.0
 ```
 
 Splits:
@@ -46,5 +46,14 @@ skill-pi-trigger-eval evals/shared-benchmark.json --split tune --out /tmp/anti-s
 Grade saved outputs:
 
 ```sh
-skill-benchmark benchmark evals/shared-benchmark.json --runs eval-runs/latest --out /tmp/anti-slop-writing-benchmark.json
+skill-benchmark benchmark evals/shared-benchmark.json --runs eval-runs/latest --allow-scripts --out /tmp/anti-slop-writing-benchmark.json
 ```
+
+Run optional qualitative judges through the shared `judge` backend:
+
+```sh
+skill-benchmark judge evals/shared-benchmark.json --runs eval-runs/latest --judge-cmd 'claude -p' --transcripts eval-runs/judge-transcripts --out /tmp/anti-slop-writing-judge-results.jsonl
+skill-benchmark benchmark evals/shared-benchmark.json --runs eval-runs/latest --allow-scripts --judge-results /tmp/anti-slop-writing-judge-results.jsonl --out /tmp/anti-slop-writing-benchmark.json
+```
+
+Script assertions are deterministic repo-owned oracles and require `--allow-scripts` during grading.

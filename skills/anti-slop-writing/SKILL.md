@@ -2,7 +2,7 @@
 name: anti-slop-writing
 description: Use this skill to review, tighten, draft, and rewrite prose so it does not read like generic LLM output, AI writing, bland marketing, or generic launch copy. Apply it when the user asks to make writing less generic/AI-sounding, tighten a talk intro, sharpen presentation/slide copy, or improve articles, wiki pages, README text, emails, posts, scripts, product/DevRel copy, launch copy, and other important writing with AI tropes, inflated significance language, generic cadence, weak flow, or marketing fog.
 license: MIT
-compatibility: Agent Skills clients including Pi, Claude Code, Codex, and OpenCode. Instruction-only skill; no scripts, package installs, or network access required.
+compatibility: Agent Skills clients including Codex, OpenCode, Pi, Gemini CLI, and Claude Code.
 ---
 
 # Anti-Slop Writing

@@ -67,7 +67,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "pos-devrel-borrowed-cadence",
@@ -99,7 +105,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "pos-relation-hinge",
@@ -130,7 +142,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "pos-conclusion-concrete-carrier",
@@ -168,7 +186,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "neg-quoted-bad-phrases",
@@ -197,7 +221,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "neg-earned-em-dash",
@@ -227,7 +257,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "neg-runbook-imperatives",
@@ -249,7 +285,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "neg-human-antithesis",
@@ -278,7 +320,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "neg-robust-with-mechanism",
@@ -332,7 +380,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "trig-readme-sounds-ai",
@@ -352,7 +406,13 @@
       ],
       "tags": [
         "trigger"
-      ]
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "trigger"
+      ],
+      "trigger_type": "implicit"
     },
     {
       "id": "trig-talk-intro",
@@ -372,7 +432,13 @@
       ],
       "tags": [
         "trigger"
-      ]
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "trigger"
+      ],
+      "trigger_type": "implicit"
     },
     {
       "id": "trig-grammar-only",
@@ -392,7 +458,13 @@
       ],
       "tags": [
         "trigger"
-      ]
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "trigger"
+      ],
+      "trigger_type": "negative-near-miss"
     },
     {
       "id": "trig-legal-boilerplate",
@@ -412,7 +484,13 @@
       ],
       "tags": [
         "trigger"
-      ]
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "trigger"
+      ],
+      "trigger_type": "negative-near-miss"
     },
     {
       "id": "trig-generic-marketing-intentional",
@@ -432,7 +510,13 @@
       ],
       "tags": [
         "trigger"
-      ]
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "trigger"
+      ],
+      "trigger_type": "negative-near-miss"
     },
     {
       "id": "holdout-fresh-llm-readme-2026-01",
@@ -454,7 +538,13 @@
           ]
         }
       ],
-      "tags": []
+      "tags": [],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
     },
     {
       "id": "holdback-human-essay-antithesis-01",
@@ -477,6 +567,12 @@
       ],
       "tags": [
         "holdback-private"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
       ]
     },
     {
@@ -516,6 +612,12 @@
         "round-2",
         "anthropic-gap",
         "rewrite-quality"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome",
+        "style"
       ]
     },
     {
@@ -571,6 +673,12 @@
         "round-3",
         "fixture-backed",
         "audit-manifest"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome",
+        "style"
       ]
     }
   ],

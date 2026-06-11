@@ -4,7 +4,7 @@
   "harness": {
     "name": "skill-eval-harness",
     "url": "https://github.com/adewale/skill-eval-harness",
-    "version": ">=0.2.0"
+    "version": ">=0.3.0"
   },
   "skill_paths": [
     "skills/anti-slop-writing/SKILL.md"
@@ -543,6 +543,19 @@
           "name": "removes-generic-benefits",
           "type": "not_regex",
           "pattern": "(?i)\\b(pivotal|transformative|unlock|modern productivity|fast-moving teams|collaboration platform)\\b"
+        },
+        {
+          "name": "fixture-script-oracle",
+          "type": "script",
+          "command": [
+            "python3",
+            "oracles/fixture_oracle.py",
+            "{output_dir}",
+            "round3-fixture-mechanism-copy"
+          ],
+          "pass_exit_code": 0,
+          "timeout_s": 10,
+          "description": "Deterministic fixture-backed oracle; run benchmark with --allow-scripts."
         },
         {
           "name": "round-3-qualitative-review",

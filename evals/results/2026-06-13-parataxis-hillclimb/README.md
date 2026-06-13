@@ -86,6 +86,12 @@ case, so the `SKILL.md` behavior change is **redundant**, not merely unvalidated
 Net: the hillclimb's honest result is "stayed at ceiling — no rule needed; the gap was
 application, not doctrine," with new cases locking that in.
 
+Round 3 (`round3-multimodel.md`) re-ran the A/B across every available model
+(Opus 4.8, Sonnet 4.6, Haiku 4.5; Fable 5 was unavailable). It did not change the
+disposition: every model on both doctrines caught the document-level over-reliance.
+The only directional benefit was a single Haiku cell on the discriminator (0.75 -> 1.00),
+a noise-prone N=1 hypothesis flagged for a future rate-studied round.
+
 ## Limitations
 
 - **Single-family judging.** Apply and judge are both claude-opus-4-8; the runbook

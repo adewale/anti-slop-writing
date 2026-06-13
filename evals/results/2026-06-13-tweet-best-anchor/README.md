@@ -1,15 +1,15 @@
 # 2026-06-13 — Tweet best-rewrite reference anchor
 
-A new kind of test: a fixed **don't-regress ceiling** for rewriting one real piece. It
+A new kind of test: a fixed **don't-regress floor** for rewriting one real piece. It
 captures the original tweet and the best known rewrite, characterizes what makes that
 rewrite top-scoring (six assertions + four graded dimensions), and records the score the
-best rewrite achieves so future models and future skill versions can be measured against
-it.
+best rewrite achieves as the minimum bar future models and future skill versions must
+meet. A candidate scoring below the floor is a regression; a candidate may also exceed it.
 
 - **Case:** `tweet-best-rewrite-anchor` in `evals/rewrite-evals.json` (split `holdout`,
   `kind: reference-anchor`).
 - **Original:** `evals/fixtures/tweet-taste-as-model/input.md`
-- **Best known rewrite (the ceiling):** `evals/fixtures/tweet-taste-as-model/best-rewrite.md`
+- **Best known rewrite (the floor):** `evals/fixtures/tweet-taste-as-model/best-rewrite.md`
 - **Human review (original vs best, line-level):** `evals/fixtures/tweet-taste-as-model/HUMAN-REVIEW.md`
 - **Rewrite model/version:** claude-opus-4-8, 2026-06-13.
 
@@ -31,23 +31,24 @@ This anchor is meant to be re-run when a model or the skill changes:
    rewrite (a candidate).
 2. Judge the candidate against the case `assertions` and `graded_dimensions`. Record
    `candidate_score`.
-3. Compare to the reference. The best rewrite is the fixed ceiling at 1.0. The gap
-   `reference_score - candidate_score` is what you track over versions; a candidate score
-   that **drops across skill versions** is a regression to investigate.
+3. Compare to the reference. `reference_score` (1.0 here) is the **floor**: a candidate
+   that scores at or above it passes; a candidate **below** it, or with any graded
+   dimension below the reference, is a regression to investigate.
 4. Re-judge `best-rewrite.md` itself each round (it should still score 1.0). If it does
    not, that is judge drift, not a skill change — recalibrate the judge or refresh the
    reference, do not "fix" the skill.
-5. **Never edit doctrine to pass this holdout case.** If the candidate gap widens, write a
-   new tune case for the next round (the standard holdout rule).
+5. **Never edit doctrine to pass this holdout case.** If a candidate falls below the floor,
+   write a new tune case for the next round (the standard holdout rule).
 
 ## Notes
 
-- The ceiling is editable. If a reviewer or a future run produces a strictly better
+- The floor is editable upward. If a reviewer or a future run produces a strictly better
   rewrite that scores at least as high on every assertion and dimension, replace
-  `best-rewrite.md` and re-record this scorecard.
+  `best-rewrite.md` and re-record this scorecard to raise the floor.
 - The reference rewrite was hand-tuned by claude-opus-4-8 against the skill's own
-  self-detectors, so 1.0 is expected; it represents an expert-guided ceiling, not a plain
-  one-shot skill application. That is the point — it is the bar a plain application should
-  approach.
+  self-detectors, so 1.0 is expected; it is an expert-guided floor, not a plain one-shot
+  skill application. That is the point — it sets the standard a plain application must meet,
+  and a floor of 1.0 means a passing candidate has to clear every defining property (raise
+  the floor by adding assertions if the bar should rise).
 - Single-judge caveat applies (the scorecard was graded by one Opus-family judge). A
   cross-family judge pass is the documented next step for any high-stakes use.

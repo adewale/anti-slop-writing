@@ -1,7 +1,7 @@
 Reference: best known scoring rewrite of the tweet in `input.md`.
 Source tweet: https://x.com/itsreallyvivek/status/2065477778125062177 (@itsreallyvivek)
 Produced: 2026-06-13 by claude-opus-4-8 applying the anti-slop-writing skill, hand-tuned against the skill's own self-detectors.
-Role: regression anchor. This is the ceiling the case `tweet-best-rewrite-anchor` (evals/rewrite-evals.json) scores against. It is editable: if a reviewer or a future run produces a strictly better rewrite that scores at least as high on every assertion and graded dimension, replace this file and re-record the reference scorecard.
+Role: regression floor. This is the minimum bar the case `tweet-best-rewrite-anchor` (evals/rewrite-evals.json) holds future rewrites to — a candidate must score at least as high as this one on every assertion and graded dimension; scoring below it is a regression. It is editable upward: if a reviewer or a future run produces a strictly better rewrite that still clears every assertion and dimension, replace this file and re-record the reference scorecard to raise the floor.
 
 What this version fixes versus the original (the two real weaknesses):
 1. Conceit honesty: the original asserts that fast-feedback calibration "transfers upward" to slow, decade-long bets. That transfer is the unproven step. Here it is marked as a wager, not a finding.

@@ -2,7 +2,8 @@
 
 This page exists so a human can review the regression anchor without running the
 harness. It pairs the original tweet with the best known rewrite and shows the
-line-level changes that define "best." If you disagree with the ceiling, edit
+line-level changes that define "best." This rewrite is the regression **floor**: future
+rewrites of this tweet must score at least this well. If you disagree with the floor, edit
 `best-rewrite.md` and re-record `evals/results/2026-06-13-tweet-best-anchor/`.
 
 - **Original (verbatim):** [`input.md`](./input.md)
@@ -12,7 +13,7 @@ line-level changes that define "best." If you disagree with the ceiling, edit
 - **Source:** https://x.com/itsreallyvivek/status/2065477778125062177 (@itsreallyvivek), captured 2026-06-13
 - **Rewrite by:** claude-opus-4-8, 2026-06-13
 
-## What makes it the ceiling (two real fixes, everything else preserved)
+## What makes it the floor (two real fixes, everything else preserved)
 
 ### Fix 1 — the conceit, marked as a wager instead of a finding
 

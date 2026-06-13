@@ -308,6 +308,36 @@
           "rubric": "5 = Rewrite check explicitly covers invented facts and cadence; 1 = absent or false pass."
         }
       ]
+    },
+    {
+      "id": "tweet-taste-as-model",
+      "split": "tune",
+      "prompt": "Apply the anti-slop-writing skill to the long-form X thread stored verbatim in evals/fixtures/tweet-taste-as-model/input.md (an essay arguing that research taste is a trainable model). Read that file, then produce a targeted critique and revision: keep the strong concrete material, but fix the two structural weaknesses and do not regress fidelity. Use the skill's judgment about what to keep versus revise rather than rewriting every sentence.",
+      "expected_output": "A critique-plus-targeted-revision that (1) breaks the monotonous section-closing cadence where nearly every section lands on a parallel antithetical aphorism, (2) stops presenting the central 'taste is a trainable model' conceit as proven by the anecdotes and marks at least one place (especially the fast-feedback-to-slow-feedback transfer claim) as a chosen bet rather than a demonstrated finding, and (3) preserves the real anecdotes and the actionable mechanism without inventing facts or overstating Fermi's crude ~10kt estimate. The revision must not reuse the flagged cadence in its own prose.",
+      "assertions": [
+        "Identifies the repeated section-closing 'Not X. Y.' / antithetical-aphorism cadence (for example 'that's an rss feed', 'same cognitive hardware, opposite training loop', 'you're the model being trained') as overused structure, and the revised prose varies at least some of those closers rather than landing every section on a parallel snap-line.",
+        "Flags that the central 'taste is a model you train' framing is asserted rather than demonstrated by the chess/Fermi/Tetlock anecdotes, and explicitly marks the fast-to-slow-feedback transfer ('the judgment transfers upward') as a chosen bet or open question rather than a proven result.",
+        "Preserves the concrete carriers (de Groot / Chase-Simon, Fermi at Trinity, Tetlock / Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton / Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
+        "Introduces no studies, names, or numbers absent from the source, and does not upgrade Fermi's crude estimate (~10 kt vs ~20 kt actual) into a precision win.",
+        "The critique's own Concrete rewrite passes the skill's self-detectors: it does not reproduce decorative em-dash antithesis, an 'X is the design, not Y' / 'X, not Y' closer, a rule-of-three substituting for relation, or banned avoid-by-default phrases."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "cadence-variety",
+          "scale": "1-5",
+          "rubric": "5 = section closers and sentence rhythm are deliberately varied; 3 = a couple of closers softened but the antithetical-aphorism pattern still dominates; 1 = every section still lands on a parallel snap-line."
+        },
+        {
+          "name": "conceit-honesty",
+          "scale": "1-5",
+          "rubric": "5 = the ML-model framing is held as an organizing analogy and the unevidenced transfer claim is openly marked as a bet; 3 = the seam is acknowledged once but the prose still leans on the metaphor as proof; 1 = the analogy is presented as a derivation from the anecdotes."
+        },
+        {
+          "name": "fidelity",
+          "scale": "1-5",
+          "rubric": "5 = all real anecdotes preserved and accurate, no invented facts, Fermi estimate not overstated; 3 = minor drift or one softened-but-imprecise claim; 1 = invents a study/number or overstates a source."
+        }
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "skill_name": "anti-slop-writing",
   "purpose": "Evaluate rewrite quality, not only critique labeling.",
-  "schema_notes": "Each case has split=tune|holdout. Cases may carry dynamic_rubric (per-instance criteria derived from the brief) and graded_dimensions (orthogonal axes scored 1-5). The binary assertions remain the CI gate; graded dimensions feed the statistical gate in scripts/score_delta.py. See docs/hillclimb-improvements.md.",
+  "schema_notes": "Each case has split=tune|holdout. Cases may carry dynamic_rubric (per-instance criteria derived from the brief) and graded_dimensions (orthogonal axes scored 1-5). The binary assertions remain the CI gate; graded dimensions feed the statistical gate in scripts/score_delta.py. A case may also be a reference-anchor (kind='reference-anchor'): it carries a `reference` object pointing at a stored original and a best-known rewrite plus the score that rewrite achieves, and serves as a fixed don't-regress ceiling for future models and skill versions. validate.py checks the referenced files exist and the reference scores are in [0,1]. See docs/reference-anchor-tests.md and docs/hillclimb-improvements.md.",
   "evals": [
     {
       "id": "durable-execution-mechanism",
@@ -441,6 +441,54 @@
           "rubric": "5 = correctly classifies each individual closer as earned by its own evidence; 3 = hedges on whether the individual lines are earned; 1 = wrongly flags an individual earned closer as decorative or guts it."
         }
       ]
+    },
+    {
+      "id": "tweet-best-rewrite-anchor",
+      "split": "holdout",
+      "kind": "reference-anchor",
+      "prompt": "Rewrite the long-form X thread stored verbatim in evals/fixtures/tweet-taste-as-model/input.md (an essay arguing that research taste is a trainable model) using the anti-slop-writing skill. Read that file, then produce the full rewritten essay (not a critique): keep the strong concrete material and the author's voice, fix the structural weaknesses, and do not regress fidelity.",
+      "expected_output": "A full rewrite that matches the reference ceiling in evals/fixtures/tweet-taste-as-model/best-rewrite.md: it marks the fast-to-slow-feedback transfer as a wager rather than a proven result, breaks the document-level parataxis density while keeping at most two genuinely earned antithesis lines, preserves all eight carriers and the write-a-numbered-prediction-then-score-it mechanism, keeps the carrier-bound ledger ending, invents no facts, and keeps Fermi's estimate honest. The stored best-rewrite.md is the worked ceiling; this case is a don't-regress anchor, not a doctrine-tuning case.",
+      "assertions": [
+        "Marks the fast-feedback-to-slow-feedback transfer ('the judgment transfers upward') as a wager, bet, or open question rather than asserting it as a demonstrated result.",
+        "Breaks the document-level parataxis density: does not close every section on a matched two-part antithesis, converts at least some closers to relation-naming (hypotactic) constructions, and keeps at most two genuinely earned antithesis lines.",
+        "Preserves all eight concrete carriers (de Groot/Chase-Simon, Fermi at Trinity, Tetlock/Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton/Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
+        "Introduces no studies, names, or numbers absent from the source, and keeps Fermi's estimate honest (crude / about half the actual yield) rather than presenting it as precise.",
+        "Keeps a carrier-bound ending (the ledger / 'embarrassing for six months') rather than substituting a generic thesis closer.",
+        "The rewrite's own prose passes the skill's self-detectors: no decorative em-dash clusters, no rule-of-three padding, at most one or two intentional earned antithesis lines, and no banned avoid-by-default phrases."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "conceit-honesty",
+          "scale": "1-5",
+          "rubric": "5 = the ML-model framing is held as an analogy and the unevidenced transfer is openly marked as a bet; 3 = the seam is acknowledged once but the prose still leans on the metaphor as proof; 1 = the transfer is asserted as a derivation."
+        },
+        {
+          "name": "parataxis-variety",
+          "scale": "1-5",
+          "rubric": "5 = section closers are varied and at most two earned antithesis lines remain; 3 = a couple softened but the matched-couplet pattern still dominates; 1 = nearly every section still closes on a matched antithesis."
+        },
+        {
+          "name": "fidelity",
+          "scale": "1-5",
+          "rubric": "5 = all eight carriers and the mechanism preserved, no invented facts, Fermi kept honest; 3 = minor drift or one imprecise claim; 1 = a carrier dropped, a fact invented, or Fermi overstated."
+        },
+        {
+          "name": "voice-preservation",
+          "scale": "1-5",
+          "rubric": "5 = keeps the author's register and strongest lines (opening, ledger ending, the earned antithesis); 3 = readable but flattened in places; 1 = blanded into safe essay voice."
+        }
+      ],
+      "reference": {
+        "original": "evals/fixtures/tweet-taste-as-model/input.md",
+        "best_rewrite": "evals/fixtures/tweet-taste-as-model/best-rewrite.md",
+        "human_review": "evals/fixtures/tweet-taste-as-model/HUMAN-REVIEW.md",
+        "model": "claude-opus-4-8",
+        "captured": "2026-06-13",
+        "reference_score": 1.0,
+        "reference_graded_score": 1.0,
+        "scorecard": "evals/results/2026-06-13-tweet-best-anchor/reference-scorecard.jsonl",
+        "protocol": "Re-run the skill on `prompt` with the model/version under test; judge the candidate output against `assertions` and `graded_dimensions`; record candidate_score. The best_rewrite is the fixed ceiling at reference_score=1.0. A candidate scoring below reference_score, or any graded dimension below the reference, is the gap-to-ceiling to track over versions; a drop in that candidate_score across skill versions is a regression. Re-judge best_rewrite itself each round to catch judge drift (it should still score 1.0). Never edit doctrine to pass this holdout case; if the gap widens, add a tune case for the next round."
+      }
     }
   ]
 }

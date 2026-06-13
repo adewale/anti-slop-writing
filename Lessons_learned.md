@@ -4,6 +4,47 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-06-13 — The doctrine already covered parataxis; the gap was application, not rules
+
+### Failure
+
+Applied to a real X thread (`evals/fixtures/tweet-taste-as-model/`) that closes nearly
+every section on a paratactic antithesis, the skill kept all of them — "I do not touch
+any of this." Each closer was individually earned, so the per-sentence staccato test
+passed each one and the document-level over-reliance went unflagged. This looked like a
+missing rule about parataxis.
+
+### What changed
+
+Nothing in the installable `SKILL.md`. A `Parataxis density` rule and `Parataxis repair`
+subsection were drafted and A/B-tested against a pre-edit snapshot over two rounds
+(`evals/results/2026-06-13-parataxis-hillclimb/`). The edit did not clear the gate —
+not even on `parataxis-earned-but-pervasive`, a case built so that only a document-level
+check should fire. The pre-edit doctrine caught that case every time via the staccato
+contrast test's "keep or use once" line and the "symmetrical paragraph length, parallel
+structure" tell. The behavior change was reverted (`evals/rejected-edits.md`). Kept: a
+`Parataxis and hypotaxis` teaching section in the doctrine reference (names the concept,
+consolidates the existing guidance, gives before/after examples) and six regression
+cases that lock in the already-passing behavior.
+
+### What not to overgeneralize
+
+Do not read this as "parataxis is always fine." The real failure — defending pervasive
+parataxis on the tweet — was an application inconsistency: during a long, multi-issue
+review the agent did not apply the across-the-piece "use once" lens. The fix for that is
+attention/checklist discipline at apply time, not a new detector. And do not delete the
+staccato "use once" guidance: it is the mechanism that already does this work.
+
+### Eval coverage
+
+- `evals/rewrite-evals.json` (tune): `parataxis-pervasive-closers`,
+  `parataxis-unstated-relation`, `parataxis-coordination-hides-cause`,
+  `parataxis-chained-and`, `parataxis-earned-but-pervasive`.
+- `evals/adversarial.json` (tune, earned guards): `earned-parataxis-sequence`,
+  `earned-parataxis-evidenced-contrast`.
+- Runs: `evals/results/2026-06-13-parataxis-hillclimb/` (round 1, round 2, rate study)
+  and the motivating `evals/results/2026-06-13-tweet-taste-as-model/`.
+
 ## 2026-05-29 — Doctrine reaches the surface layer; the discourse layer is unaddressed
 
 ### Failure

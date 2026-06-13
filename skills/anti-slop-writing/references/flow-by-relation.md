@@ -28,7 +28,8 @@ A section needs a hinge when:
 - each paragraph is locally clear but the sequence feels like a list;
 - the piece jumps from example to general claim without naming what transfers;
 - the conclusion states the thesis but does not return to the concrete object;
-- the reader can understand every paragraph but cannot predict why the next one follows.
+- the reader can understand every paragraph but cannot predict why the next one follows;
+- every section closes on the same paratactic two-part contrast, so the rhythm — not the argument — is supplying the relations (see "Parataxis and hypotaxis" in the doctrine reference).
 
 ## Repair pattern
 

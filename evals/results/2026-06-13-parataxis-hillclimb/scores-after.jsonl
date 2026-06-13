@@ -1,0 +1,6 @@
+{"id": "parataxis-pervasive-closers", "split": "tune", "suite": "rewrite-evals.json", "score": 0.5, "all_pass": false, "n_passed": 2, "n_assertions": 4}
+{"id": "parataxis-unstated-relation", "split": "tune", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 4, "n_assertions": 4}
+{"id": "parataxis-coordination-hides-cause", "split": "tune", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "parataxis-chained-and", "split": "tune", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "earned-parataxis-sequence", "split": "tune", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "earned-parataxis-evidenced-contrast", "split": "tune", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}

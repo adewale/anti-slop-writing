@@ -1,0 +1,6 @@
+Split:         all-cases
+Cases:         1
+Mean delta:    +0.1500
+95% CI:        [+0.1500, +0.1500]
+Sign-flip p:   1.0000
+Verdict:       REJECT (sign-flip p >= 0.05).

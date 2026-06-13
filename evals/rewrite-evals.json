@@ -1,7 +1,7 @@
 {
   "skill_name": "anti-slop-writing",
   "purpose": "Evaluate rewrite quality, not only critique labeling.",
-  "schema_notes": "Each case has split=tune|holdout. Cases may carry dynamic_rubric (per-instance criteria derived from the brief) and graded_dimensions (orthogonal axes scored 1-5). The binary assertions remain the CI gate; graded dimensions feed the statistical gate in scripts/score_delta.py. See docs/hillclimb-improvements.md.",
+  "schema_notes": "Each case has split=tune|holdout. Cases may carry dynamic_rubric (per-instance criteria derived from the brief) and graded_dimensions (orthogonal axes scored 1-5). The binary assertions remain the CI gate; graded dimensions feed the statistical gate in scripts/score_delta.py. A case may also be a reference-anchor (kind='reference-anchor'): it carries a `reference` object pointing at a stored original and a best-known rewrite plus the score that rewrite achieves, and serves as a fixed don't-regress floor for future models and skill versions — a candidate must score at least the reference score, and scoring below it is a regression. validate.py checks the referenced files exist and the reference scores are in [0,1]. See docs/reference-anchor-tests.md and docs/hillclimb-improvements.md.",
   "evals": [
     {
       "id": "durable-execution-mechanism",
@@ -308,6 +308,187 @@
           "rubric": "5 = Rewrite check explicitly covers invented facts and cadence; 1 = absent or false pass."
         }
       ]
+    },
+    {
+      "id": "tweet-taste-as-model",
+      "split": "tune",
+      "prompt": "Apply the anti-slop-writing skill to the long-form X thread stored verbatim in evals/fixtures/tweet-taste-as-model/input.md (an essay arguing that research taste is a trainable model). Read that file, then produce a targeted critique and revision: keep the strong concrete material, but fix the two structural weaknesses and do not regress fidelity. Use the skill's judgment about what to keep versus revise rather than rewriting every sentence.",
+      "expected_output": "A critique-plus-targeted-revision that (1) breaks the monotonous section-closing cadence where nearly every section lands on a parallel antithetical aphorism, (2) stops presenting the central 'taste is a trainable model' conceit as proven by the anecdotes and marks at least one place (especially the fast-feedback-to-slow-feedback transfer claim) as a chosen bet rather than a demonstrated finding, and (3) preserves the real anecdotes and the actionable mechanism without inventing facts or overstating Fermi's crude ~10kt estimate. The revision must not reuse the flagged cadence in its own prose.",
+      "assertions": [
+        "Identifies the repeated section-closing 'Not X. Y.' / antithetical-aphorism cadence (for example 'that's an rss feed', 'same cognitive hardware, opposite training loop', 'you're the model being trained') as overused structure, and the revised prose varies at least some of those closers rather than landing every section on a parallel snap-line.",
+        "Flags that the central 'taste is a model you train' framing is asserted rather than demonstrated by the chess/Fermi/Tetlock anecdotes, and explicitly marks the fast-to-slow-feedback transfer ('the judgment transfers upward') as a chosen bet or open question rather than a proven result.",
+        "Preserves the concrete carriers (de Groot / Chase-Simon, Fermi at Trinity, Tetlock / Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton / Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
+        "Introduces no studies, names, or numbers absent from the source, and does not upgrade Fermi's crude estimate (~10 kt vs ~20 kt actual) into a precision win.",
+        "The critique's own Concrete rewrite passes the skill's self-detectors: it does not reproduce decorative em-dash antithesis, an 'X is the design, not Y' / 'X, not Y' closer, a rule-of-three substituting for relation, or banned avoid-by-default phrases."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "cadence-variety",
+          "scale": "1-5",
+          "rubric": "5 = section closers and sentence rhythm are deliberately varied; 3 = a couple of closers softened but the antithetical-aphorism pattern still dominates; 1 = every section still lands on a parallel snap-line."
+        },
+        {
+          "name": "conceit-honesty",
+          "scale": "1-5",
+          "rubric": "5 = the ML-model framing is held as an organizing analogy and the unevidenced transfer claim is openly marked as a bet; 3 = the seam is acknowledged once but the prose still leans on the metaphor as proof; 1 = the analogy is presented as a derivation from the anecdotes."
+        },
+        {
+          "name": "fidelity",
+          "scale": "1-5",
+          "rubric": "5 = all real anecdotes preserved and accurate, no invented facts, Fermi estimate not overstated; 3 = minor drift or one softened-but-imprecise claim; 1 = invents a study/number or overstates a source."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-pervasive-closers",
+      "split": "tune",
+      "prompt": "Review and tighten this passage. Each paragraph ends on a short two-part contrast.\n\nThe cache survived the migration. The index did not.\n\nWe doubled the workers. The latency held.\n\nThe model got bigger. The errors stayed.\n\nThe team shipped fast. The users stayed away.",
+      "expected_output": "A critique that identifies the document-level over-reliance on the same paratactic two-part contrast as a closer, then converts most of the closers into relation-naming (hypotactic) constructions while keeping at most one earned paratactic line. The rewrite must not itself read as another stack of 'X. Y.' antitheses.",
+      "assertions": [
+        "Identifies that every paragraph leans on the same paratactic two-part contrast as its closer (a document-level over-reliance), not merely that one isolated line is short.",
+        "Converts at least two of the closers into a construction that names the relation with a connective or subordinate clause (because, although, even though, yet, so, which means) instead of leaving the relation implied by juxtaposition.",
+        "Does not subordinate every line into one identical connective shape; preserves rhythm variety and may keep one genuinely earned contrast.",
+        "The rewrite does not reproduce the flagged 'X. Y.' paratactic-antithesis cadence under new words."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "parataxis-density-repair",
+          "scale": "1-5",
+          "rubric": "5 = names the over-reliance AND converts most closers to hypotaxis; 3 = converts one or two but mostly defends the pattern; 1 = defends each line individually and changes nothing structural."
+        },
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = the rewritten closers state cause/contrast/consequence explicitly; 1 = relations remain implied by juxtaposition."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-unstated-relation",
+      "split": "tune",
+      "prompt": "Rewrite this line so the relation between the two statements is explicit: The benchmark is saturated. The model still fails in production.",
+      "expected_output": "A rewrite that names the contrast-plus-consequence relation with hypotaxis (for example 'Although the benchmark is saturated, the model still fails in production, which means the benchmark no longer measures what ships'), rather than preserving the bare juxtaposition.",
+      "assertions": [
+        "Identifies that the two sentences are placed side by side with the relation (contrast and/or consequence) left unstated.",
+        "Rewrites with an explicit connective or subordinate clause (although, yet, because, so, which means) that names the relation.",
+        "Does not preserve the bare two-sentence juxtaposition or swap it for another equally relation-free pair.",
+        "Does not invent a specific cause, metric, or product detail the prompt does not supply."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = relation named explicitly and correctly (contrast + consequence); 3 = a connective added but the relation stays vague; 1 = juxtaposition preserved."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-coordination-hides-cause",
+      "split": "tune",
+      "prompt": "Tighten without losing the point: We shipped the API. We wrote the docs. Adoption stalled.",
+      "expected_output": "A rewrite that surfaces the implied contrast (the obvious work was done, yet adoption stalled, so the cause lies elsewhere) using subordination or a connective, without inventing the actual cause.",
+      "assertions": [
+        "Recognizes that the three side-by-side statements imply a contrast or causal relation (effort done versus adoption stalled) that is left unstated.",
+        "Names the relation with subordination or a connective (although, even though, yet, so) rather than leaving three flat coordinate clauses.",
+        "Does not invent a specific cause for the stalled adoption that the prompt does not supply; keeps the unknown as unknown or flags it as a question."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = the effort-versus-stall contrast is named and the cause is left honestly open; 3 = relation partly named; 1 = flat coordination preserved or a cause invented."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-chained-and",
+      "split": "tune",
+      "prompt": "Revise this sentence: The pipeline pulls the data and it cleans the rows and it trains the model and it ships the weights and nobody can tell which step regressed.",
+      "expected_output": "A rewrite that keeps the concrete steps but breaks the chained coordination so the final clause's relation (contrast/consequence) is subordinated or connected, not just one more 'and'.",
+      "assertions": [
+        "Identifies the chained 'and' coordination as parataxis that flattens a sequence and buries the final clause's contrast.",
+        "Rewrites so the final clause's relation (contrast or consequence) is marked with a connective or subordination (yet, but, so, once, because) rather than another 'and'.",
+        "Preserves the concrete steps (pull data, clean rows, train model, ship weights) and does not invent a specific mechanism (such as a named missing checkpoint) unless it is flagged as a hypothesis."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = the buried contrast is surfaced with a connective and the steps are preserved; 3 = partly de-chained; 1 = still a flat 'and' chain or steps lost."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-earned-but-pervasive",
+      "split": "tune",
+      "prompt": "Review and tighten this passage.\n\nWe measured the cache cold and warm. Cold, every request hit Postgres and p99 sat at 800ms. Warm, the same requests came from Redis at 12ms. The disk was the bottleneck. The cache was the fix.\n\nThe job failed nine times in the first hour. Every failure was a timeout to the same host, and every retry fired instantly. We added a two-second backoff and failures dropped to one an hour. The retries were the load. The backoff was the relief.\n\nThe report query scanned four million rows in six seconds. We added an index on the timestamp column and the same query returned in forty milliseconds. The scan was the cost. The index was the cure.\n\nThe 3am rollout broke with no owner online. We added a health check that auto-reverts on a 5xx spike, and the next bad deploy rolled itself back in ninety seconds. The manual step was the gap. The health check closed it.",
+      "expected_output": "A critique that (a) acknowledges each two-part closer is individually earned because the preceding sentences in its own section evidence both sides, yet (b) flags the document-level over-reliance — the same paratactic 'X was the problem. Y was the fix.' antithesis closes all four sections — and recommends varying or converting most of the closers (keeping at most one) rather than keeping all four. It must not call any individual closer decorative or expand the earned contrasts into bland connective-heavy prose. This case is the discriminator for the parataxis-density rule: a per-sentence staccato test passes every closer, so only a document-level check catches the repetition.",
+      "assertions": [
+        "Acknowledges that each closer is individually earned: the preceding sentences in its own section evidence both sides of the contrast (the before/after numbers), so no single closer is decorative or compressed.",
+        "Flags the document-level over-reliance: the same paratactic 'X was the problem. Y was the fix.' antithesis closes every one of the four sections, so the passage leans on repeated rhythm even though each instance passes a per-sentence test.",
+        "Recommends varying or converting most of the repeated closers (to a named relation, or by cutting some), keeping at most one paratactic closer, rather than keeping all four because each is individually earned.",
+        "Does not recommend deleting the earned contrasts or expanding them into bland connective-heavy prose, and does not wrongly reclassify any individual earned closer as decorative; the fix is variety/de-duplication at the document level."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "document-density-detection",
+          "scale": "1-5",
+          "rubric": "5 = explicitly names that all four sections repeat the same earned paratactic closer and treats that repetition itself as the problem; 3 = notes some repetition but still endorses keeping all four; 1 = evaluates each closer in isolation and keeps them all, missing the document-level pattern."
+        },
+        {
+          "name": "earned-instance-respect",
+          "scale": "1-5",
+          "rubric": "5 = correctly classifies each individual closer as earned by its own evidence; 3 = hedges on whether the individual lines are earned; 1 = wrongly flags an individual earned closer as decorative or guts it."
+        }
+      ]
+    },
+    {
+      "id": "tweet-best-rewrite-anchor",
+      "split": "holdout",
+      "kind": "reference-anchor",
+      "prompt": "Rewrite the long-form X thread stored verbatim in evals/fixtures/tweet-taste-as-model/input.md (an essay arguing that research taste is a trainable model) using the anti-slop-writing skill. Read that file, then produce the full rewritten essay (not a critique): keep the strong concrete material and the author's voice, fix the structural weaknesses, and do not regress fidelity.",
+      "expected_output": "A full rewrite that meets or exceeds the reference floor in evals/fixtures/tweet-taste-as-model/best-rewrite.md: it marks the fast-to-slow-feedback transfer as a wager rather than a proven result, breaks the document-level parataxis density while keeping at most two genuinely earned antithesis lines, preserves all eight carriers and the write-a-numbered-prediction-then-score-it mechanism, keeps the carrier-bound ledger ending, invents no facts, and keeps Fermi's estimate honest. The stored best-rewrite.md is the worked floor; this case is a don't-regress anchor, not a doctrine-tuning case.",
+      "assertions": [
+        "Marks the fast-feedback-to-slow-feedback transfer ('the judgment transfers upward') as a wager, bet, or open question rather than asserting it as a demonstrated result.",
+        "Breaks the document-level parataxis density: does not close every section on a matched two-part antithesis, converts at least some closers to relation-naming (hypotactic) constructions, and keeps at most two genuinely earned antithesis lines.",
+        "Preserves all eight concrete carriers (de Groot/Chase-Simon, Fermi at Trinity, Tetlock/Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton/Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
+        "Introduces no studies, names, or numbers absent from the source, and keeps Fermi's estimate honest (crude / about half the actual yield) rather than presenting it as precise.",
+        "Keeps a carrier-bound ending (the ledger / 'embarrassing for six months') rather than substituting a generic thesis closer.",
+        "The rewrite's own prose passes the skill's self-detectors: no decorative em-dash clusters, no rule-of-three padding, at most one or two intentional earned antithesis lines, and no banned avoid-by-default phrases."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "conceit-honesty",
+          "scale": "1-5",
+          "rubric": "5 = the ML-model framing is held as an analogy and the unevidenced transfer is openly marked as a bet; 3 = the seam is acknowledged once but the prose still leans on the metaphor as proof; 1 = the transfer is asserted as a derivation."
+        },
+        {
+          "name": "parataxis-variety",
+          "scale": "1-5",
+          "rubric": "5 = section closers are varied and at most two earned antithesis lines remain; 3 = a couple softened but the matched-couplet pattern still dominates; 1 = nearly every section still closes on a matched antithesis."
+        },
+        {
+          "name": "fidelity",
+          "scale": "1-5",
+          "rubric": "5 = all eight carriers and the mechanism preserved, no invented facts, Fermi kept honest; 3 = minor drift or one imprecise claim; 1 = a carrier dropped, a fact invented, or Fermi overstated."
+        },
+        {
+          "name": "voice-preservation",
+          "scale": "1-5",
+          "rubric": "5 = keeps the author's register and strongest lines (opening, ledger ending, the earned antithesis); 3 = readable but flattened in places; 1 = blanded into safe essay voice."
+        }
+      ],
+      "reference": {
+        "original": "evals/fixtures/tweet-taste-as-model/input.md",
+        "best_rewrite": "evals/fixtures/tweet-taste-as-model/best-rewrite.md",
+        "human_review": "evals/fixtures/tweet-taste-as-model/HUMAN-REVIEW.md",
+        "model": "claude-opus-4-8",
+        "captured": "2026-06-13",
+        "reference_score": 1.0,
+        "reference_graded_score": 1.0,
+        "scorecard": "evals/results/2026-06-13-tweet-best-anchor/reference-scorecard.jsonl",
+        "protocol": "reference_score is the FLOOR, not a ceiling. Re-run the skill on `prompt` with the model/version under test; judge the candidate output against `assertions` and `graded_dimensions`; record candidate_score. The candidate must score at least reference_score (and no graded dimension below the reference); scoring below the floor is a regression to investigate. A future rewrite may also exceed the floor — raise the floor (replace best_rewrite and re-record the scorecard) only with a rewrite that scores at least as high on every assertion and dimension. Re-judge best_rewrite itself each round to catch judge drift (it should still score reference_score). Never edit doctrine to pass this holdout case; if a candidate falls below the floor, add a tune case for the next round."
+      }
     }
   ]
 }

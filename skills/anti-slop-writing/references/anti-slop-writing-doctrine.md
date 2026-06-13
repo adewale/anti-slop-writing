@@ -57,6 +57,30 @@ At section boundaries, name the relation rather than relying on order or rhythm:
 
 A conclusion should return to the concrete carrier and then state the transferable structure. A final thesis sentence is weaker when it could belong to any essay in the category.
 
+## Parataxis and hypotaxis
+
+Parataxis places clauses or sentences side by side and leaves the relation between them unstated: `I came, I saw, I conquered`; `The cache is warm. The query is slow.`; `We shipped the API. We wrote the docs. Adoption stalled.` Hypotaxis names the relation with subordination — `because`, `although`, `yet`, `once`, `where`, `so that`, `which means`.
+
+Parataxis is a real device, not a defect. Keep it when:
+
+- the sequence or speed is the point (`The pager fired. The dashboard went red. The on-call rolled back.`);
+- both sides of a contrast are already evidenced by the surrounding prose (`What looked like perception was retrieval. What looked like a gift was inventory.`).
+
+Repair two failure modes:
+
+1. **Unstated relation.** A single juxtaposition where the relation is load-bearing but only implied. The reader has to guess whether the second clause is the cause, the contrast, or the consequence of the first.
+
+   ```txt
+   Before: The benchmark is saturated. The model still fails in production.
+   After:  Although the benchmark is saturated, the model still fails in production, which means the benchmark no longer measures what ships.
+   ```
+
+2. **Density / over-reliance.** The same paratactic move is the dominant structural device — every section closing on a two-part contrast, or a chain of coordinate `and`s. Each instance may pass the staccato contrast test on its own, yet the piece as a whole leans on rhythm to imply relations it never argues. This is a document-level failure the per-sentence test misses. Convert most instances to hypotaxis and keep at most one earned paratactic line for effect.
+
+The density check is not a new rule; it is the staccato contrast test's "keep or use once" applied across a whole piece, reinforced by the "symmetrical paragraph length, parallel structure" tell. Name it explicitly so a reviewer who has passed each closer individually still asks whether the piece leans on the same move four times.
+
+Two cautions. Do not subordinate every clause into one connective-heavy sentence; that trades staccato slop for noun-heavy mush, and the reader loses the beats that made the prose readable. And do not apply the density check to a single earned instance: it is about the dominant device across the piece, not about any one short sentence.
+
 ## Banned-by-default phrases
 
 Avoid unless there is a specific reason:

@@ -1,0 +1,1 @@
+{"id": "tweet-taste-as-model", "split": "tune", "suite": "rewrite-evals.json", "score": 0.475, "all_pass": false, "n_passed": 2, "n_assertions": 5, "assertion_score": 0.4, "graded_score": 0.6, "n_graded_dimensions": 3, "score_includes_graded": true}

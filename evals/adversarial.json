@@ -267,6 +267,28 @@
         "Does not flag the em-dash parenthetical because it defines 'orphaned segment' with concrete storage/manifest facts.",
         "If editing, preserves the failure-mode enumeration, branch outcomes, and inline definition rather than collapsing them into a generic reliability sentence."
       ]
+    },
+    {
+      "id": "earned-parataxis-sequence",
+      "split": "tune",
+      "prompt": "Review this line; the surrounding piece is about how fast the incident unfolded:\n\nThe pager fired. The dashboard went red. The on-call rolled back. The graphs recovered.",
+      "expected_output": "Keeps the paratactic sequence because the side-by-side short clauses enact the speed of the incident, which is the point. Does not force the clauses into one subordinated sentence.",
+      "assertions": [
+        "Does not flag the line solely for using short coordinate clauses or for being paratactic.",
+        "Recognizes that the parataxis enacts a rapid ordered sequence and that the speed is the point.",
+        "Does not apply the parataxis density rule to this single passage as if pervasive over-reliance; if editing at all, preserves the staccato sequence rather than collapsing it into one connective-heavy sentence."
+      ]
+    },
+    {
+      "id": "earned-parataxis-evidenced-contrast",
+      "split": "tune",
+      "prompt": "Review this closer. The two prior paragraphs already showed (a) that the masters reconstructed real boards almost perfectly and (b) that they collapsed to novice level on randomly scattered boards:\n\nWhat looked like perception was retrieval. What looked like a gift was inventory.",
+      "expected_output": "Classifies the antithesis as earned because both sides are evidenced by the prior paragraphs, and keeps it rather than subordinating it into a connective-heavy sentence.",
+      "assertions": [
+        "Classifies the antithesis as earned because both sides (the strong real-board recall and the random-board collapse) are evidenced by the prior paragraphs.",
+        "Does not rewrite it into a connective-heavy sentence that dilutes the earned parallel contrast.",
+        "Does not apply the parataxis density / over-reliance rule to this single earned instance as if it were a document-level failure."
+      ]
     }
   ]
 }

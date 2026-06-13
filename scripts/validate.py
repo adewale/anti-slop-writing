@@ -32,6 +32,7 @@ REQUIRED = [
     ROOT / "docs" / "hillclimb-improvements.md",
     ROOT / "docs" / "judge-protocol.md",
     ROOT / "docs" / "branch-mining-2026-05-30.md",
+    ROOT / "docs" / "reference-anchor-tests.md",
     ROOT / "runbooks" / "hillclimb-skill.md",
     ROOT / "scripts" / "score_delta.py",
     ROOT / "scripts" / "run_evals.py",
@@ -201,6 +202,25 @@ def validate_dynamic_rubric(path: Path, case_id: str, rubric: Any) -> None:
         fail(f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric.minimum_criteria must be int >= 2")
 
 
+def validate_reference_anchor(path: Path, case_id: str, ref: Any) -> None:
+    rel = path.relative_to(ROOT)
+    if not isinstance(ref, dict):
+        fail(f"{rel} eval {case_id} reference must be an object")
+    for file_field in ("original", "best_rewrite", "human_review", "scorecard"):
+        value = ref.get(file_field)
+        if not isinstance(value, str) or not value.strip():
+            fail(f"{rel} eval {case_id} reference missing non-empty {file_field}")
+        if not (ROOT / value).is_file():
+            fail(f"{rel} eval {case_id} reference.{file_field} points at a missing file: {value}")
+    for score_field in ("reference_score", "reference_graded_score"):
+        value = ref.get(score_field)
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not 0 <= float(value) <= 1:
+            fail(f"{rel} eval {case_id} reference.{score_field} must be a number in [0,1]")
+    for str_field in ("model", "captured", "protocol"):
+        if not isinstance(ref.get(str_field), str) or not ref[str_field].strip():
+            fail(f"{rel} eval {case_id} reference missing non-empty {str_field}")
+
+
 def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> None:
     data = load_json(path)
     if data.get("skill_name") != "anti-slop-writing":
@@ -240,6 +260,8 @@ def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> 
             validate_graded_dimensions(path, case_id, case["graded_dimensions"])
         if "dynamic_rubric" in case:
             validate_dynamic_rubric(path, case_id, case["dynamic_rubric"])
+        if "reference" in case:
+            validate_reference_anchor(path, case_id, case["reference"])
 
     if holdout_count < min_holdout:
         fail(f"{path.relative_to(ROOT)} must contain at least {min_holdout} holdout cases (found {holdout_count})")

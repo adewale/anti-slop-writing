@@ -1,0 +1,43 @@
+{
+  "run": "2026-06-13-tweet-taste-as-model",
+  "date": "2026-06-13",
+  "case_id": "tweet-taste-as-model",
+  "suite": "rewrite-evals.json",
+  "split": "tune",
+  "fixture": "evals/fixtures/tweet-taste-as-model/input.md",
+  "source_url": "https://x.com/itsreallyvivek/status/2065477778125062177",
+  "source_author": "@itsreallyvivek",
+  "source_captured": "2026-06-13",
+  "before": {
+    "description": "Original tweet/essay, verbatim, with no skill applied.",
+    "output": "before/outputs/tweet-taste-as-model.md",
+    "model": null
+  },
+  "after": {
+    "description": "SKILL.md applied by a sub-agent via the harness apply prompt.",
+    "output": "after/outputs/tweet-taste-as-model.md",
+    "model_id": "claude-opus-4-8",
+    "model_name": "Opus 4.8",
+    "model_self_reported": "claude-opus-4-8",
+    "model_pinned_at_launch": true,
+    "agent_type": "general-purpose",
+    "skill_path": "skills/anti-slop-writing/SKILL.md",
+    "skill_commit": "483fd5b"
+  },
+  "judge": {
+    "model_id": "claude-opus-4-8",
+    "role": "graded both before and after against the case assertions and graded dimensions"
+  },
+  "tools": {
+    "prepare": "python3 scripts/run_evals.py prepare evals/rewrite-evals.json --split tune",
+    "grade": "python3 scripts/run_evals.py grade <judgments> [--include-graded]",
+    "join": "python3 scripts/run_evals.py join --before <b> --after <a>",
+    "gate": "python3 scripts/score_delta.py <delta.jsonl>"
+  },
+  "results": {
+    "binary": {"before": 0.4, "after": 0.6, "delta": 0.2},
+    "graded": {"before": 0.475, "after": 0.625, "delta": 0.15},
+    "n_cases": 1,
+    "gate_verdict": "REJECT (N=1; no statistical power, not a significance claim)"
+  }
+}

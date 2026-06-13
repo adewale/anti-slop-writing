@@ -1,0 +1,13 @@
+{"model": "claude-opus-4-8", "case": "parataxis-pervasive-closers", "doctrine": "before", "score": 1.0}
+{"model": "claude-opus-4-8", "case": "parataxis-pervasive-closers", "doctrine": "after", "score": 1.0}
+{"model": "claude-opus-4-8", "case": "parataxis-earned-but-pervasive", "doctrine": "before", "score": 1.0}
+{"model": "claude-opus-4-8", "case": "parataxis-earned-but-pervasive", "doctrine": "after", "score": 1.0}
+{"model": "claude-sonnet-4-6", "case": "parataxis-pervasive-closers", "doctrine": "before", "score": 1.0}
+{"model": "claude-sonnet-4-6", "case": "parataxis-pervasive-closers", "doctrine": "after", "score": 1.0}
+{"model": "claude-sonnet-4-6", "case": "parataxis-earned-but-pervasive", "doctrine": "before", "score": 0.75}
+{"model": "claude-sonnet-4-6", "case": "parataxis-earned-but-pervasive", "doctrine": "after", "score": 0.75}
+{"model": "claude-haiku-4-5", "case": "parataxis-pervasive-closers", "doctrine": "before", "score": 1.0, "note": "passes the 4 assertions but invented mechanisms in the rewrite (fidelity issue not captured by this case's assertions)"}
+{"model": "claude-haiku-4-5", "case": "parataxis-pervasive-closers", "doctrine": "after", "score": 1.0, "note": "used ask-author placeholders instead of inventing"}
+{"model": "claude-haiku-4-5", "case": "parataxis-earned-but-pervasive", "doctrine": "before", "score": 0.75, "note": "mislabeled disk and retry closers as compressed; caught density via 'Rule of four'"}
+{"model": "claude-haiku-4-5", "case": "parataxis-earned-but-pervasive", "doctrine": "after", "score": 1.0, "note": "acknowledged each closer earned AND caught density; the one cell where the edit helped"}
+{"model": "claude-fable-5", "case": "all", "doctrine": "all", "score": null, "note": "unavailable: 'Claude Fable 5 is currently unavailable' (gated access)"}

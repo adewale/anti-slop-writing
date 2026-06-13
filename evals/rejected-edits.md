@@ -46,3 +46,23 @@ The baseline doctrine already flattened escalation ladders reliably and already 
 ### Lesson (if any)
 
 Recorded in `Lessons_learned.md` → "A variance gap is not a doctrine gap." A single observed miss can be variance; check whether it reproduces before adding doctrine to fix it.
+
+## 2026-06-13 — Parataxis-density rule in SKILL.md
+
+### Edit attempted
+
+Add a `Parataxis density` detector line and a `Parataxis repair` subsection to `SKILL.md`: flag paratactic juxtaposition (side-by-side clauses with the relation unstated) used as the dominant device — every section closing on a two-part contrast, chained "and," repeated "X. Y." antithesis — even when each instance is individually earned, and convert most instances to hypotaxis while keeping at most one.
+
+### Eval that rejected it
+
+A/B (pre-edit snapshot vs edited doctrine), Opus 4.8 apply+judge, in `evals/results/2026-06-13-parataxis-hillclimb/`:
+- Round 1: `evals/rewrite-evals.json` → `parataxis-pervasive-closers`, `parataxis-unstated-relation`, `parataxis-coordination-hides-cause`, `parataxis-chained-and`; `evals/adversarial.json` → `earned-parataxis-sequence`, `earned-parataxis-evidenced-contrast` (all tune). N=6, mean delta -0.0278, 95% CI [-0.2500, +0.1667], sign-flip p=1.0 — REJECT.
+- Round 2: `evals/rewrite-evals.json` → `parataxis-earned-but-pervasive` (tune), built so only a document-level check should fire. N=3/side: before 0.833, after 0.917 — within noise.
+
+### Why it was rejected
+
+The pre-edit doctrine already catches document-level parataxis. Round-2 before-doctrine quotes: "earned antithesis may be kept once. Used four times it stops being a distinction and becomes the format" (the staccato contrast test's "keep or use once"); "Four in a row makes the passage symmetrical and formulaic" (the "symmetrical paragraph length, parallel structure" tell). The new rule renamed an existing capability without moving the score. Reverted `SKILL.md` to the snapshot; kept a `Parataxis and hypotaxis` teaching section in `references/anti-slop-writing-doctrine.md` (reference, not gated runtime behavior) and the six eval cases as regression coverage.
+
+### Lesson (if any)
+
+Recorded in `Lessons_learned.md` → "The doctrine already covered parataxis; the gap was application, not rules."

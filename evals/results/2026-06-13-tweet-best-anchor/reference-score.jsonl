@@ -1,0 +1,1 @@
+{"id": "tweet-best-rewrite-anchor", "split": "holdout", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 6, "n_assertions": 6, "assertion_score": 1.0, "graded_score": 1.0, "n_graded_dimensions": 4}

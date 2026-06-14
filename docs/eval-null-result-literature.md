@@ -38,7 +38,7 @@ Round 1 used single-sentence binary cases that all scored 1.0 — a saturated me
 
 The entire result rests on LLM-as-judge scoring. The 2025–26 literature documents systematic judge biases: position bias, self-preference (a judge favoring outputs in its own style), and verbosity/length bias; single-judge panels are shown to be psychometrically unstable, and the standard mitigation is a multi-judge panel plus blinding.
 
-What protects this run: judges were **blind to the meaning of the A/B labels** and apply/judge were **separated**, so any symmetric bias cancels in the *difference* (it shifts A and B equally). What remains exposed: we used a **single judge family (Opus)**, which also produced some of the outputs — self-preference is a live risk for absolute scores, and a cross-family judge would harden the result. This is already tracked as the repo's cross-family-judge follow-up (`TODO.md`). For a *zero* delta the exposure is smaller than for a claimed win, but it is the honest soft spot.
+What protects this run: judges were **blind to the meaning of the A/B labels** and apply/judge were **separated**, so any symmetric bias cancels in the *difference* (it shifts A and B equally). The single-family risk was then closed directly: a **3-model panel (Opus, Sonnet, Haiku)** re-judged the only textually-differing A/B pairs and every judge returned A=B (EQUIVALENT at SESOI ±0.05), so the null no longer rests on one judge family (`evals/results/2026-06-14-stop-slop-ablation/panel/`). The remaining honest limit is item/model coverage, not judge identity.
 
 - *Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge* (2025) — https://aclanthology.org/2025.ijcnlp-long.18/
 

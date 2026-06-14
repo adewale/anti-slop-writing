@@ -489,6 +489,22 @@
         "scorecard": "evals/results/2026-06-13-tweet-best-anchor/reference-scorecard.jsonl",
         "protocol": "reference_score is the FLOOR, not a ceiling. Re-run the skill on `prompt` with the model/version under test; judge the candidate output against `assertions` and `graded_dimensions`; record candidate_score. The candidate must score at least reference_score (and no graded dimension below the reference); scoring below the floor is a regression to investigate. A future rewrite may also exceed the floor — raise the floor (replace best_rewrite and re-record the scorecard) only with a rewrite that scores at least as high on every assertion and dimension. Re-judge best_rewrite itself each round to catch judge drift (it should still score reference_score). Never edit doctrine to pass this holdout case; if a candidate falls below the floor, add a tune case for the next round."
       }
+    },
+    {
+      "id": "stopslop-thin-content-cut-or-ask",
+      "split": "holdout",
+      "source": "Derived from hardikpandya/stop-slop references/examples.md (MIT, (c) 2025 Hardik Pandya). Target is ours, not stop-slop's.",
+      "prompt": "Rewrite without AI slop, or cut if there is no real content: It turns out that most teams struggle with alignment. The uncomfortable truth is that nobody wants to admit they're confused.",
+      "expected_output": "Removes the throat-clearing ('It turns out that', 'The uncomfortable truth is that') and either compresses to the plain claim or, because the source supplies no mechanism or evidence, marks the missing specifics as ask-author rather than inventing them.",
+      "assertions": [
+        "Removes the throat-clearing openers ('It turns out that', 'The uncomfortable truth is that') and the hedge 'most'.",
+        "Does not invent a specific cause, number, team, or mechanism the source never supplies; either keeps the plain claim or flags the missing specifics (ask-author / cut).",
+        "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence."
+      ],
+      "graded_dimensions": [
+        {"name": "non-invention", "scale": "1-5", "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."},
+        {"name": "slop-removal", "scale": "1-5", "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."}
+      ]
     }
   ]
 }

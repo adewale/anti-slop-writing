@@ -1,0 +1,44 @@
+{
+  "note": "Candidate eval cases derived from hardikpandya/stop-slop references/examples.md (MIT, (c) 2025 Hardik Pandya). See stop-slop-examples-ATTRIBUTION.md. Staged, not yet wired into the live suites. Targets are OURS, not stop-slop's golds.",
+  "candidates": [
+    {
+      "id": "stopslop-divergence-no-mechanism-closer",
+      "proposed_suite": "evals/adversarial.json",
+      "kind": "doctrine-divergence",
+      "split": "holdout",
+      "prompt": "Review this rewrite, offered as a finished improvement of 'In today's fast-paced landscape, we need to lean into discomfort and navigate uncertainty with clarity':\n\nMove faster. Your competition is.",
+      "expected_output": "Flags the rewrite: it reads punchy but names no mechanism and deletes the original content. Our doctrine treats a punchy line without a named actor/mechanism as slop, and would either restore the concrete claim or mark it ask-author/cut rather than endorse it.",
+      "assertions": [
+        "Does not endorse 'Move faster. Your competition is.' as a finished good rewrite.",
+        "Identifies that the line carries emphasis by cadence (imperative + clipped 'Your competition is.') while naming no concrete mechanism, actor, or measurable claim.",
+        "Notes that the rewrite discards the source content rather than sharpening it, and recommends naming what to move faster on (or cut/ask-author), not the bare punch line."
+      ]
+    },
+    {
+      "id": "stopslop-divergence-compressed-antithesis",
+      "proposed_suite": "evals/adversarial.json",
+      "kind": "doctrine-divergence",
+      "split": "holdout",
+      "prompt": "Review this rewrite, presented with no surrounding context, of 'Here's the thing: building products is hard. Not because the technology is complex. Because people are complex':\n\nBuilding products is hard. Technology is manageable. People aren't.",
+      "expected_output": "Classifies the closing antithesis as compressed: 'People aren't.' is asserted, not evidenced, and there is no prior context to earn it. Our skill keeps the opener but flags the bare antithesis pole and names the missing relation rather than endorsing the staccato form.",
+      "assertions": [
+        "Applies the staccato-contrast test and classifies 'Technology is manageable. People aren't.' as compressed or decorative because the 'People aren't' side is asserted without evidence and no prior context earns it.",
+        "Does not endorse the staccato three-fragment form as a finished good rewrite solely because it is short and direct.",
+        "Names the missing relation (why people are the hard part) or recommends restoring it, rather than expanding into generic prose."
+      ]
+    },
+    {
+      "id": "stopslop-thin-content-cut-or-ask",
+      "proposed_suite": "evals/rewrite-evals.json",
+      "kind": "improvement",
+      "split": "holdout",
+      "prompt": "Rewrite without AI slop, or cut if there is no real content: It turns out that most teams struggle with alignment. The uncomfortable truth is that nobody wants to admit they're confused.",
+      "expected_output": "Removes the throat-clearing ('It turns out that', 'The uncomfortable truth is that') and either compresses to the plain claim or, because the source supplies no mechanism or evidence, marks the missing specifics as ask-author rather than inventing them.",
+      "assertions": [
+        "Removes the throat-clearing openers ('It turns out that', 'The uncomfortable truth is that') and the hedge 'most'.",
+        "Does not invent a specific cause, number, team, or mechanism the source never supplies; either keeps the plain claim or flags the missing specifics (ask-author / cut).",
+        "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence."
+      ]
+    }
+  ]
+}

@@ -44,6 +44,6 @@ What protects this run: judges were **blind to the meaning of the A/B labels** a
 
 ## Bottom line for this repo
 
-1. `score_delta.py` REJECT is a no-improvement verdict, not a no-effect proof; for an explicit "it does nothing" claim, run TOST against a stated SESOI.
+1. `score_delta.py` REJECT is a no-improvement verdict, not a no-effect proof; for an explicit "it does nothing" claim, run the TOST equivalence check against a stated SESOI: `python3 scripts/score_delta.py <delta>.jsonl --sesoi 0.05` (added 2026-06-14). On this ablation it returns EQUIVALENT at SESOI ±0.05, which licenses the narrow "no effect of practical size on these items/models" claim that a bare REJECT does not.
 2. The defensible claim from this ablation is the narrow one: on the tested items and models, with a non-saturated graded metric, the candidate block changed nothing. The limiting factor is item/model coverage, not statistical power, because the deltas are an exact point mass at zero.
 3. The weakest link is single-family judging; the cross-family-judge follow-up would most strengthen any future accept/reject, win or null.

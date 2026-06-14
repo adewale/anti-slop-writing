@@ -75,7 +75,7 @@ Append a candidate block to `SKILL.md` borrowing two ideas from the sibling skil
 
 ### Eval that rejected it
 
-A/B (baseline `SKILL.md` snapshot vs baseline+block) across three models (Opus 4.8, Sonnet 4.6, Haiku 4.5), apply/judge separated per `docs/judge-protocol.md`, in `evals/results/2026-06-14-stop-slop-ablation/`. Six cases × 3 models = 18 paired comparisons: `evals/rewrite-evals.json` → `durable-execution-mechanism`, `emphasis-source-flatten`, `outline-conclusion-carrier-bound`; `evals/adversarial.json` → `robust-engineering-context`, `earned-antithesis`, `short-direct-answer` (all tune). `scripts/score_delta.py`: mean delta +0.0000, 95% CI [+0.0000, +0.0000], sign-flip p=1.0 — REJECT.
+A/B (baseline `SKILL.md` snapshot vs baseline+block) across three models (Opus 4.8, Sonnet 4.6, Haiku 4.5), apply/judge separated per `docs/judge-protocol.md`, in `evals/results/2026-06-14-stop-slop-ablation/`. Round 1 — six tune cases × 3 models = 18 paired comparisons: `evals/rewrite-evals.json` → `durable-execution-mechanism`, `emphasis-source-flatten`, `outline-conclusion-carrier-bound`; `evals/adversarial.json` → `robust-engineering-context`, `earned-antithesis`, `short-direct-answer` (all tune). `scripts/score_delta.py`: mean delta +0.0000, 95% CI [+0.0000, +0.0000], sign-flip p=1.0 — REJECT. Round 2 — six fresh holdout cases with 1-5 graded dimensions (`round2-holdout-graded.json`) added to defeat the round-1 binary ceiling; graded scores showed real spread (Opus 0.87/0.93) yet all 18 paired graded deltas were again exactly 0.00 — REJECT on a non-saturated metric.
 
 ### Why it was rejected
 

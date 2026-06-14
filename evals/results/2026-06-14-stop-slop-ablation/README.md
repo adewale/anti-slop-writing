@@ -48,13 +48,38 @@ This repeats the 2026-06-13 parataxis finding: the gap, when there is one, is ap
 
 - `evals/adversarial.json` → `earned-passive-adverb-when-opener` (tune): a regression guard that locks in "keep earned passive voice, adverbs, and subordinate openers." It is the standing defense against the blanket-ban form of the self-score idea, independent of whether the gate is ever adopted.
 
+## Round 2 — fresh holdout cases with graded dimensions
+
+Round 1's single-sentence cases sat at the binary ceiling, so a 0.00 delta there is only no-regression evidence. Round 2 answers the obvious objection: would a harder, non-saturated metric reveal a hidden effect?
+
+Six **fresh holdout** cases (`round2-holdout-graded.json`), paragraph-length and multi-issue, each with 1-5 `graded_dimensions` as the primary signal: three improvement cases (layered prestige paragraph, multi-template conclusion, isn't-just ladder) and three over-flag guards (dense earned-technical paragraph, evidenced quotable closer, earned passive/adverb runbook line). Same A/B, same three models, apply/judge separated, judges scoring each graded dimension 1-5 with quoted evidence and told to use the full range (`round2/`).
+
+The graded metric has real spread — Opus scored `h2-layered-slop-paragraph` at 0.87 and `h2-conclusion-multi-template` at 0.93, not 1.0 — so the cases discriminate. Yet **every one of the 18 paired graded deltas is exactly 0.00**, and so is every binary delta.
+
+`scripts/score_delta.py round2/delta-graded.jsonl`:
+
+```
+Cases:         18
+Mean delta:    +0.0000
+95% CI:        [+0.0000, +0.0000]
+Sign-flip p:   1.0000
+Verdict:       REJECT (CI overlaps zero; delta is within noise).
+```
+
+This is stronger than round 1. The earlier zero could be dismissed as a ceiling artifact; this one cannot. On a continuous metric with demonstrated headroom, the candidate block still moves nothing — each model produces the same output with or without it. The literature note on why a zero delta is hard to interpret, and what would license an "it does nothing" claim, is in `docs/eval-null-result-literature.md`.
+
 ## Files
 
 ```
 treatment-block.md            the guarded candidate addition (DOCTRINE_B = baseline + this)
 baseline-SKILL.snapshot.md    DOCTRINE_A snapshot
-cases.json                    the six A/B cases
-outputs/<model>/*.md          36 applied outputs
-judgments/<model>.jsonl       36 blind per-output judgments
-delta.jsonl                   18 paired {id, split, before, after} rows
+cases.json                    round 1: six A/B cases
+outputs/<model>/*.md          round 1: 36 applied outputs
+judgments/<model>.jsonl       round 1: 36 blind per-output judgments
+delta.jsonl                   round 1: 18 paired rows
+round2-holdout-graded.json    round 2: six fresh holdout cases with graded_dimensions
+round2/outputs/<model>/*.md   round 2: 36 applied outputs
+round2/judgments/<model>.jsonl round 2: 36 blind judgments (assertions + 1-5 graded dims)
+round2/delta-graded.jsonl     round 2: 18 paired graded-score rows
+round2/delta-assert.jsonl     round 2: 18 paired assertion rows
 ```

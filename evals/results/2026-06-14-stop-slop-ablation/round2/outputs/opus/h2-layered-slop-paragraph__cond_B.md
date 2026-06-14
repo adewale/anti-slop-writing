@@ -1,0 +1,1 @@
+Durable execution lets a workflow survive a crash mid-run. Each step's output is recorded as it completes, so when a worker dies on step 4 the engine restarts that step, not the whole job, and the outputs from steps 1 through 3 are reused instead of recomputed. Retries target the failed step alone, and the run resumes from the last recorded state.

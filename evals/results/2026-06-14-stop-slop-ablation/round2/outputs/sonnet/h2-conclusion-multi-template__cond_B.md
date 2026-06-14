@@ -1,0 +1,1 @@
+Distributed tracing follows a single request across every service it touches, attaching timing to each hop so you can locate the slow span rather than guessing which service degraded. That's what makes it useful: not a broad signal that something is wrong, but a named path to where it went wrong.

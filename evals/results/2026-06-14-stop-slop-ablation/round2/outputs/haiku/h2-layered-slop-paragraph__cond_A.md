@@ -1,0 +1,1 @@
+Durable execution is a pattern where a workflow can fail on any step, retry only that step, keep the previous outputs, and resume from the failure. This makes systems reliable without requiring the entire operation to restart.

@@ -1,0 +1,8 @@
+Verdict: keep
+Slop tells: None. Short parallel clauses split by a semicolon, but the parallelism marks a real operational split (drafts vs. final judgment passes), not a decorative one.
+Specificity missing: None at the sentence level. It names the concrete distinction: smaller model for drafts, expensive model reserved for final judgment passes. If the surrounding context is making a cost or quality argument, it could add the tradeoff it trades on — draft volume is high and cheap, judgment volume is low and worth the spend — but only add this if the context asks for justification. Do not bolt evidence onto a direct recommendation that stands on its own.
+Inflated claim: None. No importance language; it states an action and its scope.
+Flow break: None as a standalone recommendation.
+Concrete rewrite: Not needed. Keep as written: "Use the smaller model for drafts; reserve the expensive model for final judgment passes." Self-score check: directness, reader trust, authenticity, and density all score high because the line states a plain operational rule a practitioner would write; the gate says not to inflate or revise a line that already carries its distinction, so no revision pass fires. Only if the context demands support, extend with the reason: "...; drafts are high-volume and cheap to regenerate, so the expensive model is worth its cost only on the low-volume final pass."
+Rewrite check: No rewrite applied. The optional extension names the tradeoff (volume and cost) without introducing prestige adjectives, X-not-Y cadence, or invented numbers. Passes self-detectors.
+Remembered line: Smaller model for drafts; expensive model for the final judgment pass.

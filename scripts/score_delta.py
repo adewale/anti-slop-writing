@@ -11,6 +11,15 @@ are dramatically too tight at that size — see Bowyer, Aitchison, Ivanova,
 Rule of the runbook: do not accept an edit when the 95% CI on the delta
 overlaps zero. Use --holdout-only to score only the held-out split.
 
+A REJECT here means "no improvement was detected", which is NOT the same as
+"the edit does nothing": a non-significant superiority test can also be an
+underpowered one (absence of evidence is not evidence of absence). To make the
+positive "it does nothing" claim, pass --sesoi S to run a two-one-sided-tests
+(TOST) equivalence check against a smallest-effect-of-interest S: equivalence
+is declared when the (1 - 2*alpha) CI on the delta lies entirely within
+(-S, +S). See docs/eval-null-result-literature.md for why a null delta needs
+this and not just a failed superiority test.
+
 Input format: JSONL, one record per case, with fields {id, split, before, after}.
 `before` and `after` may be 0/1 (binary assertion pass-rate) or any real number
 (graded dimension score).
@@ -18,6 +27,7 @@ Input format: JSONL, one record per case, with fields {id, split, before, after}
 Example:
 
     python3 scripts/score_delta.py results/round-2.jsonl --holdout-only
+    python3 scripts/score_delta.py results/round-2.jsonl --sesoi 0.05
 
 Reads a small file; no dependencies beyond the Python stdlib.
 """
@@ -88,7 +98,10 @@ def main() -> int:
     parser.add_argument("--iters", type=int, default=10_000, help="Bootstrap and permutation iterations (default 10000).")
     parser.add_argument("--alpha", type=float, default=0.05, help="Two-sided alpha for CI (default 0.05).")
     parser.add_argument("--seed", type=int, default=0, help="RNG seed for reproducibility (default 0).")
+    parser.add_argument("--sesoi", type=float, default=None, help="Smallest effect size of interest. When set, also run a TOST equivalence check: equivalence is declared when the (1 - 2*alpha) CI on the delta lies within (-SESOI, +SESOI).")
     args = parser.parse_args()
+    if args.sesoi is not None and args.sesoi <= 0:
+        sys.exit("FAIL: --sesoi must be positive")
 
     records = load_records(args.results, args.holdout_only)
     if not records:
@@ -106,6 +119,20 @@ def main() -> int:
     print(f"Mean delta:    {mean:+.4f}")
     print(f"95% CI:        [{low:+.4f}, {high:+.4f}]")
     print(f"Sign-flip p:   {p_value:.4f}")
+
+    if args.sesoi is not None:
+        # TOST: a two-one-sided-tests equivalence decision at level alpha is the
+        # (1 - 2*alpha) CI lying inside the equivalence bounds. Reuse the paired
+        # bootstrap at the widened alpha so the interval matches the convention.
+        _, eq_low, eq_high = paired_bootstrap_ci(deltas, args.iters, 2 * args.alpha, rng)
+        within = -args.sesoi < eq_low and eq_high < args.sesoi
+        conf = int(round((1 - 2 * args.alpha) * 100))
+        print(f"SESOI:         +/-{args.sesoi:.4f}")
+        print(f"TOST {conf}% CI:   [{eq_low:+.4f}, {eq_high:+.4f}]")
+        if within:
+            print(f"Equivalence:   EQUIVALENT (CI within +/-{args.sesoi:.4f}; no effect of practical size).")
+        else:
+            print(f"Equivalence:   NOT SHOWN (CI exceeds +/-{args.sesoi:.4f}; cannot rule out an effect this large).")
 
     ci_overlaps_zero = low <= 0 <= high
     if ci_overlaps_zero:

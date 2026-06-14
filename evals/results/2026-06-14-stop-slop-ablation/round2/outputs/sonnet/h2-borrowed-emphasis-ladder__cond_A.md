@@ -1,0 +1,1 @@
+Unlike monitoring, which watches predefined metrics, and alerting, which fires when a threshold is crossed, observability lets you query arbitrary high-cardinality dimensions after the fact — dimensions you didn't think to instrument before the incident.

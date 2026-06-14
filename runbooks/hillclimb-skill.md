@@ -48,6 +48,16 @@ A change passes when all of these are true:
 6. The score-delta gate accepts the change (see "Statistical gating" below).
 7. The final answer explains whether results improved, stayed at ceiling, or exposed a gap.
 
+## Pre-registration (before the round)
+
+Decide and write these down before generating any output, so the accept/reject rule is fixed in advance rather than chosen to fit the result (Miller, *Adding Error Bars to Evals*, arXiv 2411.00640):
+
+- **SESOI** — the smallest per-case score delta worth shipping a doctrine edit for (e.g. 0.05 on the 0-1 graded scale). Below this, even a "real" effect is not worth the added skill length.
+- **N and axes** — how many cases, which splits, and which models/judges you will run. Underpowered rounds cannot detect the SESOI; an exact-zero result over too few items is an equivalence claim only on those items.
+- **Judges** — which model families form the panel (see Judge protocol). Fix this before scoring so a disappointing run cannot be rescued by swapping judges.
+
+A round that ends at an exact zero should be reported as an **equivalence** result, not a bare "no improvement": run `score_delta.py --sesoi <SESOI>` and report EQUIVALENT / NOT SHOWN. See `docs/eval-null-result-literature.md`.
+
 ## Iteration loop
 
 Run at most three improvement rounds. Stop earlier if the saturation rule fires.
@@ -56,7 +66,7 @@ Run at most three improvement rounds. Stop earlier if the saturation rule fires.
 2. Make the smallest doctrine/eval/doc change that targets the weakest dimension.
 3. Run validation.
 4. Score the affected tune evals again. Keep the per-case `before` and `after` scores.
-5. **Statistical gating**: run `python3 scripts/score_delta.py <results.jsonl>` and require ACCEPT before promoting the change. The script computes a paired bootstrap 95% CI and a sign-flip permutation p-value on per-case deltas; an edit whose CI overlaps zero is within noise and must be REJECTED. Small suites (N < ~30) cannot use CLT-based intervals (Bowyer et al., ICML 2025), which is why the helper avoids them.
+5. **Statistical gating**: run `python3 scripts/score_delta.py <results.jsonl>` and require ACCEPT before promoting the change. The script computes a paired bootstrap 95% CI and a sign-flip permutation p-value on per-case deltas; an edit whose CI overlaps zero is within noise and must be REJECTED. Small suites (N < ~30) cannot use CLT-based intervals (Bowyer et al., ICML 2025), which is why the helper avoids them. For a null/zero result, also run `--sesoi <SESOI>` to report a TOST equivalence verdict; a REJECT alone is "no improvement detected", not "no effect". Before trusting any zero delta, run `python3 scripts/saturation_index.py <scores.jsonl>`: a zero on CEILING cases is only no-regression evidence, so harden or retire saturated cases.
 6. **Pareto-front carryforward**: keep the best candidate doctrine **per eval case** across rounds, not only the single global best. If round 2 regresses cases that round 1 won, restore the round-1 doctrine for those specific cases when composing the round-3 candidate.
 7. If a tune eval fails, fix the smallest cause and repeat. If a holdout eval fails, do not edit doctrine — add a new tune case for the next round and log the rejection in `evals/rejected-edits.md`.
 8. **Saturation stop**: stop earlier than 3 rounds when roughly 20 consecutive eval traces yield no new failure category. Most measured prompt-optimization gains land in the first 3-5 iterations (OPRO, GEPA, TextGrad); past that, marginal edits add length without signal.

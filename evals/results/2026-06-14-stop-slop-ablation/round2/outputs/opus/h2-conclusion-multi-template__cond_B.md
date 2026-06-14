@@ -1,0 +1,1 @@
+Distributed tracing follows a single request across every service it touches and records how long each hop took, so when a checkout is slow you can read the trace and see which span — the payment call, the inventory lookup, the database write — actually held things up.

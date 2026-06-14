@@ -1,0 +1,9 @@
+{"id": "haiku__opus", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "haiku__sonnet", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "haiku__haiku", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "opus__opus", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "opus__sonnet", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "opus__haiku", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "sonnet__opus", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "sonnet__sonnet", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "sonnet__haiku", "split": "holdout", "before": 1.0, "after": 1.0}

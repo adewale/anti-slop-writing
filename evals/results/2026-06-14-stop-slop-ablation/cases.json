@@ -1,0 +1,82 @@
+{
+  "cases": [
+    {
+      "id": "durable-execution-mechanism",
+      "kind": "improvement",
+      "suite": "evals/rewrite-evals.json",
+      "split": "tune",
+      "prompt": "Rewrite without AI slop: This underscores the importance of durable execution in modern software systems.",
+      "expected_output": "A concrete sentence about resumable execution, retries, checkpoints, receipts, or equivalent mechanism.",
+      "assertions": [
+        "Removes 'underscores the importance' or equivalent inflated framing.",
+        "Includes a concrete durability mechanism such as retry, checkpoint, idempotency, receipt, lease, or resume.",
+        "Does not replace the phrase with another abstraction like 'critical capability' or 'robust foundation'."
+      ]
+    },
+    {
+      "id": "emphasis-source-flatten",
+      "kind": "improvement",
+      "suite": "evals/rewrite-evals.json",
+      "split": "tune",
+      "prompt": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.",
+      "expected_output": "A sentence whose emphasis comes from a named mechanism rather than from the not-just-X-but-Y rhythm.",
+      "assertions": [
+        "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
+        "Names a concrete durable-execution mechanism (step-level retry, preserved outputs, recorded state, resumable workflow, or equivalent) so the emphasis comes from the idea.",
+        "Does not substitute another inflated abstraction such as 'paradigm shift', 'fundamental rethink', or 'new way of thinking'."
+      ]
+    },
+    {
+      "id": "outline-conclusion-carrier-bound",
+      "kind": "improvement",
+      "suite": "evals/rewrite-evals.json",
+      "split": "tune",
+      "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.",
+      "expected_output": "A carrier-bound conclusion that names a specific challenge, a specific concrete project or run, and a specific next step or claim.",
+      "assertions": [
+        "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+        "Names a specific challenge the platform actually faces or a specific concrete carrier (a run, a feature, a customer outcome) rather than 'ongoing challenges in the landscape'.",
+        "Replaces 'pivotal role' with a concrete claim about what durable execution does in a named workflow."
+      ]
+    },
+    {
+      "id": "earned-antithesis",
+      "kind": "overflag-guard",
+      "suite": "evals/adversarial.json",
+      "split": "tune",
+      "prompt": "Review this paragraph after the preceding section has already shown how the pelican image and run log differ:\n\nThe pelican is the surface; the inspectable run is the point.",
+      "expected_output": "Keeps or lightly edits the antithesis because the prior context earns the contrast.",
+      "assertions": [
+        "Does not reject the sentence solely because it uses short antithesis.",
+        "Says the line can work if prior context established the carrier/process distinction.",
+        "If rewriting, preserves the carrier-versus-process relation rather than expanding into generic prose."
+      ]
+    },
+    {
+      "id": "robust-engineering-context",
+      "kind": "overflag-guard",
+      "suite": "evals/adversarial.json",
+      "split": "tune",
+      "prompt": "Review this technical sentence: The retry queue is robust against worker crashes because every job is leased with a deadline and returned to the queue when the lease expires.",
+      "expected_output": "Allows 'robust' because the sentence immediately supplies the engineering mechanism.",
+      "assertions": [
+        "Does not flag 'robust' as slop when it is backed by lease/deadline/return mechanics.",
+        "Identifies the concrete mechanism that earns the claim.",
+        "Avoids replacing the sentence with vaguer prestige language."
+      ]
+    },
+    {
+      "id": "short-direct-answer",
+      "kind": "overflag-guard",
+      "suite": "evals/adversarial.json",
+      "split": "tune",
+      "prompt": "Review this answer: Use the smaller model for drafts; reserve the expensive model for final judgment passes.",
+      "expected_output": "Keeps the direct recommendation unless surrounding context requires evidence or tradeoffs.",
+      "assertions": [
+        "Does not inflate the sentence into a generic strategy paragraph.",
+        "Recognizes the concrete operational distinction between drafts and judgment passes.",
+        "Suggests adding evidence only if the claim needs support in context."
+      ]
+    }
+  ]
+}

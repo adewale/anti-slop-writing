@@ -1,0 +1,103 @@
+{
+  "note": "Fresh holdout cases for round 2 of the stop-slop ablation. Not used to tune anything. Paragraph-length and multi-issue so binary assertions and 1-5 graded dimensions both have headroom (round 1's single-sentence cases sat at ceiling). Graded dimensions are the primary signal; score_delta is run on the graded score.",
+  "cases": [
+    {
+      "id": "h2-layered-slop-paragraph",
+      "kind": "improvement",
+      "split": "holdout",
+      "prompt": "Rewrite without AI slop: In today's rapidly evolving landscape, durable execution has emerged as a transformative paradigm that empowers teams to build robust, seamless systems. At its core, it underscores the importance of resilience, enabling organizations to navigate complexity and unlock unprecedented value.",
+      "expected_output": "A short concrete paragraph that names actual durable-execution mechanisms (step-level retry, preserved outputs, recorded state, resume) and removes the prestige abstractions, without inventing facts.",
+      "assertions": [
+        "Removes the listed openers and prestige clusters ('In today's rapidly evolving landscape', 'transformative paradigm', 'empowers', 'seamless', 'At its core', 'underscores the importance', 'unlock unprecedented value').",
+        "Names at least one concrete durable-execution mechanism (step-level retry, preserved outputs, recorded/checkpointed state, resume).",
+        "Does not substitute new abstractions such as 'paradigm', 'value', 'resilience' as the payload."
+      ],
+      "graded_dimensions": [
+        {"name": "mechanism-density", "scale": "1-5", "rubric": "5 = every abstract claim is replaced by a named durability mechanism; 3 = one mechanism named, rest still abstract; 1 = abstractions only restated."},
+        {"name": "slop-removal", "scale": "1-5", "rubric": "5 = removes all seven listed tells; 3 = removes about half; 1 = keeps most."},
+        {"name": "length-control", "scale": "1-5", "rubric": "5 = same or shorter than input; 3 = slightly longer; 1 = inflated."}
+      ]
+    },
+    {
+      "id": "h2-conclusion-multi-template",
+      "kind": "improvement",
+      "split": "holdout",
+      "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges, the observability space continues to thrive. Ultimately, by leveraging cutting-edge telemetry, teams can unlock actionable insights. Looking ahead, distributed tracing will undoubtedly play an increasingly pivotal role in the modern stack.",
+      "expected_output": "A carrier-bound conclusion that either names a specific challenge/carrier/next step or, if the source supplies none, cuts to a single concrete claim about what tracing does, without inventing specifics.",
+      "assertions": [
+        "Removes the 'Despite ongoing challenges, X continues to thrive', 'Ultimately', and 'Looking ahead, X will play a pivotal role' templates.",
+        "Replaces 'pivotal role' / 'actionable insights' with a concrete claim about what distributed tracing actually does (e.g. follows one request across services to locate the slow span).",
+        "Does not invent a specific challenge, number, or customer the source never supplied; cuts or asks rather than fabricating."
+      ],
+      "graded_dimensions": [
+        {"name": "template-removal", "scale": "1-5", "rubric": "5 = all three outline templates gone; 3 = one remains; 1 = outline shape preserved."},
+        {"name": "carrier-specificity", "scale": "1-5", "rubric": "5 = a concrete mechanism/carrier for tracing is named; 3 = partially concrete; 1 = still generic."},
+        {"name": "non-invention", "scale": "1-5", "rubric": "5 = adds no fact absent from the source; 3 = one borderline added specific; 1 = fabricates a challenge/number/customer."}
+      ]
+    },
+    {
+      "id": "h2-borrowed-emphasis-ladder",
+      "kind": "improvement",
+      "split": "holdout",
+      "prompt": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: This isn't just monitoring. It isn't just alerting. It's a fundamental rethinking of how teams understand their systems.",
+      "expected_output": "A sentence whose emphasis comes from a named capability difference rather than from the isn't-just ladder, with no substituted abstraction.",
+      "assertions": [
+        "Removes the multi-step 'isn't just X / isn't just Y / it's Z' ladder and does not replace it with another antithesis cadence.",
+        "Names the concrete capability that distinguishes it from monitoring/alerting (e.g. query arbitrary high-cardinality dimensions after the fact, not just watch predefined metrics).",
+        "Does not substitute an inflated abstraction such as 'fundamental rethinking', 'paradigm', or 'new way of thinking' as the payload."
+      ],
+      "graded_dimensions": [
+        {"name": "cadence-removal", "scale": "1-5", "rubric": "5 = the isn't-just ladder is fully gone with no substitute contrast cadence; 3 = weakened; 1 = preserved or swapped for another antithesis."},
+        {"name": "mechanism-specificity", "scale": "1-5", "rubric": "5 = names a concrete capability difference (post-hoc high-cardinality query, arbitrary dimensions); 1 = prestige abstraction."}
+      ]
+    },
+    {
+      "id": "h2-earned-dense-technical",
+      "kind": "overflag-guard",
+      "split": "holdout",
+      "prompt": "Review this paragraph: The scheduler is robust under network partition because every lease is fenced with a monotonic token — a writer whose token is stale is rejected at commit — and the orphaned work is automatically requeued when the lease's deadline passes.",
+      "expected_output": "A keep verdict: 'robust' is earned by the fencing mechanism, the em-dash pair brackets an inline definition, and the passive plus 'automatically' name real behavior with the actor correctly demoted.",
+      "assertions": [
+        "Does not flag 'robust' as slop; it is earned by the lease-fencing / monotonic-token mechanism named in the same sentence.",
+        "Does not flag the em-dash pair as decorative; it brackets an inline definition (the stale-token rejection) and is an earned appositive insertion.",
+        "Does not strip the passive 'is automatically requeued' or the adverb 'automatically'; each names real requeue behavior with the actor correctly demoted. Returns a keep verdict."
+      ],
+      "graded_dimensions": [
+        {"name": "restraint", "scale": "1-5", "rubric": "5 = keeps robust, the em-dash insertion, and the passive/adverb, all as earned; 3 = flags one of them unnecessarily; 1 = strips multiple earned tokens to satisfy a surface rule."},
+        {"name": "mechanism-identification", "scale": "1-5", "rubric": "5 = names the fencing/monotonic-token/lease-deadline mechanics that earn the claim; 1 = no mechanism named."}
+      ]
+    },
+    {
+      "id": "h2-earned-quotable-closer",
+      "kind": "overflag-guard",
+      "split": "holdout",
+      "prompt": "Review this final line of a post that has already shown, with numbers, that the cache hit rate fell from 94% to 11% the moment the key schema changed:\n\nThe cache didn't get slower. It got bypassed.",
+      "expected_output": "Classifies the antithesis as earned because the prior hit-rate collapse evidences both sides, and keeps the closer rather than expanding it into generic prose.",
+      "assertions": [
+        "Classifies the antithesis as earned because the prior context (94% to 11% hit-rate collapse on the schema change) evidences both 'didn't get slower' and 'got bypassed'.",
+        "Does not reject or rewrite the line solely because it is a short quotable closer.",
+        "If editing at all, preserves the slower-versus-bypassed relation rather than expanding into generic prose."
+      ],
+      "graded_dimensions": [
+        {"name": "restraint", "scale": "1-5", "rubric": "5 = keeps the earned quotable closer; 3 = unnecessarily softens it; 1 = rejects/expands it as if decorative."},
+        {"name": "relation-preservation", "scale": "1-5", "rubric": "5 = explicitly ties the closer to the hit-rate evidence (bypassed, not slowed); 1 = ignores or dilutes the relation."}
+      ]
+    },
+    {
+      "id": "h2-direct-answer-earned-adverb",
+      "kind": "overflag-guard",
+      "split": "holdout",
+      "prompt": "Review this runbook line: When a node is cordoned, its pods are gracefully drained before the kubelet is stopped, so in-flight requests finish instead of being dropped.",
+      "expected_output": "A keep verdict: the 'When' opener states a real condition, the passive correctly demotes the actor, and 'gracefully' names a real drain behavior whose meaning the clause then spells out.",
+      "assertions": [
+        "Does not flag the passive 'are gracefully drained' or the 'When ...' opener as slop; each names a real condition or behavior.",
+        "Does not flag 'gracefully' as a decorative adverb; its meaning is spelled out by 'in-flight requests finish instead of being dropped'.",
+        "Returns a keep verdict (or a light edit preserving the drain-before-stop mechanism), not a rewrite that strips the passive, adverb, or opener for a surface rule."
+      ],
+      "graded_dimensions": [
+        {"name": "restraint", "scale": "1-5", "rubric": "5 = keeps passive, adverb, and opener as earned; 3 = flags one unnecessarily; 1 = strips multiple to satisfy a surface rule."},
+        {"name": "mechanism-identification", "scale": "1-5", "rubric": "5 = names the drain-before-stop / in-flight-finish mechanism that earns 'gracefully'; 1 = no mechanism named."}
+      ]
+    }
+  ]
+}

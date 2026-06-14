@@ -1,0 +1,62 @@
+{
+  "skill_name": "anti-slop-writing",
+  "generated": "2026-06-14",
+  "split": "holdout",
+  "skill_path": "skills/anti-slop-writing/SKILL.md",
+  "unit_count": 3,
+  "units": [
+    {
+      "suite": "promoted-cases.json",
+      "id": "stopslop-divergence-no-mechanism-closer",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this rewrite, offered as a finished improvement of 'In today's fast-paced landscape, we need to lean into discomfort and navigate uncertainty with clarity':\n\nMove faster. Your competition is.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this rewrite, offered as a finished improvement of 'In today's fast-paced landscape, we need to lean into discomfort and navigate uncertainty with clarity':\n\nMove faster. Your competition is.\n\nEXPECTED:\nFlags the rewrite: it reads punchy but names no mechanism and deletes the original content. Our doctrine treats a punchy line without a named actor/mechanism as slop, and would either restore the concrete claim or mark it ask-author/cut rather than endorse it.\n\nASSERTIONS (judge each independently):\n1. Does not endorse 'Move faster. Your competition is.' as a finished good rewrite.\n2. Identifies that the line carries emphasis by cadence (imperative plus clipped 'Your competition is.') while naming no concrete mechanism, actor, or measurable claim.\n3. Notes that the rewrite discards the source content rather than sharpening it, and recommends naming what to move faster on (or cut/ask-author), not the bare punch line.\n\nGRADED DIMENSIONS (score 1-5 when present):\n(none)\n\nEmit one JSON object: {\"id\": \"stopslop-divergence-no-mechanism-closer\", \"suite\": \"promoted-cases.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Does not endorse 'Move faster. Your competition is.' as a finished good rewrite.",
+        "Identifies that the line carries emphasis by cadence (imperative plus clipped 'Your competition is.') while naming no concrete mechanism, actor, or measurable claim.",
+        "Notes that the rewrite discards the source content rather than sharpening it, and recommends naming what to move faster on (or cut/ask-author), not the bare punch line."
+      ],
+      "graded_dimensions": [],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "promoted-cases.json",
+      "id": "stopslop-divergence-compressed-antithesis",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this rewrite, presented with no surrounding context, of 'Here's the thing: building products is hard. Not because the technology is complex. Because people are complex':\n\nBuilding products is hard. Technology is manageable. People aren't.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this rewrite, presented with no surrounding context, of 'Here's the thing: building products is hard. Not because the technology is complex. Because people are complex':\n\nBuilding products is hard. Technology is manageable. People aren't.\n\nEXPECTED:\nClassifies the closing antithesis as compressed: 'People aren't.' is asserted, not evidenced, and there is no prior context to earn it. Our skill keeps the opener but flags the bare antithesis pole and names the missing relation rather than endorsing the staccato form.\n\nASSERTIONS (judge each independently):\n1. Applies the staccato-contrast test and classifies 'Technology is manageable. People aren't.' as compressed or decorative because the 'People aren't' side is asserted without evidence and no prior context earns it.\n2. Does not endorse the staccato three-fragment form as a finished good rewrite solely because it is short and direct.\n3. Names the missing relation (why people are the hard part) or recommends restoring it, rather than expanding into generic prose.\n\nGRADED DIMENSIONS (score 1-5 when present):\n(none)\n\nEmit one JSON object: {\"id\": \"stopslop-divergence-compressed-antithesis\", \"suite\": \"promoted-cases.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Applies the staccato-contrast test and classifies 'Technology is manageable. People aren't.' as compressed or decorative because the 'People aren't' side is asserted without evidence and no prior context earns it.",
+        "Does not endorse the staccato three-fragment form as a finished good rewrite solely because it is short and direct.",
+        "Names the missing relation (why people are the hard part) or recommends restoring it, rather than expanding into generic prose."
+      ],
+      "graded_dimensions": [],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "promoted-cases.json",
+      "id": "stopslop-thin-content-cut-or-ask",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nRewrite without AI slop, or cut if there is no real content: It turns out that most teams struggle with alignment. The uncomfortable truth is that nobody wants to admit they're confused.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nRewrite without AI slop, or cut if there is no real content: It turns out that most teams struggle with alignment. The uncomfortable truth is that nobody wants to admit they're confused.\n\nEXPECTED:\nRemoves the throat-clearing ('It turns out that', 'The uncomfortable truth is that') and either compresses to the plain claim or, because the source supplies no mechanism or evidence, marks the missing specifics as ask-author rather than inventing them.\n\nASSERTIONS (judge each independently):\n1. Removes the throat-clearing openers ('It turns out that', 'The uncomfortable truth is that') and the hedge 'most'.\n2. Does not invent a specific cause, number, team, or mechanism the source never supplies; either keeps the plain claim or flags the missing specifics (ask-author / cut).\n3. Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. non-invention (1-5): 5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete.\n2. slop-removal (1-5): 5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another.\n\nEmit one JSON object: {\"id\": \"stopslop-thin-content-cut-or-ask\", \"suite\": \"promoted-cases.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Removes the throat-clearing openers ('It turns out that', 'The uncomfortable truth is that') and the hedge 'most'.",
+        "Does not invent a specific cause, number, team, or mechanism the source never supplies; either keeps the plain claim or flags the missing specifics (ask-author / cut).",
+        "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."
+        },
+        {
+          "name": "slop-removal",
+          "scale": "1-5",
+          "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."
+        }
+      ],
+      "dynamic_rubric": null
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Durable execution keeps a workflow from restarting from scratch when a step fails. Each step's output is recorded; on failure the runtime replays only the failed step, not the work that preceded it. If the process crashes mid-run, the recorded state lets execution resume at the last completed step rather than from the top.

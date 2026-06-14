@@ -289,6 +289,17 @@
         "Does not rewrite it into a connective-heavy sentence that dilutes the earned parallel contrast.",
         "Does not apply the parataxis density / over-reliance rule to this single earned instance as if it were a document-level failure."
       ]
+    },
+    {
+      "id": "earned-passive-adverb-when-opener",
+      "split": "tune",
+      "prompt": "Review this incident-report sentence: When the lease expires, the job is automatically returned to the queue, because the worker that held it can no longer be reached.",
+      "expected_output": "Keeps the sentence: the passive voice correctly demotes an unimportant actor, the adverb names real automatic behavior, and the 'When' opener states a real condition. Each token is earned by a named mechanism.",
+      "assertions": [
+        "Does not flag the passive construction 'is automatically returned' as slop; the actor (the scheduler) is correctly demoted and the lease-expiry mechanism is named.",
+        "Does not flag the adverb 'automatically' or the 'When ...' opener as slop; each names a real condition or behavior rather than decorating an empty claim.",
+        "Returns a keep verdict (or a light edit that preserves the lease-expiry mechanism), not a rewrite that strips passive voice, the adverb, or the subordinate opener to satisfy a surface token rule."
+      ]
     }
   ]
 }

@@ -1,0 +1,1 @@
+The hardest problem we hit this year was cold-start latency when a worker pool shrank to zero during off-peak hours; we solved it by keeping one warm instance per region on a lease that costs less than a dropped job. That fix is now the floor every new workflow builds on.

@@ -66,3 +66,21 @@ The pre-edit doctrine already catches document-level parataxis. Round-2 before-d
 ### Lesson (if any)
 
 Recorded in `Lessons_learned.md` → "The doctrine already covered parataxis; the gap was application, not rules."
+
+## 2026-06-14 — Self-score gate and "cut quotables" from stop-slop
+
+### Edit attempted
+
+Append a candidate block to `SKILL.md` borrowing two ideas from the sibling skill [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop): (1) a 5-axis 1-10 **self-score gate** (directness, rhythm, reader trust, authenticity, density) with a hard `< 35/50 -> revise` threshold, scored by mechanism presence rather than surface tokens; (2) a **cut-quotables** detector that flags pull-quote-shaped lines and routes them through the emphasis-source test. Both adapted with mechanism-aware guards instead of stop-slop's literal blanket bans. Full block in `evals/results/2026-06-14-stop-slop-ablation/treatment-block.md`.
+
+### Eval that rejected it
+
+A/B (baseline `SKILL.md` snapshot vs baseline+block) across three models (Opus 4.8, Sonnet 4.6, Haiku 4.5), apply/judge separated per `docs/judge-protocol.md`, in `evals/results/2026-06-14-stop-slop-ablation/`. Six cases × 3 models = 18 paired comparisons: `evals/rewrite-evals.json` → `durable-execution-mechanism`, `emphasis-source-flatten`, `outline-conclusion-carrier-bound`; `evals/adversarial.json` → `robust-engineering-context`, `earned-antithesis`, `short-direct-answer` (all tune). `scripts/score_delta.py`: mean delta +0.0000, 95% CI [+0.0000, +0.0000], sign-flip p=1.0 — REJECT.
+
+### Why it was rejected
+
+Every paired delta was exactly 0.00; Opus produced byte-identical rewrites under both conditions on the clean cases. The doctrine already does both jobs: "cut quotables" is the existing **emphasis-source test** ("write the flattened version of the line... judge whether the residual claim still names actor/mechanism/limit"), and the self-score gate is a numeric reskin of the existing **bounded judge-refine pass** ("score specificity, evidence fit, relation clarity, and rhythm on 1-5; improve the weakest dimension once"). The candidate restated existing behavior without moving any decision. Did not append the block. Kept one regression guard, `evals/adversarial.json` → `earned-passive-adverb-when-opener`, against the blanket-ban form of the idea.
+
+### Lesson (if any)
+
+Recorded in `Lessons_learned.md` → "Borrowed surface rules were inert; our mechanism tests already subsume them."

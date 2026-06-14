@@ -1,0 +1,1 @@
+Durable execution replaces the entire programming model—instead of losing all state when a job fails, the system records each completed step, so failed jobs resume from their checkpoint rather than restart from the beginning.

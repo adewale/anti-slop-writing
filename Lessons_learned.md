@@ -4,6 +4,25 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-06-14 — Borrowed surface rules were inert; our mechanism tests already subsume them
+
+### Failure
+
+A review of the sibling skill [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) surfaced two ideas worth borrowing: a numeric self-score gate (5 axes, `< 35/50 -> revise`) and a "cut quotables" detector. The open question was whether either adds anything our doctrine lacks. It also surfaced a trap: stop-slop's literal rules are blanket bans (all adverbs, all passive voice, all em-dashes, all Wh- openers), which our adversarial suite exists to reject.
+
+### What changed
+
+Nothing in the installable `SKILL.md`. A guarded, mechanism-aware version of both ideas was A/B-tested against a baseline snapshot across three models (Opus 4.8, Sonnet 4.6, Haiku 4.5), apply/judge separated, in `evals/results/2026-06-14-stop-slop-ablation/`. All 18 paired deltas were exactly 0.00 (CI [0,0], p=1.0 — REJECT): the candidate did not move a single decision. "Cut quotables" is the emphasis-source test we already ship; the self-score gate is a numeric reskin of the existing bounded judge-refine pass. Logged in `evals/rejected-edits.md`. Kept: one regression guard, `evals/adversarial.json` → `earned-passive-adverb-when-opener`, which locks in "keep earned passive voice, adverbs, and subordinate openers."
+
+### What not to overgeneralize
+
+Do not read this as "stop-slop has nothing." Its numeric `< 35/50` gate is a crisp self-checkable stop condition, and its short rule handles ("cut quotables") aid recall; those are presentation ideas, not new capabilities. The lesson is narrower: before importing a surface rule, flatten it to the behavior it asks for and check whether an existing mechanism test already produces that behavior. When it does, the import is inert and belongs in the graveyard, not the doctrine. The one durable transfer was defensive — a guard against the blanket-ban failure mode the borrowed rule would have introduced if copied literally.
+
+### Eval coverage
+
+- `evals/adversarial.json` (tune): `earned-passive-adverb-when-opener` (earned passive/adverb/Wh-opener guard).
+- Run: `evals/results/2026-06-14-stop-slop-ablation/` (treatment block, 36 outputs, 36 blind judgments, paired delta, gate output).
+
 ## 2026-06-13 — The doctrine already covered parataxis; the gap was application, not rules
 
 ### Failure

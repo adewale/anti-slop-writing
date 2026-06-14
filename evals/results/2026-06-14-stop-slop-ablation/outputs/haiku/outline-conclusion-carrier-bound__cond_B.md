@@ -1,0 +1,1 @@
+A 50-worker system processing a million hourly jobs would lose hours of computation when a single worker crashed; with step-level checkpoints and resumable workflows, it now recovers the lost step from the worker pool's next available node.

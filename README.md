@@ -105,8 +105,11 @@ docs/branch-mining-2026-05-30.md      Audit trail for mining the remote branches
 scripts/validate.py                   Repo-only validation
 scripts/score_delta.py                Paired-bootstrap / sign-flip gate for accept/reject
 scripts/run_evals.py                  Execution runner: prepare / grade / join over eval suites
+scripts/saturation_index.py           Repo-only saturation/overlap analysis
+scripts/check_install_boundary.py     CI check that keeps evals/results out of the installable skill
 skills.sh.json                        Repo-only skills.sh display grouping, used after telemetry sees the repo
 .github/workflows/validate.yml        GitHub Actions validation
+.github/workflows/install-boundary.yml Install-boundary CI
 ```
 
 Copy `evals/`, `examples/`, `scripts/`, `.github/`, and `skills.sh.json` only when you are working on this repository. They are not part of the runtime skill.
@@ -118,8 +121,8 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 | Eval set | Tune cases | Holdout cases |
 |---|---:|---:|
 | Machine-readable assertions (`evals/evals.json`) | 11 | 5 |
-| Adversarial false-positive checks (`evals/adversarial.json`) | 15 | 9 |
-| Rewrite quality checks (`evals/rewrite-evals.json`) | 13 | 3 |
+| Adversarial false-positive checks (`evals/adversarial.json`) | 18 | 11 |
+| Rewrite quality checks (`evals/rewrite-evals.json`) | 19 | 5 |
 | Eval-suite health checks (`evals/meta-evals.json`) | 6 | 4 |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 17 | 12 |
 | Manual regression cases (`evals/cases.md`) | 10 cases | n/a |

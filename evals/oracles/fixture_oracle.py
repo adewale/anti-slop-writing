@@ -37,18 +37,25 @@ def main() -> int:
         return 2
     text = out.read_text(encoding="utf-8", errors="replace")
     failures: list[str] = []
+    checks = 0
     for needle in spec.get("all", []):
+        checks += 1
         if not contains(text, needle):
             failures.append(f"missing required text: {needle!r}")
     for group in spec.get("any", []):
+        checks += 1
         if not any(contains(text, needle) for needle in group):
             failures.append("missing one of: " + ", ".join(repr(x) for x in group))
     for pattern in spec.get("regex", []):
+        checks += 1
         if not re.search(pattern, text, re.I | re.M | re.S):
             failures.append(f"missing regex: {pattern}")
     for pattern in spec.get("forbid", []):
+        checks += 1
         if re.search(pattern, text, re.I | re.M | re.S):
             failures.append(f"forbidden regex present: {pattern}")
+    score = max(checks - len(failures), 0)
+    print(json.dumps({"score": score, "max_score": checks or 1, "case_id": case_id}))
     if failures:
         print("FAIL fixture oracle")
         for failure in failures:

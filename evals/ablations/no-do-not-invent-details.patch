@@ -1,0 +1,6 @@
+@@ -84,1 +84,0 @@
+-7. Replace vague actors with named sources, named uncertainty, or an `ask-author` note that says what to ask. Do not invent a name, count, tool, or timing to fill a `Concrete rewrite` slot.
+@@ -298,3 +298,0 @@
+-work). Do not invent the missing fact to fill the `Concrete rewrite`
+-slot. The same rule applies to any fallback rewrite inside an
+-`ask-author` block: a fallback that invents is worse than no fallback.

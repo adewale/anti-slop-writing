@@ -50,12 +50,10 @@
           "name": "flags-inflation",
           "type": "contains_any",
           "values": [
-            "pivotal",
-            "robust",
-            "transformative",
             "mechanism",
             "concrete"
-          ]
+          ],
+          "description": "Prompt-echoed values removed by leakage cleanup."
         },
         {
           "name": "qualitative-review",
@@ -89,12 +87,10 @@
           "name": "flags-borrowed-cadence",
           "type": "contains_any",
           "values": [
-            "borrowed",
             "cadence",
-            "unlock",
-            "facts",
             "specific"
-          ]
+          ],
+          "description": "Prompt-echoed values removed by leakage cleanup."
         },
         {
           "name": "qualitative-review",
@@ -162,12 +158,9 @@
       "assertions": [
         {
           "name": "returns-to-carrier",
-          "type": "contains_any",
-          "values": [
-            "idempotency",
-            "duplicate",
-            "retry"
-          ]
+          "type": "regex",
+          "pattern": "(?is)(idempotency|duplicate|retry).{0,160}(concrete|carrier|specific|source-backed|mechanism)|(concrete|carrier|specific|source-backed|mechanism).{0,160}(idempotency|duplicate|retry)",
+          "description": "Requires the conclusion to return to the concrete source fact, not just repeat a generic close."
         },
         {
           "name": "removes-generic-conclusion",
@@ -207,11 +200,10 @@
           "name": "recognizes-quotation",
           "type": "contains_any",
           "values": [
-            "quoted",
-            "example",
             "not flag",
             "not the author's prose"
-          ]
+          ],
+          "description": "Prompt-echoed values removed by leakage cleanup."
         },
         {
           "name": "qualitative-review",
@@ -242,11 +234,11 @@
           "name": "earned-appositive",
           "type": "contains_any",
           "values": [
-            "earned",
             "keep",
             "works",
             "concrete contrast"
-          ]
+          ],
+          "description": "Prompt-echoed values removed by leakage cleanup."
         },
         {
           "name": "qualitative-review",
@@ -278,11 +270,10 @@
           "name": "runbook-ok",
           "type": "contains_any",
           "values": [
-            "imperative",
-            "direct",
             "leave",
             "works"
-          ]
+          ],
+          "description": "Prompt-echoed values removed by leakage cleanup."
         }
       ],
       "tags": [],
@@ -308,9 +299,9 @@
           "values": [
             "earned",
             "antithesis",
-            "context",
             "do not"
-          ]
+          ],
+          "description": "Prompt-echoed values removed by leakage cleanup."
         },
         {
           "name": "qualitative-review",
@@ -347,22 +338,15 @@
         },
         {
           "name": "names-key-earning-mechanisms",
-          "type": "contains_all",
-          "values": [
-            "idempotency",
-            "dead-letter"
-          ],
-          "description": "Must name the concrete mechanisms that make robust earned."
+          "type": "regex",
+          "pattern": "(?is)(idempotency.{0,120}dead[- ]letter|dead[- ]letter.{0,120}idempotency)",
+          "description": "Names both concrete mechanisms that earn the otherwise-suspect adjective."
         },
         {
           "name": "names-retry-mechanism",
-          "type": "contains_any",
-          "values": [
-            "retry receipt",
-            "retry tracking",
-            "retry"
-          ],
-          "description": "Must connect robustness to a retry-related mechanism, not generic specificity."
+          "type": "regex",
+          "pattern": "(?is)(retry (receipt|tracking)|receipt.{0,80}retry)",
+          "description": "Connects the verdict to retry evidence rather than the watch-list word alone."
         },
         {
           "name": "no-revise-verdict",
@@ -587,11 +571,9 @@
       "assertions": [
         {
           "name": "keeps-concrete-mechanism",
-          "type": "contains_all",
-          "values": [
-            "unsigned webhook",
-            "retry receipt"
-          ]
+          "type": "regex",
+          "pattern": "(?is)(unsigned webhook.{0,160}retry receipt|retry receipt.{0,160}unsigned webhook)",
+          "description": "Preserves both supplied mechanisms in the rewrite."
         },
         {
           "name": "removes-launch-cliches",
@@ -687,33 +669,104 @@
       "id": "no-staccato-contrast-test",
       "removed_component": "staccato contrast test",
       "expected_regressions": [
-        "Misses generic rhythm and over/under-applies sentence-shortening."
+        {
+          "summary": "Misses borrowed cadence/staccato contrast cues.",
+          "cases": [
+            "pos-devrel-borrowed-cadence"
+          ],
+          "assertions": [
+            "flags-borrowed-cadence"
+          ]
+        }
       ],
-      "applies_to_cases": []
+      "applies_to_cases": [],
+      "mechanism": "section",
+      "class": "instructions",
+      "target": {
+        "skill_root": "skills/anti-slop-writing/SKILL.md",
+        "heading": "## Staccato contrast test"
+      },
+      "notes": "Materialized removal: runner-visible skill tree is altered by the declared mechanism/target."
     },
     {
       "id": "no-flow-conclusion-guidance",
       "removed_component": "flow-by-relation and conclusion guidance",
       "expected_regressions": [
-        "Fails relation-hinge and concrete-carrier conclusion cases."
+        {
+          "summary": "Loses relation-hinge and concrete conclusion behavior.",
+          "cases": [
+            "pos-relation-hinge",
+            "pos-conclusion-concrete-carrier"
+          ],
+          "assertions": [
+            "has-relation-hinge",
+            "returns-to-carrier"
+          ]
+        }
       ],
-      "applies_to_cases": []
+      "applies_to_cases": [],
+      "notes": "Materialized removal: runner-visible skill tree is altered by the declared mechanism/target.",
+      "components": [
+        {
+          "mechanism": "patch",
+          "class": "instructions",
+          "target": {
+            "skill_root": "skills/anti-slop-writing/SKILL.md",
+            "patch": "evals/ablations/no-flow-conclusion-guidance.patch"
+          }
+        }
+      ]
     },
     {
       "id": "no-do-not-invent-details",
       "removed_component": "do-not-invent concrete details rule",
       "expected_regressions": [
-        "Hallucinates mechanisms in underspecified prose."
+        {
+          "summary": "Stops preserving only source-backed concrete mechanisms.",
+          "cases": [
+            "pos-rewrite-keeps-mechanism-not-template",
+            "round3-fixture-mechanism-copy"
+          ],
+          "assertions": [
+            "keeps-concrete-mechanism",
+            "uses-fixture-mechanism",
+            "fixture-script-oracle"
+          ]
+        }
       ],
-      "applies_to_cases": []
+      "applies_to_cases": [],
+      "notes": "Materialized removal: runner-visible skill tree is altered by the declared mechanism/target.",
+      "mechanism": "patch",
+      "class": "instructions",
+      "target": {
+        "skill_root": "skills/anti-slop-writing/SKILL.md",
+        "patch": "evals/ablations/no-do-not-invent-details.patch"
+      }
     },
     {
       "id": "no-phrase-detectors",
       "removed_component": "phrase-list/source-backed detectors while keeping relation tests",
       "expected_regressions": [
-        "Misses borrowed-cadence and inflated-importance positives."
+        {
+          "summary": "Misses inflated/generic launch-copy detectors.",
+          "cases": [
+            "pos-readme-pivotal-no-mechanism",
+            "pos-devrel-borrowed-cadence"
+          ],
+          "assertions": [
+            "flags-inflation",
+            "flags-borrowed-cadence"
+          ]
+        }
       ],
-      "applies_to_cases": []
+      "applies_to_cases": [],
+      "mechanism": "section",
+      "class": "instructions",
+      "target": {
+        "skill_root": "skills/anti-slop-writing/SKILL.md",
+        "heading": "## Source-backed detectors"
+      },
+      "notes": "Materialized removal: runner-visible skill tree is altered by the declared mechanism/target."
     }
   ]
 }

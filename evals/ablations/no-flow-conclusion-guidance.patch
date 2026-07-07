@@ -1,0 +1,8 @@
+@@ -64,2 +64,0 @@
+-Flow-by-relation test: paragraphs should make the next question possible, not merely sit beside each other in a plausible order. At section boundaries, name the relation: cause, contrast, dependency, inference, resolution, scope change, or level-of-detail change.
+-Conclusion test: a conclusion should return to the concrete carrier, admit the limit if needed, and state the reusable structure. Avoid ending with a generic thesis sentence that could belong to any essay in the category. Reject outline templates such as “Despite challenges, X continues to thrive” and “Looking ahead, X will play an increasingly pivotal role” unless backed by a specific challenge or named next step.
+@@ -89,2 +89,0 @@
+-12. Check paragraph flow: each paragraph should answer the prior question or make the next question necessary. Add hinge sentences when sections read like a list.
+-13. Check the conclusion: return to the concrete carrier, name what was made visible or solved, state what transfers, and avoid a generic final sentence.
+@@ -94,1 +94,0 @@
+-17. Reject outline conclusion templates (“Despite challenges, X continues to thrive,” “Looking ahead, X will play a pivotal role”); replace with a carrier-bound ending or cut.

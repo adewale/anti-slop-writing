@@ -100,7 +100,7 @@ REQUIRED_SKILL_PHRASES = [
     "Load local references only when the task needs them",
 ]
 
-REFERENCE_RE = re.compile(r"^references/[^\s]+\.md", re.M)
+REFERENCE_RE = re.compile(r"^references/[^\s]+\.md", re.MULTILINE)
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
@@ -396,7 +396,7 @@ def main() -> int:
             fail(f"SKILL.md references missing file: {rel}")
 
     cases = MANUAL_CASES.read_text(encoding="utf-8")
-    case_count = len(re.findall(r"^## Case ", cases, re.M))
+    case_count = len(re.findall(r"^## Case ", cases, re.MULTILINE))
     if case_count < 5:
         fail(f"expected at least 5 manual eval cases, found {case_count}")
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Fixture-backed output oracle for shared Skill Eval Harness script assertions."""
 from __future__ import annotations
+
 import json
 import re
 import sys
@@ -48,11 +49,11 @@ def main() -> int:
             failures.append("missing one of: " + ", ".join(repr(x) for x in group))
     for pattern in spec.get("regex", []):
         checks += 1
-        if not re.search(pattern, text, re.I | re.M | re.S):
+        if not re.search(pattern, text, re.IGNORECASE | re.MULTILINE | re.DOTALL):
             failures.append(f"missing regex: {pattern}")
     for pattern in spec.get("forbid", []):
         checks += 1
-        if re.search(pattern, text, re.I | re.M | re.S):
+        if re.search(pattern, text, re.IGNORECASE | re.MULTILINE | re.DOTALL):
             failures.append(f"forbidden regex present: {pattern}")
     score = max(checks - len(failures), 0)
     print(json.dumps({"score": score, "max_score": checks or 1, "case_id": case_id}))

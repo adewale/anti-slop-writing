@@ -126,7 +126,7 @@ def main() -> int:
         # bootstrap at the widened alpha so the interval matches the convention.
         _, eq_low, eq_high = paired_bootstrap_ci(deltas, args.iters, 2 * args.alpha, rng)
         within = -args.sesoi < eq_low and eq_high < args.sesoi
-        conf = int(round((1 - 2 * args.alpha) * 100))
+        conf = round((1 - 2 * args.alpha) * 100)
         print(f"SESOI:         +/-{args.sesoi:.4f}")
         print(f"TOST {conf}% CI:   [{eq_low:+.4f}, {eq_high:+.4f}]")
         if within:

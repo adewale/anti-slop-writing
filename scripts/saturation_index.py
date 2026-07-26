@@ -29,7 +29,6 @@ import json
 import sys
 from collections import defaultdict
 from pathlib import Path
-from statistics import pstdev
 
 
 def load_scores(path: Path, sep: str) -> dict[str, list[float]]:

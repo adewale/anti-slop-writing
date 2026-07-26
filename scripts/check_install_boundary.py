@@ -66,9 +66,7 @@ def bad_files(skill_dir: Path) -> list[Path]:
     bad: list[Path] = []
     for path in skill_dir.rglob("*"):
         rel_parts = path.relative_to(skill_dir).parts
-        if any(part in BANNED_DIR_NAMES for part in rel_parts):
-            bad.append(path)
-        elif path.is_file() and (path.suffix in BANNED_FILE_SUFFIXES or path.name in BANNED_FILE_NAMES):
+        if any(part in BANNED_DIR_NAMES for part in rel_parts) or path.is_file() and (path.suffix in BANNED_FILE_SUFFIXES or path.name in BANNED_FILE_NAMES):
             bad.append(path)
     return bad
 

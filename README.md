@@ -123,7 +123,7 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 | Machine-readable assertions (`evals/evals.json`) | 12 | 6 |
 | Adversarial false-positive checks (`evals/adversarial.json`) | 20 | 12 |
 | Rewrite quality checks (`evals/rewrite-evals.json`) | 20 | 6 |
-| Eval-suite health checks (`evals/meta-evals.json`) | 6 | 4 |
+| Eval-suite health checks (`evals/meta-evals.json`) | 7 | 4 |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 17 | 12 |
 | Manual regression cases (`evals/cases.md`) | 12 cases | n/a |
 

@@ -120,12 +120,12 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 
 | Eval set | Tune cases | Holdout cases |
 |---|---:|---:|
-| Machine-readable assertions (`evals/evals.json`) | 11 | 5 |
-| Adversarial false-positive checks (`evals/adversarial.json`) | 18 | 11 |
-| Rewrite quality checks (`evals/rewrite-evals.json`) | 19 | 5 |
+| Machine-readable assertions (`evals/evals.json`) | 12 | 6 |
+| Adversarial false-positive checks (`evals/adversarial.json`) | 20 | 12 |
+| Rewrite quality checks (`evals/rewrite-evals.json`) | 20 | 6 |
 | Eval-suite health checks (`evals/meta-evals.json`) | 6 | 4 |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 17 | 12 |
-| Manual regression cases (`evals/cases.md`) | 10 cases | n/a |
+| Manual regression cases (`evals/cases.md`) | 12 cases | n/a |
 
 A full scored baseline for the 2026-05-29 suite is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. Later doctrine branches added harder paired cases, graded dimensions, and fresh holdout cases; the newest status and no-regression notes are in `evals/results/latest.md`.
 

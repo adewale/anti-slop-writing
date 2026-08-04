@@ -149,3 +149,36 @@ Expected critique:
 - Separately identifies copula displacement, hedged symmetry, and outline-shaped conclusion templates.
 - Chooses a specific user/use case or recommends cutting unsupported sentences.
 - Rewrites with concrete behavior the console performs, not another all-purpose product claim.
+
+## Case 11 — hollow modifier with a false implicature
+
+Input, as the opening of a design doc with nothing before it:
+
+```txt
+My actual recommendation is to ship the migration behind a flag. The real reason is that the backfill takes eleven hours and cannot be paused once it starts.
+```
+
+Expected critique:
+
+- Applies the deletion test: `actual` and `real` can go without changing what the sentences say.
+- Names what the modifiers falsely imply — that an earlier recommendation or reason was given and was not the genuine one.
+- Does not excuse them because the sentence around them is already concrete (eleven hours, no pause).
+- Repairs by deleting, not by swapping in another adjective or adding a clause. The line should get shorter.
+
+Boundary: keep `actual` when a competing figure was given — after a vendor's advertised p99 of 40 ms, `The actual p99 during the incident was 2.3 seconds` needs the word.
+
+## Case 12 — self-planted strawman contrast
+
+Input, where the user's entire message was `why is the deploy slow?` and they never mentioned Docker:
+
+```txt
+It would be easy to assume the slowness comes from the Docker build. But the build is not the problem. The problem is that the readiness probe waits a fixed 30 seconds before its first check, so every rollout pays that delay once per pod.
+```
+
+Expected critique:
+
+- Flags the Docker-build hypothesis as an alternative the writer introduced and then refuted, which no one raised.
+- Does not grade the contrast as earned antithesis just because the writer's own prior sentence supplies the Docker side.
+- Rewrites to state the readiness-probe finding directly, with no replacement negation.
+
+Boundary: when the user asks `is this a memory leak?`, `This is not a memory leak` is a required correction, not an invented contrast.

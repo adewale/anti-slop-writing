@@ -505,6 +505,40 @@
         {"name": "non-invention", "scale": "1-5", "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."},
         {"name": "slop-removal", "scale": "1-5", "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."}
       ]
+    },
+    {
+      "id": "hollow-modifier-delete-not-expand",
+      "split": "tune",
+      "source": "Derived from https://x.com/stanine/status/2084385000959701146 (Matt MacInnis, 2026-08-03). Prompts, targets, and rubrics are ours.",
+      "prompt": "Rewrite without AI slop: The true benefit of the new scheduler is that it gives teams genuine visibility into the actual state of every job.",
+      "expected_output": "Deletes 'true', 'genuine', and 'actual' without substituting other adjectives, and returns a shorter sentence. Because the source names no mechanism behind 'visibility', the rewrite keeps the plain claim or marks the missing specifics ask-author; it must not invent a metric, screen, or refresh interval.",
+      "assertions": [
+        "Removes 'true', 'genuine', and 'actual'.",
+        "Does not substitute replacement adjectives ('real', 'complete', 'full', 'clear', 'live') for the deleted ones.",
+        "Returns a sentence no longer than the input in word count.",
+        "Does not invent a mechanism the source lacks (a named metric, dashboard, refresh interval, or job state machine); either keeps the plain claim or marks the missing specifics ask-author."
+      ],
+      "graded_dimensions": [
+        {"name": "length-control", "scale": "1-5", "rubric": "5 = shorter than the input; 3 = same length; 1 = longer than the input."},
+        {"name": "deletion-fidelity", "scale": "1-5", "rubric": "5 = repairs by deletion only; 3 = deletes some modifiers and substitutes others; 1 = keeps the modifiers or adds new ones."}
+      ]
+    },
+    {
+      "id": "invented-contrast-cut-the-strawman",
+      "split": "holdout",
+      "source": "Derived from https://x.com/stanine/status/2084385000959701146 (Matt MacInnis, 2026-08-03). Prompts, targets, and rubrics are ours.",
+      "prompt": "Rewrite this opening paragraph of a release note. Nothing precedes it, and the reader has been told nothing about pricing or billing.\n\nThis release is not about pricing. It is not a rewrite of the billing stack either. It is about giving you a way to see which queries are slow: the dashboard now groups queries by normalized shape and sorts each group by total time.",
+      "expected_output": "Cuts both negations, because neither pricing nor a billing rewrite was ever raised, and opens on the mechanism: grouping by normalized query shape and sorting each group by total time.",
+      "assertions": [
+        "Removes both 'not about pricing' and 'not a rewrite of the billing stack' rather than keeping one as a concession.",
+        "Opens on the concrete mechanism (normalized query shape, sorted by total time) instead of on a negation.",
+        "Does not substitute another X-not-Y, 'not just X but Y', or 'this is about X rather than Y' construction.",
+        "Does not invent a reason the reader might have expected a pricing or billing change."
+      ],
+      "graded_dimensions": [
+        {"name": "strawman-removal", "scale": "1-5", "rubric": "5 = both invented alternatives are gone and no replacement negation appears; 3 = one removed or one swapped for a different negation; 1 = the not-X framing survives."},
+        {"name": "length-control", "scale": "1-5", "rubric": "5 = shorter than the input while keeping the grouping and sorting mechanism; 3 = same length; 1 = longer."}
+      ]
     }
   ]
 }

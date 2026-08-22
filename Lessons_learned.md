@@ -4,32 +4,43 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
-## 2026-08-04 — The earned-contrast test is scoped to the document, so a self-planted strawman passes it
+## 2026-08-04 — An adversarial reading of a rule is a hypothesis about behavior, not an observation of it
 
 ### Failure
 
-Reading [@stanine's agent-instruction thread](https://x.com/stanine/status/2084385000959701146) against our doctrine surfaced a construction the staccato contrast test grades wrong rather than merely misses. Given a user message of `why is the deploy slow?` with no mention of Docker, an assistant writes: `It would be easy to assume the slowness comes from the Docker build. But the build is not the problem. The problem is that the readiness probe waits a fixed 30 seconds...`
+Reading [@stanine's agent-instruction thread](https://x.com/stanine/status/2084385000959701146) against our doctrine appeared to surface a construction the staccato contrast test grades *wrong* rather than merely misses. Given a user message of `why is the deploy slow?` with no mention of Docker, an assistant writes: `It would be easy to assume the slowness comes from the Docker build. But the build is not the problem. The problem is that the readiness probe waits a fixed 30 seconds...`
 
-The staccato contrast test can grade this three ways and none of the three repairs is the fix. `Earned` says keep it, and `SKILL.md` invites that grade: `read the prior sentence of the same paragraph first. If it supplies the mechanism the contrast points at, the contrast is earned` — the assistant's own first sentence supplies the Docker side. `Compressed` is the likelier grade, since the Docker side is hypothesized rather than shown, and its repair is the harmful one: `expand into the relation by naming the unsupported side directly` sends the agent to evidence a build nobody asked about. `Decorative` says `cut or replace`, which lands near the right answer for the wrong reason. This is a property of the written rule, readable off the text — not an experimental finding.
+The argument was textual and looked airtight. `Earned` keeps it, and `SKILL.md` seems to invite that grade — `read the prior sentence of the same paragraph first. If it supplies the mechanism the contrast points at, the contrast is earned` — since the assistant's own first sentence supplies the Docker side. `Compressed` looked likelier still, and its repair is the actively harmful one: `expand into the relation by naming the unsupported side directly` would send the agent to evidence a build nobody asked about. The conclusion drawn was that the classification is about evidence while the defect is about provenance, and that the test is scoped to prose the writer controls.
 
-The classification is about evidence; the defect is about provenance. A premise can be well evidenced and still be one the writer put in the reader's mouth. The gap is scope, not strictness: every contrast case in the suite judges a contrast against the document under review, and when an agent is drafting a reply, what determines whether the opposing side was ever on the table is the user's message, which sits outside the prose being checked.
+**The measurement said otherwise.** Phase 0 of `evals/results/2026-08-04-invented-contrast/` ran the baseline doctrine over a tune sibling of that case on three models. All three cut the invented premise; the case sits flat at 1.00, CEILING. None of them made the predicted misgrade. Opus classified it `decorative` and explained why in terms the doctrine never spells out:
+
+> The staccato contrast test classifies this as decorative: neither side is evidenced by anything the user said.
+
+Models already read "evidenced" as scoped to what was actually established in the exchange, not to prose the writer controls. The ambiguity is real on the page and absent in application.
 
 ### What changed
 
-Nothing in the installable `SKILL.md`. Seven eval cases were added to make the question decidable: two critique cases, two rewrite cases, and three adversarial guards. Whether the doctrine actually needs a dialogic scope rule is **unmeasured** — the deciding A/B is an open item in `TODO.md`. The two prior imports of an outside idea (parataxis density, the stop-slop block) both looked like gaps and both measured inert, so the cases come first and the doctrine edit waits on the gate.
+Nothing in the installable `SKILL.md`. Both candidate blocks — the hollow-modifier word list and the provenance check — are in `evals/rejected-edits.md`. The seven eval cases stay as regression coverage, and the two adversarial guards are the durable part: they pin the boundary against a future edit that catches strawmen by banning negation, or hollow modifiers by banning `key`.
 
-The thread's other rule — delete `actual`, `real`, `true`, `key`, `main` when removing them changes nothing — got the same treatment. It is a different disease from the one the word list is built for: prestige adjectives inflate the noun and are repaired by naming a mechanism, while a hollow modifier says nothing about its noun and is repaired by deletion. The default editing pass pushes toward adding a mechanism, which is the wrong direction here, so the rewrite cases grade on `length-control` and `deletion-fidelity`.
+The hollow-modifier hypothesis died the ordinary way: `implicature-naming` scored 5 on all three models, so the existing `undue significance language` detector and emphasis-source test already produce the behavior. One real miss survived — haiku repaired `The key issue is...` as `...the remaining blocker`, substituting an adjective into the vacated slot, unanimously confirmed by a three-judge panel. That is repair purity on the weakest model from a single observation, so it went to `TODO.md` as a rate study, not into doctrine.
 
 ### What not to overgeneralize
 
-Do not turn either rule into a blanket ban; that is the failure mode the adversarial suite exists to catch. `actual` earns its place against a figure the reader was given (advertised 40 ms p99 versus a measured 2.3 s). `key` earns its place when it ranks among alternatives that were actually enumerated and the criterion is stated. `This is not a memory leak` is required when the user asked whether it was a memory leak — dropping it leaves the question unanswered. The test is not whether the word or the negation appears; it is whether the alternative it points at exists for the reader.
+The lesson is about method, not about contrast. Close-reading a rule to find where it *would* misfire produces a hypothesis with a specific predicted failure, which is genuinely useful — it is what made the eval case sharp enough to be decisive. What it does not produce is evidence. This round predicted the misgrade, named the exact line that would cause it, wrote the case that would expose it, and then watched three models not make it. Adversarial reading tells you what to measure; only running it tells you what happens.
+
+Do not read this as "the written ambiguity does not matter." It may matter for a weaker model, a longer document, or a future model that reads the line more literally — the sealed holdout cases exist for exactly that re-test. The claim being retired is the strong one: that the doctrine grades a self-planted strawman wrong *today*.
+
+And do not turn either candidate rule into a blanket ban, which is what the guards protect against. `actual` earns its place against a figure the reader was given (advertised 40 ms p99 versus a measured 2.3 s). `key` earns its place when it ranks among alternatives that were enumerated and the criterion is stated. `This is not a memory leak` is required when the user asked whether it was one. The test is not whether the word or the negation appears; it is whether the alternative it points at exists for the reader.
 
 ### Eval coverage
 
-- `evals/evals.json`: `hollow-modifier-false-implicature` (tune), `self-planted-strawman-contrast` (holdout).
-- `evals/rewrite-evals.json`: `hollow-modifier-delete-not-expand` (tune), `invented-contrast-cut-the-strawman` (holdout).
-- `evals/adversarial.json`: `substantive-actual-measured-vs-advertised` (tune), `negation-answers-the-users-hypothesis` (tune), `key-issue-earned-by-stated-ranking` (holdout).
-- Failure cards: `evals/failures/hollow-modifier-implicature.md`, `evals/failures/invented-contrast-strawman.md`.
+- `evals/evals.json`: `hollow-modifier-false-implicature` (tune), `self-planted-strawman-tune` (tune), `self-planted-strawman-contrast` (holdout, sealed).
+- `evals/rewrite-evals.json`: `hollow-modifier-delete-not-expand` (tune), `invented-contrast-cut-the-strawman` (holdout, sealed).
+- `evals/adversarial.json`: `substantive-actual-measured-vs-advertised` (tune), `negation-answers-the-users-hypothesis` (tune), `key-issue-earned-by-stated-ranking` (holdout, sealed).
+- `evals/meta-evals.json`: `suite-scope-document-vs-dialogue` (tune).
+- Run: `evals/results/2026-08-04-invented-contrast/` — plan in `README.md`, scores and analysis in `RESULTS.md`, 15 outputs and per-assertion judgments under `phase0-baseline/`.
+- Graveyard: two entries in `evals/rejected-edits.md`.
+- Failure cards: `evals/failures/hollow-modifier-implicature.md`, `evals/failures/invented-contrast-strawman.md` — both now carry the measured outcome.
 
 ## 2026-06-14 — Borrowed surface rules were inert; our mechanism tests already subsume them
 

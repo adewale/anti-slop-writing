@@ -1,0 +1,5 @@
+{"id": "substantive-actual-measured-vs-advertised", "split": "tune", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "negation-answers-the-users-hypothesis", "split": "tune", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "hollow-modifier-false-implicature", "split": "tune", "suite": "evals.json", "score": 0.75, "all_pass": false, "n_passed": 3, "n_assertions": 4, "assertion_score": 0.75, "graded_score": 0.8, "n_graded_dimensions": 2}
+{"id": "self-planted-strawman-tune", "split": "tune", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 5, "n_assertions": 5, "assertion_score": 1.0, "graded_score": 1.0, "n_graded_dimensions": 2}
+{"id": "hollow-modifier-delete-not-expand", "split": "tune", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 4, "n_assertions": 4, "assertion_score": 1.0, "graded_score": 1.0, "n_graded_dimensions": 2}

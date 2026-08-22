@@ -6,6 +6,8 @@ This note supersedes the 2026-05-29 infrastructure baseline and the small 2026-0
 
 ## Current merged result notes
 
+- `evals/results/2026-08-04-invented-contrast/` — hollow modifiers and self-planted strawmen, imported from an X thread. **Both hypotheses rejected; `SKILL.md` unchanged.** Phase 0 baseline over five tune cases × three apply models: binary mean 0.9833, graded 0.9800, saturation 0.800/0.600. The decisive H2 case sits flat at 1.00 across all models, and the predicted misgrade never occurred — models already scope the staccato test's "evidenced" to what the user actually said. The stop rule fired before a treatment arm was built, so there is no `score_delta.py` verdict for this round by design. Seven cases stay as regression coverage; two holdout cases never unsealed. Both candidate blocks in `evals/rejected-edits.md`.
+
 - `evals/results/2026-05-30-holdout-regression-check/` — procedural emphasis-source / syntax-relation doctrine: 12/12 branch-run holdout cases passed; 10/10 comparable baseline cases stayed 1.0 → 1.0.
 - `evals/results/2026-05-30-rebaseline.md` and `evals/results/rebaseline-2026-05-30/` — ask-author / Rewrite check / both-sides Staccato doctrine: 15/15 holdout cases passed; 10/10 comparable baseline cases stayed 1.0 → 1.0.
 - `evals/results/2026-05-27-emphasis-source-experiment.md` — blinded A/B history for procedural-vs-label wording. The qualitative artifact improved (the agent wrote the flattened sentence), while the small-N statistical gate did not accept the score delta.

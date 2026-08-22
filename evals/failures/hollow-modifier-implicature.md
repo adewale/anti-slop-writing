@@ -38,4 +38,6 @@ My recommendation is to ship the migration behind a flag. The backfill takes ele
 
 ## Rule added or changed
 
-None yet. The cases are coverage for an untested hypothesis; see `TODO.md` for the A/B that decides whether doctrine is needed.
+None. Measured on 2026-08-04 and rejected: `implicature-naming` scored 5 on all three models, so the existing `undue significance language` detector and emphasis-source test already produce this behavior. The candidate word list is in `evals/rejected-edits.md`; scores in `evals/results/2026-08-04-invented-contrast/RESULTS.md`.
+
+One miss survived measurement and is still open: haiku repaired `The key issue is deciding who owns the rollback` as `Deciding who owns the rollback is the remaining blocker`, substituting an adjective into the slot `key` vacated. A three-judge panel was unanimous that this fails. It is repair purity on the weakest model from a single observation, so it needs a rate study before any doctrine text (`TODO.md`).

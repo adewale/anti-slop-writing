@@ -1,0 +1,28 @@
+{
+  "round": "2026-08-04-invented-contrast",
+  "phase": "phase0-baseline",
+  "date": "2026-08-04",
+  "arm": "baseline",
+  "skill_commit_state": "unmodified SKILL.md at branch claude/twitter-thread-eval-b3mxxi",
+  "split_scored": "tune",
+  "holdout_status": "sealed - not scored in Phase 0",
+  "apply": {
+    "axis": "model",
+    "models": ["claude-opus-5", "claude-sonnet-5", "claude-haiku-4-5-20251001"],
+    "agents_saw_assertions": false,
+    "input": "phase0-baseline/apply-prompts.json (apply_prompt only, assertions stripped)"
+  },
+  "judge": {
+    "model": "claude-opus-5",
+    "fixed_across_apply_axis": true,
+    "rationale": "README.md amendment A2: judge held constant so the apply model is the only variable.",
+    "panel_escalation": {
+      "case": "hollow-modifier-false-implicature",
+      "trigger": "apply models disagreed on case outcome",
+      "judges": ["claude-opus-5", "claude-sonnet-5", "claude-haiku-4-5-20251001"]
+    }
+  },
+  "known_limitation": "Single-family panel. Apply and judge are both Claude, so self-preference is undiluted (docs/judge-protocol.md, Lessons_learned.md -> judge biases). Reported as a coverage signal, not a calibrated number. A positive result would be the one to distrust; this round returned a null, which that bias does not manufacture.",
+  "score_delta_applicable": false,
+  "score_delta_reason": "Phase 0 is baseline-only. The pre-committed stop rule fired before any treatment arm was built, so there is no before/after pair to gate."
+}

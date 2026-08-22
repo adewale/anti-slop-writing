@@ -15,10 +15,10 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 
 ## Open — buildable without the blocked item
 
-- [ ] **Run the pre-registered 2026-08-04 round.** Plan, hypotheses, arms, SESOI, judge panel, accept/reject rule, and both candidate doctrine blocks are fixed in `evals/results/2026-08-04-invented-contrast/README.md`; the executable worklist is `worklist.json` beside it. Nothing has been scored yet.
-  - Start with Phase 0: baseline on the four tune cases only, holdout sealed. If baseline passes all four unanimously, stop and write it up as a null — that is the third consecutive "already covered" and belongs in `Lessons_learned.md`, not `SKILL.md`.
-  - The Pareto veto is checked before the gate: any regression on the three adversarial guards rejects the arm outright, whatever the mean delta. A rule that catches strawmen by banning negation is worse than no rule.
-  - Do not revise the candidate blocks mid-round. They are written down precisely so a disappointing result cannot reshape them; append a `## Deviations` section instead.
+- [ ] **Rate study: does the doctrine steer weaker models to repair by deletion?** The one miss to survive the 2026-08-04 round. Haiku repaired `The key issue is deciding who owns the rollback` as `Deciding who owns the rollback is the remaining blocker`, substituting an adjective into the slot `key` vacated; a three-judge panel was unanimous that this fails. Opus and Sonnet both repaired cleanly.
+  - This is one observation, which is exactly what `Lessons_learned.md` → "A variance gap is not a doctrine gap" says not to write doctrine for. Run the rate study first: N samples of `hollow-modifier-false-implicature` on Haiku, behavioral classification (substituted / deleted), compare rates. Only if substitution reproduces is there a gap.
+  - If it reproduces, the candidate is narrower than the rejected H1 block: not a word list, but a line in the repair guidance saying a hollow modifier is repaired by deleting the slot, not refilling it. Gate it normally.
+  - Do not revive the rejected H1 word list on the strength of this. It is in `evals/rejected-edits.md` for a reason: detection was already at ceiling on all three models.
 
 
 - [ ] **Cross-family judge.** The baseline judges are Claude grading Claude output (same-family, self-preference risk per `Lessons_learned.md`). A non-Claude judge is not available in the current harness. Wire one in when a second model family is reachable.

@@ -46,4 +46,8 @@ When the alternative came from the user, the negation is required, not manufactu
 
 ## Rule added or changed
 
-None yet. If the A/B in `TODO.md` shows the gap is real, the candidate edit is a dialogic scope for the staccato contrast test: before grading a contrast earned, ask who introduced the opposing side, and treat a side the writer supplied themselves as unearned regardless of local evidence.
+None. Measured on 2026-08-04 and rejected — and the analysis above, which reads the failure off the doctrine text, did not survive contact with the models.
+
+A tune sibling of this case (`self-planted-strawman-tune`) scored 1.00 on all three models, flat at CEILING. None made the predicted misgrade. All three cut the invented premise, and Opus classified it `decorative` with the reason the doctrine never spells out: `neither side is evidenced by anything the user said`. Models already read "evidenced" as scoped to what was established in the exchange, not to prose the writer controls.
+
+Keep this file for the mechanism, which is real and worth naming, but read the "Why it failed" section as what it is: a hypothesis about how the rule would be applied, not a description of how it is applied. Candidate edit in `evals/rejected-edits.md`; scores in `evals/results/2026-08-04-invented-contrast/RESULTS.md`; method lesson in `Lessons_learned.md` → "An adversarial reading of a rule is a hypothesis about behavior".

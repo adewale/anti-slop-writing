@@ -84,3 +84,51 @@ Every paired delta was exactly 0.00; Opus produced byte-identical rewrites under
 ### Lesson (if any)
 
 Recorded in `Lessons_learned.md` → "Borrowed surface rules were inert; our mechanism tests already subsume them."
+
+## 2026-08-04 — Hollow-modifier word list (H1)
+
+### Edit attempted
+
+Append to the `Words to review` section of `SKILL.md` a `Hollow modifiers` block naming `actual`, `real`, `true`, `genuine`, `honest`, `clear`, `main`, `key`, `important`, with a deletion test ("delete when removal leaves the meaning unchanged"), the distinction from prestige adjectives ("these say nothing about their noun; they assert a contrast with alternatives the reader was never given"), a repair direction ("by deletion, not by naming a mechanism"), and two earned-use boundaries. Full text in `evals/results/2026-08-04-invented-contrast/README.md` → Candidate doctrine edits. Sourced from [@stanine, 2026-08-03](https://x.com/stanine/status/2084385000959701146).
+
+### Eval that rejected it
+
+Phase 0 baseline probe, `evals/results/2026-08-04-invented-contrast/` (plan in `README.md`, scores in `RESULTS.md`). Three apply models (Opus 5, Sonnet 5, Haiku 4.5), judge fixed at Opus, apply agents blind to assertions. Cases: `evals/evals.json` → `hollow-modifier-false-implicature` (tune), `evals/rewrite-evals.json` → `hollow-modifier-delete-not-expand` (tune), `evals/adversarial.json` → `substantive-actual-measured-vs-advertised` (tune). The pre-committed stop rule fired at Phase 0, so the treatment arm was never built and no `score_delta.py` gate was run.
+
+### Why it was rejected
+
+Detection was already at ceiling. The `implicature-naming` graded dimension scored **5 on all three models**: each one flagged `actual`/`real`/`key`, applied the deletion test unprompted, and named the false implication about alternatives the reader was never given. The existing `undue significance language` detector and the emphasis-source test already produce the behavior the block asks for, so the block would have restated a live capability — the exact 2026-06-14 failure mode.
+
+One real miss survived and is deliberately *not* being used to justify the block. Haiku repaired `The key issue is deciding who owns the rollback` as `Deciding who owns the rollback is the remaining blocker`, substituting `remaining` into the slot `key` vacated; a three-judge escalation panel was unanimous that this fails. That is a repair-purity failure on the weakest model, from a single observation, and `Lessons_learned.md` → "A variance gap is not a doctrine gap" requires a rate study before doctrine text. Tracked in `TODO.md`.
+
+### Lesson (if any)
+
+Blank. The graveyard marker is the point: the word list is inert against current detection, and the haiku repair miss is a separate open question, not a reason to revive this block.
+
+## 2026-08-04 — Provenance check on the staccato contrast test (H2)
+
+### Edit attempted
+
+Insert a `Provenance check` before the earned/compressed/decorative classification in `SKILL.md`: ask who introduced the opposing side; if the writer supplied it themselves and no one raised it, cut the premise rather than evidencing it; do not grade it earned because the writer's own prior sentence supplies that side; when drafting a reply, the alternatives that count as raised are the ones in the user's message. Full text in `evals/results/2026-08-04-invented-contrast/README.md`. Sourced from the same thread.
+
+### Eval that rejected it
+
+Same Phase 0 probe. Decisive case: `evals/evals.json` → `self-planted-strawman-tune` (tune), written specifically so Phase 0 could test this without unsealing the two holdout cases. Guard: `evals/adversarial.json` → `negation-answers-the-users-hypothesis` (tune).
+
+### Why it was rejected
+
+`self-planted-strawman-tune` scored **1.00 on all three models**, flat at CEILING per `saturation_index.py`. Every model cut the invented premise.
+
+The rejection is sharper than a null, because the predicted failure did not occur and the prediction was specific. The plan argued that `both sides of the contrast are evidenced in the prior sentences` scopes to the passage under review — which the writer controls — so a self-planted strawman would grade `earned`, or grade `compressed` and be repaired by evidencing the invented side. Opus instead wrote:
+
+> The staccato contrast test classifies this as decorative: neither side is evidenced by anything the user said.
+
+and closed with:
+
+> Deleting the first two sentences loses nothing, because the writer supplied the opponent.
+
+That is the candidate rule, generated from the doctrine as it stands. Haiku independently named it a "self-planted strawman" and "defeating an argument nobody made." Models already read "evidenced" as scoped to what was actually established in the exchange, not to prose the writer controls.
+
+### Lesson (if any)
+
+Recorded in `Lessons_learned.md` → "An adversarial reading of a rule is a hypothesis about behavior, not an observation of it." A rule can be genuinely ambiguous on the page and unambiguous in application. Deriving a gap by close-reading doctrine text predicts a misgrade; only running it observes one.

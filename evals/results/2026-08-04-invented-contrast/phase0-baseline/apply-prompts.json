@@ -1,0 +1,33 @@
+{
+  "phase": "phase0-baseline",
+  "split": "tune",
+  "unit_count": 5,
+  "warning": "Apply prompts only. Assertions deliberately excluded (docs/judge-protocol.md).",
+  "units": [
+    {
+      "suite": "evals.json",
+      "id": "hollow-modifier-false-implicature",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph and rewrite the lines that need it. It is the opening of an internal design doc; nothing precedes it and no earlier recommendation or reason was given.\n\nMy actual recommendation is to ship the migration behind a flag. The real reason is that the backfill takes eleven hours and cannot be paused once it starts. The key issue is deciding who owns the rollback."
+    },
+    {
+      "suite": "evals.json",
+      "id": "self-planted-strawman-tune",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this reply an assistant wrote. The user's entire message was: 'should I add an index on user_id?' The user did not mention hardware, instance size, or scaling up.\n\nThe instinct in cases like this is to reach for a bigger instance. But throwing hardware at it is not the fix. The fix is an index on user_id, which turns the sequential scan over 40 million rows into a lookup."
+    },
+    {
+      "suite": "rewrite-evals.json",
+      "id": "hollow-modifier-delete-not-expand",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nRewrite without AI slop: The true benefit of the new scheduler is that it gives teams genuine visibility into the actual state of every job."
+    },
+    {
+      "suite": "adversarial.json",
+      "id": "substantive-actual-measured-vs-advertised",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this line from an incident write-up. The preceding paragraph quoted the vendor's advertised p99 of 40 ms.\n\nThe actual p99 during the incident was 2.3 seconds."
+    },
+    {
+      "suite": "adversarial.json",
+      "id": "negation-answers-the-users-hypothesis",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this reply. The user asked: 'Is this a memory leak? RSS climbs to 6 GB and never drops.'\n\nThis is not a memory leak. The arena allocator holds freed blocks until the request finishes, so RSS tracks the high-water mark of the largest request rather than live data."
+    }
+  ]
+}

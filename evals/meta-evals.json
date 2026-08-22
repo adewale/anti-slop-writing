@@ -103,6 +103,30 @@
       ]
     },
     {
+      "id": "suite-scope-document-vs-dialogue",
+      "split": "tune",
+      "source": "Motivated by https://x.com/stanine/status/2084385000959701146 (Matt MacInnis, 2026-08-03). Prompt and assertions are ours.",
+      "prompt": "Every contrast case in this eval suite hands the reviewer a passage and asks whether the contrast is earned by the surrounding prose. A maintainer proposes closing the remaining gaps by adding six more cases of the same shape. Review the suite design and say what this scoping can and cannot measure.",
+      "expected_output": "Identifies the scoping limit: a test applied to the passage under review cannot establish who introduced the opposing side, so a contrast whose alternative the writer supplied themselves is indistinguishable from one answering an objection the reader actually raised. Notes that more same-shape cases cannot close this, and recommends cases carrying context outside the reviewed prose.",
+      "assertions": [
+        "Names the scoping limit: judging a contrast against the surrounding passage cannot establish whether anyone other than the writer raised the opposing side.",
+        "States that adding more passage-only contrast cases does not close this gap, because every such case is decided by prose the writer controls.",
+        "Recommends at least one case shape that carries context outside the reviewed prose, such as a user message paired with the reply written in response to it."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "gap-diagnosis",
+          "scale": "1-5",
+          "rubric": "5 = names provenance-versus-evidence as the distinction the current scoping cannot make; 3 = says coverage is narrow without naming what the scoping structurally cannot see; 1 = endorses adding more of the same cases."
+        },
+        {
+          "name": "proposed-case-shape",
+          "scale": "1-5",
+          "rubric": "5 = proposes a concrete case shape carrying context the writer does not control; 3 = asks for 'more diverse cases' without a shape; 1 = no proposal."
+        }
+      ]
+    },
+    {
       "id": "word-list-drift",
       "split": "tune",
       "prompt": "External reporting says 'delve' usage in LLM outputs dropped off sharply during 2025 after peaking in 2023-2024 (no precise figure is given in the source), while new patterns such as copula displacement and hedged symmetry have become more visible. What should change in the high-risk word list?",

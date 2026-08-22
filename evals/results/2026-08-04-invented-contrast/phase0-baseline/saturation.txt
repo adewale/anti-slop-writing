@@ -1,0 +1,25 @@
+=== binary ===
+case                                      n   min   max  mean  flag
+hollow-modifier-delete-not-expand         3  1.00  1.00  1.00  CEILING
+hollow-modifier-false-implicature         3  0.75  1.00  0.92  spread
+negation-answers-the-users-hypothesis     3  1.00  1.00  1.00  CEILING
+self-planted-strawman-tune                3  1.00  1.00  1.00  CEILING
+substantive-actual-measured-vs-advertised  3  1.00  1.00  1.00  CEILING
+
+Cases:             5
+At ceiling:        4
+Saturation index:  0.800  (fraction of cases with no spread at the ceiling)
+Note: a zero delta on CEILING cases is only no-regression evidence; harden or retire them.
+
+=== with graded dimensions ===
+case                                      n   min   max  mean  flag
+hollow-modifier-delete-not-expand         3  0.97  1.00  0.99  spread
+hollow-modifier-false-implicature         3  0.77  1.00  0.91  spread
+negation-answers-the-users-hypothesis     3  1.00  1.00  1.00  CEILING
+self-planted-strawman-tune                3  1.00  1.00  1.00  CEILING
+substantive-actual-measured-vs-advertised  3  1.00  1.00  1.00  CEILING
+
+Cases:             5
+At ceiling:        3
+Saturation index:  0.600  (fraction of cases with no spread at the ceiling)
+Note: a zero delta on CEILING cases is only no-regression evidence; harden or retire them.

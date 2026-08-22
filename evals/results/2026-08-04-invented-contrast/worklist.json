@@ -1,0 +1,184 @@
+{
+  "skill_name": "anti-slop-writing",
+  "round": "2026-08-04-invented-contrast",
+  "note": "Regenerate per README.md; source of truth is the eval JSON files. Do not hand-edit.",
+  "split": "all",
+  "skill_path": "skills/anti-slop-writing/SKILL.md",
+  "unit_count": 8,
+  "units": [
+    {
+      "suite": "evals.json",
+      "id": "hollow-modifier-false-implicature",
+      "split": "tune",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph and rewrite the lines that need it. It is the opening of an internal design doc; nothing precedes it and no earlier recommendation or reason was given.\n\nMy actual recommendation is to ship the migration behind a flag. The real reason is that the backfill takes eleven hours and cannot be paused once it starts. The key issue is deciding who owns the rollback.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph and rewrite the lines that need it. It is the opening of an internal design doc; nothing precedes it and no earlier recommendation or reason was given.\n\nMy actual recommendation is to ship the migration behind a flag. The real reason is that the backfill takes eleven hours and cannot be paused once it starts. The key issue is deciding who owns the rollback.\n\nEXPECTED:\nA critique that flags 'actual', 'real', and 'key' as modifiers carrying no information about their nouns, names the false implication each creates about alternatives the reader was never given, and repairs by deleting the modifier rather than substituting another adjective or adding an explanatory clause.\n\nASSERTIONS (judge each independently):\n1. Flags at least two of 'actual recommendation', 'real reason', 'key issue' as modifiers that can be deleted without changing what the sentence says.\n2. Names the false implication: 'actual' and 'real' imply an earlier recommendation or reason was offered and was not the genuine one, when nothing precedes this paragraph.\n3. Does not excuse the modifiers on the grounds that the surrounding sentence already names a concrete mechanism (eleven-hour backfill, no pause once started, rollback owner).\n4. Repairs by deletion ('My recommendation', 'The reason', 'The issue') rather than by substituting another adjective or expanding into a clause that justifies the modifier.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. implicature-naming (1-5): 5 = states what the modifier falsely implies about alternatives the reader was never shown; 3 = calls the word vague, filler, or unnecessary without naming the implication; 1 = does not flag it.\n2. repair-by-deletion (1-5): 5 = every repair is a deletion and each line gets shorter; 3 = swaps in a different modifier or keeps one hollow modifier; 1 = expands the line to justify the modifier.\n\nEmit one JSON object: {\"id\": \"hollow-modifier-false-implicature\", \"suite\": \"evals.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags at least two of 'actual recommendation', 'real reason', 'key issue' as modifiers that can be deleted without changing what the sentence says.",
+        "Names the false implication: 'actual' and 'real' imply an earlier recommendation or reason was offered and was not the genuine one, when nothing precedes this paragraph.",
+        "Does not excuse the modifiers on the grounds that the surrounding sentence already names a concrete mechanism (eleven-hour backfill, no pause once started, rollback owner).",
+        "Repairs by deletion ('My recommendation', 'The reason', 'The issue') rather than by substituting another adjective or expanding into a clause that justifies the modifier."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "implicature-naming",
+          "scale": "1-5",
+          "rubric": "5 = states what the modifier falsely implies about alternatives the reader was never shown; 3 = calls the word vague, filler, or unnecessary without naming the implication; 1 = does not flag it."
+        },
+        {
+          "name": "repair-by-deletion",
+          "scale": "1-5",
+          "rubric": "5 = every repair is a deletion and each line gets shorter; 3 = swaps in a different modifier or keeps one hollow modifier; 1 = expands the line to justify the modifier."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "evals.json",
+      "id": "self-planted-strawman-tune",
+      "split": "tune",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this reply an assistant wrote. The user's entire message was: 'should I add an index on user_id?' The user did not mention hardware, instance size, or scaling up.\n\nThe instinct in cases like this is to reach for a bigger instance. But throwing hardware at it is not the fix. The fix is an index on user_id, which turns the sequential scan over 40 million rows into a lookup.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this reply an assistant wrote. The user's entire message was: 'should I add an index on user_id?' The user did not mention hardware, instance size, or scaling up.\n\nThe instinct in cases like this is to reach for a bigger instance. But throwing hardware at it is not the fix. The fix is an index on user_id, which turns the sequential scan over 40 million rows into a lookup.\n\nEXPECTED:\nA critique that flags the invented opposing view: the assistant introduced the bigger-instance hypothesis itself and then refuted it, and because no one raised it the contrast is manufactured. The repair is to cut the invented premise, not to keep it (earned) and not to supply evidence for it (the compressed-antithesis repair). The rewrite states the index finding directly.\n\nASSERTIONS (judge each independently):\n1. Flags 'The instinct in cases like this is to reach for a bigger instance' as an opposing view the assistant introduced itself and the user never raised.\n2. Does not grade the 'not the fix / the fix is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the hardware side.\n3. Does not repair by evidencing the bigger-instance side; the invented premise is cut, not supported.\n4. Rewrite deletes the invented setup and states the index mechanism directly, keeping the sequential scan over 40 million rows.\n5. Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. strawman-attribution (1-5): 5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up.\n2. repair-directness (1-5): 5 = the rewrite opens on the index mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure.\n\nEmit one JSON object: {\"id\": \"self-planted-strawman-tune\", \"suite\": \"evals.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags 'The instinct in cases like this is to reach for a bigger instance' as an opposing view the assistant introduced itself and the user never raised.",
+        "Does not grade the 'not the fix / the fix is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the hardware side.",
+        "Does not repair by evidencing the bigger-instance side; the invented premise is cut, not supported.",
+        "Rewrite deletes the invented setup and states the index mechanism directly, keeping the sequential scan over 40 million rows.",
+        "Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-attribution",
+          "scale": "1-5",
+          "rubric": "5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up."
+        },
+        {
+          "name": "repair-directness",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite opens on the index mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "evals.json",
+      "id": "self-planted-strawman-contrast",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this reply an assistant wrote. The user's entire message was: 'why is the deploy slow?' The user did not mention Docker or the build at any point.\n\nIt would be easy to assume the slowness comes from the Docker build. But the build is not the problem. The problem is that the readiness probe waits a fixed 30 seconds before its first check, so every rollout pays that delay once per pod.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this reply an assistant wrote. The user's entire message was: 'why is the deploy slow?' The user did not mention Docker or the build at any point.\n\nIt would be easy to assume the slowness comes from the Docker build. But the build is not the problem. The problem is that the readiness probe waits a fixed 30 seconds before its first check, so every rollout pays that delay once per pod.\n\nEXPECTED:\nA critique that flags the invented opposing view: the assistant introduced the Docker-build hypothesis itself and then refuted it, and because no one raised it the contrast is manufactured. The repair is to cut the invented premise, not to keep it (earned) and not to supply evidence for it (the compressed-antithesis repair). The rewrite states the readiness-probe finding directly.\n\nASSERTIONS (judge each independently):\n1. Flags 'It would be easy to assume the slowness comes from the Docker build' as an opposing view the assistant introduced itself and the user never raised.\n2. Does not grade the 'not the problem / the problem is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the Docker-build side.\n3. Does not repair by evidencing the Docker-build side; the invented premise is cut, not supported.\n4. Rewrite deletes the invented setup and states the readiness-probe mechanism directly, keeping the fixed 30-second wait and the per-pod cost.\n5. Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. strawman-attribution (1-5): 5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up.\n2. repair-directness (1-5): 5 = the rewrite opens on the probe mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure.\n\nEmit one JSON object: {\"id\": \"self-planted-strawman-contrast\", \"suite\": \"evals.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags 'It would be easy to assume the slowness comes from the Docker build' as an opposing view the assistant introduced itself and the user never raised.",
+        "Does not grade the 'not the problem / the problem is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the Docker-build side.",
+        "Does not repair by evidencing the Docker-build side; the invented premise is cut, not supported.",
+        "Rewrite deletes the invented setup and states the readiness-probe mechanism directly, keeping the fixed 30-second wait and the per-pod cost.",
+        "Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-attribution",
+          "scale": "1-5",
+          "rubric": "5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up."
+        },
+        {
+          "name": "repair-directness",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite opens on the probe mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "rewrite-evals.json",
+      "id": "hollow-modifier-delete-not-expand",
+      "split": "tune",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nRewrite without AI slop: The true benefit of the new scheduler is that it gives teams genuine visibility into the actual state of every job.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nRewrite without AI slop: The true benefit of the new scheduler is that it gives teams genuine visibility into the actual state of every job.\n\nEXPECTED:\nDeletes 'true', 'genuine', and 'actual' without substituting other adjectives, and returns a shorter sentence. Because the source names no mechanism behind 'visibility', the rewrite keeps the plain claim or marks the missing specifics ask-author; it must not invent a metric, screen, or refresh interval.\n\nASSERTIONS (judge each independently):\n1. Removes 'true', 'genuine', and 'actual'.\n2. Does not substitute replacement adjectives ('real', 'complete', 'full', 'clear', 'live') for the deleted ones.\n3. Returns a sentence no longer than the input in word count.\n4. Does not invent a mechanism the source lacks (a named metric, dashboard, refresh interval, or job state machine); either keeps the plain claim or marks the missing specifics ask-author.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. length-control (1-5): 5 = shorter than the input; 3 = same length; 1 = longer than the input.\n2. deletion-fidelity (1-5): 5 = repairs by deletion only; 3 = deletes some modifiers and substitutes others; 1 = keeps the modifiers or adds new ones.\n\nEmit one JSON object: {\"id\": \"hollow-modifier-delete-not-expand\", \"suite\": \"rewrite-evals.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Removes 'true', 'genuine', and 'actual'.",
+        "Does not substitute replacement adjectives ('real', 'complete', 'full', 'clear', 'live') for the deleted ones.",
+        "Returns a sentence no longer than the input in word count.",
+        "Does not invent a mechanism the source lacks (a named metric, dashboard, refresh interval, or job state machine); either keeps the plain claim or marks the missing specifics ask-author."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = shorter than the input; 3 = same length; 1 = longer than the input."
+        },
+        {
+          "name": "deletion-fidelity",
+          "scale": "1-5",
+          "rubric": "5 = repairs by deletion only; 3 = deletes some modifiers and substitutes others; 1 = keeps the modifiers or adds new ones."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "rewrite-evals.json",
+      "id": "invented-contrast-cut-the-strawman",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nRewrite this opening paragraph of a release note. Nothing precedes it, and the reader has been told nothing about pricing or billing.\n\nThis release is not about pricing. It is not a rewrite of the billing stack either. It is about giving you a way to see which queries are slow: the dashboard now groups queries by normalized shape and sorts each group by total time.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nRewrite this opening paragraph of a release note. Nothing precedes it, and the reader has been told nothing about pricing or billing.\n\nThis release is not about pricing. It is not a rewrite of the billing stack either. It is about giving you a way to see which queries are slow: the dashboard now groups queries by normalized shape and sorts each group by total time.\n\nEXPECTED:\nCuts both negations, because neither pricing nor a billing rewrite was ever raised, and opens on the mechanism: grouping by normalized query shape and sorting each group by total time.\n\nASSERTIONS (judge each independently):\n1. Removes both 'not about pricing' and 'not a rewrite of the billing stack' rather than keeping one as a concession.\n2. Opens on the concrete mechanism (normalized query shape, sorted by total time) instead of on a negation.\n3. Does not substitute another X-not-Y, 'not just X but Y', or 'this is about X rather than Y' construction.\n4. Does not invent a reason the reader might have expected a pricing or billing change.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. strawman-removal (1-5): 5 = both invented alternatives are gone and no replacement negation appears; 3 = one removed or one swapped for a different negation; 1 = the not-X framing survives.\n2. length-control (1-5): 5 = shorter than the input while keeping the grouping and sorting mechanism; 3 = same length; 1 = longer.\n\nEmit one JSON object: {\"id\": \"invented-contrast-cut-the-strawman\", \"suite\": \"rewrite-evals.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Removes both 'not about pricing' and 'not a rewrite of the billing stack' rather than keeping one as a concession.",
+        "Opens on the concrete mechanism (normalized query shape, sorted by total time) instead of on a negation.",
+        "Does not substitute another X-not-Y, 'not just X but Y', or 'this is about X rather than Y' construction.",
+        "Does not invent a reason the reader might have expected a pricing or billing change."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-removal",
+          "scale": "1-5",
+          "rubric": "5 = both invented alternatives are gone and no replacement negation appears; 3 = one removed or one swapped for a different negation; 1 = the not-X framing survives."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = shorter than the input while keeping the grouping and sorting mechanism; 3 = same length; 1 = longer."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "adversarial.json",
+      "id": "substantive-actual-measured-vs-advertised",
+      "split": "tune",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this line from an incident write-up. The preceding paragraph quoted the vendor's advertised p99 of 40 ms.\n\nThe actual p99 during the incident was 2.3 seconds.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this line from an incident write-up. The preceding paragraph quoted the vendor's advertised p99 of 40 ms.\n\nThe actual p99 during the incident was 2.3 seconds.\n\nEXPECTED:\nKeeps 'actual'. It distinguishes the measured figure from the advertised one, and the advertised figure was given in the prior paragraph, so deleting the word loses the distinction.\n\nASSERTIONS (judge each independently):\n1. Returns keep, or an edit that preserves the measured-versus-advertised distinction.\n2. Names the advertised 40 ms p99 in the prior paragraph as what 'actual' distinguishes against.\n3. Does not delete 'actual' on the grounds that it is an empty intensifier or appears on a hollow-modifier list.\n\nGRADED DIMENSIONS (score 1-5 when present):\n(none)\n\nEmit one JSON object: {\"id\": \"substantive-actual-measured-vs-advertised\", \"suite\": \"adversarial.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Returns keep, or an edit that preserves the measured-versus-advertised distinction.",
+        "Names the advertised 40 ms p99 in the prior paragraph as what 'actual' distinguishes against.",
+        "Does not delete 'actual' on the grounds that it is an empty intensifier or appears on a hollow-modifier list."
+      ],
+      "graded_dimensions": [],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "adversarial.json",
+      "id": "negation-answers-the-users-hypothesis",
+      "split": "tune",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this reply. The user asked: 'Is this a memory leak? RSS climbs to 6 GB and never drops.'\n\nThis is not a memory leak. The arena allocator holds freed blocks until the request finishes, so RSS tracks the high-water mark of the largest request rather than live data.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this reply. The user asked: 'Is this a memory leak? RSS climbs to 6 GB and never drops.'\n\nThis is not a memory leak. The arena allocator holds freed blocks until the request finishes, so RSS tracks the high-water mark of the largest request rather than live data.\n\nEXPECTED:\nKeeps the negation. The user raised the memory-leak hypothesis, so the correction answers a question that was actually asked rather than inventing an opponent.\n\nASSERTIONS (judge each independently):\n1. Returns keep for 'This is not a memory leak.'\n2. Identifies the user's question as the source of the alternative, so the negation is a correction rather than an invented contrast.\n3. Does not recommend rewriting the correction into a bare positive claim that leaves the user's hypothesis unanswered.\n\nGRADED DIMENSIONS (score 1-5 when present):\n(none)\n\nEmit one JSON object: {\"id\": \"negation-answers-the-users-hypothesis\", \"suite\": \"adversarial.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Returns keep for 'This is not a memory leak.'",
+        "Identifies the user's question as the source of the alternative, so the negation is a correction rather than an invented contrast.",
+        "Does not recommend rewriting the correction into a bare positive claim that leaves the user's hypothesis unanswered."
+      ],
+      "graded_dimensions": [],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "adversarial.json",
+      "id": "key-issue-earned-by-stated-ranking",
+      "split": "holdout",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this paragraph from a regression report:\n\nWe found three regressions: CPU is up 4%, one log line is duplicated, and a lock serializes all writes above 200 rps. The key issue is the lock; the other two do not change throughput.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this paragraph from a regression report:\n\nWe found three regressions: CPU is up 4%, one log line is duplicated, and a lock serializes all writes above 200 rps. The key issue is the lock; the other two do not change throughput.\n\nEXPECTED:\nKeeps 'key issue'. The modifier ranks among three alternatives the reader was just given, and the same sentence states the criterion for the ranking, so it carries information.\n\nASSERTIONS (judge each independently):\n1. Returns keep for 'The key issue is the lock'.\n2. Names the enumerated three regressions and the stated criterion ('the other two do not change throughput') as what earns the ranking.\n3. Does not apply a delete-the-modifier test mechanically to a modifier that selects among alternatives the reader was actually given.\n\nGRADED DIMENSIONS (score 1-5 when present):\n(none)\n\nEmit one JSON object: {\"id\": \"key-issue-earned-by-stated-ranking\", \"suite\": \"adversarial.json\", \"split\": \"holdout\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Returns keep for 'The key issue is the lock'.",
+        "Names the enumerated three regressions and the stated criterion ('the other two do not change throughput') as what earns the ranking.",
+        "Does not apply a delete-the-modifier test mechanically to a modifier that selects among alternatives the reader was actually given."
+      ],
+      "graded_dimensions": [],
+      "dynamic_rubric": null
+    }
+  ]
+}

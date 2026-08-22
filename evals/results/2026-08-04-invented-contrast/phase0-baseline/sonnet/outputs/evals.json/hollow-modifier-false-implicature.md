@@ -1,0 +1,8 @@
+Verdict: revise
+Slop tells: "actual," "real," and "key" are contrastive modifiers — each implies a rejected alternative ("my *actual* recommendation" implies a prior apparent one, "the *real* reason" implies a prior false one, "the *key* issue" implies other, lesser issues already on the table). This is the opening of the doc; nothing precedes it, so there is no discarded recommendation, no false reason, and no list of lesser issues for these words to be contrasting against. Each modifier creates a false implicature. The three sentences also share one template ("The [modifier] [noun] is [clause]"), which turns reasoning into a checklist instead of an argument.
+Specificity missing: None on the facts themselves — ship-behind-flag, eleven-hour unpausable backfill, and rollback ownership are all concrete. The problem is confined to the three modifiers and the flattened template.
+Inflated claim: "My actual recommendation," "the real reason," "the key issue" — each borrows the weight of a correction without a wrong answer on record to correct.
+Flow break: N/A (no prior paragraph to break from), but the repeated three-sentence template hides the actual relation between the parts: the backfill's length and unpausability are the reason rollback ownership has to be settled in advance, not three unrelated facts.
+Concrete rewrite: Ship the migration behind a flag. The backfill takes eleven hours and cannot be paused once it starts, so rollback ownership needs to be settled beforehand.
+Rewrite check: passes self-detectors — no rule-of-three, no X-not-Y, no em-dash antithesis, no banned avoid-by-default phrases, no prestige adjectives, no invented facts.
+Remembered line: The backfill takes eleven hours and cannot be paused once it starts.

@@ -324,6 +324,42 @@
         "Does not endorse the staccato three-fragment form as a finished good rewrite solely because it is short and direct.",
         "Names the missing relation (why people are the hard part) or recommends restoring it, rather than expanding into generic prose."
       ]
+    },
+    {
+      "id": "substantive-actual-measured-vs-advertised",
+      "split": "tune",
+      "source": "Derived from https://x.com/stanine/status/2084385000959701146 (Matt MacInnis, 2026-08-03). Prompts, targets, and rubrics are ours.",
+      "prompt": "Review this line from an incident write-up. The preceding paragraph quoted the vendor's advertised p99 of 40 ms.\n\nThe actual p99 during the incident was 2.3 seconds.",
+      "expected_output": "Keeps 'actual'. It distinguishes the measured figure from the advertised one, and the advertised figure was given in the prior paragraph, so deleting the word loses the distinction.",
+      "assertions": [
+        "Returns keep, or an edit that preserves the measured-versus-advertised distinction.",
+        "Names the advertised 40 ms p99 in the prior paragraph as what 'actual' distinguishes against.",
+        "Does not delete 'actual' on the grounds that it is an empty intensifier or appears on a hollow-modifier list."
+      ]
+    },
+    {
+      "id": "negation-answers-the-users-hypothesis",
+      "split": "tune",
+      "source": "Derived from https://x.com/stanine/status/2084385000959701146 (Matt MacInnis, 2026-08-03). Prompts, targets, and rubrics are ours.",
+      "prompt": "Review this reply. The user asked: 'Is this a memory leak? RSS climbs to 6 GB and never drops.'\n\nThis is not a memory leak. The arena allocator holds freed blocks until the request finishes, so RSS tracks the high-water mark of the largest request rather than live data.",
+      "expected_output": "Keeps the negation. The user raised the memory-leak hypothesis, so the correction answers a question that was actually asked rather than inventing an opponent.",
+      "assertions": [
+        "Returns keep for 'This is not a memory leak.'",
+        "Identifies the user's question as the source of the alternative, so the negation is a correction rather than an invented contrast.",
+        "Does not recommend rewriting the correction into a bare positive claim that leaves the user's hypothesis unanswered."
+      ]
+    },
+    {
+      "id": "key-issue-earned-by-stated-ranking",
+      "split": "holdout",
+      "source": "Derived from https://x.com/stanine/status/2084385000959701146 (Matt MacInnis, 2026-08-03). Prompts, targets, and rubrics are ours.",
+      "prompt": "Review this paragraph from a regression report:\n\nWe found three regressions: CPU is up 4%, one log line is duplicated, and a lock serializes all writes above 200 rps. The key issue is the lock; the other two do not change throughput.",
+      "expected_output": "Keeps 'key issue'. The modifier ranks among three alternatives the reader was just given, and the same sentence states the criterion for the ranking, so it carries information.",
+      "assertions": [
+        "Returns keep for 'The key issue is the lock'.",
+        "Names the enumerated three regressions and the stated criterion ('the other two do not change throughput') as what earns the ranking.",
+        "Does not apply a delete-the-modifier test mechanically to a modifier that selects among alternatives the reader was actually given."
+      ]
     }
   ]
 }

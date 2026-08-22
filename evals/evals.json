@@ -331,6 +331,32 @@
           "rubric": "5 = the rewrite opens on the probe mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure."
         }
       ]
+    },
+    {
+      "id": "self-planted-strawman-tune",
+      "split": "tune",
+      "source": "Derived from https://x.com/stanine/status/2084385000959701146 (Matt MacInnis, 2026-08-03). Prompts, targets, and rubrics are ours. Written as the tune sibling of self-planted-strawman-contrast so Phase 0 of the 2026-08-04 round can test H2 without unsealing the holdout.",
+      "prompt": "Review this reply an assistant wrote. The user's entire message was: 'should I add an index on user_id?' The user did not mention hardware, instance size, or scaling up.\n\nThe instinct in cases like this is to reach for a bigger instance. But throwing hardware at it is not the fix. The fix is an index on user_id, which turns the sequential scan over 40 million rows into a lookup.",
+      "expected_output": "A critique that flags the invented opposing view: the assistant introduced the bigger-instance hypothesis itself and then refuted it, and because no one raised it the contrast is manufactured. The repair is to cut the invented premise, not to keep it (earned) and not to supply evidence for it (the compressed-antithesis repair). The rewrite states the index finding directly.",
+      "assertions": [
+        "Flags 'The instinct in cases like this is to reach for a bigger instance' as an opposing view the assistant introduced itself and the user never raised.",
+        "Does not grade the 'not the fix / the fix is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the hardware side.",
+        "Does not repair by evidencing the bigger-instance side; the invented premise is cut, not supported.",
+        "Rewrite deletes the invented setup and states the index mechanism directly, keeping the sequential scan over 40 million rows.",
+        "Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-attribution",
+          "scale": "1-5",
+          "rubric": "5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up."
+        },
+        {
+          "name": "repair-directness",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite opens on the index mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure."
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,1 @@
+The new scheduler gives teams visibility into the state of every job.

@@ -1,10 +1,10 @@
 {
   "skill_name": "anti-slop-writing",
   "round": "2026-08-04-invented-contrast",
-  "note": "Regenerate with the command in README.md; do not hand-edit. Source of truth is the eval JSON files.",
+  "note": "Regenerate per README.md; source of truth is the eval JSON files. Do not hand-edit.",
   "split": "all",
   "skill_path": "skills/anti-slop-writing/SKILL.md",
-  "unit_count": 7,
+  "unit_count": 8,
   "units": [
     {
       "suite": "evals.json",
@@ -28,6 +28,33 @@
           "name": "repair-by-deletion",
           "scale": "1-5",
           "rubric": "5 = every repair is a deletion and each line gets shorter; 3 = swaps in a different modifier or keeps one hollow modifier; 1 = expands the line to justify the modifier."
+        }
+      ],
+      "dynamic_rubric": null
+    },
+    {
+      "suite": "evals.json",
+      "id": "self-planted-strawman-tune",
+      "split": "tune",
+      "apply_prompt": "Read skills/anti-slop-writing/SKILL.md and apply it to the TASK below. Produce exactly the critique and/or rewrite the skill prescribes — no preamble, no meta-commentary.\n\nTASK:\nReview this reply an assistant wrote. The user's entire message was: 'should I add an index on user_id?' The user did not mention hardware, instance size, or scaling up.\n\nThe instinct in cases like this is to reach for a bigger instance. But throwing hardware at it is not the fix. The fix is an index on user_id, which turns the sequential scan over 40 million rows into a lookup.",
+      "judge_prompt": "You are grading one eval case for the anti-slop-writing skill. Be skeptical: an assertion passes only if the OUTPUT clearly satisfies it, with quoted evidence. Do not give credit for keyword presence alone.\n\nCASE PROMPT:\nReview this reply an assistant wrote. The user's entire message was: 'should I add an index on user_id?' The user did not mention hardware, instance size, or scaling up.\n\nThe instinct in cases like this is to reach for a bigger instance. But throwing hardware at it is not the fix. The fix is an index on user_id, which turns the sequential scan over 40 million rows into a lookup.\n\nEXPECTED:\nA critique that flags the invented opposing view: the assistant introduced the bigger-instance hypothesis itself and then refuted it, and because no one raised it the contrast is manufactured. The repair is to cut the invented premise, not to keep it (earned) and not to supply evidence for it (the compressed-antithesis repair). The rewrite states the index finding directly.\n\nASSERTIONS (judge each independently):\n1. Flags 'The instinct in cases like this is to reach for a bigger instance' as an opposing view the assistant introduced itself and the user never raised.\n2. Does not grade the 'not the fix / the fix is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the hardware side.\n3. Does not repair by evidencing the bigger-instance side; the invented premise is cut, not supported.\n4. Rewrite deletes the invented setup and states the index mechanism directly, keeping the sequential scan over 40 million rows.\n5. Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed.\n\nGRADED DIMENSIONS (score 1-5 when present):\n1. strawman-attribution (1-5): 5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up.\n2. repair-directness (1-5): 5 = the rewrite opens on the index mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure.\n\nEmit one JSON object: {\"id\": \"self-planted-strawman-tune\", \"suite\": \"evals.json\", \"split\": \"tune\", \"assertions\": [{\"index\": 1, \"pass\": true, \"evidence\": \"<quote>\"}, ...], \"graded_dimensions\": [{\"name\": \"<name>\", \"score\": 5, \"evidence\": \"<quote>\"}, ...]}",
+      "assertions": [
+        "Flags 'The instinct in cases like this is to reach for a bigger instance' as an opposing view the assistant introduced itself and the user never raised.",
+        "Does not grade the 'not the fix / the fix is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the hardware side.",
+        "Does not repair by evidencing the bigger-instance side; the invented premise is cut, not supported.",
+        "Rewrite deletes the invented setup and states the index mechanism directly, keeping the sequential scan over 40 million rows.",
+        "Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-attribution",
+          "scale": "1-5",
+          "rubric": "5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up."
+        },
+        {
+          "name": "repair-directness",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite opens on the index mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure."
         }
       ],
       "dynamic_rubric": null

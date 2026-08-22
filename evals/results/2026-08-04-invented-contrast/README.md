@@ -95,6 +95,16 @@ The H2 block is deliberately placed *before* the earned/compressed/decorative cl
 - On ACCEPT: the `SKILL.md` edit, a `Lessons_learned.md` entry, a `CHANGELOG.md` entry.
 - On REJECT: an `evals/rejected-edits.md` entry with the quoted evidence, and the cases stay as regression coverage.
 
+## Amendments (before Phase 0, no output generated yet)
+
+**A1 — Phase 0 could not have tested H2.** As first written, the four tune cases gave H2 exactly one: `negation-answers-the-users-hypothesis`, which is a *guard* (keep the negation the user raised). Baseline was always going to pass it, and the pre-committed stop rule would then have closed H2 as a null without testing H2's claim at all — the detection and repair cases are both holdout and sealed. The rule was self-defeating, not conservative.
+
+Fix: added `evals/evals.json` → `self-planted-strawman-tune` (tune), a detection case with the same shape as the sealed holdout but different content (a bigger-instance strawman in answer to an index question). Writing a fresh tune case before any scoring is allowed; the holdout stays sealed. Phase 0 now runs **five** tune cases and can decide both hypotheses.
+
+**A2 — how the panel is operationalized.** "Three-model Claude panel" in the Pre-registration section is ambiguous between *grade every output three times* and *escalate to three judges on disagreement*. Fixed as the latter, following the 2026-06-14 precedent where only the differing pairs were re-judged by all three families. The apply axis carries the three models; the judge is **fixed at Opus** across that axis so scores stay comparable and the apply model is the only variable. A case escalates to the full three-judge panel when the three apply models disagree on the case outcome, or when any judgment is a borderline pass. Grading every output three times with a fixed judge set would not have added information, only cost.
+
+Neither amendment touches the SESOI, the arms, the accept/reject rule, or the candidate doctrine blocks.
+
 ## Not in scope
 
 - **Trigger queries.** Activation does not change. The tweet is an agent instructing itself mid-draft, which is a usage mode rather than a routing decision, and `evals/trigger-queries.json` measures routing.

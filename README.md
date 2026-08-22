@@ -120,7 +120,7 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 
 | Eval set | Tune cases | Holdout cases |
 |---|---:|---:|
-| Machine-readable assertions (`evals/evals.json`) | 12 | 6 |
+| Machine-readable assertions (`evals/evals.json`) | 13 | 6 |
 | Adversarial false-positive checks (`evals/adversarial.json`) | 20 | 12 |
 | Rewrite quality checks (`evals/rewrite-evals.json`) | 20 | 6 |
 | Eval-suite health checks (`evals/meta-evals.json`) | 7 | 4 |

@@ -315,6 +315,30 @@
         "Identifies that the discharging sentence restates the first one rather than adding anything, so the interest is asserted by the frame instead of earned by the payload.",
         "Does not treat a synonym swap for \"interesting\" as the fix."
       ]
+    },
+    {
+      "id": "cataphoric-teaser-self-posed-question",
+      "split": "tune",
+      "source": "Shape variant catalogued by tropes.fyi as \"The X? A Y.\"; see docs/cataphoric-teaser-prior-art.md.",
+      "prompt": "Review this passage:\n\nWe moved the indexer to a Tuesday deploy window. The result? Not what we expected. The team spent the rest of the week on it.",
+      "expected_output": "Flags \"The result? Not what we expected.\" as a cataphoric teaser wearing a different shape: a self-posed question answered by a fragment that withholds the answer. \"The team spent the rest of the week on it\" reports that there was trouble without naming it, so the promise is not discharged. Recommends stating the result or escalating to ask-author.",
+      "assertions": [
+        "Flags \"The result? Not what we expected.\" as a forward-pointing promise the passage does not discharge — the following sentence reports that there was trouble without naming what it was.",
+        "Recognizes the self-posed-question-plus-fragment shape as the same failure as an explicit \"Here's what...\" teaser, rather than treating it as ordinary sentence variety or as a staccato-contrast finding.",
+        "Recommends stating the result or escalating to ask-author, and does not invent what went wrong with the indexer."
+      ]
+    },
+    {
+      "id": "scarcity-framing-survives-discharge",
+      "split": "holdout",
+      "source": "Boundary between the discharge test and novelty inflation; see docs/cataphoric-teaser-prior-art.md → \"Scarcity claims are a second, independent defect\".",
+      "prompt": "Review this passage:\n\nHere's what nobody tells you about connection pooling: size the pool to the database's max connections, not to your worker count. Teams that size it to worker count exhaust the server under load.",
+      "expected_output": "Two findings that must be kept apart. The forward reference IS discharged — the clause after the colon names the specific rule and the next sentence names the failure — so this is not an undischarged teaser. The \"Here's what nobody tells you\" frame is still wrong, on separate grounds: it asserts the knowledge is rare, which the passage does not support and which the commonplace nature of the advice contradicts. Cut the frame, keep the content.",
+      "assertions": [
+        "Recognizes that the forward reference is discharged — the clause after the colon names the specific sizing rule and the following sentence names the failure mode — and so does not flag it as an undischarged or unpaid-off teaser.",
+        "Still flags the \"Here's what nobody tells you\" frame, on separate grounds from discharge: it claims the knowledge is rare, a claim about the world the passage does not support.",
+        "Recommends cutting the frame while keeping the discharged content, rather than cutting the passage, rewriting the sizing rule, or demanding more specificity."
+      ]
     }
   ]
 }

@@ -534,6 +534,35 @@
           "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
         }
       ]
+    },
+    {
+      "id": "pre-announced-significance-rewrite",
+      "split": "tune",
+      "source": "Boundary case: discharge is necessary but not sufficient. Adjacent pattern is `conorbronsdon/avoid-ai-writing`'s \"emotional flatline\"; see docs/cataphoric-teaser-prior-art.md.",
+      "prompt": "Rewrite without AI slop:\n\nWhat surprised me most about the migration was the rollback. We had budgeted a week for it. It took forty minutes, because the old schema was still live behind a feature flag.",
+      "expected_output": "The forward reference here IS discharged, and specifically — so passing the discharge test is not enough to keep it. The budgeted-week against forty-minutes gap is the surprise, and the feature flag explains it, so announcing the surprise first tells the reader what to feel before showing them why. The rewrite cuts the frame and keeps both the contrast and the mechanism.",
+      "assertions": [
+        "Removes the \"What surprised me most\" pre-announcement rather than keeping it on the grounds that the following sentences discharge it.",
+        "Preserves both the budgeted-week against forty-minutes contrast and the feature-flag mechanism that explains it.",
+        "Does not substitute another forward-pointing frame (\"Here's the surprising part\", \"The kicker?\", \"And then something unexpected happened\") and does not add a detail the source does not supply."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "frame-removal",
+          "scale": "1-5",
+          "rubric": "5 = the significance announcement is gone and nothing forward-pointing replaces it; 3 = softened or swapped for a different frame; 1 = kept because it was discharged."
+        },
+        {
+          "name": "content-preservation",
+          "scale": "1-5",
+          "rubric": "5 = week-vs-forty-minutes and the feature flag both survive; 3 = one is lost or blurred; 1 = the rewrite keeps the frame's shape and drops the specifics."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
+      ]
     }
   ]
 }

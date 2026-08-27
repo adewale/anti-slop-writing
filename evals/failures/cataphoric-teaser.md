@@ -82,6 +82,22 @@ doctrine already caught the behavior — application gap, not rule gap (see
 is direct evidence that the pre-edit doctrine had no trigger to apply. That is what makes the
 rule worth gating rather than assuming.
 
+## Not a new observation
+
+The pattern has at least seven names across seven traditions, the oldest predating LLMs by a
+decade with the same word. Blom & Hansen, "Click bait: Forward-reference as lure in online news
+headlines" (*Journal of Pragmatics* 76, 2015, 87-100) analysed 100,000 headlines under the
+keywords `Cataphora · Discourse deixis · Forward-reference`, and its abstract opens by
+performing the device: "This is why you should read this article." Three sibling anti-slop
+skills ship the rule as "infomercial engagement hooks"; tropes.fyi splits it into four tropes by
+shape; copywriting teaches it as "open loops"; Sanderson's craft framework calls the failure a
+promise with no payoff; LinkedIn "broetry" criticism made the same complaint about human writers
+a decade ago.
+
+The framings disagree about verdicts, and those disagreements are what the doctrine had to
+resolve. `docs/cataphoric-teaser-prior-art.md` records the comparison, the four disagreements
+that change what gets flagged, and what was taken from each.
+
 ## Rule added or changed
 
 - `SKILL.md`: a `Cataphoric teaser` detector with the discharge test, editing-pass step 19,
@@ -90,10 +106,20 @@ rule worth gating rather than assuming.
 - `references/anti-slop-writing-doctrine.md`: a `Cataphoric teasers` section with the three
   failure sub-forms, the earned twin (cataphoric label), the false-positive caution, and the
   relation to the staccato contrast test.
+- `SKILL.md`: a `Teaser boundaries` line carrying the three distinctions that change runtime
+  behaviour — forward-pointing only, discharge is necessary but not sufficient, and scarcity
+  frames carry a defect discharging cannot repair.
+- `references/anti-slop-writing-doctrine.md` → `Boundaries and neighbours`: the four
+  cross-framing disagreements with worked examples, plus the adjacent patterns that must be
+  diagnosed separately.
 - Evals — catch: `evals.json` → `cataphoric-teaser-undischarged` (tune),
-  `cataphoric-teaser-payoff-restates-tease` (holdout); `rewrite-evals.json` →
-  `cataphoric-teaser-saturated-section` (tune). Earned guards: `adversarial.json` →
-  `earned-cataphoric-enumeration-label` (tune), `earned-cataphoric-question-discharged`
+  `cataphoric-teaser-self-posed-question` (tune),
+  `cataphoric-teaser-payoff-restates-tease` (holdout),
+  `scarcity-framing-survives-discharge` (holdout); `rewrite-evals.json` →
+  `cataphoric-teaser-saturated-section` (tune), `pre-announced-significance-rewrite` (tune).
+  Earned guards and precision cases: `adversarial.json` →
+  `earned-cataphoric-enumeration-label` (tune), `back-pointing-label-not-cataphoric` (tune),
+  `earned-cataphoric-question-discharged` (holdout), `earned-discourse-deixis-roadmap`
   (holdout), alongside the existing `cataphoric-label-defined-in-paragraph`.
 
 **Status: ungated.** The A/B round required by `runbooks/hillclimb-skill.md` has not been run

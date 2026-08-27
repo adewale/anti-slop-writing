@@ -346,6 +346,30 @@
         "Names that the following two sentences discharge the question with a specific cause and a measured effect.",
         "Does not recommend converting the question into a declarative topic sentence merely to remove the forward reference."
       ]
+    },
+    {
+      "id": "back-pointing-label-not-cataphoric",
+      "split": "tune",
+      "source": "Precision guard against the anaphoric mirror; see docs/cataphoric-teaser-prior-art.md → \"Direction: cataphoric versus anaphoric\".",
+      "prompt": "Review this passage:\n\nWe tried three fixes: a bigger pool, a read replica, and a per-tenant queue. That last one is the counterintuitive one. Per-tenant queuing costs more in idle workers but removes the noisy-neighbour stall.",
+      "expected_output": "The significance label points backward at an item already named, so it is not a cataphoric teaser. A critique may still flag it as redundant — the sentence after it supplies the mechanism the label was claiming — but the diagnosis must be back-pointing, not a withheld payload. The opening colon is a cataphoric label discharged by its own enumeration and should not be flagged at all.",
+      "assertions": [
+        "Does not classify \"That last one is the counterintuitive one.\" as a cataphoric teaser, forward reference, or withheld payoff; if it flags the line at all, it identifies it as pointing back at an item already named.",
+        "Does not flag \"We tried three fixes:\" — the colon is discharged by the enumeration in the same sentence.",
+        "Notes that the following sentence supplies the mechanism (idle-worker cost against the noisy-neighbour stall), so any flag on the label concerns redundancy rather than a missing payload."
+      ]
+    },
+    {
+      "id": "earned-discourse-deixis-roadmap",
+      "split": "holdout",
+      "source": "Discourse deixis as defined in Blom & Hansen 2015; see docs/cataphoric-teaser-prior-art.md.",
+      "prompt": "Review this line from the top of a long design doc:\n\nThe rest of this document walks through the three failure modes in the order we hit them: lease expiry, duplicate delivery, and clock skew.",
+      "expected_output": "Keeps the line. It refers to the document itself rather than to content — discourse deixis — but the promise is discharged in the same sentence by the three named failure modes and their ordering. Self-referential signposting is a teaser only when the payload does not arrive.",
+      "assertions": [
+        "Does not flag the line as a cataphoric teaser, engagement bait, manufactured suspense, or throat-clearing.",
+        "Names that although the sentence points at the document rather than at content, the promise is discharged in the same sentence by the three named failure modes.",
+        "Distinguishes it from an undischarged signpost such as \"Read on to find out what went wrong,\" instead of treating roadmap sentences as slop by shape."
+      ]
     }
   ]
 }

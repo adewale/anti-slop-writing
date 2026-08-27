@@ -147,6 +147,53 @@ Because forward reference is so common in legitimate technical writing, this det
 unusually high false-positive cost. Do not flag a colon, a heading, or a question on shape alone.
 Flag it only after running the discharge test and finding the payload missing, thin, or restated.
 
+### Boundaries and neighbours
+
+Seven traditions describe this behaviour and they do not agree on the verdicts. The full
+comparison, with sources, is in `docs/cataphoric-teaser-prior-art.md`. Four of the
+disagreements change what you flag.
+
+**Discharge is necessary, not sufficient.** A forward reference can be paid off precisely and
+still be worth cutting, when the payload's own specifics already carry the emphasis the frame
+claimed.
+
+```txt
+Before: What surprised me most about the migration was the rollback. We had budgeted a week
+        for it. It took forty minutes, because the old schema was still live behind a feature flag.
+After:  We had budgeted a week for the rollback. It took forty minutes, because the old schema
+        was still live behind a feature flag.
+```
+
+The promise was discharged. The frame still told the reader what to feel before showing them
+why. Run the discharge test first; when it passes, ask whether the frame adds anything the
+payload does not.
+
+**Delivery, not entailment.** The NLP framing of this problem (HonestBait, arXiv:2306.14828)
+gates forward references on whether the body *entails* the promise. That passes
+`Here's where it gets interesting: the cache is what makes it fast. Without the cache, it would
+be slower.` — perfectly entailed, and still the payoff-restates-the-tease failure. Ask whether
+the payload delivers something the teaser did not already contain.
+
+**Scarcity frames carry a second defect.** `Here's what nobody tells you about X` asserts that
+the knowledge is rare. That is a claim about the world, and discharging the payload does not
+repair it. Cut the frame and keep the content, even when the content is excellent. This is why
+the three literal forms sit on the avoid-by-default list while `Here's the thing:` does not:
+they fail on both axes at once.
+
+**Forward-pointing only.** The mirror image points *back* at something already said —
+`That last one is the counterintuitive one`, `This is the interesting part`. It is also a
+defect, because the label does the work the content was supposed to do, but it belongs to
+significance inflation. Do not diagnose it as a cataphoric teaser; the verdict may be right
+while the reason is wrong.
+
+Two more neighbours share the surface and should be named separately: a **rhetorical question
+opener** is a teaser only when the answer does not arrive, and **manufactured staccato drama**
+is retrospective, already covered by the staccato contrast test.
+
+Finally, dosage. Bloom's own statement of the complaint allows the device — "good writers do
+this too, but carefully, in small doses" — and the copywriting tradition objects only to a loop
+engineered never to close. One discharged forward reference is not a finding.
+
 ### Relation to the staccato contrast test
 
 The two tests share a root: rhythm standing in for content. The staccato test is retrospective —

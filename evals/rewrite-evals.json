@@ -505,6 +505,35 @@
         {"name": "non-invention", "scale": "1-5", "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."},
         {"name": "slop-removal", "scale": "1-5", "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."}
       ]
+    },
+    {
+      "id": "cataphoric-teaser-saturated-section",
+      "split": "tune",
+      "source": "Failure pattern named by Shane Littrell (@MetacogniShane), https://x.com/MetacogniShane/status/2092638724915896675, 2026-08-26; the saturation reading follows Paul Bloom, https://substack.com/@smallpotatoes/note/c-322302112.",
+      "prompt": "Rewrite this section without AI slop:\n\nHere's the part nobody tells you about on-call: the pager is not the problem. The problem is what happens after.\n\nBut here's where it gets interesting. Most teams write a postmortem and move on. Few of them change the alert.\n\nAnd here's what most people get wrong about alert tuning. It is not a one-time task.",
+      "expected_output": "A rewrite that drops all three teaser openers, keeps the two concrete claims (a postmortem gets written but the alert is never changed; alert tuning is recurring work), and does not substitute another forward-pointing hook or an X-not-Y cadence for the teasers it removed.",
+      "assertions": [
+        "Removes all three cataphoric teaser openers: \"Here's the part nobody tells you\", \"here's where it gets interesting\", and \"here's what most people get wrong\".",
+        "Preserves the concrete content — the postmortem that gets written while the alert stays unchanged, and alert tuning as recurring rather than one-time work — instead of deleting it along with the teasers.",
+        "Does not substitute another forward-pointing hook (\"But there's a catch\", \"The real problem?\", \"What happens next\") or an X-not-Y cadence in the rewrite."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "teaser-removal",
+          "scale": "1-5",
+          "rubric": "5 = all three teasers gone and none replaced by another forward hook; 3 = one survives or one is swapped for a different hook; 1 = the teaser scaffolding is preserved or restyled."
+        },
+        {
+          "name": "content-preservation",
+          "scale": "1-5",
+          "rubric": "5 = both concrete claims survive the cut; 3 = one is lost or blurred; 1 = the rewrite keeps the shape and drops the content."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
+      ]
     }
   ]
 }

@@ -280,6 +280,41 @@
           "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
         }
       ]
+    },
+    {
+      "id": "cataphoric-teaser-undischarged",
+      "split": "tune",
+      "source": "Failure pattern named by Shane Littrell (@MetacogniShane), https://x.com/MetacogniShane/status/2092638724915896675, 2026-08-26.",
+      "prompt": "Review this passage:\n\nMost teams treat retries as a solved problem. Here's what most people get wrong. Retrying is harder than it looks, and getting it right matters more than teams realise. The consequences of getting it wrong can be severe.",
+      "expected_output": "Flags \"Here's what most people get wrong.\" as a cataphoric teaser: it promises withheld content that no following sentence discharges. The two sentences after it restate that retries are hard and assert severity without naming a failure mode. Recommends cutting the teaser, or escalating to ask-author for the specific retry failure, rather than inventing one.",
+      "assertions": [
+        "Flags \"Here's what most people get wrong.\" as a forward-pointing promise that the passage never discharges.",
+        "Names that the sentences after the teaser restate the difficulty instead of supplying the withheld content — no named failure mode such as duplicate side effects, a thundering herd, or a non-idempotent write.",
+        "Either cuts the teaser and keeps the plain claim or escalates to ask-author for the specific failure mode; does not invent a concrete retry bug the source does not supply."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "discharge-diagnosis",
+          "scale": "1-5",
+          "rubric": "5 = states which sentence should have discharged the promise and shows it does not; 3 = flags the teaser as generic slop without the discharge test; 1 = does not flag it."
+        },
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = supplies no retry failure mode absent from the source; 3 = one borderline added specific; 1 = fabricates a concrete bug to fill the rewrite slot."
+        }
+      ]
+    },
+    {
+      "id": "cataphoric-teaser-payoff-restates-tease",
+      "split": "holdout",
+      "prompt": "Review these two sentences:\n\nHere's where it gets interesting: the cache is what makes the whole thing fast. Without the cache, it would be slower.",
+      "expected_output": "Flags the teaser because the payoff restates the tease. \"Without the cache, it would be slower\" is the same claim as \"the cache makes it fast,\" so the promised interest was supplied by the frame, not by the content. Recommends cutting the teaser and naming what the cache actually does, or cutting the pair.",
+      "assertions": [
+        "Flags \"Here's where it gets interesting:\" as a forward-pointing promise whose payoff does not deliver the promised content.",
+        "Identifies that the discharging sentence restates the first one rather than adding anything, so the interest is asserted by the frame instead of earned by the payload.",
+        "Does not treat a synonym swap for \"interesting\" as the fix."
+      ]
     }
   ]
 }

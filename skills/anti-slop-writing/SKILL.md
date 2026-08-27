@@ -59,6 +59,7 @@ Practical AI-editing tells: repeated “Not X. Y.” rhythm, symmetrical paragra
 Copula displacement: watch “serves as,” “stands as,” “features,” “marks,” and “represents” replacing plain “is/are.” Keep the verb when it does concrete work (enumerating, defining, locating); replace it when it only inflates a copula.
 Hedged symmetry: watch “Whether you’re X or Y,” “While X, Y is also important,” and similar templates that address every reader or every value at once. Keep the structure only when it names a real branching condition with distinct downstream behavior.
 Em-dash cadence: do not ban em-dashes; watch decorative clusters that use dashes for emphasis instead of for parenthetical or appositive insertion. Reduce count; keep dash insertions/pairs that bracket inline definitions or genuine asides.
+Cataphoric teaser: watch forward-pointing lines that manufacture suspense — “Here’s what most people get wrong,” “Here’s where it gets interesting,” “Here’s the part nobody tells you,” “But there’s a catch.” Ask what payload the line promises and whether the next sentence or two deliver it. Keep it as a cataphoric label when they do; cut it when nothing discharges the promise, when the payoff restates the tease, or when the same forward pull opens paragraph after paragraph.
 Rhetorical staccato: do not ban antithesis/parallelism; watch antithetical parataxis where rhythm implies the relation before evidence is unpacked.
 Hypotaxis preference: when the relation matters, prefer subordination and connective syntax over side-by-side clauses; use “because,” “although,” “when,” “while,” “where,” “once,” or an explicit summary noun to show which idea modifies which.
 Flow-by-relation test: paragraphs should make the next question possible, not merely sit beside each other in a plausible order. At section boundaries, name the relation: cause, contrast, dependency, inference, resolution, scope change, or level-of-detail change.
@@ -93,7 +94,8 @@ Before finalizing prose:
 16. Cut hedged symmetry (“Whether X or Y,” “While X, Y is also important”) and commit to a specific reader and a named tradeoff.
 17. Reject outline conclusion templates (“Despite challenges, X continues to thrive,” “Looking ahead, X will play a pivotal role”); replace with a carrier-bound ending or cut.
 18. Thin decorative em-dash clusters; keep at most one earned dash insertion/pair per sentence unless multiple insertions carry distinct definitions.
-19. End with a concrete remembered line.
+19. Cut cataphoric teasers no following sentence discharges; keep forward references that label content the next sentences supply.
+20. End with a concrete remembered line.
 ```
 
 ## Avoid by default
@@ -114,6 +116,9 @@ Not only X, but also Y
 Same X. Same Y. Different Z.
 Not X. Y.
 This is where X comes in
+Here's what most people get wrong
+Here's where it gets interesting
+Here's the part nobody tells you
 Whether you're X or Y
 While X, Y is also important
 Despite ongoing challenges, X continues to thrive
@@ -301,9 +306,10 @@ slot. The same rule applies to any fallback rewrite inside an
 
 `Rewrite check` is mandatory. State whether your `Concrete rewrite`
 (including any `ask-author` fallback) contains any of: rule-of-three,
-X-not-Y / negative parallelism, em-dash antithesis, banned avoid-by-default
-phrases, prestige adjectives, decorative closure ("That was the point",
-"In conclusion", "Overall", "Ultimately"), or invented facts. If the
+X-not-Y / negative parallelism, em-dash antithesis, undischarged
+cataphoric teaser, banned avoid-by-default phrases, prestige
+adjectives, decorative closure ("That was the point", "In conclusion",
+"Overall", "Ultimately"), or invented facts. If the
 rewrite would have been a `revise` flag on a source paragraph, it should
 be a `revise` flag on itself: rewrite again or escalate to `ask-author`.
 If the rewrite passes, write `passes self-detectors`.

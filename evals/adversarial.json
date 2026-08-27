@@ -324,6 +324,28 @@
         "Does not endorse the staccato three-fragment form as a finished good rewrite solely because it is short and direct.",
         "Names the missing relation (why people are the hard part) or recommends restoring it, rather than expanding into generic prose."
       ]
+    },
+    {
+      "id": "earned-cataphoric-enumeration-label",
+      "split": "tune",
+      "prompt": "Review this line from a methods section:\n\nWe report three robustness checks: held-out scoring, a paired bootstrap, and a sign-flip permutation test.",
+      "expected_output": "Keeps the line. The colon is a cataphoric label and the promise is discharged inside the same sentence by the three named checks. Forward reference is not a teaser when the payload arrives.",
+      "assertions": [
+        "Does not flag \"We report three robustness checks:\" as a cataphoric teaser, engagement bait, or artificial suspense.",
+        "Names that the promise is discharged in the same sentence by the three specific checks.",
+        "Does not recommend removing the colon or expanding the enumeration into prose."
+      ]
+    },
+    {
+      "id": "earned-cataphoric-question-discharged",
+      "split": "holdout",
+      "prompt": "Review this paragraph:\n\nSo why did the queue drain in twenty minutes instead of two hours? The consumer had been running with prefetch=1 since the March deploy. Raising it to 50 cut the round-trip wait per message from 40ms to under 1ms.",
+      "expected_output": "Keeps the opening question. It points forward, but the next two sentences discharge it with a named cause (prefetch=1 since the March deploy) and a measured effect (40ms to under 1ms). A rhetorical question is a teaser only when the answer does not arrive.",
+      "assertions": [
+        "Does not flag the opening question as a cataphoric teaser, clickbait, or artificial suspense.",
+        "Names that the following two sentences discharge the question with a specific cause and a measured effect.",
+        "Does not recommend converting the question into a declarative topic sentence merely to remove the forward reference."
+      ]
     }
   ]
 }

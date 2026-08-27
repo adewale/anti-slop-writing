@@ -15,5 +15,8 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 
 ## Open — buildable without the blocked item
 
+- [ ] **Gate the cataphoric-teaser rule.** The detector, doctrine section, and five eval cases are merged but the A/B round in `runbooks/hillclimb-skill.md` has not been run: pre-edit `SKILL.md` snapshot vs current, apply/judge separated per `docs/judge-protocol.md`, over the three catch cases and the three earned guards. Pre-register SESOI 0.05. Require ACCEPT from `python3 scripts/score_delta.py <results.jsonl> --holdout-only`; on a zero delta run `--sesoi 0.05` and `scripts/saturation_index.py` before reading it as equivalence. If it rejects, revert the `SKILL.md` rule, keep the reference section and the six cases as regression coverage, and log it in `evals/rejected-edits.md` — the disposition the parataxis round took.
+  - Motivation and the recorded pre-edit miss: `evals/failures/cataphoric-teaser.md`.
+
 - [ ] **Cross-family judge.** The baseline judges are Claude grading Claude output (same-family, self-preference risk per `Lessons_learned.md`). A non-Claude judge is not available in the current harness. Wire one in when a second model family is reachable.
 - [ ] **Observed multi-run trigger rates** in Pi, Claude Code, Codex, and OpenCode. The baseline records a single routing-decision pass, not live multi-run activation rates.

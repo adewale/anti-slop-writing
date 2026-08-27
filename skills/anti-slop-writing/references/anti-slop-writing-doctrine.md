@@ -81,6 +81,79 @@ The density check is not a new rule; it is the staccato contrast test's "keep or
 
 Two cautions. Do not subordinate every clause into one connective-heavy sentence; that trades staccato slop for noun-heavy mush, and the reader loses the beats that made the prose readable. And do not apply the density check to a single earned instance: it is about the dominant device across the piece, not about any one short sentence.
 
+## Cataphoric teasers
+
+Cataphora is forward reference: a word or sentence that points at content still to come. It is
+one of the most ordinary devices in technical prose — a colon before an enumeration, a heading,
+a rhetorical question the next paragraph answers. It becomes slop only in one specific way.
+
+A **cataphoric teaser** is a forward-pointing line whose job is to manufacture suspense rather
+than to label what follows. The named examples are stable enough to list: `Here's the part that
+nobody tells you...`, `Here's what most people get wrong...`, `Here's where it gets interesting.`
+The pattern was named for LLM output by Shane Littrell
+([@MetacogniShane, 2026-08-26](https://x.com/MetacogniShane/status/2092638724915896675)), who
+reports Claude output in particular is often saturated with them; he flags the model comparison
+as anecdotal, and so should we.
+
+### The discharge test
+
+Ask what payload the line promises, then read the next one or two sentences and ask whether they
+deliver it. Three ways the promise fails:
+
+1. **Undischarged.** Nothing after the teaser supplies the withheld content.
+
+   ```txt
+   Before: Most teams treat retries as a solved problem. Here's what most people get wrong.
+           Retrying is harder than it looks, and the consequences can be severe.
+   After:  Most teams treat retries as a solved problem, so they retry a charge endpoint that
+           is not idempotent and bill the customer twice.
+   ```
+
+2. **Payoff restates the tease.** The discharging sentence adds nothing the teaser did not
+   already contain, so the interest was asserted by the frame.
+
+   ```txt
+   Before: Here's where it gets interesting: the cache is what makes the whole thing fast.
+           Without the cache, it would be slower.
+   After:  The cache is what makes it fast: a cold read costs two round trips to Postgres,
+           a warm one costs a map lookup.
+   ```
+
+3. **Saturation.** Each teaser is small, but every paragraph opens by pulling the reader
+   forward. Paul Bloom's reading of this
+   ([Substack, 2026-08](https://substack.com/@smallpotatoes/note/c-322302112)) is the sharpest
+   statement of the whole-piece version: AI prose is "eternal clickbait; every sentence is
+   trying to get you to read further... Its motto is Always Be Closing, and the effect is
+   cloying." The repair is confidence rather than a better hook: state the claim, and let the
+   next paragraph earn its own attention.
+
+### The earned twin
+
+The same syntax with the payload attached is a **cataphoric label**, and it is good prose. Keep
+it. Both of these discharge inside the same breath:
+
+```txt
+We report three robustness checks: held-out scoring, a paired bootstrap, and a sign-flip permutation test.
+My strategy is loose, then tight. I write the first draft of an essay fast, trying out all kinds
+of ideas. Then I spend days rewriting it very carefully.
+```
+
+The second is Paul Graham's, and it is the guard case in `evals/adversarial.json` →
+`cataphoric-label-defined-in-paragraph`. A rhetorical question is earned the same way: keep
+`So why did the queue drain in twenty minutes instead of two hours?` when the next sentences
+name `prefetch=1 since the March deploy` and a drop `from 40ms to under 1ms`.
+
+Because forward reference is so common in legitimate technical writing, this detector has an
+unusually high false-positive cost. Do not flag a colon, a heading, or a question on shape alone.
+Flag it only after running the discharge test and finding the payload missing, thin, or restated.
+
+### Relation to the staccato contrast test
+
+The two tests share a root: rhythm standing in for content. The staccato test is retrospective —
+a contrast lands before the prior prose has evidenced both sides. The teaser is prospective — a
+promise lands before any prose has discharged it. Same failure, opposite direction of the
+missing evidence.
+
 ## Banned-by-default phrases
 
 Avoid unless there is a specific reason:
@@ -96,6 +169,9 @@ It's important to note that
 A testament to
 Not just X, but Y
 This is where X comes in
+Here's what most people get wrong
+Here's where it gets interesting
+Here's the part nobody tells you
 Whether you're X or Y
 While X, Y is also important
 Despite ongoing challenges, X continues to thrive

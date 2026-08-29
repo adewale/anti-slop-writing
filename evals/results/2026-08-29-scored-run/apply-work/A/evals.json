@@ -1,0 +1,34 @@
+{
+  "units": [
+    {
+      "id": "new-register-significance-compression",
+      "prompt": "Review this launch-post paragraph for AI-writing tells:\n\nWe spent three months rewriting the sync engine. That's the whole story. The new engine survived our chaos tests, and that's not nothing. The punchline is that nobody will notice. Sit with that for a moment.",
+      "skill_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/doctrine-A/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-x/evals.json/new-register-significance-compression.md"
+    },
+    {
+      "id": "performative-honesty-stage-management",
+      "prompt": "Review this blog intro:\n\nLet's be honest: most migration guides are useless. I won't pretend ours was painless. But here's the thing: the schema change took four hours, not four weeks. Turns out the scary part was renaming a column.",
+      "skill_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/doctrine-A/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-x/evals.json/performative-honesty-stage-management.md"
+    },
+    {
+      "id": "structural-cadence-run",
+      "prompt": "Review this postmortem excerpt for rhythm tells:\n\nMaybe the alert was too noisy. Maybe the runbook was stale. Maybe nobody was on call. Do we know which? Do we even want to know? The pager fired; the fix didn't.",
+      "skill_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/doctrine-A/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-x/evals.json/structural-cadence-run.md"
+    },
+    {
+      "id": "holdout-devblog-boilerplate",
+      "prompt": "Review and rewrite this README opener: Zero config, batteries included, and it just works. The whole API is small enough to fit in your head. No wrappers, no lock-in, no surprises.",
+      "skill_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/doctrine-A/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-x/evals.json/holdout-devblog-boilerplate.md"
+    },
+    {
+      "id": "holdout-therapy-voice-retro",
+      "prompt": "Review this team retro summary:\n\nWe shipped two weeks late. That loss is real, and it's worth naming. You already know why: scope creep. Sit with the discomfort before we plan the next cycle.",
+      "skill_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/doctrine-A/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-x/evals.json/holdout-therapy-voice-retro.md"
+    }
+  ]
+}

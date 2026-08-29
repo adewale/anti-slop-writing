@@ -1,0 +1,16 @@
+{
+  "units": [
+    {
+      "id": "deterministic-vs-judge-split",
+      "prompt": "The harness now has a deterministic slop-lint oracle (evals/oracles/slop_lint.py) alongside LLM judges. Decide which kinds of eval assertions belong to the oracle and which must stay with a judge, and name one failure mode of moving too much to each side.",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/meta-evals.json/deterministic-vs-judge-split.md"
+    },
+    {
+      "id": "holdout-oracle-drift-review",
+      "prompt": "Across the last 50 lint runs, the deterministic oracle's 'ai-vocabulary' detector has zero hits while 'significance-compression' hits keep rising. What does this pattern mean for the detector lists and the doctrine?",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/meta-evals.json/holdout-oracle-drift-review.md"
+    }
+  ]
+}

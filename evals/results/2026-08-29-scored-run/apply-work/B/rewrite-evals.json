@@ -1,0 +1,16 @@
+{
+  "units": [
+    {
+      "id": "strip-new-register-launch",
+      "prompt": "Rewrite without AI slop: We rebuilt the editor. No sign-ups, no downloads, no hassle. Zero config \u2014 it just works. Let's be honest: most editors are bloated. This one fits in your head. That's the whole point.",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/rewrite-evals.json/strip-new-register-launch.md"
+    },
+    {
+      "id": "holdout-stage-managed-postmortem",
+      "prompt": "Rewrite without AI slop: Turns out nobody read the runbook. Here's the kicker: the alert fired twice and was acked twice. Do I wish we'd caught it sooner? Do I wish the escalation had worked? That's not nothing, and the on-call rotation is dead.",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/rewrite-evals.json/holdout-stage-managed-postmortem.md"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "units": [
+    {
+      "id": "earned-negation-chain-changelog",
+      "prompt": "Review this changelog line: v2.1 upgrades the parser in place: no breaking changes, no new dependencies, and no migration steps.",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/adversarial.json/earned-negation-chain-changelog.md"
+    },
+    {
+      "id": "earned-turns-out-with-trace",
+      "prompt": "Review this incident note: We blamed the GC for the pauses. It turns out that the allocator was the cause: the flame graph put 61% of samples in malloc, and pinning the arena removed the spikes.",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/adversarial.json/earned-turns-out-with-trace.md"
+    },
+    {
+      "id": "earned-anaphora-invariant-chain",
+      "prompt": "Review this design-doc passage: Every request carries a trace id. Every trace id maps to exactly one tenant. Every tenant pins to exactly one shard. That chain is what makes cross-tenant reads impossible by construction.",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/adversarial.json/earned-anaphora-invariant-chain.md"
+    },
+    {
+      "id": "holdout-earned-honesty-clarification",
+      "prompt": "Review this API deprecation note: To be clear, the v1 endpoints are unchanged: every route returns the same schema as before, and the deprecation affects only the beta batch endpoint.",
+      "skill_path": "/home/user/anti-slop-writing/skills/anti-slop-writing/SKILL.md",
+      "output_path": "/home/user/anti-slop-writing/evals/results/2026-08-29-scored-run/outputs-y/adversarial.json/holdout-earned-honesty-clarification.md"
+    }
+  ]
+}

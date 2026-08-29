@@ -36,6 +36,7 @@ REQUIRED = [
     ROOT / "docs" / "branch-mining-2026-05-30.md",
     ROOT / "docs" / "reference-anchor-tests.md",
     ROOT / "docs" / "deterministic-graders.md",
+    ROOT / "docs" / "upstream-skill-eval-harness-spec.md",
     ROOT / "runbooks" / "hillclimb-skill.md",
     ROOT / "scripts" / "score_delta.py",
     ROOT / "scripts" / "run_evals.py",

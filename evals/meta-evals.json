@@ -113,6 +113,28 @@
         "Does not delete 'delve' blindly; notes that older outputs and slower-drifting models may still produce it.",
         "Proposes adding newly visible patterns (such as copula displacement or hedged symmetry) only after they are observed in current corpus profiling, not by taste."
       ]
+    },
+    {
+      "id": "deterministic-vs-judge-split",
+      "split": "tune",
+      "prompt": "The harness now has a deterministic slop-lint oracle (evals/oracles/slop_lint.py) alongside LLM judges. Decide which kinds of eval assertions belong to the oracle and which must stay with a judge, and name one failure mode of moving too much to each side.",
+      "expected_output": "Assigns mechanical forbid checks (the rewrite reuses no flagged surface pattern; required format slots are present) to the oracle and judgment calls (earned vs decorative, mechanism quality) to judges, naming the keyword-gaming risk of deterministic require-checks and the bias risk of judge-graded everything.",
+      "assertions": [
+        "Assigns absence/forbid checks on rewrite output and format checks to the deterministic oracle, and earned-versus-decorative or mechanism-quality judgments to LLM judges.",
+        "Names the surface-gaming or keyword-stuffing risk of deterministic require-style checks, or an equivalent reason to keep deterministic checks mostly forbid-shaped.",
+        "Names judge-side bias (self-preference, same-family agreement, or length bias) as a reason deterministic checks should carry the mechanical load."
+      ]
+    },
+    {
+      "id": "holdout-oracle-drift-review",
+      "split": "holdout",
+      "prompt": "Across the last 50 lint runs, the deterministic oracle's 'ai-vocabulary' detector has zero hits while 'significance-compression' hits keep rising. What does this pattern mean for the detector lists and the doctrine?",
+      "expected_output": "Reads the split as register drift, not victory: vocabulary tells decay as models are tuned away from them, structural and newer-register detectors carry the signal, and time-dated word lists need re-profiling against a current corpus.",
+      "assertions": [
+        "Interprets zero vocabulary hits as probable drift of model output away from the old word list (the 'delve' pattern), not as proof the prose is clean.",
+        "Recommends re-profiling the time-dated word list against a current human-versus-LLM corpus, and notes that structural detectors drift slower than vocabulary.",
+        "Keeps the oracle as the recall layer and judgment as the verdict layer rather than tuning doctrine to oracle counts alone."
+      ]
     }
   ]
 }

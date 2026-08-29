@@ -280,6 +280,140 @@
           "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
         }
       ]
+    },
+    {
+      "id": "new-register-significance-compression",
+      "split": "tune",
+      "source": "Pattern family adapted from simonw/tools llm-cliche-highlighter.html (Apache-2.0, Simon Willison); see docs/deterministic-graders.md for provenance.",
+      "prompt": "Review this launch-post paragraph for AI-writing tells:\n\nWe spent three months rewriting the sync engine. That's the whole story. The new engine survived our chaos tests, and that's not nothing. The punchline is that nobody will notice. Sit with that for a moment.",
+      "expected_output": "A critique that flags significance compression (whole story / not nothing / punchline) and therapy voice (sit with that), then rewrites with the mechanism the paragraph is withholding: what the rewrite changed and what the chaos tests actually showed.",
+      "assertions": [
+        "Identifies at least two of 'that's the whole story', 'that's not nothing', 'the punchline is', and 'sit with that' as canned significance or therapy cadence rather than earned emphasis.",
+        "Notes that each flagged line asserts weight while withholding the mechanism: what changed in the sync engine, what the chaos tests injected or measured, why users will not notice.",
+        "Provides a concrete rewrite that names a mechanism or measurement instead of replacing one canned closer with another."
+      ],
+      "deterministic_checks": [
+        {
+          "detector": "significance-compression",
+          "max_hits": 0,
+          "scope": "rewrite"
+        },
+        {
+          "detector": "therapy-voice",
+          "max_hits": 0,
+          "scope": "rewrite"
+        }
+      ],
+      "graded_dimensions": [
+        {
+          "name": "mechanism-recovery",
+          "scale": "1-5",
+          "rubric": "5 = rewrite states what the engine now does under a named failure (retry, replay, conflict rule) or a test result; 3 = removes the cadence but stays abstract; 1 = swaps in a different canned closer."
+        }
+      ]
+    },
+    {
+      "id": "performative-honesty-stage-management",
+      "split": "tune",
+      "source": "Pattern family adapted from simonw/tools llm-cliche-highlighter.html (Apache-2.0, Simon Willison); see docs/deterministic-graders.md for provenance.",
+      "prompt": "Review this blog intro:\n\nLet's be honest: most migration guides are useless. I won't pretend ours was painless. But here's the thing: the schema change took four hours, not four weeks. Turns out the scary part was renaming a column.",
+      "expected_output": "A critique that flags the candor performance and stage-managed reveals, keeps the two concrete facts (four hours, column rename), and rewrites so the facts open the intro.",
+      "assertions": [
+        "Flags 'Let's be honest', 'I won't pretend', 'here's the thing', and/or 'Turns out' as performative honesty or stage management: sincerity and revelation announced rather than shown.",
+        "Preserves the two concrete facts (the four-hour schema change, the column rename) rather than cutting them along with the cadence.",
+        "Rewrite opens on the concrete fact instead of a candor announcement and does not introduce a replacement tic such as 'Look,' or 'The truth is'."
+      ],
+      "deterministic_checks": [
+        {
+          "detector": "performative-honesty",
+          "max_hits": 0,
+          "scope": "rewrite"
+        },
+        {
+          "detector": "stage-management",
+          "max_hits": 0,
+          "scope": "rewrite"
+        }
+      ]
+    },
+    {
+      "id": "structural-cadence-run",
+      "split": "tune",
+      "source": "Pattern family adapted from simonw/tools llm-cliche-highlighter.html (Apache-2.0, Simon Willison); see docs/deterministic-graders.md for provenance.",
+      "prompt": "Review this postmortem excerpt for rhythm tells:\n\nMaybe the alert was too noisy. Maybe the runbook was stale. Maybe nobody was on call. Do we know which? Do we even want to know? The pager fired; the fix didn't.",
+      "expected_output": "A critique that names the structural cadences (the Maybe anaphora run, the stacked questions, the stranded-auxiliary reversal) and rewrites the speculation into verified findings with evidence.",
+      "assertions": [
+        "Identifies the three-sentence 'Maybe ...' run, the stacked rhetorical questions, and the bare-auxiliary reversal ('the fix didn't') as structural cadence carrying uncertainty the postmortem should have resolved.",
+        "Notes that a postmortem should replace speculation cadence with what was checked: which of the three hypotheses was tested and what the evidence showed.",
+        "Rewrite states at least one verified finding (alert volume, runbook staleness, or the on-call gap) as a plain claim with its evidence, not as a question or a 'Maybe'."
+      ],
+      "deterministic_checks": [
+        {
+          "detector": "sentence-anaphora",
+          "max_hits": 0,
+          "scope": "rewrite"
+        },
+        {
+          "detector": "stacked-questions",
+          "max_hits": 0,
+          "scope": "rewrite"
+        },
+        {
+          "detector": "stranded-auxiliary",
+          "max_hits": 0,
+          "scope": "rewrite"
+        }
+      ]
+    },
+    {
+      "id": "holdout-devblog-boilerplate",
+      "split": "holdout",
+      "source": "Pattern family adapted from simonw/tools llm-cliche-highlighter.html (Apache-2.0, Simon Willison); see docs/deterministic-graders.md for provenance.",
+      "prompt": "Review and rewrite this README opener: Zero config, batteries included, and it just works. The whole API is small enough to fit in your head. No wrappers, no lock-in, no surprises.",
+      "expected_output": "A critique that flags the dev-blog boilerplate and the negation chain, then rewrites with checkable specifics: what the default configuration actually is, what ships in the box, what size the API surface is.",
+      "assertions": [
+        "Flags 'zero config', 'batteries included', 'it just works', and 'fit in your head' as stock simplicity claims that assert instead of demonstrating.",
+        "Flags the 'No wrappers, no lock-in, no surprises' chain as a claim list with no verifiable referent, distinct from a factual negation list.",
+        "Rewrites with checkable specifics (the actual defaults, a count of public functions or types, what a first call looks like) or recommends cutting the line."
+      ],
+      "deterministic_checks": [
+        {
+          "detector": "devblog-boilerplate",
+          "max_hits": 0,
+          "scope": "rewrite"
+        },
+        {
+          "detector": "no-chain",
+          "max_hits": 0,
+          "scope": "rewrite"
+        }
+      ],
+      "graded_dimensions": [
+        {
+          "name": "checkability",
+          "scale": "1-5",
+          "rubric": "5 = every kept claim is verifiable from the README or code (a default, a count, a command); 3 = mixed; 1 = boilerplate swapped for new boilerplate."
+        }
+      ]
+    },
+    {
+      "id": "holdout-therapy-voice-retro",
+      "split": "holdout",
+      "source": "Pattern family adapted from simonw/tools llm-cliche-highlighter.html (Apache-2.0, Simon Willison); see docs/deterministic-graders.md for provenance.",
+      "prompt": "Review this team retro summary:\n\nWe shipped two weeks late. That loss is real, and it's worth naming. You already know why: scope creep. Sit with the discomfort before we plan the next cycle.",
+      "expected_output": "A critique that flags the counselor cadence, keeps the two facts (two-week slip, scope creep), and rewrites into a retro item that names or asks for the specific scope additions.",
+      "assertions": [
+        "Flags 'worth naming', 'you already know', and 'sit with the discomfort' as therapy-voice cadence performing reflection instead of doing it.",
+        "Keeps the substantive content, the two-week slip and scope creep, and asks for the specific mid-cycle additions behind it.",
+        "Rewrite states the slip, names or requests the concrete scope change, and proposes a check for the next cycle, without the counselor framing."
+      ],
+      "deterministic_checks": [
+        {
+          "detector": "therapy-voice",
+          "max_hits": 0,
+          "scope": "rewrite"
+        }
+      ]
     }
   ]
 }

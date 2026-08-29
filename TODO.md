@@ -13,7 +13,14 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 - [x] **Judge implementation using sub-agents** (`docs/judge-protocol.md`): file-based apply → judge → grade protocol, with the strict judgment-line format the runner consumes.
 - [x] **Clean baseline** (`evals/results/2026-05-29-baseline.md` + `evals/results/baseline-2026-05-29/`): current skill scored on every tune and holdout case, recorded as the comparison point future rounds join against.
 
+## Done — 2026-08-29
+
+- [x] **Deterministic slop-lint oracle** (`evals/oracles/slop_lint.py` + `run_evals.py lint`): 22 detectors ported from simonw/tools' llm-cliche-highlighter (Apache-2.0), forbid-shaped `deterministic_checks` on eval cases, self-tests wired into `scripts/validate.py`. See `docs/deterministic-graders.md`.
+- [x] **New-register doctrine coverage** (significance compression, therapy voice, performative honesty, stage management, dev-blog boilerplate, structural cadence) with 13 new eval cases across the four suites, a failure record, and a card.
+
 ## Open — buildable without the blocked item
 
-- [ ] **Cross-family judge.** The baseline judges are Claude grading Claude output (same-family, self-preference risk per `Lessons_learned.md`). A non-Claude judge is not available in the current harness. Wire one in when a second model family is reachable.
+- [ ] **Cross-family judge.** The baseline judges are Claude grading Claude output (same-family, self-preference risk per `Lessons_learned.md`). A non-Claude judge is not available in the current harness. Wire one in when a second model family is reachable. Partially mitigated 2026-08-29: `deterministic_checks` now grade the mechanical assertions with no judge at all (`docs/deterministic-graders.md`), shrinking the surface exposed to same-family bias; the earned-vs-decorative and mechanism-quality assertions still need the cross-family panel.
+- [ ] **Full scored run over the 2026-08-29 additions.** The highlighter-mining round shipped with validation plus a deterministic smoke run (`evals/results/2026-08-29-highlighter-mining.md`), matching the 2026-05-27 research-additions precedent. The 13 new cases (5 holdout) still need a full apply/judge/grade baseline pass and a `score_delta.py` gate before the next doctrine round leans on them.
+- [ ] **Real-world corpus for the new-register families.** The new eval inputs are synthesized from the highlighter's pattern families. Capture 3-5 real passages (launch posts, postmortems, README intros) that exhibit the register, per the discipline in the blocked discourse-layer item.
 - [ ] **Observed multi-run trigger rates** in Pi, Claude Code, Codex, and OpenCode. The baseline records a single routing-decision pass, not live multi-run activation rates.

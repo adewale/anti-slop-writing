@@ -90,6 +90,8 @@ evals/meta-evals.json                 Repo-only eval-suite health checks (tune +
 evals/trigger-queries.json            Repo-only trigger accuracy queries with near-neg- near-miss negatives
 evals/cases.md                        Human-readable regression cases
 evals/failures/                       Curated failure corpus behind the doctrine
+evals/oracles/slop_lint.py            Deterministic slop-lint oracle (grades deterministic_checks; self-testing)
+evals/fixtures/slop-lint-demo/        Demo fixture that trips every oracle detector exactly once
 evals/rejected-edits.md               Graveyard of doctrine edits that failed an eval
 evals/results/                        Recorded smoke eval results and the scored baseline
 examples/cards/                       Compact before/after cards
@@ -101,6 +103,7 @@ runbooks/hillclimb-skill.md           Runbook for bounded skill-improvement loop
 docs/eval-runbook-notes.md            Source notes for runbook/eval-drift ideas
 docs/hillclimb-improvements.md        Cited rationale for the 13 hillclimb infrastructure changes
 docs/judge-protocol.md                Sub-agent apply / judge / grade protocol
+docs/deterministic-graders.md         When assertions grade mechanically vs by LLM judge
 docs/branch-mining-2026-05-30.md      Audit trail for mining the remote branches
 scripts/validate.py                   Repo-only validation
 scripts/score_delta.py                Paired-bootstrap / sign-flip gate for accept/reject
@@ -120,12 +123,14 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 
 | Eval set | Tune cases | Holdout cases |
 |---|---:|---:|
-| Machine-readable assertions (`evals/evals.json`) | 11 | 5 |
-| Adversarial false-positive checks (`evals/adversarial.json`) | 18 | 11 |
-| Rewrite quality checks (`evals/rewrite-evals.json`) | 19 | 5 |
-| Eval-suite health checks (`evals/meta-evals.json`) | 6 | 4 |
+| Machine-readable assertions (`evals/evals.json`) | 14 | 7 |
+| Adversarial false-positive checks (`evals/adversarial.json`) | 21 | 12 |
+| Rewrite quality checks (`evals/rewrite-evals.json`) | 20 | 6 |
+| Eval-suite health checks (`evals/meta-evals.json`) | 7 | 5 |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 17 | 12 |
-| Manual regression cases (`evals/cases.md`) | 10 cases | n/a |
+| Manual regression cases (`evals/cases.md`) | 12 cases | n/a |
+
+Cases with mechanically decidable assertions also carry a `deterministic_checks` block, graded by the repo's deterministic slop-lint oracle (`evals/oracles/slop_lint.py`, 22 detectors ported with attribution from simonw/tools' llm-cliche-highlighter) via `python3 scripts/run_evals.py lint` — no LLM judge, no token cost, no same-family bias. The oracle's own self-tests run inside `scripts/validate.py`. The design and its limits (forbid-shaped checks; a hit is a hypothesis, not a verdict) are documented in `docs/deterministic-graders.md`.
 
 A full scored baseline for the 2026-05-29 suite is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. Later doctrine branches added harder paired cases, graded dimensions, and fresh holdout cases; the newest status and no-regression notes are in `evals/results/latest.md`.
 

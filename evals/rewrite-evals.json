@@ -502,8 +502,88 @@
         "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence."
       ],
       "graded_dimensions": [
-        {"name": "non-invention", "scale": "1-5", "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."},
-        {"name": "slop-removal", "scale": "1-5", "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."}
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."
+        },
+        {
+          "name": "slop-removal",
+          "scale": "1-5",
+          "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."
+        }
+      ]
+    },
+    {
+      "id": "strip-new-register-launch",
+      "split": "tune",
+      "source": "Pattern family adapted from simonw/tools llm-cliche-highlighter.html (Apache-2.0, Simon Willison); see docs/deterministic-graders.md for provenance.",
+      "prompt": "Rewrite without AI slop: We rebuilt the editor. No sign-ups, no downloads, no hassle. Zero config — it just works. Let's be honest: most editors are bloated. This one fits in your head. That's the whole point.",
+      "expected_output": "A short launch paragraph whose claims are concrete and checkable: what runs where, what setup a first use actually requires, what size the feature surface is.",
+      "assertions": [
+        "Removes the negation chain, the boilerplate ('zero config', 'it just works', 'fits in your head'), the candor opener, and the significance-compression closer.",
+        "States at least one checkable specific: where the editor runs, what a first use requires, or a concrete measure of its size or scope.",
+        "Does not substitute new prestige abstractions or a replacement cadence such as 'it's not an editor, it's a philosophy'."
+      ],
+      "deterministic_checks": [
+        {
+          "detector": "no-chain",
+          "max_hits": 0
+        },
+        {
+          "detector": "devblog-boilerplate",
+          "max_hits": 0
+        },
+        {
+          "detector": "performative-honesty",
+          "max_hits": 0
+        },
+        {
+          "detector": "significance-compression",
+          "max_hits": 0
+        },
+        {
+          "detector": "not-just-but",
+          "max_hits": 0
+        }
+      ],
+      "graded_dimensions": [
+        {
+          "name": "specificity",
+          "scale": "1-5",
+          "rubric": "5 = names where it runs, what setup is required, or a measured size; 3 = concrete-sounding but unverifiable; 1 = boilerplate swapped for boilerplate."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
+      ]
+    },
+    {
+      "id": "holdout-stage-managed-postmortem",
+      "split": "holdout",
+      "source": "Pattern family adapted from simonw/tools llm-cliche-highlighter.html (Apache-2.0, Simon Willison); see docs/deterministic-graders.md for provenance.",
+      "prompt": "Rewrite without AI slop: Turns out nobody read the runbook. Here's the kicker: the alert fired twice and was acked twice. Do I wish we'd caught it sooner? Do I wish the escalation had worked? That's not nothing, and the on-call rotation is dead.",
+      "expected_output": "Plain incident prose: what happened in order, with the double ack and the escalation gap stated as findings and a concrete follow-up.",
+      "assertions": [
+        "Removes the reveal framing ('Turns out', 'Here's the kicker'), the stacked rhetorical questions, the 'not nothing' hedge, and the 'is dead' obituary.",
+        "States the facts as ordered findings: the runbook was not consulted, the alert fired and was acknowledged twice, the escalation did not happen.",
+        "Ends with a concrete follow-up (a runbook link in the alert payload, an escalation timeout, an ownership change) rather than a verdict about the rotation."
+      ],
+      "deterministic_checks": [
+        {
+          "detector": "stage-management",
+          "max_hits": 0
+        },
+        {
+          "detector": "stacked-questions",
+          "max_hits": 0
+        },
+        {
+          "detector": "significance-compression",
+          "max_hits": 0
+        }
       ]
     }
   ]

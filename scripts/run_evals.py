@@ -16,6 +16,13 @@ Subcommands:
            of its assertions that passed, so small movements show up as small
            numbers rather than a censored 0/1. With --include-graded, optional
            1-5 graded_dimensions are normalized and averaged into the score.
+           Judge rows and deterministic lint rows for the same case id are
+           merged: the lint checks score as extra assertions.
+
+  lint     Grade `deterministic_checks` blocks mechanically, with no judge in
+           the loop, using evals/oracles/slop_lint.py against the apply-phase
+           outputs (outputs/<suite>/<id>.md). Emits judgment-shaped JSONL rows
+           marked "deterministic": true. See docs/deterministic-graders.md.
 
   join     Merge a before-scores file and an after-scores file into the
            {id, split, before, after} JSONL that scripts/score_delta.py reads.
@@ -23,13 +30,15 @@ Subcommands:
 Examples:
 
   python3 scripts/run_evals.py prepare evals/evals.json --split holdout --out work.json
-  python3 scripts/run_evals.py grade judgments/*.jsonl --out scores.jsonl
+  python3 scripts/run_evals.py lint --outputs run/outputs evals/rewrite-evals.json --out run/judgments/lint.jsonl
+  python3 scripts/run_evals.py grade run/judgments/*.jsonl --out scores.jsonl
   python3 scripts/run_evals.py join --before base.jsonl --after round2.jsonl --out delta.jsonl
 """
 from __future__ import annotations
 
 import argparse
 import glob
+import importlib.util
 import json
 import sys
 from datetime import date
@@ -37,7 +46,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SKILL = ROOT / "skills" / "anti-slop-writing" / "SKILL.md"
+SLOP_LINT_PATH = ROOT / "evals" / "oracles" / "slop_lint.py"
 VALID_SPLITS = {"tune", "holdout"}
+
+
+def load_slop_lint():
+    spec = importlib.util.spec_from_file_location("slop_lint", SLOP_LINT_PATH)
+    if spec is None or spec.loader is None:
+        die(f"cannot load oracle module: {SLOP_LINT_PATH}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
 
 
 def die(msg: str) -> None:
@@ -137,6 +157,7 @@ def cmd_prepare(args: argparse.Namespace) -> int:
                     "assertions": assertions,
                     "graded_dimensions": graded_dimensions,
                     "dynamic_rubric": case.get("dynamic_rubric"),
+                    "deterministic_checks": case.get("deterministic_checks"),
                 }
             )
     worklist = {
@@ -216,15 +237,45 @@ def case_score(record: dict, path: Path, line_no: int, include_graded: bool = Fa
     return result
 
 
+def merge_judgments(records: list[tuple[Path, int, dict]]) -> list[tuple[Path, int, dict]]:
+    """Merge judge and deterministic-lint rows that share a case id.
+
+    A case may legitimately appear twice: once judged by a sub-agent and once
+    linted by `run_evals.py lint` (marked "deterministic": true). The lint
+    checks are appended to the judge record's assertions so a case score
+    reflects both. Any other duplication is still an error.
+    """
+    by_id: dict[str, list[tuple[Path, int, dict]]] = {}
+    order: list[str] = []
+    for path, line_no, record in records:
+        rid = record.get("id")
+        if rid is None:
+            die(f"{path}:{line_no}: record missing 'id'")
+        if rid not in by_id:
+            order.append(rid)
+        by_id.setdefault(rid, []).append((path, line_no, record))
+    merged: list[tuple[Path, int, dict]] = []
+    for rid in order:
+        group = by_id[rid]
+        if len(group) == 1:
+            merged.append(group[0])
+            continue
+        deterministic = [g for g in group if g[2].get("deterministic")]
+        judged = [g for g in group if not g[2].get("deterministic")]
+        if len(group) != 2 or len(deterministic) != 1 or len(judged) != 1:
+            die(f"duplicate id across judgment files: {rid}")
+        path, line_no, base = judged[0]
+        base = dict(base)
+        base["assertions"] = list(base.get("assertions", [])) + list(deterministic[0][2].get("assertions", []))
+        merged.append((path, line_no, base))
+    return merged
+
+
 def cmd_grade(args: argparse.Namespace) -> int:
     paths = [Path(p) for raw in args.judgments for p in glob.glob(raw)] or [Path(p) for p in args.judgments]
     scores: list[dict] = []
-    seen: set[str] = set()
-    for path, line_no, record in iter_lines(paths):
+    for path, line_no, record in merge_judgments(list(iter_lines(paths))):
         s = case_score(record, path, line_no, include_graded=args.include_graded)
-        if s["id"] in seen:
-            die(f"duplicate id across judgment files: {s['id']}")
-        seen.add(s["id"])
         if args.split != "all" and s["split"] != args.split:
             continue
         scores.append(s)
@@ -251,6 +302,66 @@ def cmd_grade(args: argparse.Namespace) -> int:
             f"  {split:8} n={len(bucket):3}  mean_score={mean:.3f}  all_pass={all_pass}/{len(bucket)}",
             file=sys.stderr,
         )
+    return 0
+
+
+# --- lint --------------------------------------------------------------------
+
+
+def cmd_lint(args: argparse.Namespace) -> int:
+    oracle = load_slop_lint()
+    outputs_dir = Path(args.outputs)
+    if not outputs_dir.is_dir():
+        die(f"no such outputs directory: {outputs_dir}")
+    rows: list[dict] = []
+    skipped: list[str] = []
+    checked_cases = 0
+    for raw_path in args.eval_files:
+        path = Path(raw_path)
+        data = load_json(path)
+        cases = data.get("evals")
+        if not isinstance(cases, list):
+            die(f"{path} has no 'evals' list")
+        for case in select(cases, args.split):
+            checks = case.get("deterministic_checks")
+            if not checks:
+                continue
+            checked_cases += 1
+            for check in checks:
+                error = oracle.validate_check(check)
+                if error:
+                    die(f"{path} case {case['id']}: bad deterministic check: {error}")
+            output_file = outputs_dir / path.name / f"{case['id']}.md"
+            if not output_file.is_file():
+                skipped.append(f"{path.name}/{case['id']}")
+                continue
+            text = output_file.read_text(encoding="utf-8", errors="replace")
+            rows.append(
+                {
+                    "id": case["id"],
+                    "suite": path.name,
+                    "split": case.get("split", "unknown"),
+                    "deterministic": True,
+                    "assertions": oracle.run_checks(text, checks),
+                }
+            )
+    if skipped:
+        print(f"warning: no output file for {len(skipped)} case(s): {', '.join(skipped)}", file=sys.stderr)
+    if not rows:
+        die("no cases with deterministic_checks matched (or no outputs present)")
+    lines = "\n".join(json.dumps(r, ensure_ascii=False) for r in rows)
+    if args.out:
+        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.out).write_text(lines + "\n", encoding="utf-8")
+        print(f"wrote {len(rows)} lint judgments to {args.out}", file=sys.stderr)
+    else:
+        print(lines)
+    passed = sum(1 for r in rows if all(a["pass"] for a in r["assertions"]))
+    print(
+        f"lint summary: {passed}/{len(rows)} cases pass all deterministic checks"
+        f" ({checked_cases} cases carry checks; no judge involved)",
+        file=sys.stderr,
+    )
     return 0
 
 
@@ -310,6 +421,13 @@ def main() -> int:
     p_grade.add_argument("--out")
     p_grade.add_argument("--include-graded", action="store_true", help="Include optional 1-5 graded_dimensions in the emitted score.")
     p_grade.set_defaults(func=cmd_grade)
+
+    p_lint = sub.add_parser("lint", help="Grade deterministic_checks mechanically via evals/oracles/slop_lint.py.")
+    p_lint.add_argument("eval_files", nargs="+")
+    p_lint.add_argument("--outputs", required=True, help="Apply-phase outputs root containing <suite>/<id>.md.")
+    p_lint.add_argument("--split", choices=["tune", "holdout", "all"], default="all")
+    p_lint.add_argument("--out")
+    p_lint.set_defaults(func=cmd_lint)
 
     p_join = sub.add_parser("join", help="Merge before/after scores for score_delta.py.")
     p_join.add_argument("--before", required=True)

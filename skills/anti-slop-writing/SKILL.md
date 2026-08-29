@@ -56,6 +56,8 @@ Use these checks before rewriting:
 AI-writing signs: superficial analysis, undue significance language, canned emphasis, negative parallelisms, rule-of-three overuse, formulaic dashes, table/bold formatting as fake structure.
 Rhetorical-style drift: watch noun-heavy abstractions, nominalizations, phrasal coordination, and informational density without mechanism.
 Practical AI-editing tells: repeated “Not X. Y.” rhythm, symmetrical paragraph length, parallel headings, and bullet + bold-header + colon patterns.
+New-register tells (2025+): significance compression (“that’s the whole point/game,” “is the entire business model,” “that’s not nothing,” “the punchline is”), therapy voice (“sit with that,” “worth naming,” “you already know”), performative honesty (“I won’t pretend,” “let’s be honest,” sentence-initial “Honestly,”), stage management (“here’s the thing,” “turns out,” “the only X I trust,” “X is dead”), dev-blog boilerplate (“zero config,” “it just works,” “fits in your head”). One hit can be voice; several in one passage is the tell.
+Structural cadence: “no X, no Y” chains, three-plus sentences opening on the same word, stacked rhetorical questions, adjacent sentences repeating one skeleton, and clauses landing on a bare auxiliary (“The tool died; the data didn’t.”). Shapes drift slower than word lists; keep repetition only when each item is independently checkable or adds a link in a real chain.
 Copula displacement: watch “serves as,” “stands as,” “features,” “marks,” and “represents” replacing plain “is/are.” Keep the verb when it does concrete work (enumerating, defining, locating); replace it when it only inflates a copula.
 Hedged symmetry: watch “Whether you’re X or Y,” “While X, Y is also important,” and similar templates that address every reader or every value at once. Keep the structure only when it names a real branching condition with distinct downstream behavior.
 Em-dash cadence: do not ban em-dashes; watch decorative clusters that use dashes for emphasis instead of for parenthetical or appositive insertion. Reduce count; keep dash insertions/pairs that bracket inline definitions or genuine asides.
@@ -109,8 +111,7 @@ Let's dive into
 It's worth noting that
 It's important to note that
 A testament to
-Not just X, but Y
-Not only X, but also Y
+Not just/only X, but (also) Y
 Same X. Same Y. Different Z.
 Not X. Y.
 This is where X comes in
@@ -122,6 +123,15 @@ In conclusion
 Overall
 Ultimately
 I hope this helps
+That's the whole point / story / game
+That's not nothing
+The punchline is
+Sit with that
+Worth naming
+You already know the answer
+Zero config, batteries included, it just works
+Small enough to fit in your head
+Nestled in / hidden gem / boasts a
 ```
 
 Words to review:
@@ -152,9 +162,14 @@ transformative
 groundbreaking
 seamless
 robust outside engineering context
+interplay
+vibrant
+bustling
+commendable
+ever-evolving
 ```
 
-Note: the word and phrase lists above are time-dated detectors. They reflect patterns observed in current model generations and will drift. Re-profile against a current human-vs-LLM corpus before adding or removing entries; `delve` is the cautionary example of a high-risk word whose frequency in LLM output dropped sharply during 2025.
+Note: the word and phrase lists above are time-dated detectors. They reflect patterns observed in current model generations and will drift. Re-profile against a current human-vs-LLM corpus before adding or removing entries; `delve` is the cautionary example of a high-risk word whose frequency in LLM output dropped sharply during 2025. The 2026-08 new-register additions will drift the same way; the structural-cadence shapes should outlast them.
 
 Copula constructions such as `serves as` and `stands as` are intentionally not in the words list. They are two-word templates whose verdict depends on context: keep when the verb enumerates, defines, or locates; replace when it only inflates a copula.
 

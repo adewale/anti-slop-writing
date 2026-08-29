@@ -324,6 +324,50 @@
         "Does not endorse the staccato three-fragment form as a finished good rewrite solely because it is short and direct.",
         "Names the missing relation (why people are the hard part) or recommends restoring it, rather than expanding into generic prose."
       ]
+    },
+    {
+      "id": "earned-negation-chain-changelog",
+      "split": "tune",
+      "source": "Over-flagging guard added while porting the highlighter's chain detector (simonw/tools, Apache-2.0): the oracle flags the shape; judgment must clear the earned instance.",
+      "prompt": "Review this changelog line: v2.1 upgrades the parser in place: no breaking changes, no new dependencies, and no migration steps.",
+      "expected_output": "Keeps the line. Each 'no' item is a verifiable release fact a reader can check against the diff, not a rhythm flourish.",
+      "assertions": [
+        "Does not flag the 'no X, no Y' structure as slop merely because it is a negation chain; recognizes each item as a checkable release property.",
+        "If suggesting any edit, preserves all three factual claims rather than diluting them into generic reassurance."
+      ]
+    },
+    {
+      "id": "earned-turns-out-with-trace",
+      "split": "tune",
+      "source": "Over-flagging guard for the stage-management family (simonw/tools, Apache-2.0).",
+      "prompt": "Review this incident note: We blamed the GC for the pauses. It turns out that the allocator was the cause: the flame graph put 61% of samples in malloc, and pinning the arena removed the spikes.",
+      "expected_output": "Keeps the sentence. The reversal is earned: the evidence (flame graph, 61%, arena fix) arrives in the same breath as the claim.",
+      "assertions": [
+        "Does not flag 'it turns out that' as a canned reveal here, because the sentence immediately supplies the measurement and the fix that earn the reversal.",
+        "Any suggested edit keeps the flame-graph number and the arena fix; at most it trims the framing phrase."
+      ]
+    },
+    {
+      "id": "earned-anaphora-invariant-chain",
+      "split": "tune",
+      "source": "Over-flagging guard for the structural sentence-anaphora detector (simonw/tools, Apache-2.0): repeated openers can carry a real dependency chain.",
+      "prompt": "Review this design-doc passage: Every request carries a trace id. Every trace id maps to exactly one tenant. Every tenant pins to exactly one shard. That chain is what makes cross-tenant reads impossible by construction.",
+      "expected_output": "Keeps the passage. The repeated 'Every ...' opener tracks an invariant chain, each sentence adding one link that the conclusion depends on.",
+      "assertions": [
+        "Does not flag the repeated 'Every ...' openers as decorative anaphora; recognizes that each sentence adds one link in an invariant chain the final sentence relies on.",
+        "If rewriting, preserves the three invariants and their order rather than merging them into one abstract sentence."
+      ]
+    },
+    {
+      "id": "holdout-earned-honesty-clarification",
+      "split": "holdout",
+      "source": "Over-flagging guard for the performative-honesty family (simonw/tools, Apache-2.0).",
+      "prompt": "Review this API deprecation note: To be clear, the v1 endpoints are unchanged: every route returns the same schema as before, and the deprecation affects only the beta batch endpoint.",
+      "expected_output": "Keeps the sentence. 'To be clear' is followed by the clarification it announces, with named referents (v1 schema, beta batch endpoint).",
+      "assertions": [
+        "Does not treat 'To be clear' as performative honesty here, because the sentence delivers the scoping clarification it announces.",
+        "Any edit keeps the scoping facts; trimming the opener is acceptable, but rejecting the sentence as slop is not."
+      ]
     }
   ]
 }

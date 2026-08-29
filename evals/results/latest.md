@@ -1,8 +1,8 @@
 # Latest eval results
 
-Date: 2026-05-31
+Date: 2026-08-29 (coverage round; statistical proof surface unchanged since 2026-05-31)
 
-This note supersedes the 2026-05-29 infrastructure baseline and the small 2026-05-30 branch-paired run. The old binary holdout suite is at ceiling, so zero-delta runs there remain useful only as no-regression checks. The 2026-05-31 fresh-holdout run is the current statistical proof surface for branch-mining improvements.
+The 2026-08-29 highlighter-mining round (`evals/results/2026-08-29-highlighter-mining.md`) expanded coverage — new-register doctrine families, 13 new cases across the four suites, and the deterministic slop-lint grading layer (`docs/deterministic-graders.md`) — with a deterministic smoke run over the new tune cases. It claims coverage, not measured improvement: the new cases still need a full apply/judge/grade baseline pass (see `TODO.md`). For statistical accept/reject evidence, the 2026-05-31 fresh-holdout run below remains the current proof surface; the old binary holdout suite is at ceiling, so zero-delta runs there remain useful only as no-regression checks.
 
 ## Current merged result notes
 

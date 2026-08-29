@@ -125,3 +125,39 @@ stack — Hugo, the host, even standard.site itself — goes away.
 Rewrite check: passes self-detectors — one em-dash aside is naming the
 pieces, no rule-of-three closer, no decorative final sentence.
 ```
+
+## Strip the new-register voice, keep the facts
+
+The conversational register (significance compression, therapy voice, performative honesty, stage management, dev-blog boilerplate) usually decorates one or two real facts. The rewrite move is extraction: find the facts that survive when the cadence is cut, and let them open the passage.
+
+Bad:
+
+```txt
+Let's be honest: most migration guides are useless. I won't pretend ours was painless. But here's the thing: the schema change took four hours, not four weeks. Turns out the scary part was renaming a column.
+```
+
+Better:
+
+```txt
+Our schema change took four hours, not the four weeks we budgeted. The only step that needed care was renaming a column; everything else was additive, so old and new code ran against the same database during the rollout.
+```
+
+The two facts carried the paragraph all along. The candor openers and staged reveals were the padding around them.
+
+## Resolve structural cadence into findings
+
+Anaphora runs, question stacks, and stranded-auxiliary reversals carry unresolved uncertainty as rhythm. In analytical prose (postmortems, design docs, reviews), the rewrite move is resolution: say which hypothesis was checked and what the evidence showed.
+
+Bad:
+
+```txt
+Maybe the alert was too noisy. Maybe the runbook was stale. Maybe nobody was on call. Do we know which? Do we even want to know? The pager fired; the fix didn't.
+```
+
+Better:
+
+```txt
+The alert fired 41 times that week, so the on-call had muted the channel; the runbook link in the alert had also rotted in March. The page reached a human four minutes after the first failure, but the fix waited ninety minutes for someone who could deploy.
+```
+
+Keep the repetition only when it is doing enumeration work each item can defend — a changelog's "no breaking changes, no new dependencies", an invariant chain's "Every request… Every trace id…". The deterministic lint (`evals/oracles/slop_lint.py`, repo-only) flags the shape either way; the keep/cut verdict is judgment about whether each repeated item is independently checkable.

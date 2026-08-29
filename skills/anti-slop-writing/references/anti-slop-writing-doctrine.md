@@ -189,11 +189,61 @@ transformative
 groundbreaking
 seamless
 robust outside engineering context
+interplay
+vibrant
+bustling
+commendable
+ever-evolving
 ```
 
 The list is time-dated. Words enter and leave based on model behavior in a given generation. `delve` peaked in 2023-2024 LLM outputs and, by 2025 reporting, dropped off sharply; it stays on the list because older models and slower-drifting deployments still produce it, but the list itself should be re-profiled against a current human-vs-LLM corpus rather than maintained by taste. The Antislop research reported that some slop patterns appear over 1,000 times more frequently in LLM output than in human text; a frequency-based re-profile is more honest than vibes. Do not invent a precise drop percentage for `delve`; the public reporting describes the decline qualitatively.
 
 Copula constructions such as `serves as` and `stands as` are deliberately kept out of this words list. They are two-word templates whose verdict is context-dependent: keep when the verb does concrete enumeration, definition, or location work; replace when it only inflates a copula. Placing them in a flat words list would lose that context and risk over-flagging earned uses such as `The retry policy serves three distinct failure modes: ...`.
+
+## New-register tells and structural cadence
+
+Added 2026-08. The lists above track the 2023-24 essay register. Current models also produce a punchy conversational register whose tells are different words in the same failure shape: emphasis borrowed from a pattern instead of earned by a mechanism. Provenance: the families below were identified by diffing an external detector catalog — Simon Willison's llm-cliche-highlighter (simonw/tools, Apache-2.0), whose second pattern group derives from Wikipedia's "Signs of AI writing" — against this doctrine; all of its 27 conversational-register patterns were absent here. A deterministic port lives in the repo at `evals/oracles/slop_lint.py` (repo-only; not part of the installable skill).
+
+Five phrase families:
+
+```txt
+Significance compression: "that's the whole point/story/game", "is the entire business model", "that's not nothing", "the punchline is", "that's why X mattered". Completeness or weight is asserted while the mechanism is withheld.
+Therapy voice: "sit with that", "worth naming", "you already know (the answer)". Reflection performed at the reader.
+Performative honesty: "I won't pretend", "let's be honest", "to be clear", sentence-initial "Honestly," / "Look,". Sincerity announced rather than demonstrated.
+Stage management: "here's the thing/catch/kicker", sentence-initial "turns out", "don't take my word for it", "the only X I trust", "X is dead; long live X". A reveal is staged that the content does not need.
+Dev-blog boilerplate: "zero config", "it just works", "batteries included", "small enough to fit in your head", "sane defaults". Simplicity asserted instead of shown.
+```
+
+Six structural shapes (cadence-level, so they drift slower than any word list):
+
+```txt
+Negation chains: "no X, no Y, no Z" and "did not X, did not Y".
+Sentence anaphora: three or more consecutive sentences opening on the same word.
+Stacked rhetorical questions: two or more question sentences in a row.
+Echo skeletons: adjacent sentences repeating the same multi-word frame ("The parser is a tiny state machine. The renderer is a tiny state machine.").
+Stranded auxiliary: the reversal lands on a bare auxiliary ("The tool died; the data didn't.").
+Colon into a rule-of-three list (already covered by the rule-of-three detector; noisy in technical prose, so judge against the corpus).
+```
+
+Dose-response, not binary: one "turns out" can be voice; "let's be honest" plus "here's the thing" plus "that's the whole story" in one paragraph is the register. Flag density, then judge each hit.
+
+Earned uses to protect (each is pinned by an adversarial eval):
+
+```txt
+Keep: "v2.1 upgrades the parser in place: no breaking changes, no new dependencies, and no migration steps."
+Why: each "no" item is a checkable release fact; the chain is enumeration, not rhythm.
+
+Keep: "It turns out that the allocator was the cause: the flame graph put 61% of samples in malloc."
+Why: the evidence arrives with the reversal; the phrase is reporting a finding, not staging a reveal.
+
+Keep: "Every request carries a trace id. Every trace id maps to exactly one tenant. Every tenant pins to exactly one shard."
+Why: the repeated opener tracks an invariant chain; each sentence adds a link the conclusion depends on.
+
+Keep: "To be clear, the v1 endpoints are unchanged: every route returns the same schema as before."
+Why: the clarification announced is delivered in the same sentence, with named referents.
+```
+
+The test is the same one the rest of the doctrine uses: strip the cadence and check what remains. If the facts survive the cut, the cadence was decoration; if nothing remains, the line was only cadence.
 
 ## Better replacements
 

@@ -149,3 +149,31 @@ Expected critique:
 - Separately identifies copula displacement, hedged symmetry, and outline-shaped conclusion templates.
 - Chooses a specific user/use case or recommends cutting unsupported sentences.
 - Rewrites with concrete behavior the console performs, not another all-purpose product claim.
+
+## Case 11 — new-register conversational slop
+
+Input:
+
+```txt
+Let's be honest: most migration guides are useless. I won't pretend ours was painless. But here's the thing: the schema change took four hours, not four weeks. Turns out the scary part was renaming a column. That's the whole story.
+```
+
+Expected critique:
+
+- Flags the candor performance (`Let's be honest`, `I won't pretend`), the stage-managed reveals (`here's the thing`, `Turns out`), and the significance-compression closer (`That's the whole story`) as the post-2025 conversational register, not earned voice.
+- Keeps the two concrete facts: the four-hour schema change and the column rename.
+- Rewrites so the facts open the piece; the rewrite reuses none of the flagged cadence (checkable with `evals/oracles/slop_lint.py --scope rewrite`).
+
+## Case 12 — structural cadence run
+
+Input:
+
+```txt
+Maybe the alert was too noisy. Maybe the runbook was stale. Maybe nobody was on call. Do we know which? Do we even want to know? The pager fired; the fix didn't.
+```
+
+Expected critique:
+
+- Names the three structural shapes: the `Maybe` anaphora run, the stacked rhetorical questions, and the stranded-auxiliary reversal (`the fix didn't`).
+- Says a postmortem should replace speculation cadence with what was checked and what the evidence showed.
+- Rewrites at least one hypothesis into a verified finding with its evidence; the rewrite contains no anaphora run, question stack, or bare-auxiliary reversal.

@@ -2,10 +2,12 @@
 """Validation for the anti-slop-writing skill repo."""
 from __future__ import annotations
 
+import importlib.util
 import json
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -33,9 +35,12 @@ REQUIRED = [
     ROOT / "docs" / "judge-protocol.md",
     ROOT / "docs" / "branch-mining-2026-05-30.md",
     ROOT / "docs" / "reference-anchor-tests.md",
+    ROOT / "docs" / "deterministic-graders.md",
     ROOT / "runbooks" / "hillclimb-skill.md",
     ROOT / "scripts" / "score_delta.py",
     ROOT / "scripts" / "run_evals.py",
+    ROOT / "evals" / "oracles" / "slop_lint.py",
+    ROOT / "evals" / "fixtures" / "slop-lint-demo" / "input.md",
     ROOT / "evals" / "rejected-edits.md",
     ROOT / "evals" / "blinded-eval-harness.md",
     ROOT / "TODO.md",
@@ -65,6 +70,8 @@ REQUIRED = [
     ROOT / "evals" / "failures" / "safe-essay-voice.md",
     ROOT / "evals" / "failures" / "borrowed-emphasis.md",
     ROOT / "evals" / "failures" / "rewrite-reuses-flagged-pattern.md",
+    ROOT / "evals" / "failures" / "new-register-conversational-slop.md",
+    ROOT / "examples" / "cards" / "new-register-launch-copy.md",
     ROOT / "evals" / "results" / "latest.md",
     ROOT / "evals" / "results" / "2026-05-25-before.md",
     ROOT / "evals" / "results" / "2026-05-25-after.md",
@@ -179,6 +186,30 @@ def validate_frontmatter(text: str) -> None:
 
 
 VALID_SPLITS = {"tune", "holdout"}
+SLOP_LINT_PATH = ROOT / "evals" / "oracles" / "slop_lint.py"
+_slop_lint_module = None
+
+
+def slop_lint_module():
+    global _slop_lint_module
+    if _slop_lint_module is None:
+        spec = importlib.util.spec_from_file_location("slop_lint", SLOP_LINT_PATH)
+        if spec is None or spec.loader is None:
+            fail(f"cannot load {SLOP_LINT_PATH.relative_to(ROOT)}")
+        _slop_lint_module = importlib.util.module_from_spec(spec)
+        sys.modules[spec.name] = _slop_lint_module
+        spec.loader.exec_module(_slop_lint_module)
+    return _slop_lint_module
+
+
+def validate_deterministic_checks(path: Path, case_id: str, checks: Any) -> None:
+    if not isinstance(checks, list) or not checks:
+        fail(f"{path.relative_to(ROOT)} eval {case_id} deterministic_checks must be a non-empty list when present")
+    oracle = slop_lint_module()
+    for i, check in enumerate(checks, start=1):
+        error = oracle.validate_check(check)
+        if error:
+            fail(f"{path.relative_to(ROOT)} eval {case_id} deterministic_checks[{i}]: {error}")
 
 
 def validate_graded_dimensions(path: Path, case_id: str, dims: Any) -> None:
@@ -262,6 +293,8 @@ def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> 
             validate_dynamic_rubric(path, case_id, case["dynamic_rubric"])
         if "reference" in case:
             validate_reference_anchor(path, case_id, case["reference"])
+        if "deterministic_checks" in case:
+            validate_deterministic_checks(path, case_id, case["deterministic_checks"])
 
     if holdout_count < min_holdout:
         fail(f"{path.relative_to(ROOT)} must contain at least {min_holdout} holdout cases (found {holdout_count})")
@@ -329,6 +362,12 @@ def validate_skills_sh_config() -> None:
             listed_skills.add(skill)
     if SKILL_DIR.name not in listed_skills:
         fail(f"skills.sh.json must include {SKILL_DIR.name}")
+
+
+def validate_slop_lint_self_tests() -> None:
+    result = subprocess.run([sys.executable, str(SLOP_LINT_PATH), "--self-test", "--quiet"], cwd=ROOT)
+    if result.returncode != 0:
+        fail("evals/oracles/slop_lint.py --self-test failed")
 
 
 def validate_with_skills_ref() -> None:
@@ -404,10 +443,11 @@ def main() -> int:
     validate_trigger_queries()
     validate_skills_sh_config()
     validate_baseline_scores()
+    validate_slop_lint_self_tests()
     validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "skills.sh", "DISABLE_TELEMETRY=1", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
+    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "skills.sh", "DISABLE_TELEMETRY=1", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill", "evals/oracles/slop_lint.py", "docs/deterministic-graders.md", "deterministic_checks"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 

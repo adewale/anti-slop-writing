@@ -4,6 +4,28 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-08-29 — The register moved while the word list stood still; an external catalog found the gap
+
+### Failure
+
+Diffing Simon Willison's llm-cliche-highlighter (simonw/tools, Apache-2.0) against `SKILL.md` showed the doctrine's lists tracked the 2023-24 essay register (delve, tapestry, testament — the Wikipedia group, which the 2026-05-27 research round had already mined) while all 27 of the highlighter's conversational-register patterns were absent: significance compression ("that's the whole point", "that's not nothing"), therapy voice ("sit with that", "worth naming"), performative honesty ("I won't pretend", "let's be honest"), stage management ("here's the thing", "turns out"), dev-blog boilerplate ("zero config", "it just works"), and six structural cadence shapes. This is the drift the doctrine's own time-dated-detectors note predicted, caught by someone else's catalog rather than our re-profiling.
+
+### What changed
+
+Eval contract first (five `evals.json` cases, four earned-use `adversarial.json` guards, two `rewrite-evals.json` cases, two `meta-evals.json` checks, manual cases 11-12), then the smallest doctrine edit that satisfies it: two detector entries (new-register families with dose-response framing; structural cadence), nine avoid-phrases, five high-risk words, one drift-note sentence — +197 words against the +200 budget, after consolidating the two "not just/only" banned-phrase near-duplicates. Full family detail went to the doctrine reference, not `SKILL.md`. Separately, the highlighter's design was ported as a deterministic grading layer: `evals/oracles/slop_lint.py` (22 detectors, embedded positive+negative self-tests, a demo fixture that trips every detector exactly once) plus `run_evals.py lint`, so forbid-shaped rewrite checks now grade without a judge (`docs/deterministic-graders.md`).
+
+### What not to overgeneralize
+
+The oracle is recall, not verdict: it flags "no breaking changes, no new dependencies" and "Every request… Every trace id…" exactly as it flags their decorative twins, which is why the four earned-use adversarial cases exist. Deterministic checks stay forbid-shaped; a deterministic require-check is a keyword-stuffing incentive. And the new families are as time-dated as `delve` was — the durable import is the structural detectors and the two-layer grading design, not the 2025 phrase list. Score evidence is pending a full sub-agent run: the smoke run in `evals/results/2026-08-29-highlighter-mining.md` covers deterministic checks only, so this round claims coverage expansion, not measured doctrine improvement.
+
+### Eval coverage
+
+- `evals/evals.json` (tune): `new-register-significance-compression`, `performative-honesty-stage-management`, `structural-cadence-run`; (holdout): `holdout-devblog-boilerplate`, `holdout-therapy-voice-retro`.
+- `evals/adversarial.json` (tune): `earned-negation-chain-changelog`, `earned-turns-out-with-trace`, `earned-anaphora-invariant-chain`; (holdout): `holdout-earned-honesty-clarification`.
+- `evals/rewrite-evals.json` (tune): `strip-new-register-launch`; (holdout): `holdout-stage-managed-postmortem`.
+- `evals/meta-evals.json` (tune): `deterministic-vs-judge-split`; (holdout): `holdout-oracle-drift-review`.
+- Oracle self-tests run inside `scripts/validate.py`.
+
 ## 2026-06-14 — Borrowed surface rules were inert; our mechanism tests already subsume them
 
 ### Failure

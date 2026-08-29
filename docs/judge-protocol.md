@@ -40,6 +40,18 @@ Spawn one judge sub-agent per suite, distinct from the apply agent that produced
 
 `run_evals.py grade` reads this format. The `assertions` array may also be a list of bare booleans if evidence is recorded elsewhere. `graded_dimensions` is optional for cases that do not define it.
 
+## Phase 2.5 — deterministic lint (no sub-agent)
+
+For cases carrying a `deterministic_checks` block, the parent runs the oracle directly — no model call, no judge bias:
+
+```bash
+python3 scripts/run_evals.py lint --outputs evals/results/baseline-YYYY-MM-DD/outputs \
+  evals/evals.json evals/rewrite-evals.json \
+  --out evals/results/baseline-YYYY-MM-DD/judgments/lint.jsonl
+```
+
+The rows are judgment-shaped and marked `"deterministic": true`; `grade` merges them with the judge row for the same case id. Judges still grade only the natural-language `assertions` — they never re-grade the deterministic checks. See `docs/deterministic-graders.md` for which assertions belong on which side.
+
 ## Phase 3 — grade
 
 The parent runs:

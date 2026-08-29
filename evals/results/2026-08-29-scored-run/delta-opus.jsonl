@@ -1,0 +1,13 @@
+{"id": "deterministic-vs-judge-split", "split": "tune", "before": 0.3333, "after": 1.0}
+{"id": "earned-anaphora-invariant-chain", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "earned-negation-chain-changelog", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "earned-turns-out-with-trace", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "holdout-devblog-boilerplate", "split": "holdout", "before": 0.8, "after": 0.8}
+{"id": "holdout-earned-honesty-clarification", "split": "holdout", "before": 1.0, "after": 1.0}
+{"id": "holdout-oracle-drift-review", "split": "holdout", "before": 1.0, "after": 0.6667}
+{"id": "holdout-stage-managed-postmortem", "split": "holdout", "before": 0.3333, "after": 0.6667}
+{"id": "holdout-therapy-voice-retro", "split": "holdout", "before": 0.75, "after": 1.0}
+{"id": "new-register-significance-compression", "split": "tune", "before": 0.8, "after": 0.8}
+{"id": "performative-honesty-stage-management", "split": "tune", "before": 1.0, "after": 1.0}
+{"id": "strip-new-register-launch", "split": "tune", "before": 0.5, "after": 1.0}
+{"id": "structural-cadence-run", "split": "tune", "before": 0.5, "after": 0.8333}

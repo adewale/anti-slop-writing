@@ -4,6 +4,25 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-08-29 — The scored run found our own contamination and a can't-pass-honestly assertion before it measured anything
+
+### Failure
+
+Two flaws in the same day's additions, both caught by the pre-registered A/B run rather than by review. First, the new `references/rewrite-patterns.md` examples reused the exact source passages of two tune eval cases — worked answers sitting in arm B's visible references (the arm-B apply agent reported it unprompted, and also reported the second flaw: those reference rewrites invented counts, dates, and mechanisms absent from their sources, violating the skill's own no-invention rule). Second, `structural-cadence-run`'s third assertion demanded "at least one verified finding" from an excerpt containing no evidence — an assertion satisfiable only by inventing, so Opus failed the honest output that declined.
+
+### What changed
+
+The run note discloses and discounts the two affected tune deltas (the pre-registered gate was holdout-only and no holdout passage appears in any reference, so the decision rule survived). Post-scoring: both reference examples were rewritten onto non-eval passages with invention-honest rewrites (ask-author for the missing mechanism; a check-plan where the source has no evidence), each with an inline note recording the original flaw; the failure record's rewrite got the same fix. The assertion reword is queued as next-round tune work in `TODO.md`, not hot-fixed after seeing scores.
+
+### What not to overgeneralize
+
+Teaching examples may still use invented *scenarios* — a fictional product in a card is fine. The rule is narrower and two-sided: an example presented as the rewrite of a specific quoted source may only contain facts that source supplies; and no passage may serve as both eval input and reference material, because the reference side of that pair is an answer key. On the eval side: an assertion must be satisfiable by the doctrine-compliant response — when the source lacks evidence, "resolution" means naming the checks, and the assertion has to accept that form.
+
+### Eval coverage
+
+- `evals/results/2026-08-29-scored-run.md` (disclosures §3-4) and `run-metadata.json` (known_contamination).
+- Assertion fix and hardening queued in `TODO.md`; the corrected reference sections carry inline notes.
+
 ## 2026-08-29 — The register moved while the word list stood still; an external catalog found the gap
 
 ### Failure

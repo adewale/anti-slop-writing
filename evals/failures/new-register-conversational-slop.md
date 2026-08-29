@@ -25,8 +25,10 @@ The register was catalogued externally before it was covered here: Simon Williso
 ## Better rewrite
 
 ```txt
-Our schema change took four hours, not the four weeks we had budgeted. The only step that needed care was renaming a column: everything else was additive, so old and new code could run against the same database during the rollout.
+Our schema change took four hours, not four weeks. The only step that needed care was renaming a column. Ask author: what made the rest safe — additive columns, dual-running code, a backfill? Naming it would finish the intro.
 ```
+
+(An earlier version of this rewrite invented the "everything else was additive" mechanism; the 2026-08-29 scored run's apply agent flagged the invention, and the rewrite now requests the missing fact instead.)
 
 ## Rule added or changed
 

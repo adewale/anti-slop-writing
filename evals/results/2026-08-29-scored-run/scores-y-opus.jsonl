@@ -1,0 +1,13 @@
+{"id": "earned-negation-chain-changelog", "split": "tune", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 2, "n_assertions": 2}
+{"id": "earned-turns-out-with-trace", "split": "tune", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 2, "n_assertions": 2}
+{"id": "earned-anaphora-invariant-chain", "split": "tune", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 2, "n_assertions": 2}
+{"id": "holdout-earned-honesty-clarification", "split": "holdout", "suite": "adversarial.json", "score": 1.0, "all_pass": true, "n_passed": 2, "n_assertions": 2}
+{"id": "new-register-significance-compression", "split": "tune", "suite": "evals.json", "score": 0.8, "all_pass": false, "n_passed": 4, "n_assertions": 5, "assertion_score": 0.8, "graded_score": 0.6, "n_graded_dimensions": 1}
+{"id": "performative-honesty-stage-management", "split": "tune", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 5, "n_assertions": 5}
+{"id": "structural-cadence-run", "split": "tune", "suite": "evals.json", "score": 0.8333, "all_pass": false, "n_passed": 5, "n_assertions": 6}
+{"id": "holdout-devblog-boilerplate", "split": "holdout", "suite": "evals.json", "score": 0.8, "all_pass": false, "n_passed": 4, "n_assertions": 5, "assertion_score": 0.8, "graded_score": 1.0, "n_graded_dimensions": 1}
+{"id": "holdout-therapy-voice-retro", "split": "holdout", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 4, "n_assertions": 4}
+{"id": "deterministic-vs-judge-split", "split": "tune", "suite": "meta-evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "holdout-oracle-drift-review", "split": "holdout", "suite": "meta-evals.json", "score": 0.6667, "all_pass": false, "n_passed": 2, "n_assertions": 3}
+{"id": "strip-new-register-launch", "split": "tune", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 8, "n_assertions": 8, "assertion_score": 1.0, "graded_score": 0.8, "n_graded_dimensions": 2}
+{"id": "holdout-stage-managed-postmortem", "split": "holdout", "suite": "rewrite-evals.json", "score": 0.6667, "all_pass": false, "n_passed": 4, "n_assertions": 6}

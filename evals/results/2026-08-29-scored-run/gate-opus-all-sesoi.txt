@@ -1,0 +1,9 @@
+Split:         all-cases
+Cases:         13
+Mean delta:    +0.1346
+95% CI:        [+0.0000, +0.2757]
+Sign-flip p:   0.1251
+SESOI:         +/-0.0500
+TOST 90% CI:   [+0.0192, +0.2564]
+Equivalence:   NOT SHOWN (CI exceeds +/-0.0500; cannot rule out an effect this large).
+Verdict:       REJECT (CI overlaps zero; delta is within noise).

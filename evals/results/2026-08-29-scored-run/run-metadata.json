@@ -1,0 +1,18 @@
+{
+  "run": "2026-08-29-scored-run",
+  "pre_registration": "pre-registration.md (committed before any output was generated)",
+  "arms": {
+    "A": "doctrine snapshot at 53370ff (doctrine-A/), pre-mining",
+    "B": "skills/anti-slop-writing/ at the 42e8fb5 lineage (post-mining)"
+  },
+  "arm_mapping": {"outputs-x": "A", "outputs-y": "B"},
+  "blinding": "Judges saw only outputs-x/outputs-y and were instructed to read nothing else under the run directory. Instruction-level blinding: the mapping was recoverable from committed apply-work/ paths by an agent that disobeyed its read list; both judges' reply logs list only permitted reads.",
+  "apply_model": "claude sonnet (both arms, one generation per case)",
+  "judges": ["claude opus", "claude haiku"],
+  "judge_family_note": "Single family (Claude); pre-registered limitation, scores read as within-family evidence.",
+  "deterministic_layer": "run_evals.py lint with evals/oracles/slop_lint.py; 7 cases per arm carry deterministic_checks; lint rows merged into judge rows at grade time.",
+  "repairs": [
+    "judgments-x/haiku/meta-evals.json.jsonl line 2: escaped two unescaped inner double quotes around the word delve so the line parses; judgment content (pass/fail, evidence wording) unchanged."
+  ],
+  "known_contamination": "references/rewrite-patterns.md (arm B only) contains worked rewrites of the exact source passages used by two TUNE cases (performative-honesty-stage-management, structural-cadence-run). Disclosed in the results note; the pre-registered gate is holdout-only and no holdout passage appears in any reference. The arm-B apply agent independently reported declining to copy those reference rewrites because they invent facts."
+}

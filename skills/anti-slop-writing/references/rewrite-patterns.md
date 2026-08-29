@@ -128,36 +128,40 @@ pieces, no rule-of-three closer, no decorative final sentence.
 
 ## Strip the new-register voice, keep the facts
 
-The conversational register (significance compression, therapy voice, performative honesty, stage management, dev-blog boilerplate) usually decorates one or two real facts. The rewrite move is extraction: find the facts that survive when the cadence is cut, and let them open the passage.
+The conversational register (significance compression, therapy voice, performative honesty, stage management, dev-blog boilerplate) usually decorates one or two real facts. The rewrite move is extraction: find the facts that survive when the cadence is cut, and let them open the passage. Do not invent replacements for what the cadence was hiding; use the skill's ask-author rule.
 
 Bad:
 
 ```txt
-Let's be honest: most migration guides are useless. I won't pretend ours was painless. But here's the thing: the schema change took four hours, not four weeks. Turns out the scary part was renaming a column.
+Let's be real: most changelogs are noise. I won't sugarcoat it — the upgrade had rough edges. But here's the kicker: builds now finish in 90 seconds, down from six minutes. Turns out the cache key was wrong the whole time.
 ```
 
 Better:
 
 ```txt
-Our schema change took four hours, not the four weeks we budgeted. The only step that needed care was renaming a column; everything else was additive, so old and new code ran against the same database during the rollout.
+The upgrade cut build time from six minutes to 90 seconds. The cause was a wrong cache key. Ask author: what did the key hash before and after the fix? That one sentence would carry the piece.
 ```
 
-The two facts carried the paragraph all along. The candor openers and staged reveals were the padding around them.
+Every fact in the rewrite comes from the source; the missing mechanism is requested, not invented. The candor opener and the staged reveals were padding around two numbers and a cause.
 
 ## Resolve structural cadence into findings
 
-Anaphora runs, question stacks, and stranded-auxiliary reversals carry unresolved uncertainty as rhythm. In analytical prose (postmortems, design docs, reviews), the rewrite move is resolution: say which hypothesis was checked and what the evidence showed.
+Anaphora runs, question stacks, and stranded-auxiliary reversals carry unresolved uncertainty as rhythm. In analytical prose (postmortems, design docs, reviews), the rewrite move is resolution: state what was checked and what the evidence showed. When the source supplies no evidence, resolution means naming the specific checks and their order — never inventing findings to fill the shape.
 
 Bad:
 
 ```txt
-Maybe the alert was too noisy. Maybe the runbook was stale. Maybe nobody was on call. Do we know which? Do we even want to know? The pager fired; the fix didn't.
+Maybe the index was cold. Maybe the query planner changed. Maybe the traffic mix shifted. Do we know which? Do we even trust the dashboards? The graphs recovered; our confidence didn't.
 ```
 
 Better:
 
 ```txt
-The alert fired 41 times that week, so the on-call had muted the channel; the runbook link in the alert had also rotted in March. The page reached a human four minutes after the first failure, but the fix waited ninety minutes for someone who could deploy.
+The slowdown has three candidate causes: a cold index, a planner change, or a shifted traffic mix. The index stats and the plan diff are one query each; check those first and record which candidates the evidence eliminates. Until then the incident stays open, whatever the graphs show.
 ```
 
+The speculation cadence becomes an ordered checklist with named evidence sources. Nothing is asserted that the source cannot support.
+
 Keep the repetition only when it is doing enumeration work each item can defend — a changelog's "no breaking changes, no new dependencies", an invariant chain's "Every request… Every trace id…". The deterministic lint (`evals/oracles/slop_lint.py`, repo-only) flags the shape either way; the keep/cut verdict is judgment about whether each repeated item is independently checkable.
+
+Note (2026-08-29): the first versions of these two examples reused the exact source passages of two tune eval cases and their rewrites invented specifics (counts, dates, mechanisms) not present in the sources. Both flaws were caught during the scored A/B run — the apply agent refused to copy the inventing rewrites, and the run note discounts the affected tune deltas. Worked examples in installable references must never reuse eval-case inputs, and a "Better" rewrite may only contain facts its own "Bad" source supplies.

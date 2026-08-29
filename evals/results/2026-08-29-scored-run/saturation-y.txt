@@ -1,0 +1,19 @@
+case                                      n   min   max  mean  flag
+deterministic-vs-judge-split              2  1.00  1.00  1.00  CEILING
+earned-anaphora-invariant-chain           2  1.00  1.00  1.00  CEILING
+earned-negation-chain-changelog           2  1.00  1.00  1.00  CEILING
+earned-turns-out-with-trace               2  1.00  1.00  1.00  CEILING
+holdout-devblog-boilerplate               2  0.80  0.80  0.80  flat
+holdout-earned-honesty-clarification      2  1.00  1.00  1.00  CEILING
+holdout-oracle-drift-review               2  0.67  1.00  0.83  spread
+holdout-stage-managed-postmortem          2  0.67  0.83  0.75  spread
+holdout-therapy-voice-retro               2  1.00  1.00  1.00  CEILING
+new-register-significance-compression     2  0.80  1.00  0.90  spread
+performative-honesty-stage-management     2  1.00  1.00  1.00  CEILING
+strip-new-register-launch                 2  1.00  1.00  1.00  CEILING
+structural-cadence-run                    2  0.83  1.00  0.92  spread
+
+Cases:             13
+At ceiling:        8
+Saturation index:  0.615  (fraction of cases with no spread at the ceiling)
+Note: a zero delta on CEILING cases is only no-regression evidence; harden or retire them.

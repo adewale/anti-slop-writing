@@ -37,7 +37,18 @@ All of the following are reproducible from the repo with no model call:
 
 ## Deterministic smoke run over the new tune cases
 
-Recorded in `evals/results/2026-08-29-highlighter-mining/` (outputs, lint judgments, scores): fresh apply sub-agents (per `docs/judge-protocol.md` Phase 1, assertions withheld) produced outputs for the four new tune cases carrying `deterministic_checks`; `run_evals.py lint` graded them with no judge. Results are appended below when the run lands in this directory.
+Recorded in `evals/results/2026-08-29-highlighter-mining/` (outputs, judgments/lint.jsonl, scores.jsonl). Two fresh apply sub-agents (per `docs/judge-protocol.md` Phase 1: one per suite, SKILL.md and references only, assertions withheld — both confirmed they read nothing under `evals/`) produced outputs for the four new tune cases carrying `deterministic_checks`; `run_evals.py lint --split tune` graded them with no judge.
+
+Result: **4/4 cases pass all 12 deterministic checks** (tune mean 1.000, all_pass 4/4).
+
+| Case | Suite | Checks | Result |
+|---|---|---|---|
+| `new-register-significance-compression` | evals.json | significance-compression, therapy-voice = 0 hits in rewrite scope | 2/2 |
+| `performative-honesty-stage-management` | evals.json | performative-honesty, stage-management = 0 hits in rewrite scope | 2/2 |
+| `structural-cadence-run` | evals.json | sentence-anaphora, stacked-questions, stranded-auxiliary = 0 hits in rewrite scope | 3/3 |
+| `strip-new-register-launch` | rewrite-evals.json | no-chain, devblog-boilerplate, performative-honesty, significance-compression, not-just-but = 0 hits | 5/5 |
+
+Read as: with the updated doctrine loaded, fresh outputs do not reuse the flagged cadence — the executable form of the `Rewrite check` rule, verified at zero token cost on the grading side. This is a tune-split smoke, not the round's score gate; holdout cases were not run (they are scored at end-of-round/merge under the full protocol).
 
 ## What is and is not measured here
 

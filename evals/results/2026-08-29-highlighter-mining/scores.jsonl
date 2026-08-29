@@ -1,0 +1,4 @@
+{"id": "new-register-significance-compression", "split": "tune", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 2, "n_assertions": 2}
+{"id": "performative-honesty-stage-management", "split": "tune", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 2, "n_assertions": 2}
+{"id": "structural-cadence-run", "split": "tune", "suite": "evals.json", "score": 1.0, "all_pass": true, "n_passed": 3, "n_assertions": 3}
+{"id": "strip-new-register-launch", "split": "tune", "suite": "rewrite-evals.json", "score": 1.0, "all_pass": true, "n_passed": 5, "n_assertions": 5}

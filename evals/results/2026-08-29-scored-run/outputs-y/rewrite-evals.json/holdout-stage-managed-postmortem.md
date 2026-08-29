@@ -1,0 +1,1 @@
+Nobody read the runbook, even though the alert fired twice and was acknowledged both times. I wish we'd caught it sooner, and that the escalation had worked. This wasn't a coverage gap — someone answered the page both times. It was a knowledge gap: nobody who answered had read the runbook.

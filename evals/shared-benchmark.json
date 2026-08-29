@@ -396,7 +396,8 @@
       "success_goals": [
         "trigger"
       ],
-      "trigger_type": "implicit"
+      "trigger_type": "implicit",
+      "should_trigger": true
     },
     {
       "id": "trig-talk-intro",
@@ -422,7 +423,8 @@
       "success_goals": [
         "trigger"
       ],
-      "trigger_type": "implicit"
+      "trigger_type": "implicit",
+      "should_trigger": true
     },
     {
       "id": "trig-grammar-only",
@@ -448,7 +450,8 @@
       "success_goals": [
         "trigger"
       ],
-      "trigger_type": "negative-near-miss"
+      "trigger_type": "negative-near-miss",
+      "should_trigger": false
     },
     {
       "id": "trig-legal-boilerplate",
@@ -474,7 +477,8 @@
       "success_goals": [
         "trigger"
       ],
-      "trigger_type": "negative-near-miss"
+      "trigger_type": "negative-near-miss",
+      "should_trigger": false
     },
     {
       "id": "trig-generic-marketing-intentional",
@@ -500,7 +504,8 @@
       "success_goals": [
         "trigger"
       ],
-      "trigger_type": "negative-near-miss"
+      "trigger_type": "negative-near-miss",
+      "should_trigger": false
     },
     {
       "id": "holdout-fresh-llm-readme-2026-01",
@@ -515,6 +520,7 @@
         {
           "name": "qualitative-review",
           "type": "judge",
+          "severity": "gate",
           "rubric": [
             "Specificity",
             "Fact preservation",
@@ -546,7 +552,8 @@
           "type": "judge",
           "rubric": [
             "Use the private answer key; do not rely on public manifest wording."
-          ]
+          ],
+          "severity": "gate"
         }
       ],
       "tags": [
@@ -661,6 +668,87 @@
       "success_goals": [
         "outcome",
         "style"
+      ]
+    },
+    {
+      "id": "pos-new-register-launch-strip",
+      "split": "tune",
+      "kind": "rewrite",
+      "prompt": "Rewrite without AI slop: 'We rebuilt the editor. No sign-ups, no downloads, no hassle. Zero config — it just works. Let's be honest: most editors are bloated. This one fits in your head. That's the whole point.'",
+      "expected_behavior": [
+        "Remove the negation chain, dev-blog boilerplate, candor opener, and significance-compression closer.",
+        "Replace asserted qualities with claims a reader could check; do not invent product details."
+      ],
+      "assertions": [
+        {
+          "name": "slop-lint-script-oracle",
+          "type": "script",
+          "command": [
+            "python3",
+            "oracles/slop_lint_oracle.py",
+            "{output_dir}",
+            "pos-new-register-launch-strip"
+          ],
+          "pass_exit_code": 0,
+          "timeout_s": 10,
+          "oracle": "strong",
+          "description": "Deterministic slop-lint forbid checks (no-chain, devblog-boilerplate, performative-honesty, significance-compression, not-just-but). Backed by slop_lint.py --self-test; run benchmark with --allow-scripts."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Checkable specifics replace asserted qualities",
+            "No invented product details",
+            "No replacement cadence pattern"
+          ]
+        }
+      ],
+      "tags": [
+        "new-register",
+        "deterministic-oracle"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome",
+        "style"
+      ]
+    },
+    {
+      "id": "neg-earned-negation-chain",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review this changelog line for AI slop: 'v2.1 upgrades the parser in place: no breaking changes, no new dependencies, and no migration steps.'",
+      "expected_behavior": [
+        "Do not flag the negation chain when each item is a checkable release fact."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-earned-chain",
+          "type": "contains_any",
+          "values": [
+            "keep",
+            "checkable",
+            "verifiable"
+          ]
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "False-positive restraint on structural chains",
+            "Preserves all three factual claims"
+          ]
+        }
+      ],
+      "tags": [
+        "new-register"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome"
       ]
     }
   ],

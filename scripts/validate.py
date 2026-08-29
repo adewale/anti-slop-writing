@@ -40,6 +40,7 @@ REQUIRED = [
     ROOT / "scripts" / "score_delta.py",
     ROOT / "scripts" / "run_evals.py",
     ROOT / "evals" / "oracles" / "slop_lint.py",
+    ROOT / "evals" / "oracles" / "slop_lint_oracle.py",
     ROOT / "evals" / "fixtures" / "slop-lint-demo" / "input.md",
     ROOT / "evals" / "rejected-edits.md",
     ROOT / "evals" / "blinded-eval-harness.md",

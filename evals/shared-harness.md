@@ -56,4 +56,9 @@ skill-benchmark judge evals/shared-benchmark.json --runs eval-runs/latest --judg
 skill-benchmark benchmark evals/shared-benchmark.json --runs eval-runs/latest --allow-scripts --judge-results /tmp/anti-slop-writing-judge-results.jsonl --out /tmp/anti-slop-writing-benchmark.json
 ```
 
-Script assertions are deterministic repo-owned oracles and require `--allow-scripts` during grading.
+Script assertions are deterministic repo-owned oracles and require `--allow-scripts` during grading. Two live in `oracles/`:
+
+- `oracles/fixture_oracle.py` — fixture-backed content checks (case `round3-fixture-mechanism-copy`).
+- `oracles/slop_lint_oracle.py` — slop-lint detector checks bridging `oracles/slop_lint.py` into the script-assertion contract (case `pos-new-register-launch-strip`); marked `"oracle": "strong"` because the detector registry is self-tested (`python3 oracles/slop_lint.py --self-test`). Add a `CHECKS` table entry alongside any new case that names it. See `../docs/deterministic-graders.md`.
+
+Manifest maintenance note (2026-08-29): the current harness main validates this manifest (`20 cases, 4 ablations`). Getting there required stamping the five trigger cases' `should_trigger` booleans (taken verbatim from their `expected_behavior` text) and marking the two judge-only hidden cases' reviews as `"severity": "gate"` — newer harness versions require every answer variant to carry at least one gate-tier assertion. The version pins above trail the harness's main branch; revalidate after harness upgrades.

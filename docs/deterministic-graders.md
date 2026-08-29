@@ -63,6 +63,14 @@ Self-verification, borrowed directly from the highlighter's design:
 
 Three highlighter detectors stayed out: `colon-triple` (its own description warns it is noisy on technical writing — this corpus — and the doctrine's rule-of-three detector covers the judgment-requiring version), `dont-verb-it` (backreference matching, low expected volume), and `is-real` (high false-positive rate on ordinary prose). Adding a detector requires the same discipline as doctrine: a positive case, a negative case, and an eval that proves it belongs.
 
+## Relation to the shared Skill Eval Harness
+
+The shared harness (adewale/skill-eval-harness, manifest `evals/shared-benchmark.json`) already ships the generic mechanism this layer needs externally: `script` assertions — repo-owned oracle commands run with `--allow-scripts`, `{output_dir}` substitution, `pass_exit_code` deciding pass, and an optional `{"score": N, "max_score": M}` stdout line feeding the graded channel. Audit result, 2026-08-29: nothing invented here duplicates missing harness machinery; the split is:
+
+- **Repo-side (stays here)**: the detector registry and self-tests (`evals/oracles/slop_lint.py` — doctrine-coupled, drifts with the skill), the `deterministic_checks` schema on the private suites, and `run_evals.py lint`/merge, which give the sub-agent judge protocol the same capability the harness's `benchmark --allow-scripts` gives shared-benchmark runs.
+- **Harness integration (done)**: `evals/oracles/slop_lint_oracle.py`, a thin adapter following `fixture_oracle.py`'s calling convention (`oracle.py {output_dir} CASE_ID`, per-case `CHECKS` table, score line), wired into `evals/shared-benchmark.json` → `pos-new-register-launch-strip` with `"oracle": "strong"` (the harness's tier for deterministic, self-verified oracles; plain `script` defaults to `demo`). Paired with `neg-earned-negation-chain` so the shared benchmark also pins the earned-use boundary.
+- **Upstream candidates (proposals only, different repo)**: a declarative detector-check assertion (checks in the assertion payload instead of a per-oracle `CHECKS` table), and consolidating the two oracles' shared scaffolding. Neither blocks anything; both are noted here so the idea is not lost.
+
 ## Drift
 
 The word-list detectors are time-dated (see the `delve` note in `SKILL.md`); the structural detectors are the slow-drifting core. `evals/meta-evals.json` → `holdout-oracle-drift-review` pins the correct reading of a detector whose hits fall to zero: probable register drift, not victory. Re-profile before trusting either direction.

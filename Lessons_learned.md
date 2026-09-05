@@ -4,6 +4,69 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-09-05 — An underpowered round cannot reject a rule, only fail to support it
+
+### Failure
+
+The OpenAI "Using GPT-6 Astra" prompting guide lists "invented compound labels
+like 'exact-head checks' and 'editorial-row layouts'" among the patterns to
+prompt away. Probing it found something the word-list framing misses: a coined
+hyphenated label is *shaped like* a mechanism name, so it can satisfy the
+emphasis-source test ("does the residual claim name an actor, mechanism, or
+limit?") and then be rescued by false-positive restraint ("keep the term when the
+sentence supplies the mechanism"). Neither rule asks whether the supporting term
+is itself resolvable. On the probe paragraph a Sonnet apply agent wrote
+"Specificity missing: None. The paragraph names ... the mechanism (exact-head
+checks run before each merge)" — reading the coinage as the mechanism outright.
+
+### What changed
+
+Nothing in the installable `SKILL.md`. A +135-word candidate (detector, editing
+step, resolvability clause) raised the Sonnet flag rate from 4/8 to 8/8 across
+two independent rounds with no over-flagging — P2 (`write-ahead log`,
+`copy-on-write`) and P3 (a coinage defined in place) were kept in every run of
+both arms — and still did not clear `scripts/score_delta.py`. Logged in
+`evals/rejected-edits.md`. Kept: `evals/evals.json` -> `coined-compound-label`,
+`evals/adversarial.json` -> `earned-domain-compound` and
+`coined-label-defined-in-place`, `evals/failures/coined-compound-label.md`,
+`examples/cards/coined-compound-label.md`.
+
+### What not to overgeneralize
+
+Do not record this as "coined labels are already covered." That is what the
+2026-06-13 parataxis and 2026-06-14 stop-slop entries concluded about their
+candidates, and it is not what happened here. Those rounds returned deltas of
+exactly 0.00 — the doctrine genuinely already did the job. This round returned a
+consistent, replicated +0.50 with a clean adversarial guard, and failed anyway
+because the round was too small to prove it: four discordant pairs all pointing
+one way is the most extreme outcome available at N=8, and a two-sided sign-flip
+test on four discordant pairs bottoms out at 2/2^4 = 0.125. No true effect could
+have passed. A REJECT of this shape is "not shown", not "not there", and the
+distinction is the whole point of `docs/eval-null-result-literature.md`.
+
+Two design rules generalize, and both are cheap:
+
+- **Never quote a fixture string in the doctrine under test.** The candidate
+  detector quoted `"exact-head checks"` and `"editorial-row layouts"`, the exact
+  strings in the fixture. A candidate-arm agent noticed unprompted and pointed
+  out that the skill's "own worked examples ... are literally" the phrases under
+  review. Teaching to the test invalidates the arm even when the rule is sound.
+- **Never score guard cases as paired observations.** Round 1 put 8 guard pairs
+  alongside 4 discriminating ones. Guards are correct under both arms by
+  construction, so they contribute only zeros and drag the mean toward noise.
+  Run them, report them, keep them out of the paired scores.
+
+### Eval coverage
+
+- `evals/evals.json` (tune): `coined-compound-label` — non-saturated under the
+  shipping doctrine, which is the kind of case the suite is short of.
+- `evals/adversarial.json`: `earned-domain-compound` (tune),
+  `coined-label-defined-in-place` (holdout) — the boundary guards against the
+  blanket-hyphen-ban reading.
+- Run: `evals/results/2026-09-05-astra-compound-labels/` (pre-registration plus
+  amendment, both doctrine snapshots, a decontaminated third snapshot, every
+  critique produced, two gate outputs).
+
 ## 2026-06-14 — Borrowed surface rules were inert; our mechanism tests already subsume them
 
 ### Failure

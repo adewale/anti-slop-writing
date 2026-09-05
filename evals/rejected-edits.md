@@ -84,3 +84,65 @@ Every paired delta was exactly 0.00; Opus produced byte-identical rewrites under
 ### Lesson (if any)
 
 Recorded in `Lessons_learned.md` → "Borrowed surface rules were inert; our mechanism tests already subsume them."
+
+## 2026-09-05 — Coined-compound-label detector from the GPT-6 Astra guide
+
+### Edit attempted
+
+Add three things to `SKILL.md` (+135 words): a `Coined compound labels` detector
+("watch hyphenated noun phrases that name a check, artifact, or process the
+passage never defines... A name is not a mechanism"), an editing-pass step
+resolving coined labels, and a resolvability clause on **False-positive
+restraint** ("Support must be resolvable by the reader. A term that is itself
+undefined does not earn a claim, it relocates the gap"). Sourced from the OpenAI
+"Using GPT-6 Astra" prompting guide, section *Personality and writing style*,
+which lists "invented compound labels" among the patterns to avoid.
+
+### Eval that rejected it
+
+`scripts/score_delta.py` over two rounds in
+`evals/results/2026-09-05-astra-compound-labels/`, apply/judge separated per
+`docs/judge-protocol.md`, Sonnet apply agents, fixtures P1 (coined labels,
+should flag), P2 (`write-ahead log` / `copy-on-write`, should keep), P3
+(coinage defined in place, should keep; the holdout guard).
+
+- Round 1 as designed, 12 pairs: mean +0.1667, 95% CI [+0.0000, +0.4167],
+  sign-flip p=0.5057 — REJECT. Holdout-only: +0.0000, p=1.0 — REJECT.
+- Rounds 1+2, discriminating fixture only, 8 pairs: mean +0.5000, 95% CI
+  [+0.1250, +0.8750], sign-flip p=0.1254 — REJECT.
+
+### Why it was rejected
+
+The behavioural signal was consistent — Sonnet flagged P1 in 4/8 baseline trials
+and 8/8 candidate trials, replicating across two independent rounds, with P2 and
+P3 kept in every run of both arms — but it never cleared the gate, and two
+defects make the round unusable as evidence.
+
+**The design could not pass.** Four discordant pairs all in one direction is the
+most extreme outcome available at N=8, and a two-sided sign-flip test on four
+discordant pairs bottoms out at 2/2^4 = 0.125. No true effect size could have
+produced p<0.05 here. Round 1 was worse: 8 of its 12 scored pairs were the P2/P3
+guards, which score 1 under both doctrines by construction and can only
+contribute zeros.
+
+**The candidate arm was contaminated.** The detector quoted `"exact-head checks"`
+and `"editorial-row layouts"` verbatim — the exact strings in fixture P1. A
+candidate-arm agent noticed unprompted and said the skill's "own worked examples
+... are literally" the phrases under review. The 8/8 may be string matching
+rather than the rule generalising. `candidate-v2-SKILL.md` and
+`probe-fixture-p4.md` (fresh coinages: `soft-quorum drains`,
+`tenant-affinity pools`) exist to test that, but the reject already stands on
+the gate.
+
+Not appended to `SKILL.md`. Kept as regression coverage: `evals/evals.json` ->
+`coined-compound-label` (tune), `evals/adversarial.json` ->
+`earned-domain-compound` (tune) and `coined-label-defined-in-place` (holdout),
+plus `evals/failures/coined-compound-label.md` and
+`examples/cards/coined-compound-label.md`.
+
+### Lesson (if any)
+
+Recorded in `Lessons_learned.md` -> "An underpowered round cannot reject a rule,
+only fail to support it." Two transferable design rules came out of it: never
+quote a fixture string in the doctrine under test, and never score guard cases
+that are correct under both arms as paired observations.

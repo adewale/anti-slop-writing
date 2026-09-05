@@ -324,6 +324,30 @@
         "Does not endorse the staccato three-fragment form as a finished good rewrite solely because it is short and direct.",
         "Names the missing relation (why people are the hard part) or recommends restoring it, rather than expanding into generic prose."
       ]
+    },
+    {
+      "id": "earned-domain-compound",
+      "split": "tune",
+      "source": "Probe derived from the OpenAI \"Using GPT-6 Astra\" prompting guide, section \"Personality and writing style\" (fetched 2026-09-05), which lists \"invented compound labels like 'exact-head checks' and 'editorial-row layouts'\". Targets and boundary are ours, not OpenAI's.",
+      "prompt": "Review this sentence:\n\nThe queue uses a write-ahead log and copy-on-write snapshots, so a crash between the enqueue and the fsync replays from the last checkpoint instead of dropping the job.",
+      "expected_output": "Keeps the sentence. The hyphenated compounds are standard storage terms with fixed contracts, and the sentence supplies the failure window and the recovery behavior.",
+      "assertions": [
+        "Returns a keep verdict and does not flag 'write-ahead log' or 'copy-on-write' as coined or invented labels.",
+        "Names the support that earns the terms, such as the crash window between enqueue and fsync or the checkpoint replay.",
+        "Does not offer a synonym-only rewrite that replaces the standard terms with plainer wording."
+      ]
+    },
+    {
+      "id": "coined-label-defined-in-place",
+      "split": "holdout",
+      "source": "Probe derived from the OpenAI \"Using GPT-6 Astra\" prompting guide, section \"Personality and writing style\" (fetched 2026-09-05), which lists \"invented compound labels like 'exact-head checks' and 'editorial-row layouts'\". Targets and boundary are ours, not OpenAI's.",
+      "prompt": "Review this sentence:\n\nWe call the pre-merge comparison an exact-head check: the indexer hashes the head revision on both replicas and refuses the merge when they differ.",
+      "expected_output": "Keeps the sentence. The coinage is cashed out in the same sentence that introduces it, so the term is earned on first use.",
+      "assertions": [
+        "Returns a keep verdict rather than flagging 'exact-head check' merely because it is a coined hyphenated term.",
+        "Names the in-place definition as the support that earns the coinage.",
+        "Does not require the author to rename the term or replace it with a generic phrase."
+      ]
     }
   ]
 }

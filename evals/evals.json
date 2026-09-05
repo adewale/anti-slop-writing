@@ -280,6 +280,30 @@
           "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
         }
       ]
+    },
+    {
+      "id": "coined-compound-label",
+      "split": "tune",
+      "source": "Probe derived from the OpenAI \"Using GPT-6 Astra\" prompting guide, section \"Personality and writing style\" (fetched 2026-09-05), which lists \"invented compound labels like 'exact-head checks' and 'editorial-row layouts'\". Targets and boundary are ours, not OpenAI's.",
+      "prompt": "Review this paragraph using the Critique output format:\n\nThe indexer runs exact-head checks before each merge, so editorial-row layouts stay consistent across shards. Because the check happens at the head, drift between replicas surfaces during the merge rather than at read time.",
+      "expected_output": "A critique that treats 'exact-head checks' and 'editorial-row layouts' as coined labels the paragraph never defines, and does not accept them as the mechanism that earns the consistency claim.",
+      "assertions": [
+        "Identifies at least one of 'exact-head checks' or 'editorial-row layouts' as a coined or undefined term rather than an established one.",
+        "Does not treat the coined label as the mechanism that earns 'stay consistent across shards'.",
+        "Asks the author to define the term or cuts the unsupported claim, rather than inventing a definition for it."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "label-resolution",
+          "scale": "1-5",
+          "rubric": "5 = names the coinage and says the referent is unavailable to the reader; 3 = notes vagueness without locating it in the compound; 1 = accepts the label as mechanism."
+        },
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = supplies no invented definition of 'head' or 'editorial-row'; 1 = guesses a definition to make the rewrite sharper."
+        }
+      ]
     }
   ]
 }

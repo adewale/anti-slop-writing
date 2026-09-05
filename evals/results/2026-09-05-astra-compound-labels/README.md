@@ -74,11 +74,38 @@ not valid evidence either way.
 ## Decontamination check
 
 `candidate-v2-SKILL.md` carries the same rule with the fixture phrases removed
-from the doctrine, tested on `probe-fixture-p4.md`, a paragraph whose coinages
+from the doctrine, tested on `probe-fixture-p4.md`, whose coinages
 (`soft-quorum drains`, `tenant-affinity pools`) appear in neither doctrine.
-Outputs in `outputs/p4-baseline.md` and `outputs/p4-candidate-v2.md`. This
-measures whether the rule generalises; it does not change the reject, which
-already stands on the gate.
+Four trials per arm.
+
+**The rule does transfer to coinages it has never seen.** The verdict counts are
+not the evidence — read the diagnostic content instead:
+
+| Arm | Verdicts | Flagged | Names the coinage *as* a coinage |
+|---|---|---:|---:|
+| baseline | revise, ask-author, revise, keep | 3/4 | **0/4** |
+| candidate-v2 | ask-author, revise, ask-author, revise | 4/4 | **2/4** |
+
+The baseline never once identified either hyphenated term as coined or
+undefined. The candidate did it explicitly, and reached for the earned-side
+boundary unprompted: "Neither is standard shorthand the way 'write-ahead log' or
+'copy-on-write' is, and the paragraph never opens either one up." That is the
+rule generalising, not a string match — which retires the contamination worry
+about rounds 1-2, though not the power failure that actually caused the reject.
+
+Two caveats keep this from being a clean win.
+
+**P4 is a confounded fixture.** Unlike P1, it was not stripped of the doctrine's
+other tells. The baseline flagged it 3/4 for unrelated defects: a
+syntax-relation failure (sentence two asserts a detection outcome from a
+mechanism that only establishes ordering) and an internal contradiction between
+`soft-quorum` and `never`. So the 3/4-vs-4/4 verdict comparison measures almost
+nothing, and only the 0/4-vs-2/4 diagnostic column carries signal.
+
+**Transfer is partial.** 2/4 is not 4/4. On P1, where the doctrine named the
+exact strings, the candidate fired 8/8. On unseen coinages it fires about half
+the time. The gap between those two numbers is the size of the contamination
+effect, and it is large.
 
 ## What a future round would need
 

@@ -129,10 +129,15 @@ contribute zeros.
 and `"editorial-row layouts"` verbatim — the exact strings in fixture P1. A
 candidate-arm agent noticed unprompted and said the skill's "own worked examples
 ... are literally" the phrases under review. The 8/8 may be string matching
-rather than the rule generalising. `candidate-v2-SKILL.md` and
-`probe-fixture-p4.md` (fresh coinages: `soft-quorum drains`,
-`tenant-affinity pools`) exist to test that, but the reject already stands on
-the gate.
+rather than the rule generalising. The decontamination check
+(`candidate-v2-SKILL.md` on `probe-fixture-p4.md`, fresh coinages
+`soft-quorum drains` and `tenant-affinity pools`) settles that much: the
+baseline identified neither term as coined in any of 4 trials, the
+decontaminated candidate did in 2/4, quoting the earned-side boundary
+unprompted. The rule transfers. But it fires about half as often on unseen
+coinages as on the strings the doctrine named (8/8 on P1), so the
+contamination effect was large even though the rule is real. The reject stands
+on the gate either way.
 
 Not appended to `SKILL.md`. Kept as regression coverage: `evals/evals.json` ->
 `coined-compound-label` (tune), `evals/adversarial.json` ->

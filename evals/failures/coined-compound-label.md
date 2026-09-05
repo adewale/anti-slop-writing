@@ -46,6 +46,17 @@ returned `keep`, once writing "the mechanism (exact-head checks run before each
 merge)" — reading the coinage as the mechanism outright. Full run in
 `evals/results/2026-09-05-astra-compound-labels/`.
 
+## Does the rule generalize?
+
+Tested on a second paragraph whose coinages (`soft-quorum drains`,
+`tenant-affinity pools`) appear in neither doctrine, four trials per arm. The
+baseline identified neither term as coined in any trial (0/4). The candidate did
+in 2/4, and invoked the earned-side boundary on its own: "Neither is standard
+shorthand the way `write-ahead log` or `copy-on-write` is." So the behavior
+transfers to unseen coinages, but at roughly half the rate it shows when the
+doctrine names the strings — which is the measure of how much the round-1
+contamination inflated the result.
+
 ## Better critique
 
 Name the coinage, say the referent is unavailable, and ask the author rather

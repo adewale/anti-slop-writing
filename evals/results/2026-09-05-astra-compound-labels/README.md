@@ -1,155 +1,159 @@
-# Coined compound labels — round record (2026-09-05)
+# Coined compound labels — round record (2026-09-05, corrected 2026-09-23)
 
-Source of the idea: the OpenAI "Using GPT-6 Astra" prompting guide, section
-*Personality and writing style*, fetched 2026-09-05 from
+Source: the OpenAI "Using GPT-6 Astra" prompting guide, section *Personality
+and writing style*, fetched 2026-09-05 from
 `https://developers.openai.com/api/docs/guides/latest-model.md`. Its anti-jargon
 prompt asks the model to avoid "invented compound labels like 'exact-head
 checks' and 'editorial-row layouts'".
 
-**Outcome: the doctrine edit was REJECTED and did not ship.** `SKILL.md` is
-unchanged. Three eval cases and a failure record were kept. Graveyard entry in
-`evals/rejected-edits.md`.
+**Outcome: inconclusive.** `SKILL.md` is unchanged. Only four trials per arm
+turned out to be valid, too few to tell whether the candidate rule helps. The
+round's durable output is its eval cases, a documented failure mechanism, and a
+list of design defects. A pre-registered re-run that avoids those defects is in
+`../2026-09-23-coined-label-rerun/`.
 
-## Pre-registration
+The first version of this record overstated the evidence. It counted verdicts
+instead of grading the cases' assertions, it treated round 2 as independent, and
+it said a decontamination check showed the rule transferring. The corrections
+come from a blinded regrade in `regrade/` and from the subagent transcripts,
+recorded in `run-metadata.json`.
 
-`PREREGISTRATION.md`, written before any output existed, plus an amendment
-written before round 2 existed. SESOI 0.05. Accept rule: `score_delta.py`
-ACCEPT.
+## The mechanism
+
+A coined hyphenated label is shaped like the name of a mechanism. So it can
+pass the emphasis-source test, which asks whether the flattened claim still
+names an actor, mechanism, or limit. It can then be rescued by false-positive
+restraint, which keeps a term when the sentence supplies the mechanism. Neither
+rule asks whether the supporting term is itself resolvable. One baseline
+critique put it directly: "Specificity missing: None. The paragraph names ...
+the mechanism (exact-head checks run before each merge)".
 
 ## What was tested
 
-Three fixtures (`probe-fixtures.md`), each stripped of the doctrine's other
-tells so any flag has to come from the behaviour under test:
+| Fixture | Content | Correct behaviour | Eval case |
+|---|---|---|---|
+| P1 | two coined labels, never defined | name them as coined or undefined | `coined-compound-label` |
+| P2 | `write-ahead log`, `copy-on-write` | keep | `earned-domain-compound` |
+| P3 | a coinage defined in the same sentence | keep | `coined-label-defined-in-place` |
+| P4 | fresh coinages, other tells not removed | name them as coined or undefined | none, probe only |
 
-| Fixture | Content | Correct behaviour |
-|---|---|---|
-| P1 | two coined labels, never defined | flag |
-| P2 | `write-ahead log`, `copy-on-write` | keep |
-| P3 | a coinage defined in the same sentence | keep |
+The baseline arm was `SKILL.md` at `53370ff`. The candidate, `candidate.patch`,
+added a detector, an editing-pass step, and a resolvability clause on
+false-positive restraint, 135 words in all. `candidate-v2.patch` removed the P1
+strings the first candidate quoted. Apply agents ran on Claude Sonnet 5, with
+one baseline trial each on Claude Opus 5 and Claude Haiku 4.5.
 
-The candidate doctrine (`candidate-SKILL.md`, +135 words, budget +200) added a
-coined-compound-label detector, one editing-pass step, and a resolvability
-clause on **False-positive restraint** — the rule that turned out to be doing
-the laundering.
+## Results, regraded
 
-## Results
+From the primary judge in `regrade/`. The score is the fraction of the case's
+assertions passed.
 
-Baseline, one trial each on the full fixture set: Opus flagged P1
-(`ask-author`), Haiku flagged P1 (`revise`). Both kept P2 and P3.
+| Case | Arm | Valid trials | Mean score | Names the coinage |
+|---|---|---:|---:|---:|
+| P1 | baseline, Sonnet 5 | 4 | 0.50 | 2/4 |
+| P1 | candidate, Sonnet 5 | 4 | 0.92 | 4/4 |
+| P4 | baseline, Sonnet 5 | 4 | 0.42 | 2/4 |
+| P4 | candidate-v2, Sonnet 5 | 4 | 0.75 | 3/4 |
 
-Sonnet, the model that shows the gap, P1 verdicts across 8 baseline and 8
-candidate trials:
+The guards P2 and P3 scored 1.00 in every valid trial. On P1, Opus 5 passed
+every assertion, and Haiku 4.5 named the coinage but invented a definition for
+it. The round-1 gate still rejects, with a mean delta of +0.14 and a sign-flip p
+of 0.51. The equivalence test returns NOT SHOWN, so an effect has not been ruled
+out either.
 
-| Round | Baseline P1 flagged | Candidate P1 flagged |
-|---|---:|---:|
-| 1 (4 trials/arm) | 2/4 | 4/4 |
-| 2 (4 trials/arm) | 2/4 | 4/4 |
-| **Total** | **4/8** | **8/8** |
+## Design defects
 
-P2 and P3 were kept in **every** run of both arms, all models. The candidate
-introduced no over-flagging: it is not a blanket ban on hyphenated terms.
+Each of these is avoided in the re-run.
 
-## Why it was rejected
+- **Too few trials.** A two-sided sign-flip test on four discordant pairs cannot
+  go below p=0.125, so round 1 could not pass at any effect size.
+- **Guards scored as pairs.** Eight of round 1's twelve pairs were guard
+  fixtures, correct under both arms by construction, which diluted the four that
+  could move.
+- **The doctrine quoted the fixture.** The first candidate quoted P1's own
+  coinages. `candidate-v2` removed them but still quoted P2's standard terms.
+- **Round 2 was not independent.** Both of its agents read earlier trials'
+  critiques before writing, including critiques from the other arm. All eight
+  round-2 trials are excluded.
+- **Several trials shared one context.** Four "independent" trials of one
+  paragraph were written in a single context. Where several paragraphs shared a
+  context, text leaked between them. One candidate critique of P1 copied P3's
+  definition into its rewrite.
+- **The arms could not load the same files.** The baseline read `SKILL.md` from
+  the skill directory and could load its references. One baseline trial did.
+  The candidate file sat outside that directory, where the reference paths do
+  not resolve.
+- **Verdicts stood in for grades.** No judge agent ran. A flag for the wrong
+  reason, or a rewrite that invented a definition, counted as a pass.
+- **The P4 fixture was confounded.** It was not stripped of other tells, and a
+  hand check of it counted only critiques that called the terms "coined", the
+  candidate doctrine's own word.
+- **Model versions were not recorded.** They are recovered in
+  `run-metadata.json`.
 
-Two independent reasons, either of which is sufficient.
+## What the guide covers, and what these rounds tested
 
-**1. The gate rejects.** Round 1 as designed (12 pairs, including guard
-fixtures that score 1 under both doctrines by construction): mean delta
-+0.1667, 95% CI [+0.0000, +0.4167], sign-flip p=0.5057 — REJECT. Rounds 1+2 on
-the discriminating fixture only (8 pairs, `delta-p1-contaminated.jsonl`): mean
-delta +0.5000, 95% CI [+0.1250, +0.8750], sign-flip p=0.1254 — REJECT.
+The guide's *Personality and writing style* section gives three prompts. Every
+instruction in them is listed below, along with the skill-file warning from its
+*Instruction following* section. Statuses were checked against
+`skills/anti-slop-writing/` on 2026-09-23.
 
-The second number is the important one. Four discordant pairs all pointing the
-same way is the *most* extreme result this design can produce, and a two-sided
-sign-flip test on four discordant pairs bottoms out at 2/2^4 = 0.125. The round
-was structurally incapable of clearing p<0.05 no matter how large the true
-effect. That is a power failure in the design, not evidence about the rule.
+| Guide instruction | Status here |
+|---|---|
+| Avoid "invented compound labels like 'exact-head checks' and 'editorial-row layouts'" | **Tested** here, inconclusively; the re-run in `../2026-09-23-coined-label-rerun/` is pre-registered |
+| A skill file "may cause the model to pause and block work early"; add a precedence line | **Probed** on Sonnet 5 and did not reproduce; untested on non-Claude models (`TODO.md`) |
+| Avoid "delve", "foster", "it's worth noting" | Already in the avoid lists |
+| Avoid "This isn't about X. It's about Y." and "X, not Y" framing | Already covered by the negative-parallelism detector and the staccato contrast test |
+| Avoid canned transitions; state the actual relationship | Already covered by the flow-by-relation test and hypotaxis rules |
+| State the main point early | Already covered: "Delete generic opening" and "What is the exact point?" |
+| Avoid "leverage", "importantly", "genuinely" | **Not tested.** None is on a list, and `SKILL.md` itself uses "genuinely" once |
+| Avoid "Bottom Line:", "In short:", "The simplest mental model is:" | **Not tested.** The conclusion test covers the class, but none is listed |
+| Avoid the "Question? Answer." rhythm | **Not tested.** No detector covers it |
+| Don't say what you won't do, what stays unchanged, or how you'll group results | **Not tested.** No detector covers this kind of padding |
+| Use lists only for parallel, sequential, or comparable items; avoid nested lists | **Not tested.** The doctrine flags formatting as fake structure but has no positive criterion for when a list is right |
+| Avoid hyphenated compound descriptions in general | **Not tested, deliberately.** Read literally, it bans standard terms, and the guard cases exist to stop that |
+| Prefer active voice, plain language, and less jargon | **Not tested.** The doctrine covers concreteness but has no rule on voice or jargon |
 
-**2. The candidate arm was contaminated.** The candidate detector quoted
-`"exact-head checks"` and `"editorial-row layouts"` — the exact strings in
-fixture P1. A candidate-arm agent noticed and said so unprompted. So 8/8 may
-measure string matching rather than the rule generalising. The comparison is
-not valid evidence either way.
+The untested rows are candidates, not gaps. `Lessons_learned.md` records that
+borrowed surface rules are often inert once an existing mechanism test is
+applied, so each one needs a failing case before it earns doctrine.
 
-## Decontamination check
+## The instruction-precedence probe
 
-`candidate-v2-SKILL.md` carries the same rule with the fixture phrases removed
-from the doctrine, tested on `probe-fixture-p4.md`, whose coinages
-(`soft-quorum drains`, `tenant-affinity pools`) appear in neither doctrine.
-Four trials per arm.
+The guide's *Instruction following* section warns that GPT-6 Astra "can be more
+sensitive to instructions contained in skills" and that "unclear or conflicting
+guidance in a skill file may cause the model to pause and block work early". It
+recommends an explicit precedence line. `SKILL.md` has none, and its
+`ask-author` verdict tells the model to stop and ask.
 
-**The rule does transfer to coinages it has never seen.** The verdict counts are
-not the evidence — read the diagnostic content instead:
-
-| Arm | Verdicts | Flagged | Names the coinage *as* a coinage |
-|---|---|---:|---:|
-| baseline | revise, ask-author, revise, keep | 3/4 | **0/4** |
-| candidate-v2 | ask-author, revise, ask-author, revise | 4/4 | **2/4** |
-
-The baseline never once identified either hyphenated term as coined or
-undefined. The candidate did it explicitly, and reached for the earned-side
-boundary unprompted: "Neither is standard shorthand the way 'write-ahead log' or
-'copy-on-write' is, and the paragraph never opens either one up." That is the
-rule generalising, not a string match — which retires the contamination worry
-about rounds 1-2, though not the power failure that actually caused the reject.
-
-Two caveats keep this from being a clean win.
-
-**P4 is a confounded fixture.** Unlike P1, it was not stripped of the doctrine's
-other tells. The baseline flagged it 3/4 for unrelated defects: a
-syntax-relation failure (sentence two asserts a detection outcome from a
-mechanism that only establishes ordering) and an internal contradiction between
-`soft-quorum` and `never`. So the 3/4-vs-4/4 verdict comparison measures almost
-nothing, and only the 0/4-vs-2/4 diagnostic column carries signal.
-
-**Transfer is partial.** 2/4 is not 4/4. On P1, where the doctrine named the
-exact strings, the candidate fired 8/8. On unseen coinages it fires about half
-the time. The gap between those two numbers is the size of the contamination
-effect, and it is large.
-
-## What a future round would need
-
-- Roughly 12 trials per arm, not 4, to make p<0.05 reachable at this effect size.
-- A doctrine that never quotes a fixture string.
-- A held-out fixture with fresh coinages, scored separately from the tuning one.
-- Ideally a cross-family judge; only the Claude family was reachable here, so
-  per `docs/judge-protocol.md` these numbers are a coverage signal, not a
-  calibrated measurement.
+`probe-precedence.md` sets two user instructions directly against the skill. B1
+declines the critique format and asks to ship one line. B2 waives the mandatory
+`Rewrite check` slot. On Claude Sonnet 5 the skill complied with both, one trial
+each (`outputs/precedence-sonnet.md`). It shipped the line with its concern
+attached, "Flagging one thing, not asking it", and left out the `Rewrite check`.
+No change was made. The warning concerns a model not reachable here, so it is
+untested there rather than disproved; see `TODO.md`.
 
 ## Files
 
 ```txt
 PREREGISTRATION.md              hypothesis, SESOI, accept rule, round-2 amendment
-probe-fixtures.md               P1/P2/P3
-probe-fixture-p4.md             fresh-coinage fixture for the decontamination check
-probe-precedence.md             B1/B2, the separate instruction-precedence probe
-baseline-SKILL.md               doctrine snapshot, before arm
-candidate-SKILL.md              +135 words, quotes fixture strings (contaminated)
-candidate-v2-SKILL.md           same rule, fixture strings removed
-outputs/                        every critique produced, both arms
-delta.jsonl                     round-1 pairs as designed
-delta-p1-contaminated.jsonl     rounds 1+2, discriminating fixture only
-gate-output.txt                 round-1 gate, full and holdout-only
-gate-p1-contaminated.txt        rounds 1+2 gate
+run-metadata.json               per-agent model, doctrine, context design, transcript audit, status
+probe-fixtures.md               P1, P2, P3
+probe-fixture-p4.md             P4
+probe-precedence.md             B1, B2
+candidate.patch                 against SKILL.md at 53370ff; quotes P1's coinages
+candidate-v2.patch              P1's coinages removed; still quotes P2's terms
+outputs/                        every critique produced
+delta.jsonl, gate-output.txt    round-1 gate as first scored, by verdict
+delta-p1-contaminated.jsonl, gate-p1-contaminated.txt
+                                rounds 1 and 2 on P1, by verdict; round 2 since excluded
+regrade/                        blinded regrade against the eval cases' assertions
 ```
 
-## Second finding: the instruction-precedence risk did not reproduce
+To rebuild a candidate doctrine:
 
-The same guide's *Instruction following* section warns that GPT-6 Astra "can be
-more sensitive to instructions contained in skills" and that "unclear or
-conflicting guidance in a skill file may cause the model to pause and block work
-early", and recommends an explicit precedence line. `SKILL.md` has no precedence
-language and carries an `ask-author` verdict that tells the model to stop and
-ask, so the risk looked real on inspection.
-
-It did not reproduce. `probe-precedence.md` puts two user instructions directly
-against skill instructions: B1 declines the critique format and asks to ship a
-single line; B2 explicitly waives the mandatory `Rewrite check` slot. The skill
-complied with both (`outputs/precedence-sonnet.md`). B1 returned the bare
-rewrite and attached its concern without blocking — "Flagging one thing, not
-asking it". B2 omitted the `Rewrite check` line as instructed.
-
-No change made. The honest scope of this result: the warning is about GPT-6
-Astra, which is not reachable from this environment, and the probe ran on one
-model in the Claude family. It is untested for the model it describes rather
-than disproved. Recorded in `TODO.md`.
+```bash
+git show 53370ff:skills/anti-slop-writing/SKILL.md > SKILL.md
+patch SKILL.md < evals/results/2026-09-05-astra-compound-labels/candidate-v2.patch
+```

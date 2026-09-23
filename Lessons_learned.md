@@ -4,68 +4,77 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
-## 2026-09-05 — An underpowered round cannot reject a rule, only fail to support it
+## 2026-09-23 — Audit the trials before running the gate
 
 ### Failure
 
-The OpenAI "Using GPT-6 Astra" prompting guide lists "invented compound labels
-like 'exact-head checks' and 'editorial-row layouts'" among the patterns to
-prompt away. Probing it found something the word-list framing misses: a coined
-hyphenated label is *shaped like* a mechanism name, so it can satisfy the
-emphasis-source test ("does the residual claim name an actor, mechanism, or
-limit?") and then be rescued by false-positive restraint ("keep the term when the
-sentence supplies the mechanism"). Neither rule asks whether the supporting term
-is itself resolvable. On the probe paragraph a Sonnet apply agent wrote
-"Specificity missing: None. The paragraph names ... the mechanism (exact-head
-checks run before each merge)" — reading the coinage as the mechanism outright.
+The 2026-09-05 round tested a coined-compound-label rule drawn from the OpenAI
+"Using GPT-6 Astra" prompting guide. Its first write-up reported a replicated
+jump from 4/8 to 8/8 on Sonnet, a statistical reject blamed only on sample size,
+and a decontamination check showing the rule transferring to unseen coinages.
+None of that survived an audit of the trials themselves:
+
+- The scores came from each critique's verdict line, not from the eval case's
+  assertions. One baseline "pass" had flagged a different defect and kept both
+  coined labels, and the Haiku "pass" invented a definition the case forbids.
+- Both round-2 agents read earlier trials' critiques before writing their own,
+  including critiques from the other arm. Round 2 was not independent.
+- Four trials of one paragraph shared a context, and where different paragraphs
+  shared a context, text leaked between them. One candidate critique copied the
+  guard paragraph's definition into its rewrite of the discriminating one.
+- The decontamination check was scored by hand, counting critiques that called
+  the terms "coined". That is the candidate doctrine's own word. Graded against
+  the case's assertion, blind, by two judges, it came out at 2/4 against 3/4.
+
+What remains is four valid trials per arm, and a mechanism worth testing: a
+coined label is shaped like a mechanism name, so it can pass the emphasis-source
+test and then be kept by false-positive restraint. One baseline critique wrote
+"the mechanism (exact-head checks run before each merge)".
 
 ### What changed
 
-Nothing in the installable `SKILL.md`. A +135-word candidate (detector, editing
-step, resolvability clause) raised the Sonnet flag rate from 4/8 to 8/8 across
-two independent rounds with no over-flagging — P2 (`write-ahead log`,
-`copy-on-write`) and P3 (a coinage defined in place) were kept in every run of
-both arms — and still did not clear `scripts/score_delta.py`. Logged in
-`evals/rejected-edits.md`. Kept: `evals/evals.json` -> `coined-compound-label`,
-`evals/adversarial.json` -> `earned-domain-compound` and
-`coined-label-defined-in-place`, `evals/failures/coined-compound-label.md`,
-`examples/cards/coined-compound-label.md`.
+Nothing in `SKILL.md`. The round was regraded blind against the cases'
+assertions (`evals/results/2026-09-05-astra-compound-labels/regrade/`), round 2
+was excluded, and model versions were recovered from the subagent transcripts.
+The attempt is not in `evals/rejected-edits.md`, because it was never adequately
+tested. The graveyard is for moves that failed a fair test. A pre-registered
+re-run with 40 trials per arm is ready in
+`evals/results/2026-09-23-coined-label-rerun/`.
 
 ### What not to overgeneralize
 
-Do not record this as "coined labels are already covered." That is what the
-2026-06-13 parataxis and 2026-06-14 stop-slop entries concluded about their
-candidates, and it is not what happened here. Those rounds returned deltas of
-exactly 0.00 — the doctrine genuinely already did the job. This round returned a
-consistent, replicated +0.50 with a clean adversarial guard, and failed anyway
-because the round was too small to prove it: four discordant pairs all pointing
-one way is the most extreme outcome available at N=8, and a two-sided sign-flip
-test on four discordant pairs bottoms out at 2/2^4 = 0.125. No true effect could
-have passed. A REJECT of this shape is "not shown", not "not there", and the
-distinction is the whole point of `docs/eval-null-result-literature.md`.
+Do not read this as "the rule does not work". The regraded trials lean its way,
+at 0.50 against 0.92 on four trials each, and the equivalence test cannot rule
+out a large effect. The lesson is about procedure, and each rule below is cheap:
 
-Two design rules generalize, and both are cheap:
-
-- **Never quote a fixture string in the doctrine under test.** The candidate
-  detector quoted `"exact-head checks"` and `"editorial-row layouts"`, the exact
-  strings in the fixture. A candidate-arm agent noticed unprompted and pointed
-  out that the skill's "own worked examples ... are literally" the phrases under
-  review. Teaching to the test invalidates the arm even when the rule is sound.
-- **Never score guard cases as paired observations.** Round 1 put 8 guard pairs
-  alongside 4 discriminating ones. Guards are correct under both arms by
-  construction, so they contribute only zeros and drag the mean toward noise.
-  Run them, report them, keep them out of the paired scores.
+- **Grade the assertions, not the verdict.** A flag can be for the wrong reason,
+  and a correct flag can come with an invented fix.
+- **Audit every subagent transcript before counting its trial.** Agents read
+  files they were not given. The instruction "do not read other files" is not
+  enforcement; a transcript check is.
+- **Give each critique its own context.** Shared contexts leak text between
+  paragraphs and cue the distinction under test.
+- **Keep every eval prompt string out of the doctrine under test,** guards
+  included.
+- **Simulate the gate before choosing N.** Four discordant pairs cannot reach
+  p<0.05, and the "roughly 12 per arm" first proposed as the fix would pass a
+  single gate about one time in five.
+- **Never score a diagnostic in the candidate's vocabulary.** Counting the word
+  the candidate teaches measures the teaching, not the behaviour.
+- **Check a same-model judge against another judge.** The Haiku judge passed a
+  Haiku critique's invented definition that the Sonnet judge failed.
 
 ### Eval coverage
 
-- `evals/evals.json` (tune): `coined-compound-label` — non-saturated under the
-  shipping doctrine, which is the kind of case the suite is short of.
-- `evals/adversarial.json`: `earned-domain-compound` (tune),
-  `coined-label-defined-in-place` (holdout) — the boundary guards against the
-  blanket-hyphen-ban reading.
-- Run: `evals/results/2026-09-05-astra-compound-labels/` (pre-registration plus
-  amendment, both doctrine snapshots, a decontaminated third snapshot, every
-  critique produced, two gate outputs).
+- `evals/evals.json`: `coined-compound-label` (tune; the Sonnet 5 baseline
+  names the coinage in about half its trials) and `holdout-coined-compound-label`
+  (holdout, fresh text).
+- `evals/adversarial.json`: `earned-domain-compound` and
+  `coined-label-defined-in-place` (tune; the latter moved from holdout because
+  every round-1 trial saw it), plus `holdout-coined-label-defined-in-place` and
+  `holdout-earned-domain-compound` (holdout, fresh text).
+- Runs: `evals/results/2026-09-05-astra-compound-labels/` and its `regrade/`;
+  `evals/results/2026-09-23-coined-label-rerun/` (pre-registered).
 
 ## 2026-06-14 — Borrowed surface rules were inert; our mechanism tests already subsume them
 

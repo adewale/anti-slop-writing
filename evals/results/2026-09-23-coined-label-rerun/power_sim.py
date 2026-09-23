@@ -11,7 +11,7 @@ import random
 import sys
 
 sys.path.insert(0, "scripts")
-from score_delta import paired_bootstrap_ci, sign_flip_p_value  # noqa: E402
+from score_delta import paired_bootstrap_ci, sign_flip_p_value
 
 
 def gate(deltas, rng, iters):

@@ -65,7 +65,7 @@ def main():
     lines += ["| Case | Arm | Model | Trials | Status | Mean score, primary | a1, primary | Mean score, secondary | a1, secondary |",
               "|---|---|---|---:|---|---:|---:|---:|---:|"]
     for (fx, arm, model, status), ks in sorted(rows.items()):
-        def agg(j):
+        def agg(j, ks=ks):
             ss = [scores[j][uid(k)] for k in ks]
             return sum(s["score"] for s in ss) / len(ss), sum(s["a1"] for s in ss)
         pm, pa = agg(PRIMARY)

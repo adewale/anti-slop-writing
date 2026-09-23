@@ -48,7 +48,7 @@ def load_cases():
 
 
 def split_sections(path, pattern):
-    parts = re.split(pattern, path.read_text(), flags=re.M)
+    parts = re.split(pattern, path.read_text(), flags=re.MULTILINE)
     return [(parts[i], parts[i + 1].strip()) for i in range(1, len(parts), 2)]
 
 
@@ -73,13 +73,13 @@ def main():
     items = []
     for f in MULTI:
         for sec, body in split_sections(ROUND / "outputs" / f, r"^#{2}\s*(P[123])\s*$"):
-            items.append(dict(file=f, section=sec, fixture=sec, text=body))
+            items.append({"file": f, "section": sec, "fixture": sec, "text": body})
     for f in ["r2-baseline-b5678.md", "r2-cand-c5678.md"]:
         for sec, body in split_sections(ROUND / "outputs" / f, r"^#{2}\s*Trial\s*(\d)\s*$"):
-            items.append(dict(file=f, section="Trial " + sec, fixture="P1", text=body))
+            items.append({"file": f, "section": "Trial " + sec, "fixture": "P1", "text": body})
     for f in ["p4-baseline.md", "p4-candidate-v2.md"]:
         for sec, body in split_sections(ROUND / "outputs" / f, r"^#{2}\s*Trial\s*(\d)\s*$"):
-            items.append(dict(file=f, section="Trial " + sec, fixture="P4", text=body))
+            items.append({"file": f, "section": "Trial " + sec, "fixture": "P4", "text": body})
     rng = random.Random(20260923)
     used = set()
     for it in items:

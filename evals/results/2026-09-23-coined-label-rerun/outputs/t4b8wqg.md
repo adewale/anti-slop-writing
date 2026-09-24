@@ -1,0 +1,17 @@
+Verdict: ask-author (sentence 2's ordering/filter claim would earn keep on its own; the ask-author scope is sentence 1's fold/drift claim)
+
+Slop tells: Two coined compound labels carry the paragraph's real claim without being defined: "ledger-fold passes" and "invoice-drift totals." Neither is a standard domain term (unlike "dead-letter queue" or "two-phase commit"), and the passage never says what folding computes or what drift measures. The connector "so" then asserts causation ("runs ledger-fold passes ... so ... stay accurate") on top of those undefined terms — the clause sounds precise because of the hyphenation, not because the mechanism is shown.
+
+Specificity missing: (1) What does a ledger-fold pass compute on a row — recompute a running balance, net offsetting entries, dedupe imported rows, something else? (2) What does "invoice-drift" measure — the gap between invoiced and ledgered amount, a cumulative rounding error, something else? Without either fact, a reader can't check the accuracy claim, only take it on the term's say-so.
+
+Inflated claim: "so invoice-drift totals stay accurate" claims computational correctness. What the second sentence actually proves is a freshness/consistency guarantee: the export never reads a row before its fold pass finishes, because of the completion-before-start ordering plus the folded-only filter. Consistency of what's read is not the same claim as correctness of what folding computes — the paragraph only earns the first. Whether "accurate" is also earned depends entirely on what folding does, which is the undefined term above, so the claim is unverifiable from the passage rather than provably right or wrong.
+
+Flow break: Minor. "Each pass finishes before the nightly export starts, and the export reads only folded rows" coordinates two facts with "and" as if they were just a list, when they function as a completion guarantee plus a defensive filter (the filter still protects the export even if the ordering were ever violated). A subordinating connective would show that relation instead of leaving it to be inferred.
+
+Concrete rewrite: Ask author: what does a ledger-fold pass compute on each row (recompute running balance? net offsetting entries? dedupe imported rows?), and what does "invoice-drift" specifically measure (gap between invoiced and ledgered amount? cumulative rounding error? other)? Once known, restate the claim around that mechanism instead of "stay accurate."
+
+Fallback (cut the unverifiable claim, keep the guarantee the passage actually proves): "The billing job runs ledger-fold passes after each import. Because each pass finishes before the nightly export starts, the export can safely read only folded rows."
+
+Rewrite check: The fallback contains no rule-of-three, no X-not-Y / negative parallelism, no em-dash, none of the avoid-by-default phrases or watch-list words, no prestige adjectives, no decorative closure, and no invented facts — "because" and "can safely" restate the ordering and filter already in the source rather than adding a new specific. It drops the unverifiable "accurate" claim rather than resolving it with an invented mechanism. Passes self-detectors.
+
+Remembered line: "Because each pass finishes before the nightly export starts, the export can safely read only folded rows." That is the one claim in the paragraph a reader can verify without asking the author anything.

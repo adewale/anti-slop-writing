@@ -1,0 +1,15 @@
+Verdict: ask-author
+
+Slop tells: Two coined compound labels carry the paragraph's real work without being defined in place: "ledger-fold pass" and "invoice-drift totals." Both supply the texture of precision — a specific-sounding process name, a specific-sounding failure mode — while the mechanism behind each stays out of reach. The paragraph also makes an inflated claim by unproven causal leap: "so invoice-drift totals stay accurate" treats a scheduling and read-scope guarantee as if it were a correctness guarantee.
+
+Specificity missing: What a ledger-fold pass actually computes — recomputing totals from source import rows, deduplicating a re-imported invoice, reconciling against another ledger — is never stated, only its output category ("folded rows") and its position in the schedule. What causes invoice-drift in the first place, that is, what would go wrong without folding, is also never stated.
+
+Inflated claim: "so invoice-drift totals stay accurate" is not earned by the sentence that follows it. "Each pass finishes before the nightly export starts, and the export reads only folded rows" proves that the export never reads a row before its fold pass has finished — a guarantee about read timing and scope. It does not prove the fold computation itself is correct. A bug in the fold logic would still produce totals that are always folded and always read after the pass finishes, and still wrong. The paragraph demonstrates "never reads partial state" and then reports the stronger claim "accurate."
+
+Flow break: None. The second sentence answers the question the first raises — how do we know the export isn't reading data mid-fold — and the shared term "folded rows" ties the two sentences together. The relation is dependency, and it is correctly signaled rather than left implicit.
+
+Concrete rewrite: Ask author: what does a ledger-fold pass compute — recompute totals from source import rows, dedupe a re-imported invoice, or reconcile against another ledger — and what specifically produces invoice-drift when a pass is skipped? Fallback, if that mechanism is out of scope for this passage: "The billing job runs ledger-fold passes after each import. Each pass finishes before the nightly export starts, and the export reads only folded rows, so the export never reports totals from an import that has not yet been folded." This keeps every fact already in the source and drops the unearned "accurate," replacing it with the narrower guarantee the two sentences actually demonstrate.
+
+Rewrite check: Neither the ask-author question nor the fallback rewrite contains a rule-of-three, X-not-Y or negative parallelism, em-dash antithesis, a banned avoid-by-default phrase, a prestige adjective, a decorative closer, or an invented name, count, tool, or timing — both fallback sentences restate facts already stated in the source. Passes self-detectors.
+
+Remembered line: "the export reads only folded rows" is the one clause in the paragraph that states a checkable guarantee rather than an asserted outcome, and is the line worth keeping in any rewrite.

@@ -1,0 +1,15 @@
+Verdict: keep
+
+Slop tells: None found. No banned avoid-by-default phrases, no prestige vocabulary from the watch list, no copula displacement ("serves as"/"stands as"/etc.), no hedged symmetry, no em-dash cadence, no rule-of-three, no "Not X. Y." staccato, no bullet/bold/table fake structure. Both sentences use hypotaxis correctly ("so," "Because") to name the relation between clauses rather than leaving it implied by juxtaposition.
+
+Specificity missing: Minor, non-blocking. "Exact-head checks" and "editorial-row layouts" are undefined domain terms, and the referent shifts from "shards" (sentence 1) to "replicas" (sentence 2) without an explicit bridge — a reader has to infer that a shard's consistency is a function of its replicas agreeing. This is acceptable for an audience that already knows the indexer's shard/replica model, which is the likely audience for a paragraph pitched at this level of internal detail; it would need a defining clause for an outside reader.
+
+Inflated claim: None. "Layouts stay consistent across shards" and "drift... surfaces during the merge rather than at read time" are both plain descriptions of system behavior, not importance-inflating language. Applying the emphasis-source test: flattened, the claim is "the check runs at the head, so drift is caught at merge, not later at read" — it still names an actor (the indexer), a mechanism (head check at merge time), and a limit (catches drift at merge, not at read). The claim survives flattening, so the emphasis comes from the idea, not from borrowed cadence.
+
+Flow break: None. Sentence 2 answers the question sentence 1 raises — given that the check keeps layouts consistent, when would a reader find out if it didn't? — via "Because," a named causal/dependency relation, not two ideas placed side by side for rhythm.
+
+Concrete rewrite: Not required; no slop tell was flagged, so no fix is owed. Optional tightening only, to close the shard/replica gap noted above, offered as a variant rather than a needed correction: "The indexer runs exact-head checks before each merge, so each shard's replicas keep matching editorial-row layouts. Because the check runs at the head, replica drift surfaces during the merge rather than later at read time."
+
+Rewrite check: passes self-detectors. The optional rewrite has no rule-of-three, no X-not-Y/negative parallelism, no em-dash antithesis, no banned avoid-by-default phrases, no prestige adjectives, no decorative closure, and no invented facts — it reuses only the mechanism, actors, and timing already stated in the source (indexer, exact-head check, merge, shards, replicas, drift, read time) and adds no new tool, name, count, or event.
+
+Remembered line: "Because the check happens at the head, drift between replicas surfaces during the merge rather than at read time." — the payoff is the timing, not a general promise: placing the check at the head is what forces failures to show up at merge, a controlled process, instead of at read, where a client would be the one to notice.

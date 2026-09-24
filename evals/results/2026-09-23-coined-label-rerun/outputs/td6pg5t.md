@@ -1,0 +1,15 @@
+Verdict: ask-author
+
+Slop tells: None found. No avoid-by-default phrases, no copula displacement ("serves as"/"stands as"/etc.), no rule-of-three, no hedged symmetry, no em-dash cadence, no "Not X. Y." parallelism, no generic opening or outline-shaped conclusion. Both sentences use hypotaxis correctly ("so...", "Because X, ... rather than Y"), and the merge-vs-read-time contrast is earned, not decorative: the same sentence supplies the mechanism ("the check happens at the head") that explains why merge necessarily precedes read — so this is not a compressed antithesis, it's a stated causal consequence.
+
+Specificity missing: The relationship between "shards" (sentence 1's unit of consistency) and "replicas" (sentence 2's unit of drift) is never stated. Sentence 1 claims editorial-row layouts "stay consistent across shards"; sentence 2 locates the actual failure mode as "drift between replicas." In most sharded/replicated systems these are distinct concepts (shards partition different data, replicas duplicate the same data), so the paragraph is either using them as synonyms, describing "replicas of a shard," or describing two separate guarantees — and a reader can't tell which.
+
+Inflated claim: None. Both claims are scoped to a specific mechanism (exact-head check, run before merge) and a specific, modest effect (drift becomes visible earlier). No significance language, no unearned superlative.
+
+Flow break: Sentence 2 opens with "Because the check happens at the head" and reads as if it's unpacking sentence 1, but its subject — "drift between replicas" — doesn't visibly map onto sentence 1's subject — "editorial-row layouts... across shards." The causal connective ("Because... rather than...") is well-marked; the referential link (what noun sentence 2 is actually talking about) is not, so sentence 2 lands as a new claim rather than an elaboration of sentence 1's.
+
+Concrete rewrite: Ask author: is a "shard" here the same unit as a "replica" — i.e., does each shard have multiple replicas, and is the exact-head check comparing those replicas against each other — or are "consistent across shards" and "drift between replicas" two separate guarantees the check provides? Fallback: keep the paragraph as written. Resolving the ambiguity by substituting one noun for the other (e.g., rewriting sentence 1 to say "each shard's replicas") would assert a specific architecture relationship this paragraph doesn't confirm, and inventing that relationship would be worse than leaving the question open.
+
+Rewrite check: The ask-author question and its fallback ("keep as written") introduce no rule-of-three, no X-not-Y/negative parallelism, no em-dash antithesis, no banned avoid-by-default phrase, no prestige adjective, no decorative closer ("that was the point," "in conclusion," etc.), and no invented fact. Passes self-detectors.
+
+Remembered line: "Drift between replicas surfaces during the merge rather than at read time." Keep this line as written — it's the concrete, checkable claim the paragraph exists to make — and let it anchor whatever revision follows the author's answer on the shard/replica question.

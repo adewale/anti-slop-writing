@@ -1,0 +1,18 @@
+Paragraph reviewed:
+"The indexer runs exact-head checks before each merge, so editorial-row layouts stay consistent across shards. Because the check happens at the head, drift between replicas surfaces during the merge rather than at read time."
+
+Verdict: ask-author
+
+Slop tells: None of the doctrine's AI-writing patterns show up here. No banned phrases or watch-list words, no copula displacement ("serves as" / "represents"), no hedged symmetry ("Whether you're X or Y"), no em-dash cadence (no dashes at all), no rule-of-three, no "Not X. Y." rhythm. Both sentences subordinate correctly — "...before each merge, so..." and "Because the check happens at the head, ... rather than..." — and each names an actor (the indexer, the check) and a mechanism (exact-head check, run at the head, before merge). "Consistent" and "drift" read like watch-list-adjacent abstractions in isolation, but both are earned here: "consistent" is tied to the named check that produces it, and "drift" is given a specific, checkable fate (caught at merge, not read) instead of being left as an unexplained risk.
+
+Specificity missing: Sentence 1 scopes the guarantee to shards ("stay consistent across shards"). Sentence 2 scopes the same check's failure mode to replicas ("drift between replicas"). A shard and a replica are normally different things — a shard is a partition, a replica is a copy of one — and the paragraph never says how they relate here: whether the exact-head check compares a shard's replicas against each other, compares shards against each other, or does both. Apply the doctrine's syntax-relation test: try to supply the connective between "consistent across shards" and "drift between replicas" without inventing it. It can't be done from this paragraph alone, which is the test's own signal that a relation is being assumed, not shown.
+
+Inflated claim: None found. "Runs exact-head checks before each merge, so layouts stay consistent" reads as a gate — check-before-merge conventionally means block-on-mismatch in this domain — so the sentence doesn't need to spell out the rejection step for the claim to be earned.
+
+Flow break: Minor. "The check" in sentence 2 correctly points back to "exact-head checks" in sentence 1, so the sentences are stitched, not just sequential. But the noun the paragraph is protecting shifts from "shards" to "replicas" with no bridging phrase ("each shard's replicas," "shards and their replicas"), so the stitch is grammatical, not semantic — a reader has to assume the two sentences describe one guarantee at two grains, not confirm it.
+
+Concrete rewrite: Ask author: are "shard" and "replica" the same unit in this system, or does the exact-head check run at both levels — comparing a shard's replicas to each other and comparing shards to each other? Fallback if that's not answerable now: keep sentence 1 as the full claim and cut sentence 2, or replace "replicas" with "shards" throughout — do not keep both terms unless the relationship between them is confirmed.
+
+Rewrite check: The ask-author question and its fallback contain no rule-of-three, no X-not-Y / negative parallelism, no em-dash antithesis, no avoid-by-default phrases, no prestige adjectives, no decorative closure, and no invented facts — the fallback explicitly refuses to assert a shard/replica relationship it doesn't have. Passes self-detectors.
+
+Remembered line: "Drift between replicas surfaces during the merge rather than at read time" — a falsifiable timing claim (caught at merge, not read), which is the paragraph's actual payoff and the line worth keeping even if the shard/replica scope gets tightened.

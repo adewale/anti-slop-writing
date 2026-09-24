@@ -1,0 +1,17 @@
+Verdict: ask-author
+
+Slop tells: Two coined compound labels: "exact-head checks" and "editorial-row layouts." Both are hyphenated noun phrases that name a check and an artifact the paragraph never defines, and neither reads as an established domain term (unlike "dead-letter queue" or "two-phase commit") — the hyphen supplies a texture of precision the passage doesn't back up. Nothing else flags: no banned phrases, no high-risk words, no copula displacement, no hedged symmetry, no em-dash cadence, no rule-of-three, no negative parallelism, no outline-shaped conclusion.
+
+Specificity missing:
+- "exact-head checks" — the paragraph says the check "happens at the head" (a location) but never says what is compared for exactness there: a content hash, a revision/commit id, a row count, a timestamp? "Exact" is asserted, not shown.
+- "editorial-row layouts" — never defined at all. Row order? Schema? A column or formatting arrangement? The reader can't verify the claim that it "stays consistent across shards" without knowing what property is being held consistent.
+
+Inflated claim: None. The paragraph doesn't reach for importance language — it states a bounded mechanism (when and where the check runs) and a bounded consequence (when drift becomes visible). That restraint is the paragraph's strength; the gap here is specificity, not inflation.
+
+Flow break: None. Sentence 2 answers the question sentence 1 raises — why does checking "at the head," before merge, matter? — with an explicit causal connective ("Because … rather than"). Staccato contrast test: the closing "during the merge rather than at read time" is earned antithesis, not decorative — both sides are supported by the "at the head" premise stated in the same sentence (checked early means caught at merge; the unstated alternative, checked late, means caught at read), so the contrast isn't implied by rhythm alone.
+
+Concrete rewrite: Ask author: (1) What does an "exact-head check" actually compare for equality — a content hash, a revision/commit id, a row count, something else? (2) What does "editorial-row layout" mean structurally — row order, schema, a formatting/column arrangement? Fallback: if these can't be pinned down now, cut "exact-head" and "editorial-row" as modifiers and describe the check and the artifact in plain terms once the mechanism is confirmed; if they're already-established internal terms, keep the paragraph but add a short in-place clause defining each on first use — the definitional step "dead-letter queue" doesn't need, because that term is already common knowledge.
+
+Rewrite check: The ask-author note offers two named candidates per question (not three), so no rule-of-three; no "Not X. Y." or negative parallelism; no em-dash antithesis; no banned avoid-by-default phrases; no prestige adjectives; no decorative closure. It does not invent the missing mechanism — it lists plausible candidates for the author to choose from and offers a cut-or-define fallback rather than asserting a specific hash, id, or schema as fact. Passes self-detectors.
+
+Remembered line: "drift between replicas surfaces during the merge rather than at read time" is already the paragraph's strongest, most concrete line — a real before/after timing claim a reader can check against their own system. It becomes fully load-bearing once "exact-head check" and "editorial-row layout" are defined in place: right now the reader can picture *when* drift is caught but not *what* is being compared to catch it.

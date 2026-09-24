@@ -57,6 +57,7 @@ AI-writing signs: superficial analysis, undue significance language, canned emph
 Rhetorical-style drift: watch noun-heavy abstractions, nominalizations, phrasal coordination, and informational density without mechanism.
 Practical AI-editing tells: repeated “Not X. Y.” rhythm, symmetrical paragraph length, parallel headings, and bullet + bold-header + colon patterns.
 Copula displacement: watch “serves as,” “stands as,” “features,” “marks,” and “represents” replacing plain “is/are.” Keep the verb when it does concrete work (enumerating, defining, locating); replace it when it only inflates a copula.
+Coined compound labels: watch hyphenated noun phrases that name a check, artifact, or process the passage never defines. The hyphen supplies the texture of precision while the referent stays out of reach. Keep the coinage when the passage defines it in place, or when the term is standard in the domain ("dead-letter queue," "two-phase commit"). A name is not a mechanism.
 Hedged symmetry: watch “Whether you’re X or Y,” “While X, Y is also important,” and similar templates that address every reader or every value at once. Keep the structure only when it names a real branching condition with distinct downstream behavior.
 Em-dash cadence: do not ban em-dashes; watch decorative clusters that use dashes for emphasis instead of for parenthetical or appositive insertion. Reduce count; keep dash insertions/pairs that bracket inline definitions or genuine asides.
 Rhetorical staccato: do not ban antithesis/parallelism; watch antithetical parataxis where rhythm implies the relation before evidence is unpacked.
@@ -93,7 +94,8 @@ Before finalizing prose:
 16. Cut hedged symmetry (“Whether X or Y,” “While X, Y is also important”) and commit to a specific reader and a named tradeoff.
 17. Reject outline conclusion templates (“Despite challenges, X continues to thrive,” “Looking ahead, X will play a pivotal role”); replace with a carrier-bound ending or cut.
 18. Thin decorative em-dash clusters; keep at most one earned dash insertion/pair per sentence unless multiple insertions carry distinct definitions.
-19. End with a concrete remembered line.
+19. Resolve coined compound labels: when a hyphenated term is the mechanism that earns a claim, confirm the passage defines it or the domain already does.
+20. End with a concrete remembered line.
 ```
 
 ## Avoid by default
@@ -168,6 +170,8 @@ Example:
 Keep: "The queue is robust because each job has an idempotency key, a retry receipt, and a dead-letter cutoff."
 Why: "robust" is an engineering qualifier earned by the deduplication, retry-tracking, and dead-letter mechanisms.
 ```
+
+Support must be resolvable by the reader. A term that is itself undefined does not earn a claim, it relocates the gap: check that the supporting phrase names something the reader can look up or that the passage defines before returning `keep`.
 
 Do not offer a synonym-only rewrite just because a watch-list word appears.
 

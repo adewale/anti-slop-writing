@@ -1,0 +1,17 @@
+Verdict: ask-author
+
+Slop tells: Compressed antithesis in the closing clause "surfaces during the merge rather than at read time." Applying the staccato contrast test — read the prior sentence first: it evidences the first half of the contrast (checks run "before each merge," so anything they catch necessarily surfaces then) but never evidences the second half. Nothing in the paragraph states that merge precedes read for this data, or what a reader/consumer would actually see if drift went uncaught. The "rather than" lands on cadence standing in for a relation the text hasn't shown, the same shape as the doctrine's "That's not incidental. It's the design." example: one side proven, one side asserted. No other tell fires — no banned phrases, no watch-list words, no copula displacement, no hedged symmetry, no em-dash cluster, no rule-of-three. Both sentences are properly hypotactic ("so," "Because"), which is what the paragraph should keep doing.
+
+Specificity missing: What "at read time" would concretely look like if the head check didn't catch the drift — a query served from a stale replica, a downstream job reading a pre-merge shard, something else — is not stated. Secondary and lower-confidence: sentence 1 scopes the guarantee to "shards," sentence 2 locates the drift in "replicas," and the paragraph never says how the two relate (each shard holding multiple replicas, versus the words naming the same unit).
+
+Inflated claim: "rather than at read time" is doing the paragraph's persuasive work — it's the reason the mechanism is worth mentioning at all — but it asserts the comparison instead of showing it. The paragraph proves the check runs early; it doesn't show that late detection was ever the live alternative, or why it would have been worse.
+
+Flow break: Sentence 2 answers "when does the check run" but not the question sentence 1's claim actually raises: how does checking at the replica level produce a consistency guarantee stated at the shard level? The reader has to supply that bridge unaided.
+
+Concrete rewrite: Ask author: if the head check didn't run, what would a reader actually see at read time — rows served from a stale replica, a downstream job reading a pre-merge shard, a version mismatch, something else? And is a "replica" here one of several copies of a shard, or another name for the same unit sentence 1 calls a "shard"? Fallback if that's not available: cut the unsupported half and keep only what the paragraph already establishes:
+
+"The indexer runs exact-head checks before each merge, so editorial-row layouts stay consistent across shards. Because the check happens at the head, drift between replicas surfaces during the merge."
+
+Rewrite check: The question names the missing facts (what read-time exposure looks like, how replica relates to shard) instead of inventing them — no tool, count, or mechanism is asserted as settled fact. The fallback is a straight cut of the source's own wording, so it carries no rule-of-three, no X-not-Y / negative parallelism, no em-dash antithesis, no avoid-by-default phrase, no prestige adjective, and no decorative closer ("that's the point," "in conclusion"). Passes self-detectors.
+
+Remembered line: "Exact-head checks before each merge" is the paragraph's real payload — a named, specific mechanism, not a restated importance claim. That's the line worth keeping regardless of how the ask-author question resolves; the drift-timing comparison should earn its place next to it or get cut.

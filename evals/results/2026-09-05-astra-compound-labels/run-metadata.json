@@ -1,0 +1,244 @@
+{
+  "run": "2026-09-05-astra-compound-labels",
+  "date": "2026-09-05",
+  "provenance_recorded": "2026-09-23, from the subagent transcripts' message.model field. Agents were launched with a model alias, so the alias was pinned and the version was resolved by the harness; the version is recovered here, not declared at launch.",
+  "orchestration": "Claude Code remote session; apply agents launched with the Agent tool, agent_type general-purpose.",
+  "skill_commit_baseline": "53370ff",
+  "scoring": {
+    "original": "Verdict-line pattern match by the orchestrating session. No judge agent ran and no judgments were written. Superseded by regrade/.",
+    "regrade": "See regrade/ for blinded judge-agent grading against each case's assertions."
+  },
+  "agents": [
+    {
+      "output": "outputs/baseline-opus.md",
+      "model_id": "claude-opus-5",
+      "model_name": "Opus 5",
+      "model_alias_at_launch": "opus",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/baseline-sonnet.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read; listed the round directory",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/baseline-haiku.md",
+      "model_id": "claude-haiku-4-5-20251001",
+      "model_name": "Haiku 4.5",
+      "model_alias_at_launch": "haiku",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/rate-sonnet-r2.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read; listed the round directory",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/rate-sonnet-r3.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read; also loaded the skill's three reference files, which the candidate arm could not resolve from its location",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/rate-sonnet-r4.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read; listed the round directory",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/cand-sonnet-c1.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "candidate (candidate.patch)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/cand-sonnet-c2.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "candidate (candidate.patch)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/cand-sonnet-c3.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "candidate (candidate.patch)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/cand-sonnet-c4.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "candidate (candidate.patch)",
+      "fixtures": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "trials_in_context": 1,
+      "context_design": "P1, P2, P3 critiqued in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read; listed outputs/",
+      "status": "valid"
+    },
+    {
+      "output": "outputs/r2-baseline-b5678.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P1"
+      ],
+      "trials_in_context": 4,
+      "context_design": "same paragraph critiqued four times in one context",
+      "tool_call_audit": "READ outputs/rate-sonnet-r2.md, a prior baseline critique that kept P1, before writing",
+      "status": "excluded: read a prior critique"
+    },
+    {
+      "output": "outputs/r2-cand-c5678.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "candidate (candidate.patch)",
+      "fixtures": [
+        "P1"
+      ],
+      "trials_in_context": 4,
+      "context_design": "same paragraph critiqued four times in one context",
+      "tool_call_audit": "READ outputs/rate-sonnet-r2.md (baseline, keep) and outputs/cand-sonnet-c1.md, and printed parts of cand-sonnet-c2..c4, before writing",
+      "status": "excluded: read prior critiques from both arms"
+    },
+    {
+      "output": "outputs/p4-baseline.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "P4"
+      ],
+      "trials_in_context": 4,
+      "context_design": "same paragraph critiqued four times in one context",
+      "tool_call_audit": "listed outputs/ (file names only); read no critique",
+      "status": "secondary: four trials share one context"
+    },
+    {
+      "output": "outputs/p4-candidate-v2.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "candidate-v2 (candidate-v2.patch)",
+      "fixtures": [
+        "P4"
+      ],
+      "trials_in_context": 4,
+      "context_design": "same paragraph critiqued four times in one context",
+      "tool_call_audit": "listed outputs/ (file names only); read no critique",
+      "status": "secondary: four trials share one context"
+    },
+    {
+      "output": "outputs/precedence-sonnet.md",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Sonnet 5",
+      "model_alias_at_launch": "sonnet",
+      "doctrine": "baseline (SKILL.md at 53370ff)",
+      "fixtures": [
+        "B1",
+        "B2"
+      ],
+      "trials_in_context": 1,
+      "context_design": "two requests in one context",
+      "tool_call_audit": "read only its doctrine and the fixture file; no other critique read; listed the round directory",
+      "status": "valid; not scored against an eval case"
+    }
+  ]
+}

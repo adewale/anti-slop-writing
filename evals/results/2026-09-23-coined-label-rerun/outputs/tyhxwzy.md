@@ -1,0 +1,15 @@
+Verdict: keep
+
+Slop tells: None triggered. No avoid-by-default phrase, no high-risk word (delve/realm/testament/pivotal/crucial/robust-as-filler/etc.), no copula displacement ("serves as," "stands as," "features," "marks," "represents" — the verbs here are plain: runs, stay, finishes, starts, reads), no hedged symmetry ("whether X or Y"), no rule-of-three or negative parallelism ("Not X. Y."), no decorative em-dash cluster (no em-dashes appear at all), no bullet/bold-header/colon fake structure.
+
+Specificity missing: None. The paragraph names a specific actor (the billing job), a specific mechanism (ledger-fold passes), a specific trigger (after each import), a specific downstream consumer (the nightly export), and a specific filter condition (reads only folded rows). There is no vague actor standing in for a real one.
+
+Inflated claim: "invoice-drift totals stay accurate" reads like a claim of importance, so it needs the same check the doctrine applies to "robust" in "The queue is robust because each job has an idempotency key, a retry receipt, and a dead-letter cutoff": is the qualifier earned by a named mechanism, or borrowed? Here it is earned twice over in the same paragraph — (1) fold passes run after every import, so drift is recomputed against fresh data, and (2) the nightly export cannot see a row until folding is done: passes finish before export starts, and the export's own read is filtered to folded rows only. That is a named mechanism, not inflated significance language, so this is not flagged.
+
+Flow break: None. Sentence 2 answers the question sentence 1 raises instead of merely sitting beside it: after "totals stay accurate," the next question is "accurate for whom, and how does the export avoid reading half-folded data?" — sentence 2 answers with the ordering guarantee (pass finishes before export starts) and the read-side filter (export reads only folded rows). The "and" inside sentence 2 coordinates two independent, complementary guarantees (timing, then filtering) rather than hiding a causal relation between them — trying to force "because each pass finishes before export starts, the export reads only folded rows" would invent a dependency that is not actually there (the filter holds regardless of timing), so parataxis is the correct choice here, not a relation left unstated.
+
+Concrete rewrite: None needed. No clause is standing in for a missing mechanism, so there is nothing to replace and no fact to invent or ask the author for.
+
+Rewrite check: N/A — no rewrite was produced, since the verdict is keep. Running the same self-detectors on the source that would run on a rewrite: no rule-of-three, no X-not-Y/negative parallelism, no em-dash antithesis, no avoid-by-default phrase, no prestige adjective, no decorative closure ("That was the point," "In conclusion," "Overall," "Ultimately"), no invented facts. Passes self-detectors.
+
+Remembered line: "the export reads only folded rows" — a specific, falsifiable detail a reader could check against the code, which is the kind of concrete carrier the doctrine wants a reader to leave with instead of a generic thesis.

@@ -4,6 +4,120 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-09-24 — A name is not a mechanism
+
+### Failure
+
+A coined hyphenated label is shaped like the name of a mechanism. So it passes
+the emphasis-source test, and false-positive restraint then keeps it because
+the sentence seems to supply a mechanism. Critiquing "The indexer runs
+exact-head checks before each merge, so editorial-row layouts stay consistent
+across shards" on its own, the skill returned `keep` in 31 of 40 trials and
+named either label as coined or undefined in 4. On a fresh paragraph built on
+"ledger-fold passes" and "invoice-drift totals", it returned `keep` in 35 of 40
+and named a label in 1.
+
+### What changed
+
+`SKILL.md` gained a `Coined compound labels` detector, editing-pass step 19, and
+a clause saying support must be resolvable by the reader: an undefined term does
+not earn a claim, it relocates the gap. It shipped as `candidate-v3.patch`, 129
+words, under a pre-registered test with 40 single-paragraph trials per arm and
+blinded Sonnet 5 and Haiku 4.5 judges. The candidate named a coinage in all 80
+trials. The paired deltas were +0.93 on the tune case and +0.92 on the holdout
+case, both accepted under both judges. Record:
+`evals/results/2026-09-23-coined-label-rerun/`.
+
+### What not to overgeneralize
+
+- **This is not a rule against hyphenated terms.** Standard compounds and
+  coinages defined where they are introduced stay. In the re-run no critique in
+  either arm flagged "write-ahead log", "copy-on-write", "read-through cache",
+  or "time-to-live" as coined.
+- **A baseline rate from a shared context is not the rate a paragraph gets on
+  its own.** The earlier round's baseline named the coinage in 2 of 4 trials
+  that had guard paragraphs beside it. Alone, the rate was 4 of 40. Plan the
+  sample size from a pilot in the real design.
+- **Check a guard's own sentence before trusting its over-flag count.** The
+  `earned-domain-compound` sentence claims recovery for the one window a
+  write-ahead log does not cover, so a careful critique says so, and the guard's
+  first assertion counts that as an over-flag.
+- **The measurement is Claude on Claude.** The apply model and both judges are
+  Claude models, so the size of the effect is a coverage signal.
+
+## 2026-09-23 — Audit the trials before running the gate
+
+### Failure
+
+The 2026-09-05 round tested a coined-compound-label rule drawn from the OpenAI
+"Using GPT-6 Astra" prompting guide. Its first write-up reported a replicated
+jump from 4/8 to 8/8 on Sonnet, a statistical reject blamed only on sample size,
+and a decontamination check showing the rule transferring to unseen coinages.
+None of that survived an audit of the trials themselves:
+
+- The scores came from each critique's verdict line, not from the eval case's
+  assertions. One baseline "pass" had flagged a different defect and kept both
+  coined labels, and the Haiku "pass" invented a definition the case forbids.
+- Both round-2 agents read earlier trials' critiques before writing their own,
+  including critiques from the other arm. Round 2 was not independent.
+- Four trials of one paragraph shared a context, and where different paragraphs
+  shared a context, text leaked between them. One candidate critique copied the
+  guard paragraph's definition into its rewrite of the discriminating one.
+- The decontamination check was scored by hand, counting critiques that called
+  the terms "coined". That is the candidate doctrine's own word. Graded against
+  the case's assertion, blind, by two judges, it came out at 2/4 against 3/4.
+
+What remains is four valid trials per arm, and a mechanism worth testing: a
+coined label is shaped like a mechanism name, so it can pass the emphasis-source
+test and then be kept by false-positive restraint. One baseline critique wrote
+"the mechanism (exact-head checks run before each merge)".
+
+### What changed
+
+Nothing in `SKILL.md`. The round was regraded blind against the cases'
+assertions (`evals/results/2026-09-05-astra-compound-labels/regrade/`), round 2
+was excluded, and model versions were recovered from the subagent transcripts.
+The attempt is not in `evals/rejected-edits.md`, because it was never adequately
+tested. The graveyard is for moves that failed a fair test. A pre-registered
+re-run with 40 trials per arm is ready in
+`evals/results/2026-09-23-coined-label-rerun/`.
+
+### What not to overgeneralize
+
+Do not read this as "the rule does not work". The regraded trials lean its way,
+at 0.50 against 0.92 on four trials each, and the equivalence test cannot rule
+out a large effect. The lesson is about procedure, and each rule below is cheap:
+
+- **Grade the assertions, not the verdict.** A flag can be for the wrong reason,
+  and a correct flag can come with an invented fix.
+- **Audit every subagent transcript before counting its trial.** Agents read
+  files they were not given. The instruction "do not read other files" is not
+  enforcement; a transcript check is.
+- **Give each critique its own context.** Shared contexts leak text between
+  paragraphs and cue the distinction under test.
+- **Keep every eval prompt string out of the doctrine under test,** guards
+  included.
+- **Simulate the gate before choosing N.** Four discordant pairs cannot reach
+  p<0.05, and the "roughly 12 per arm" first proposed as the fix would pass a
+  single gate about one time in five.
+- **Never score a diagnostic in the candidate's vocabulary.** Counting the word
+  the candidate teaches measures the teaching, not the behaviour.
+- **Check a same-model judge against another judge.** The Haiku judge passed a
+  Haiku critique's invented definition that the Sonnet judge failed.
+
+### Eval coverage
+
+- `evals/evals.json`: `coined-compound-label` (tune; the Sonnet 5 baseline
+  named the coinage in 2 of 4 shared-context trials here, and in 4 of 40
+  single-paragraph trials in the re-run) and `holdout-coined-compound-label`
+  (holdout, fresh text).
+- `evals/adversarial.json`: `earned-domain-compound` and
+  `coined-label-defined-in-place` (tune; the latter moved from holdout because
+  every round-1 trial saw it), plus `holdout-coined-label-defined-in-place` and
+  `holdout-earned-domain-compound` (holdout, fresh text).
+- Runs: `evals/results/2026-09-05-astra-compound-labels/` and its `regrade/`;
+  `evals/results/2026-09-23-coined-label-rerun/` (pre-registered).
+
 ## 2026-06-14 — Borrowed surface rules were inert; our mechanism tests already subsume them
 
 ### Failure

@@ -1,0 +1,16 @@
+Verdict: ask-author
+
+Slop tells: Coined compound labels used without in-passage definition. "ledger-fold passes" and "invoice-drift totals" are hyphenated/compound terms that read as precise technical vocabulary, but neither is a standard domain term (unlike "dead-letter queue" or "two-phase commit") and neither is defined in the passage. The hyphen supplies the texture of precision while the actual mechanism stays out of reach.
+
+Specificity missing: What does a ledger-fold pass actually do to a ledger row — merge duplicate entries, re-sum debits/credits per invoice, resolve out-of-order corrections, something else? What specifically is "invoice drift" (the discrepancy folding is meant to correct), and why would it occur without folding? What marks a row "folded" — a status column, a separate table, a timestamp? The paragraph names the process and its schedule but never shows what it computes.
+
+Inflated claim: "so invoice-drift totals stay accurate" states a correctness outcome as settled, but the only support the paragraph gives afterward — the pass finishes before export starts, the export reads only folded rows — proves freshness and scope (the export never reads stale or unfolded data), not that folding computes the right number. Ordering and filtering guarantee the export sees the fold's output; they don't show that output is correct. The claim outruns the mechanism given for it.
+
+Flow break: Minor, not a hard break. Sentence 2 narrows from the claim ("accurate") to implementation detail (timing + filter) — a legitimate level-of-detail relation, not a random jump. But the detail answers an adjacent question ("does the export ever read stale/unfolded rows?" — no) rather than the question the first sentence actually raised ("does folding produce accurate totals?" — unaddressed). The paragraph lets the reader assume the second sentence proved the first sentence's claim.
+
+Concrete rewrite: Ask author: what does a ledger-fold pass do to a ledger row, and what specifically counts as "invoice drift"? If it's documented elsewhere (code comment, design doc), point to it; otherwise inline a one-clause definition of the fold operation.
+Fallback (no invented mechanism) — cut the unproven claim and let the timing/filter sentence carry the paragraph on its own: "The billing job runs ledger-fold passes after each import. Each pass finishes before the nightly export starts, and the export reads only folded rows." This keeps the concrete, verifiable guarantee (no stale or unfolded reads) and drops the accuracy claim until the fold mechanism itself can be named.
+
+Rewrite check: The fallback contains no rule-of-three, no X-not-Y / negative parallelism, no em-dash antithesis, no banned avoid-by-default phrases, no prestige adjectives, no decorative closure, and no invented facts — it only removes the unsupported clause and reuses language already in the source. Passes self-detectors.
+
+Remembered line: "the export reads only folded rows" — the one line in the paragraph that names a specific, checkable guarantee (a filter condition) rather than an adjective. If this paragraph is revised, keep that line as the anchor and build the fold's actual mechanism around it instead of around the word "accurate."

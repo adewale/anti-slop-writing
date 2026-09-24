@@ -1,0 +1,16 @@
+Verdict: ask-author
+
+Slop tells: Coined compound labels. "Exact-head checks" and "editorial-row layouts" are hyphenated noun phrases that name a check and an artifact the paragraph never defines. Neither is standard domain vocabulary (unlike "dead-letter queue" or "two-phase commit"), so the hyphen supplies the texture of precision without giving the reader a mechanism to verify. "Head" itself is also unglossed: head of the shard's row list, of a replication log, of a version pointer? A name is not a mechanism.
+
+Specificity missing: What "exact" comparison the check runs (row hash, full-row equality, a version/offset marker) is not stated. What "layout" covers for an editorial row (row order, row-to-shard assignment, formatting) is not stated. Without either, both compound terms read as confident labels standing in for machinery the passage never shows.
+
+Inflated claim: "so editorial-row layouts stay consistent across shards" claims the check produces consistency. Sentence two narrows the actual claim to detection: drift "surfaces" (is noticed) at merge time. Surfacing a problem is not the same as preventing or correcting one; that equivalence holds only if a failed check blocks or reconciles the merge, which the paragraph never says. As written, sentence one promises an outcome that sentence two's mechanism does not, by itself, deliver.
+
+Flow break: None. "Because the check happens at the head, drift ... surfaces ... rather than at read time" is earned hypotaxis: it names the causal relation (head-position check leads to early detection) and a real timing trade-off (merge-time versus read-time). Keep this construction as-is.
+
+Concrete rewrite: Ask author: when the exact-head check finds a mismatch, does the merge get blocked or reconciled, or does it just flag drift for a later fix? That answer decides whether "stay consistent" is accurate or whether "detected before merge" is the real, smaller guarantee. Also: does "editorial-row layout" mean row order, row-to-shard assignment, or formatting?
+Fallback if unavailable: cut the unsupported consistency claim and let the second sentence carry the paragraph alone: "The indexer runs a head-position check before each merge. Because the check reads the head, drift between replicas is caught at merge time instead of at read time." This keeps only what the source already supports (early detection) and drops the unearned consistency claim. "Head-position check" is still a placeholder for undescribed machinery; a complete fix needs the author's answer on what the check actually compares.
+
+Rewrite check: The ask-author question and the fallback contain no rule-of-three, no X-not-Y / negative parallelism, no em-dash antithesis, no avoid-by-default phrases, no prestige adjectives, no decorative closure, and no invented facts: the fallback restates only what sentence two already claims (head-position timing, merge-versus-read detection) and does not guess at what the check compares or what "layout" means. Passes self-detectors.
+
+Remembered line: "Because the check happens at the head, drift between replicas surfaces during the merge rather than at read time." This is the one fully concrete, mechanism-bearing claim in the paragraph — the timing trade-off of catching drift at merge instead of at read — and it should survive any revision.

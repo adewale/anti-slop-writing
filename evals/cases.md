@@ -149,3 +149,18 @@ Expected critique:
 - Separately identifies copula displacement, hedged symmetry, and outline-shaped conclusion templates.
 - Chooses a specific user/use case or recommends cutting unsupported sentences.
 - Rewrites with concrete behavior the console performs, not another all-purpose product claim.
+
+## Case 11 — coined compound labels
+
+Input:
+
+```txt
+The indexer runs exact-head checks before each merge, so editorial-row layouts stay consistent across shards. Because the check happens at the head, drift between replicas surfaces during the merge rather than at read time.
+```
+
+Expected critique:
+
+- Identifies `exact-head checks` or `editorial-row layouts` as coined or undefined, not as established terms.
+- Does not treat the label as the mechanism that earns `stay consistent across shards`.
+- Asks the author to define the term or cuts the unsupported claim, without inventing a definition.
+- Would keep a standard compound such as `write-ahead log`, or a coinage the passage defines where it introduces it.

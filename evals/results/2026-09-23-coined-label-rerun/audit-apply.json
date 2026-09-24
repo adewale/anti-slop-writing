@@ -1,0 +1,3697 @@
+{
+  "model": "claude-sonnet-5",
+  "rule": "PREREGISTRATION.md, Exclusion and replacement; implemented by audit.py",
+  "attempts": {
+    "outputs/t27mdzt.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:35",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t2umus9.md": {
+      "slot": "guard:guards:baseline:8",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t34ydj2-r1.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:37",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t34ydj2.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:37",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "excluded",
+      "violations": [
+        "read outside doctrine: /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5c87-9ba2-5d7a4af34dd6/scratchpad/rerun/w/t34ydj2.md"
+      ]
+    },
+    "outputs/t38w64a.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:21",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t3cdfg8.md": {
+      "slot": "guard:guards:candidate:2",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t3qyxbv.md": {
+      "slot": "discriminating:coined-compound-label:baseline:32",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t3ukb65.md": {
+      "slot": "discriminating:coined-compound-label:candidate:15",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t3y62rq.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:19",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t3yfxrx.md": {
+      "slot": "discriminating:coined-compound-label:baseline:13",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t45tyvx.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:21",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4735qa.md": {
+      "slot": "discriminating:coined-compound-label:candidate:35",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4a86wr.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:32",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4b8wqg.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:23",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4htq4a.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:12",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4mv275.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:22",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4p3ejr.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:10",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4skjet.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:17",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t4z5b6g.md": {
+      "slot": "guard:guards:candidate:1",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t5c9kek.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:31",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t5mjgah.md": {
+      "slot": "guard:guards:candidate:8",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t5sb2yj.md": {
+      "slot": "discriminating:coined-compound-label:baseline:21",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t5shzjb.md": {
+      "slot": "discriminating:coined-compound-label:candidate:25",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t64q98v.md": {
+      "slot": "discriminating:coined-compound-label:baseline:22",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t65c8uy.md": {
+      "slot": "discriminating:coined-compound-label:candidate:36",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t68stnf.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:8",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t69uk6p.md": {
+      "slot": "discriminating:coined-compound-label:candidate:13",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t6g26d2.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:24",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t6kuy3r.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:14",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t6uzg7f.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:6",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t7csfa9.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:6",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t7frv3j.md": {
+      "slot": "discriminating:coined-compound-label:baseline:27",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t7tarzs.md": {
+      "slot": "discriminating:coined-compound-label:candidate:32",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t7vsh62.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:31",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t82b6je.md": {
+      "slot": "discriminating:coined-compound-label:baseline:12",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t8d7q3f.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:28",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t8e9m4c.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:30",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t8fkqd2.md": {
+      "slot": "discriminating:coined-compound-label:baseline:39",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t8mdhcu.md": {
+      "slot": "discriminating:coined-compound-label:candidate:4",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t8vuhsh.md": {
+      "slot": "discriminating:coined-compound-label:baseline:38",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t8xwkfq.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:2",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t9gsxnt.md": {
+      "slot": "discriminating:coined-compound-label:baseline:28",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t9j8pwf.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:38",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t9ku26d.md": {
+      "slot": "discriminating:coined-compound-label:baseline:34",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/t9yyfp5.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:16",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ta85vqu.md": {
+      "slot": "discriminating:coined-compound-label:candidate:5",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tact9t5.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:13",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tad9jkb.md": {
+      "slot": "discriminating:coined-compound-label:baseline:25",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/takewj7.md": {
+      "slot": "discriminating:coined-compound-label:candidate:9",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tay94aw.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:18",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tb6n3dc.md": {
+      "slot": "discriminating:coined-compound-label:baseline:29",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tb9n4cv-r1.md": {
+      "slot": "guard:guards:baseline:7",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tb9n4cv.md": {
+      "slot": "guard:guards:baseline:7",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Bash",
+        "Read",
+        "Bash",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "excluded",
+      "violations": [
+        "listing exposed other outputs: ['t27mdzt', 't34ydj2', 't34ydj2-r1']"
+      ]
+    },
+    "outputs/tc28nc2.md": {
+      "slot": "guard:guards:baseline:1",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tc7h72f.md": {
+      "slot": "discriminating:coined-compound-label:candidate:1",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tc9aqjy.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:9",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tcvzfjj.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:34",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tcxerd3.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:7",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/td4tj2x.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:22",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/td6aqfr.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:17",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Bash",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/td6pg5t.md": {
+      "slot": "discriminating:coined-compound-label:baseline:40",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tde782e.md": {
+      "slot": "discriminating:coined-compound-label:baseline:31",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tdnn9yg.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:40",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tdsbygw.md": {
+      "slot": "discriminating:coined-compound-label:candidate:26",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/te8hu87.md": {
+      "slot": "discriminating:coined-compound-label:candidate:27",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/te9fkp6.md": {
+      "slot": "discriminating:coined-compound-label:candidate:14",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/techkcj.md": {
+      "slot": "discriminating:coined-compound-label:candidate:7",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/teh7xf7.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:37",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tf34ptm.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:15",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tfg2rqv.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:4",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tfuqctf.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:28",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tfyqbhh.md": {
+      "slot": "discriminating:coined-compound-label:candidate:24",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tg3a6xv.md": {
+      "slot": "discriminating:coined-compound-label:baseline:20",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tghwvjy.md": {
+      "slot": "discriminating:coined-compound-label:baseline:15",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tgkhjx9.md": {
+      "slot": "guard:guards:candidate:6",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tgkn65b.md": {
+      "slot": "discriminating:coined-compound-label:candidate:28",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tguxfny.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:16",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/th3c5u2.md": {
+      "slot": "discriminating:coined-compound-label:baseline:17",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/th7fv7c.md": {
+      "slot": "guard:guards:candidate:7",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/th8gkt6.md": {
+      "slot": "discriminating:coined-compound-label:candidate:38",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tha4u6n.md": {
+      "slot": "discriminating:coined-compound-label:baseline:6",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/the5nc4.md": {
+      "slot": "discriminating:coined-compound-label:baseline:37",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thffjy8.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:36",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thn28tx.md": {
+      "slot": "discriminating:coined-compound-label:candidate:29",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thqsga4.md": {
+      "slot": "discriminating:coined-compound-label:baseline:2",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thrg2mc.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:4",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thtdmf9.md": {
+      "slot": "discriminating:coined-compound-label:candidate:33",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thvxq38.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:11",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thwxpfc.md": {
+      "slot": "discriminating:coined-compound-label:baseline:16",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/thwyg2k.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:40",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tj8dk9t.md": {
+      "slot": "discriminating:coined-compound-label:baseline:10",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tjx35rv.md": {
+      "slot": "discriminating:coined-compound-label:candidate:18",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tkcan4s.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:9",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tkexdgs.md": {
+      "slot": "discriminating:coined-compound-label:candidate:39",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tkh2n44.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:5",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tknq3ex.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:14",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tkq57ty.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:35",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tma29gu.md": {
+      "slot": "discriminating:coined-compound-label:baseline:7",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tmdqtg9.md": {
+      "slot": "discriminating:coined-compound-label:candidate:34",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tmmax2h.md": {
+      "slot": "discriminating:coined-compound-label:candidate:6",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tmmzzw5.md": {
+      "slot": "guard:guards:candidate:3",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tmtfxzg.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:20",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tmwkev5.md": {
+      "slot": "discriminating:coined-compound-label:candidate:10",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Bash",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tnbccqv.md": {
+      "slot": "discriminating:coined-compound-label:candidate:16",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tnfe95g.md": {
+      "slot": "discriminating:coined-compound-label:candidate:22",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tnhkn49.md": {
+      "slot": "discriminating:coined-compound-label:baseline:1",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tnpfz44.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:25",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tnpnma8.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:23",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tp7baan.md": {
+      "slot": "guard:guards:baseline:3",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tpf3w5a.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:15",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tps3b79.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:39",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tpzad2a.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:5",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tpzfe7y.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:29",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tqdrtzs.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:26",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tqduu4b.md": {
+      "slot": "discriminating:coined-compound-label:baseline:23",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tqnt7vz.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:7",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tqqv3p9.md": {
+      "slot": "discriminating:coined-compound-label:candidate:3",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tqyqubz.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:12",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tqzzgww.md": {
+      "slot": "guard:guards:baseline:6",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Bash",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tregqfj.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:29",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/trmddd3.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:38",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/trrnpbj.md": {
+      "slot": "discriminating:coined-compound-label:baseline:26",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/trzqcp7.md": {
+      "slot": "discriminating:coined-compound-label:candidate:23",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ts479a6.md": {
+      "slot": "guard:guards:candidate:5",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ts6yvs5.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:1",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tsk9xsc.md": {
+      "slot": "discriminating:coined-compound-label:candidate:12",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tt26kh3.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:36",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tt6rucq.md": {
+      "slot": "discriminating:coined-compound-label:baseline:14",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tt7zzct.md": {
+      "slot": "discriminating:coined-compound-label:baseline:24",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Bash",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ttm4939.md": {
+      "slot": "discriminating:coined-compound-label:baseline:11",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ttrgueb.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:19",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tttcm8h.md": {
+      "slot": "discriminating:coined-compound-label:candidate:30",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ttvbsy8.md": {
+      "slot": "discriminating:coined-compound-label:baseline:4",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ttw2ukt.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:27",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ttxs6nb.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:33",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ttzvmht.md": {
+      "slot": "discriminating:coined-compound-label:candidate:11",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tu8b8az.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:34",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tu8j3gk.md": {
+      "slot": "discriminating:coined-compound-label:candidate:40",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tudsm3s.md": {
+      "slot": "discriminating:coined-compound-label:candidate:8",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tuqtnpk.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:26",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/turjm5a.md": {
+      "slot": "discriminating:coined-compound-label:baseline:18",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tusnfj6.md": {
+      "slot": "guard:guards:candidate:4",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tuvzc4s.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:8",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tuyjkc3.md": {
+      "slot": "discriminating:coined-compound-label:candidate:31",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tv2qsn8.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:10",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tv6yfu4.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:39",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tv7qwe2.md": {
+      "slot": "discriminating:coined-compound-label:baseline:9",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tv86z52.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:33",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tvktkv2.md": {
+      "slot": "discriminating:coined-compound-label:baseline:19",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tvnrttk.md": {
+      "slot": "discriminating:coined-compound-label:baseline:36",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tvzan5y.md": {
+      "slot": "discriminating:coined-compound-label:baseline:33",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tw2xawj.md": {
+      "slot": "discriminating:coined-compound-label:candidate:19",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tw3qtwc.md": {
+      "slot": "discriminating:coined-compound-label:baseline:35",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tw6wwym.md": {
+      "slot": "guard:guards:baseline:5",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/twh6vvw.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:24",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Bash",
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/twjgfrq.md": {
+      "slot": "discriminating:coined-compound-label:candidate:21",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/twpcw39.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:18",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/twssc3n.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:27",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tx4dqvb.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:30",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txa9kg8.md": {
+      "slot": "discriminating:coined-compound-label:candidate:2",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txbt64g.md": {
+      "slot": "discriminating:coined-compound-label:baseline:3",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txc9znd.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:1",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txrf3nm.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:2",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txtcffe.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:32",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txx7ptm.md": {
+      "slot": "discriminating:coined-compound-label:baseline:8",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txzvsuk.md": {
+      "slot": "guard:guards:baseline:2",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/txzzpn7.md": {
+      "slot": "discriminating:coined-compound-label:baseline:30",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ty6p7m3.md": {
+      "slot": "discriminating:coined-compound-label:candidate:20",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/ty8bzq4.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:3",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tycb8m8.md": {
+      "slot": "discriminating:coined-compound-label:baseline:5",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tyhxwzy.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:25",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tym63xk.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:13",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/typctvu.md": {
+      "slot": "guard:guards:baseline:4",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tywtvvf.md": {
+      "slot": "discriminating:holdout-coined-compound-label:candidate:3",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tyx65d6.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:20",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tyypyag-r1.md": {
+      "slot": "discriminating:coined-compound-label:candidate:37",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tyypyag.md": {
+      "slot": "discriminating:coined-compound-label:candidate:37",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "excluded",
+      "violations": [
+        "read outside doctrine: /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5c87-9ba2-5d7a4af34dd6/scratchpad/rerun/w/tyypyag.md"
+      ]
+    },
+    "outputs/tz3wggd.md": {
+      "slot": "discriminating:holdout-coined-compound-label:baseline:11",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    },
+    "outputs/tzpyzn3.md": {
+      "slot": "discriminating:coined-compound-label:candidate:17",
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "tool_calls": [
+        "Read",
+        "Read",
+        "Write",
+        "SubagentHandback"
+      ],
+      "status": "valid",
+      "violations": []
+    }
+  },
+  "slots": {
+    "discriminating:coined-compound-label:baseline:1": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tnhkn49.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:10": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tj8dk9t.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:11": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ttm4939.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:12": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t82b6je.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:13": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t3yfxrx.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:14": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tt6rucq.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:15": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tghwvjy.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:16": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thwxpfc.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:17": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/th3c5u2.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:18": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/turjm5a.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:19": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tvktkv2.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:2": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thqsga4.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:20": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tg3a6xv.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:21": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t5sb2yj.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:22": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t64q98v.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:23": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tqduu4b.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:24": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tt7zzct.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:25": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tad9jkb.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:26": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/trrnpbj.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:27": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t7frv3j.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:28": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t9gsxnt.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:29": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tb6n3dc.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:3": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/txbt64g.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:30": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/txzzpn7.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:31": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tde782e.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:32": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t3qyxbv.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:33": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tvzan5y.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:34": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t9ku26d.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:35": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tw3qtwc.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:36": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tvnrttk.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:37": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/the5nc4.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:38": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t8vuhsh.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:39": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t8fkqd2.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:4": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ttvbsy8.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:40": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/td6pg5t.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:5": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tycb8m8.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:6": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tha4u6n.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:7": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tma29gu.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:8": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/txx7ptm.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:baseline:9": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tv7qwe2.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:1": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tc7h72f.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:10": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tmwkev5.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:11": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ttzvmht.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:12": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tsk9xsc.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:13": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t69uk6p.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:14": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/te9fkp6.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:15": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t3ukb65.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:16": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tnbccqv.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:17": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tzpyzn3.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:18": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tjx35rv.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:19": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tw2xawj.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:2": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/txa9kg8.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:20": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ty6p7m3.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:21": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/twjgfrq.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:22": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tnfe95g.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:23": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/trzqcp7.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:24": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tfyqbhh.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:25": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t5shzjb.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:26": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tdsbygw.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:27": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/te8hu87.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:28": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tgkn65b.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:29": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thn28tx.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:3": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tqqv3p9.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:30": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tttcm8h.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:31": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tuyjkc3.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:32": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t7tarzs.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:33": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thtdmf9.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:34": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tmdqtg9.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:35": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t4735qa.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:36": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t65c8uy.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:37": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tyypyag-r1.md",
+      "attempts": 2
+    },
+    "discriminating:coined-compound-label:candidate:38": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/th8gkt6.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:39": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tkexdgs.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:4": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t8mdhcu.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:40": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tu8j3gk.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:5": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ta85vqu.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:6": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tmmax2h.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:7": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/techkcj.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:8": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tudsm3s.md",
+      "attempts": 1
+    },
+    "discriminating:coined-compound-label:candidate:9": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/takewj7.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:1": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/txc9znd.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:10": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tv2qsn8.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:11": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tz3wggd.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:12": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tqyqubz.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:13": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tact9t5.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:14": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t6kuy3r.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:15": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tf34ptm.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:16": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t9yyfp5.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:17": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t4skjet.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:18": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/twpcw39.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:19": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t3y62rq.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:2": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t8xwkfq.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:20": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tyx65d6.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:21": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t45tyvx.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:22": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/td4tj2x.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:23": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tnpnma8.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:24": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/twh6vvw.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:25": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tyhxwzy.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:26": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tqdrtzs.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:27": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/twssc3n.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:28": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tfuqctf.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:29": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tpzfe7y.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:3": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ty8bzq4.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:30": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tx4dqvb.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:31": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t5c9kek.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:32": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t4a86wr.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:33": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tv86z52.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:34": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tcvzfjj.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:35": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t27mdzt.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:36": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thffjy8.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:37": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/teh7xf7.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:38": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/trmddd3.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:39": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tps3b79.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:4": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thrg2mc.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:40": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thwyg2k.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:5": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tkh2n44.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:6": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t6uzg7f.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:7": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tcxerd3.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:8": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tuvzc4s.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:baseline:9": {
+      "arm": "baseline",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tc9aqjy.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:1": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ts6yvs5.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:10": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t4p3ejr.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:11": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/thvxq38.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:12": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t4htq4a.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:13": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tym63xk.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:14": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tknq3ex.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:15": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tpf3w5a.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:16": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tguxfny.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:17": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/td6aqfr.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:18": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tay94aw.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:19": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ttrgueb.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:2": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/txrf3nm.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:20": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tmtfxzg.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:21": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t38w64a.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:22": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t4mv275.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:23": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t4b8wqg.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:24": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t6g26d2.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:25": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tnpfz44.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:26": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tuqtnpk.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:27": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ttw2ukt.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:28": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t8d7q3f.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:29": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tregqfj.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:3": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tywtvvf.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:30": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t8e9m4c.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:31": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t7vsh62.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:32": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/txtcffe.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:33": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/ttxs6nb.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:34": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tu8b8az.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:35": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tkq57ty.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:36": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tt26kh3.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:37": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t34ydj2-r1.md",
+      "attempts": 2
+    },
+    "discriminating:holdout-coined-compound-label:candidate:38": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t9j8pwf.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:39": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tv6yfu4.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:4": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tfg2rqv.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:40": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tdnn9yg.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:5": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tpzad2a.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:6": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t7csfa9.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:7": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tqnt7vz.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:8": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/t68stnf.md",
+      "attempts": 1
+    },
+    "discriminating:holdout-coined-compound-label:candidate:9": {
+      "arm": "candidate",
+      "kind": "discriminating",
+      "status": "valid",
+      "trial": "outputs/tkcan4s.md",
+      "attempts": 1
+    },
+    "guard:guards:baseline:1": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tc28nc2.md",
+      "attempts": 1
+    },
+    "guard:guards:baseline:2": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/txzvsuk.md",
+      "attempts": 1
+    },
+    "guard:guards:baseline:3": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tp7baan.md",
+      "attempts": 1
+    },
+    "guard:guards:baseline:4": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/typctvu.md",
+      "attempts": 1
+    },
+    "guard:guards:baseline:5": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tw6wwym.md",
+      "attempts": 1
+    },
+    "guard:guards:baseline:6": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tqzzgww.md",
+      "attempts": 1
+    },
+    "guard:guards:baseline:7": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tb9n4cv-r1.md",
+      "attempts": 2
+    },
+    "guard:guards:baseline:8": {
+      "arm": "baseline",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/t2umus9.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:1": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/t4z5b6g.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:2": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/t3cdfg8.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:3": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tmmzzw5.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:4": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tusnfj6.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:5": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/ts479a6.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:6": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/tgkhjx9.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:7": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/th7fv7c.md",
+      "attempts": 1
+    },
+    "guard:guards:candidate:8": {
+      "arm": "candidate",
+      "kind": "guard",
+      "status": "valid",
+      "trial": "outputs/t5mjgah.md",
+      "attempts": 1
+    }
+  }
+}

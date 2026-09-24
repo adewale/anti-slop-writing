@@ -2,13 +2,13 @@
 """Blind, batch, unblind, and score the 2026-09-23 re-run under its pre-registration.
 
   batches: python3 score_rerun.py batches --manifest M --audit A --outputs DIR --out BATCH_DIR --key KEY
-  score:   python3 score_rerun.py score --key KEY --judgments DIR --out RESULTS_DIR
+  score:   python3 score_rerun.py score --key KEY --judgments DIR --judge-audit REPORT --out RESULTS_DIR
 
 `batches` takes each slot's audited trial, splits guard trials into their four
 cases, gives every critique an opaque id (seed 20260923), shuffles across arms,
 and writes batches of at most six, plus the key to a path outside the batch
-directory so no judge can reach it. `score` unblinds each judge's
-judgments, scores them with scripts/run_evals.py grade, pairs discriminating
+directory so no judge can reach it. `score` reads, for each batch and judge,
+the one file that audit_judges.py marked valid, unblinds the judgments, scores them with scripts/run_evals.py grade, pairs discriminating
 trials by slot, runs scripts/score_delta.py for the tune and holdout gates, and
 counts guard over-flags (first assertion failed) per arm.
 Run from the repository root.
@@ -90,9 +90,14 @@ def cmd_score(args):
     key = {k["blind_id"]: k for k in json.loads(args.key.read_text())}
     args.out.mkdir(parents=True, exist_ok=True)
     scores, firsts, raw = {}, {}, {}
+    batches = json.loads(args.judge_audit.read_text())["batches"]
     for judge in JUDGES:
         recs = []
-        for f in sorted(args.judgments.glob(f"{judge}-*.jsonl")):
+        for name, b in sorted(batches.items()):
+            if not name.startswith(f"{judge}-"):
+                continue
+            assert b["status"] == "valid", f"{name} is {b['status']}; every batch needs a valid judgment"
+            f = args.judgments / b["file"]
             recs += [json.loads(line) for line in f.read_text().splitlines() if line.strip()]
         ids = [r["id"] for r in recs]
         assert sorted(ids) == sorted(key), f"{judge}: judged ids do not match the key"
@@ -180,6 +185,7 @@ def main():
     s = sub.add_parser("score")
     s.add_argument("--key", type=Path, required=True)
     s.add_argument("--judgments", type=Path, required=True)
+    s.add_argument("--judge-audit", type=Path, required=True)
     s.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
     cmd_batches(args) if args.cmd == "batches" else cmd_score(args)

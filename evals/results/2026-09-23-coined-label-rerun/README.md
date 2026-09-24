@@ -1,9 +1,9 @@
 # Powered re-run of the coined-compound-label round
 
-**Status: pre-registered, not yet run.** The design is fixed in
-`PREREGISTRATION.md`, committed before any trial output existed. No trial has
-been launched. The full design is about 176 apply agents and 76 judge agents,
-so the run waits on a decision to spend that compute.
+**Status: running.** The design is fixed in `PREREGISTRATION.md`, committed
+before any trial output existed. Apply trials are in progress. No critique has
+been judged or read, and the audit and scoring scripts below are committed
+before any judge runs.
 
 The earlier round, `../2026-09-05-astra-compound-labels/`, was inconclusive: four
 valid trials per arm, and a list of design defects. This round tests the same
@@ -43,4 +43,7 @@ PREREGISTRATION.md    question, arms, cases, protocol, exclusions, scoring, deci
 candidate-v3.patch    the candidate doctrine, against SKILL.md at 53370ff
 make_manifest.py      deterministic trial manifest and apply prompts, seed 20260923
 power_sim.py          the power table in the pre-registration
+audit.py              the exclusion rule, applied to each apply agent's transcript
+audit_judges.py       the judge prompt, and the check of each judge's transcript and file
+score_rerun.py        blinding and batching, then unblinding, grading, pairing, gates, guards
 ```

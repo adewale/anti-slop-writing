@@ -6,11 +6,13 @@ and writing style*, fetched 2026-09-05 from
 prompt asks the model to avoid "invented compound labels like 'exact-head
 checks' and 'editorial-row layouts'".
 
-**Outcome: inconclusive.** `SKILL.md` is unchanged. Only four trials per arm
-turned out to be valid, too few to tell whether the candidate rule helps. The
-round's durable output is its eval cases, a documented failure mechanism, and a
-list of design defects. A pre-registered re-run that avoids those defects is in
-`../2026-09-23-coined-label-rerun/`.
+**Outcome: inconclusive.** This round left `SKILL.md` unchanged. Only four
+trials per arm turned out to be valid, too few to tell whether the candidate
+rule helps. The round's durable output is its eval cases, a documented failure
+mechanism, and a list of design defects. The pre-registered re-run in
+`../2026-09-23-coined-label-rerun/` avoided those defects and shipped the rule
+on 2026-09-24: with 40 trials per arm, the baseline named the coinage 4/40 and
+1/40 times, and the candidate 40/40 on both cases.
 
 The first version of this record overstated the evidence. It counted verdicts
 instead of grading the cases' assertions, it treated round 2 as independent, and
@@ -100,7 +102,7 @@ instruction in them is listed below, along with the skill-file warning from its
 
 | Guide instruction | Status here |
 |---|---|
-| Avoid "invented compound labels like 'exact-head checks' and 'editorial-row layouts'" | **Tested** here, inconclusively; the re-run in `../2026-09-23-coined-label-rerun/` is pre-registered |
+| Avoid "invented compound labels like 'exact-head checks' and 'editorial-row layouts'" | **Tested** here, inconclusively; **shipped** after the re-run in `../2026-09-23-coined-label-rerun/` accepted both gates |
 | A skill file "may cause the model to pause and block work early"; add a precedence line | **Probed** on Sonnet 5 and did not reproduce; untested on non-Claude models (`TODO.md`) |
 | Avoid "delve", "foster", "it's worth noting" | Already in the avoid lists |
 | Avoid "This isn't about X. It's about Y." and "X, not Y" framing | Already covered by the negative-parallelism detector and the staccato contrast test |

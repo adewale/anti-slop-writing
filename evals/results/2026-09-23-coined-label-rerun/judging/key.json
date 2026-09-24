@@ -1,0 +1,2018 @@
+[
+  {
+    "blind_id": "jhwxpfc",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 23,
+    "trial": "tqduu4b"
+  },
+  {
+    "blind_id": "jkcan4s",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 17,
+    "trial": "td6aqfr"
+  },
+  {
+    "blind_id": "jfyqbhh",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 30,
+    "trial": "tttcm8h"
+  },
+  {
+    "blind_id": "jee9pyk",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 3,
+    "trial": "tmmzzw5"
+  },
+  {
+    "blind_id": "jrrnpbj",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 32,
+    "trial": "t3qyxbv"
+  },
+  {
+    "blind_id": "j79a697",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 7,
+    "trial": "tb9n4cv-r1"
+  },
+  {
+    "blind_id": "jyyqbk9",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 8,
+    "trial": "t2umus9"
+  },
+  {
+    "blind_id": "jx4dqvb",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 36,
+    "trial": "thffjy8"
+  },
+  {
+    "blind_id": "j3yfxrx",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 20,
+    "trial": "tg3a6xv"
+  },
+  {
+    "blind_id": "jxbt64g",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 11,
+    "trial": "ttm4939"
+  },
+  {
+    "blind_id": "jmtfxzg",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 27,
+    "trial": "ttw2ukt"
+  },
+  {
+    "blind_id": "j4skjet",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 24,
+    "trial": "twh6vvw"
+  },
+  {
+    "blind_id": "jps3b79",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 8,
+    "trial": "tuvzc4s"
+  },
+  {
+    "blind_id": "j8xwkfq",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 10,
+    "trial": "tv2qsn8"
+  },
+  {
+    "blind_id": "jxa9kg8",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 10,
+    "trial": "tmwkev5"
+  },
+  {
+    "blind_id": "j45wurp",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 2,
+    "trial": "txzvsuk"
+  },
+  {
+    "blind_id": "jxtcffe",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 38,
+    "trial": "t9j8pwf"
+  },
+  {
+    "blind_id": "jnc2ajt",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 1,
+    "trial": "tc28nc2"
+  },
+  {
+    "blind_id": "jj2umus",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 4,
+    "trial": "typctvu"
+  },
+  {
+    "blind_id": "jtw2ukt",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 33,
+    "trial": "ttxs6nb"
+  },
+  {
+    "blind_id": "jurjm5a",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 25,
+    "trial": "tad9jkb"
+  },
+  {
+    "blind_id": "jrwmb9n",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 4,
+    "trial": "typctvu"
+  },
+  {
+    "blind_id": "jnbccqv",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 23,
+    "trial": "trzqcp7"
+  },
+  {
+    "blind_id": "jpzad2a",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 13,
+    "trial": "tym63xk"
+  },
+  {
+    "blind_id": "j4735qa",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 40,
+    "trial": "tu8j3gk"
+  },
+  {
+    "blind_id": "j5mjgah",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 8,
+    "trial": "t2umus9"
+  },
+  {
+    "blind_id": "j6uzg7f",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 14,
+    "trial": "t6kuy3r"
+  },
+  {
+    "blind_id": "jeh7xf7",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 6,
+    "trial": "t6uzg7f"
+  },
+  {
+    "blind_id": "jec99pu",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 6,
+    "trial": "tqzzgww"
+  },
+  {
+    "blind_id": "judsm3s",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 16,
+    "trial": "tnbccqv"
+  },
+  {
+    "blind_id": "jha4u6n",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 14,
+    "trial": "tt6rucq"
+  },
+  {
+    "blind_id": "j5shzjb",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 31,
+    "trial": "tuyjkc3"
+  },
+  {
+    "blind_id": "jhn28tx",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 35,
+    "trial": "t4735qa"
+  },
+  {
+    "blind_id": "j45tyvx",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 28,
+    "trial": "tfuqctf"
+  },
+  {
+    "blind_id": "jhvxq38",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 19,
+    "trial": "ttrgueb"
+  },
+  {
+    "blind_id": "jqdrtzs",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 32,
+    "trial": "t4a86wr"
+  },
+  {
+    "blind_id": "j4a86wr",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 38,
+    "trial": "trmddd3"
+  },
+  {
+    "blind_id": "jvfauha",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 5,
+    "trial": "ts479a6"
+  },
+  {
+    "blind_id": "j8e7eqk",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 1,
+    "trial": "t4z5b6g"
+  },
+  {
+    "blind_id": "jde782e",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 37,
+    "trial": "the5nc4"
+  },
+  {
+    "blind_id": "jdawb75",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 7,
+    "trial": "th7fv7c"
+  },
+  {
+    "blind_id": "j3syg3m",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 4,
+    "trial": "tusnfj6"
+  },
+  {
+    "blind_id": "jqnt7vz",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 15,
+    "trial": "tpf3w5a"
+  },
+  {
+    "blind_id": "jsk9xsc",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 2,
+    "trial": "txa9kg8"
+  },
+  {
+    "blind_id": "j4p3ejr",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 18,
+    "trial": "tay94aw"
+  },
+  {
+    "blind_id": "jfbrc28",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 1,
+    "trial": "tc28nc2"
+  },
+  {
+    "blind_id": "jcanega",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 4,
+    "trial": "tusnfj6"
+  },
+  {
+    "blind_id": "jzpwas4",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 6,
+    "trial": "tqzzgww"
+  },
+  {
+    "blind_id": "jtm4939",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 19,
+    "trial": "tvktkv2"
+  },
+  {
+    "blind_id": "juqtnpk",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 32,
+    "trial": "txtcffe"
+  },
+  {
+    "blind_id": "jzpyzn3",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 24,
+    "trial": "tfyqbhh"
+  },
+  {
+    "blind_id": "jsq6d5p",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 2,
+    "trial": "t3cdfg8"
+  },
+  {
+    "blind_id": "jr4weyp",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 2,
+    "trial": "txzvsuk"
+  },
+  {
+    "blind_id": "jpf3w5a",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 22,
+    "trial": "t4mv275"
+  },
+  {
+    "blind_id": "jctvuj4",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 2,
+    "trial": "txzvsuk"
+  },
+  {
+    "blind_id": "jhe5nc4",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 6,
+    "trial": "tha4u6n"
+  },
+  {
+    "blind_id": "jnrs53s",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 3,
+    "trial": "tmmzzw5"
+  },
+  {
+    "blind_id": "j8rt2uj",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 8,
+    "trial": "t5mjgah"
+  },
+  {
+    "blind_id": "jz3wggd",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 19,
+    "trial": "t3y62rq"
+  },
+  {
+    "blind_id": "j7vsh62",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 37,
+    "trial": "t34ydj2-r1"
+  },
+  {
+    "blind_id": "jt26kh3",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 5,
+    "trial": "tpzad2a"
+  },
+  {
+    "blind_id": "jgkn65b",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 34,
+    "trial": "tmdqtg9"
+  },
+  {
+    "blind_id": "jdsbygw",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 32,
+    "trial": "t7tarzs"
+  },
+  {
+    "blind_id": "jkexdgs",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 8,
+    "trial": "tudsm3s"
+  },
+  {
+    "blind_id": "js6yvs5",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 1,
+    "trial": "ts6yvs5"
+  },
+  {
+    "blind_id": "jegpbk5",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 6,
+    "trial": "tgkhjx9"
+  },
+  {
+    "blind_id": "jvktkv2",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 26,
+    "trial": "trrnpbj"
+  },
+  {
+    "blind_id": "jttcm8h",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 36,
+    "trial": "t65c8uy"
+  },
+  {
+    "blind_id": "jv2qsn8",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 18,
+    "trial": "twpcw39"
+  },
+  {
+    "blind_id": "jhtdmf9",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 39,
+    "trial": "tkexdgs"
+  },
+  {
+    "blind_id": "jy6p7m3",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 27,
+    "trial": "te8hu87"
+  },
+  {
+    "blind_id": "jqduu4b",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 3,
+    "trial": "txbt64g"
+  },
+  {
+    "blind_id": "jnpnma8",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 3,
+    "trial": "ty8bzq4"
+  },
+  {
+    "blind_id": "j7baan8",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 2,
+    "trial": "txzvsuk"
+  },
+  {
+    "blind_id": "jekuqgk",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 7,
+    "trial": "tb9n4cv-r1"
+  },
+  {
+    "blind_id": "j8ydndn",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 6,
+    "trial": "tgkhjx9"
+  },
+  {
+    "blind_id": "jtxs6nb",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 39,
+    "trial": "tv6yfu4"
+  },
+  {
+    "blind_id": "jt6rucq",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 21,
+    "trial": "t5sb2yj"
+  },
+  {
+    "blind_id": "jfuqctf",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 34,
+    "trial": "tcvzfjj"
+  },
+  {
+    "blind_id": "jxrf3nm",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 10,
+    "trial": "t4p3ejr"
+  },
+  {
+    "blind_id": "jjx35rv",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 25,
+    "trial": "t5shzjb"
+  },
+  {
+    "blind_id": "jmdqtg9",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 4,
+    "trial": "t8mdhcu"
+  },
+  {
+    "blind_id": "jhqsga4",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 10,
+    "trial": "tj8dk9t"
+  },
+  {
+    "blind_id": "jechkcj",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 15,
+    "trial": "t3ukb65"
+  },
+  {
+    "blind_id": "jrnub59",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 4,
+    "trial": "tusnfj6"
+  },
+  {
+    "blind_id": "j3y62rq",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 26,
+    "trial": "tqdrtzs"
+  },
+  {
+    "blind_id": "jd6pg5t",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 9,
+    "trial": "tv7qwe2"
+  },
+  {
+    "blind_id": "jmwkev5",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 18,
+    "trial": "tjx35rv"
+  },
+  {
+    "blind_id": "jm396z9",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 5,
+    "trial": "ts479a6"
+  },
+  {
+    "blind_id": "j6g26d2",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 30,
+    "trial": "t8e9m4c"
+  },
+  {
+    "blind_id": "j8vuhsh",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 7,
+    "trial": "tma29gu"
+  },
+  {
+    "blind_id": "jhrg2mc",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 12,
+    "trial": "tqyqubz"
+  },
+  {
+    "blind_id": "jwpcw39",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 25,
+    "trial": "tyhxwzy"
+  },
+  {
+    "blind_id": "jef232a",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 2,
+    "trial": "t3cdfg8"
+  },
+  {
+    "blind_id": "juvzc4s",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 16,
+    "trial": "t9yyfp5"
+  },
+  {
+    "blind_id": "jv86z52",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 39,
+    "trial": "tps3b79"
+  },
+  {
+    "blind_id": "j82b6je",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 2,
+    "trial": "thqsga4"
+  },
+  {
+    "blind_id": "j33mjw6",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 3,
+    "trial": "tp7baan"
+  },
+  {
+    "blind_id": "jxc9znd",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 1,
+    "trial": "txc9znd"
+  },
+  {
+    "blind_id": "jnpfz44",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 31,
+    "trial": "t7vsh62"
+  },
+  {
+    "blind_id": "j38w64a",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 28,
+    "trial": "t8d7q3f"
+  },
+  {
+    "blind_id": "jghwvjy",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 22,
+    "trial": "t64q98v"
+  },
+  {
+    "blind_id": "jhkqwec",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 8,
+    "trial": "t5mjgah"
+  },
+  {
+    "blind_id": "jwssc3n",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 33,
+    "trial": "tv86z52"
+  },
+  {
+    "blind_id": "jkuc55h",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 8,
+    "trial": "t5mjgah"
+  },
+  {
+    "blind_id": "j9j8pwf",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 7,
+    "trial": "tqnt7vz"
+  },
+  {
+    "blind_id": "jsnfj68",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 6,
+    "trial": "tqzzgww"
+  },
+  {
+    "blind_id": "jrmddd3",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 7,
+    "trial": "tcxerd3"
+  },
+  {
+    "blind_id": "jycb8m8",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 13,
+    "trial": "t3yfxrx"
+  },
+  {
+    "blind_id": "jd6aqfr",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 24,
+    "trial": "t6g26d2"
+  },
+  {
+    "blind_id": "juk2ybc",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 1,
+    "trial": "tc28nc2"
+  },
+  {
+    "blind_id": "juyjkc3",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 37,
+    "trial": "tyypyag-r1"
+  },
+  {
+    "blind_id": "j4cvxbc",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 4,
+    "trial": "typctvu"
+  },
+  {
+    "blind_id": "jqd4z5b",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 5,
+    "trial": "tw6wwym"
+  },
+  {
+    "blind_id": "jhjx958",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 7,
+    "trial": "tb9n4cv-r1"
+  },
+  {
+    "blind_id": "j5c9kek",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 37,
+    "trial": "teh7xf7"
+  },
+  {
+    "blind_id": "jv7qwe2",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 17,
+    "trial": "th3c5u2"
+  },
+  {
+    "blind_id": "jyypyag",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 6,
+    "trial": "tmmax2h"
+  },
+  {
+    "blind_id": "jc7h72f",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 1,
+    "trial": "tc7h72f"
+  },
+  {
+    "blind_id": "jv6yfu4",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 8,
+    "trial": "t68stnf"
+  },
+  {
+    "blind_id": "jdnn9yg",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 9,
+    "trial": "tkcan4s"
+  },
+  {
+    "blind_id": "jwg8b6z",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 4,
+    "trial": "tusnfj6"
+  },
+  {
+    "blind_id": "j68stnf",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 16,
+    "trial": "tguxfny"
+  },
+  {
+    "blind_id": "j4b8wqg",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 3,
+    "trial": "tywtvvf"
+  },
+  {
+    "blind_id": "jmgxmeh",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 7,
+    "trial": "th7fv7c"
+  },
+  {
+    "blind_id": "j7fv7cw",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 8,
+    "trial": "t2umus9"
+  },
+  {
+    "blind_id": "j27mdzt",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 40,
+    "trial": "thwyg2k"
+  },
+  {
+    "blind_id": "jpzfe7y",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 35,
+    "trial": "t27mdzt"
+  },
+  {
+    "blind_id": "jfg2rqv",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 12,
+    "trial": "t4htq4a"
+  },
+  {
+    "blind_id": "j64q98v",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 29,
+    "trial": "tb6n3dc"
+  },
+  {
+    "blind_id": "jmmzzw5",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 6,
+    "trial": "tqzzgww"
+  },
+  {
+    "blind_id": "jnfe95g",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 29,
+    "trial": "thn28tx"
+  },
+  {
+    "blind_id": "j7x86br",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 5,
+    "trial": "ts479a6"
+  },
+  {
+    "blind_id": "jd44rpu",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 1,
+    "trial": "t4z5b6g"
+  },
+  {
+    "blind_id": "jm57v6m",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 8,
+    "trial": "t2umus9"
+  },
+  {
+    "blind_id": "jnhkn49",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 1,
+    "trial": "tnhkn49"
+  },
+  {
+    "blind_id": "jqqv3p9",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 11,
+    "trial": "ttzvmht"
+  },
+  {
+    "blind_id": "j65c8uy",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 5,
+    "trial": "ta85vqu"
+  },
+  {
+    "blind_id": "j3srpzn",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 1,
+    "trial": "t4z5b6g"
+  },
+  {
+    "blind_id": "j6uu8p5",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 8,
+    "trial": "t5mjgah"
+  },
+  {
+    "blind_id": "jd4tj2x",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 29,
+    "trial": "tpzfe7y"
+  },
+  {
+    "blind_id": "jxzzpn7",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 36,
+    "trial": "tvnrttk"
+  },
+  {
+    "blind_id": "jwxfuhh",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 7,
+    "trial": "tb9n4cv-r1"
+  },
+  {
+    "blind_id": "j9yyfp5",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 23,
+    "trial": "tnpnma8"
+  },
+  {
+    "blind_id": "jw3qtwc",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 40,
+    "trial": "td6pg5t"
+  },
+  {
+    "blind_id": "j8mdhcu",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 12,
+    "trial": "tsk9xsc"
+  },
+  {
+    "blind_id": "jvnrttk",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 5,
+    "trial": "tycb8m8"
+  },
+  {
+    "blind_id": "jh8gkt6",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 7,
+    "trial": "techkcj"
+  },
+  {
+    "blind_id": "jtzvmht",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 19,
+    "trial": "tw2xawj"
+  },
+  {
+    "blind_id": "jyx65d6",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 27,
+    "trial": "twssc3n"
+  },
+  {
+    "blind_id": "jj8dk9t",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 18,
+    "trial": "turjm5a"
+  },
+  {
+    "blind_id": "j8ap9uq",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 5,
+    "trial": "tw6wwym"
+  },
+  {
+    "blind_id": "j6gzkz5",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 5,
+    "trial": "tw6wwym"
+  },
+  {
+    "blind_id": "j3qyxbv",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 38,
+    "trial": "t8vuhsh"
+  },
+  {
+    "blind_id": "jmmax2h",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 14,
+    "trial": "te9fkp6"
+  },
+  {
+    "blind_id": "jw2xawj",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 26,
+    "trial": "tdsbygw"
+  },
+  {
+    "blind_id": "jcvzfjj",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 4,
+    "trial": "thrg2mc"
+  },
+  {
+    "blind_id": "ju8j3gk",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 9,
+    "trial": "takewj7"
+  },
+  {
+    "blind_id": "j3tv29c",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 6,
+    "trial": "tgkhjx9"
+  },
+  {
+    "blind_id": "jwjgfrq",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 28,
+    "trial": "tgkn65b"
+  },
+  {
+    "blind_id": "j8d7q3f",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 34,
+    "trial": "tu8b8az"
+  },
+  {
+    "blind_id": "jrzqcp7",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 3,
+    "trial": "tqqv3p9"
+  },
+  {
+    "blind_id": "jtvbsy8",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 12,
+    "trial": "t82b6je"
+  },
+  {
+    "blind_id": "j34ydj2",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 6,
+    "trial": "t7csfa9"
+  },
+  {
+    "blind_id": "j3ukb65",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 22,
+    "trial": "tnfe95g"
+  },
+  {
+    "blind_id": "jma29gu",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 15,
+    "trial": "tghwvjy"
+  },
+  {
+    "blind_id": "jf34ptm",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 22,
+    "trial": "td4tj2x"
+  },
+  {
+    "blind_id": "jzuytzp",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 2,
+    "trial": "t3cdfg8"
+  },
+  {
+    "blind_id": "jp3cdfg",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 5,
+    "trial": "tw6wwym"
+  },
+  {
+    "blind_id": "j8fkqd2",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 8,
+    "trial": "txx7ptm"
+  },
+  {
+    "blind_id": "jguxfny",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 23,
+    "trial": "t4b8wqg"
+  },
+  {
+    "blind_id": "jt7zzct",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 30,
+    "trial": "txzzpn7"
+  },
+  {
+    "blind_id": "j9gsxnt",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 34,
+    "trial": "t9ku26d"
+  },
+  {
+    "blind_id": "jdj7n5f",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 3,
+    "trial": "tmmzzw5"
+  },
+  {
+    "blind_id": "jkh2n44",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 13,
+    "trial": "tact9t5"
+  },
+  {
+    "blind_id": "jb6n3dc",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 35,
+    "trial": "tw3qtwc"
+  },
+  {
+    "blind_id": "j5khmq7",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 3,
+    "trial": "tmmzzw5"
+  },
+  {
+    "blind_id": "j4mv275",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 29,
+    "trial": "tregqfj"
+  },
+  {
+    "blind_id": "j9hekku",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 7,
+    "trial": "th7fv7c"
+  },
+  {
+    "blind_id": "jtrgueb",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 26,
+    "trial": "tuqtnpk"
+  },
+  {
+    "blind_id": "jad9jkb",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 31,
+    "trial": "tde782e"
+  },
+  {
+    "blind_id": "j9ku26d",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 4,
+    "trial": "ttvbsy8"
+  },
+  {
+    "blind_id": "j4htq4a",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 2,
+    "trial": "txrf3nm"
+  },
+  {
+    "blind_id": "jqyqubz",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 2,
+    "trial": "t8xwkfq"
+  },
+  {
+    "blind_id": "jay94aw",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 25,
+    "trial": "tnpfz44"
+  },
+  {
+    "blind_id": "jyhxwzy",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 31,
+    "trial": "t5c9kek"
+  },
+  {
+    "blind_id": "jact9t5",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 20,
+    "trial": "tyx65d6"
+  },
+  {
+    "blind_id": "j8e9m4c",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 36,
+    "trial": "tt26kh3"
+  },
+  {
+    "blind_id": "jhwyg2k",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 9,
+    "trial": "tc9aqjy"
+  },
+  {
+    "blind_id": "jregqfj",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 35,
+    "trial": "tkq57ty"
+  },
+  {
+    "blind_id": "j9xy48a",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 4,
+    "trial": "typctvu"
+  },
+  {
+    "blind_id": "j7tarzs",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 38,
+    "trial": "th8gkt6"
+  },
+  {
+    "blind_id": "jhpwhmu",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 6,
+    "trial": "tgkhjx9"
+  },
+  {
+    "blind_id": "j2etwp5",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 2,
+    "trial": "t3cdfg8"
+  },
+  {
+    "blind_id": "jknq3ex",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 21,
+    "trial": "t38w64a"
+  },
+  {
+    "blind_id": "j6dxzvs",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 1,
+    "trial": "tc28nc2"
+  },
+  {
+    "blind_id": "j7csfa9",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 14,
+    "trial": "tknq3ex"
+  },
+  {
+    "blind_id": "jw2t35r",
+    "suite": "adversarial.json",
+    "case_id": "earned-domain-compound",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 3,
+    "trial": "tp7baan"
+  },
+  {
+    "blind_id": "j7frv3j",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 33,
+    "trial": "tvzan5y"
+  },
+  {
+    "blind_id": "ja85vqu",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 13,
+    "trial": "t69uk6p"
+  },
+  {
+    "blind_id": "jvzan5y",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 39,
+    "trial": "t8fkqd2"
+  },
+  {
+    "blind_id": "jwh6vvw",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 30,
+    "trial": "tx4dqvb"
+  },
+  {
+    "blind_id": "jwwymhd",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 3,
+    "trial": "tp7baan"
+  },
+  {
+    "blind_id": "jdvrtwh",
+    "suite": "adversarial.json",
+    "case_id": "coined-label-defined-in-place",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 5,
+    "trial": "ts479a6"
+  },
+  {
+    "blind_id": "jakewj7",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 17,
+    "trial": "tzpyzn3"
+  },
+  {
+    "blind_id": "j46u46y",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 7,
+    "trial": "th7fv7c"
+  },
+  {
+    "blind_id": "j6kuy3r",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 21,
+    "trial": "t45tyvx"
+  },
+  {
+    "blind_id": "jkq57ty",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 40,
+    "trial": "tdnn9yg"
+  },
+  {
+    "blind_id": "jym63xk",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 20,
+    "trial": "tmtfxzg"
+  },
+  {
+    "blind_id": "jg3a6xv",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 27,
+    "trial": "t7frv3j"
+  },
+  {
+    "blind_id": "jhffjy8",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 5,
+    "trial": "tkh2n44"
+  },
+  {
+    "blind_id": "je9fkp6",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 21,
+    "trial": "twjgfrq"
+  },
+  {
+    "blind_id": "j69uk6p",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 20,
+    "trial": "ty6p7m3"
+  },
+  {
+    "blind_id": "ju8b8az",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 4,
+    "trial": "tfg2rqv"
+  },
+  {
+    "blind_id": "jy8bzq4",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 11,
+    "trial": "tz3wggd"
+  },
+  {
+    "blind_id": "jgbq7xq",
+    "suite": "adversarial.json",
+    "case_id": "holdout-coined-label-defined-in-place",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 1,
+    "trial": "t4z5b6g"
+  },
+  {
+    "blind_id": "jywtvvf",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "candidate",
+    "slot": 11,
+    "trial": "thvxq38"
+  },
+  {
+    "blind_id": "jaqzzgw",
+    "suite": "adversarial.json",
+    "case_id": "holdout-earned-domain-compound",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 3,
+    "trial": "tp7baan"
+  },
+  {
+    "blind_id": "jxx7ptm",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 16,
+    "trial": "thwxpfc"
+  },
+  {
+    "blind_id": "j5sb2yj",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 28,
+    "trial": "t9gsxnt"
+  },
+  {
+    "blind_id": "jh3c5u2",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "baseline",
+    "slot": 24,
+    "trial": "tt7zzct"
+  },
+  {
+    "blind_id": "jc9aqjy",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 17,
+    "trial": "t4skjet"
+  },
+  {
+    "blind_id": "jcxerd3",
+    "suite": "evals.json",
+    "case_id": "holdout-coined-compound-label",
+    "split": "holdout",
+    "arm": "baseline",
+    "slot": 15,
+    "trial": "tf34ptm"
+  },
+  {
+    "blind_id": "je8hu87",
+    "suite": "evals.json",
+    "case_id": "coined-compound-label",
+    "split": "tune",
+    "arm": "candidate",
+    "slot": 33,
+    "trial": "thtdmf9"
+  }
+]

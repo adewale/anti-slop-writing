@@ -4,6 +4,47 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-09-24 — A name is not a mechanism
+
+### Failure
+
+A coined hyphenated label is shaped like the name of a mechanism. So it passes
+the emphasis-source test, and false-positive restraint then keeps it because
+the sentence seems to supply a mechanism. Critiquing "The indexer runs
+exact-head checks before each merge, so editorial-row layouts stay consistent
+across shards" on its own, the skill returned `keep` in 31 of 40 trials and
+named either label as coined or undefined in 4. On a fresh paragraph built on
+"ledger-fold passes" and "invoice-drift totals", it returned `keep` in 35 of 40
+and named a label in 1.
+
+### What changed
+
+`SKILL.md` gained a `Coined compound labels` detector, editing-pass step 19, and
+a clause saying support must be resolvable by the reader: an undefined term does
+not earn a claim, it relocates the gap. It shipped as `candidate-v3.patch`, 129
+words, under a pre-registered test with 40 single-paragraph trials per arm and
+blinded Sonnet 5 and Haiku 4.5 judges. The candidate named a coinage in all 80
+trials. The paired deltas were +0.93 on the tune case and +0.92 on the holdout
+case, both accepted under both judges. Record:
+`evals/results/2026-09-23-coined-label-rerun/`.
+
+### What not to overgeneralize
+
+- **This is not a rule against hyphenated terms.** Standard compounds and
+  coinages defined where they are introduced stay. In the re-run no critique in
+  either arm flagged "write-ahead log", "copy-on-write", "read-through cache",
+  or "time-to-live" as coined.
+- **A baseline rate from a shared context is not the rate a paragraph gets on
+  its own.** The earlier round's baseline named the coinage in 2 of 4 trials
+  that had guard paragraphs beside it. Alone, the rate was 4 of 40. Plan the
+  sample size from a pilot in the real design.
+- **Check a guard's own sentence before trusting its over-flag count.** The
+  `earned-domain-compound` sentence claims recovery for the one window a
+  write-ahead log does not cover, so a careful critique says so, and the guard's
+  first assertion counts that as an over-flag.
+- **The measurement is Claude on Claude.** The apply model and both judges are
+  Claude models, so the size of the effect is a coverage signal.
+
 ## 2026-09-23 — Audit the trials before running the gate
 
 ### Failure
@@ -67,7 +108,8 @@ out a large effect. The lesson is about procedure, and each rule below is cheap:
 ### Eval coverage
 
 - `evals/evals.json`: `coined-compound-label` (tune; the Sonnet 5 baseline
-  names the coinage in about half its trials) and `holdout-coined-compound-label`
+  named the coinage in 2 of 4 shared-context trials here, and in 4 of 40
+  single-paragraph trials in the re-run) and `holdout-coined-compound-label`
   (holdout, fresh text).
 - `evals/adversarial.json`: `earned-domain-compound` and
   `coined-label-defined-in-place` (tune; the latter moved from holdout because

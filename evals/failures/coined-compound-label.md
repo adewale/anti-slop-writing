@@ -51,10 +51,12 @@ the coinage as the mechanism outright. Claude Opus 5 passed every assertion in
 its one trial. Claude Haiku 4.5 named the coinage and then invented a definition
 for it. Full record in `evals/results/2026-09-05-astra-compound-labels/regrade/`.
 
-Four trials cannot say whether the candidate rule helps. The earlier claim that
-it transfers to unseen coinages came from a hand check that counted the
-candidate doctrine's own vocabulary. Graded blind, that probe is 2 of 4 against
-3 of 4.
+Four trials could not say whether the candidate rule helps, so a pre-registered
+re-run tested it with 40 fresh single-paragraph trials per arm on this case and
+on `holdout-coined-compound-label`. Seeing the paragraph on its own, the
+baseline named the coinage in 4 of 40 trials and 1 of 40 on the holdout
+paragraph, and returned `keep` in 31 and 35 of them. The candidate named it in
+all 80. Full record in `evals/results/2026-09-23-coined-label-rerun/`.
 
 ## Better critique
 
@@ -74,11 +76,19 @@ rather than guessing at a definition.
 
 ## Rule added or changed
 
-None yet. The candidate `SKILL.md` edit adds a coined-compound-label detector,
-an editing-pass step, and a resolvability clause on false-positive restraint.
-It has not been adequately tested, so it is neither shipped nor in
-`evals/rejected-edits.md`. A pre-registered test is ready in
-`evals/results/2026-09-23-coined-label-rerun/`.
+Added to `SKILL.md` on 2026-09-24, as `candidate-v3.patch`, after the
+pre-registered re-run accepted both gates under both judges: +0.93 on the tune
+case and +0.92 on the holdout case, with every guard within its over-flag
+allowance. The patch adds
+three things:
+
+- A `Coined compound labels` detector: watch hyphenated noun phrases that name a
+  check, artifact, or process the passage never defines. Keep a coinage the
+  passage defines in place, or one that is standard in the domain.
+- Editing-pass step 19: when a hyphenated term is the mechanism that earns a
+  claim, confirm the passage or the domain defines it.
+- A resolvability clause on false-positive restraint: a term that is itself
+  undefined does not earn a claim. It relocates the gap.
 
 Regression coverage: `evals/evals.json` -> `coined-compound-label` (tune) and
 `holdout-coined-compound-label` (holdout, fresh coinages), and the boundary

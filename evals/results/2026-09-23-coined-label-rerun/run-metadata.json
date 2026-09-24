@@ -1,0 +1,156 @@
+{
+  "run": "2026-09-23-coined-label-rerun",
+  "preregistered": "2026-09-23, commit 90c2cb5, before any trial output existed",
+  "apply_window_utc": [
+    "2026-09-23",
+    "2026-09-24"
+  ],
+  "judging_date_utc": "2026-09-24",
+  "orchestration": "Claude Code remote session; every agent launched with the Agent tool, agent type general-purpose, one agent per trial or batch.",
+  "skill_commit_baseline": "53370ff",
+  "arms": {
+    "baseline": {
+      "doctrine": "skills/anti-slop-writing/SKILL.md at 53370ff, with references/",
+      "opaque_dir": "0d1264"
+    },
+    "candidate": {
+      "doctrine": "the same with candidate-v3.patch applied (+129 words), with references/",
+      "opaque_dir": "f48480"
+    }
+  },
+  "apply": {
+    "model_alias_at_launch": "sonnet",
+    "model_ids_seen": {
+      "claude-sonnet-5": 179
+    },
+    "slots": 176,
+    "attempts": 179,
+    "excluded_attempts": [
+      {
+        "attempt": "outputs/t34ydj2.md",
+        "slot": "discriminating:holdout-coined-compound-label:candidate:37",
+        "violations": [
+          "read outside doctrine: /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5c87-9ba2-5d7a4af34dd6/scratchpad/rerun/w/t34ydj2.md"
+        ]
+      },
+      {
+        "attempt": "outputs/tb9n4cv.md",
+        "slot": "guard:guards:baseline:7",
+        "violations": [
+          "listing exposed other outputs: ['t27mdzt', 't34ydj2', 't34ydj2-r1']"
+        ]
+      },
+      {
+        "attempt": "outputs/tyypyag.md",
+        "slot": "discriminating:coined-compound-label:candidate:37",
+        "violations": [
+          "read outside doctrine: /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5c87-9ba2-5d7a4af34dd6/scratchpad/rerun/w/tyypyag.md"
+        ]
+      }
+    ],
+    "concurrency": "at most 20 agents at once, launched in manifest order"
+  },
+  "judging": {
+    "items": 224,
+    "batches_per_judge": 38,
+    "batch_size_max": 6,
+    "primary": {
+      "model_alias_at_launch": "sonnet",
+      "model_id": "claude-sonnet-5"
+    },
+    "secondary": {
+      "model_alias_at_launch": "haiku",
+      "model_id": "claude-haiku-4-5-20251001"
+    },
+    "model_ids_seen": {
+      "claude-haiku-4-5-20251001": 41,
+      "claude-sonnet-5": 44
+    },
+    "judgment_files": 85,
+    "rejected_files": [
+      {
+        "file": "haiku-004.jsonl",
+        "judge": "haiku",
+        "batch": "004",
+        "violations": [
+          "jurjm5a: graded dimensions differ from the case's"
+        ]
+      },
+      {
+        "file": "haiku-020.jsonl",
+        "judge": "haiku",
+        "batch": "020",
+        "violations": [
+          "j5c9kek: graded dimensions differ from the case's",
+          "jv7qwe2: graded dimensions differ from the case's",
+          "jv6yfu4: graded dimensions differ from the case's"
+        ]
+      },
+      {
+        "file": "haiku-021.jsonl",
+        "judge": "haiku",
+        "batch": "021",
+        "violations": [
+          "j68stnf: graded dimensions differ from the case's"
+        ]
+      },
+      {
+        "file": "sonnet-004.jsonl",
+        "judge": "sonnet",
+        "batch": "004",
+        "violations": [
+          "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+        ]
+      },
+      {
+        "file": "sonnet-007.jsonl",
+        "judge": "sonnet",
+        "batch": "007",
+        "violations": [
+          "tool Bash: {\"command\": \"mkdir -p \\\"/tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f",
+          "tool Bash: {\"command\": \"python3 -c \\\"\\nimport json\\npath = '/tmp/claude-0/-home-user-anti-s"
+        ]
+      },
+      {
+        "file": "sonnet-031.jsonl",
+        "judge": "sonnet",
+        "batch": "031",
+        "violations": [
+          "tool Bash: {\"command\": \"mkdir -p \\\"/tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f"
+        ]
+      },
+      {
+        "file": "sonnet-032-r1.jsonl",
+        "judge": "sonnet",
+        "batch": "032",
+        "violations": [
+          "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+        ]
+      },
+      {
+        "file": "sonnet-032-r2.jsonl",
+        "judge": "sonnet",
+        "batch": "032",
+        "violations": [
+          "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+        ]
+      },
+      {
+        "file": "sonnet-032.jsonl",
+        "judge": "sonnet",
+        "batch": "032",
+        "violations": [
+          "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+        ]
+      }
+    ]
+  },
+  "scoring": "score_rerun.py score: run_evals.py grade (assertions only), pairs by slot, score_delta.py --sesoi 0.05 (--holdout-only on the holdout case); only an improving ACCEPT passes a gate.",
+  "outcome": "SHIP candidate-v3: both gates ACCEPT under the primary judge, guards within limit, secondary judge agrees.",
+  "cost_estimate_tokens": {
+    "measure": "final context per agent, as in the pre-registration",
+    "apply": "about 14 million",
+    "judging": "about 6 million",
+    "preregistered_estimate": "about 18 million"
+  }
+}

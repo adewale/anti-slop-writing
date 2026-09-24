@@ -1,0 +1,1177 @@
+{
+  "models": {
+    "sonnet": "claude-sonnet-5",
+    "haiku": "claude-haiku-4-5-20251001"
+  },
+  "rule": "audit_judges.py: prompt verbatim, pre-registered model, reads of its own batch only, one Write to its own output, no other tool; one JSON line per batch item in order, every assertion by index, every graded dimension scored 1-5. A rejected file is re-judged by a fresh agent.",
+  "files": {
+    "haiku-001.jsonl": {
+      "judge": "haiku",
+      "batch": "001",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-002.jsonl": {
+      "judge": "haiku",
+      "batch": "002",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-003.jsonl": {
+      "judge": "haiku",
+      "batch": "003",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-004-r1.jsonl": {
+      "judge": "haiku",
+      "batch": "004",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-004.jsonl": {
+      "judge": "haiku",
+      "batch": "004",
+      "status": "excluded",
+      "violations": [
+        "jurjm5a: graded dimensions differ from the case's"
+      ],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-005.jsonl": {
+      "judge": "haiku",
+      "batch": "005",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-006.jsonl": {
+      "judge": "haiku",
+      "batch": "006",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-007.jsonl": {
+      "judge": "haiku",
+      "batch": "007",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-008.jsonl": {
+      "judge": "haiku",
+      "batch": "008",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-009.jsonl": {
+      "judge": "haiku",
+      "batch": "009",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-010.jsonl": {
+      "judge": "haiku",
+      "batch": "010",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-011.jsonl": {
+      "judge": "haiku",
+      "batch": "011",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-012.jsonl": {
+      "judge": "haiku",
+      "batch": "012",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-013.jsonl": {
+      "judge": "haiku",
+      "batch": "013",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-014.jsonl": {
+      "judge": "haiku",
+      "batch": "014",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-015.jsonl": {
+      "judge": "haiku",
+      "batch": "015",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-016.jsonl": {
+      "judge": "haiku",
+      "batch": "016",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-017.jsonl": {
+      "judge": "haiku",
+      "batch": "017",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-018.jsonl": {
+      "judge": "haiku",
+      "batch": "018",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-019.jsonl": {
+      "judge": "haiku",
+      "batch": "019",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-020-r1.jsonl": {
+      "judge": "haiku",
+      "batch": "020",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-020.jsonl": {
+      "judge": "haiku",
+      "batch": "020",
+      "status": "excluded",
+      "violations": [
+        "j5c9kek: graded dimensions differ from the case's",
+        "jv7qwe2: graded dimensions differ from the case's",
+        "jv6yfu4: graded dimensions differ from the case's"
+      ],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-021-r1.jsonl": {
+      "judge": "haiku",
+      "batch": "021",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-021.jsonl": {
+      "judge": "haiku",
+      "batch": "021",
+      "status": "excluded",
+      "violations": [
+        "j68stnf: graded dimensions differ from the case's"
+      ],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-022.jsonl": {
+      "judge": "haiku",
+      "batch": "022",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-023.jsonl": {
+      "judge": "haiku",
+      "batch": "023",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-024.jsonl": {
+      "judge": "haiku",
+      "batch": "024",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-025.jsonl": {
+      "judge": "haiku",
+      "batch": "025",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-026.jsonl": {
+      "judge": "haiku",
+      "batch": "026",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-027.jsonl": {
+      "judge": "haiku",
+      "batch": "027",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-028.jsonl": {
+      "judge": "haiku",
+      "batch": "028",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-029.jsonl": {
+      "judge": "haiku",
+      "batch": "029",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-030.jsonl": {
+      "judge": "haiku",
+      "batch": "030",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-031.jsonl": {
+      "judge": "haiku",
+      "batch": "031",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-032.jsonl": {
+      "judge": "haiku",
+      "batch": "032",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-033.jsonl": {
+      "judge": "haiku",
+      "batch": "033",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-034.jsonl": {
+      "judge": "haiku",
+      "batch": "034",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-035.jsonl": {
+      "judge": "haiku",
+      "batch": "035",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-036.jsonl": {
+      "judge": "haiku",
+      "batch": "036",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-037.jsonl": {
+      "judge": "haiku",
+      "batch": "037",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "haiku-038.jsonl": {
+      "judge": "haiku",
+      "batch": "038",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "sonnet-001.jsonl": {
+      "judge": "sonnet",
+      "batch": "001",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-002.jsonl": {
+      "judge": "sonnet",
+      "batch": "002",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-003.jsonl": {
+      "judge": "sonnet",
+      "batch": "003",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-004-r1.jsonl": {
+      "judge": "sonnet",
+      "batch": "004",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-004.jsonl": {
+      "judge": "sonnet",
+      "batch": "004",
+      "status": "excluded",
+      "violations": [
+        "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+      ],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-005.jsonl": {
+      "judge": "sonnet",
+      "batch": "005",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-006.jsonl": {
+      "judge": "sonnet",
+      "batch": "006",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-007-r1.jsonl": {
+      "judge": "sonnet",
+      "batch": "007",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-007.jsonl": {
+      "judge": "sonnet",
+      "batch": "007",
+      "status": "excluded",
+      "violations": [
+        "tool Bash: {\"command\": \"mkdir -p \\\"/tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f",
+        "tool Bash: {\"command\": \"python3 -c \\\"\\nimport json\\npath = '/tmp/claude-0/-home-user-anti-s"
+      ],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-008.jsonl": {
+      "judge": "sonnet",
+      "batch": "008",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-009.jsonl": {
+      "judge": "sonnet",
+      "batch": "009",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-010.jsonl": {
+      "judge": "sonnet",
+      "batch": "010",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-011.jsonl": {
+      "judge": "sonnet",
+      "batch": "011",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-012.jsonl": {
+      "judge": "sonnet",
+      "batch": "012",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-013.jsonl": {
+      "judge": "sonnet",
+      "batch": "013",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-014.jsonl": {
+      "judge": "sonnet",
+      "batch": "014",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-015.jsonl": {
+      "judge": "sonnet",
+      "batch": "015",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-016.jsonl": {
+      "judge": "sonnet",
+      "batch": "016",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-017.jsonl": {
+      "judge": "sonnet",
+      "batch": "017",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-018.jsonl": {
+      "judge": "sonnet",
+      "batch": "018",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-019.jsonl": {
+      "judge": "sonnet",
+      "batch": "019",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-020.jsonl": {
+      "judge": "sonnet",
+      "batch": "020",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-021.jsonl": {
+      "judge": "sonnet",
+      "batch": "021",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-022.jsonl": {
+      "judge": "sonnet",
+      "batch": "022",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-023.jsonl": {
+      "judge": "sonnet",
+      "batch": "023",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-024.jsonl": {
+      "judge": "sonnet",
+      "batch": "024",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-025.jsonl": {
+      "judge": "sonnet",
+      "batch": "025",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-026.jsonl": {
+      "judge": "sonnet",
+      "batch": "026",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-027.jsonl": {
+      "judge": "sonnet",
+      "batch": "027",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-028.jsonl": {
+      "judge": "sonnet",
+      "batch": "028",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-029.jsonl": {
+      "judge": "sonnet",
+      "batch": "029",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-030.jsonl": {
+      "judge": "sonnet",
+      "batch": "030",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-031-r1.jsonl": {
+      "judge": "sonnet",
+      "batch": "031",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-031.jsonl": {
+      "judge": "sonnet",
+      "batch": "031",
+      "status": "excluded",
+      "violations": [
+        "tool Bash: {\"command\": \"mkdir -p \\\"/tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f"
+      ],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-032-r1.jsonl": {
+      "judge": "sonnet",
+      "batch": "032",
+      "status": "excluded",
+      "violations": [
+        "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+      ],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-032-r2.jsonl": {
+      "judge": "sonnet",
+      "batch": "032",
+      "status": "excluded",
+      "violations": [
+        "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+      ],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-032-r3.jsonl": {
+      "judge": "sonnet",
+      "batch": "032",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-032.jsonl": {
+      "judge": "sonnet",
+      "batch": "032",
+      "status": "excluded",
+      "violations": [
+        "tool Bash: {\"command\": \"mkdir -p /tmp/claude-0/-home-user-anti-slop-writing/9cb8021e-a58f-5"
+      ],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-033.jsonl": {
+      "judge": "sonnet",
+      "batch": "033",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-034.jsonl": {
+      "judge": "sonnet",
+      "batch": "034",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-035.jsonl": {
+      "judge": "sonnet",
+      "batch": "035",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-036.jsonl": {
+      "judge": "sonnet",
+      "batch": "036",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-037.jsonl": {
+      "judge": "sonnet",
+      "batch": "037",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    "sonnet-038.jsonl": {
+      "judge": "sonnet",
+      "batch": "038",
+      "status": "valid",
+      "violations": [],
+      "models": [
+        "claude-sonnet-5"
+      ]
+    }
+  },
+  "batches": {
+    "haiku-001": {
+      "status": "valid",
+      "file": "haiku-001.jsonl",
+      "attempts": 1
+    },
+    "haiku-002": {
+      "status": "valid",
+      "file": "haiku-002.jsonl",
+      "attempts": 1
+    },
+    "haiku-003": {
+      "status": "valid",
+      "file": "haiku-003.jsonl",
+      "attempts": 1
+    },
+    "haiku-004": {
+      "status": "valid",
+      "file": "haiku-004-r1.jsonl",
+      "attempts": 2
+    },
+    "haiku-005": {
+      "status": "valid",
+      "file": "haiku-005.jsonl",
+      "attempts": 1
+    },
+    "haiku-006": {
+      "status": "valid",
+      "file": "haiku-006.jsonl",
+      "attempts": 1
+    },
+    "haiku-007": {
+      "status": "valid",
+      "file": "haiku-007.jsonl",
+      "attempts": 1
+    },
+    "haiku-008": {
+      "status": "valid",
+      "file": "haiku-008.jsonl",
+      "attempts": 1
+    },
+    "haiku-009": {
+      "status": "valid",
+      "file": "haiku-009.jsonl",
+      "attempts": 1
+    },
+    "haiku-010": {
+      "status": "valid",
+      "file": "haiku-010.jsonl",
+      "attempts": 1
+    },
+    "haiku-011": {
+      "status": "valid",
+      "file": "haiku-011.jsonl",
+      "attempts": 1
+    },
+    "haiku-012": {
+      "status": "valid",
+      "file": "haiku-012.jsonl",
+      "attempts": 1
+    },
+    "haiku-013": {
+      "status": "valid",
+      "file": "haiku-013.jsonl",
+      "attempts": 1
+    },
+    "haiku-014": {
+      "status": "valid",
+      "file": "haiku-014.jsonl",
+      "attempts": 1
+    },
+    "haiku-015": {
+      "status": "valid",
+      "file": "haiku-015.jsonl",
+      "attempts": 1
+    },
+    "haiku-016": {
+      "status": "valid",
+      "file": "haiku-016.jsonl",
+      "attempts": 1
+    },
+    "haiku-017": {
+      "status": "valid",
+      "file": "haiku-017.jsonl",
+      "attempts": 1
+    },
+    "haiku-018": {
+      "status": "valid",
+      "file": "haiku-018.jsonl",
+      "attempts": 1
+    },
+    "haiku-019": {
+      "status": "valid",
+      "file": "haiku-019.jsonl",
+      "attempts": 1
+    },
+    "haiku-020": {
+      "status": "valid",
+      "file": "haiku-020-r1.jsonl",
+      "attempts": 2
+    },
+    "haiku-021": {
+      "status": "valid",
+      "file": "haiku-021-r1.jsonl",
+      "attempts": 2
+    },
+    "haiku-022": {
+      "status": "valid",
+      "file": "haiku-022.jsonl",
+      "attempts": 1
+    },
+    "haiku-023": {
+      "status": "valid",
+      "file": "haiku-023.jsonl",
+      "attempts": 1
+    },
+    "haiku-024": {
+      "status": "valid",
+      "file": "haiku-024.jsonl",
+      "attempts": 1
+    },
+    "haiku-025": {
+      "status": "valid",
+      "file": "haiku-025.jsonl",
+      "attempts": 1
+    },
+    "haiku-026": {
+      "status": "valid",
+      "file": "haiku-026.jsonl",
+      "attempts": 1
+    },
+    "haiku-027": {
+      "status": "valid",
+      "file": "haiku-027.jsonl",
+      "attempts": 1
+    },
+    "haiku-028": {
+      "status": "valid",
+      "file": "haiku-028.jsonl",
+      "attempts": 1
+    },
+    "haiku-029": {
+      "status": "valid",
+      "file": "haiku-029.jsonl",
+      "attempts": 1
+    },
+    "haiku-030": {
+      "status": "valid",
+      "file": "haiku-030.jsonl",
+      "attempts": 1
+    },
+    "haiku-031": {
+      "status": "valid",
+      "file": "haiku-031.jsonl",
+      "attempts": 1
+    },
+    "haiku-032": {
+      "status": "valid",
+      "file": "haiku-032.jsonl",
+      "attempts": 1
+    },
+    "haiku-033": {
+      "status": "valid",
+      "file": "haiku-033.jsonl",
+      "attempts": 1
+    },
+    "haiku-034": {
+      "status": "valid",
+      "file": "haiku-034.jsonl",
+      "attempts": 1
+    },
+    "haiku-035": {
+      "status": "valid",
+      "file": "haiku-035.jsonl",
+      "attempts": 1
+    },
+    "haiku-036": {
+      "status": "valid",
+      "file": "haiku-036.jsonl",
+      "attempts": 1
+    },
+    "haiku-037": {
+      "status": "valid",
+      "file": "haiku-037.jsonl",
+      "attempts": 1
+    },
+    "haiku-038": {
+      "status": "valid",
+      "file": "haiku-038.jsonl",
+      "attempts": 1
+    },
+    "sonnet-001": {
+      "status": "valid",
+      "file": "sonnet-001.jsonl",
+      "attempts": 1
+    },
+    "sonnet-002": {
+      "status": "valid",
+      "file": "sonnet-002.jsonl",
+      "attempts": 1
+    },
+    "sonnet-003": {
+      "status": "valid",
+      "file": "sonnet-003.jsonl",
+      "attempts": 1
+    },
+    "sonnet-004": {
+      "status": "valid",
+      "file": "sonnet-004-r1.jsonl",
+      "attempts": 2
+    },
+    "sonnet-005": {
+      "status": "valid",
+      "file": "sonnet-005.jsonl",
+      "attempts": 1
+    },
+    "sonnet-006": {
+      "status": "valid",
+      "file": "sonnet-006.jsonl",
+      "attempts": 1
+    },
+    "sonnet-007": {
+      "status": "valid",
+      "file": "sonnet-007-r1.jsonl",
+      "attempts": 2
+    },
+    "sonnet-008": {
+      "status": "valid",
+      "file": "sonnet-008.jsonl",
+      "attempts": 1
+    },
+    "sonnet-009": {
+      "status": "valid",
+      "file": "sonnet-009.jsonl",
+      "attempts": 1
+    },
+    "sonnet-010": {
+      "status": "valid",
+      "file": "sonnet-010.jsonl",
+      "attempts": 1
+    },
+    "sonnet-011": {
+      "status": "valid",
+      "file": "sonnet-011.jsonl",
+      "attempts": 1
+    },
+    "sonnet-012": {
+      "status": "valid",
+      "file": "sonnet-012.jsonl",
+      "attempts": 1
+    },
+    "sonnet-013": {
+      "status": "valid",
+      "file": "sonnet-013.jsonl",
+      "attempts": 1
+    },
+    "sonnet-014": {
+      "status": "valid",
+      "file": "sonnet-014.jsonl",
+      "attempts": 1
+    },
+    "sonnet-015": {
+      "status": "valid",
+      "file": "sonnet-015.jsonl",
+      "attempts": 1
+    },
+    "sonnet-016": {
+      "status": "valid",
+      "file": "sonnet-016.jsonl",
+      "attempts": 1
+    },
+    "sonnet-017": {
+      "status": "valid",
+      "file": "sonnet-017.jsonl",
+      "attempts": 1
+    },
+    "sonnet-018": {
+      "status": "valid",
+      "file": "sonnet-018.jsonl",
+      "attempts": 1
+    },
+    "sonnet-019": {
+      "status": "valid",
+      "file": "sonnet-019.jsonl",
+      "attempts": 1
+    },
+    "sonnet-020": {
+      "status": "valid",
+      "file": "sonnet-020.jsonl",
+      "attempts": 1
+    },
+    "sonnet-021": {
+      "status": "valid",
+      "file": "sonnet-021.jsonl",
+      "attempts": 1
+    },
+    "sonnet-022": {
+      "status": "valid",
+      "file": "sonnet-022.jsonl",
+      "attempts": 1
+    },
+    "sonnet-023": {
+      "status": "valid",
+      "file": "sonnet-023.jsonl",
+      "attempts": 1
+    },
+    "sonnet-024": {
+      "status": "valid",
+      "file": "sonnet-024.jsonl",
+      "attempts": 1
+    },
+    "sonnet-025": {
+      "status": "valid",
+      "file": "sonnet-025.jsonl",
+      "attempts": 1
+    },
+    "sonnet-026": {
+      "status": "valid",
+      "file": "sonnet-026.jsonl",
+      "attempts": 1
+    },
+    "sonnet-027": {
+      "status": "valid",
+      "file": "sonnet-027.jsonl",
+      "attempts": 1
+    },
+    "sonnet-028": {
+      "status": "valid",
+      "file": "sonnet-028.jsonl",
+      "attempts": 1
+    },
+    "sonnet-029": {
+      "status": "valid",
+      "file": "sonnet-029.jsonl",
+      "attempts": 1
+    },
+    "sonnet-030": {
+      "status": "valid",
+      "file": "sonnet-030.jsonl",
+      "attempts": 1
+    },
+    "sonnet-031": {
+      "status": "valid",
+      "file": "sonnet-031-r1.jsonl",
+      "attempts": 2
+    },
+    "sonnet-032": {
+      "status": "valid",
+      "file": "sonnet-032-r3.jsonl",
+      "attempts": 4
+    },
+    "sonnet-033": {
+      "status": "valid",
+      "file": "sonnet-033.jsonl",
+      "attempts": 1
+    },
+    "sonnet-034": {
+      "status": "valid",
+      "file": "sonnet-034.jsonl",
+      "attempts": 1
+    },
+    "sonnet-035": {
+      "status": "valid",
+      "file": "sonnet-035.jsonl",
+      "attempts": 1
+    },
+    "sonnet-036": {
+      "status": "valid",
+      "file": "sonnet-036.jsonl",
+      "attempts": 1
+    },
+    "sonnet-037": {
+      "status": "valid",
+      "file": "sonnet-037.jsonl",
+      "attempts": 1
+    },
+    "sonnet-038": {
+      "status": "valid",
+      "file": "sonnet-038.jsonl",
+      "attempts": 1
+    }
+  }
+}

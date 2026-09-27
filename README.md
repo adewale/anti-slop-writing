@@ -152,7 +152,7 @@ When improving the skill:
 python3 scripts/validate.py
 ```
 
-The validator also runs `skills-ref validate skills/anti-slop-writing` when `skills-ref` is installed.
+The validator also runs the Agent Skills reference validator (`pip install skills-ref==0.1.1`, which installs it as `agentskills`) on `skills/anti-slop-writing`. In CI a missing validator fails the run; locally it prints a warning and the final line says it did not run.
 
 If prose rules changed, manually test the skill against at least one affected case in `evals/cases.md`. A rule is not done until it improves a specific rewrite, not just the wording of the doctrine.
 

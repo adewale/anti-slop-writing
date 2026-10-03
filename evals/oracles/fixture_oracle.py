@@ -14,7 +14,8 @@ CHECKS = {
       "retry receipt"
     ],
     "forbid": [
-      "\\b(pivotal|transformative|unlock|modern productivity|fast-moving teams|collaboration platform)\\b"
+      "\\b(pivotal|transformative|unlock|modern productivity|fast-moving teams|collaboration platform)\\b",
+      "\\bunlock(s|ed|ing)?\\b"
     ]
   }
 }

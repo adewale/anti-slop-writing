@@ -39,6 +39,13 @@ class GateVerdicts(unittest.TestCase):
         self.assertIn("REJECT", result.stdout)
         self.assertNotIn("ACCEPT", result.stdout)
 
+    def test_three_cases_cannot_clear_the_permutation_test(self) -> None:
+        # The bootstrap CI of three equal deltas is a point above zero, but the
+        # exact sign-flip p is 2 / 2**3 = 0.25, so the gate must still reject.
+        result = self.gate(rows([0.25] * 3))
+        self.assertEqual(result.returncode, 1, result.stdout)
+        self.assertIn("sign-flip p >=", result.stdout)
+
     def test_zero_delta_is_rejected(self) -> None:
         result = self.gate(rows([0.0] * 10))
         self.assertEqual(result.returncode, 1, result.stdout)

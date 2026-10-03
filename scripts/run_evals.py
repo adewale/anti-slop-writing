@@ -217,7 +217,12 @@ def case_score(record: dict, path: Path, line_no: int, include_graded: bool = Fa
 
 
 def cmd_grade(args: argparse.Namespace) -> int:
-    paths = [Path(p) for raw in args.judgments for p in glob.glob(raw)] or [Path(p) for p in args.judgments]
+    paths: list[Path] = []
+    for raw in args.judgments:
+        matches = sorted(glob.glob(raw))
+        if not matches:
+            die(f"no judgment file matches: {raw}")
+        paths.extend(Path(p) for p in matches)
     scores: list[dict] = []
     seen: set[str] = set()
     for path, line_no, record in iter_lines(paths):

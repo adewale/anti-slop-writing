@@ -9,7 +9,9 @@ are dramatically too tight at that size — see Bowyer, Aitchison, Ivanova,
 "Don't Use the CLT in LLM Evals" (ICML 2025, arXiv 2503.01747).
 
 Rule of the runbook: do not accept an edit when the 95% CI on the delta
-overlaps zero. Use --holdout-only to score only the held-out split.
+overlaps zero. Use --holdout-only to score only the held-out split. A delta
+that clears the noise floor in the negative direction is a regression and is
+REJECTED too: only a significant improvement exits 0.
 
 A REJECT here means "no improvement was detected", which is NOT the same as
 "the edit does nothing": a non-significant superiority test can also be an
@@ -141,8 +143,10 @@ def main() -> int:
     if p_value >= args.alpha:
         print(f"Verdict:       REJECT (sign-flip p >= {args.alpha}).")
         return 1
-    direction = "improvement" if mean > 0 else "regression"
-    print(f"Verdict:       ACCEPT ({direction} clears the noise floor).")
+    if mean < 0:
+        print("Verdict:       REJECT (regression clears the noise floor).")
+        return 1
+    print("Verdict:       ACCEPT (improvement clears the noise floor).")
     return 0
 
 

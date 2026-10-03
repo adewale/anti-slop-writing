@@ -17,7 +17,9 @@ from _support import ROOT, run_script
 
 class Validate(unittest.TestCase):
     def setUp(self) -> None:
-        self.root = Path(tempfile.mkdtemp()) / "repo"
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.root = Path(tmp.name) / "repo"
         shutil.copytree(ROOT, self.root, ignore=shutil.ignore_patterns(".git", "__pycache__"))
 
     def validate(self):
@@ -65,6 +67,13 @@ class Validate(unittest.TestCase):
                 q["id"] = q["id"].replace("near-neg-", "neg-")
         self.edit_json("evals/trigger-queries.json", rename)
         self.assert_fails_with("near-neg- near-miss negatives")
+
+    def test_trigger_queries_without_enough_holdout_fail(self) -> None:
+        def retune(d):
+            for q in d["queries"]:
+                q["split"] = "tune"
+        self.edit_json("evals/trigger-queries.json", retune)
+        self.assert_fails_with("at least 4 holdout queries")
 
 
 if __name__ == "__main__":

@@ -15,9 +15,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      # The validator tests run scripts/validate.py on a copy of the repo. Open
-      # PR #19 makes validate.py fail under CI when skills-ref is missing, so
-      # install the same pin it uses.
+      # The validator tests run scripts/validate.py on a copy of the repo.
+      # validate.py on main looks only for a `skills-ref` executable, which this
+      # package does not install (it ships `agentskills`), so this step changes
+      # nothing today. PR #19 makes validate.py look for `agentskills` and fail
+      # under CI when neither is present; with #19 merged and this step removed,
+      # test_repository_copy_passes goes red.
       - name: Install the Agent Skills reference validator
         run: python3 -m pip install skills-ref==0.1.1
       - name: Unit tests for eval scripts, oracles and validators

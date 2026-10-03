@@ -13,7 +13,9 @@ SKILL = Path("skills/anti-slop-writing")
 
 class InstallBoundary(unittest.TestCase):
     def setUp(self) -> None:
-        self.root = Path(tempfile.mkdtemp())
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.root = Path(tmp.name)
         shutil.copytree(ROOT / "skills", self.root / "skills")
         shutil.copy(ROOT / "package.json", self.root / "package.json")
         (self.root / "scripts").mkdir()
@@ -33,7 +35,7 @@ class InstallBoundary(unittest.TestCase):
         self.assertIn(str(SKILL), result.stdout)
 
     def test_repo_only_artifacts_fail(self) -> None:
-        for rel in ("evals/cases.json", "references/__pycache__/x.cpython-311.pyc", "scratch.pyc", ".DS_Store"):
+        for rel in ("evals/cases.json", "references/tests/case.md", "references/__pycache__/x.cpython-311.pyc", "scratch.pyc", ".DS_Store"):
             with self.subTest(rel=rel):
                 self.setUp()
                 self.plant(rel)

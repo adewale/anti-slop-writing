@@ -23,14 +23,14 @@ class Saturation(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         flags = {line.split()[0]: line.split()[-1] for line in result.stdout.splitlines() if line.split()[-1:] in (["CEILING"], ["flat"], ["spread"])}
         self.assertEqual(flags, {"easy": "CEILING", "stuck": "flat", "useful": "spread"})
-        self.assertIn("Saturation index:  0.333", result.stdout)
+        self.assertRegex(result.stdout, r"Saturation index:\s+0\.333")
 
     def test_separator_is_configurable(self) -> None:
         records = [{"id": "a::x", "split": "tune", "score": 1.0}, {"id": "b::x", "split": "tune", "score": 0.0}]
         path = write_jsonl(Path(tempfile.mkdtemp()) / "scores.jsonl", records)
         result = run_script("scripts/saturation_index.py", path, "--sep", "::")
-        self.assertIn("Cases:             1", result.stdout)
-        self.assertIn("Saturation index:  0.000", result.stdout)
+        self.assertRegex(result.stdout, r"Cases:\s+1\n")
+        self.assertRegex(result.stdout, r"Saturation index:\s+0\.000")
 
 
 if __name__ == "__main__":

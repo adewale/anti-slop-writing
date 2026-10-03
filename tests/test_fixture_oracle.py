@@ -37,33 +37,42 @@ class FixtureOracle(unittest.TestCase):
     def test_mechanism_terms_match_case_insensitively(self) -> None:
         self.assertEqual(self.grade(GOOD.replace("HMAC", "hmac").replace("retry receipt", "Retry Receipt")).returncode, 0)
 
+    def assert_fails(self, text: str) -> str:
+        result = self.grade(text)
+        self.assertEqual(result.returncode, 1, result.stdout)
+        summary = json.loads(result.stdout.splitlines()[0])
+        self.assertLess(summary["score"], summary["max_score"])
+        return result.stdout
+
+    def test_bare_unlock_is_one_failed_check(self) -> None:
+        result = self.grade(GOOD + " It will unlock things.")
+        summary = json.loads(result.stdout.splitlines()[0])
+        self.assertEqual(summary["max_score"] - summary["score"], 1)
+
     def test_draft_echo_fails(self) -> None:
         draft = (
             "Today marks a pivotal milestone for resilient collaboration. Our transformative "
             "platform unlocks modern productivity for fast-moving teams."
         )
-        result = self.grade(draft)
-        self.assertEqual(result.returncode, 1)
-        self.assertIn("missing required text: 'HMAC'", result.stdout)
-        self.assertIn("forbidden regex present", result.stdout)
+        stdout = self.assert_fails(draft)
+        self.assertIn("missing required text: 'HMAC'", stdout)
+        self.assertIn("forbidden regex present", stdout)
 
     def test_missing_one_mechanism_fails(self) -> None:
-        result = self.grade("The tool rejects webhook retries without a matching HMAC signature.")
-        self.assertEqual(result.returncode, 1)
-        self.assertIn("missing required text: 'retry receipt'", result.stdout)
+        stdout = self.assert_fails("The tool rejects webhook retries without a matching HMAC signature.")
+        self.assertIn("missing required text: 'retry receipt'", stdout)
 
     def test_grounded_rewrite_with_launch_copy_fails(self) -> None:
         for phrase in ("A pivotal release.", "It is transformative.", "Built for fast-moving teams."):
             with self.subTest(phrase=phrase):
-                self.assertEqual(self.grade(GOOD + " " + phrase).returncode, 1)
+                self.assert_fails(GOOD + " " + phrase)
 
     def test_inflected_unlock_is_still_generic_copy(self) -> None:
         # The fixture's own draft says "unlocks"; a rewrite that keeps that verb
         # with a new object has not removed the generic benefit claim.
         for phrase in ("It unlocks faster incident review.", "Unlocking safer retries."):
             with self.subTest(phrase=phrase):
-                result = self.grade(GOOD + " " + phrase)
-                self.assertEqual(result.returncode, 1, result.stdout)
+                self.assert_fails(GOOD + " " + phrase)
 
     def test_near_miss_words_are_not_flagged(self) -> None:
         # Neighbouring vocabulary that is not launch copy must not fail the case.

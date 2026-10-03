@@ -219,7 +219,7 @@ def case_score(record: dict, path: Path, line_no: int, include_graded: bool = Fa
 def cmd_grade(args: argparse.Namespace) -> int:
     paths: list[Path] = []
     for raw in args.judgments:
-        matches = sorted(glob.glob(raw))
+        matches = [raw] if Path(raw).is_file() else sorted(glob.glob(raw))
         if not matches:
             die(f"no judgment file matches: {raw}")
         paths.extend(Path(p) for p in matches)

@@ -21,7 +21,9 @@ def rows(deltas: list[float], split: str = "holdout", prefix: str = "c") -> list
 
 class GateVerdicts(unittest.TestCase):
     def setUp(self) -> None:
-        self.tmp = Path(tempfile.mkdtemp())
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.tmp = Path(tmp.name)
 
     def gate(self, records: list[dict], *flags: str):
         path = write_jsonl(self.tmp / "delta.jsonl", records)
@@ -59,7 +61,7 @@ class GateVerdicts(unittest.TestCase):
         self.assertEqual(self.gate(records).returncode, 0)
         held = self.gate(records, "--holdout-only")
         self.assertEqual(held.returncode, 1, held.stdout)
-        self.assertIn("Cases:         10", held.stdout)
+        self.assertRegex(held.stdout, r"Cases:\s+10\n")
 
     def test_rejects_unknown_split(self) -> None:
         result = self.gate([{"id": "x", "split": "unknown", "before": 0, "after": 1}])

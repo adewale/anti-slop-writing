@@ -62,7 +62,9 @@ class CaseScore(unittest.TestCase):
 
 class Cli(unittest.TestCase):
     def setUp(self) -> None:
-        self.tmp = Path(tempfile.mkdtemp())
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.tmp = Path(tmp.name)
 
     def test_prepare_filters_split_and_shows_judge_every_assertion(self) -> None:
         out = self.tmp / "work.json"
@@ -93,6 +95,20 @@ class Cli(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0, result.stdout)
         self.assertIn("missing.jsonl", result.stderr)
 
+    def test_grade_accepts_an_existing_path_with_glob_characters(self) -> None:
+        literal = write_jsonl(self.tmp / "run[1].jsonl", [judgment("x", [True, False])])
+        result = run_script("scripts/run_evals.py", "grade", literal)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)["score"], 0.5)
+
+    def test_grade_split_filter(self) -> None:
+        path = write_jsonl(
+            self.tmp / "j.jsonl", [judgment("t", [True, True], split="tune"), judgment("h", [True, False])]
+        )
+        result = run_script("scripts/run_evals.py", "grade", path, "--split", "holdout")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual([json.loads(line)["id"] for line in result.stdout.splitlines()], ["h"])
+
     def test_grade_expands_globs(self) -> None:
         write_jsonl(self.tmp / "j1.jsonl", [judgment("x", [True, True])])
         write_jsonl(self.tmp / "j2.jsonl", [judgment("y", [True, False])])
@@ -117,7 +133,8 @@ class Cli(unittest.TestCase):
         self.assertEqual(run_script("scripts/score_delta.py", delta, "--holdout-only").returncode, 0)
         # The same files in reverse are a regression and must not pass the gate.
         reverse = self.tmp / "reverse.jsonl"
-        run_script("scripts/run_evals.py", "join", "--before", after, "--after", before, "--out", reverse)
+        rejoined = run_script("scripts/run_evals.py", "join", "--before", after, "--after", before, "--out", reverse)
+        self.assertEqual(rejoined.returncode, 0, rejoined.stderr)
         self.assertEqual(run_script("scripts/score_delta.py", reverse, "--holdout-only").returncode, 1)
 
     def test_join_requires_shared_ids(self) -> None:

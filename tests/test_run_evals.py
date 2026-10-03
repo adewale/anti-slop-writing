@@ -4,6 +4,8 @@ Expected scores are hand-derived from the judgment records in each test.
 """
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import tempfile
 import unittest
@@ -54,7 +56,7 @@ class CaseScore(unittest.TestCase):
             "no id": {"assertions": [True]},
         }
         for name, record in bad.items():
-            with self.subTest(name), self.assertRaises(SystemExit):
+            with self.subTest(name), self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
                 self.score(record)
 
 

@@ -959,7 +959,7 @@
         {
           "name": "removes-generic-benefits",
           "type": "not_regex",
-          "pattern": "(?i)\\b(pivotal|transformative|unlock|modern productivity|fast-moving teams|collaboration platform)\\b"
+          "pattern": "(?i)\\b(pivotal|transformative|unlock(s|ed|ing)?|modern productivity|fast-moving teams|collaboration platform)\\b"
         },
         {
           "name": "fixture-script-oracle",

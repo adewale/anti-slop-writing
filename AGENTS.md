@@ -17,7 +17,10 @@ Run before committing:
 
 ```bash
 python3 scripts/validate.py
+python3 -m unittest discover -s tests
 ```
+
+`tests/` holds stdlib `unittest` tests for the eval scripts, the fixture oracle, and the validators. When you add or change a grader, oracle, or validator, add a known-good input, a known-bad input, and a near-miss that must not be flagged.
 
 If you change prose rules, also manually test the skill against at least one case in `evals/cases.md`.
 

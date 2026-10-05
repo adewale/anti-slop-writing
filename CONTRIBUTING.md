@@ -41,6 +41,7 @@ Every eval case carries a `split` field: `tune` (used to diagnose and iterate do
 | Reference-only clarification | Update the relevant file in `skills/anti-slop-writing/references/`. |
 | Install/runtime compatibility | Update `README.md` and, if needed, `skills/anti-slop-writing/SKILL.md` frontmatter. |
 | Validation behavior | Update `scripts/validate.py` and document the check if contributors need to know it. |
+| Eval scripts, oracles, validators | Add a known-good and a known-bad case (and a near-miss that must pass) to `tests/`. |
 | Score-delta gating | Use `scripts/score_delta.py` for any close-call accept/reject. Report the CI and verdict in the PR. |
 
 Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. A user who copies only `skills/anti-slop-writing/` should get the runtime behavior. Repo-only material belongs in `evals/`, `examples/`, `scripts/`, or root docs.
@@ -57,6 +58,7 @@ Keep `skills/anti-slop-writing/SKILL.md` useful as a standalone skill file. A us
 
 ```bash
 python3 scripts/validate.py
+python3 -m unittest discover -s tests
 ```
 
 If you changed prose rules, manually test the skill against at least one affected case in `evals/cases.md`. Quote the before/after in the PR so reviewers can see what improved. If all evals pass, ask whether that is success or a ceiling effect; add a harder case when the suite no longer distinguishes good from merely compliant output.
@@ -69,5 +71,5 @@ If you changed prose rules, manually test the skill against at least one affecte
 - [ ] If an attempt was rejected, the entry is in `evals/rejected-edits.md`.
 - [ ] `scripts/score_delta.py` ACCEPTs on the holdout split for any close-call doctrine change (CI and verdict quoted in the PR).
 - [ ] The installable skill remains limited to `skills/anti-slop-writing/`.
-- [ ] `python3 scripts/validate.py` passes.
+- [ ] `python3 scripts/validate.py` and `python3 -m unittest discover -s tests` pass.
 - [ ] Any changed docs say what to do, not just what to value.

@@ -4,7 +4,7 @@
   "harness": {
     "name": "skill-eval-harness",
     "url": "https://github.com/adewale/skill-eval-harness",
-    "version": ">=0.4.0"
+    "version": "==0.6.0"
   },
   "skill_paths": [
     "skills/anti-slop-writing/SKILL.md"
@@ -320,6 +320,332 @@
       ]
     },
     {
+      "id": "neg-earned-antithesis-archive",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe migration took eleven months. Every record moved: 2.1 million files, checksums matched, the new catalogue answered queries in milliseconds. In the same months the two curators who knew why each box had been kept retired, and nobody wrote down what the undated photographs show or who the people in them were.\n\nSentence under review: \"We saved the data and lost the memory.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-earned-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+          "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+        },
+        {
+          "name": "no-revise-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "A hedged answer that also votes REVISE fails."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Human essay tolerance",
+            "Does not rewrite an earned contrast"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "earned-antithesis",
+        "replication"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
+      "id": "neg-earned-antithesis-bridge",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe engineers' report is thorough: the new bridge carries twice the rated load, and the deck passed every vibration test. The redesign also removed the footpath, so the children who used to walk the 400 metres to school now ride a bus on a 6-kilometre loop.\n\nSentence under review: \"The bridge passed its inspection and failed the town.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-earned-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+          "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+        },
+        {
+          "name": "no-revise-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "A hedged answer that also votes REVISE fails."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Human essay tolerance",
+            "Does not rewrite an earned contrast"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "earned-antithesis",
+        "replication"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
+      "id": "neg-earned-antithesis-growth",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nIn twelve months paid acquisition tripled our sign-ups and doubled revenue. Over the same months nine of our fourteen engineers left, the on-call rota fell to two people, and our runway shrank from thirty months to eleven.\n\nSentence under review: \"We grew the numbers and shrank the company.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-earned-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+          "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+        },
+        {
+          "name": "no-revise-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "A hedged answer that also votes REVISE fails."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Human essay tolerance",
+            "Does not rewrite an earned contrast"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "earned-antithesis",
+        "replication"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
+      "id": "neg-earned-antithesis-syllabus",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nShe finished all fourteen units on schedule, and every lesson plan was signed off. By June, three students had stopped coming and the class average had fallen twelve points; she noticed the absences only when the attendance report arrived.\n\nSentence under review: \"She taught the syllabus and missed the class.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-earned-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+          "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+        },
+        {
+          "name": "no-revise-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "A hedged answer that also votes REVISE fails."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Human essay tolerance",
+            "Does not rewrite an earned contrast"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "earned-antithesis",
+        "replication"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
+      "id": "neg-earned-antithesis-translation",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe poem's last line puns on two meanings of the verb for 'to fall': falling asleep and falling in love. The published translation renders each word exactly and adds a footnote explaining the double meaning, which readers now meet only after the poem has ended.\n\nSentence under review: \"The translation kept every word and lost the joke.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-earned-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+          "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+        },
+        {
+          "name": "no-revise-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "A hedged answer that also votes REVISE fails."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Human essay tolerance",
+            "Does not rewrite an earned contrast"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "earned-antithesis",
+        "replication"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
+      "id": "neg-earned-antithesis-fence",
+      "split": "tune",
+      "kind": "adversarial",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nAfter the storm he rebuilt the fence between the two gardens post by post and matched the old paint. He never answered his brother's letter about who had let it rot, and the brothers still go in and out of their own gates without speaking.\n\nSentence under review: \"He mended the fence and never mended the quarrel.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+      ],
+      "assertions": [
+        {
+          "name": "keeps-earned-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+          "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+        },
+        {
+          "name": "no-revise-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "A hedged answer that also votes REVISE fails."
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Human essay tolerance",
+            "Does not rewrite an earned contrast"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "earned-antithesis",
+        "replication"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "extended",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
+      "id": "pos-decorative-antithesis-readme",
+      "split": "tune",
+      "kind": "rewrite",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThis README introduces a command-line tool that renames files in bulk. The next section lists the three flags it accepts and shows one example command.\n\nSentence under review: \"It's not just a tool; it's a movement.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Neither side of the contrast is evidenced: a decorative antithesis. Revise or cut it."
+      ],
+      "assertions": [
+        {
+          "name": "revises-decorative-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "Control for the over-application cases: the skill must still flag an unearned contrast."
+        },
+        {
+          "name": "no-keep-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b"
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Flags the decorative contrast",
+            "Rewrite states the actual claim"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "decorative-antithesis",
+        "replication-control"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
+      "id": "pos-decorative-antithesis-changelog",
+      "split": "tune",
+      "kind": "rewrite",
+      "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nVersion 2.3.1 fixes a crash when the config file is empty and bumps one dependency. There are no other changes.\n\nSentence under review: \"This release isn't about code. It's about people.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+      "expected_behavior": [
+        "Neither side of the contrast is evidenced: a decorative antithesis. Revise or cut it."
+      ],
+      "assertions": [
+        {
+          "name": "revises-decorative-antithesis",
+          "type": "regex",
+          "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+          "description": "Control for the over-application cases: the skill must still flag an unearned contrast."
+        },
+        {
+          "name": "no-keep-verdict",
+          "type": "not_regex",
+          "pattern": "(?im)^\\W*verdict\\W*keep\\b"
+        },
+        {
+          "name": "qualitative-review",
+          "type": "judge",
+          "rubric": [
+            "Flags the decorative contrast",
+            "Rewrite states the actual claim"
+          ]
+        }
+      ],
+      "tags": [
+        "over-application",
+        "decorative-antithesis",
+        "replication-control"
+      ],
+      "domain": "writing-quality",
+      "difficulty": "core",
+      "success_goals": [
+        "outcome"
+      ]
+    },
+    {
       "id": "neg-robust-with-mechanism",
       "split": "tune",
       "kind": "adversarial",
@@ -376,6 +702,7 @@
       "id": "trig-readme-sounds-ai",
       "split": "tune",
       "kind": "trigger",
+      "should_trigger": true,
       "prompt": "Trigger decision eval. User prompt: this README sounds AI; tighten it\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
       "expected_behavior": [
         "Should return TRIGGER for this skill."
@@ -402,6 +729,7 @@
       "id": "trig-talk-intro",
       "split": "tune",
       "kind": "trigger",
+      "should_trigger": true,
       "prompt": "Trigger decision eval. User prompt: tighten this talk intro so it sounds less like generic launch copy\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
       "expected_behavior": [
         "Should return TRIGGER for this skill."
@@ -428,6 +756,7 @@
       "id": "trig-grammar-only",
       "split": "tune",
       "kind": "trigger",
+      "should_trigger": false,
       "prompt": "Trigger decision eval. User prompt: proofread only for grammar; preserve wording and cadence\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
       "expected_behavior": [
         "Should return NO_TRIGGER for this skill."
@@ -454,6 +783,7 @@
       "id": "trig-legal-boilerplate",
       "split": "tune",
       "kind": "trigger",
+      "should_trigger": false,
       "prompt": "Trigger decision eval. User prompt: preserve this legal boilerplate exactly except typo fixes\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
       "expected_behavior": [
         "Should return NO_TRIGGER for this skill."
@@ -480,6 +810,7 @@
       "id": "trig-generic-marketing-intentional",
       "split": "tune",
       "kind": "trigger",
+      "should_trigger": false,
       "prompt": "Trigger decision eval. User prompt: intentionally write generic marketing copy for a placeholder mockup\n\nReturn exactly one label first: TRIGGER or NO_TRIGGER. Then give one short reason.",
       "expected_behavior": [
         "Should return NO_TRIGGER for this skill."
@@ -515,6 +846,7 @@
         {
           "name": "qualitative-review",
           "type": "judge",
+          "gate": true,
           "rubric": [
             "Specificity",
             "Fact preservation",
@@ -544,6 +876,7 @@
         {
           "name": "private-holdback-review",
           "type": "judge",
+          "gate": true,
           "rubric": [
             "Use the private answer key; do not rely on public manifest wording."
           ]
@@ -626,7 +959,7 @@
         {
           "name": "removes-generic-benefits",
           "type": "not_regex",
-          "pattern": "(?i)\\b(pivotal|transformative|unlock|modern productivity|fast-moving teams|collaboration platform)\\b"
+          "pattern": "(?i)\\b(pivotal|transformative|unlock(s|ed|ing)?|modern productivity|fast-moving teams|collaboration platform)\\b"
         },
         {
           "name": "fixture-script-oracle",

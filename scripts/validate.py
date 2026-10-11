@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -331,12 +333,27 @@ def validate_skills_sh_config() -> None:
         fail(f"skills.sh.json must include {SKILL_DIR.name}")
 
 
-def validate_with_skills_ref() -> None:
-    if not shutil.which("skills-ref"):
-        return
-    result = subprocess.run(["skills-ref", "validate", str(SKILL_DIR)], cwd=ROOT)
+SKILLS_REF_PIN = "skills-ref==0.1.1"
+
+
+def validate_with_skills_ref() -> bool:
+    """Run the Agent Skills reference validator. Returns False only when it was
+    skipped locally; in CI (the CI environment variable is set) a missing
+    validator is a failure, never a silent skip."""
+    # The PyPI `skills-ref` package installs the executable as `agentskills`;
+    # a source checkout of the reference library installs `skills-ref`.
+    executable = shutil.which("skills-ref") or shutil.which("agentskills")
+    if executable is None:
+        message = (f"skills-ref is not installed (`pip install {SKILLS_REF_PIN}`), "
+                   "so the Agent Skills spec validator did not run")
+        if os.environ.get("CI"):
+            fail(message)
+        print(f"WARNING: {message}", file=sys.stderr)
+        return False
+    result = subprocess.run([executable, "validate", str(SKILL_DIR)], cwd=ROOT)
     if result.returncode != 0:
         fail("skills-ref validation failed")
+    return True
 
 
 def validate_trigger_queries() -> None:
@@ -404,14 +421,17 @@ def main() -> int:
     validate_trigger_queries()
     validate_skills_sh_config()
     validate_baseline_scores()
-    validate_with_skills_ref()
+    skills_ref_ran = validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "skills.sh", "DISABLE_TELEMETRY=1", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 
-    print("OK: anti-slop-writing project validates")
+    if skills_ref_ran:
+        print("OK: anti-slop-writing project validates")
+    else:
+        print("OK: anti-slop-writing project validates (skills-ref NOT run; CI runs it)")
     return 0
 
 

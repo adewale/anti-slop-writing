@@ -14,5 +14,18 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Install the Agent Skills reference validator
+        run: python3 -m pip install skills-ref==0.1.1
       - name: Validate skill repo
         run: python3 scripts/validate.py
+      # tests/test_validate.py runs validate.py under CI, so it needs the
+      # skills-ref install above; that is why the unit tests live in this job.
+      - name: Unit tests for eval scripts, oracles and validators
+        run: python3 -m unittest discover -s tests -v
+      - uses: astral-sh/setup-uv@v9.0.0
+      - name: Run model-free harness gate (pinned skill-eval-harness 0.6.0)
+        run: |
+          uvx --from skill-eval-harness==0.6.0 skill-benchmark validate --strict-leakage --check-ablations evals/shared-benchmark.json
+          uvx --from skill-eval-harness==0.6.0 skill-benchmark audit-manifest --fail-on-blockers evals/shared-benchmark.json > /dev/null
+      - name: Grade the checked-in pass/fail example outputs
+        run: uvx --from skill-eval-harness==0.6.0 python scripts/check_assertion_examples.py

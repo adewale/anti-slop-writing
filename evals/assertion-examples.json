@@ -1,0 +1,39 @@
+{
+  "_about": "Checked-in pass/fail example outputs for manifest cases whose deterministic oracles decide the result. scripts/check_assertion_examples.py grades every example with the pinned harness's own assertion evaluator: each pass example must satisfy every gate/critical objective assertion of each listed case, and each fail example must fail at least one. Judge assertions are not graded here.",
+  "harness": "skill-eval-harness==0.6.0",
+  "groups": [
+    {
+      "name": "earned antithesis must be kept (over-application probe)",
+      "cases": [
+        "neg-earned-antithesis-archive",
+        "neg-earned-antithesis-bridge",
+        "neg-earned-antithesis-growth",
+        "neg-earned-antithesis-syllabus",
+        "neg-earned-antithesis-translation",
+        "neg-earned-antithesis-fence"
+      ],
+      "pass": [
+        "evals/examples/earned-antithesis/keep-earned.md"
+      ],
+      "fail": [
+        "evals/examples/earned-antithesis/revise-earned.md",
+        "evals/examples/earned-antithesis/hedged-earned.md",
+        "evals/examples/earned-antithesis/no-verdict-earned.md"
+      ]
+    },
+    {
+      "name": "decorative antithesis must still be revised (control)",
+      "cases": [
+        "pos-decorative-antithesis-readme",
+        "pos-decorative-antithesis-changelog"
+      ],
+      "pass": [
+        "evals/examples/earned-antithesis/revise-decorative.md"
+      ],
+      "fail": [
+        "evals/examples/earned-antithesis/keep-decorative.md",
+        "evals/examples/earned-antithesis/no-verdict-earned.md"
+      ]
+    }
+  ]
+}

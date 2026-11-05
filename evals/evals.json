@@ -280,6 +280,28 @@
           "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
         }
       ]
+    },
+    {
+      "id": "maintenance-history-evidence",
+      "split": "tune",
+      "prompt": "Edit this synthetic PR note using only the supplied source. Source: commit d4 dated October 8 introduced unrestricted push and pull_request lint; the patch retains PR, main, and release-tag lint and removes the extra feature push run. Local workflow lint passed at e5. CI for head f6 is pending. No source records author intent or a measured runtime saving. Draft: A rushed AI rollout blindly copied CI everywhere. We fixed the whole estate and every check passes. Review confidence: 10/10.",
+      "expected_output": "A concise rewrite explaining the dated introduction and duplicate-event mechanism, with the retained coverage and accurately scoped verification. Unsupported intent, estate-wide claims, savings, and review score are removed.",
+      "assertions": [
+        "Uses October 8 and the push/PR event overlap to explain when and how extra runs arose without inventing why the author chose the configuration.",
+        "Preserves PR, main, and release-tag coverage and limits the lint result to e5 and the pending CI status to f6.",
+        "Does not invent AI authorship, haste, measured savings, all-project safety, or a numeric confidence score."
+      ]
+    },
+    {
+      "id": "maintenance-earned-cause",
+      "split": "tune",
+      "prompt": "Review this synthetic maintenance explanation. Source incident record INC-31 explicitly says: We added the second schedule while the webhook was unavailable on October 12. The webhook recovery test passed on October 13. Current PR CI is pending. Draft: Incident INC-31 records that the second schedule was added on October 12 while the webhook was unavailable. The recovery test passed on October 13. This PR removes the temporary schedule; its CI is pending.",
+      "expected_output": "Keep the sourced causal explanation and dates. The existing non-invention rule should not erase documented intent or turn an attributed cause into blanket uncertainty.",
+      "assertions": [
+        "Preserves the attributed incident rationale and dates because the source explicitly supports them.",
+        "Keeps the recovery test separate from pending PR CI and does not claim universal safety.",
+        "Does not demand an unsupported new investigation into already documented author intent or add a confidence scoreboard."
+      ]
     }
   ]
 }

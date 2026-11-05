@@ -4,6 +4,17 @@ Use these cases when hillclimbing the skill. A good answer should identify the f
 
 The runnable source of truth is `evals/evals.json`; keep this file aligned as the human-readable explanation of those cases.
 
+## Maintenance evidence cases
+
+`maintenance-history-evidence` (tune) supplies a dated trigger change, a local lint
+result, and pending current-head CI. The rewrite must explain event overlap and
+retain coverage without inventing author intent, savings, or project-wide safety.
+Remove the unsupported confidence score.
+
+`maintenance-earned-cause` (tune) supplies an incident record that explicitly states
+why a temporary schedule was added. Preserve that attributed cause and its dates.
+The non-invention rule must not turn documented history into blanket uncertainty.
+
 ## Case 1 — generic importance
 
 Input:

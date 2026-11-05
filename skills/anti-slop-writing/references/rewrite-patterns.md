@@ -1,5 +1,37 @@
 # Rewrite Patterns
 
+## Keep maintenance explanations within the evidence
+
+This is an application of the existing non-invention and evidence-scope checks.
+The following audit example is synthetic.
+
+Source: a dated commit introduced unrestricted push and PR validation; the current
+diff removes the duplicate branch trigger. Workflow lint passed locally. CI at
+the new head is pending. There is no record of the author's intent.
+
+Weak:
+
+```txt
+A rushed AI rollout copied this workflow everywhere. The cleanup passed every
+check, so all projects are now safe. Review confidence: 10/10.
+```
+
+Better:
+
+```txt
+The rollout commit enabled both push and PR validation. Updating a branch with an
+open PR can start both runs. This change keeps PR, main, and tag validation and
+removes the extra branch run. Workflow lint passed locally; CI at the new head is
+pending. The available history does not explain why both triggers were chosen.
+```
+
+The commit establishes when the configuration appeared and how it causes extra
+runs. It does not establish haste, AI authorship, measured savings, or project-wide
+safety. A review score adds no missing evidence. Keep a causal explanation when
+the source supports it: if an incident record explicitly says a second schedule
+was temporary while a webhook was unavailable, attribute that reason to the
+record. Do not replace documented causes with habitual uncertainty.
+
 ## Replace importance with mechanism
 
 Weak:

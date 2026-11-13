@@ -1,6 +1,6 @@
 # Hillclimb improvements
 
-This file documents the thirteen changes made to the eval and runbook machinery, why each one was added, and the source that motivated it. The changes do not modify skill doctrine. They tighten the loop that decides whether a doctrine change actually helped.
+This file documents the thirteen changes made to the eval and runbook machinery, why each one was added, and the source that motivated it. The changes do not modify skill doctrine. The November 2026 repairs distinguish regression coverage from a measured improvement; the detailed operating rule is in `runbooks/hillclimb-skill.md`. Historical design aspirations below are not evidence that a run satisfied them.
 
 The motivating problem: the existing `runbooks/hillclimb-skill.md` had no held-out validation split, no statistical acceptance gate, and used static rubrics on a small fixed eval set. Each of those is a known failure mode of iterative LLM improvement. Sources are cited inline below.
 
@@ -8,7 +8,7 @@ The motivating problem: the existing `runbooks/hillclimb-skill.md` had no held-o
 
 ### 1. Held-out validation split
 
-Each eval file now carries a `split` field per case: `tune` (used to diagnose and iterate) or `holdout` (scored at the end of a round and at PR merge, never used to write doctrine). The split is roughly 60/40 tune/holdout on each suite.
+Each eval file now carries a `split` field per case: `tune` (used to diagnose and iterate) or `holdout` (scored at the end of a round and at PR merge, never used to write doctrine). The target split is roughly 60/40; actual ratios must be reported. The rewrite suite was 19 tune / 5 holdout at the November review, so that target was not met.
 
 The rule: never write a doctrine change in response to a holdout failure. Write a new failure case for the next round instead. A holdout failure that drives a doctrine change converts the holdout back into a tune case.
 
@@ -16,9 +16,9 @@ Source: Dwork, Feldman, Hardt, Pitassi, Reingold, Roth, *Preserving Statistical 
 
 ### 2. Statistical gating before accepting an edit
 
-Added `scripts/score_delta.py` for paired bootstrap and beta-binomial CIs on accept/reject decisions. The runbook now requires running it for any close call: if the CI on the score delta overlaps zero, the edit is not accepted.
+`scripts/score_delta.py` implements paired-bootstrap intervals and a two-sided sign-flip permutation test. It does not implement beta-binomial intervals. The standing suite checks regressions; an improvement claim needs a pre-registered powered run on non-ceiling independent cases/families, a no-skill arm, and an improving holdout ACCEPT. Example-only and case-only changes need validation and factual review without a powered run. Duplicate IDs are errors; fewer than six independent units require an UNDERPOWERED override for inspection.
 
-The default test is a sign-flip permutation on per-case deltas; with N ≤ 20 cases per suite, CLT-based standard errors understate uncertainty, so the helper avoids them.
+Use `--cluster-field family` to bootstrap equal-weight family means and flip family signs when cases are dependent. Repeated trials are not independent cases. The default test is a sign-flip permutation on per-case deltas; with N ≤ 20 cases per suite, CLT-based standard errors understate uncertainty, so the helper avoids them.
 
 Source: Miller, *Adding Error Bars to Evals* (Anthropic, [arXiv 2411.00640](https://arxiv.org/abs/2411.00640), Nov 2024); Bowyer, Aitchison, Ivanova, *Don't Use the CLT in LLM Evals With Fewer Than a Few Hundred Datapoints* ([ICML 2025 Spotlight, arXiv 2503.01747](https://arxiv.org/abs/2503.01747)). Acceptance-gate precedent: Blum & Hardt, *The Ladder* ([ICML 2015, arXiv 1502.04585](https://arxiv.org/abs/1502.04585)).
 
@@ -46,13 +46,13 @@ Source: irrelevance-detection subset of the [Berkeley Function Calling Leaderboa
 
 ### 6. Cross-family judge ensemble
 
-The runbook now requires that any LLM-as-judge step uses at least two model families (e.g. Claude + GPT, or Claude + an open-source judge), and flags any case where they disagree for human review.
+The protocol requires two judge families, each scoring every apply family and arm. This is a required study design, not a capability implemented by the runner. The checked-in runs have not established cross-family coverage. If only one family is reachable, label results same-family judging and treat them as coverage evidence pending confirmation. Report disagreement by apply family.
 
 Source: Panickssery, Bowman, Feng, *LLM Evaluators Recognize and Favor Their Own Generations* ([NeurIPS 2024, arXiv 2404.13076](https://arxiv.org/abs/2404.13076)) — self-recognition probability correlates linearly with self-preference strength. Reinforced by Zheng et al., *Judging LLM-as-a-Judge* ([NeurIPS 2023, arXiv 2306.05685](https://arxiv.org/abs/2306.05685)) on judge bias broadly.
 
 ### 7. Length-controlled judging
 
-The runbook's judge protocol now records candidate length and either normalizes by word count or applies a length-counterfactual adjustment (longer answers do not get preference unless an orthogonal-axis check confirms they earn it). For an anti-slop skill specifically, longer-sounds-better is the slop pattern the skill targets, and a length-biased judge rewards exactly that.
+`run_evals.py blind` records raw and judged whitespace word counts and strips version-specific template fields. Report arm length differences beside scores. No automatic length normalization or counterfactual score adjustment is implemented; judges must assess whether additional text earns its length. For an anti-slop skill specifically, longer-sounds-better is the slop pattern the skill targets, and a length-biased judge rewards exactly that.
 
 Source: Dubois et al., *Length-Controlled AlpacaEval* ([arXiv 2404.04475](https://arxiv.org/abs/2404.04475)) — length is the single most exploitable judge confound.
 
@@ -84,7 +84,7 @@ Source: industry framing of [eval rot](https://www.willowtreeapps.com/craft/llm-
 
 ### 12. Length budget per round
 
-The runbook now caps `SKILL.md` word-count growth at +200 words per iteration. When the cap is exceeded, the round must include a consolidation pass before adding new rules.
+`validate.py` enforces +200 whitespace words above `docs/skill-length-baseline.json`. Above that cap, consolidate or record a non-empty consolidation note under `docs/`. Retain the recorded source commit when advancing a baseline after a round.
 
 Source: [Decagon, *Optimizing GEPA for Production*](https://decagon.ai/blog/optimizing-gepa-for-production) — prompt bloat is a documented failure mode of any add-edit loop. Reinforced by [TextReg, arXiv 2605.21318](https://arxiv.org/html/2605.21318).
 

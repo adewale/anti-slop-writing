@@ -34,6 +34,6 @@ Use `runbooks/hillclimb-skill.md` when a change touches doctrine, evals, rubric,
 4. Add a before/after example.
 5. Add adversarial or meta-eval coverage when the rule could overgeneralize or the suite looks too easy.
 6. New eval cases must carry `split: "tune"` or `split: "holdout"`. Never edit doctrine in response to a holdout failure; write a new tune case instead.
-7. Re-run validation. For any close-call accept/reject, run `python3 scripts/score_delta.py <results.jsonl> --holdout-only` and require ACCEPT.
+7. Re-run validation. Use the standing suite as a regression check: no case may drop, and ceiling cases establish only no regression. An improvement claim requires a pre-registered, powered comparison on cases where the current skill sometimes fails, a no-skill arm, blind judging, and case- or family-level `score_delta.py --holdout-only` ACCEPT. Repeated trials of one case are not independent cases; aggregate them or use `--cluster-field`. Example-only and case-only changes with no new doctrine require validation and evidence review, without a powered run. See the runbook for the complete protocol.
 
 Do not optimize for sounding wise. Optimize for the next agent producing a better concrete rewrite.

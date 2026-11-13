@@ -4,6 +4,7 @@ Each test copies the working tree to a scratch directory, plants one defect,
 and runs the real validator there, so the copy under test is the same code CI
 runs.
 """
+
 from __future__ import annotations
 
 import json
@@ -20,7 +21,9 @@ class Validate(unittest.TestCase):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         self.root = Path(tmp.name) / "repo"
-        shutil.copytree(ROOT, self.root, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+        shutil.copytree(
+            ROOT, self.root, ignore=shutil.ignore_patterns(".git", "__pycache__")
+        )
 
     def validate(self):
         return run_script("scripts/validate.py", cwd=self.root)
@@ -47,24 +50,30 @@ class Validate(unittest.TestCase):
     def test_duplicate_eval_id_fails(self) -> None:
         def dup(d):
             d["evals"][1]["id"] = d["evals"][0]["id"]
+
         self.edit_json("evals/rewrite-evals.json", dup)
         self.assert_fails_with("duplicate eval id")
 
     def test_single_assertion_case_fails(self) -> None:
         def trim(d):
             d["evals"][0]["assertions"] = d["evals"][0]["assertions"][:1]
+
         self.edit_json("evals/meta-evals.json", trim)
         self.assert_fails_with("must have at least 2 assertions")
 
     def test_missing_reference_target_fails(self) -> None:
         skill = self.root / "skills/anti-slop-writing/SKILL.md"
-        skill.write_text(skill.read_text(encoding="utf-8") + "\nreferences/not-there.md\n", encoding="utf-8")
+        skill.write_text(
+            skill.read_text(encoding="utf-8") + "\nreferences/not-there.md\n",
+            encoding="utf-8",
+        )
         self.assert_fails_with("references missing file: references/not-there.md")
 
     def test_trigger_queries_without_near_miss_negatives_fail(self) -> None:
         def rename(d):
             for q in d["queries"]:
                 q["id"] = q["id"].replace("near-neg-", "neg-")
+
         self.edit_json("evals/trigger-queries.json", rename)
         self.assert_fails_with("near-neg- near-miss negatives")
 
@@ -72,8 +81,70 @@ class Validate(unittest.TestCase):
         def retune(d):
             for q in d["queries"]:
                 q["split"] = "tune"
+
         self.edit_json("evals/trigger-queries.json", retune)
         self.assert_fails_with("at least 4 holdout queries")
+
+    def test_rewrite_case_requires_facts_field(self) -> None:
+        self.edit_json("evals/rewrite-evals.json", lambda d: d["evals"][0].pop("facts"))
+        self.assert_fails_with("facts must be a list")
+
+    def test_copied_eight_word_example_fails(self) -> None:
+        def leak(d):
+            d["evals"][0]["prompt"] = (
+                "Review: The workflow can fail on step 4, retry only that step, and keep the previous outputs."
+            )
+
+        self.edit_json("evals/evals.json", leak)
+        self.assert_fails_with("eval leakage")
+
+    def test_seven_word_near_miss_does_not_fail(self) -> None:
+        def short(d):
+            d["evals"][0]["prompt"] = "Review: The workflow can fail on step 4."
+
+        self.edit_json("evals/evals.json", short)
+        result = self.validate()
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_holdout_fixture_copy_is_checked(self) -> None:
+        fixture = self.root / "evals/fixtures/alert-triage-transfer/input.md"
+        fixture.write_text(
+            "The workflow can fail on step 4, retry only that step, and keep the previous outputs."
+        )
+        self.assert_fails_with("eval leakage")
+
+    def test_holdout_cannot_reuse_tune_fixture(self) -> None:
+        def reuse(d):
+            d["evals"][-1]["prompt"] = (
+                "Rewrite evals/fixtures/tweet-taste-as-model/input.md"
+            )
+
+        self.edit_json("evals/rewrite-evals.json", reuse)
+        self.assert_fails_with("fixture shared between tune and holdout")
+
+    def test_word_growth_requires_consolidation_note(self) -> None:
+        skill = self.root / "skills/anti-slop-writing/SKILL.md"
+        skill.write_text(skill.read_text() + "\n" + "extra " * 201)
+        self.assert_fails_with("budget +200")
+
+    def test_word_growth_of_exactly_200_is_allowed(self) -> None:
+        skill = self.root / "skills/anti-slop-writing/SKILL.md"
+        skill.write_text(skill.read_text() + "\n" + "extra " * 200)
+        result = self.validate()
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_consolidation_note_records_budget_exception(self) -> None:
+        skill = self.root / "skills/anti-slop-writing/SKILL.md"
+        skill.write_text(skill.read_text() + "\n" + "extra " * 201)
+        (self.root / "docs/consolidation.md").write_text(
+            "Consolidation removed duplicate examples; remaining growth is recorded for review."
+        )
+        self.edit_json(
+            "docs/skill-length-baseline.json",
+            lambda d: d.update(consolidation_note="docs/consolidation.md"),
+        )
+        result = self.validate()
+        self.assertEqual(result.returncode, 0, result.stdout)
 
 
 if __name__ == "__main__":

@@ -15,5 +15,13 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 
 ## Open — buildable without the blocked item
 
-- [ ] **Cross-family judge.** The baseline judges are Claude grading Claude output (same-family, self-preference risk per `Lessons_learned.md`). A non-Claude judge is not available in the current harness. Wire one in when a second model family is reachable.
+- [ ] **Cross-family judge.** The baseline judges are Claude grading Claude output (same-family, self-preference risk per `Lessons_learned.md`). No callable model passed the 2026-11-13 access check; the Codex CLI failed authentication and no Anthropic or open-weights client/key was configured. Restore access and record exact returned model IDs before selecting the panel. See `evals/results/2026-11-13-model-inventory.md`.
 - [ ] **Observed multi-run trigger rates** in Pi, Claude Code, Codex, and OpenCode. The baseline records a single routing-decision pass, not live multi-run activation rates.
+
+## Open — 2026-11-13 review
+
+- [ ] Land the eval-integrity changes, then pre-register and run earned-antithesis and corrected rewrite no-skill baselines. The owner budget is blank. See `evals/results/2026-11-13-no-skill-baseline/PLAN.md`.
+- [ ] Recreate or rebase #17 and #18 on fresh branches after the instrument lands; replicate without treating trials as independent cases. #18 needs an independent-case design or a bounded single-case claim.
+- [ ] Prepare the highlighter split (lint and grounded examples only) and evaluate the cataphoric-teaser candidate under the repaired protocol.
+- [ ] Repair SKILL.md's unsourced examples, mandatory aphorism field, carrier terminology, duplicated lists, and maintainer text in separately measured rounds. No doctrine was changed during instrument repair.
+- [ ] Review the owner-only closure/merge/deletion recommendations in `evals/results/2026-11-13-eval-integrity.md`. The stop-slop branch fails the handoff's deletion test; retain it pending investigation.

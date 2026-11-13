@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-13 — Repair evaluation validity
+
+- Retracted the 2026-05-31 statistical-proof claim after removing a version-specific field assertion (N=42, p≈0.126) and checking seven family means (p≈0.245). Original outputs and scores remain archived; reproduction commands and old/new case records are in `evals/results/2026-11-13-review-reproduction.md`.
+- Separated apply and judge worklists, embedded source inputs and facts, and passed dynamic rubrics to judges. Added template-field blinding, opaque output names, and word-count records. Apply workers still require filesystem isolation by the caller.
+- Added duplicate-ID, finite-score, small-sample, and cluster safeguards to the gate; preserved family and length metadata through grade/join. The standing suite now checks regressions; measured improvement requires a pre-registered powered comparison with a no-skill arm. Example-only changes require validation and factual review.
+- Repaired fact-demanding assertions before new scoring, replaced copied examples, moved the exposed tweet anchor to open-book regression coverage, and added an independent synthetic holdout input. Added eight-word leakage and +200-word growth checks.
+- Closed substring, negated-keep, keyword-only, and unsupported reliability loopholes in deterministic checks, with good/bad/near-miss examples. No installable skill files changed. No model baseline or efficacy claim was produced; model access failed authentication.
+
 All notable changes to this project are recorded here. This changelog tracks doctrine, eval coverage, compatibility, and docs because a skill can change behavior without changing code.
 
 ## [Unreleased]
@@ -31,7 +39,7 @@ All notable changes to this project are recorded here. This changelog tracks doc
 - Added `evals/blinded-eval-harness.md`: doctrine A/B comparison with anonymized labels and a rate-study procedure for behaviors that vary run-to-run. Extends the standard `docs/judge-protocol.md` apply-judge separation with the additional discipline a fair doctrine comparison requires.
 - Added `evals/rejected-edits.md` entry: paragraph-scale ladder guidance on the emphasis-source test was tried and reverted as inert (rate study: 3/3 vs 3/3 on both decisive prompts).
 - Ran the held-out regression check under the new protocol: this branch's doctrine scores 10/10 on the upstream's holdout cases, matching the 2026-05-29 baseline case-for-case. Per-case delta is exactly 0.0 on every joined case. The procedural emphasis-source change does not regress any upstream holdout case. Full run in `evals/results/2026-05-30-holdout-regression-check/` with outputs, judgments, scores, joined delta, and captured gate output.
-- Added `evals/results/2026-05-31-stat-proof/`, a 42-case fresh holdout proof run with blind A/B pair judging and 60 graded dimensions. The pre-integration snapshot vs current `main` comparison clears the statistical gate: binary delta +0.0714, 95% CI [+0.0317, +0.1190], p=0.0074; graded delta +0.0669, 95% CI [+0.0245, +0.1167], p=0.0074.
+- Archived the 42-case run at `evals/results/2026-05-31-stat-proof/`. Its original acceptance claim was withdrawn on 2026-11-13: template leakage and dependent case families invalidate that interpretation. The original outputs and scores remain available; see the dated correction in that directory and `evals/results/2026-11-13-review-reproduction.md`.
 
 ### Hillclimb infrastructure
 

@@ -2,6 +2,7 @@
 
 Expected scores are hand-derived from the judgment records in each test.
 """
+
 from __future__ import annotations
 
 import contextlib
@@ -16,26 +17,41 @@ from _support import ROOT, load_script, run_script, write_jsonl
 run_evals = load_script("scripts/run_evals.py")
 
 
-def judgment(case_id: str, passes: list[bool], split: str = "holdout", graded: list[int] | None = None) -> dict:
+def judgment(
+    case_id: str,
+    passes: list[bool],
+    split: str = "holdout",
+    graded: list[int] | None = None,
+) -> dict:
     record = {
         "id": case_id,
         "suite": "evals.json",
         "split": split,
-        "assertions": [{"index": i, "pass": p, "evidence": "q"} for i, p in enumerate(passes, start=1)],
+        "assertions": [
+            {"index": i, "pass": p, "evidence": "q"}
+            for i, p in enumerate(passes, start=1)
+        ],
     }
     if graded is not None:
-        record["graded_dimensions"] = [{"name": f"d{i}", "score": s} for i, s in enumerate(graded)]
+        record["graded_dimensions"] = [
+            {"name": f"d{i}", "score": s} for i, s in enumerate(graded)
+        ]
     return record
 
 
 class CaseScore(unittest.TestCase):
     def score(self, record: dict, include_graded: bool = False) -> dict:
-        return run_evals.case_score(record, Path("j.jsonl"), 1, include_graded=include_graded)
+        return run_evals.case_score(
+            record, Path("j.jsonl"), 1, include_graded=include_graded
+        )
 
     def test_score_is_fraction_of_assertions_passed(self) -> None:
         result = self.score(judgment("a", [True, False, True]))
         self.assertAlmostEqual(result["score"], 0.6667)
-        self.assertEqual((result["n_passed"], result["n_assertions"], result["all_pass"]), (2, 3, False))
+        self.assertEqual(
+            (result["n_passed"], result["n_assertions"], result["all_pass"]),
+            (2, 3, False),
+        )
 
     def test_graded_dimensions_reported_but_not_scored_by_default(self) -> None:
         result = self.score(judgment("a", [True, False, True], graded=[5, 1]))
@@ -44,7 +60,9 @@ class CaseScore(unittest.TestCase):
 
     def test_include_graded_averages_assertions_and_normalized_dimensions(self) -> None:
         # (1 + 0 + 1 + 5/5 + 1/5) / 5 = 0.64
-        result = self.score(judgment("a", [True, False, True], graded=[5, 1]), include_graded=True)
+        result = self.score(
+            judgment("a", [True, False, True], graded=[5, 1]), include_graded=True
+        )
         self.assertAlmostEqual(result["score"], 0.64)
         self.assertAlmostEqual(result["assertion_score"], 0.6667)
 
@@ -56,7 +74,11 @@ class CaseScore(unittest.TestCase):
             "no id": {"assertions": [True]},
         }
         for name, record in bad.items():
-            with self.subTest(name), self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
+            with (
+                self.subTest(name),
+                self.assertRaises(SystemExit),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
                 self.score(record)
 
 
@@ -68,7 +90,18 @@ class Cli(unittest.TestCase):
 
     def test_prepare_filters_split_and_shows_judge_every_assertion(self) -> None:
         out = self.tmp / "work.json"
-        result = run_script("scripts/run_evals.py", "prepare", "evals/evals.json", "--split", "holdout", "--out", out)
+        judge_out = self.tmp / "judge.json"
+        result = run_script(
+            "scripts/run_evals.py",
+            "prepare",
+            "evals/evals.json",
+            "--split",
+            "holdout",
+            "--out",
+            out,
+            "--judge-out",
+            judge_out,
+        )
         self.assertEqual(result.returncode, 0, result.stderr)
         work = json.loads(out.read_text())
         source = json.loads((ROOT / "evals/evals.json").read_text())["evals"]
@@ -78,8 +111,211 @@ class Cli(unittest.TestCase):
         for unit in work["units"]:
             case = holdout[unit["id"]]
             self.assertIn(case["prompt"], unit["apply_prompt"])
+            self.assertEqual(set(unit), {"id", "suite", "split", "apply_prompt"})
+        for unit in json.loads(judge_out.read_text())["units"]:
+            case = holdout[unit["id"]]
+            self.assertNotIn("apply_prompt", unit)
             for i, assertion in enumerate(case["assertions"], start=1):
                 self.assertIn(f"{i}. {assertion}", unit["judge_prompt"])
+
+    def test_prepare_keeps_rubric_secret_and_sends_facts_to_both_roles(self) -> None:
+        case = {
+            "id": "x",
+            "split": "tune",
+            "prompt": "Rewrite the draft.",
+            "facts": ["The retry waits ten seconds."],
+            "assertions": ["SECRET_ASSERTION"],
+            "dynamic_rubric": {"instruction": "SECRET_RUBRIC", "minimum_criteria": 3},
+        }
+        src = self.tmp / "cases.json"
+        src.write_text(json.dumps({"evals": [case]}))
+        apply, judge = self.tmp / "apply.json", self.tmp / "judge.json"
+        result = run_script(
+            "scripts/run_evals.py", "prepare", src, "--out", apply, "--judge-out", judge
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertNotIn("SECRET", apply.read_text())
+        self.assertIn(
+            "SECRET_RUBRIC", json.loads(judge.read_text())["units"][0]["judge_prompt"]
+        )
+        for p in (apply, judge):
+            self.assertIn("The retry waits ten seconds.", p.read_text())
+
+    def test_prepare_rejects_overlapping_role_files(self) -> None:
+        dest = self.tmp / "same.json"
+        result = run_script(
+            "scripts/run_evals.py",
+            "prepare",
+            "evals/evals.json",
+            "--out",
+            dest,
+            "--judge-out",
+            dest,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("different files", result.stderr)
+
+    def test_no_skill_arm_has_the_identical_task_and_facts(self) -> None:
+        worklists = []
+        for suffix, flags in [("current", []), ("none", ["--no-skill"])]:
+            apply, judge = (
+                self.tmp / f"{suffix}.json",
+                self.tmp / f"{suffix}-judge.json",
+            )
+            result = run_script(
+                "scripts/run_evals.py",
+                "prepare",
+                "evals/evals.json",
+                "--out",
+                apply,
+                "--judge-out",
+                judge,
+                *flags,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            worklists.append(json.loads(apply.read_text()))
+        self.assertIsNone(worklists[1]["skill_path"])
+        for a, b in zip(worklists[0]["units"], worklists[1]["units"]):
+            self.assertEqual(
+                a["apply_prompt"].split("TASK:\n", 1)[1],
+                b["apply_prompt"].split("TASK:\n", 1)[1],
+            )
+            self.assertNotIn("Read skills/", b["apply_prompt"])
+
+    def test_prepare_embeds_only_fixture_input(self) -> None:
+        case = {
+            "id": "x",
+            "split": "tune",
+            "prompt": "Read evals/fixtures/alert-triage-transfer/input.md",
+            "assertions": ["SECRET"],
+        }
+        src = self.tmp / "cases.json"
+        src.write_text(json.dumps({"evals": [case]}))
+        apply, judge = self.tmp / "apply.json", self.tmp / "judge.json"
+        result = run_script(
+            "scripts/run_evals.py", "prepare", src, "--out", apply, "--judge-out", judge
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("The practice inbox", apply.read_text())
+        self.assertNotIn("SECRET", apply.read_text())
+        case["prompt"] = "Read evals/fixtures/tweet-taste-as-model/best-rewrite.md"
+        src.write_text(json.dumps({"evals": [case]}))
+        result = run_script(
+            "scripts/run_evals.py", "prepare", src, "--out", apply, "--judge-out", judge
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("only fixture input.md", result.stderr)
+
+    def test_blind_removes_multiline_fields_and_records_lengths(self) -> None:
+        src = self.tmp / "candidate.md"
+        src.write_text(
+            "Verdict: revise\nConcrete rewrite: Use the queue.\nRewrite check: VERSION_SECRET\ncontinued secret\nRemembered line: SECRET\n"
+        )
+        dest, key, counts = (
+            self.tmp / "blinded",
+            self.tmp / "key.json",
+            self.tmp / "counts.jsonl",
+        )
+        result = run_script(
+            "scripts/run_evals.py",
+            "blind",
+            src,
+            "--out-dir",
+            dest,
+            "--key-out",
+            key,
+            "--counts-out",
+            counts,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        files = list(dest.glob("*.md"))
+        self.assertEqual(len(files), 1)
+        self.assertNotEqual(files[0].name, src.name)
+        self.assertEqual(
+            files[0].read_text(), "Verdict: revise\nConcrete rewrite: Use the queue.\n"
+        )
+        row = json.loads(counts.read_text())
+        self.assertEqual(row["judged_words"], 7)
+        self.assertGreater(row["raw_words"], row["judged_words"])
+
+    def test_blind_preserves_near_miss_and_fields_after_removed_section(self) -> None:
+        text = "Concrete rewrite: A remembered line is optional.\nRewrite check: secret\nSlop tells: Keep this.\n"
+        self.assertEqual(
+            run_evals.strip_template_fields(text, ["Rewrite check"]),
+            "Concrete rewrite: A remembered line is optional.\nSlop tells: Keep this.\n",
+        )
+
+    def test_blind_rejects_key_in_judge_directory(self) -> None:
+        src = self.tmp / "candidate.md"
+        src.write_text("Hello")
+        dest = self.tmp / "judge"
+        result = run_script(
+            "scripts/run_evals.py",
+            "blind",
+            src,
+            "--out-dir",
+            dest,
+            "--key-out",
+            dest / "key.json",
+            "--counts-out",
+            self.tmp / "counts.jsonl",
+        )
+        self.assertNotEqual(result.returncode, 0)
+
+    def test_blind_handles_markdown_field_labels(self) -> None:
+        text = "**Concrete rewrite:** Keep this.\n- **Rewrite check**: secret\n- **Remembered line:** secret\n"
+        self.assertEqual(
+            run_evals.strip_template_fields(text, ["Rewrite check", "Remembered line"]),
+            "**Concrete rewrite:** Keep this.\n",
+        )
+
+    def test_blind_removes_labeled_bullets_inside_template_section(self) -> None:
+        raw = "Concrete rewrite: Keep this.\nRewrite check:\n- Invented facts: none\n- Cadence: passes\nSlop tells: Keep this too.\n"
+        self.assertEqual(
+            run_evals.strip_template_fields(raw, ["Rewrite check"]),
+            "Concrete rewrite: Keep this.\nSlop tells: Keep this too.\n",
+        )
+
+    def test_join_preserves_family_and_length_metadata(self) -> None:
+        common = {
+            "id": "x",
+            "case_id": "case-x",
+            "family": "family-x",
+            "split": "holdout",
+        }
+        a = write_jsonl(
+            self.tmp / "a.jsonl", [{**common, "score": 0.5, "word_count": 20}]
+        )
+        b = write_jsonl(
+            self.tmp / "b.jsonl", [{**common, "score": 1, "word_count": 25}]
+        )
+        result = run_script("scripts/run_evals.py", "join", "--before", a, "--after", b)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        row = json.loads(result.stdout)
+        self.assertEqual(
+            (row["family"], row["case_id"], row["before_words"], row["after_words"]),
+            ("family-x", "case-x", 20, 25),
+        )
+
+    def test_join_rejects_duplicate_score_ids(self) -> None:
+        row = {"id": "x", "split": "tune", "score": 1}
+        a = write_jsonl(self.tmp / "a.jsonl", [row, row])
+        b = write_jsonl(self.tmp / "b.jsonl", [row])
+        result = run_script("scripts/run_evals.py", "join", "--before", a, "--after", b)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("duplicate id", result.stderr)
+
+    def test_join_rejects_differing_split_or_cluster(self) -> None:
+        row = {"id": "x", "split": "tune", "score": 1, "family": "a"}
+        a = write_jsonl(self.tmp / "a.jsonl", [row])
+        for change in [{"split": "holdout"}, {"family": "b"}]:
+            b = write_jsonl(self.tmp / "b.jsonl", [{**row, **change}])
+            with self.subTest(change=change):
+                result = run_script(
+                    "scripts/run_evals.py", "join", "--before", a, "--after", b
+                )
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("differs", result.stderr)
 
     def test_grade_rejects_duplicate_ids_across_files(self) -> None:
         a = write_jsonl(self.tmp / "a.jsonl", [judgment("x", [True, True])])
@@ -91,7 +327,9 @@ class Cli(unittest.TestCase):
     def test_grade_fails_on_a_missing_judgment_file(self) -> None:
         # A typo in one path must not silently shrink the scored set.
         present = write_jsonl(self.tmp / "a.jsonl", [judgment("x", [True, True])])
-        result = run_script("scripts/run_evals.py", "grade", present, self.tmp / "missing.jsonl")
+        result = run_script(
+            "scripts/run_evals.py", "grade", present, self.tmp / "missing.jsonl"
+        )
         self.assertNotEqual(result.returncode, 0, result.stdout)
         self.assertIn("missing.jsonl", result.stderr)
 
@@ -103,43 +341,87 @@ class Cli(unittest.TestCase):
 
     def test_grade_split_filter(self) -> None:
         path = write_jsonl(
-            self.tmp / "j.jsonl", [judgment("t", [True, True], split="tune"), judgment("h", [True, False])]
+            self.tmp / "j.jsonl",
+            [judgment("t", [True, True], split="tune"), judgment("h", [True, False])],
         )
         result = run_script("scripts/run_evals.py", "grade", path, "--split", "holdout")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual([json.loads(line)["id"] for line in result.stdout.splitlines()], ["h"])
+        self.assertEqual(
+            [json.loads(line)["id"] for line in result.stdout.splitlines()], ["h"]
+        )
 
     def test_grade_expands_globs(self) -> None:
         write_jsonl(self.tmp / "j1.jsonl", [judgment("x", [True, True])])
         write_jsonl(self.tmp / "j2.jsonl", [judgment("y", [True, False])])
         result = run_script("scripts/run_evals.py", "grade", self.tmp / "j*.jsonl")
         self.assertEqual(result.returncode, 0, result.stderr)
-        scores = {json.loads(line)["id"]: json.loads(line)["score"] for line in result.stdout.splitlines()}
+        scores = {
+            json.loads(line)["id"]: json.loads(line)["score"]
+            for line in result.stdout.splitlines()
+        }
         self.assertEqual(scores, {"x": 1.0, "y": 0.5})
 
     def test_grade_join_and_gate_round_trip(self) -> None:
         # Before: every holdout case passes 1 of 2 assertions. After: 2 of 2.
         ids = [f"case-{i}" for i in range(10)]
-        before_j = write_jsonl(self.tmp / "before-j.jsonl", [judgment(i, [True, False]) for i in ids])
-        after_j = write_jsonl(self.tmp / "after-j.jsonl", [judgment(i, [True, True]) for i in ids])
-        before, after, delta = self.tmp / "before.jsonl", self.tmp / "after.jsonl", self.tmp / "delta.jsonl"
+        before_j = write_jsonl(
+            self.tmp / "before-j.jsonl", [judgment(i, [True, False]) for i in ids]
+        )
+        after_j = write_jsonl(
+            self.tmp / "after-j.jsonl", [judgment(i, [True, True]) for i in ids]
+        )
+        before, after, delta = (
+            self.tmp / "before.jsonl",
+            self.tmp / "after.jsonl",
+            self.tmp / "delta.jsonl",
+        )
         for src, dst in ((before_j, before), (after_j, after)):
             graded = run_script("scripts/run_evals.py", "grade", src, "--out", dst)
             self.assertEqual(graded.returncode, 0, graded.stderr)
-        joined = run_script("scripts/run_evals.py", "join", "--before", before, "--after", after, "--out", delta)
+        joined = run_script(
+            "scripts/run_evals.py",
+            "join",
+            "--before",
+            before,
+            "--after",
+            after,
+            "--out",
+            delta,
+        )
         self.assertEqual(joined.returncode, 0, joined.stderr)
         rows = [json.loads(line) for line in delta.read_text().splitlines()]
-        self.assertEqual({(r["id"], r["before"], r["after"]) for r in rows}, {(i, 0.5, 1.0) for i in ids})
-        self.assertEqual(run_script("scripts/score_delta.py", delta, "--holdout-only").returncode, 0)
+        self.assertEqual(
+            {(r["id"], r["before"], r["after"]) for r in rows},
+            {(i, 0.5, 1.0) for i in ids},
+        )
+        self.assertEqual(
+            run_script("scripts/score_delta.py", delta, "--holdout-only").returncode, 0
+        )
         # The same files in reverse are a regression and must not pass the gate.
         reverse = self.tmp / "reverse.jsonl"
-        rejoined = run_script("scripts/run_evals.py", "join", "--before", after, "--after", before, "--out", reverse)
+        rejoined = run_script(
+            "scripts/run_evals.py",
+            "join",
+            "--before",
+            after,
+            "--after",
+            before,
+            "--out",
+            reverse,
+        )
         self.assertEqual(rejoined.returncode, 0, rejoined.stderr)
-        self.assertEqual(run_script("scripts/score_delta.py", reverse, "--holdout-only").returncode, 1)
+        self.assertEqual(
+            run_script("scripts/score_delta.py", reverse, "--holdout-only").returncode,
+            1,
+        )
 
     def test_join_requires_shared_ids(self) -> None:
-        a = write_jsonl(self.tmp / "a.jsonl", [{"id": "x", "split": "tune", "score": 1}])
-        b = write_jsonl(self.tmp / "b.jsonl", [{"id": "y", "split": "tune", "score": 1}])
+        a = write_jsonl(
+            self.tmp / "a.jsonl", [{"id": "x", "split": "tune", "score": 1}]
+        )
+        b = write_jsonl(
+            self.tmp / "b.jsonl", [{"id": "y", "split": "tune", "score": 1}]
+        )
         result = run_script("scripts/run_evals.py", "join", "--before", a, "--after", b)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("no shared ids", result.stderr)

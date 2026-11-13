@@ -129,7 +129,9 @@ Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite 
 
 A full scored baseline for the 2026-05-29 suite is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. Later doctrine branches added harder paired cases, graded dimensions, and fresh holdout cases; the newest status and no-regression notes are in `evals/results/latest.md`.
 
-The old binary assertions are at ceiling, so zero-delta score gates should be read as no-regression evidence, not proof of improvement. Use `scripts/score_delta.py` for paired-bootstrap and sign-flip-permutation gating on paired before/after runs, and add graded dimensions or fresh cases when ceiling effects hide the signal. The full discipline (held-out gate, statistical gating, judge protocol, Pareto-front carryforward, length budget) is documented in `docs/hillclimb-improvements.md`.
+The standing suite checks regressions; ceiling cases establish only no regression. A claim of improvement needs a pre-registered, powered comparison with a no-skill arm on cases where the current skill sometimes fails. `scripts/score_delta.py` rejects duplicate IDs and tests case or family means with paired bootstrap and sign-flip permutation. The protocol is in `runbooks/hillclimb-skill.md` and `docs/hillclimb-improvements.md`.
+
+The 2026-05-31 statistical-proof claim was withdrawn on 2026-11-13: a template-only assertion favored the newer skill and the cases shared seven families. Removing that assertion gives p≈0.126; testing family means gives p≈0.245. See `evals/results/2026-11-13-review-reproduction.md`. Whether the current skill improves writing over no skill remains unmeasured here.
 
 ## Contributing
 

@@ -1,0 +1,42 @@
+STAT-PROOF corrected binary N, delta, CI, p: 42 (0.03571428571428571, 0.007936507936507938, 0.07142857142857142) 0.1257874212578742
+Template assertion removed from: ['statproof-ask-author-ai-refactor', 'statproof-ask-author-growth-metric', 'statproof-ask-author-security-tool', 'statproof-ask-author-revenue-ai', 'statproof-ask-author-dev-cycle', 'statproof-ask-author-support-deflection']
+STAT-PROOF corrected family means and p: {'borrowed': 0.0, 'ask': 0.08333333333333333, 'copula': 0.11111111111111112, 'hedged': 0.0, 'outline': 0.0, 'dash': 0.05555555555555556, 'boundary': 0.0} 0.2450754924507549
+Failed template assertions in old arm: 5
+All old-arm assertion failures: 9
+After longer by whitespace word count: 42 / 42
+BASELINE cases, perfect: 38 38
+DUPLICATES: Split:         all-cases
+Cases:         8
+Mean delta:    +1.0000
+95% CI:        [+1.0000, +1.0000]
+Sign-flip p:   0.0078
+Verdict:       ACCEPT (improvement clears the noise floor).
+FIVE perfect gains: Split:         all-cases
+Cases:         5
+Mean delta:    +1.0000
+95% CI:        [+1.0000, +1.0000]
+Sign-flip p:   0.0614
+Verdict:       REJECT (sign-flip p >= 0.05).
+REGRESSION: Split:         all-cases
+Cases:         10
+Mean delta:    -1.0000
+95% CI:        [-1.0000, -1.0000]
+Sign-flip p:   0.0021
+Verdict:       REJECT (regression clears the noise floor).
+PROMPT LEAKAGE 6-grams (27 cases): [["evals", "generic-importance", "this underscores the importance of durable"], ["evals", "decorative-contrast", "is not the pelicans the point"], ["evals", "weak-conclusion", "a benchmark is stronger when you"], ["evals", "product-tour-flow", "a filmstrip viewer runbook diffs compares"], ["evals", "safe-essay-voice", "in today s rapidly evolving landscape"], ["evals", "hedged-symmetry", "re a beginner or an expert"], ["evals", "outline-conclusion-template", "continues to thrive in an evolving"], ["evals", "em-dash-cluster", "and reliable at scale with a"], ["evals", "holdout-copula-hedged-outline-combo", "play an increasingly pivotal role in"], ["rewrite-evals", "durable-execution-mechanism", "this underscores the importance of durable"], ["rewrite-evals", "pelican-process-relation", "is not the pelicans the point"], ["rewrite-evals", "product-tour-hinge", "a filmstrip viewer runbook diffs compares"], ["rewrite-evals", "safe-essay-cut-or-concretize", "in today s rapidly evolving landscape"], ["rewrite-evals", "carrier-bound-ending", "a benchmark is stronger when you"], ["rewrite-evals", "rewrite-reuses-flagged-pattern", "a data server your pds that"], ["rewrite-evals", "rewrite-passes-own-slop-detectors", "pass the same detectors as the"], ["rewrite-evals", "outline-conclusion-carrier-bound", "play an increasingly pivotal role in"], ["rewrite-evals", "parataxis-unstated-relation", "benchmark is saturated the model still"], ["rewrite-evals", "parataxis-coordination-hides-cause", "api we wrote the docs adoption"], ["adversarial", "earned-antithesis", "is the surface the inspectable run"], ["adversarial", "intentional-quote", "in today s rapidly evolving landscape"], ["adversarial", "serves-as-enumeration", "connection timeout oversized payload and dependency"], ["adversarial", "branching-condition-symmetry", "after the receipt is written determines"], ["adversarial", "em-dash-earned", "but the chunks survived in sqlite"], ["adversarial", "holdout-earned-branching-dash-copula", "the worker crashes before or after"], ["adversarial", "earned-parataxis-sequence", "dashboard went red the on call"], ["adversarial", "earned-parataxis-evidenced-contrast", "like perception was retrieval what looked"]]
+PROMPT LEAKAGE 8-grams (19 cases): [["evals", "decorative-contrast", "is not the pelicans the point is the"], ["evals", "weak-conclusion", "a benchmark is stronger when you can inspect"], ["evals", "product-tour-flow", "climb ranks the models head to head is"], ["evals", "hedged-symmetry", "whether you re a beginner or an expert"], ["evals", "outline-conclusion-template", "continues to thrive in an evolving landscape looking"], ["evals", "em-dash-cluster", "and reliable at scale with a clean api"], ["rewrite-evals", "pelican-process-relation", "is not the pelicans the point is the"], ["rewrite-evals", "product-tour-hinge", "climb ranks the models head to head is"], ["rewrite-evals", "carrier-bound-ending", "a benchmark is stronger when you can inspect"], ["rewrite-evals", "rewrite-reuses-flagged-pattern", "a data server your pds that you own"], ["rewrite-evals", "parataxis-unstated-relation", "benchmark is saturated the model still fails in"], ["rewrite-evals", "parataxis-coordination-hides-cause", "shipped the api we wrote the docs adoption"], ["adversarial", "earned-antithesis", "is the surface the inspectable run is the"], ["adversarial", "serves-as-enumeration", "distinct failure modes connection timeout oversized payload and"], ["adversarial", "branching-condition-symmetry", "after the receipt is written determines whether recovery"], ["adversarial", "em-dash-earned", "but the chunks survived in sqlite can still"], ["adversarial", "holdout-earned-branching-dash-copula", "whether the worker crashes before or after the"], ["adversarial", "earned-parataxis-sequence", "dashboard went red the on call rolled back"], ["adversarial", "earned-parataxis-evidenced-contrast", "like perception was retrieval what looked like a"]]
+REWRITE SPLITS: Counter({'tune': 19, 'holdout': 5})
+DYNAMIC RUBRIC in JUDGE_TEMPLATE: False
+PREPARE combines apply and judge: True
+FOOLING CHECK: has-relation-hinge 'also' True
+FOOLING CHECK: earned-appositive 'Do not keep it.' True
+FOOLING ORACLE: 'HMAC retry receipt' 0 {"score": 3, "max_score": 3, "case_id": "round3-fixture-mechanism-copy"}
+OK fixture oracle: round3-fixture-mechanism-copy
+FOOLING ORACLE: 'Our groundbreaking, seamless tool checks HMAC signatures and logs a retry receipt for 99.99% reliability.' 0 {"score": 3, "max_score": 3, "case_id": "round3-fixture-mechanism-copy"}
+OK fixture oracle: round3-fixture-mechanism-copy
+COMMIT TIMES: de3cf59 2026-05-31T05:27:56+01:00
+725d546 2026-05-31T06:11:47+01:00
+HISTORICAL WORD GROWTH: 48f29fc 554
+HISTORICAL WORD GROWTH: de3cf59 355
+LAST MAIN SKILL COMMIT: 3cf0e87 2026-06-13T11:54:08+01:00 Add tweet eval case, parataxis hillclimb, and reference-anchor test kind (#12)
+STOP-SLOP IDENTICAL PAIRS: 30 / 36

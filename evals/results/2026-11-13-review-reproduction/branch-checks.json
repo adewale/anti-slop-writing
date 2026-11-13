@@ -1,0 +1,65 @@
+[
+  {
+    "branch": "agent/upgrade-ruff-0.16",
+    "ahead": 1,
+    "cherry_minus": 1,
+    "cherry_plus": 0,
+    "added_files": 2,
+    "identical_added_files": 1,
+    "passes_deletion_check": true
+  },
+  {
+    "branch": "ci/no-extra-cost-optimisations-20261102",
+    "ahead": 1,
+    "cherry_minus": 1,
+    "cherry_plus": 0,
+    "added_files": 0,
+    "identical_added_files": 0,
+    "passes_deletion_check": true
+  },
+  {
+    "branch": "codex/pin-github-actions-2026-11-05",
+    "ahead": 1,
+    "cherry_minus": 1,
+    "cherry_plus": 0,
+    "added_files": 2,
+    "identical_added_files": 2,
+    "passes_deletion_check": true
+  },
+  {
+    "branch": "claude/stop-slop-review-61fuj1",
+    "ahead": 4,
+    "cherry_minus": 0,
+    "cherry_plus": 4,
+    "added_files": 105,
+    "identical_added_files": 104,
+    "passes_deletion_check": false
+  },
+  {
+    "branch": "claude/tweet-audit-l4yq2z",
+    "ahead": 5,
+    "cherry_minus": 0,
+    "cherry_plus": 5,
+    "added_files": 40,
+    "identical_added_files": 40,
+    "passes_deletion_check": true
+  },
+  {
+    "branch": "claude/test-audit-campaign",
+    "ahead": 0,
+    "cherry_minus": 0,
+    "cherry_plus": 0,
+    "added_files": 0,
+    "identical_added_files": 0,
+    "passes_deletion_check": true
+  },
+  {
+    "branch": "claude/verification-audit-fixes",
+    "ahead": 0,
+    "cherry_minus": 0,
+    "cherry_plus": 0,
+    "added_files": 0,
+    "identical_added_files": 0,
+    "passes_deletion_check": true
+  }
+]

@@ -1,0 +1,37 @@
+ok   neg-earned-antithesis-archive: pass example keep-earned.md passes
+ok   neg-earned-antithesis-archive: fail example revise-earned.md fails keeps-earned-antithesis, no-revise-verdict
+ok   neg-earned-antithesis-archive: fail example hedged-earned.md fails no-revise-verdict
+ok   neg-earned-antithesis-archive: fail example no-verdict-earned.md fails keeps-earned-antithesis
+ok   neg-earned-antithesis-bridge: pass example keep-earned.md passes
+ok   neg-earned-antithesis-bridge: fail example revise-earned.md fails keeps-earned-antithesis, no-revise-verdict
+ok   neg-earned-antithesis-bridge: fail example hedged-earned.md fails no-revise-verdict
+ok   neg-earned-antithesis-bridge: fail example no-verdict-earned.md fails keeps-earned-antithesis
+ok   neg-earned-antithesis-growth: pass example keep-earned.md passes
+ok   neg-earned-antithesis-growth: fail example revise-earned.md fails keeps-earned-antithesis, no-revise-verdict
+ok   neg-earned-antithesis-growth: fail example hedged-earned.md fails no-revise-verdict
+ok   neg-earned-antithesis-growth: fail example no-verdict-earned.md fails keeps-earned-antithesis
+ok   neg-earned-antithesis-syllabus: pass example keep-earned.md passes
+ok   neg-earned-antithesis-syllabus: fail example revise-earned.md fails keeps-earned-antithesis, no-revise-verdict
+ok   neg-earned-antithesis-syllabus: fail example hedged-earned.md fails no-revise-verdict
+ok   neg-earned-antithesis-syllabus: fail example no-verdict-earned.md fails keeps-earned-antithesis
+ok   neg-earned-antithesis-translation: pass example keep-earned.md passes
+ok   neg-earned-antithesis-translation: fail example revise-earned.md fails keeps-earned-antithesis, no-revise-verdict
+ok   neg-earned-antithesis-translation: fail example hedged-earned.md fails no-revise-verdict
+ok   neg-earned-antithesis-translation: fail example no-verdict-earned.md fails keeps-earned-antithesis
+ok   neg-earned-antithesis-fence: pass example keep-earned.md passes
+ok   neg-earned-antithesis-fence: fail example revise-earned.md fails keeps-earned-antithesis, no-revise-verdict
+ok   neg-earned-antithesis-fence: fail example hedged-earned.md fails no-revise-verdict
+ok   neg-earned-antithesis-fence: fail example no-verdict-earned.md fails keeps-earned-antithesis
+ok   pos-decorative-antithesis-readme: pass example revise-decorative.md passes
+ok   pos-decorative-antithesis-readme: fail example keep-decorative.md fails no-keep-verdict, revises-decorative-antithesis
+ok   pos-decorative-antithesis-readme: fail example no-verdict-earned.md fails revises-decorative-antithesis
+ok   pos-decorative-antithesis-changelog: pass example revise-decorative.md passes
+ok   pos-decorative-antithesis-changelog: fail example keep-decorative.md fails no-keep-verdict, revises-decorative-antithesis
+ok   pos-decorative-antithesis-changelog: fail example no-verdict-earned.md fails revises-decorative-antithesis
+ok   pos-relation-hinge: pass example hinge-good.md passes
+ok   pos-relation-hinge: pass example hinge-near.md passes
+ok   pos-relation-hinge: fail example hinge-bad.md fails has-relation-hinge
+ok   neg-earned-em-dash: pass example appositive-good.md passes
+ok   neg-earned-em-dash: pass example appositive-near.md passes
+ok   neg-earned-em-dash: fail example appositive-bad.md fails earned-appositive, no-conflicting-revision
+OK: 36 example gradings behaved as declared

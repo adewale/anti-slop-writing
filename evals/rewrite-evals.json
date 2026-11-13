@@ -6,88 +6,104 @@
     {
       "id": "durable-execution-mechanism",
       "split": "tune",
-      "prompt": "Rewrite without AI slop: This underscores the importance of durable execution in modern software systems.",
-      "expected_output": "A concrete sentence about resumable execution, retries, checkpoints, receipts, or equivalent mechanism.",
+      "prompt": "Review and rewrite this export-tool claim: Reliable batch processing represents a cornerstone of data operations.",
+      "expected_output": "Replaces the importance claim with the supplied batch-save and restart behavior, without adding guarantees.",
       "assertions": [
-        "Removes 'underscores the importance' or equivalent inflated framing.",
-        "Includes a concrete durability mechanism such as retry, checkpoint, idempotency, receipt, lease, or resume.",
-        "Does not replace the phrase with another abstraction like 'critical capability' or 'robust foundation'."
+        "Flags the unsupported cornerstone/importance framing.",
+        "Describes the saved batch number and where processing resumes after a crash.",
+        "Adds no new guarantees, tools, numbers, or performance claims.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
           "name": "specificity",
           "scale": "1-5",
-          "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement."
+          "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         },
         {
           "name": "length-control",
           "scale": "1-5",
           "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
         }
+      ],
+      "facts": [
+        "The exporter saves the number of the most recently completed batch.",
+        "After a crash, restarting the exporter begins with the next batch; completed batches remain on disk."
       ]
     },
     {
       "id": "pelican-process-relation",
       "split": "tune",
-      "prompt": "Rewrite by replacing rhythm with relation: The point is not the pelicans. The point is the process.",
-      "expected_output": "A sentence that explains how the pelican example carries or exposes the process.",
+      "prompt": "Rewrite this unsupported closer, or ask for the missing relation: The point is not the harbor map. The point is the drill.",
+      "expected_output": "An explicit question about the map-to-drill relation, or a cut recommendation.",
       "assertions": [
-        "Removes or reduces the 'Not X. Y.' cadence.",
-        "Names the relation between the pelican and the process.",
-        "Keeps the concrete carrier instead of jumping to a generic process claim."
+        "Removes the empty two-part contrast.",
+        "Asks which part of the drill the map demonstrates, or recommends cutting.",
+        "Does not invent a relationship between the map and drill.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
           "name": "relation-clarity",
           "scale": "1-5",
-          "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation."
+          "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "product-tour-hinge",
       "split": "tune",
-      "prompt": "Rewrite this list-like section into one flowing transition:\n\nThe Climb ranks the models.\n\nHead-to-Head is a filmstrip viewer.\n\nRunbook Diffs compares versions.",
-      "expected_output": "A transition that names the shared inspection levels or resolutions.",
+      "prompt": "Turn this list-like tool description into a connected explanation:\n\nRoster lists active shifts.\n\nIncident Panel opens one alert.\n\nRevision Log compares alert-rule versions.",
+      "expected_output": "Connects on-call staffing, an individual alert, and changes to its rule without inventing an automated workflow.",
       "assertions": [
-        "Introduces a relation such as levels, resolutions, or inspection depth.",
-        "Preserves the three product surfaces and their distinct jobs.",
-        "Avoids turning the rewrite into marketing claims about seamless workflows or powerful insights."
+        "Recognizes or repairs the list-like sequence.",
+        "Connects staffing, one alert, and changes to its rule using the supplied facts.",
+        "Preserves the distinct jobs of Roster, Incident Panel, and Revision Log without inventing automation.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "facts": [
+        "These views support on-call alert response.",
+        "Roster establishes who is on call; Incident Panel shows an individual alert; Revision Log shows changes to its alert rule."
       ]
     },
     {
       "id": "safe-essay-cut-or-concretize",
       "split": "tune",
-      "prompt": "Rewrite or cut: In today's rapidly evolving landscape, teams need robust solutions that empower developers to build seamless experiences.",
-      "expected_output": "Either a concrete capability sentence or a recommendation to cut because no evidence is present.",
+      "prompt": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.",
+      "expected_output": "Flags inflated framing and asks for the missing offering, actor, and result, or cuts the sentence.",
       "assertions": [
-        "Removes landscape framing and vague empowerment language.",
-        "Names a concrete actor/action/result if rewriting.",
-        "Does not preserve unsupported claims of robustness or seamlessness."
-      ]
+        "Removes the era/disruption framing.",
+        "Asks for the offering, actor, or concrete result, or recommends cutting.",
+        "Invents no product capability or benefit.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "facts": []
     },
     {
       "id": "carrier-bound-ending",
       "split": "tune",
-      "prompt": "Rewrite this ending so it returns to the concrete example:\n\nA benchmark is stronger when you can inspect the run that produced it.",
-      "expected_output": "A carrier-bound conclusion using the pelican project or another supplied concrete carrier.",
+      "prompt": "Tighten the final sentence using the example already supplied: The replay bundle holds shell commands and the resulting map. A reader can rerun those commands and compare maps. This is why reproducibility is essential.",
+      "expected_output": "Returns to rerunning and comparing the supplied map, or cuts the redundant final claim.",
       "assertions": [
-        "Does not merely restate the thesis.",
-        "Uses a concrete carrier with inspectable properties.",
-        "Names why the carrier helps the larger claim travel."
-      ]
+        "Removes the generic essential/reproducibility closer.",
+        "Uses the map and recorded commands as the supplied concrete example, or cuts the redundant closer.",
+        "Does not invent a different project or artifact.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "facts": []
     },
     {
       "id": "rewrite-reuses-flagged-pattern",
       "split": "tune",
-      "prompt": "Review this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nIn March I attended ATmosphere in Vancouver, a conference organized around ATproto, the open protocol that powers Bluesky. I was an early investor in Bluesky, and I backed it because I was excited about the protocol underneath, not just the app. What I didn't fully anticipate was the community that would grow up around ATproto independent of Bluesky itself. ATmosphere made that visible.\n\nThe community is unusually authentic. Developers, researchers, artists, people just interested in what the internet could be. Not trying to build the next ad platform. Trying to figure out what good social infrastructure actually looks like.\n\nATproto lets you store structured records in a data server (your PDS) that you own and can move. That's not incidental. It's the design.",
-      "expected_output": "A per-item critique using the format from SKILL.md. The review should not invent specific people, projects, or events at ATmosphere (the post does not list any). For 'That's not incidental. It's the design.', the review should weigh the prior sentence (which supplies the mechanism of PDS ownership/movability) when classifying the antithesis. Any Concrete rewrite should not reuse the source's X-not-Y / em-dash-antithesis cadence for decorative effect. Any `ask-author` fallback must also pass the same detectors.",
+      "prompt": "Review this draft in the Critique output format. It describes a personal site.\n\nThe visitors were remarkably authentic. Makers, teachers, people curious about publishing. Their interest was beyond commerce. It was about community.\n\nThe site stores articles in a repository that the owner can copy to another host. That portability was no accident. It was the plan.",
+      "expected_output": "Asks for evidence of the community characterization and design intent, and preserves only supplied portability facts.",
       "assertions": [
-        "Does not invent specific people, projects, or events at the ATmosphere conference (for example, a named PDS operator count, a labeler experiment topic, a feed-generator timeline) that the source paragraph does not contain.",
-        "For the line 'That's not incidental. It's the design.', applies the Staccato contrast test honestly: the prior sentence evidences movability ('you own and can move') but does not evidence intentionality, so only one side of the contrast is supported. The verdict is therefore `revise` (compressed antithesis) with a rewrite that names what makes portability the design, or `ask-author` if the design rationale would have to be invented. A `keep` verdict on this line is wrong because the intentionality side is unsupported.",
-        "Any Concrete rewrite for the 'community is unusually authentic' paragraph does not name specific projects or counts (number of friends, type of experiment, duration of a build) absent from the source.",
-        "Does not produce any Concrete rewrite of the form 'X is the design, not Y' or 'X, not Y' that reproduces the flagged cadence under different words.",
-        "Any `ask-author` fallback rewrite for the 'community is unusually authentic' paragraph does not itself invent topic pairs (for example, 'portability and moderation tooling, not growth loops or ad inventory') or use X-not-Y cadence."
+        "Does not invent participants, events, projects, or counts.",
+        "Recognizes that copying articles establishes portability but does not establish intent; asks for that evidence or cuts the intent claim.",
+        "Does not reuse an unsupported short contrast as the repair.",
+        "Any fallback stays within the supplied site and portability facts.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -100,7 +116,8 @@
           "scale": "1-5",
           "rubric": "5 = Rewrite check catches or avoids X-not-Y, dash antithesis, invented facts; 1 = rewrite repeats flagged cadence without self-check."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "rewrite-asks-or-cuts-when-fact-missing",
@@ -112,7 +129,8 @@
         "For the topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.', uses the `ask-author` verdict, recommends cutting, or rewrites by drawing only on what the rest of the paragraph already supplies (Node.js, Satori, sidecar file).",
         "Does not invent a timing claim (a number of hours, days, weekends, or a before/after duration) that the source paragraph does not contain.",
         "Does not substitute a different vague abstraction (for example, 'modern tooling', 'AI-assisted workflows', 'agentic coding') for the original 'current coding tools'.",
-        "Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics."
+        "Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -125,19 +143,21 @@
           "scale": "1-5",
           "rubric": "5 = fallback has no invented specifics or flagged cadence; 1 = fallback repeats the failure."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "rewrite-passes-own-slop-detectors",
       "split": "tune",
       "prompt": "Review this paragraph (the ending of the same Joe Beda post) using the Critique output format. The post fails the Conclusion test: it ends on a colophon and license line without returning to the concrete carrier the title set up ('a URL I own'). Pay attention to the requirement that any Concrete rewrite must itself pass the same detectors as the source, including the Avoid-by-default phrases list and the rule-of-three / em-dash / decorative-closure patterns.\n\nThere's a colophon page that documents everything: fonts, colors, cover image spec, how the ATproto pipeline works. It's an old web tradition I'm glad to revive. The source is also on GitHub, dual-licensed: infrastructure under CC0, content under CC BY-NC-ND 4.0.",
-      "expected_output": "A per-item critique using the format from SKILL.md. If the review proposes a carrier-bound closing rewrite (returning to 'a URL I own', this blog post as a PDS record, or the standard.site stack), the rewrite must itself pass the doctrine. It must not end with decorative closure ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps'), must not stack an em-dash rule-of-three list as a closer, and must not invent infrastructure or claims absent from the post. The `Rewrite check` field should appear and should either confirm the rewrite passes the detectors or name the detector it fails.",
+      "expected_output": "Proposes a closing rewrite grounded only in the supplied title (a URL I own), colophon, and source/license facts. Avoids decorative closure and invented infrastructure; no named template field is required.",
       "assertions": [
         "No Concrete rewrite ends on a banned decorative closure phrase ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps').",
         "No Concrete rewrite uses an em-dash rule-of-three list as a final closer (for example, '— Hugo, standard.site, my PDS —' followed by a summary sentence).",
-        "The `Rewrite check` field is present on at least one item where a Concrete rewrite is produced, and either confirms the rewrite passes the self-detectors or names the failed detector and offers a second pass.",
-        "Any carrier-bound rewrite draws its carrier (the URL, the PDS record, the colophon, the standard.site stack) from the source rather than inventing a new stack element.",
-        "Any rule-of-three or parenthetical-example list in a rewrite contains only items the source paragraph or the larger post actually contains; it does not invent additional list members."
+        "The rewrite or fallback avoids invented facts and the cadence criticized in the source; no named output field is required.",
+        "Any closing rewrite uses only the supplied URL title, colophon, GitHub source, and license details; invents no PDS, standard.site, or other stack element.",
+        "Every list item in a rewrite comes from the supplied paragraph or title; no unseen larger post may be treated as evidence.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -145,7 +165,8 @@
           "scale": "1-5",
           "rubric": "5 = Rewrite check explicitly audits the produced rewrite and fixes any failed detector; 1 = no self-audit or decorative closer remains."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "multi-issue-output-manifest",
@@ -155,19 +176,22 @@
       "assertions": [
         "Addresses both input lines rather than only the first or a general summary.",
         "For line 1, removes inflated importance/robust-experience language and asks for or supplies a concrete mechanism.",
-        "For line 2, classifies the contrast as compressed or decorative unless context earns it and rewrites by naming the dashboard-to-insight relation.",
-        "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing."
-      ]
+        "For line 2, flags the unsupported contrast and asks how the dashboard yields insight, or cuts; does not invent that relation.",
+        "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "facts": []
     },
     {
       "id": "fake-precision-rewrite-finance",
       "split": "holdout",
       "prompt": "Rewrite this without preserving unsupported precision: Our risk model improves portfolio outcomes by 18.4% on average across most institutional clients.",
-      "expected_output": "A rewrite that either names the source, baseline, time window, and population, or removes the unsupported number and states the effect qualitatively.",
+      "expected_output": "Asks for source, baseline, and population, or cuts the unsupported outcome claim. A vague unmeasured improvement is still unsupported.",
       "assertions": [
-        "Removes the 18.4% figure unless the rewrite immediately names source, baseline, and population.",
-        "Replaces 'most institutional clients' with a specific population or removes the quantifier.",
-        "Does not substitute another bare number or a vaguer prestige phrase."
+        "Asks for the provenance of 18.4% or removes the unsupported outcome claim; does not retain it as an established fact.",
+        "Asks which population was measured or removes the unsupported most-clients claim; invents no population.",
+        "Does not substitute another bare number or a vaguer prestige phrase.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "dynamic_rubric": {
         "instruction": "Before grading, draft 3-5 case-specific criteria from the brief above. Sample criteria: provenance named, baseline stated, population specified, time window given, alternative-cause acknowledged.",
@@ -184,7 +208,8 @@
           "scale": "1-5",
           "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "product-tour-rewrite-developer-tools",
@@ -194,7 +219,8 @@
       "assertions": [
         "Names the shared object the three surfaces operate on (the event stream).",
         "Identifies the relation: capture, re-execution, ordering — or equivalent.",
-        "Does not preserve the bullet-or-paragraph product-tour cadence."
+        "Does not preserve the bullet-or-paragraph product-tour cadence.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "dynamic_rubric": {
         "instruction": "Generate 3-5 per-instance criteria. Sample: shared object named, relation type identified, hinge sentence supplied, no marketing fog introduced, three surfaces still distinguishable.",
@@ -204,18 +230,20 @@
         {
           "name": "relation-clarity",
           "scale": "1-5",
-          "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list."
+          "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "emphasis-source-flatten",
       "prompt": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.",
-      "expected_output": "A sentence whose emphasis comes from a named mechanism rather than from the not-just-X-but-Y rhythm.",
+      "expected_output": "Removes the borrowed cadence and asks for the missing durability mechanism or cuts the ungrounded claim.",
       "assertions": [
         "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
-        "Names a concrete durable-execution mechanism (step-level retry, preserved outputs, recorded state, resumable workflow, or equivalent) so the emphasis comes from the idea.",
-        "Does not substitute another inflated abstraction such as 'paradigm shift', 'fundamental rethink', or 'new way of thinking'."
+        "Uses only supplied durability facts, or asks for the missing mechanism or recommends cutting; does not invent a workflow.",
+        "Does not substitute another inflated abstraction such as 'paradigm shift', 'fundamental rethink', or 'new way of thinking'.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "split": "tune",
       "graded_dimensions": [
@@ -229,17 +257,19 @@
           "scale": "1-5",
           "rubric": "5 = concrete step-level retry/preserved-output/state/resume mechanism; 1 = prestige abstraction."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "copula-displacement-to-is",
       "split": "tune",
       "prompt": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.",
-      "expected_output": "A rewrite that uses plain 'is' or a specific action verb in place of 'serves as' and 'represents', and that names the concrete coordination job.",
+      "expected_output": "Uses a plain copula within the supplied description, or asks for the concrete coordination job or cuts.",
       "assertions": [
         "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb describing what the library actually does.",
-        "Names the concrete coordination job (for example: leasing, queueing, routing, leader election, fanout) rather than 'key piece of infrastructure'.",
-        "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'."
+        "Asks what coordination job the library performs, keeps only the supplied description, or cuts; does not invent leasing, routing, or another concrete job.",
+        "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -247,17 +277,19 @@
           "scale": "1-5",
           "rubric": "5 = specific action verb and coordination mechanism; 3 = plain copula with partial detail; 1 = new prestige verb."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "hedged-symmetry-commit",
       "split": "tune",
       "prompt": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.",
-      "expected_output": "A rewrite that picks a specific reader, names the actual tradeoff between speed and correctness, and drops the symmetric hedge.",
+      "expected_output": "Removes the all-readers hedge and asks which reader and speed/correctness tradeoff the facts support, or cuts.",
       "assertions": [
         "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
-        "Commits to a concrete tradeoff, for example by saying which to prioritize when speed and correctness conflict, or by naming the specific case where the linter helps most.",
-        "Names a specific reader or use case rather than addressing every possible reader at once."
+        "Asks which priority or tradeoff is supported, or cuts the claim; does not invent linter behavior.",
+        "Asks which reader or use case the source supports, or cuts; does not assert a new target reader.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -265,17 +297,19 @@
           "scale": "1-5",
           "rubric": "5 = clear priority/use case; 3 = weaker but less symmetric; 1 = both-sides hedge remains."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "outline-conclusion-carrier-bound",
       "split": "tune",
       "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.",
-      "expected_output": "A carrier-bound conclusion that names a specific challenge, a specific concrete project or run, and a specific next step or claim.",
+      "expected_output": "Cuts the unsupported conclusion or asks for its challenge, concrete example, and next step; invents none.",
       "assertions": [
         "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
-        "Names a specific challenge the platform actually faces or a specific concrete carrier (a run, a feature, a customer outcome) rather than 'ongoing challenges in the landscape'.",
-        "Replaces 'pivotal role' with a concrete claim about what durable execution does in a named workflow."
+        "Asks for a documented challenge or example, or cuts; invents no customer, feature, or result.",
+        "Asks which workflow and durability behavior are supported, or cuts; invents no workflow.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -283,7 +317,8 @@
           "scale": "1-5",
           "rubric": "5 = named challenge/carrier/next step; 3 = one concrete element; 1 = outline template remains."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "holdout-ask-author-ai-tooling",
@@ -294,7 +329,8 @@
         "Does not name a specific assistant or model because the source paragraph does not provide one.",
         "Treats 'quarter-long' and 'one-week' as unsupported unless source/provenance is named, and either asks for the measurement or removes the timing claim.",
         "Uses `ask-author` or a cut/qualified rewrite for the missing tool and timing facts rather than filling the Concrete rewrite slot with confident specifics.",
-        "Includes a `Rewrite check` that audits the rewrite or fallback for invented facts and reused cadence."
+        "The rewrite or fallback avoids invented facts and the cadence criticized in the source; no named output field is required.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -307,7 +343,8 @@
           "scale": "1-5",
           "rubric": "5 = Rewrite check explicitly covers invented facts and cadence; 1 = absent or false pass."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "tweet-taste-as-model",
@@ -319,7 +356,8 @@
         "Flags that the central 'taste is a model you train' framing is asserted rather than demonstrated by the chess/Fermi/Tetlock anecdotes, and explicitly marks the fast-to-slow-feedback transfer ('the judgment transfers upward') as a chosen bet or open question rather than a proven result.",
         "Preserves the concrete carriers (de Groot / Chase-Simon, Fermi at Trinity, Tetlock / Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton / Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
         "Introduces no studies, names, or numbers absent from the source, and does not upgrade Fermi's crude estimate (~10 kt vs ~20 kt actual) into a precision win.",
-        "The critique's own Concrete rewrite passes the skill's self-detectors: it does not reproduce decorative em-dash antithesis, an 'X is the design, not Y' / 'X, not Y' closer, a rule-of-three substituting for relation, or banned avoid-by-default phrases."
+        "The critique's own Concrete rewrite passes the skill's self-detectors: it does not reproduce decorative em-dash antithesis, an 'X is the design, not Y' / 'X, not Y' closer, a rule-of-three substituting for relation, or banned avoid-by-default phrases.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -337,7 +375,8 @@
           "scale": "1-5",
           "rubric": "5 = all real anecdotes preserved and accurate, no invented facts, Fermi estimate not overstated; 3 = minor drift or one softened-but-imprecise claim; 1 = invents a study/number or overstates a source."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "parataxis-pervasive-closers",
@@ -348,7 +387,8 @@
         "Identifies that every paragraph leans on the same paratactic two-part contrast as its closer (a document-level over-reliance), not merely that one isolated line is short.",
         "Converts at least two of the closers into a construction that names the relation with a connective or subordinate clause (because, although, even though, yet, so, which means) instead of leaving the relation implied by juxtaposition.",
         "Does not subordinate every line into one identical connective shape; preserves rhythm variety and may keep one genuinely earned contrast.",
-        "The rewrite does not reproduce the flagged 'X. Y.' paratactic-antithesis cadence under new words."
+        "The rewrite does not reproduce the flagged 'X. Y.' paratactic-antithesis cadence under new words.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -359,46 +399,51 @@
         {
           "name": "relation-clarity",
           "scale": "1-5",
-          "rubric": "5 = the rewritten closers state cause/contrast/consequence explicitly; 1 = relations remain implied by juxtaposition."
+          "rubric": "5 = the rewritten closers state cause/contrast/consequence explicitly; 1 = relations remain implied by juxtaposition. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "parataxis-unstated-relation",
       "split": "tune",
-      "prompt": "Rewrite this line so the relation between the two statements is explicit: The benchmark is saturated. The model still fails in production.",
-      "expected_output": "A rewrite that names the contrast-plus-consequence relation with hypotaxis (for example 'Although the benchmark is saturated, the model still fails in production, which means the benchmark no longer measures what ships'), rather than preserving the bare juxtaposition.",
+      "prompt": "Rewrite to state the contrast: The staging test passed. The customer deployment failed.",
+      "expected_output": "Connects the passing staging test with the failed customer deployment using a contrast; invents no cause or reliability conclusion.",
       "assertions": [
         "Identifies that the two sentences are placed side by side with the relation (contrast and/or consequence) left unstated.",
         "Rewrites with an explicit connective or subordinate clause (although, yet, because, so, which means) that names the relation.",
         "Does not preserve the bare two-sentence juxtaposition or swap it for another equally relation-free pair.",
-        "Does not invent a specific cause, metric, or product detail the prompt does not supply."
+        "Does not invent a specific cause, metric, or product detail the prompt does not supply.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
           "name": "relation-clarity",
           "scale": "1-5",
-          "rubric": "5 = relation named explicitly and correctly (contrast + consequence); 3 = a connective added but the relation stays vague; 1 = juxtaposition preserved."
+          "rubric": "5 = relation named explicitly and correctly (contrast + consequence); 3 = a connective added but the relation stays vague; 1 = juxtaposition preserved. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "parataxis-coordination-hides-cause",
       "split": "tune",
-      "prompt": "Tighten without losing the point: We shipped the API. We wrote the docs. Adoption stalled.",
-      "expected_output": "A rewrite that surfaces the implied contrast (the obvious work was done, yet adoption stalled, so the cause lies elsewhere) using subordination or a connective, without inventing the actual cause.",
+      "prompt": "Tighten this without inventing a cause: We opened the help desk. We published the hours. Nobody came.",
+      "expected_output": "Connects opening and publicizing the help desk with the lack of visitors; invents no explanation for the absence.",
       "assertions": [
-        "Recognizes that the three side-by-side statements imply a contrast or causal relation (effort done versus adoption stalled) that is left unstated.",
+        "Recognizes the contrast between opening/publicizing the help desk and nobody coming.",
         "Names the relation with subordination or a connective (although, even though, yet, so) rather than leaving three flat coordinate clauses.",
-        "Does not invent a specific cause for the stalled adoption that the prompt does not supply; keeps the unknown as unknown or flags it as a question."
+        "Does not invent a reason nobody came; keeps the cause unknown or asks for it.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
           "name": "relation-clarity",
           "scale": "1-5",
-          "rubric": "5 = the effort-versus-stall contrast is named and the cause is left honestly open; 3 = relation partly named; 1 = flat coordination preserved or a cause invented."
+          "rubric": "5 = the effort-versus-stall contrast is named and the cause is left honestly open; 3 = relation partly named; 1 = flat coordination preserved or a cause invented. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "parataxis-chained-and",
@@ -408,15 +453,17 @@
       "assertions": [
         "Identifies the chained 'and' coordination as parataxis that flattens a sequence and buries the final clause's contrast.",
         "Rewrites so the final clause's relation (contrast or consequence) is marked with a connective or subordination (yet, but, so, once, because) rather than another 'and'.",
-        "Preserves the concrete steps (pull data, clean rows, train model, ship weights) and does not invent a specific mechanism (such as a named missing checkpoint) unless it is flagged as a hypothesis."
+        "Preserves the concrete steps (pull data, clean rows, train model, ship weights) and does not invent a specific mechanism (such as a named missing checkpoint) unless it is flagged as a hypothesis.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
           "name": "relation-clarity",
           "scale": "1-5",
-          "rubric": "5 = the buried contrast is surfaced with a connective and the steps are preserved; 3 = partly de-chained; 1 = still a flat 'and' chain or steps lost."
+          "rubric": "5 = the buried contrast is surfaced with a connective and the steps are preserved; 3 = partly de-chained; 1 = still a flat 'and' chain or steps lost. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         }
-      ]
+      ],
+      "facts": []
     },
     {
       "id": "parataxis-earned-but-pervasive",
@@ -427,7 +474,8 @@
         "Acknowledges that each closer is individually earned: the preceding sentences in its own section evidence both sides of the contrast (the before/after numbers), so no single closer is decorative or compressed.",
         "Flags the document-level over-reliance: the same paratactic 'X was the problem. Y was the fix.' antithesis closes every one of the four sections, so the passage leans on repeated rhythm even though each instance passes a per-sentence test.",
         "Recommends varying or converting most of the repeated closers (to a named relation, or by cutting some), keeping at most one paratactic closer, rather than keeping all four because each is individually earned.",
-        "Does not recommend deleting the earned contrasts or expanding them into bland connective-heavy prose, and does not wrongly reclassify any individual earned closer as decorative; the fix is variety/de-duplication at the document level."
+        "Does not recommend deleting the earned contrasts or expanding them into bland connective-heavy prose, and does not wrongly reclassify any individual earned closer as decorative; the fix is variety/de-duplication at the document level.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
         {
@@ -440,55 +488,8 @@
           "scale": "1-5",
           "rubric": "5 = correctly classifies each individual closer as earned by its own evidence; 3 = hedges on whether the individual lines are earned; 1 = wrongly flags an individual earned closer as decorative or guts it."
         }
-      ]
-    },
-    {
-      "id": "tweet-best-rewrite-anchor",
-      "split": "holdout",
-      "kind": "reference-anchor",
-      "prompt": "Rewrite the long-form X thread stored verbatim in evals/fixtures/tweet-taste-as-model/input.md (an essay arguing that research taste is a trainable model) using the anti-slop-writing skill. Read that file, then produce the full rewritten essay (not a critique): keep the strong concrete material and the author's voice, fix the structural weaknesses, and do not regress fidelity.",
-      "expected_output": "A full rewrite that meets or exceeds the reference floor in evals/fixtures/tweet-taste-as-model/best-rewrite.md: it marks the fast-to-slow-feedback transfer as a wager rather than a proven result, breaks the document-level parataxis density while keeping at most two genuinely earned antithesis lines, preserves all eight carriers and the write-a-numbered-prediction-then-score-it mechanism, keeps the carrier-bound ledger ending, invents no facts, and keeps Fermi's estimate honest. The stored best-rewrite.md is the worked floor; this case is a don't-regress anchor, not a doctrine-tuning case.",
-      "assertions": [
-        "Marks the fast-feedback-to-slow-feedback transfer ('the judgment transfers upward') as a wager, bet, or open question rather than asserting it as a demonstrated result.",
-        "Breaks the document-level parataxis density: does not close every section on a matched two-part antithesis, converts at least some closers to relation-naming (hypotactic) constructions, and keeps at most two genuinely earned antithesis lines.",
-        "Preserves all eight concrete carriers (de Groot/Chase-Simon, Fermi at Trinity, Tetlock/Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton/Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
-        "Introduces no studies, names, or numbers absent from the source, and keeps Fermi's estimate honest (crude / about half the actual yield) rather than presenting it as precise.",
-        "Keeps a carrier-bound ending (the ledger / 'embarrassing for six months') rather than substituting a generic thesis closer.",
-        "The rewrite's own prose passes the skill's self-detectors: no decorative em-dash clusters, no rule-of-three padding, at most one or two intentional earned antithesis lines, and no banned avoid-by-default phrases."
       ],
-      "graded_dimensions": [
-        {
-          "name": "conceit-honesty",
-          "scale": "1-5",
-          "rubric": "5 = the ML-model framing is held as an analogy and the unevidenced transfer is openly marked as a bet; 3 = the seam is acknowledged once but the prose still leans on the metaphor as proof; 1 = the transfer is asserted as a derivation."
-        },
-        {
-          "name": "parataxis-variety",
-          "scale": "1-5",
-          "rubric": "5 = section closers are varied and at most two earned antithesis lines remain; 3 = a couple softened but the matched-couplet pattern still dominates; 1 = nearly every section still closes on a matched antithesis."
-        },
-        {
-          "name": "fidelity",
-          "scale": "1-5",
-          "rubric": "5 = all eight carriers and the mechanism preserved, no invented facts, Fermi kept honest; 3 = minor drift or one imprecise claim; 1 = a carrier dropped, a fact invented, or Fermi overstated."
-        },
-        {
-          "name": "voice-preservation",
-          "scale": "1-5",
-          "rubric": "5 = keeps the author's register and strongest lines (opening, ledger ending, the earned antithesis); 3 = readable but flattened in places; 1 = blanded into safe essay voice."
-        }
-      ],
-      "reference": {
-        "original": "evals/fixtures/tweet-taste-as-model/input.md",
-        "best_rewrite": "evals/fixtures/tweet-taste-as-model/best-rewrite.md",
-        "human_review": "evals/fixtures/tweet-taste-as-model/HUMAN-REVIEW.md",
-        "model": "claude-opus-4-8",
-        "captured": "2026-06-13",
-        "reference_score": 1.0,
-        "reference_graded_score": 1.0,
-        "scorecard": "evals/results/2026-06-13-tweet-best-anchor/reference-scorecard.jsonl",
-        "protocol": "reference_score is the FLOOR, not a ceiling. Re-run the skill on `prompt` with the model/version under test; judge the candidate output against `assertions` and `graded_dimensions`; record candidate_score. The candidate must score at least reference_score (and no graded dimension below the reference); scoring below the floor is a regression to investigate. A future rewrite may also exceed the floor — raise the floor (replace best_rewrite and re-record the scorecard) only with a rewrite that scores at least as high on every assertion and dimension. Re-judge best_rewrite itself each round to catch judge drift (it should still score reference_score). Never edit doctrine to pass this holdout case; if a candidate falls below the floor, add a tune case for the next round."
-      }
+      "facts": []
     },
     {
       "id": "stopslop-thin-content-cut-or-ask",
@@ -499,11 +500,48 @@
       "assertions": [
         "Removes the throat-clearing openers ('It turns out that', 'The uncomfortable truth is that') and the hedge 'most'.",
         "Does not invent a specific cause, number, team, or mechanism the source never supplies; either keeps the plain claim or flags the missing specifics (ask-author / cut).",
-        "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence."
+        "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
       "graded_dimensions": [
-        {"name": "non-invention", "scale": "1-5", "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."},
-        {"name": "slop-removal", "scale": "1-5", "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."}
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."
+        },
+        {
+          "name": "slop-removal",
+          "scale": "1-5",
+          "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."
+        }
+      ],
+      "facts": []
+    },
+    {
+      "id": "holdout-alert-triage-transfer",
+      "split": "holdout",
+      "prompt": "Rewrite the practice-inbox essay in evals/fixtures/alert-triage-transfer/input.md. Preserve its factual limits and first-person voice, repair unsupported reasoning, and vary repetitive section endings. Produce the revised essay.",
+      "facts": [],
+      "expected_output": "Keeps the twelve-ticket, one-pass practice and both ticket examples; marks transfer to live incidents as untested; varies closers and ends on the notebook comparison.",
+      "assertions": [
+        "Preserves twelve tickets and one completed pass without inventing success rates.",
+        "Preserves the upload/body-limit and blank-page/blocked-script examples and their original guesses.",
+        "Treats transfer to live incidents as untested because no live-incident measurements exist.",
+        "Varies or removes repeated two-part metaphor closers and the engineering-excellence ending.",
+        "Ends using the dated notebook and ticket-resolution comparison, or another supplied concrete detail.",
+        "Introduces no fact absent from the source and facts block."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "fidelity",
+          "scale": "1-5",
+          "rubric": "5 = preserves facts and uncertainty; 1 = invents a measured transfer result."
+        },
+        {
+          "name": "structure",
+          "scale": "1-5",
+          "rubric": "5 = varied closers and source-grounded ending; 1 = repeated decorative closure."
+        }
       ]
     }
   ]

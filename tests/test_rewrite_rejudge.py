@@ -48,23 +48,31 @@ def build_baseline(root: Path, families: int = 6) -> Path:
                                   "trial": trial, "group": "review-rewrite"})
     (root / "cases.json").write_text(json.dumps(cases))
     (root / "manifest.json").write_text(json.dumps({"slots": slots}))
+    sb.dump(root / "scores.json", [
+        {"id": s["id"], "judge": route, **{d: 3 for d in rr.DIMENSIONS}}
+        for s in slots for route in sb.JUDGES])
     return root
 
 
 def fake_invoke(broken: set[str] = frozenset()):
     def invoke(model, prompt, effort, attempt):
         attempt.mkdir(parents=True, exist_ok=False)
+        if prompt.startswith("Audit an extraction"):
+            eid = re.search(r'with id "([0-9a-f]{24})"', prompt)[1]
+            return json.dumps({"id": eid, "checks": [
+                {"name": n, "pass": True, "evidence": "The complete proposed sentence is copied."}
+                for n in rr.AUDIT_CHECKS]}), {}
         if prompt.startswith("You are copying text"):
             eid = re.search(r'\{"id": "([0-9a-f]{24})"', prompt)[1]
             if eid in broken:
                 return json.dumps({"id": eid, "disposition": "rewrite", "spans": ["Not in the response."]}), {}
             return json.dumps({"id": eid, "disposition": "rewrite", "spans": [REWRITE]}), {}
         jid = re.search(r'with id "([0-9a-f]{24})"', prompt)[1]
-        response = prompt.split("\n\nRESPONSE:\n", 1)[1]
-        task = 5 if "CRITIQUE" in response else 3
+        response = prompt.split("\n\nRESPONSE:\n", 1)[1].split("\n\nReturn only", 1)[0]
+        task = 1 if not response.strip() else 5 if "CRITIQUE" in response else 3
         dims = [{"name": "factual_fidelity", "score": 5, "evidence": "q"},
                 {"name": "task_fulfillment", "score": task, "evidence": "q"},
-                {"name": "rewrite_quality", "score": 4, "evidence": "q"}]
+                {"name": "rewrite_quality", "score": 1 if not response.strip() else 4, "evidence": "q"}]
         return json.dumps({"id": jid, "dimensions": dims}), {}
     return invoke
 
@@ -139,6 +147,30 @@ class Prompts(unittest.TestCase):
             rr.validate_judgment({"id": "j", "dimensions": [dims[0] | {"score": 6}, *dims[1:]]}, "j")
 
 
+class AuditAndInterpretation(unittest.TestCase):
+    def test_audit_requires_every_boolean_check_and_evidence(self) -> None:
+        checks = [{"name": n, "pass": True, "evidence": "Copied in full."} for n in rr.AUDIT_CHECKS]
+        self.assertTrue(rr.validate_audit({"id": "a", "checks": checks}, "a"))
+        with self.assertRaises(ValueError):
+            rr.validate_audit({"id": "a", "checks": checks[:-1]}, "a")
+        with self.assertRaises(ValueError):
+            rr.validate_audit({"id": "a", "checks": [checks[0] | {"pass": 1}, *checks[1:]]}, "a")
+        self.assertFalse(rr.validate_audit({"id": "a", "checks": [checks[0] | {"pass": False}, *checks[1:]]}, "a"))
+
+    def test_zero_crossing_interval_is_not_equivalence(self) -> None:
+        uncertain = {"deliverable": {"ci95": [-0.1, 0.4]}, "view_attenuation": {"ci95": [0.1, 0.5]}}
+        self.assertEqual(rr.interpret([uncertain, uncertain]), "attenuated; deliverable benefit uncertain")
+        positive = {"deliverable": {"ci95": [0.1, 0.4]}, "view_attenuation": {"ci95": [-0.1, 0.5]}}
+        self.assertEqual(rr.interpret([positive, positive]), "positive under both judges")
+        self.assertEqual(rr.interpret([positive, uncertain]), "mixed or uncertain")
+
+    def test_audit_prompt_requires_preserved_qualifications(self) -> None:
+        prompt = rr.audit_prompt("Rewrite this: X", "If confirmed: X", {"disposition": "rewrite", "deliverable": "X"}, "a")
+        self.assertIn("If confirmed: X", prompt)
+        self.assertIn("qualification_preservation", prompt)
+        self.assertNotIn("no-skill", prompt)
+
+
 class Pipeline(unittest.TestCase):
     def setUp(self) -> None:
         tmp = tempfile.TemporaryDirectory()
@@ -153,10 +185,11 @@ class Pipeline(unittest.TestCase):
         manifest = rr.prepare(self.baseline, self.dest)
         sb.invoke = fake_invoke(broken)
         rr.extract(self.baseline, self.dest, workers=4)
+        rr.audit(self.baseline, self.dest, workers=4)
         rr.judge(self.baseline, self.dest, workers=4)
         return manifest, rr.analyze(self.baseline, self.dest)
 
-    def test_critique_driven_advantage_is_attributed_to_the_critique(self) -> None:
+    def test_view_sensitivity_and_prompt_shift_are_measured_separately(self) -> None:
         manifest, summary = self.run_all()
         self.assertNotIn("review-only", manifest["scope"])
         self.assertEqual(len(manifest["outputs"]), 6 * 2 * 2 * sb.TRIALS)
@@ -166,7 +199,9 @@ class Pipeline(unittest.TestCase):
                     and r["split"] == "all" and r["apply_model"] == "sonnet" and r["judge"] == "opus")
         self.assertAlmostEqual(task["full"]["delta"], 0.5)
         self.assertAlmostEqual(task["deliverable"]["delta"], 0.0)
-        self.assertAlmostEqual(task["critique_share"]["delta"], 0.5)
+        self.assertAlmostEqual(task["view_attenuation"]["delta"], 0.5)
+        self.assertAlmostEqual(task["original_full"]["delta"], 0.0)
+        self.assertAlmostEqual(task["prompt_shift"]["delta"], 0.5)
         self.assertEqual(summary["extractor_reliability"]["exact_rate"], 1.0)
 
     def test_failed_extraction_excludes_the_case_from_both_views(self) -> None:
@@ -174,10 +209,62 @@ class Pipeline(unittest.TestCase):
         target = next(o for o in manifest["outputs"] if o["case_id"] == "c0" and o["model"] == "sol")
         (self.dest / "manifest.json").unlink()
         _, summary = self.run_all(broken={target["extraction_id"]})
-        self.assertEqual(summary["excluded_outputs"], 1)
+        self.assertEqual(summary["excluded_outputs"], 6)
         scores = json.loads((self.dest / "scores.json").read_text())
         self.assertFalse(any(s["case_id"] == "c0" and s["model"] == "sol" for s in scores))
         self.assertTrue(any(s["case_id"] == "c0" and s["model"] == "sonnet" for s in scores))
+
+    def test_none_is_judged_as_an_empty_deliverable_not_excluded(self) -> None:
+        manifest = rr.prepare(self.baseline, self.dest)
+        sb.invoke = fake_invoke()
+        rr.extract(self.baseline, self.dest, workers=4)
+        target = manifest["outputs"][0]
+        path = self.dest / "extract" / rr.EXTRACTOR / target["extraction_id"] / "complete.json"
+        sb.dump(path, {"disposition": "none", "spans": [], "deliverable": "", "words": 0})
+        rr.audit(self.baseline, self.dest, workers=4)
+        rr.judge(self.baseline, self.dest, workers=4)
+        summary = rr.analyze(self.baseline, self.dest)
+        self.assertEqual(summary["excluded_outputs"], 0)
+        self.assertEqual(summary["no_deliverable_outputs"], 1)
+        scores = sb.read_json(self.dest / "scores.json")
+        selected = [r for r in scores if r["baseline_id"] == target["baseline_id"]]
+        self.assertEqual(len(selected), 4)
+        self.assertEqual([r["words"] for r in selected if r["view"] == "deliverable"], [0, 0])
+
+    def test_audit_failure_blocks_judging_without_reextracting(self) -> None:
+        manifest = rr.prepare(self.baseline, self.dest)
+        sb.invoke = fake_invoke()
+        rr.extract(self.baseline, self.dest, workers=4)
+        rr.audit(self.baseline, self.dest, workers=4)
+        target = manifest["outputs"][0]
+        path = self.dest / "audit" / target["extraction_id"] / "complete.json"
+        record = sb.read_json(path)
+        record["passed"] = False
+        record["checks"][0]["pass"] = False
+        sb.dump(path, record)
+        with self.assertRaisesRegex(ValueError, "extraction audit"):
+            rr.judge(self.baseline, self.dest, workers=4)
+        self.assertFalse((self.dest / "judge").exists())
+        self.assertEqual(len(list((self.dest / "extract" / rr.EXTRACTOR / target["extraction_id"]).glob("attempt-*"))), 1)
+
+    def test_missing_audit_blocks_judging(self) -> None:
+        rr.prepare(self.baseline, self.dest)
+        sb.invoke = fake_invoke()
+        rr.extract(self.baseline, self.dest, workers=4)
+        with self.assertRaisesRegex(ValueError, "extraction audit"):
+            rr.judge(self.baseline, self.dest, workers=4)
+        self.assertFalse((self.dest / "judge").exists())
+
+    def test_case_wide_attrition_counts_all_six_dropped_outputs(self) -> None:
+        manifest = rr.prepare(self.baseline, self.dest)
+        target = manifest["outputs"][0]
+        (self.dest / "manifest.json").unlink()
+        _, summary = self.run_all(broken={target["extraction_id"]})
+        self.assertEqual(summary["failed_extractions"], 1)
+        self.assertEqual(summary["excluded_outputs"], 6)
+        self.assertEqual(summary["excluded_by_model_arm"][target["model"] + "/skill"], 3)
+        self.assertEqual(summary["excluded_by_model_arm"][target["model"] + "/no-skill"], 3)
+        self.assertTrue(summary["exclusion_limit_exceeded"])
 
     def test_changed_baseline_is_refused(self) -> None:
         rr.prepare(self.baseline, self.dest)
@@ -186,6 +273,50 @@ class Pipeline(unittest.TestCase):
         (self.baseline / "cases.json").write_text(json.dumps(cases))
         with self.assertRaisesRegex(ValueError, "cases differ"):
             rr.extract(self.baseline, self.dest, workers=1)
+
+    def test_duplicate_baseline_slots_do_not_pass_the_count_check(self) -> None:
+        path = self.baseline / "manifest.json"
+        original = sb.read_json(path)
+        original["slots"][0] = original["slots"][1]
+        sb.dump(path, original)
+        with self.assertRaisesRegex(ValueError, "missing or duplicated"):
+            rr.prepare(self.baseline, self.dest)
+
+    def test_changed_prompts_are_refused(self) -> None:
+        rr.prepare(self.baseline, self.dest)
+        sb.dump(self.dest / "prompt-templates.json", {"extract": "changed"})
+        with self.assertRaisesRegex(ValueError, "prompts changed"):
+            rr.extract(self.baseline, self.dest, workers=1)
+
+    def test_transport_failure_stops_and_is_not_retried_on_resume(self) -> None:
+        def unavailable(*args):
+            raise ValueError("rate limit: stop")
+        sb.invoke = unavailable
+        job = (self.dest / "one", "gpt-6.1-sol", "prompt", lambda x: x)
+        with self.assertRaisesRegex(ValueError, "stopped"):
+            rr.run_jobs([job], 1, "transport", self.dest)
+        self.assertEqual(len(list((self.dest / "one").glob("attempt-*"))), 1)
+        with self.assertRaisesRegex(ValueError, "explicit review"):
+            rr.run_jobs([job], 1, "transport", self.dest)
+        self.assertEqual(len(list((self.dest / "one").glob("attempt-*"))), 1)
+
+    def test_retained_success_is_reparsed_without_a_provider_call(self) -> None:
+        attempt = self.dest / "one" / "attempt-1"
+        attempt.mkdir(parents=True)
+        sb.dump(attempt / "request.json", {"model": "gpt-6.1-sol", "provider": "openai",
+                                           "prompt_sha256": sb.sha("prompt"), "returncode": 0})
+        sb.dump(attempt / "stdout.txt", {"result": {"model": "gpt-6.1-sol", "stopReason": "stop",
+            "content": [{"type": "text", "text": '{"value": 7}'}], "usage": {}}})
+        def forbidden(*args):
+            self.fail("a retained successful response must never be regenerated")
+        sb.invoke = forbidden
+        status = rr.run_jobs([(attempt.parent, "gpt-6.1-sol", "prompt", lambda x: x)], 1, "recover", self.dest)
+        self.assertEqual(status["counts"], {"completed": 1})
+        self.assertEqual(sb.read_json(attempt.parent / "complete.json")["value"], 7)
+        cached = rr.run_jobs([(attempt.parent, "gpt-6.1-sol", "prompt", lambda x: x)], 1, "recover", self.dest)
+        self.assertEqual(cached["counts"], {"cached": 1})
+        with self.assertRaisesRegex(ValueError, "different request"):
+            rr.run_jobs([(attempt.parent, "gpt-6.1-sol", "changed", lambda x: x)], 1, "recover", self.dest)
 
     def test_prepare_refuses_to_replace_a_frozen_manifest(self) -> None:
         rr.prepare(self.baseline, self.dest)

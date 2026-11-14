@@ -1,5 +1,15 @@
 {
+  "version": 2,
   "seed": 261118,
+  "sources": {
+    "scripts/rewrite_rejudge.py": "39a3c295fb475ea2e7f759f987fc6466a06f1673d7d7ed44a8831967cdef7fce",
+    "scripts/subscription_baseline.py": "08b3346f03f97d531b8d04791823131d6e4531941e8d52400abc3e5922f13d06",
+    "scripts/subscription_model.mjs": "66e6766d9297d2867446bab4c4a3443b47c6edd684bc7897f7e7f51bfeb4b55a",
+    "scripts/score_delta.py": "e20ba181ce86c9a17382ffae88c999400633821a128a566ddd13279b56914005",
+    "scripts/run_evals.py": "7754f0e41d6f083c9f30c164861a526dab1ef4b130543c5e969c55d0fe38e703"
+  },
+  "prompt_templates_sha256": "60c08870efa05d2702a5231f143af1cc68af6de25792f3d5cdfc715e1613de19",
+  "baseline_scores_sha256": "b367c51ec950748bebe0d1263b30fa45618fb30e30b78844a0f46a7a2d5545ac",
   "baseline_manifest_sha256": "9a188bf142c0f399ff3f8e9ffcdee386bef52cd10a3c669071b055e9cbbedc96",
   "baseline_cases_sha256": "7235f77bb09626b705558a116b0a3aa3f5e0eb0f0cc4099b9e3160b89cf900af",
   "scope": [

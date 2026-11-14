@@ -1,0 +1,18 @@
+{
+  "scripts/subscription_baseline.py": "f15265211b97d14e7b9a6d9377a7a2a522f16f9cfe711b89dba89e7f2977a08f",
+  "scripts/subscription_model.mjs": "cd61acf266f5f464827ad761082c35ce7c9edfeb4f13dce5ec1139b504556286",
+  "scripts/subscription_power.py": "7b2d9158c6ae0f1c2ea246b17f53ff263f8250704746fa153e51693439641b65",
+  "scripts/run_evals.py": "7754f0e41d6f083c9f30c164861a526dab1ef4b130543c5e969c55d0fe38e703",
+  "scripts/score_delta.py": "e20ba181ce86c9a17382ffae88c999400633821a128a566ddd13279b56914005",
+  "scripts/saturation_index.py": "23a3b11df343ef1c3e2ee78a788738a9b5dbbb3b1bc6b98e7124b0b16172858e",
+  "evals/evals.json": "063ce1dff7bd831d6ba5fe949e2f0daebc8e8a78774671611ad0ab7aa85985b5",
+  "evals/rewrite-evals.json": "4c79dcd3373d4af24ccf28a6f1450deace8f979ff15da51eda0d28ce6dbd2183",
+  "evals/shared-benchmark.json": "c40e1eaf6f4367a73e789a7657604bd85b4d7be53c34deb81f5bef68fe1e4b20",
+  "skills/anti-slop-writing/SKILL.md": "1da80fc7bad725d1824a4e59e155a227c8d5da57e659e20c0ed80e5baa18d6f9",
+  "skills/anti-slop-writing/references/rewrite-patterns.md": "a8731b3df2ad60400385dabeff5a57ddd92d5a6216914eb4c6c41b14658f0ba3",
+  "skills/anti-slop-writing/references/flow-by-relation.md": "4dfdfc358a9792ad76b414b1e8e3ce2328864662ba39007e020ebf2da11a4dec",
+  "skills/anti-slop-writing/references/anti-slop-writing-doctrine.md": "4145f5dc1e0e820ae26304165978328f0f6ff6ac45b7e4ed264afe2128d3aa56",
+  "evals/fixtures/alert-triage-transfer/input.md": "1d5e74c58c89256c5266c1133d6f4ccde02c070331594b97ecc3258355caae79",
+  "evals/fixtures/round3-mechanism-copy/input.md": "ef5ca39b9a1b7ca53b179e182c19410cf3ebe963f8d028651984498a90c55a69",
+  "evals/fixtures/tweet-taste-as-model/input.md": "11cfad0503f7bf4c0b52981adb5ca3d09e919753012e29fc07eb0084456edd1f"
+}

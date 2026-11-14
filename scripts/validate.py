@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Validation for the anti-slop-writing skill repo."""
+
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -81,12 +83,20 @@ REQUIRED = [
     ROOT / "evals" / "results" / "2026-05-29-baseline.md",
     ROOT / "evals" / "results" / "baseline-2026-05-29" / "scores.jsonl",
     ROOT / "evals" / "results" / "2026-05-27-emphasis-source-experiment.md",
-    ROOT / "evals" / "results" / "2026-05-28-emphasis-source-procedural" / "scores.jsonl",
+    ROOT
+    / "evals"
+    / "results"
+    / "2026-05-28-emphasis-source-procedural"
+    / "scores.jsonl",
     ROOT / "evals" / "results" / "2026-05-28-emphasis-source-procedural" / "README.md",
     ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "README.md",
     ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "scores.jsonl",
     ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "delta.jsonl",
-    ROOT / "evals" / "results" / "2026-05-30-holdout-regression-check" / "gate-output.txt",
+    ROOT
+    / "evals"
+    / "results"
+    / "2026-05-30-holdout-regression-check"
+    / "gate-output.txt",
     ROOT / "evals" / "results" / "2026-05-30-rebaseline.md",
     ROOT / "evals" / "results" / "rebaseline-2026-05-30" / "scores.jsonl",
     ROOT / "evals" / "results" / "2026-05-27-research-additions.md",
@@ -124,7 +134,9 @@ def parse_frontmatter(text: str) -> dict[str, str]:
         fail("SKILL.md must start with YAML frontmatter")
 
     try:
-        end = next(i for i, line in enumerate(lines[1:], start=1) if line.strip() == "---")
+        end = next(
+            i for i, line in enumerate(lines[1:], start=1) if line.strip() == "---"
+        )
     except StopIteration:
         fail("SKILL.md frontmatter must end with ---")
 
@@ -136,7 +148,7 @@ def parse_frontmatter(text: str) -> dict[str, str]:
         if not line.startswith(" ") and ":" in line:
             key, value = line.split(":", 1)
             current_key = key.strip()
-            fields[current_key] = value.strip().strip('"\'')
+            fields[current_key] = value.strip().strip("\"'")
         elif current_key and line.startswith(" "):
             fields[current_key] = (fields[current_key] + " " + line.strip()).strip()
         else:
@@ -152,7 +164,9 @@ def validate_frontmatter(text: str) -> None:
     if not name:
         fail("SKILL.md frontmatter missing name")
     if len(name) > 64 or not NAME_RE.fullmatch(name):
-        fail("SKILL.md name must be lowercase letters/numbers/hyphens, no leading/trailing/consecutive hyphens, max 64 chars")
+        fail(
+            "SKILL.md name must be lowercase letters/numbers/hyphens, no leading/trailing/consecutive hyphens, max 64 chars"
+        )
     if name != SKILL_DIR.name:
         fail(f"SKILL.md name must match parent directory: {SKILL_DIR.name}")
     if name in {"anthropic", "claude"}:
@@ -185,23 +199,38 @@ VALID_SPLITS = {"tune", "holdout"}
 
 def validate_graded_dimensions(path: Path, case_id: str, dims: Any) -> None:
     if not isinstance(dims, list) or not dims:
-        fail(f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions must be a non-empty list when present")
+        fail(
+            f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions must be a non-empty list when present"
+        )
     for i, dim in enumerate(dims, start=1):
         if not isinstance(dim, dict):
-            fail(f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions[{i}] must be an object")
+            fail(
+                f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions[{i}] must be an object"
+            )
         for field in ("name", "scale", "rubric"):
             if not isinstance(dim.get(field), str) or not dim[field].strip():
-                fail(f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions[{i}] missing non-empty {field}")
+                fail(
+                    f"{path.relative_to(ROOT)} eval {case_id} graded_dimensions[{i}] missing non-empty {field}"
+                )
 
 
 def validate_dynamic_rubric(path: Path, case_id: str, rubric: Any) -> None:
     if not isinstance(rubric, dict):
-        fail(f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric must be an object when present")
-    if not isinstance(rubric.get("instruction"), str) or not rubric["instruction"].strip():
-        fail(f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric missing non-empty instruction")
+        fail(
+            f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric must be an object when present"
+        )
+    if (
+        not isinstance(rubric.get("instruction"), str)
+        or not rubric["instruction"].strip()
+    ):
+        fail(
+            f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric missing non-empty instruction"
+        )
     min_criteria = rubric.get("minimum_criteria")
     if not isinstance(min_criteria, int) or min_criteria < 2:
-        fail(f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric.minimum_criteria must be int >= 2")
+        fail(
+            f"{path.relative_to(ROOT)} eval {case_id} dynamic_rubric.minimum_criteria must be int >= 2"
+        )
 
 
 def validate_reference_anchor(path: Path, case_id: str, ref: Any) -> None:
@@ -213,11 +242,19 @@ def validate_reference_anchor(path: Path, case_id: str, ref: Any) -> None:
         if not isinstance(value, str) or not value.strip():
             fail(f"{rel} eval {case_id} reference missing non-empty {file_field}")
         if not (ROOT / value).is_file():
-            fail(f"{rel} eval {case_id} reference.{file_field} points at a missing file: {value}")
+            fail(
+                f"{rel} eval {case_id} reference.{file_field} points at a missing file: {value}"
+            )
     for score_field in ("reference_score", "reference_graded_score"):
         value = ref.get(score_field)
-        if not isinstance(value, (int, float)) or isinstance(value, bool) or not 0 <= float(value) <= 1:
-            fail(f"{rel} eval {case_id} reference.{score_field} must be a number in [0,1]")
+        if (
+            not isinstance(value, (int, float))
+            or isinstance(value, bool)
+            or not 0 <= float(value) <= 1
+        ):
+            fail(
+                f"{rel} eval {case_id} reference.{score_field} must be a number in [0,1]"
+            )
     for str_field in ("model", "captured", "protocol"):
         if not isinstance(ref.get(str_field), str) or not ref[str_field].strip():
             fail(f"{rel} eval {case_id} reference missing non-empty {str_field}")
@@ -245,15 +282,31 @@ def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> 
         ids.add(case_id)
         for field in ["prompt", "expected_output"]:
             if not isinstance(case.get(field), str) or not case[field].strip():
-                fail(f"{path.relative_to(ROOT)} eval {case_id} missing non-empty {field}")
+                fail(
+                    f"{path.relative_to(ROOT)} eval {case_id} missing non-empty {field}"
+                )
+        if path in (SKILL_EVALS, REWRITE_EVALS):
+            facts = case.get("facts")
+            if not isinstance(facts, list) or not all(
+                isinstance(f, str) and f.strip() for f in facts
+            ):
+                fail(
+                    f"{path.relative_to(ROOT)} eval {case_id} facts must be a list of non-empty strings (or [] when no additional facts exist)"
+                )
         assertions = case.get("assertions")
         if not isinstance(assertions, list) or len(assertions) < 2:
-            fail(f"{path.relative_to(ROOT)} eval {case_id} must have at least 2 assertions")
+            fail(
+                f"{path.relative_to(ROOT)} eval {case_id} must have at least 2 assertions"
+            )
         if not all(isinstance(item, str) and item.strip() for item in assertions):
-            fail(f"{path.relative_to(ROOT)} eval {case_id} assertions must be non-empty strings")
+            fail(
+                f"{path.relative_to(ROOT)} eval {case_id} assertions must be non-empty strings"
+            )
         split = case.get("split")
         if split not in VALID_SPLITS:
-            fail(f"{path.relative_to(ROOT)} eval {case_id} split must be one of {sorted(VALID_SPLITS)}")
+            fail(
+                f"{path.relative_to(ROOT)} eval {case_id} split must be one of {sorted(VALID_SPLITS)}"
+            )
         if split == "holdout":
             holdout_count += 1
         else:
@@ -265,10 +318,60 @@ def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> 
         if "reference" in case:
             validate_reference_anchor(path, case_id, case["reference"])
 
+    validate_fact_pairs(path, evals)
+
     if holdout_count < min_holdout:
-        fail(f"{path.relative_to(ROOT)} must contain at least {min_holdout} holdout cases (found {holdout_count})")
+        fail(
+            f"{path.relative_to(ROOT)} must contain at least {min_holdout} holdout cases (found {holdout_count})"
+        )
     if tune_count < 1:
-        fail(f"{path.relative_to(ROOT)} must contain at least 1 tune case (found {tune_count})")
+        fail(
+            f"{path.relative_to(ROOT)} must contain at least 1 tune case (found {tune_count})"
+        )
+
+
+def validate_fact_pairs(path: Path, evals: list[dict]) -> None:
+    """A `paired_with` twin supplies the facts its partner withholds.
+
+    The partner tests asking or cutting when facts are missing; the twin tests
+    using facts when they are present. A pair split across tune and holdout, or a
+    twin without facts, would stop the pair measuring that contrast.
+    """
+    rel = path.relative_to(ROOT)
+    by_id = {case["id"]: case for case in evals}
+    paired_parents: set[str] = set()
+    for case in evals:
+        if not isinstance(case.get("requires_fact_pair", False), bool):
+            fail(f"{rel} eval {case['id']} requires_fact_pair must be boolean")
+        partner_id = case.get("paired_with")
+        if partner_id is None:
+            continue
+        if not isinstance(partner_id, str) or not partner_id.strip():
+            fail(f"{rel} eval {case['id']} paired_with must be a non-empty string")
+        partner = by_id.get(partner_id)
+        if partner is None or partner is case:
+            fail(
+                f"{rel} eval {case['id']} paired_with names no other case: {partner_id}"
+            )
+        if partner.get("split") != case.get("split"):
+            fail(
+                f"{rel} eval {case['id']} paired_with {partner_id} has a different split"
+            )
+        if partner.get("facts") != []:
+            fail(
+                f"{rel} eval {case['id']} paired_with {partner_id}, which must have facts: []"
+            )
+        if not case.get("facts"):
+            fail(f"{rel} eval {case['id']} is a paired_with twin and must supply facts")
+        paired_parents.add(partner_id)
+    for case in evals:
+        if case.get("requires_fact_pair"):
+            if case.get("facts") != []:
+                fail(f"{rel} eval {case['id']} requires_fact_pair must have facts: []")
+            if case["id"] not in paired_parents:
+                fail(
+                    f"{rel} eval {case['id']} requires_fact_pair but has no facts-supplied twin"
+                )
 
 
 def validate_skill_evals() -> None:
@@ -276,6 +379,86 @@ def validate_skill_evals() -> None:
     validate_eval_file(ADVERSARIAL_EVALS, min_count=15, min_holdout=2)
     validate_eval_file(REWRITE_EVALS, min_count=8, min_holdout=2)
     validate_eval_file(META_EVALS, min_count=7, min_holdout=2)
+
+
+LEAKAGE_WORDS = 8
+FIXTURE_RE = re.compile(r"evals/fixtures/[\w./-]+\.md")
+
+
+def word_ngrams(text: str, n: int = LEAKAGE_WORDS) -> set[tuple[str, ...]]:
+    words = re.findall(r"\b\w+\b", text.casefold())
+    return {tuple(words[i : i + n]) for i in range(len(words) - n + 1)}
+
+
+def validate_leakage() -> None:
+    """Eight normalized words catch copied examples without banning short idioms.
+
+    Check each skill file separately (no artificial n-grams across file edges).
+    Historical results and explicitly open-book ablations are outside this gate.
+    """
+    doctrine: dict[tuple[str, ...], str] = {}
+    for path in sorted((ROOT / "skills").rglob("*")):
+        if path.is_file():
+            for gram in word_ngrams(path.read_text(encoding="utf-8")):
+                doctrine[gram] = str(path.relative_to(ROOT))
+    fixture_splits: dict[str, set[str]] = {}
+    for suite in sorted((ROOT / "evals").glob("*.json")):
+        data = load_json(suite)
+        for case in data.get("evals", data.get("cases", data.get("queries", []))):
+            prompt = case.get("prompt", case.get("query", ""))
+            texts = [("prompt", prompt), ("facts", "\n".join(case.get("facts", [])))]
+            refs = set(FIXTURE_RE.findall(prompt))
+            if case.get("reference", {}).get("original"):
+                refs.add(case["reference"]["original"])
+            if case.get("prompt_ref"):
+                refs.add(str((suite.parent / case["prompt_ref"]).relative_to(ROOT)))
+            for ref in sorted(refs):
+                path = (ROOT / ref).resolve()
+                if not path.is_relative_to(ROOT.resolve()):
+                    fail(f"fixture outside repository: {ref}")
+                if not path.is_file():
+                    # Private shared-harness inputs are supplied only for scoring.
+                    # Their absence is a run blocker, not permission to score them.
+                    continue
+                text = path.read_text(encoding="utf-8")
+                digest = hashlib.sha256(text.encode()).hexdigest()
+                splits = fixture_splits.setdefault(digest, set())
+                splits.add(case.get("split", "unknown"))
+                if "tune" in splits and ("holdout" in splits or "holdback" in splits):
+                    fail(f"fixture shared between tune and holdout/holdback: {ref}")
+                if case.get("split") in {"holdout", "holdback"}:
+                    texts.append((ref, text))
+            for field, text in texts:
+                overlap = word_ngrams(text) & doctrine.keys()
+                if overlap:
+                    gram = min(overlap)
+                    fail(
+                        f"eval leakage: {suite.relative_to(ROOT)} {case['id']} {field} shares {LEAKAGE_WORDS} words with {doctrine[gram]}: {' '.join(gram)}"
+                    )
+
+
+def validate_length_budget() -> None:
+    baseline = load_json(ROOT / "docs/skill-length-baseline.json")
+    count = baseline.get("words")
+    if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+        fail("skill length baseline words must be a nonnegative integer")
+    if not isinstance(baseline.get("commit"), str) or not re.fullmatch(
+        r"[0-9a-f]{40}", baseline["commit"]
+    ):
+        fail("skill length baseline must name a full recorded commit SHA")
+    growth = len(SKILL.read_text(encoding="utf-8").split()) - count
+    if growth > 200:
+        note = baseline.get("consolidation_note")
+        path = (ROOT / note).resolve() if isinstance(note, str) and note else None
+        if (
+            path is None
+            or not path.is_relative_to((ROOT / "docs").resolve())
+            or not path.is_file()
+            or not path.read_text(encoding="utf-8").strip()
+        ):
+            fail(
+                f"SKILL.md grew by {growth} words (budget +200); consolidate or record a non-empty docs consolidation_note"
+            )
 
 
 def validate_baseline_scores() -> None:
@@ -295,21 +478,33 @@ def validate_baseline_scores() -> None:
                 fail(f"{path.relative_to(ROOT)} record missing {field}: {record}")
         if record["split"] not in VALID_SPLITS:
             fail(f"{path.relative_to(ROOT)} record {record['id']} has invalid split")
-        if not isinstance(record["score"], (int, float)) or not 0 <= record["score"] <= 1:
-            fail(f"{path.relative_to(ROOT)} record {record['id']} score must be in [0,1]")
+        if (
+            not isinstance(record["score"], (int, float))
+            or not 0 <= record["score"] <= 1
+        ):
+            fail(
+                f"{path.relative_to(ROOT)} record {record['id']} score must be in [0,1]"
+            )
         if record["id"] in seen:
             fail(f"{path.relative_to(ROOT)} duplicate id: {record['id']}")
         seen.add(record["id"])
         count += 1
     if count < 30:
-        fail(f"{path.relative_to(ROOT)} baseline must score at least 30 cases (found {count})")
+        fail(
+            f"{path.relative_to(ROOT)} baseline must score at least 30 cases (found {count})"
+        )
 
 
 def validate_skills_sh_config() -> None:
     data = load_json(SKILLS_SH_CONFIG)
     schema = data.get("$schema")
-    if schema is not None and schema != "https://skills.sh/schemas/skills.sh.schema.json":
-        fail("skills.sh.json $schema must be https://skills.sh/schemas/skills.sh.schema.json")
+    if (
+        schema is not None
+        and schema != "https://skills.sh/schemas/skills.sh.schema.json"
+    ):
+        fail(
+            "skills.sh.json $schema must be https://skills.sh/schemas/skills.sh.schema.json"
+        )
     if data.get("notGrouped", "bottom") not in {"top", "bottom"}:
         fail("skills.sh.json notGrouped must be top or bottom")
     groupings = data.get("groupings")
@@ -327,7 +522,9 @@ def validate_skills_sh_config() -> None:
             fail(f"skills.sh.json group {title!r} must list at least one skill")
         for skill in skills:
             if not isinstance(skill, str) or not NAME_RE.fullmatch(skill):
-                fail(f"skills.sh.json group {title!r} has invalid skill slug: {skill!r}")
+                fail(
+                    f"skills.sh.json group {title!r} has invalid skill slug: {skill!r}"
+                )
             listed_skills.add(skill)
     if SKILL_DIR.name not in listed_skills:
         fail(f"skills.sh.json must include {SKILL_DIR.name}")
@@ -344,8 +541,10 @@ def validate_with_skills_ref() -> bool:
     # a source checkout of the reference library installs `skills-ref`.
     executable = shutil.which("skills-ref") or shutil.which("agentskills")
     if executable is None:
-        message = (f"skills-ref is not installed (`pip install {SKILLS_REF_PIN}`), "
-                   "so the Agent Skills spec validator did not run")
+        message = (
+            f"skills-ref is not installed (`pip install {SKILLS_REF_PIN}`), "
+            "so the Agent Skills spec validator did not run"
+        )
         if os.environ.get("CI"):
             fail(message)
         print(f"WARNING: {message}", file=sys.stderr)
@@ -379,7 +578,9 @@ def validate_trigger_queries() -> None:
             fail(f"trigger query {query['id']} should_trigger must be boolean")
         split = query.get("split")
         if split not in VALID_SPLITS:
-            fail(f"trigger query {query['id']} split must be one of {sorted(VALID_SPLITS)}")
+            fail(
+                f"trigger query {query['id']} split must be one of {sorted(VALID_SPLITS)}"
+            )
         positives += int(should_trigger)
         negatives += int(not should_trigger)
         if split == "holdout":
@@ -390,9 +591,13 @@ def validate_trigger_queries() -> None:
     if positives < 5 or negatives < 5:
         fail("trigger queries must include at least 5 positives and 5 negatives")
     if holdout < 4:
-        fail(f"trigger queries must include at least 4 holdout queries (found {holdout})")
+        fail(
+            f"trigger queries must include at least 4 holdout queries (found {holdout})"
+        )
     if near_miss_negatives < 4:
-        fail(f"trigger queries must include at least 4 near-neg- near-miss negatives (found {near_miss_negatives})")
+        fail(
+            f"trigger queries must include at least 4 near-neg- near-miss negatives (found {near_miss_negatives})"
+        )
 
 
 def main() -> int:
@@ -418,20 +623,45 @@ def main() -> int:
         fail(f"expected at least 5 manual eval cases, found {case_count}")
 
     validate_skill_evals()
+    validate_leakage()
+    validate_length_budget()
     validate_trigger_queries()
     validate_skills_sh_config()
     validate_baseline_scores()
     skills_ref_ran = validate_with_skills_ref()
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for phrase in ["python3 scripts/validate.py", "evals/evals.json", "evals/adversarial.json", "evals/rewrite-evals.json", "evals/meta-evals.json", "evals/failures/", "examples/cards/", "Lessons_learned.md", "CHANGELOG.md", "runbooks/hillclimb-skill.md", "evals/results/latest.md", "CONTRIBUTING.md", "What to install", "skills.sh", "DISABLE_TELEMETRY=1", "Claude Code", "Codex", "OpenCode", "with_skill", "old_skill"]:
+    for phrase in [
+        "python3 scripts/validate.py",
+        "evals/evals.json",
+        "evals/adversarial.json",
+        "evals/rewrite-evals.json",
+        "evals/meta-evals.json",
+        "evals/failures/",
+        "examples/cards/",
+        "Lessons_learned.md",
+        "CHANGELOG.md",
+        "runbooks/hillclimb-skill.md",
+        "evals/results/latest.md",
+        "CONTRIBUTING.md",
+        "What to install",
+        "skills.sh",
+        "DISABLE_TELEMETRY=1",
+        "Claude Code",
+        "Codex",
+        "OpenCode",
+        "with_skill",
+        "old_skill",
+    ]:
         if phrase not in readme:
             fail(f"README must document {phrase}")
 
     if skills_ref_ran:
         print("OK: anti-slop-writing project validates")
     else:
-        print("OK: anti-slop-writing project validates (skills-ref NOT run; CI runs it)")
+        print(
+            "OK: anti-slop-writing project validates (skills-ref NOT run; CI runs it)"
+        )
     return 0
 
 

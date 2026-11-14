@@ -1,0 +1,92 @@
+{
+  "observed": "2026-11-13",
+  "prs": [
+    {
+      "number": 17,
+      "title": "Add eval coverage for hollow modifiers and self-planted strawmen",
+      "url": "https://github.com/adewale/anti-slop-writing/pull/17",
+      "head": "claude/twitter-thread-eval-b3mxxi",
+      "head_sha": "3aa3f72dcabac82873c1ecb0d972e397198d5462",
+      "mergeable": false,
+      "draft": false,
+      "state": "open"
+    },
+    {
+      "number": 18,
+      "title": "Ship a coined-compound-label detector after a pre-registered, powered re-run",
+      "url": "https://github.com/adewale/anti-slop-writing/pull/18",
+      "head": "claude/gpt6-astra-personality-guide-zrkwcv",
+      "head_sha": "353517d899e704b71a9ad874001b9fc1ea2e9b5a",
+      "mergeable": false,
+      "draft": false,
+      "state": "open"
+    },
+    {
+      "number": 21,
+      "title": "Avoid duplicate CI runs on pull request branches",
+      "url": "https://github.com/adewale/anti-slop-writing/pull/21",
+      "head": "cleanup/avoid-duplicate-ci-runs",
+      "head_sha": "18694f5ad6e4b63dfc66f578dec54f9f00525488",
+      "mergeable": false,
+      "draft": true,
+      "state": "open"
+    },
+    {
+      "number": 22,
+      "title": "Add maintenance-history examples for the non-invention rule",
+      "url": "https://github.com/adewale/anti-slop-writing/pull/22",
+      "head": "skills/curtail-maintenance-ceremony",
+      "head_sha": "638d46b1d39a97222b0cc201bdc46a90a53f547d",
+      "mergeable": true,
+      "draft": true,
+      "state": "open"
+    },
+    {
+      "number": 25,
+      "title": "Bump the github-actions group with 3 updates",
+      "url": "https://github.com/adewale/anti-slop-writing/pull/25",
+      "head": "dependabot/github_actions/github-actions-7840bcb697",
+      "head_sha": "85b6ccc5e695e05e431ea1771939fcb2cae6b859",
+      "mergeable": true,
+      "draft": false,
+      "state": "open"
+    }
+  ],
+  "pr25_checks": [
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "85b6ccc5e695e05e431ea1771939fcb2cae6b859",
+      "url": "https://github.com/adewale/anti-slop-writing/actions/runs/42037330902/job/127278756830"
+    },
+    {
+      "name": "install-boundary",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "85b6ccc5e695e05e431ea1771939fcb2cae6b859",
+      "url": "https://github.com/adewale/anti-slop-writing/actions/runs/42037330742/job/127278756527"
+    },
+    {
+      "name": "lint",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "85b6ccc5e695e05e431ea1771939fcb2cae6b859",
+      "url": "https://github.com/adewale/anti-slop-writing/actions/runs/42037330776/job/127278756046"
+    },
+    {
+      "name": "Check action pins",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "85b6ccc5e695e05e431ea1771939fcb2cae6b859",
+      "url": "https://github.com/adewale/anti-slop-writing/actions/runs/42037330688/job/127278755740"
+    },
+    {
+      "name": "Check action pins",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "85b6ccc5e695e05e431ea1771939fcb2cae6b859",
+      "url": "https://github.com/adewale/anti-slop-writing/actions/runs/42037317099/job/127278708180"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "model": "claude-opus-5-5",
+  "provider": "claude",
+  "effort": "medium",
+  "prompt_sha256": "50a98f6c01057a5a2c83b572710db72e404d37f8ae28d462598e360ca7a54f76",
+  "started": 1794623410.792746,
+  "seconds": 2.752210855484009,
+  "returncode": 0,
+  "tools": [],
+  "system_prompt": "You are a helpful assistant."
+}

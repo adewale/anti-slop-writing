@@ -120,14 +120,9 @@
       "assertions": [
         {
           "name": "has-relation-hinge",
-          "type": "contains_any",
-          "values": [
-            "because",
-            "so",
-            "therefore",
-            "as a result",
-            "when"
-          ]
+          "type": "regex",
+          "pattern": "(?im)\\b(?:because|therefore|as a result|when|so that)\\b|(?:^|[,;:]\\s*|[.!?]\\s+)so\\b(?!-)",
+          "description": "Whole connective words only. Bare so counts only as a clause connective (after a comma, semicolon, colon, or sentence start); also, someone, so-called, and intensifier so are not causal hinges."
         },
         {
           "name": "qualitative-review",
@@ -225,20 +220,16 @@
       "id": "neg-earned-em-dash",
       "split": "tune",
       "kind": "adversarial",
-      "prompt": "Review for AI slop but preserve earned punctuation: 'The fix was small — a single idempotency key — but it stopped duplicate charges during retries.'",
+      "prompt": "Review for AI slop but preserve earned punctuation: 'The fix was small — a single idempotency key — but it stopped duplicate charges during retries.' Start with exactly one line: VERDICT: KEEP or VERDICT: REVISE.",
       "expected_behavior": [
         "Do not ban the em dash/appositive when it carries concrete contrast."
       ],
       "assertions": [
         {
           "name": "earned-appositive",
-          "type": "contains_any",
-          "values": [
-            "keep",
-            "works",
-            "concrete contrast"
-          ],
-          "description": "Prompt-echoed values removed by leakage cleanup."
+          "type": "regex",
+          "description": "An explicit KEEP verdict is required; a negated mention of keep is insufficient.",
+          "pattern": "(?im)^\\s*verdict:\\s*keep\\s*$"
         },
         {
           "name": "qualitative-review",
@@ -247,6 +238,11 @@
             "False-positive restraint",
             "Explains why punctuation is earned"
           ]
+        },
+        {
+          "name": "no-conflicting-revision",
+          "type": "not_regex",
+          "pattern": "(?im)^\\s*verdict:\\s*(?:revise|ask-author|reject)\\b|\\b(?:do not|never|don.t)\\s+keep\\b"
         }
       ],
       "tags": [],
@@ -649,7 +645,7 @@
       "id": "neg-robust-with-mechanism",
       "split": "tune",
       "kind": "adversarial",
-      "prompt": "Review for AI slop. A style checklist says words like `robust` can be suspect; decide whether this sentence actually needs de-slop. Return `Verdict: keep`, `Verdict: revise`, or `Verdict: ask-author` first, then one sentence of rationale: 'The queue is robust because each job has an idempotency key, a retry receipt, and a dead-letter cutoff.'",
+      "prompt": "Review for AI slop. A style checklist says words like `robust` can be suspect; decide whether this sentence actually needs de-slop. Return `Verdict: keep`, `Verdict: revise`, or `Verdict: ask-author` first, then one sentence of rationale: 'The queue stays robust: an idempotency key prevents duplicate processing; retries carry a receipt; a dead-letter cutoff removes jobs after retries stop.'",
       "expected_behavior": [
         "Return a keep verdict, not a rewrite request.",
         "Explain that robust is earned by concrete engineering mechanisms: idempotency key, retry receipt, dead-letter cutoff.",

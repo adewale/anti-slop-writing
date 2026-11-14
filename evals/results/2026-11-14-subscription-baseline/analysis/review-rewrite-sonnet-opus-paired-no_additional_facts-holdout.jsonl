@@ -1,0 +1,5 @@
+{"id": "abstract-system-noun-stack", "split": "holdout", "pair_id": "abstract-system-noun-stack", "family": "nominalization-copula", "before": 0.47222222222222227, "after": 0.9166666666666666}
+{"id": "fake-precision-rewrite-finance", "split": "holdout", "pair_id": "fake-precision-rewrite-finance", "family": "provenance", "before": 0.3055555555555555, "after": 0.6111111111111112}
+{"id": "fake-precision-unnamed-source", "split": "holdout", "pair_id": "fake-precision-unnamed-source", "family": "provenance", "before": 0.5555555555555556, "after": 0.8333333333333334}
+{"id": "holdout-ask-author-ai-tooling", "split": "holdout", "pair_id": "holdout-ask-author-ai-tooling", "family": "missing-tooling-provenance", "before": 0.4444444444444445, "after": 0.8055555555555555}
+{"id": "holdout-borrowed-emphasis-release-safety", "split": "holdout", "pair_id": "holdout-borrowed-emphasis-release-safety", "family": "borrowed-emphasis", "before": 0.611111111111111, "after": 0.888888888888889}

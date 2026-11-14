@@ -4,6 +4,7 @@ The fixture is evals/fixtures/round3-mechanism-copy/input.md: the draft is
 launch copy, and the facts are an HMAC check on webhook retries plus a retry
 receipt ID. Samples below are written from that fixture, not from the regexes.
 """
+
 from __future__ import annotations
 
 import json
@@ -34,8 +35,30 @@ class FixtureOracle(unittest.TestCase):
         summary = json.loads(result.stdout.splitlines()[0])
         self.assertEqual(summary["score"], summary["max_score"])
 
+    def test_keyword_stuffing_is_not_a_mechanism(self) -> None:
+        self.assert_fails("HMAC retry receipt")
+
+    def test_marketing_and_unprovided_reliability_cannot_pass(self) -> None:
+        self.assert_fails(
+            "Our groundbreaking, seamless tool checks HMAC signatures and logs a retry receipt for 99.99% reliability."
+        )
+        self.assert_fails(GOOD + " This provides 99.99% reliability.")
+
+    def test_near_miss_technical_description_remains_valid(self) -> None:
+        self.assertEqual(
+            self.grade(
+                GOOD + " The signature check runs before accepting a retry."
+            ).returncode,
+            0,
+        )
+
     def test_mechanism_terms_match_case_insensitively(self) -> None:
-        self.assertEqual(self.grade(GOOD.replace("HMAC", "hmac").replace("retry receipt", "Retry Receipt")).returncode, 0)
+        self.assertEqual(
+            self.grade(
+                GOOD.replace("HMAC", "hmac").replace("retry receipt", "Retry Receipt")
+            ).returncode,
+            0,
+        )
 
     def assert_fails(self, text: str) -> str:
         result = self.grade(text)
@@ -59,18 +82,27 @@ class FixtureOracle(unittest.TestCase):
         self.assertIn("forbidden regex present", stdout)
 
     def test_missing_one_mechanism_fails(self) -> None:
-        stdout = self.assert_fails("The tool rejects webhook retries without a matching HMAC signature.")
+        stdout = self.assert_fails(
+            "The tool rejects webhook retries without a matching HMAC signature."
+        )
         self.assertIn("missing required text: 'retry receipt'", stdout)
 
     def test_grounded_rewrite_with_launch_copy_fails(self) -> None:
-        for phrase in ("A pivotal release.", "It is transformative.", "Built for fast-moving teams."):
+        for phrase in (
+            "A pivotal release.",
+            "It is transformative.",
+            "Built for fast-moving teams.",
+        ):
             with self.subTest(phrase=phrase):
                 self.assert_fails(GOOD + " " + phrase)
 
     def test_inflected_unlock_is_still_generic_copy(self) -> None:
         # The fixture's own draft says "unlocks"; a rewrite that keeps that verb
         # with a new object has not removed the generic benefit claim.
-        for phrase in ("It unlocks faster incident review.", "Unlocking safer retries."):
+        for phrase in (
+            "It unlocks faster incident review.",
+            "Unlocking safer retries.",
+        ):
             with self.subTest(phrase=phrase):
                 self.assert_fails(GOOD + " " + phrase)
 

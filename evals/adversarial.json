@@ -6,12 +6,12 @@
     {
       "id": "earned-antithesis",
       "split": "tune",
-      "prompt": "Review this paragraph after the preceding section has already shown how the pelican image and run log differ:\n\nThe pelican is the surface; the inspectable run is the point.",
-      "expected_output": "Keeps or lightly edits the antithesis because the prior context earns the contrast.",
+      "prompt": "Review the final contrast. Earlier in the report, the harbor map located the valves and the drill log recorded the order in which the crew closed them.\n\nThe map tells us where. The log tells us when.",
+      "expected_output": "Keeps the supported where-versus-when distinction.",
       "assertions": [
-        "Does not reject the sentence solely because it uses short antithesis.",
-        "Says the line can work if prior context established the carrier/process distinction.",
-        "If rewriting, preserves the carrier-versus-process relation rather than expanding into generic prose."
+        "Does not reject the contrast solely for short clauses.",
+        "Recognizes that locations and closure order support both halves.",
+        "Preserves the where-versus-when distinction if editing."
       ]
     },
     {
@@ -226,53 +226,53 @@
     {
       "id": "serves-as-enumeration",
       "split": "tune",
-      "prompt": "Review this sentence: The retry policy serves three distinct failure modes: connection timeout, oversized payload, and dependency outage.",
-      "expected_output": "Keeps the sentence because 'serves' is doing concrete work (enumerating handled failure modes) rather than displacing a plain copula.",
+      "prompt": "Review this sentence: The parser serves two import formats: tab-separated records and fixed-width reports.",
+      "expected_output": "Keeps serves because it enumerates two supported import formats rather than inflating a copula.",
       "assertions": [
         "Does not flag 'serves' as copula displacement when it introduces a concrete enumeration.",
-        "Recognizes that the sentence names three specific failure modes the policy handles.",
-        "Avoids replacing the sentence with a vaguer construction that loses the enumerated failure modes."
+        "Recognizes the enumeration of tab-separated records and fixed-width reports.",
+        "Preserves tab-separated records and fixed-width reports if editing."
       ]
     },
     {
       "id": "branching-condition-symmetry",
       "split": "tune",
-      "prompt": "Review this technical note: Whether the worker crashes before or after the receipt is written determines whether recovery retries the job or marks it complete.",
-      "expected_output": "Keeps the Whether/Or because it names a real branching condition with distinct downstream behavior.",
+      "prompt": "Review this note: Whether an invoice arrives ahead of the cutoff or later determines if payment goes into this month’s batch or next month’s batch.",
+      "expected_output": "Keeps the real cutoff branch and the distinct monthly batches.",
       "assertions": [
-        "Does not reject the sentence solely because it matches the 'Whether X or Y' shape associated with hedged symmetry.",
-        "Recognizes that the two branches (crash before vs after receipt write) trigger different concrete recovery behavior.",
-        "If editing, preserves the branching condition and the two distinct outcomes rather than collapsing them."
+        "Does not reject Whether/Or simply for its shape.",
+        "Recognizes the cutoff as the condition deciding the payment batch.",
+        "Preserves both payment outcomes if editing."
       ]
     },
     {
       "id": "em-dash-earned",
       "split": "tune",
-      "prompt": "Review this sentence: The orphaned stream — the one where the original readable was lost but the chunks survived in SQLite — can still be finalized and persisted.",
-      "expected_output": "Keeps the em-dashes because they bracket a parenthetical that defines a specific technical term inline.",
+      "prompt": "Review this sentence: The parked parcel — an item whose address label cannot be read — waits at the depot until the sender supplies a replacement.",
+      "expected_output": "Keeps the dash pair defining a parked parcel.",
       "assertions": [
-        "Does not flag em-dashes when they bracket a parenthetical that adds concrete definition.",
-        "Recognizes the bracketed phrase as an inline definition of the technical term 'orphaned stream'.",
-        "Avoids splitting the sentence into separate sentences or parentheses if the inline em-dash form is the most readable."
+        "Does not reject dashes that define a concrete term.",
+        "Recognizes unreadable address label as the definition of parked parcel.",
+        "Preserves the definition and replacement-label condition if editing."
       ]
     },
     {
       "id": "holdout-earned-branching-dash-copula",
       "split": "holdout",
-      "prompt": "Review this runbook sentence: The cleanup job serves two failure modes: a manifest written before compaction finishes, and chunks compacted before the manifest is written. Whether the worker crashes before or after the manifest write determines whether recovery replays the chunk list or marks the segment sealed; the orphaned segment — chunks present in object storage but missing from the manifest — stays readable until then.",
-      "expected_output": "Keeps the prose because 'serves' introduces an enumeration, 'whether' names a real branch with different recovery behavior, and the em-dash brackets an inline definition.",
+      "prompt": "Review this logistics note: The desk serves two return categories: unopened items and damaged items. Whether the box is sealed or opened determines if staff restock it or inspect it; the quarantine shelf — a rack for returns awaiting inspection — keeps opened boxes separate.",
+      "expected_output": "Keeps the enumeration, real branch, and inline definition.",
       "assertions": [
-        "Does not flag 'serves two failure modes' as copula displacement because it introduces a concrete enumeration.",
-        "Does not flag the 'Whether before or after' structure as hedged symmetry because the branches produce distinct recovery actions.",
-        "Does not flag the em-dash parenthetical because it defines 'orphaned segment' with concrete storage/manifest facts.",
-        "If editing, preserves the failure-mode enumeration, branch outcomes, and inline definition rather than collapsing them into a generic reliability sentence."
+        "Accepts serves introducing the two return categories.",
+        "Keeps the sealed/opened branch and restock/inspect outcomes.",
+        "Accepts the dash pair defining the quarantine shelf.",
+        "Preserves those distinctions if editing."
       ]
     },
     {
       "id": "earned-parataxis-sequence",
       "split": "tune",
-      "prompt": "Review this line; the surrounding piece is about how fast the incident unfolded:\n\nThe pager fired. The dashboard went red. The on-call rolled back. The graphs recovered.",
-      "expected_output": "Keeps the paratactic sequence because the side-by-side short clauses enact the speed of the incident, which is the point. Does not force the clauses into one subordinated sentence.",
+      "prompt": "Review this passage from a scene about the speed of an evacuation:\n\nThe whistle blew. The crew dropped the ropes. The launch cleared the pier. The gate shut.",
+      "expected_output": "Keeps the short ordered evacuation sequence because its speed is the point; does not force a connective-heavy sentence.",
       "assertions": [
         "Does not flag the line solely for using short coordinate clauses or for being paratactic.",
         "Recognizes that the parataxis enacts a rapid ordered sequence and that the speed is the point.",
@@ -282,12 +282,12 @@
     {
       "id": "earned-parataxis-evidenced-contrast",
       "split": "tune",
-      "prompt": "Review this closer. The two prior paragraphs already showed (a) that the masters reconstructed real boards almost perfectly and (b) that they collapsed to novice level on randomly scattered boards:\n\nWhat looked like perception was retrieval. What looked like a gift was inventory.",
-      "expected_output": "Classifies the antithesis as earned because both sides are evidenced by the prior paragraphs, and keeps it rather than subordinating it into a connective-heavy sentence.",
+      "prompt": "Review this closer. Prior paragraphs show that a technician found documented faults quickly but took as long as a novice on deliberately new faults.\n\nFamiliarity looked like speed. Novelty exposed the limit.",
+      "expected_output": "Keeps the contrast because both supported observations appear in the context.",
       "assertions": [
-        "Classifies the antithesis as earned because both sides (the strong real-board recall and the random-board collapse) are evidenced by the prior paragraphs.",
-        "Does not rewrite it into a connective-heavy sentence that dilutes the earned parallel contrast.",
-        "Does not apply the parataxis density / over-reliance rule to this single earned instance as if it were a document-level failure."
+        "Recognizes the familiar/new fault performance evidence supporting both halves.",
+        "Preserves the concise supported contrast instead of adding an unmeasured explanation.",
+        "Does not treat this single contrast as document-wide repetition."
       ]
     },
     {

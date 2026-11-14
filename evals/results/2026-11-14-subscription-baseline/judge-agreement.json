@@ -1,0 +1,14 @@
+[
+  {
+    "apply_model": "sonnet",
+    "outputs": 402,
+    "mean_absolute_primary_difference": 0.10820895522388059,
+    "unsupported_agreement": 0.7313432835820896
+  },
+  {
+    "apply_model": "sol",
+    "outputs": 402,
+    "mean_absolute_primary_difference": 0.06923714759535655,
+    "unsupported_agreement": 0.9502487562189055
+  }
+]

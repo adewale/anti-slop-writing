@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "unique_manifest_ids": 804,
+  "unique_case_model_arm_trial_slots": 804,
+  "expected_apply": 804,
+  "actual_apply": 804,
+  "expected_judgments": 1608,
+  "actual_judgments": 1608,
+  "extra_or_missing_slots": [],
+  "unique_completed_provider_response_ids": 2412,
+  "duplicate_completed_provider_responses": 0,
+  "validated": {
+    "apply": 804,
+    "judge": 1608
+  },
+  "raw_complete_blinding_prompt_model_mismatches": 0,
+  "core_pair_ids": 40,
+  "complete_fact_pairs": 19,
+  "infrastructure_pre_request_failures": 72,
+  "host_interrupted_no_response": 8,
+  "schema_invalid_returned_response": 5,
+  "holdout_co_primary_contrasts": [
+    {
+      "model": "sonnet",
+      "judge": "opus",
+      "outcome": "factual_fidelity",
+      "gate_exit": 0,
+      "meets_registered_numeric_criterion": true
+    },
+    {
+      "model": "sonnet",
+      "judge": "opus",
+      "outcome": "task_fulfillment",
+      "gate_exit": 0,
+      "meets_registered_numeric_criterion": true
+    },
+    {
+      "model": "sonnet",
+      "judge": "sol",
+      "outcome": "factual_fidelity",
+      "gate_exit": 1,
+      "meets_registered_numeric_criterion": false
+    },
+    {
+      "model": "sonnet",
+      "judge": "sol",
+      "outcome": "task_fulfillment",
+      "gate_exit": 1,
+      "meets_registered_numeric_criterion": false
+    },
+    {
+      "model": "sol",
+      "judge": "opus",
+      "outcome": "factual_fidelity",
+      "gate_exit": 1,
+      "meets_registered_numeric_criterion": false
+    },
+    {
+      "model": "sol",
+      "judge": "opus",
+      "outcome": "task_fulfillment",
+      "gate_exit": 0,
+      "meets_registered_numeric_criterion": true
+    },
+    {
+      "model": "sol",
+      "judge": "sol",
+      "outcome": "factual_fidelity",
+      "gate_exit": 1,
+      "meets_registered_numeric_criterion": false
+    },
+    {
+      "model": "sol",
+      "judge": "sol",
+      "outcome": "task_fulfillment",
+      "gate_exit": 1,
+      "meets_registered_numeric_criterion": false
+    }
+  ],
+  "joint_numeric_criterion_met": false,
+  "holdout_point_guards_met": false
+}

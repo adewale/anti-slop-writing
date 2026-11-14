@@ -38,7 +38,7 @@ A reference-anchor case is a normal `evals/<suite>.json` case (it still has `id`
 
 Rules:
 
-- **Split is `holdout`.** An anchor is a merge-time gate, never used to tune doctrine. If a
+- An independent anchor may use `holdout` only while its source remains absent from tune inputs. An exposed anchor is open-book regression coverage and belongs under `evals/ablations/` with `split: "tune"`. If a
   future candidate falls short, write a new tune case; do not edit doctrine to pass it.
 - The `assertions` characterize the properties a passing rewrite must have — they are the
   bar a future candidate must clear. Keep them behavioral and quote-checkable.
@@ -70,6 +70,6 @@ from rotting away from the case.
 
 ## Worked example
 
-`tweet-best-rewrite-anchor` in `evals/rewrite-evals.json`, with artifacts under
+`tweet-best-rewrite-anchor` in `evals/ablations/open-book-reference-anchors.json` is an exposed regression anchor, moved out of holdout on 2026-11-13 because its source was already a tune input. Its artifacts remain under
 `evals/fixtures/tweet-taste-as-model/` and the reference scorecard in
 `evals/results/2026-06-13-tweet-best-anchor/`.

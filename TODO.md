@@ -15,5 +15,18 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 
 ## Open — buildable without the blocked item
 
-- [ ] **Cross-family judge.** The baseline judges are Claude grading Claude output (same-family, self-preference risk per `Lessons_learned.md`). A non-Claude judge is not available in the current harness. Wire one in when a second model family is reachable.
+- [ ] Calibrate the subscription baseline's fidelity disagreement with human review before any promotion claim. Keep existing holdouts frozen; any later doctrine change needs tune cases and its own study.
 - [ ] **Observed multi-run trigger rates** in Pi, Claude Code, Codex, and OpenCode. The baseline records a single routing-decision pass, not live multi-run activation rates.
+
+## Open — 2026-11-13 review
+
+- [ ] Land the eval-integrity changes. The owner subsequently authorized subscription-backed baselines before merge; the preregistered run is complete in `evals/results/2026-11-14-subscription-baseline/`. Its joint improvement criterion failed; do not promote doctrine from isolated positive rows.
+- [ ] Recreate or rebase #17 and #18 on fresh branches after the instrument lands; replicate without treating trials as independent cases. #18 needs an independent-case design or a bounded single-case claim.
+- [ ] Prepare the highlighter split (lint and grounded examples only) and evaluate the cataphoric-teaser candidate under the repaired protocol.
+- [ ] Repair SKILL.md's unsourced examples, mandatory aphorism field, carrier terminology, duplicated lists, and maintainer text in separately measured rounds. No doctrine was changed during instrument repair.
+- [ ] Review the owner-only closure/merge/deletion recommendations in `evals/results/2026-11-13-eval-integrity.md`. The stop-slop branch fails the handoff's deletion test; retain it pending investigation.
+
+## Done — 2026-11-14
+
+- [x] Review the nineteen facts-supplied twins from `69ade5d`, including five holdout twins. Audit, validity corrections, pair-preserving scoring, and tests are in `evals/results/2026-11-14-fact-pair-review/`. That validity review itself generated no model results.
+- [x] **Cross-family judging and no-skill baselines.** Completed 804 outputs and 1,608 judgments using Sonnet 5.5/GPT-6.1 Sol apply models and Opus 5.5/GPT-6.1 Sol judges. All 59 core cases and eight antithesis/control cases received three trials per arm/model. The joint criterion failed and fidelity judgments disagreed; see `evals/results/2026-11-14-subscription-baseline/README.md`.

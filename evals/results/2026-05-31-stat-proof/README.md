@@ -1,5 +1,9 @@
 # 2026-05-31 — Fresh holdout statistical-proof run
 
+## Correction — 2026-11-13
+
+The statistical-proof claim is withdrawn. Five of the old arm’s nine failed assertions required a `Rewrite check` field introduced only by the new template. Removing that field assertion gives a binary mean delta of +0.0357 on 42 cases, bootstrap 95% CI [+0.0079, +0.0714], and sign-flip p≈0.126: REJECT. Equal-weight means of the seven case families give p≈0.245. Every after output was longer by whitespace word count (42/42), and the template exposed the doctrine version to judges. The holdout was committed about 44 minutes after the doctrine it tested. These data do not establish an improvement. Original outputs, judgments, scores, and the historical account below are retained for audit. Reproduction: `python3 evals/results/2026-11-13-review-reproduction/reproduce.py`.
+
 Purpose: test whether current `main` is statistically better than the pre-integration skill snapshot after branch mining, using a larger fresh holdout set rather than the saturated 2026-05-29 baseline.
 
 ## Protocol

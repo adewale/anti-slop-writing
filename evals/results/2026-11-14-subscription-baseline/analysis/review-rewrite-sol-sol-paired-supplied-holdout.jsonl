@@ -1,0 +1,5 @@
+{"id": "abstract-system-noun-stack-with-facts", "split": "holdout", "pair_id": "abstract-system-noun-stack", "family": "nominalization-copula", "before": 1.0, "after": 1.0}
+{"id": "fake-precision-rewrite-finance-with-facts", "split": "holdout", "pair_id": "fake-precision-rewrite-finance", "family": "provenance", "before": 1.0, "after": 1.0}
+{"id": "fake-precision-unnamed-source-with-facts", "split": "holdout", "pair_id": "fake-precision-unnamed-source", "family": "provenance", "before": 1.0, "after": 1.0}
+{"id": "holdout-ask-author-ai-tooling-with-facts", "split": "holdout", "pair_id": "holdout-ask-author-ai-tooling", "family": "missing-tooling-provenance", "before": 0.8611111111111112, "after": 1.0}
+{"id": "holdout-borrowed-emphasis-release-safety-with-facts", "split": "holdout", "pair_id": "holdout-borrowed-emphasis-release-safety", "family": "borrowed-emphasis", "before": 1.0, "after": 0.9166666666666666}

@@ -34,6 +34,35 @@
         "evals/examples/earned-antithesis/keep-decorative.md",
         "evals/examples/earned-antithesis/no-verdict-earned.md"
       ]
+    },
+    {
+      "name": "hinge integrity triplet",
+      "cases": [
+        "pos-relation-hinge"
+      ],
+      "pass": [
+        "evals/examples/oracle-integrity/hinge-good.md",
+        "evals/examples/oracle-integrity/hinge-near.md",
+        "evals/examples/oracle-integrity/hinge-comma-so.md"
+      ],
+      "fail": [
+        "evals/examples/oracle-integrity/hinge-bad.md",
+        "evals/examples/oracle-integrity/hinge-so-called.md",
+        "evals/examples/oracle-integrity/hinge-intensifier.md"
+      ]
+    },
+    {
+      "name": "appositive integrity triplet",
+      "cases": [
+        "neg-earned-em-dash"
+      ],
+      "pass": [
+        "evals/examples/oracle-integrity/appositive-good.md",
+        "evals/examples/oracle-integrity/appositive-near.md"
+      ],
+      "fail": [
+        "evals/examples/oracle-integrity/appositive-bad.md"
+      ]
     }
   ]
 }

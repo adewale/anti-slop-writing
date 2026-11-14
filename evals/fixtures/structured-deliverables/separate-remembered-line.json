@@ -1,0 +1,38 @@
+{
+  "id": "separate-remembered-line",
+  "split": "tune",
+  "annotation_origin": "model_proposed_not_human_adjudication",
+  "provenance": {
+    "archive": "evals/results/2026-11-14-subscription-baseline/trials.tar.gz",
+    "archive_sha256": "ac9a292615299cd5160a08772118f1d76a2d5b273bb5b19e18b589be2c08dd23",
+    "archive_member": "subscription-baseline/apply/sonnet/5f409e6561293e2d31770957/complete.json",
+    "review_item": null,
+    "extraction_id": "d41b29706ebfbae5be83aecf"
+  },
+  "source": "Verdict: revise\n\nSlop tells: \"isn't just X. It is Y\" is negative parallelism, and \"a new programming model\" is undefined prestige framing. The cadence implies a contrast between retry logic and something larger without saying what the larger thing is. Flattened (cadence removed): \"Durable execution is a new programming model.\" That names no actor, mechanism, or limit, so the rhythm was carrying it.\n\nSpecificity missing: what is saved, when, what happens on a crash, and what the developer writes versus what the framework does. The \"model\" claim is only earned by the last of those: developers write ordinary sequential code and the framework handles persistence.\n\nInflated claim: \"new programming model.\" The supplied facts support a narrower claim: failure recovery moves out of the developer's code and into the framework.\n\nFlow break: none within the pair, but the second sentence asserts a contrast (retry vs. model) whose first side, what retry logic does here, is never shown. Restated with a connective: \"Durable execution is more than retry logic *because* ...\" The \"because\" is supplied by the facts: state is saved per step, so recovery needs no retry code.\n\nConcrete rewrite: In this framework, a workflow's state is saved after every step, so when the process crashes, the workflow resumes from the last saved step instead of starting over. Developers write the workflow as ordinary sequential code, and the framework does the saving and resuming.\n\nRewrite check: passes self-detectors. No negative parallelism, no rule-of-three, no em-dashes, no prestige adjectives, no decorative closer, no invented facts. Every clause comes from the supplied facts.\n\nRemembered line: The workflow resumes from the last saved step, and you wrote no recovery code.",
+  "annotation": {
+    "version": 1,
+    "source_sha256": "1c51524643be2113323dd324730994e2d19502341bba44337f5d9e113bf18d7b",
+    "items": [
+      {
+        "id": "d1",
+        "role": "prose",
+        "content": {
+          "start": 1192,
+          "end": 1464,
+          "text": "In this framework, a workflow's state is saved after every step, so when the process crashes, the workflow resumes from the last saved step instead of starting over. Developers write the workflow as ordinary sequential code, and the framework does the saving and resuming."
+        },
+        "qualifications": []
+      }
+    ],
+    "unresolved": []
+  },
+  "expected_items": [
+    {
+      "id": "d1",
+      "role": "prose",
+      "text": "In this framework, a workflow's state is saved after every step, so when the process crashes, the workflow resumes from the last saved step instead of starting over. Developers write the workflow as ordinary sequential code, and the framework does the saving and resuming.",
+      "qualifications": []
+    }
+  ]
+}

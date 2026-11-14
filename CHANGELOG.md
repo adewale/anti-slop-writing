@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14 — Prototype role-preserving views offline
+
+- Added `scripts/deliverable_views.py` and `docs/structured-deliverable-views.md`: proposed prose, author questions, keep/cut decisions and conditional alternatives remain separate, with exact-source qualifications attached. Both views use the same unmodified raw response; no template-field stripping or model calls.
+- Added three tune fixtures copied from retained baseline responses, explicitly marked as model-proposed annotations rather than human adjudication. Tests cover conditional remembered lines, unlabelled prose, separate summaries, source binding, omissions, malformed input and mechanical-validity limits.
+- The prototype always reports `unvalidated_prototype`. It does not change the registered runner, stopped checkpoint, original scores or installable skill, and does not authorize more judging. Instrument validation and separate human fidelity calibration remain pending.
+
 ## 2026-11-14 — Stop rewrite-only measurement at its extraction-audit gate
 
 - Prepared the 37-case/444-output baseline re-judging and prospectively repaired outcome exclusions, case-wide attrition, uncertainty labels, original-versus-rescored exports and qualification-aware extraction. Committed revision 2 before calls, with an independent audit required before writing judgments. No installed skill or original baseline score changed.

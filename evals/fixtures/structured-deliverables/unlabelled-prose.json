@@ -1,0 +1,38 @@
+{
+  "id": "unlabelled-prose",
+  "split": "tune",
+  "annotation_origin": "model_proposed_not_human_adjudication",
+  "provenance": {
+    "archive": "evals/results/2026-11-14-subscription-baseline/trials.tar.gz",
+    "archive_sha256": "ac9a292615299cd5160a08772118f1d76a2d5b273bb5b19e18b589be2c08dd23",
+    "archive_member": "subscription-baseline/apply/sol/c677a45095fa117d1e5fe695/complete.json",
+    "review_item": "R002",
+    "extraction_id": null
+  },
+  "source": "With the cache cold, every request hit Postgres, and p99 latency was 800 ms. With the cache warm, Redis served the same requests in 12 ms.\n\nThe job failed nine times in the first hour. Every failure was a timeout to the same host, followed by an immediate retry. After we added a two-second retry backoff, failures dropped to one per hour.\n\nThe report query scanned four million rows in six seconds. After we added an index on the timestamp column, the same query returned in 40 ms.\n\nThe 3 a.m. rollout failed with no owner online. We added a health check that automatically reverts deployments when 5xx errors spike. The next bad deployment rolled itself back in 90 seconds.",
+  "annotation": {
+    "version": 1,
+    "source_sha256": "42b4e238f95fd98f1193d1011adb683f38ffd5836d5e7312a5ef6e962e34f940",
+    "items": [
+      {
+        "id": "d1",
+        "role": "prose",
+        "content": {
+          "start": 0,
+          "end": 675,
+          "text": "With the cache cold, every request hit Postgres, and p99 latency was 800 ms. With the cache warm, Redis served the same requests in 12 ms.\n\nThe job failed nine times in the first hour. Every failure was a timeout to the same host, followed by an immediate retry. After we added a two-second retry backoff, failures dropped to one per hour.\n\nThe report query scanned four million rows in six seconds. After we added an index on the timestamp column, the same query returned in 40 ms.\n\nThe 3 a.m. rollout failed with no owner online. We added a health check that automatically reverts deployments when 5xx errors spike. The next bad deployment rolled itself back in 90 seconds."
+        },
+        "qualifications": []
+      }
+    ],
+    "unresolved": []
+  },
+  "expected_items": [
+    {
+      "id": "d1",
+      "role": "prose",
+      "text": "With the cache cold, every request hit Postgres, and p99 latency was 800 ms. With the cache warm, Redis served the same requests in 12 ms.\n\nThe job failed nine times in the first hour. Every failure was a timeout to the same host, followed by an immediate retry. After we added a two-second retry backoff, failures dropped to one per hour.\n\nThe report query scanned four million rows in six seconds. After we added an index on the timestamp column, the same query returned in 40 ms.\n\nThe 3 a.m. rollout failed with no owner online. We added a health check that automatically reverts deployments when 5xx errors spike. The next bad deployment rolled itself back in 90 seconds.",
+      "qualifications": []
+    }
+  ]
+}

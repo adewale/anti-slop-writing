@@ -24,6 +24,13 @@ of `mixed`; these need human review too. A high token-overlap reliability score 
 settle the boundary, and no installed doctrine changed. The new instrument-review packet
 is not human fidelity-judge calibration and contains no human answers.
 
+The subsequent [offline prototype](docs/structured-deliverable-views.md) makes the
+proposed boundary explicit: role-separated content and attached source qualifications,
+with both views derived from one raw response. R001's conditional remembered line stays
+an alternative rather than becoming a manuscript ending. These annotations are design
+fixtures, not human answers; structural checks cannot establish contextual completeness.
+The old instrument and its blocked checkpoint remain unchanged.
+
 ## 2026-11-14 — A declared tool inventory is not a capability boundary
 
 The first live Claude launch declared only Read/Skill, yet the CSS-layout query invoked

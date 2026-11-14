@@ -15,18 +15,22 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 
 ## Open — buildable without the blocked item
 
-- [ ] Calibrate the subscription baseline's fidelity disagreement with human review before any promotion claim. Keep existing holdouts frozen; any later doctrine change needs tune cases and its own study.
-- [ ] **Observed multi-run trigger rates** in Pi, Claude Code, Codex, and OpenCode. The baseline records a single routing-decision pass, not live multi-run activation rates.
+- [ ] Calibrate the subscription baseline's fidelity disagreement with human review before any promotion claim. The 18-item blinded packet and blank answers are ready in `evals/results/2026-11-14-fidelity-calibration/`; actual human scoring is pending. Keep existing holdouts frozen; later doctrine changes need tune cases and their own study.
+- [ ] Complete live-client coverage for **native Codex and OpenCode**. Pi and guarded Claude Code now have 29 queries × three valid fresh sessions each. Codex's registered native model was unsupported on the subscription; a different model needs a separately fixed instrument. OpenCode was absent and was not installed. Do not invent rates or substitute the old routing classifier.
 
 ## Open — 2026-11-13 review
 
-- [ ] Land the eval-integrity changes. The owner subsequently authorized subscription-backed baselines before merge; the preregistered run is complete in `evals/results/2026-11-14-subscription-baseline/`. Its joint improvement criterion failed; do not promote doctrine from isolated positive rows.
-- [ ] Recreate or rebase #17 and #18 on fresh branches after the instrument lands; replicate without treating trials as independent cases. #18 needs an independent-case design or a bounded single-case claim.
-- [ ] Prepare the highlighter split (lint and grounded examples only) and evaluate the cataphoric-teaser candidate under the repaired protocol.
+- [x] Land eval-integrity changes: #26 merged. The completed subscription baseline's joint criterion failed; no doctrine was promoted from isolated positive rows.
+- [x] Port #17 as fresh case-only #28, now merged, and complete the bounded compound/#18 screen. All eight original Twitter records remain; compound's positive one-scaffold estimates did not clear standing or supplied-fact quality guards. The broad #18 PR was closed as not adopted; its source remains available.
+- [x] Split highlighter into tested triage-only lint plus grounded coverage, and complete the cataphoric-teaser screen. Full results: `evals/results/2026-11-14-candidate-studies/`; no candidate installed.
 - [ ] Repair SKILL.md's unsourced examples, mandatory aphorism field, carrier terminology, duplicated lists, and maintainer text in separately measured rounds. No doctrine was changed during instrument repair.
-- [ ] Review the owner-only closure/merge/deletion recommendations in `evals/results/2026-11-13-eval-integrity.md`. The stop-slop branch fails the handoff's deletion test; retain it pending investigation.
+- [x] Complete authorized PR/branch housekeeping. #22/#25/#26/#28 merged; #21 closed as superseded. Eleven stale remote branches deleted with atomic expected-head leases. Stop-slop's only differing added script was an unused import; three archive tags retain unmatched historical source history. Audit/actions: `evals/results/2026-11-14-followthrough/`. Original stash and local branches/worktrees preserved.
 
 ## Done — 2026-11-14
+
+- [x] Complete the frozen candidate screen: 1,122 apply outputs, 2,244 valid judgments, all raw/replacement data retained and analyses reproduced offline. Neither candidate clears its eight standing-holdout co-primary contrasts; five of 64 point guards fail. No promotion.
+- [x] Measure actual initial-turn body loading: 174 valid sessions in controlled Pi and guarded Claude Code. Majority sensitivity 7/12 each; specificity 16/17 and 17/17. Material instrument amendments and excluded cohorts are disclosed, not pooled.
+- [x] Prepare the 18-item blind human fidelity-calibration packet without pretending a model is a human reviewer.
 
 - [x] Review the nineteen facts-supplied twins from `69ade5d`, including five holdout twins. Audit, validity corrections, pair-preserving scoring, and tests are in `evals/results/2026-11-14-fact-pair-review/`. That validity review itself generated no model results.
 - [x] **Cross-family judging and no-skill baselines.** Completed 804 outputs and 1,608 judgments using Sonnet 5.5/GPT-6.1 Sol apply models and Opus 5.5/GPT-6.1 Sol judges. All 59 core cases and eight antithesis/control cases received three trials per arm/model. The joint criterion failed and fidelity judgments disagreed; see `evals/results/2026-11-14-subscription-baseline/README.md`.

@@ -1,0 +1,86 @@
+{
+  "status": "COMPLETE",
+  "deleted_remote_branches": [
+    {
+      "branch": "agent/upgrade-ruff-0.16",
+      "expected_head": "0e33b7b9b28fcd4cb55ad9069c724380c395be88"
+    },
+    {
+      "branch": "ci/no-extra-cost-optimisations-20261102",
+      "expected_head": "424a934797d323f39b4a5418ab961510a9ccd68e"
+    },
+    {
+      "branch": "codex/pin-github-actions-2026-11-05",
+      "expected_head": "abc80d4ba4a4431cc7f31a4f85636c6ad3a47eee"
+    },
+    {
+      "branch": "claude/tweet-audit-l4yq2z",
+      "expected_head": "151d5927d5404396bb3d650766115d3e868d1067"
+    },
+    {
+      "branch": "claude/test-audit-campaign",
+      "expected_head": "f7d71c2c514f210d3448f92e14bc9ff2f529e4f4"
+    },
+    {
+      "branch": "claude/verification-audit-fixes",
+      "expected_head": "3115b6ae3d33c7239b31dfee39637681f57f11cc"
+    },
+    {
+      "branch": "claude/stop-slop-review-61fuj1",
+      "expected_head": "3d165814da67dbe8af6f7be86890500fa24d1918"
+    },
+    {
+      "branch": "cleanup/avoid-duplicate-ci-runs",
+      "expected_head": "18694f5ad6e4b63dfc66f578dec54f9f00525488"
+    },
+    {
+      "branch": "dependabot/github_actions/github-actions-7840bcb697",
+      "expected_head": "85b6ccc5e695e05e431ea1771939fcb2cae6b859"
+    },
+    {
+      "branch": "skills/curtail-maintenance-ceremony",
+      "expected_head": "8053162444e1ae15e3b0b6b0424e935c0ed38f9d"
+    },
+    {
+      "branch": "sol/eval-integrity",
+      "expected_head": "587bfd34dfdeda8da2504789fbb0c0b9c82d7c1f"
+    }
+  ],
+  "archived_full_history": [
+    {
+      "branch": "claude/tweet-audit-l4yq2z",
+      "tag": "archive/2026-11-14-tweet-audit",
+      "head": "151d5927d5404396bb3d650766115d3e868d1067"
+    },
+    {
+      "branch": "claude/stop-slop-review-61fuj1",
+      "tag": "archive/2026-11-14-stop-slop-review",
+      "head": "3d165814da67dbe8af6f7be86890500fa24d1918"
+    },
+    {
+      "branch": "cleanup/avoid-duplicate-ci-runs",
+      "tag": "archive/2026-11-14-closed-pr-21",
+      "head": "18694f5ad6e4b63dfc66f578dec54f9f00525488"
+    }
+  ],
+  "atomic_expected_head_leases": true,
+  "remote_deleted_refs_absent": true,
+  "remote_archive_targets_verified": true,
+  "retained_active_heads": [
+    "bea6923638a65d6a3188652cd61f1faf5cf2db0d\trefs/heads/claude/cataphoric-teasers-handling-sele9m",
+    "353517d899e704b71a9ad874001b9fc1ea2e9b5a\trefs/heads/claude/gpt6-astra-personality-guide-zrkwcv",
+    "245306e38fb835af4853ba39fceca642f1a94dd2\trefs/heads/claude/llm-cliche-highlighter-c2qqq8",
+    "3aa3f72dcabac82873c1ecb0d972e397198d5462\trefs/heads/claude/twitter-thread-eval-b3mxxi",
+    "cf2686ccb6b5e9d7be8e35804eae6a0e574b8695\trefs/heads/sol/candidate-studies"
+  ],
+  "original_stash_unchanged": true,
+  "local_branches_and_worktrees_deleted": false,
+  "additional_newly_merged_case_branch": {
+    "branch": "sol/twitter-coverage",
+    "pull_request": 28,
+    "head": "d293d62ca711dc7e1a1c72cb72a07200c9c9c1bb",
+    "merge_commit": "da267d6c5e132d59c1255bbfc856b240da296240",
+    "remote_deleted_with_expected_head_lease": true,
+    "local_branch_and_worktree_retained": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "distinct_raw_traces": 194,
+  "unique_returned_provider_response_ids": 318,
+  "unique_selected_candidate_responses": null,
+  "repeated_ids_across_nonidentical_trace_copies": [],
+  "returned_list_price_equivalent_usd": 3.120329799999999,
+  "traces_without_complete_cost_counters": 1,
+  "scope": "All retained attempts/pilots, deduplicating byte-identical copies. Counters are not subscription invoices; missing remote usage is unknown, not zero."
+}

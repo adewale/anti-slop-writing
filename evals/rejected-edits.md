@@ -24,6 +24,55 @@ Optional. Only fill in if the rejection generalizes. Otherwise leave blank and l
 
 ## Entries
 
+## 2026-11-14 — Do not promote the compound-label patch from a one-scaffold lead
+
+### Edit attempted
+
+A minimal unresolved-supporting-label rule, with explicit no-invented-definition and
+standard/defined-term boundaries. Frozen as `candidate-compound.patch` in
+`evals/results/2026-11-14-candidate-studies/`; not the full historical #18 expansion.
+
+### Eval that rejected promotion
+
+Seven compound cases, three trials/arm/apply model, one conservative source family;
+plus the 69-case one-trial standing screen. All eight standing-holdout co-primary
+contrasts reject superiority. In the tune supplied-definition case,
+`coined-compound-label-with-facts`, three model/judge combinations lose .083 normalized
+rewrite quality, beyond the registered .05 point guard.
+
+### Why it was not adopted
+
+One GPT-judge comparison scores current trial 3 at 5 and candidate trial 3 at 4, noting
+that candidate wording “these two comparisons agree” is less clear than saying that
+“the compared values match.” This is a small observed precision loss, not evidence that
+undefined-label handling is universally harmful. The positive target estimates cannot
+supply independence or erase required guard losses. Raw responses and all judges remain.
+
+## 2026-11-14 — Do not promote the promised-payload teaser patch
+
+### Edit attempted
+
+A compact promise/discharge rule, preserving useful delivered labels/questions and
+separating rarity from redundant significance. Frozen as `candidate-teaser.patch` in
+the same study; no branch blacklist or large reference expansion imported.
+
+### Eval that rejected promotion
+
+Twelve teaser cases, three trials/arm/apply model, one conservative source family;
+all eight standing-holdout co-primary contrasts reject superiority. Sonnet/Opus's
+supplied-fact unsupported-claim rate rises .333, and the standing GPT/GPT no-additional-
+facts selection rises .118. These are point guards, not powered harm tests.
+
+### Why it was not adopted
+
+The tune case `cataphoric-teaser-undischarged-with-facts` supplies duplicate charge
+**submission**, not confirmed customer billing. A candidate response says “the customer
+is billed twice”; Opus flags that unsupported outcome and an added processor mechanism.
+Current responses sometimes make related inferences too, and judge judgments vary;
+do not turn this into a causal proof of patch harm. It is sufficient to withhold
+promotion under the frozen guard and power requirements. No doctrine was tuned to the
+historical holdout outcomes.
+
 ## 2026-05-28 — Multi-sentence ladder guidance on the emphasis-source test
 
 ### Edit attempted

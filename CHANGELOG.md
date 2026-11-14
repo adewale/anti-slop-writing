@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-14 — Complete candidate screens and controlled live activation
+
+- Completed 1,122 apply outputs and 2,244 valid cross-family judgments over frozen standing, compound, teaser, Twitter and grounded highlighter panels. Retained 16 schema-invalid Opus judgments and replacements (3,382 unique returned responses total). Neither candidate clears its eight standing-holdout co-primary contrasts; five of 64 fact-condition point guards fail. No doctrine candidate installed.
+- Published raw compressed data, original registration/generation hashes, a disclosed analysis-export amendment, every standing decrease, length/judge reports, usage accounting and byte-identical offline reproduction in `evals/results/2026-11-14-candidate-studies/`.
+- Completed 174 valid initial-turn activation sessions. Controlled Pi/GPT and guarded restricted Claude/Sonnet each load on a majority in 7/12 positive queries; specificity is 16/17 and 17/17. Disclosed post-start capability/observer repairs, quarantined the entire pre-guard Claude cohort, and retained all pilots. No native Codex/OpenCode rate is claimed.
+- Ported all eight #17 cases as the separately validated case-only #28, with explicit facts metadata and before/after examples. Added a small triage-only span/count linter, not the historical automatic zero-hit grading or a new installed blacklist.
+- Prepared an 18-item blind human fidelity-calibration packet; actual human adjudication remains pending. Completed authorized merges/closures and eleven expected-head-leased remote branch deletions, preserving three archive tags and the owner's stash/local refs.
+
 ## 2026-11-14 — Complete subscription-backed no-skill baselines
 
 - Preregistered and completed 804 outputs and 1,608 cross-family judgments over all 59 review/rewrite cases and eight antithesis/control cases, with three fresh trials per arm/model. Apply: Sonnet 5.5 and GPT-6.1 Sol; judge: Opus 5.5 and GPT-6.1 Sol.

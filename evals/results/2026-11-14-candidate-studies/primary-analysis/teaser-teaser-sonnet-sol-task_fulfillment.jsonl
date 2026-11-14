@@ -1,0 +1,4 @@
+{"id": "cataphoric-teaser-payoff-restates-tease", "split": "holdout", "pair_id": "cataphoric-teaser-payoff-restates-tease", "family": "historical-teaser-scaffold", "before": 0.9166666666666666, "after": 0.8333333333333334}
+{"id": "scarcity-framing-survives-discharge", "split": "holdout", "pair_id": "scarcity-framing-survives-discharge", "family": "historical-teaser-scaffold", "before": 0.25, "after": 0.25}
+{"id": "earned-cataphoric-question-discharged", "split": "holdout", "pair_id": "earned-cataphoric-question-discharged", "family": "historical-teaser-scaffold", "before": 0.8333333333333334, "after": 0.9166666666666666}
+{"id": "earned-discourse-deixis-roadmap", "split": "holdout", "pair_id": "earned-discourse-deixis-roadmap", "family": "historical-teaser-scaffold", "before": 0.8333333333333334, "after": 0.8333333333333334}

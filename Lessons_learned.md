@@ -4,6 +4,24 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-11-14 — A declared tool inventory is not a capability boundary
+
+The first live Claude launch declared only Read/Skill, yet the CSS-layout query invoked
+built-in `dataviz`, which enabled and invoked Write. Three invalid attempts were retained;
+the entire pre-guard Claude cohort was excluded, not counted as routing negatives.
+
+The surviving instrument change is concrete: a fail-closed PreToolUse hook permits only
+the target skill and realpath-confined reads, records decisions per tool-use ID, and
+checks unchanged workspace hashes. A fresh forced dataviz probe was actually denied
+before scored collection resumed. A later unavailable-Bash request was a native dispatcher
+rejection, not executed Bash, and was recovered from its original trace without regeneration.
+See `evals/results/2026-11-14-live-activation/AMENDMENTS.md` and the raw archive.
+
+This supports a bounded measurement practice, not a general sandbox claim: audit available
+tool execution as well as startup declarations, and distinguish host rejection from a
+successful capability. No writing doctrine changed. The controlled configuration and its
+post-start amendments must remain visible beside the published routing rates.
+
 ## 2026-06-14 — Borrowed surface rules were inert; our mechanism tests already subsume them
 
 ### Failure

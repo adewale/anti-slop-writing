@@ -1,0 +1,1243 @@
+{
+  "seed": 261116,
+  "instrument_revision": 6,
+  "models": {
+    "pi": "gpt-6.1-sol",
+    "claude": "claude-sonnet-5-5"
+  },
+  "slots": [
+    {
+      "id": "fc4b13a999e25f566acbb835",
+      "client": "claude",
+      "query_id": "neg-design-layout",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "314b3964e246ead7941990ff",
+      "client": "claude",
+      "query_id": "pos-post",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "31728638fe5281fb2746dcd8",
+      "client": "pi",
+      "query_id": "neg-grammar-only",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "412a44fc3f858640c770ba5e",
+      "client": "pi",
+      "query_id": "neg-config-debug",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "8397cbc637b6714db95ca341",
+      "client": "pi",
+      "query_id": "neg-factual-summary",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "3ef887f693abd4ae31c6d0c2",
+      "client": "claude",
+      "query_id": "pos-article-conclusion",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "f2487fbdd6b5810569794c6a",
+      "client": "pi",
+      "query_id": "pos-devrel",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "f4609835ddf2bb8a69dd9fa1",
+      "client": "claude",
+      "query_id": "neg-factual-summary",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "a058365e81258594da699d89",
+      "client": "pi",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "0574c9eb2075f53e2e5dc1d1",
+      "client": "pi",
+      "query_id": "neg-translation",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "f338217a6337739ffc08258c",
+      "client": "claude",
+      "query_id": "neg-factual-summary",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "c51eaeb3b48d7f143f0a7f61",
+      "client": "claude",
+      "query_id": "pos-devrel",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "34f37ef92e45ddeaa5489355",
+      "client": "pi",
+      "query_id": "pos-article-conclusion",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "d163e8c7c47835459cf4e04e",
+      "client": "pi",
+      "query_id": "neg-design-layout",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "8d443bf93ac7d99c9cf62430",
+      "client": "pi",
+      "query_id": "neg-sql",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "143d00d45a33d1208b9820b9",
+      "client": "claude",
+      "query_id": "pos-wiki",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "8208eb2c1e740b75f4266f5a",
+      "client": "claude",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "fbf47ac22dc1472543c2196a",
+      "client": "pi",
+      "query_id": "pos-tagline",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "e601206d9fc8dd93f6bbd63e",
+      "client": "claude",
+      "query_id": "pos-script",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "224cbdc49112bc84166aa347",
+      "client": "claude",
+      "query_id": "pos-wiki",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "395c2c2e972303ee830b1d08",
+      "client": "pi",
+      "query_id": "pos-tagline",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "1e6d88462a9fcce4bc7af868",
+      "client": "pi",
+      "query_id": "neg-translation",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "e65a7840cce1903f301b221e",
+      "client": "pi",
+      "query_id": "pos-wiki",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "5427af97076d41e65a8a542b",
+      "client": "pi",
+      "query_id": "neg-code-refactor",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "1dcade2c89ce9338296ab5e6",
+      "client": "pi",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "d25a43819843d02e298a9e08",
+      "client": "claude",
+      "query_id": "pos-email",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "2c6687292e9b5841fd9d5c71",
+      "client": "claude",
+      "query_id": "near-neg-slides-export",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "5beff18dabc7002c5dc4cf6f",
+      "client": "pi",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "54d265e0a6ec6dd4b895ad31",
+      "client": "claude",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "60b44af24514da767b75a168",
+      "client": "pi",
+      "query_id": "near-neg-slides-export",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "dcd082aecc474401b0e2aef5",
+      "client": "claude",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "0e1978433da48a6090c09188",
+      "client": "claude",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "aebe5df86ca50c278d45ba6d",
+      "client": "pi",
+      "query_id": "neg-factual-summary",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "60a309b2e0dc14ba01109c3a",
+      "client": "claude",
+      "query_id": "neg-unit-tests",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "cf504948099a8e9128b9b039",
+      "client": "claude",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "9252481beb0d7fa0d0a9ec46",
+      "client": "claude",
+      "query_id": "pos-readme-polish",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "53f8150cdda8c52412ad8521",
+      "client": "pi",
+      "query_id": "neg-sql",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "e86ad1e88b99aefb5ce52467",
+      "client": "claude",
+      "query_id": "neg-translation",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "1232ba111db77a18f51557f4",
+      "client": "claude",
+      "query_id": "pos-tagline",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "9a6178a4400e941e5d6d6181",
+      "client": "pi",
+      "query_id": "neg-format-json",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "50eda84f7a86a3ca9da24aa5",
+      "client": "pi",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "344f5aad107e210099ea8b3c",
+      "client": "claude",
+      "query_id": "pos-slide-copy",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "3f05d95aa5c26758fd04eda1",
+      "client": "pi",
+      "query_id": "neg-grammar-only",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "287c0160382c1b6019ef3ce4",
+      "client": "claude",
+      "query_id": "pos-email",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "f70abff8cc3f72c77b7d417b",
+      "client": "claude",
+      "query_id": "pos-script",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "f6eb832c684e3f63b7bae360",
+      "client": "pi",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "b0fc24120245c5c0391d56aa",
+      "client": "claude",
+      "query_id": "pos-script",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "01939f565ab9aaf06bc30987",
+      "client": "pi",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "fbdff7764b2f104d6a37e5d5",
+      "client": "claude",
+      "query_id": "neg-config-debug",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "46ac52920cf88c63cad67ce6",
+      "client": "claude",
+      "query_id": "pos-email",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "75918060748890f39ec9c7c8",
+      "client": "pi",
+      "query_id": "pos-flow",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "785e58908f473de2b0d5ffd6",
+      "client": "pi",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "1eb6251cc2e2c25ed65d4e55",
+      "client": "pi",
+      "query_id": "pos-tagline",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "e1afa9449fbfdf943c607f83",
+      "client": "claude",
+      "query_id": "neg-format-json",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "560d09158377bff0771de2d0",
+      "client": "claude",
+      "query_id": "neg-grammar-only",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "d74ccfe81d1c80a422456f03",
+      "client": "pi",
+      "query_id": "pos-flow",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "73c3780ed6f0d9f60527c26d",
+      "client": "claude",
+      "query_id": "pos-post",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "a8bab47d7f23e718fdda8a10",
+      "client": "claude",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "ef485488da3cb035e1df3b5f",
+      "client": "pi",
+      "query_id": "pos-script",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "db7489c098b77d4d63f0a14a",
+      "client": "pi",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "179ad9f0e94616c6d07e5c63",
+      "client": "claude",
+      "query_id": "pos-slide-copy",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "c090b230881611184119b45c",
+      "client": "claude",
+      "query_id": "neg-grammar-only",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "7969f9ca812b973f9998f7fe",
+      "client": "pi",
+      "query_id": "neg-design-layout",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "fba8902b59882a12057deb4d",
+      "client": "claude",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "1cd64fe84f45f3b29db3de00",
+      "client": "pi",
+      "query_id": "pos-post",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "c5d3c4710f55e6ba5a4da8b3",
+      "client": "claude",
+      "query_id": "neg-design-layout",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "a925a7fe73d9c40679dbf15f",
+      "client": "pi",
+      "query_id": "pos-devrel",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "8bd7e0a165ddd391f0ac52c6",
+      "client": "claude",
+      "query_id": "neg-translation",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "66d1834062fb22b00aca94b9",
+      "client": "claude",
+      "query_id": "neg-format-json",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "67906f5ea6cc51b5e85ccca3",
+      "client": "pi",
+      "query_id": "pos-readme-polish",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "c34c505df67d8659a3198e54",
+      "client": "claude",
+      "query_id": "neg-sql",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "6152305c3bdbae77010be563",
+      "client": "claude",
+      "query_id": "near-neg-slides-export",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "406722dc77d52a6049a21eea",
+      "client": "claude",
+      "query_id": "neg-data-chart",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "4f91d4a79ba7e12a4435d624",
+      "client": "claude",
+      "query_id": "neg-data-chart",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "d6540e2511d103589b43785f",
+      "client": "pi",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "2e337669d0717b110a703b9c",
+      "client": "claude",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "e61f1a3fb8eb82aaf985655a",
+      "client": "claude",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "1456342397bef1e16dde2312",
+      "client": "claude",
+      "query_id": "pos-article-conclusion",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "a73bb5254fb3cc4ba36a207f",
+      "client": "claude",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "827d1640424c811e05a44156",
+      "client": "pi",
+      "query_id": "neg-translation",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "5dcbcd5940718f9dce8df306",
+      "client": "pi",
+      "query_id": "neg-grammar-only",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "16c58e80c54312a07f41b9d9",
+      "client": "pi",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "3b491eda26f9cc5443ea4589",
+      "client": "claude",
+      "query_id": "neg-format-json",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "0e5631287c749a0c7fa4d19b",
+      "client": "claude",
+      "query_id": "pos-tagline",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "08acd8c079f93eb223dc5726",
+      "client": "claude",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "12550112c202263f71cc7f1b",
+      "client": "pi",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "d977797dbfc38307c4ee0910",
+      "client": "claude",
+      "query_id": "pos-readme-polish",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "964ef4b85b85aea9580551b8",
+      "client": "claude",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "dc20ec7daa9884b0245b7051",
+      "client": "pi",
+      "query_id": "neg-unit-tests",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "515292c9dca105529865f74e",
+      "client": "pi",
+      "query_id": "pos-email",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "ba0ab2eb6a74c628e67f2773",
+      "client": "pi",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "d270a77602b236a108f372e4",
+      "client": "claude",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "cea6cd1797936a4c71278c5e",
+      "client": "pi",
+      "query_id": "pos-readme-polish",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "b5debbb0655e8fc1fd4d7d5f",
+      "client": "pi",
+      "query_id": "near-neg-slides-export",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "55371292142fb1bae6277397",
+      "client": "claude",
+      "query_id": "neg-translation",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "51909d2819ae375d5357054b",
+      "client": "pi",
+      "query_id": "neg-unit-tests",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "c42f35d787e81af6c29e242d",
+      "client": "claude",
+      "query_id": "near-neg-slides-export",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "961d1dd6e5e02c170b515e32",
+      "client": "claude",
+      "query_id": "pos-flow",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "5cc65158a3f1bc9f737c8927",
+      "client": "claude",
+      "query_id": "neg-design-layout",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "ee7a71d9f861f64a5d42bfb4",
+      "client": "pi",
+      "query_id": "pos-email",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "60f9b44cc94d4b9a9b80a497",
+      "client": "claude",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "ffa1d763682475da6c56e72f",
+      "client": "pi",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "eb16a406a0aaff3128f12ed0",
+      "client": "claude",
+      "query_id": "pos-article-conclusion",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "120b27d3bb753120e7f59757",
+      "client": "pi",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "e4d4031820f204092160913b",
+      "client": "pi",
+      "query_id": "neg-config-debug",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "d0312d7004ee183a2562b73d",
+      "client": "pi",
+      "query_id": "neg-unit-tests",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "f7823bbdd2effb246d80c8fb",
+      "client": "claude",
+      "query_id": "neg-factual-summary",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "8f4b488fcf8b2dfd61da9afb",
+      "client": "pi",
+      "query_id": "pos-slide-copy",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "39fc34bdadb3702c8c86a9a1",
+      "client": "claude",
+      "query_id": "neg-sql",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "7cf93ece60f91bb36751bf6c",
+      "client": "claude",
+      "query_id": "pos-tagline",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "c3e472f9321e7f2249c8bfc0",
+      "client": "pi",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "87d2de7503f3bef4ddda3fc5",
+      "client": "pi",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "6db921835b9bd78e5fe862b8",
+      "client": "claude",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "7fd443734515537f52b638fd",
+      "client": "claude",
+      "query_id": "neg-grammar-only",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "4fee2d0074615273b7614e75",
+      "client": "pi",
+      "query_id": "neg-data-chart",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "e495ca9fa2b401efc8276a68",
+      "client": "claude",
+      "query_id": "pos-flow",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "c1ea1491c4fed88eb7afbece",
+      "client": "pi",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "9133371da443342ec9e828d8",
+      "client": "claude",
+      "query_id": "neg-code-refactor",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "13859b8271c2494b84ac8a39",
+      "client": "pi",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "0f068e73da328a1e3d835a57",
+      "client": "claude",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "a6a8bc642346c6bccfbbd392",
+      "client": "pi",
+      "query_id": "pos-email",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "778608612a5f8048c6ed033c",
+      "client": "claude",
+      "query_id": "neg-sql",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "8dec10277fe0711011b21064",
+      "client": "claude",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "4647de5f736fdd113f6d4eaf",
+      "client": "claude",
+      "query_id": "pos-post",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "afc627782cb6a5f1b455d075",
+      "client": "pi",
+      "query_id": "neg-sql",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "396b12e9d8fb51f1fe5cdde7",
+      "client": "claude",
+      "query_id": "neg-config-debug",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "4d00edab9fb608b2b59d71ac",
+      "client": "claude",
+      "query_id": "pos-slide-copy",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "fae374740f6378e9f0007328",
+      "client": "pi",
+      "query_id": "pos-devrel",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "fe138401ea1a4a18ba37b124",
+      "client": "claude",
+      "query_id": "neg-unit-tests",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "25f927415e60e06ca5e14084",
+      "client": "claude",
+      "query_id": "neg-unit-tests",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "47b14c7ef038ae3146469fc9",
+      "client": "claude",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "601fb38fada03a9423f9bb8e",
+      "client": "claude",
+      "query_id": "pos-wiki",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "19731e4ca3f688a6f322fb1d",
+      "client": "pi",
+      "query_id": "neg-config-debug",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "37e1383d059d56f62c8637d2",
+      "client": "pi",
+      "query_id": "neg-data-chart",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "0a49fd2ca6dc4b90f473438e",
+      "client": "claude",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "ca2b1a8aec248a3942ca2d7f",
+      "client": "claude",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "58a80b484afa418cf30ecbfe",
+      "client": "claude",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "e3715b05ddb0f39c7b852f0b",
+      "client": "claude",
+      "query_id": "neg-code-refactor",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "a7bb4a9268e3c16e560a6eea",
+      "client": "pi",
+      "query_id": "pos-readme-polish",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "9d5564440b32b5e97e04ec89",
+      "client": "pi",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "ec93d015a95df1de83eb58ef",
+      "client": "pi",
+      "query_id": "pos-post",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "b021dcc9636d45f8a129c93a",
+      "client": "claude",
+      "query_id": "pos-flow",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "57b679d30d130c2e0454da9b",
+      "client": "pi",
+      "query_id": "pos-post",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "5112f5546a5714b78f5045bd",
+      "client": "pi",
+      "query_id": "neg-format-json",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "c94a260d0da8067d49fcfe58",
+      "client": "pi",
+      "query_id": "near-neg-slides-export",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "c7696f85c4c43840e469a50b",
+      "client": "claude",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "ce3f419474d12ebed1910f15",
+      "client": "pi",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "0c984d3497424ed788e81487",
+      "client": "pi",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "6c9f83d00d34479d8b10a865",
+      "client": "claude",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 3,
+      "epoch": 2
+    },
+    {
+      "id": "daabd3cda30518eed0f82938",
+      "client": "claude",
+      "query_id": "neg-config-debug",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "64569a1b9798bac86074cfdb",
+      "client": "claude",
+      "query_id": "pos-devrel",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "42f35bc21fcf167b1a57c69d",
+      "client": "pi",
+      "query_id": "pos-article-conclusion",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "0b50917370257f2098c1c3d7",
+      "client": "pi",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "075288e21a6d5481fae1fd03",
+      "client": "pi",
+      "query_id": "pos-wiki",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "da3e38a20068fb2cfb024dfc",
+      "client": "claude",
+      "query_id": "neg-code-refactor",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "fea66e6094a5912b0047c1f8",
+      "client": "pi",
+      "query_id": "neg-code-refactor",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "20712f3db2b51dfbded7cbcc",
+      "client": "pi",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "3cfe64b3b9fb78dc4a8d9f60",
+      "client": "pi",
+      "query_id": "pos-wiki",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "43c592eab1413363cd1d6440",
+      "client": "claude",
+      "query_id": "neg-data-chart",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "7c74c33236780fd0d8e81b2e",
+      "client": "pi",
+      "query_id": "neg-format-json",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "390a024b69d56e02b04fbc76",
+      "client": "pi",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "0e88fed2194540bcd93a1719",
+      "client": "pi",
+      "query_id": "pos-slide-copy",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "eeba304949c8a02f358b2e85",
+      "client": "pi",
+      "query_id": "pos-slide-copy",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "016b36334828f0f1636f0e8b",
+      "client": "claude",
+      "query_id": "pos-readme-polish",
+      "trial": 2,
+      "epoch": 2
+    },
+    {
+      "id": "5c63c99217aee91e5b75575a",
+      "client": "claude",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 1,
+      "epoch": 2
+    },
+    {
+      "id": "2f28108049dc36eea943655d",
+      "client": "pi",
+      "query_id": "neg-design-layout",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "eaef862508d187abf1add9ac",
+      "client": "pi",
+      "query_id": "neg-factual-summary",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "cf26e90dbf4642f06a35730b",
+      "client": "pi",
+      "query_id": "pos-script",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "8071d316c963de02c7713262",
+      "client": "pi",
+      "query_id": "pos-article-conclusion",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "301b565daa6cabdf013c8f12",
+      "client": "pi",
+      "query_id": "pos-script",
+      "trial": 1,
+      "epoch": 1
+    },
+    {
+      "id": "f0b56d47930451ed73f41b3b",
+      "client": "pi",
+      "query_id": "neg-data-chart",
+      "trial": 2,
+      "epoch": 1
+    },
+    {
+      "id": "ce16866e76c9337868560e18",
+      "client": "pi",
+      "query_id": "pos-flow",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "3d312d90a5708407541fc8f7",
+      "client": "pi",
+      "query_id": "neg-code-refactor",
+      "trial": 3,
+      "epoch": 1
+    },
+    {
+      "id": "4ee326c4fad71851437025b5",
+      "client": "claude",
+      "query_id": "pos-devrel",
+      "trial": 2,
+      "epoch": 2
+    }
+  ],
+  "queries_sha256": "66473aae0c55af360644c66054f0acf811d4e9a00e2af919346521f4ae8fdb39",
+  "skill_hashes": {
+    "SKILL.md": "1da80fc7bad725d1824a4e59e155a227c8d5da57e659e20c0ed80e5baa18d6f9",
+    "references/rewrite-patterns.md": "a00bf0e0547a6830bd365e8ae22a8b11deac75b20a08481541c97313bee5e526",
+    "references/flow-by-relation.md": "4dfdfc358a9792ad76b414b1e8e3ce2328864662ba39007e020ebf2da11a4dec",
+    "references/anti-slop-writing-doctrine.md": "4145f5dc1e0e820ae26304165978328f0f6ff6ac45b7e4ed264afe2128d3aa56"
+  },
+  "clients": {
+    "pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)",
+    "claude": "Claude Code 2.1.323 restricted CLI with explicit local-writing plugin"
+  },
+  "unavailable": {
+    "codex": "0.145.0: recorded subscription probe rejects gpt-6.1-sol; no model substitution preregistered",
+    "opencode": "Not installed on PATH or checked conventional locations; not installed by this study"
+  }
+}

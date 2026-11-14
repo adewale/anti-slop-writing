@@ -1,0 +1,10 @@
+{
+  "seed": 261117,
+  "baseline": "2026-11-14-subscription-baseline",
+  "items": 18,
+  "disagreements_per_apply_model": 6,
+  "agreement_controls_per_apply_model": 3,
+  "rule": "Largest absolute ordinal fidelity disagreements, opaque-ID tie break, one response per case/apply model; low/median/high agreement controls from distinct cases; shuffled.",
+  "status": "AWAITING HUMAN REVIEW",
+  "limits": "Deliberately selected, not representative; families may overlap; public inspected holdouts remain frozen. Another model is not a human adjudicator."
+}

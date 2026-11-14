@@ -469,13 +469,37 @@ def invoke(model: str, prompt: str, effort: str, attempt: Path) -> tuple[str, di
     return text, usage
 
 
+def load_packages(dest: Path, manifest: dict) -> dict[str, str]:
+    """Read only registered, hash-checked packages; retain the original study format."""
+    specs = manifest.get("arm_packages")
+    if specs is None:
+        specs = {
+            "no-skill": None,
+            "skill": {"file": "skill-package.txt", "sha256": manifest["skill_sha256"]},
+        }
+    packages = {}
+    for arm, spec in specs.items():
+        if arm == "no-skill":
+            if spec is not None:
+                raise ValueError("no-skill arm must not receive a package")
+            packages[arm] = ""
+            continue
+        if not isinstance(spec, dict) or Path(spec["file"]).name != spec["file"]:
+            raise ValueError("package must be a registered local filename")
+        text = (dest / spec["file"]).read_text()
+        if sha(text) != spec["sha256"]:
+            raise ValueError(f"frozen {arm} package changed")
+        packages[arm] = text
+    if not {s["arm"] for s in manifest["slots"]} <= packages.keys():
+        raise ValueError("slot names an unregistered arm")
+    return packages
+
+
 def run_stage(dest: Path, stage: str, group: str, workers: int) -> None:
     manifest = read_json(dest / "manifest.json")
     if sha((dest / "cases.json").read_text()) != manifest["cases_sha256"]:
         raise ValueError("frozen cases changed")
-    package = (dest / "skill-package.txt").read_text()
-    if sha(package) != manifest["skill_sha256"]:
-        raise ValueError("frozen skill changed")
+    packages = load_packages(dest, manifest)
     cases = {c["id"]: c for c in read_json(dest / "cases.json")}
     slots = [s for s in manifest["slots"] if group == "all" or s["group"] == group]
     jobs = (
@@ -483,7 +507,7 @@ def run_stage(dest: Path, stage: str, group: str, workers: int) -> None:
         if stage == "apply"
         else [(s, j) for s in slots for j in JUDGES]
     )
-    random.Random(SEED + (stage == "judge")).shuffle(jobs)
+    random.Random(manifest.get("seed", SEED) + (stage == "judge")).shuffle(jobs)
 
     stop = threading.Event()
 
@@ -498,7 +522,10 @@ def run_stage(dest: Path, stage: str, group: str, workers: int) -> None:
         if complete.exists():
             return "cached"
         if stage == "apply":
-            prompt = apply_prompt(case, slot["arm"], package)
+            prompt = apply_prompt(
+                case, "no-skill" if slot["arm"] == "no-skill" else "skill",
+                packages[slot["arm"]],
+            )
             model = APPLY_MODELS[slot["model"]]
         else:
             applied = read_json(

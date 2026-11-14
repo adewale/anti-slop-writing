@@ -1,0 +1,6 @@
+check-ablations: ablation:no-staccato-contrast-test OK
+check-ablations: ablation:no-flow-conclusion-guidance OK
+check-ablations: ablation:no-do-not-invent-details OK
+check-ablations: ablation:no-phrase-detectors OK
+note: version-1 manifest grades with behavior-preserving defaults; `skill-benchmark migrate --check` shows the version-2 upgrade (severity + oracle tiers stamped, judgment calls listed)
+OK: anti-slop-writing — 26 cases, 4 ablations

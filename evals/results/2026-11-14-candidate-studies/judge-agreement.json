@@ -1,0 +1,50 @@
+[
+  {
+    "model": "sonnet",
+    "outcome": "factual_fidelity",
+    "n": 561,
+    "exact_agreement": 0.45276292335115864,
+    "mean_opus_minus_sol": 0.5347593582887701,
+    "mean_absolute_difference": 0.6524064171122995
+  },
+  {
+    "model": "sonnet",
+    "outcome": "task_fulfillment",
+    "n": 561,
+    "exact_agreement": 0.5721925133689839,
+    "mean_opus_minus_sol": 0.3172905525846702,
+    "mean_absolute_difference": 0.45276292335115864
+  },
+  {
+    "model": "sonnet",
+    "outcome": "rewrite_quality",
+    "n": 561,
+    "exact_agreement": 0.5989304812834224,
+    "mean_opus_minus_sol": 0.11229946524064172,
+    "mean_absolute_difference": 0.41889483065953653
+  },
+  {
+    "model": "sol",
+    "outcome": "factual_fidelity",
+    "n": 561,
+    "exact_agreement": 0.7094474153297683,
+    "mean_opus_minus_sol": -0.0481283422459893,
+    "mean_absolute_difference": 0.32620320855614976
+  },
+  {
+    "model": "sol",
+    "outcome": "task_fulfillment",
+    "n": 561,
+    "exact_agreement": 0.7397504456327986,
+    "mean_opus_minus_sol": -0.09090909090909091,
+    "mean_absolute_difference": 0.2727272727272727
+  },
+  {
+    "model": "sol",
+    "outcome": "rewrite_quality",
+    "n": 561,
+    "exact_agreement": 0.6238859180035651,
+    "mean_opus_minus_sol": -0.27450980392156865,
+    "mean_absolute_difference": 0.40641711229946526
+  }
+]

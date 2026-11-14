@@ -16,6 +16,7 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 ## Open — buildable without the blocked item
 
 - [ ] Calibrate the subscription baseline's fidelity disagreement with human review before any promotion claim. The 18-item blinded packet and blank answers are ready in `evals/results/2026-11-14-fidelity-calibration/`; actual human scoring is pending. Keep existing holdouts frozen; later doctrine changes need tune cases and their own study.
+- [ ] Run the pre-registered rewrite-only re-judging in `evals/results/2026-11-14-rewrite-only-rejudge/` (about 488 extraction and 1,776 judge calls, ~$55 list price; needs the owner's spending decision and subscription access). It tests whether the baseline's task-fulfillment advantage survives when judges see only the deliverable, not the critique. Publish the result as registered, including a critique-driven or mixed outcome.
 - [ ] Complete live-client coverage for **native Codex and OpenCode**. Pi and guarded Claude Code now have 29 queries × three valid fresh sessions each. Codex's registered native model was unsupported on the subscription; a different model needs a separately fixed instrument. OpenCode was absent and was not installed. Do not invent rates or substitute the old routing classifier.
 
 ## Open — 2026-11-13 review

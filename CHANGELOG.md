@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-14 — Prepare rewrite-only re-judging (not run)
+
+- Added `scripts/rewrite_rejudge.py` and froze its design in `evals/results/2026-11-14-rewrite-only-rejudge/`. The baseline's skill responses averaged 359 words (Sonnet) and 158 (GPT), but their `Concrete rewrite` fields averaged 82 and 49, against 137 and 87 for whole no-skill responses, so judges mostly read extra critique. The study re-judges the 444 baseline outputs for the 37 cases that ask for rewritten prose, in two views: the full response and the verbatim deliverable alone. Its difference-in-differences estimates how much of the judged advantage comes from the critique. One fixed extractor serves both arms, and every span must be a verbatim substring of the original response. Interpretation rules, exclusions and a ~$55 list-price budget are pre-registered. No model call has run and no result is claimed.
+
 ## 2026-11-14 — Complete candidate screens and controlled live activation
 
 - Completed 1,122 apply outputs and 2,244 valid cross-family judgments over frozen standing, compound, teaser, Twitter and grounded highlighter panels. Retained 16 schema-invalid Opus judgments and replacements (3,382 unique returned responses total). Neither candidate clears its eight standing-holdout co-primary contrasts; five of 64 fact-condition point guards fail. No doctrine candidate installed.

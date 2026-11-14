@@ -1,0 +1,11 @@
+--- a/skills/anti-slop-writing/SKILL.md
++++ b/skills/anti-slop-writing/SKILL.md
+@@ -169,6 +169,8 @@
+ Why: "robust" is an engineering qualifier earned by the deduplication, retry-tracking, and dead-letter mechanisms.
+ ```
+ 
++Support must be resolvable by the reader. An undefined coined label does not earn a claim merely by naming a check or process. Ask for its definition or cut the unsupported claim; keep standard domain terms and coinages defined in the passage. Do not invent a definition.
++
+ Do not offer a synonym-only rewrite just because a watch-list word appears.
+ 
+ ## Staccato contrast test

@@ -1,0 +1,60 @@
+{
+  "cases": 107,
+  "slots": 1122,
+  "judgments": 2244,
+  "panels": {
+    "compound": {
+      "cases": 7,
+      "families": [
+        "historical-compound-scaffold"
+      ],
+      "slots": 126
+    },
+    "highlighter": {
+      "cases": 11,
+      "families": [
+        "historical-highlighter-scaffold"
+      ],
+      "slots": 132
+    },
+    "standing": {
+      "cases": 69,
+      "families": [
+        "antithesis-calibration",
+        "batch-checkpoint",
+        "borrowed-emphasis",
+        "cadence",
+        "hedged-symmetry",
+        "longform-transfer",
+        "maintenance-evidence",
+        "missing-tooling-provenance",
+        "multi-item-review",
+        "nominalization-copula",
+        "outline-marketing-ending",
+        "parataxis",
+        "pelican-relation",
+        "product-tour",
+        "provenance",
+        "replay-bundle-ending",
+        "self-audit",
+        "thin-marketing-content"
+      ],
+      "slots": 552
+    },
+    "teaser": {
+      "cases": 12,
+      "families": [
+        "historical-teaser-scaffold"
+      ],
+      "slots": 216
+    },
+    "twitter": {
+      "cases": 8,
+      "families": [
+        "historical-twitter-scaffold"
+      ],
+      "slots": 96
+    }
+  },
+  "promotion": "Not authorized: branch target panels are single-scaffold rate studies; standing holds are inspected public regressions."
+}

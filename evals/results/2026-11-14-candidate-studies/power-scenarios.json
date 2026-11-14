@@ -1,0 +1,276 @@
+{
+  "seed": 261115,
+  "simulations": 500,
+  "bootstrap_iterations": 10000,
+  "alpha": 0.05,
+  "sesoi": 0.05,
+  "target_joint_power": 0.8,
+  "results": [
+    {
+      "panel": "standing",
+      "holdout_cases": 15,
+      "families": [
+        "borrowed-emphasis",
+        "cadence",
+        "longform-transfer",
+        "missing-tooling-provenance",
+        "nominalization-copula",
+        "outline-marketing-ending",
+        "product-tour",
+        "provenance",
+        "thin-marketing-content"
+      ],
+      "trials_per_case": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "latent_effect": 0.0,
+      "joint_success": 0.0,
+      "exact_maximum_power": null
+    },
+    {
+      "panel": "standing",
+      "holdout_cases": 15,
+      "families": [
+        "borrowed-emphasis",
+        "cadence",
+        "longform-transfer",
+        "missing-tooling-provenance",
+        "nominalization-copula",
+        "outline-marketing-ending",
+        "product-tour",
+        "provenance",
+        "thin-marketing-content"
+      ],
+      "trials_per_case": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "latent_effect": 0.05,
+      "joint_success": 0.0,
+      "exact_maximum_power": null
+    },
+    {
+      "panel": "standing",
+      "holdout_cases": 15,
+      "families": [
+        "borrowed-emphasis",
+        "cadence",
+        "longform-transfer",
+        "missing-tooling-provenance",
+        "nominalization-copula",
+        "outline-marketing-ending",
+        "product-tour",
+        "provenance",
+        "thin-marketing-content"
+      ],
+      "trials_per_case": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "latent_effect": 0.1,
+      "joint_success": 0.0,
+      "exact_maximum_power": null
+    },
+    {
+      "panel": "standing",
+      "holdout_cases": 15,
+      "families": [
+        "borrowed-emphasis",
+        "cadence",
+        "longform-transfer",
+        "missing-tooling-provenance",
+        "nominalization-copula",
+        "outline-marketing-ending",
+        "product-tour",
+        "provenance",
+        "thin-marketing-content"
+      ],
+      "trials_per_case": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "latent_effect": 0.15,
+      "joint_success": 0.0,
+      "exact_maximum_power": null
+    },
+    {
+      "panel": "compound",
+      "holdout_cases": 3,
+      "families": [
+        "historical-compound-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.0,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    },
+    {
+      "panel": "compound",
+      "holdout_cases": 3,
+      "families": [
+        "historical-compound-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.05,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    },
+    {
+      "panel": "compound",
+      "holdout_cases": 3,
+      "families": [
+        "historical-compound-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.1,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    },
+    {
+      "panel": "compound",
+      "holdout_cases": 3,
+      "families": [
+        "historical-compound-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.15,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    },
+    {
+      "panel": "teaser",
+      "holdout_cases": 4,
+      "families": [
+        "historical-teaser-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.0,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    },
+    {
+      "panel": "teaser",
+      "holdout_cases": 4,
+      "families": [
+        "historical-teaser-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.05,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    },
+    {
+      "panel": "teaser",
+      "holdout_cases": 4,
+      "families": [
+        "historical-teaser-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.1,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    },
+    {
+      "panel": "teaser",
+      "holdout_cases": 4,
+      "families": [
+        "historical-teaser-scaffold"
+      ],
+      "trials_per_case": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "latent_effect": 0.15,
+      "joint_success": 0.0,
+      "exact_maximum_power": 0
+    }
+  ],
+  "decision": "Screening/coverage only. Target panels cannot pass the independent-family gate at any repeat count; no promotion authorized.",
+  "limits": "Illustrative ordinal scenarios, independent contrast noise and shared family effects; not empirical pilot estimates or a proof of harm/equivalence. Fact twins and repeats share their family."
+}

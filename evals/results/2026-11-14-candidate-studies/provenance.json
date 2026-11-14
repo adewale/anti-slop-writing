@@ -1,0 +1,23 @@
+{
+  "compound": {
+    "ref": "origin/claude/gpt6-astra-personality-guide-zrkwcv",
+    "commit": "353517d899e704b71a9ad874001b9fc1ea2e9b5a"
+  },
+  "twitter": {
+    "ref": "origin/claude/twitter-thread-eval-b3mxxi",
+    "commit": "3aa3f72dcabac82873c1ecb0d972e397198d5462"
+  },
+  "highlighter": {
+    "ref": "origin/claude/llm-cliche-highlighter-c2qqq8",
+    "commit": "245306e38fb835af4853ba39fceca642f1a94dd2",
+    "quarantined": [
+      "holdout-devblog-boilerplate",
+      "holdout-therapy-voice-retro",
+      "holdout-stage-managed-postmortem"
+    ]
+  },
+  "teaser": {
+    "ref": "origin/claude/cataphoric-teasers-handling-sele9m",
+    "commit": "bea6923638a65d6a3188652cd61f1faf5cf2db0d"
+  }
+}

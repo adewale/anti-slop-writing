@@ -1,0 +1,1866 @@
+{
+  "role": "judge",
+  "units": [
+    {
+      "id": "generic-importance",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "generic-importance",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Flags the unsupported cornerstone/importance framing.",
+        "Describes the saved batch number and where processing resumes after a crash.",
+        "Adds no new guarantees, tools, numbers, or performance claims.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "specificity",
+          "scale": "1-5",
+          "rubric": "5 = names a concrete inspectable mechanism; 3 = swaps one abstraction for another; 1 = restates importance. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        },
+        {
+          "name": "mechanism-presence",
+          "scale": "1-5",
+          "rubric": "5 = retry/checkpoint/receipt/lease/idempotency named; 1 = no mechanism at all. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        }
+      ]
+    },
+    {
+      "id": "decorative-contrast",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "decorative-contrast",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not reject every short contrast as a rule.",
+        "Recognizes that neither side has supporting context.",
+        "Asks what the map contributes to the drill, or recommends cutting; does not invent the relationship.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "weak-conclusion",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "weak-conclusion",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Recognizes that the last sentence repeats a general claim.",
+        "Connects an ending to the replay bundle already described, or recommends cutting the redundant final sentence.",
+        "Uses only the supplied rerun-and-compare relation; adds no animal example or new artifact.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "product-tour-flow",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "product-tour-flow",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Recognizes or repairs the list-like sequence.",
+        "Connects staffing, one alert, and changes to its rule using the supplied facts.",
+        "Preserves the distinct jobs of Roster, Incident Panel, and Revision Log without inventing automation.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "safe-essay-voice",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "safe-essay-voice",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the era/disruption framing.",
+        "Asks for the offering, actor, or concrete result, or recommends cutting.",
+        "Invents no product capability or benefit.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "fake-precision-unnamed-source",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "fake-precision-unnamed-source",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Treats the 47% and one-third figures as unsupported until source, baseline, and workload are named.",
+        "Asks for the measurement: which page, which population, which traffic mix, which prior baseline.",
+        "Asks for source, baseline, and workload, or removes the unsupported outcome claim; replacing exact figures with an unverified qualitative improvement also fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "provenance",
+          "scale": "1-5",
+          "rubric": "5 = asks for source, baseline, and workload or removes the unsupported outcome claim; 3 = asks only for a source; 1 = repeats the figures as established facts or invents provenance."
+        }
+      ]
+    },
+    {
+      "id": "stacked-rule-of-three",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "stacked-rule-of-three",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags the repeated three-clause structure as decorative rhythm rather than earned parallelism.",
+        "Distinguishes the operational triplet (instrument, rubric, judge) from the empty closing triplet (learns, scales, improves).",
+        "Rewrites by breaking the rhythm where the parallelism is decorative and keeping it only where the items are genuinely coordinate.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "abstract-system-noun-stack",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "abstract-system-noun-stack",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies the nominalization stack (orchestration, observability, optimization, utilization) as the failure mechanism.",
+        "Asks who runs the orchestration, what it observes, what optimization is performed, on which compute.",
+        "Uses only source-supported actions, asks who operates the system and what it does, or recommends cutting; does not invent an operator or compute detail.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "nominalization-reduction",
+          "scale": "1-5",
+          "rubric": "5 = identifies the abstractions and asks for the missing operator/action/compute facts or justifies cutting; 3 = changes wording without resolving the unknowns; 1 = invents implementation details or adds abstractions."
+        }
+      ]
+    },
+    {
+      "id": "borrowed-emphasis",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "borrowed-emphasis",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Demonstrates the emphasis-source test by flattening the cadence (e.g., 'Durable execution is a new programming model') and noting that the remaining claim is generic.",
+        "Identifies what is missing as actor, mechanism, or limit, not just an additional adjective or stronger noun.",
+        "Rewrites using supplied facts only, or asks which durability mechanism supports the claim or recommends cutting it; adds no unsupplied mechanism.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = writes the flattened claim and judges whether it still names actor/mechanism/limit; 3 = mentions flattening without showing it; 1 = no flatten artifact."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = precisely asks which durability mechanism supports the claim, or justifies cutting it; 3 = vague request for detail; 1 = invents a mechanism or retains prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "paragraph-scale-borrowed-emphasis",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "paragraph-scale-borrowed-emphasis",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies the three-step cross-sentence escalation ('X teams treat it as Y problem' repeated with rising adjectives) as borrowed-pattern emphasis carried by structure, not by any individual sentence's antithesis.",
+        "Demonstrates flattening the escalation and showing the remaining claim is generic — for example, 'observability should be considered during system design, not only during incident response' — with no actor, mechanism, or limit.",
+        "Removes the status hierarchy and asks which concrete design decision supports the claim, or cuts it; does not invent an instrumentation decision.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "ladder-flattening",
+          "scale": "1-5",
+          "rubric": "5 = flattens the whole good/better/best ladder to the plain residual claim and evaluates it; 3 = flags escalation but no residual claim; 1 = treats the ladder as earned without evidence."
+        },
+        {
+          "name": "rewrite-mechanism",
+          "scale": "1-5",
+          "rubric": "5 = removes the hierarchy and precisely asks which design decision is evidenced, or justifies cutting; 3 = vague request for detail; 1 = invents an instrumentation decision or keeps the hierarchy."
+        }
+      ]
+    },
+    {
+      "id": "copula-displacement",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "copula-displacement",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation rather than concrete description.",
+        "Notes that 'serves as the central hub' hides the plain copula 'is' or a more specific action verb the sentence is avoiding.",
+        "Replaces inflated copulas with a plain source-supported description, asks what the dashboard does, or cuts; invents no content or capability.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "verb-concreteness",
+          "scale": "1-5",
+          "rubric": "5 = uses source-supported plain language or precisely asks what the dashboard does; a justified cut also earns 5. 3 = drops an inflated verb but keeps vague content; 1 = invents capabilities or keeps inflated copulas."
+        }
+      ]
+    },
+    {
+      "id": "hedged-symmetry",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "hedged-symmetry",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags the all-readers/all-values framing.",
+        "Identifies the missing reader, use case, or tradeoff.",
+        "Asks which reader and tradeoff are supported, or cuts the ungrounded claims.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "commitment",
+          "scale": "1-5",
+          "rubric": "5 = asks which reader and use case the evidence supports, or justifies cutting the ungrounded claim; 3 = removes the hedge but stays vague; 1 = invents a target reader or retains the all-readers claim."
+        }
+      ]
+    },
+    {
+      "id": "outline-conclusion-template",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "outline-conclusion-template",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags the generic obstacle-and-future-significance templates.",
+        "Notes that no obstacle, future action, or supporting result is supplied.",
+        "Asks for those facts or cuts both claims; invents no next step.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-bound-ending",
+          "scale": "1-5",
+          "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = removes one template but keeps generic future language; 1 = preserves outline closure."
+        }
+      ]
+    },
+    {
+      "id": "em-dash-cluster",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "em-dash-cluster",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags the repeated em-dashes as decorative cadence-for-emphasis rather than earned parenthetical or appositive insertion.",
+        "Does not claim em-dashes are always slop; names the specific failure as overuse-for-emphasis in a cluster, not the punctuation mark itself.",
+        "Rewrites by reducing the dash count, replacing decorative dashes with commas or periods, and keeping at most one dash insertion or paired parenthetical where it carries a real aside or appositive.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "dash-calibration",
+          "scale": "1-5",
+          "rubric": "5 = flags only the decorative cluster and preserves earned dash use; 3 = removes dashes mechanically; 1 = either bans all dashes or leaves the cluster intact."
+        }
+      ]
+    },
+    {
+      "id": "holdout-borrowed-emphasis-release-safety",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "holdout-borrowed-emphasis-release-safety",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Writes a flattened version of the claim with cadence removed and judges whether it still names a mechanism.",
+        "Identifies the missing release-readiness mechanism: what the checklist verifies, blocks, signs off, or records.",
+        "Asks which review artifact or gate supports release readiness, or recommends cutting; invents no test, owner, sign-off, or metric.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "flatten-artifact",
+          "scale": "1-5",
+          "rubric": "5 = explicit flattened claim plus residual-generic judgment; 3 = flags borrowed emphasis without showing the flatten; 1 = no flatten."
+        },
+        {
+          "name": "release-mechanism",
+          "scale": "1-5",
+          "rubric": "5 = asks precisely which release gate/artifact is evidenced, or justifies cutting; 1 = invents a gate or leaves prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "holdout-copula-hedged-outline-combo",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "holdout-copula-hedged-outline-combo",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies 'serves as a unified hub' as copula displacement or equivalent verb inflation, not concrete product behavior.",
+        "Identifies 'Whether you're a startup founder or an enterprise leader' as hedged symmetry that avoids choosing a reader/use case.",
+        "Identifies the 'Despite ongoing challenges' and 'Looking ahead ... pivotal role' sentences as outline-shaped conclusions without a named challenge, carrier, or next step.",
+        "Rewrites by choosing a specific user/use case and naming what the console shows, routes, or alerts on; or recommends cutting unsupported sentences.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "multi-detector-coverage",
+          "scale": "1-5",
+          "rubric": "5 = catches all three mechanisms and keeps their boundaries distinct; 3 = catches one or two; 1 = generic marketing critique only."
+        },
+        {
+          "name": "specific-rewrite",
+          "scale": "1-5",
+          "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
+        }
+      ]
+    },
+    {
+      "id": "decorative-contrast-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "decorative-contrast",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Recognizes that the facts evidence both sides of the contrast and does not call it unsupported or decorative.",
+        "Either keeps the line or rewrites it to state the supplied relation: the map assigned meeting points, and the exercise timed how long boat owners took to reach them.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "safe-essay-voice-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "safe-essay-voice",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Removes the era/disruption framing and the 'transformative offerings' abstraction.",
+        "The rewrite names Tallyroom, small charities, and at least one supplied capability (statement import with campaign tags, or the one-step donor report).",
+        "Adds no capability, customer count, or benefit beyond the facts.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "borrowed-emphasis-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "borrowed-emphasis",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Demonstrates the emphasis-source test by flattening the cadence and noting that the flattened claim alone is generic.",
+        "Rewrites using the supplied mechanism: the step log, replay after a crash, and continuing from the first unfinished step.",
+        "States the contrast with retry through the facts (retry reruns the whole function) rather than through 'isn't just X. It is Y'.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "paragraph-scale-borrowed-emphasis",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Identifies the three-step 'X teams treat it as Y problem' escalation as borrowed-pattern emphasis carried by structure.",
+        "Replaces the status hierarchy with the supplied design decision: every new service attaches a request ID passed to every downstream call.",
+        "Gives the supplied reason: a failed payment that could not be traced across five services.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "copula-displacement-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "copula-displacement",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation.",
+        "Rewrites with a plain verb and the supplied content: last login, open support tickets, and unpaid invoices on one page, opened by support agents before replying.",
+        "Drops or questions the 'testament to the platform's capabilities' claim, which the facts do not support.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "hedged-symmetry-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "hedged-symmetry",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Flags the all-readers/all-values framing.",
+        "Commits to restaurant accountants and names the supplied job: reconciling daily point-of-sale exports against supplier invoices.",
+        "Drops the weekend-cooks reader, which the facts contradict; any price stated is $40 per month per location.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "outline-conclusion-template-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "outline-conclusion-template",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Flags the generic obstacle and future-significance templates.",
+        "Names the supplied obstacle and response: finding night-shift drivers, addressed with a night-shift premium.",
+        "Replaces 'destined to reshape the sector' with the planned refrigerated vans, or drops it.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "abstract-system-noun-stack-with-facts",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "abstract-system-noun-stack",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Identifies the nominalization stack (orchestration, observability, optimization, utilization) as the failure mechanism.",
+        "Rewrites with the supplied actor and actions: the Kubernetes scheduler extension reads GPU memory every 30 seconds and moves batch jobs off nodes above 90% onto idle nodes.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "holdout-borrowed-emphasis-release-safety",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Writes a flattened version of the claim with the cadence removed and judges whether it names a mechanism.",
+        "Rewrites with the three supplied gates: 1% staged rollout, automatic rollback if the error rate doubles, and on-call lead sign-off.",
+        "States the supplied rule that a release cannot reach all users until all three gates pass.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "fake-precision-unnamed-source-with-facts",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "fake-precision-unnamed-source",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Keeps 47% only with its page (product catalogue), metric (median load time), and measurement (two weeks of production traffic before and after).",
+        "Restates the cost claim as monthly database spend falling from $9,000 to $6,100, rather than infrastructure costs in general.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+        "Attributes the figures to the supplied before/after traffic measurements and cloud bills; does not claim those observations establish that caching caused the changes or that all pages/workloads improve by 47%."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "maintenance-history-evidence",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "maintenance-history-evidence",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Uses October 8 and the push/PR event overlap to explain when and how extra runs arose without inventing why the author chose the configuration.",
+        "Preserves PR, main, and release-tag coverage and limits the lint result to e5 and the pending CI status to f6.",
+        "Does not invent AI authorship, haste, measured savings, all-project safety, or a numeric confidence score."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "maintenance-earned-cause",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "maintenance-earned-cause",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Preserves the attributed incident rationale and dates because the source explicitly supports them.",
+        "Keeps the recovery test separate from pending PR CI and does not claim universal safety.",
+        "Does not demand an unsupported new investigation into already documented author intent or add a confidence scoreboard."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "durable-execution-mechanism",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "durable-execution-mechanism",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Flags the unsupported cornerstone/importance framing.",
+        "Describes the saved batch number and where processing resumes after a crash.",
+        "Adds no new guarantees, tools, numbers, or performance claims.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "specificity",
+          "scale": "1-5",
+          "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
+      ]
+    },
+    {
+      "id": "pelican-process-relation",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "pelican-process-relation",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the empty two-part contrast.",
+        "Asks which part of the drill the map demonstrates, or recommends cutting.",
+        "Does not invent a relationship between the map and drill.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        }
+      ]
+    },
+    {
+      "id": "product-tour-hinge",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "product-tour-hinge",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Recognizes or repairs the list-like sequence.",
+        "Connects staffing, one alert, and changes to its rule using the supplied facts.",
+        "Preserves the distinct jobs of Roster, Incident Panel, and Revision Log without inventing automation.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "safe-essay-cut-or-concretize",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "safe-essay-cut-or-concretize",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the era/disruption framing.",
+        "Asks for the offering, actor, or concrete result, or recommends cutting.",
+        "Invents no product capability or benefit.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "carrier-bound-ending",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "carrier-bound-ending",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the generic essential/reproducibility closer.",
+        "Uses the map and recorded commands as the supplied concrete example, or cuts the redundant closer.",
+        "Does not invent a different project or artifact.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "rewrite-reuses-flagged-pattern",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "rewrite-reuses-flagged-pattern",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not invent participants, events, projects, or counts.",
+        "Recognizes that copying articles establishes portability but does not establish intent; asks for that evidence or cuts the intent claim.",
+        "Does not reuse an unsupported short contrast as the repair.",
+        "Any fallback stays within the supplied site and portability facts.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no invented people/projects/counts/timing/tools; 3 = ambiguous specificity; 1 = confident unsupported specifics."
+        },
+        {
+          "name": "self-detector-use",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
+        }
+      ]
+    },
+    {
+      "id": "rewrite-asks-or-cuts-when-fact-missing",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not assert a specific tool name (for example, Claude Code, Cursor, Copilot, Aider, Sonnet, Codex) anywhere in the Concrete rewrite for the topic sentence, because the source paragraph does not name a tool.",
+        "For the topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.', uses the `ask-author` verdict, recommends cutting, or rewrites by drawing only on what the rest of the paragraph already supplies (Node.js, Satori, sidecar file).",
+        "Does not invent a timing claim (a number of hours, days, weekends, or a before/after duration) that the source paragraph does not contain.",
+        "Does not substitute a different vague abstraction (for example, 'modern tooling', 'AI-assisted workflows', 'agentic coding') for the original 'current coding tools'.",
+        "Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "ask-or-cut-discipline",
+          "scale": "1-5",
+          "rubric": "5 = asks for the missing tool or cuts/uses only supplied facts; 1 = invents a tool or timing claim."
+        },
+        {
+          "name": "fallback-cleanliness",
+          "scale": "1-5",
+          "rubric": "5 = fallback has no invented specifics or flagged cadence; 1 = fallback repeats the failure."
+        }
+      ]
+    },
+    {
+      "id": "rewrite-passes-own-slop-detectors",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "rewrite-passes-own-slop-detectors",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "No Concrete rewrite ends on a banned decorative closure phrase ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps').",
+        "No Concrete rewrite uses an em-dash rule-of-three list as a final closer (for example, '— Hugo, standard.site, my PDS —' followed by a summary sentence).",
+        "The rewrite or fallback avoids invented facts and the cadence criticized in the source; no named output field is required.",
+        "Any closing rewrite uses only the supplied URL title, colophon, GitHub source, and license details; invents no PDS, standard.site, or other stack element.",
+        "Every list item in a rewrite comes from the supplied paragraph or title; no unseen larger post may be treated as evidence.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "rewrite-self-audit",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
+        }
+      ]
+    },
+    {
+      "id": "multi-issue-output-manifest",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "multi-issue-output-manifest",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Addresses both input lines rather than only the first or a general summary.",
+        "For line 1, removes inflated importance/robust-experience language and asks for or supplies a concrete mechanism.",
+        "For line 2, flags the unsupported contrast and asks how the dashboard yields insight, or cuts; does not invent that relation.",
+        "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "fake-precision-rewrite-finance",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "fake-precision-rewrite-finance",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Asks for the provenance of 18.4% or removes the unsupported outcome claim; does not retain it as an established fact.",
+        "Asks which population was measured or removes the unsupported most-clients claim; invents no population.",
+        "Does not substitute another bare number or a vaguer prestige phrase.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "provenance",
+          "scale": "1-5",
+          "rubric": "5 = asks for source, baseline, and population or cuts the unsupported outcome claim; 3 = asks only for a source; 1 = invents provenance or retains the number as an established result."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."
+        }
+      ]
+    },
+    {
+      "id": "product-tour-rewrite-developer-tools",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "product-tour-rewrite-developer-tools",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Names the shared object the three surfaces operate on (the event stream).",
+        "Identifies the relation: capture, re-execution, ordering — or equivalent.",
+        "Does not preserve the bullet-or-paragraph product-tour cadence.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        }
+      ]
+    },
+    {
+      "id": "emphasis-source-flatten",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "emphasis-source-flatten",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
+        "Uses only supplied durability facts, or asks for the missing mechanism or recommends cutting; does not invent a workflow.",
+        "Does not substitute another inflated abstraction such as 'paradigm shift', 'fundamental rethink', or 'new way of thinking'.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "cadence-removal",
+          "scale": "1-5",
+          "rubric": "5 = removes not-just / less-more / antithesis cadence entirely; 3 = weakly reduces it; 1 = preserves or substitutes another contrast cadence."
+        },
+        {
+          "name": "mechanism-specificity",
+          "scale": "1-5",
+          "rubric": "5 = precisely asks for the missing durability mechanism or justifies cutting the claim; 3 = generic request for detail; 1 = invents a workflow or substitutes a prestige abstraction."
+        }
+      ]
+    },
+    {
+      "id": "copula-displacement-to-is",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "copula-displacement-to-is",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb describing what the library actually does.",
+        "Asks what coordination job the library performs, keeps only the supplied description, or cuts; does not invent leasing, routing, or another concrete job.",
+        "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "concrete-verb",
+          "scale": "1-5",
+          "rubric": "5 = uses a plain source-supported description or precisely asks what coordination job the library performs; a justified cut also earns 5. 3 = removes one inflated verb but leaves vague content; 1 = invents a coordination mechanism or substitutes prestige verbs."
+        }
+      ]
+    },
+    {
+      "id": "hedged-symmetry-commit",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "hedged-symmetry-commit",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
+        "Asks which priority or tradeoff is supported, or cuts the claim; does not invent linter behavior.",
+        "Asks which reader or use case the source supports, or cuts; does not assert a new target reader.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "tradeoff-commitment",
+          "scale": "1-5",
+          "rubric": "5 = asks which reader and priority the facts support, or justifies cutting; 3 = removes some symmetry but stays vague; 1 = invents linter behavior or preserves the all-readers hedge."
+        }
+      ]
+    },
+    {
+      "id": "outline-conclusion-carrier-bound",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "outline-conclusion-carrier-bound",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+        "Asks for a documented challenge or example, or cuts; invents no customer, feature, or result.",
+        "Asks which workflow and durability behavior are supported, or cuts; invents no workflow.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "carrier-specificity",
+          "scale": "1-5",
+          "rubric": "5 = precisely asks for a documented challenge, concrete example, or next step, or justifies cutting; 3 = vague request for an example; 1 = invents a project/customer result or keeps the outline template."
+        }
+      ]
+    },
+    {
+      "id": "holdout-ask-author-ai-tooling",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "holdout-ask-author-ai-tooling",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not name a specific assistant or model because the source paragraph does not provide one.",
+        "Treats 'quarter-long' and 'one-week' as unsupported unless source/provenance is named, and either asks for the measurement or removes the timing claim.",
+        "Uses `ask-author` or a cut/qualified rewrite for the missing tool and timing facts rather than filling the Concrete rewrite slot with confident specifics.",
+        "The rewrite or fallback avoids invented facts and the cadence criticized in the source; no named output field is required.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = no tool/model/timing invention; 3 = hedged but still implies unsupported facts; 1 = invents specifics."
+        },
+        {
+          "name": "rewrite-check-integrity",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
+        }
+      ]
+    },
+    {
+      "id": "tweet-taste-as-model",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "tweet-taste-as-model",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies the repeated section-closing 'Not X. Y.' / antithetical-aphorism cadence (for example 'that's an rss feed', 'same cognitive hardware, opposite training loop', 'you're the model being trained') as overused structure, and the revised prose varies at least some of those closers rather than landing every section on a parallel snap-line.",
+        "Flags that the central 'taste is a model you train' framing is asserted rather than demonstrated by the chess/Fermi/Tetlock anecdotes, and explicitly marks the fast-to-slow-feedback transfer ('the judgment transfers upward') as a chosen bet or open question rather than a proven result.",
+        "Preserves the concrete carriers (de Groot / Chase-Simon, Fermi at Trinity, Tetlock / Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton / Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
+        "Introduces no studies, names, or numbers absent from the source, and does not upgrade Fermi's crude estimate (~10 kt vs ~20 kt actual) into a precision win.",
+        "The critique's own Concrete rewrite passes the skill's self-detectors: it does not reproduce decorative em-dash antithesis, an 'X is the design, not Y' / 'X, not Y' closer, a rule-of-three substituting for relation, or banned avoid-by-default phrases.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "cadence-variety",
+          "scale": "1-5",
+          "rubric": "5 = section closers and sentence rhythm are deliberately varied; 3 = a couple of closers softened but the antithetical-aphorism pattern still dominates; 1 = every section still lands on a parallel snap-line."
+        },
+        {
+          "name": "conceit-honesty",
+          "scale": "1-5",
+          "rubric": "5 = the ML-model framing is held as an organizing analogy and the unevidenced transfer claim is openly marked as a bet; 3 = the seam is acknowledged once but the prose still leans on the metaphor as proof; 1 = the analogy is presented as a derivation from the anecdotes."
+        },
+        {
+          "name": "fidelity",
+          "scale": "1-5",
+          "rubric": "5 = all real anecdotes preserved and accurate, no invented facts, Fermi estimate not overstated; 3 = minor drift or one softened-but-imprecise claim; 1 = invents a study/number or overstates a source."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-pervasive-closers",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "parataxis-pervasive-closers",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies that every paragraph leans on the same paratactic two-part contrast as its closer (a document-level over-reliance), not merely that one isolated line is short.",
+        "Converts at least two of the closers into a construction that names the relation with a connective or subordinate clause (because, although, even though, yet, so, which means) instead of leaving the relation implied by juxtaposition.",
+        "Does not subordinate every line into one identical connective shape; preserves rhythm variety and may keep one genuinely earned contrast.",
+        "The rewrite does not reproduce the flagged 'X. Y.' paratactic-antithesis cadence under new words.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "parataxis-density-repair",
+          "scale": "1-5",
+          "rubric": "5 = names the over-reliance AND converts most closers to hypotaxis; 3 = converts one or two but mostly defends the pattern; 1 = defends each line individually and changes nothing structural."
+        },
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = the rewritten closers state cause/contrast/consequence explicitly; 1 = relations remain implied by juxtaposition. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-unstated-relation",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "parataxis-unstated-relation",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies that the two sentences are placed side by side with the relation (contrast and/or consequence) left unstated.",
+        "Rewrites with an explicit connective or subordinate clause (although, yet, because, so, which means) that names the relation.",
+        "Does not preserve the bare two-sentence juxtaposition or swap it for another equally relation-free pair.",
+        "Does not invent a specific cause, metric, or product detail the prompt does not supply.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = relation named explicitly and correctly (contrast + consequence); 3 = a connective added but the relation stays vague; 1 = juxtaposition preserved. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-coordination-hides-cause",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "parataxis-coordination-hides-cause",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Recognizes the contrast between opening/publicizing the help desk and nobody coming.",
+        "Names the relation with subordination or a connective (although, even though, yet, so) rather than leaving three flat coordinate clauses.",
+        "Does not invent a reason nobody came; keeps the cause unknown or asks for it.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = the effort-versus-stall contrast is named and the cause is left honestly open; 3 = relation partly named; 1 = flat coordination preserved or a cause invented. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-chained-and",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "parataxis-chained-and",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies the chained 'and' coordination as parataxis that flattens a sequence and buries the final clause's contrast.",
+        "Rewrites so the final clause's relation (contrast or consequence) is marked with a connective or subordination (yet, but, so, once, because) rather than another 'and'.",
+        "Preserves the concrete steps (pull data, clean rows, train model, ship weights) and does not invent a specific mechanism (such as a named missing checkpoint) unless it is flagged as a hypothesis.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "relation-clarity",
+          "scale": "1-5",
+          "rubric": "5 = the buried contrast is surfaced with a connective and the steps are preserved; 3 = partly de-chained; 1 = still a flat 'and' chain or steps lost. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+        }
+      ]
+    },
+    {
+      "id": "parataxis-earned-but-pervasive",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "parataxis-earned-but-pervasive",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Acknowledges that each closer is individually earned: the preceding sentences in its own section evidence both sides of the contrast (the before/after numbers), so no single closer is decorative or compressed.",
+        "Flags the document-level over-reliance: the same paratactic 'X was the problem. Y was the fix.' antithesis closes every one of the four sections, so the passage leans on repeated rhythm even though each instance passes a per-sentence test.",
+        "Recommends varying or converting most of the repeated closers (to a named relation, or by cutting some), keeping at most one paratactic closer, rather than keeping all four because each is individually earned.",
+        "Does not recommend deleting the earned contrasts or expanding them into bland connective-heavy prose, and does not wrongly reclassify any individual earned closer as decorative; the fix is variety/de-duplication at the document level.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "document-density-detection",
+          "scale": "1-5",
+          "rubric": "5 = explicitly names that all four sections repeat the same earned paratactic closer and treats that repetition itself as the problem; 3 = notes some repetition but still endorses keeping all four; 1 = evaluates each closer in isolation and keeps them all, missing the document-level pattern."
+        },
+        {
+          "name": "earned-instance-respect",
+          "scale": "1-5",
+          "rubric": "5 = correctly classifies each individual closer as earned by its own evidence; 3 = hedges on whether the individual lines are earned; 1 = wrongly flags an individual earned closer as decorative or guts it."
+        }
+      ]
+    },
+    {
+      "id": "stopslop-thin-content-cut-or-ask",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "stopslop-thin-content-cut-or-ask",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the throat-clearing openers ('It turns out that', 'The uncomfortable truth is that') and the hedge 'most'.",
+        "Does not invent a specific cause, number, team, or mechanism the source never supplies; either keeps the plain claim or flags the missing specifics (ask-author / cut).",
+        "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."
+        },
+        {
+          "name": "slop-removal",
+          "scale": "1-5",
+          "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."
+        }
+      ]
+    },
+    {
+      "id": "holdout-alert-triage-transfer",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "holdout-alert-triage-transfer",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Preserves twelve tickets and one completed pass without inventing success rates.",
+        "Preserves the upload/body-limit and blank-page/blocked-script examples and their original guesses.",
+        "Treats transfer to live incidents as untested because no live-incident measurements exist.",
+        "Varies or removes repeated two-part metaphor closers and the engineering-excellence ending.",
+        "Ends using the dated notebook and ticket-resolution comparison, or another supplied concrete detail.",
+        "Introduces no fact absent from the source and facts block."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "fidelity",
+          "scale": "1-5",
+          "rubric": "5 = preserves facts and uncertainty; 1 = invents a measured transfer result."
+        },
+        {
+          "name": "structure",
+          "scale": "1-5",
+          "rubric": "5 = varied closers and source-grounded ending; 1 = repeated decorative closure."
+        }
+      ]
+    },
+    {
+      "id": "pelican-process-relation-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "pelican-process-relation",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Removes the empty two-part 'The point is not X. The point is Y.' contrast.",
+        "States how the map serves the drill using the facts: leaders mark the pier reached, and organisers compare the maps to find piers no team reached in time.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "safe-essay-cut-or-concretize-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "safe-essay-cut-or-concretize",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Removes the era/disruption framing and the 'transformative offerings' abstraction.",
+        "The rewrite names Shiftboard, nurses swapping shifts from their phones, and charge-nurse approval.",
+        "Does not add adoption numbers, time savings, or other benefits beyond replacing paper swap forms.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "multi-issue-output-manifest-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "multi-issue-output-manifest",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Addresses both input lines rather than only the first or a general summary.",
+        "The line 1 rewrite replaces the importance/robust-experience language with `deploy init` writing a working config file on first run.",
+        "The line 2 rewrite replaces the contrast with the dashboard grouping alerts that share a root cause into one incident.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "emphasis-source-flatten-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "emphasis-source-flatten",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
+        "States what goes beyond retrying using the facts: state saved after every step and resumption from the last saved step after a crash.",
+        "Supports any 'programming model' claim with the sequential-code fact, or drops that claim.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "copula-displacement-to-is-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "copula-displacement-to-is",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb.",
+        "Says what the library does using the facts: one worker per job, reassignment when heartbeats stop.",
+        "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "hedged-symmetry-commit-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "hedged-symmetry-commit",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
+        "Commits to the supplied position: by default the linter fails the build on unhandled promise rejections in production code.",
+        "If prototypes are mentioned, states the distinct behavior (warnings instead of failures) rather than claiming the linter suits everyone equally.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "outline-conclusion-carrier-bound-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "outline-conclusion-carrier-bound",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+        "Ends on the supplied March example: runs paused during the regional outage and resumed from their last completed step.",
+        "Any forward-looking sentence names the per-step timeouts release instead of a 'pivotal role'.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "fake-precision-rewrite-finance-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "fake-precision-rewrite-finance",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Keeps 18.4% only with its definition (median reduction in maximum drawdown) and source (the 2025 backtest).",
+        "Replaces 'most institutional clients' with the backtest population: 31 pension-fund portfolios, 2015 to 2024.",
+        "Does not present the figure as a measured result for live clients.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+        "Attributes the reduction to the backtest report and invents no comparator portfolio, risk-free benchmark, or live-client result; it may flag the unspecified comparator while still rewriting the supplied report."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "holdout-ask-author-ai-tooling-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "holdout-ask-author-ai-tooling",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Replaces 'quarter-long slog' and 'one-week project' with the tracked durations: eleven weeks and six working days.",
+        "Names Patchwright as the assistant and does not name any other tool or model.",
+        "Does not credit the assistant alone; keeps the supplied fact that engineers reviewed every proposed change.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+        "Reports the tracked durations and the use of Patchwright without claiming that the tracker proves the assistant caused the duration difference."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "neg-earned-antithesis-archive",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "neg-earned-antithesis-archive",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Keep the supported contrast without rewriting it."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "neg-earned-antithesis-bridge",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "neg-earned-antithesis-bridge",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Keep the supported contrast without rewriting it."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "neg-earned-antithesis-growth",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "neg-earned-antithesis-growth",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Keep the supported contrast without rewriting it."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "neg-earned-antithesis-syllabus",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "neg-earned-antithesis-syllabus",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Keep the supported contrast without rewriting it."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "neg-earned-antithesis-translation",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "neg-earned-antithesis-translation",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Keep the supported contrast without rewriting it."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "neg-earned-antithesis-fence",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "neg-earned-antithesis-fence",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Keep the supported contrast without rewriting it."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "pos-decorative-antithesis-readme",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "pos-decorative-antithesis-readme",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Revise or cut the unsupported contrast using the source facts."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "pos-decorative-antithesis-changelog",
+      "suite": "shared-benchmark.json",
+      "split": "tune",
+      "pair_id": "pos-decorative-antithesis-changelog",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Revise or cut the unsupported contrast using the source facts."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "coined-compound-label",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "coined-compound-label",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies at least one of 'exact-head checks' or 'editorial-row layouts' as a coined or undefined term rather than an established one.",
+        "Does not treat the coined label as the mechanism that earns 'stay consistent across shards'.",
+        "Asks the author to define the term or cuts the unsupported claim, rather than inventing a definition for it."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "label-resolution",
+          "scale": "1-5",
+          "rubric": "5 = names the coinage and says the referent is unavailable to the reader; 3 = notes vagueness without locating it in the compound; 1 = accepts the label as mechanism."
+        },
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = supplies no invented definition of 'head' or 'editorial-row'; 1 = guesses a definition to make the rewrite sharper."
+        }
+      ]
+    },
+    {
+      "id": "coined-compound-label-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "coined-compound-label",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Uses the supplied facts in a substantive review or rewrite rather than only asking or cutting supported content.",
+        "Preserves the source's scope and uncertainty and introduces no unsupported facts or causal conclusions.",
+        "Does not mechanically reject earned domain terms, defined labels, or a forward reference that actually delivers supported content."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "holdout-coined-compound-label",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "holdout-coined-compound-label",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies at least one of 'ledger-fold passes' or 'invoice-drift totals' as a coined or undefined term rather than an established one.",
+        "Does not treat the coined label as the mechanism that earns 'stay accurate'.",
+        "Asks the author to define the term or cuts the unsupported claim, rather than inventing a definition for it."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "label-resolution",
+          "scale": "1-5",
+          "rubric": "5 = names the coinage and says the referent is unavailable to the reader; 3 = notes vagueness without locating it in the compound; 1 = accepts the label as mechanism."
+        },
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = supplies no invented definition of 'ledger-fold' or 'invoice-drift'; 1 = guesses a definition to make the rewrite sharper."
+        }
+      ]
+    },
+    {
+      "id": "earned-domain-compound",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "earned-domain-compound",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Returns a keep verdict and does not flag 'write-ahead log' or 'copy-on-write' as coined or invented labels.",
+        "Names the support that earns the terms, such as the crash window between enqueue and fsync or the checkpoint replay.",
+        "Does not offer a synonym-only rewrite that replaces the standard terms with plainer wording."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "coined-label-defined-in-place",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "coined-label-defined-in-place",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Returns a keep verdict rather than flagging 'exact-head check' merely because it is a coined hyphenated term.",
+        "Names the in-place definition as the support that earns the coinage.",
+        "Does not require the author to rename the term or replace it with a generic phrase."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "holdout-coined-label-defined-in-place",
+      "suite": "adversarial.json",
+      "split": "holdout",
+      "pair_id": "holdout-coined-label-defined-in-place",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Returns a keep verdict rather than flagging 'stale-edit sweep' merely because it is a coined hyphenated term.",
+        "Names the in-place definition, the version comparison and discard rule, as the support that earns the coinage.",
+        "Does not require the author to rename the term or replace it with a generic phrase."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "holdout-earned-domain-compound",
+      "suite": "adversarial.json",
+      "split": "holdout",
+      "pair_id": "holdout-earned-domain-compound",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Returns a keep verdict and does not flag 'read-through cache' or 'time-to-live' as coined or invented labels.",
+        "Names the support that earns the terms, such as the five-minute expiry or the single database hit per burst.",
+        "Does not offer a synonym-only rewrite that replaces the standard terms with plainer wording."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "hollow-modifier-false-implicature",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "hollow-modifier-false-implicature",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags at least two of 'actual recommendation', 'real reason', 'key issue' as modifiers that can be deleted without changing what the sentence says.",
+        "Names the false implication: 'actual' and 'real' imply an earlier recommendation or reason was offered and was not the genuine one, when nothing precedes this paragraph.",
+        "Does not excuse the modifiers on the grounds that the surrounding sentence already names a concrete mechanism (eleven-hour backfill, no pause once started, rollback owner).",
+        "Repairs by deletion ('My recommendation', 'The reason', 'The issue') rather than by substituting another adjective or expanding into a clause that justifies the modifier."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "implicature-naming",
+          "scale": "1-5",
+          "rubric": "5 = states what the modifier falsely implies about alternatives the reader was never shown; 3 = calls the word vague, filler, or unnecessary without naming the implication; 1 = does not flag it."
+        },
+        {
+          "name": "repair-by-deletion",
+          "scale": "1-5",
+          "rubric": "5 = every repair is a deletion and each line gets shorter; 3 = swaps in a different modifier or keeps one hollow modifier; 1 = expands the line to justify the modifier."
+        }
+      ]
+    },
+    {
+      "id": "self-planted-strawman-contrast",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "self-planted-strawman-contrast",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags 'It would be easy to assume the slowness comes from the Docker build' as an opposing view the assistant introduced itself and the user never raised.",
+        "Does not grade the 'not the problem / the problem is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the Docker-build side.",
+        "Does not repair by evidencing the Docker-build side; the invented premise is cut, not supported.",
+        "Rewrite deletes the invented setup and states the readiness-probe mechanism directly, keeping the fixed 30-second wait and the per-pod cost.",
+        "Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-attribution",
+          "scale": "1-5",
+          "rubric": "5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up."
+        },
+        {
+          "name": "repair-directness",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite opens on the probe mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure."
+        }
+      ]
+    },
+    {
+      "id": "self-planted-strawman-tune",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "self-planted-strawman-tune",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags 'The instinct in cases like this is to reach for a bigger instance' as an opposing view the assistant introduced itself and the user never raised.",
+        "Does not grade the 'not the fix / the fix is' contrast as earned antithesis on the grounds that the immediately preceding sentence supplies the hardware side.",
+        "Does not repair by evidencing the bigger-instance side; the invented premise is cut, not supported.",
+        "Rewrite deletes the invented setup and states the index mechanism directly, keeping the sequential scan over 40 million rows.",
+        "Rewrite does not substitute a different negation or X-not-Y construction in place of the one it removed."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-attribution",
+          "scale": "1-5",
+          "rubric": "5 = names that the assistant planted the alternative itself and that no one raised it; 3 = flags the contrast as unearned or decorative without identifying who introduced the alternative; 1 = grades the contrast as earned because the prior sentence set it up."
+        },
+        {
+          "name": "repair-directness",
+          "scale": "1-5",
+          "rubric": "5 = the rewrite opens on the index mechanism with no negation retained; 3 = drops the setup but keeps a negation; 1 = keeps the assume-then-refute structure."
+        }
+      ]
+    },
+    {
+      "id": "hollow-modifier-delete-not-expand",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "hollow-modifier-delete-not-expand",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes 'true', 'genuine', and 'actual'.",
+        "Does not substitute replacement adjectives ('real', 'complete', 'full', 'clear', 'live') for the deleted ones.",
+        "Returns a sentence no longer than the input in word count.",
+        "Does not invent a mechanism the source lacks (a named metric, dashboard, refresh interval, or job state machine); either keeps the plain claim or marks the missing specifics ask-author."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = shorter than the input; 3 = same length; 1 = longer than the input."
+        },
+        {
+          "name": "deletion-fidelity",
+          "scale": "1-5",
+          "rubric": "5 = repairs by deletion only; 3 = deletes some modifiers and substitutes others; 1 = keeps the modifiers or adds new ones."
+        }
+      ]
+    },
+    {
+      "id": "invented-contrast-cut-the-strawman",
+      "suite": "rewrite-evals.json",
+      "split": "holdout",
+      "pair_id": "invented-contrast-cut-the-strawman",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes both 'not about pricing' and 'not a rewrite of the billing stack' rather than keeping one as a concession.",
+        "Opens on the concrete mechanism (normalized query shape, sorted by total time) instead of on a negation.",
+        "Does not substitute another X-not-Y, 'not just X but Y', or 'this is about X rather than Y' construction.",
+        "Does not invent a reason the reader might have expected a pricing or billing change."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "strawman-removal",
+          "scale": "1-5",
+          "rubric": "5 = both invented alternatives are gone and no replacement negation appears; 3 = one removed or one swapped for a different negation; 1 = the not-X framing survives."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = shorter than the input while keeping the grouping and sorting mechanism; 3 = same length; 1 = longer."
+        }
+      ]
+    },
+    {
+      "id": "substantive-actual-measured-vs-advertised",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "substantive-actual-measured-vs-advertised",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Returns keep, or an edit that preserves the measured-versus-advertised distinction.",
+        "Names the advertised 40 ms p99 in the prior paragraph as what 'actual' distinguishes against.",
+        "Does not delete 'actual' on the grounds that it is an empty intensifier or appears on a hollow-modifier list."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "negation-answers-the-users-hypothesis",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "negation-answers-the-users-hypothesis",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Returns keep for 'This is not a memory leak.'",
+        "Identifies the user's question as the source of the alternative, so the negation is a correction rather than an invented contrast.",
+        "Does not recommend rewriting the correction into a bare positive claim that leaves the user's hypothesis unanswered."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "key-issue-earned-by-stated-ranking",
+      "suite": "adversarial.json",
+      "split": "holdout",
+      "pair_id": "key-issue-earned-by-stated-ranking",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Returns keep for 'The key issue is the lock'.",
+        "Names the enumerated three regressions and the stated criterion ('the other two do not change throughput') as what earns the ranking.",
+        "Does not apply a delete-the-modifier test mechanically to a modifier that selects among alternatives the reader was actually given."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "new-register-significance-compression-grounded-v2",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "new-register-significance-compression-grounded-v2",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies the rhetorical scaffolding without treating a phrase hit alone as proof of poor writing.",
+        "Preserves source-supported content and uncertainty; no fact is invented to make the rewrite concrete.",
+        "Asks for precisely missing evidence or justifies a cut when necessary; when supplied facts support a rewrite, uses them instead of merely asking or cutting everything."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "new-register-significance-compression-grounded-v2-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "new-register-significance-compression-grounded-v2",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Uses the supplied facts in a substantive review or rewrite rather than only asking or cutting supported content.",
+        "Preserves the source's scope and uncertainty and introduces no unsupported facts or causal conclusions.",
+        "Does not mechanically reject earned domain terms, defined labels, or a forward reference that actually delivers supported content."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "performative-honesty-stage-management",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "performative-honesty-stage-management",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags 'Let's be honest', 'I won't pretend', 'here's the thing', and/or 'Turns out' as performative honesty or stage management: sincerity and revelation announced rather than shown.",
+        "Preserves the two concrete facts (the four-hour schema change, the column rename) rather than cutting them along with the cadence.",
+        "Rewrite opens on the concrete fact instead of a candor announcement and does not introduce a replacement tic such as 'Look,' or 'The truth is'."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "structural-cadence-run-grounded-v2",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "structural-cadence-run-grounded-v2",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies the rhetorical scaffolding without treating a phrase hit alone as proof of poor writing.",
+        "Preserves source-supported content and uncertainty; no fact is invented to make the rewrite concrete.",
+        "Asks for precisely missing evidence or justifies a cut when necessary; when supplied facts support a rewrite, uses them instead of merely asking or cutting everything."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "structural-cadence-run-grounded-v2-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "structural-cadence-run-grounded-v2",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Uses the supplied facts in a substantive review or rewrite rather than only asking or cutting supported content.",
+        "Preserves the source's scope and uncertainty and introduces no unsupported facts or causal conclusions.",
+        "Does not mechanically reject earned domain terms, defined labels, or a forward reference that actually delivers supported content."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "strip-new-register-launch-grounded-v2",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "strip-new-register-launch-grounded-v2",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Identifies the rhetorical scaffolding without treating a phrase hit alone as proof of poor writing.",
+        "Preserves source-supported content and uncertainty; no fact is invented to make the rewrite concrete.",
+        "Asks for precisely missing evidence or justifies a cut when necessary; when supplied facts support a rewrite, uses them instead of merely asking or cutting everything."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "strip-new-register-launch-grounded-v2-with-facts",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "strip-new-register-launch-grounded-v2",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Uses the supplied facts in a substantive review or rewrite rather than only asking or cutting supported content.",
+        "Preserves the source's scope and uncertainty and introduces no unsupported facts or causal conclusions.",
+        "Does not mechanically reject earned domain terms, defined labels, or a forward reference that actually delivers supported content."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "earned-negation-chain-changelog",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "earned-negation-chain-changelog",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not flag the 'no X, no Y' structure as slop merely because it is a negation chain; recognizes each item as a checkable release property.",
+        "If suggesting any edit, preserves all three factual claims rather than diluting them into generic reassurance."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "earned-turns-out-with-trace",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "earned-turns-out-with-trace",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not flag 'it turns out that' as a canned reveal here, because the sentence immediately supplies the measurement and the fix that earn the reversal.",
+        "Any suggested edit keeps the flame-graph number and the arena fix; at most it trims the framing phrase."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "earned-anaphora-invariant-chain",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "earned-anaphora-invariant-chain",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not flag the repeated 'Every ...' openers as decorative anaphora; recognizes that each sentence adds one link in an invariant chain the final sentence relies on.",
+        "If rewriting, preserves the three invariants and their order rather than merging them into one abstract sentence."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "holdout-earned-honesty-clarification",
+      "suite": "adversarial.json",
+      "split": "holdout",
+      "pair_id": "holdout-earned-honesty-clarification",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not treat 'To be clear' as performative honesty here, because the sentence delivers the scoping clarification it announces.",
+        "Any edit keeps the scoping facts; trimming the opener is acceptable, but rejecting the sentence as slop is not."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "cataphoric-teaser-undischarged",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "cataphoric-teaser-undischarged",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags \"Here's what most people get wrong.\" as a forward-pointing promise that the passage never discharges.",
+        "Names that the sentences after the teaser restate the difficulty instead of supplying the withheld content — no named failure mode such as duplicate side effects, a thundering herd, or a non-idempotent write.",
+        "Either cuts the teaser and keeps the plain claim or escalates to ask-author for the specific failure mode; does not invent a concrete retry bug the source does not supply."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "discharge-diagnosis",
+          "scale": "1-5",
+          "rubric": "5 = states which sentence should have discharged the promise and shows it does not; 3 = flags the teaser as generic slop without the discharge test; 1 = does not flag it."
+        },
+        {
+          "name": "non-invention",
+          "scale": "1-5",
+          "rubric": "5 = supplies no retry failure mode absent from the source; 3 = one borderline added specific; 1 = fabricates a concrete bug to fill the rewrite slot."
+        }
+      ]
+    },
+    {
+      "id": "cataphoric-teaser-undischarged-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "cataphoric-teaser-undischarged",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Uses the supplied facts in a substantive review or rewrite rather than only asking or cutting supported content.",
+        "Preserves the source's scope and uncertainty and introduces no unsupported facts or causal conclusions.",
+        "Does not mechanically reject earned domain terms, defined labels, or a forward reference that actually delivers supported content."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "cataphoric-teaser-payoff-restates-tease",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "cataphoric-teaser-payoff-restates-tease",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags \"Here's where it gets interesting:\" as a forward-pointing promise whose payoff does not deliver the promised content.",
+        "Identifies that the discharging sentence restates the first one rather than adding anything, so the interest is asserted by the frame instead of earned by the payload.",
+        "Does not treat a synonym swap for \"interesting\" as the fix."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "cataphoric-teaser-self-posed-question",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "cataphoric-teaser-self-posed-question",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Flags \"The result? Not what we expected.\" as a forward-pointing promise the passage does not discharge — the following sentence reports that there was trouble without naming what it was.",
+        "Recognizes the self-posed-question-plus-fragment shape as the same failure as an explicit \"Here's what...\" teaser, rather than treating it as ordinary sentence variety or as a staccato-contrast finding.",
+        "Recommends stating the result or escalating to ask-author, and does not invent what went wrong with the indexer."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "cataphoric-teaser-self-posed-question-with-facts",
+      "suite": "evals.json",
+      "split": "tune",
+      "pair_id": "cataphoric-teaser-self-posed-question",
+      "fact_condition": "supplied",
+      "assertions": [
+        "Uses the supplied facts in a substantive review or rewrite rather than only asking or cutting supported content.",
+        "Preserves the source's scope and uncertainty and introduces no unsupported facts or causal conclusions.",
+        "Does not mechanically reject earned domain terms, defined labels, or a forward reference that actually delivers supported content."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "scarcity-framing-survives-discharge",
+      "suite": "evals.json",
+      "split": "holdout",
+      "pair_id": "scarcity-framing-survives-discharge",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Recognizes that the forward reference is discharged — the clause after the colon names the specific sizing rule and the following sentence names the failure mode — and so does not flag it as an undischarged or unpaid-off teaser.",
+        "Still flags the \"Here's what nobody tells you\" frame, on separate grounds from discharge: it claims the knowledge is rare, a claim about the world the passage does not support.",
+        "Recommends cutting the frame while keeping the discharged content, rather than cutting the passage, rewriting the sizing rule, or demanding more specificity."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "cataphoric-teaser-saturated-section",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "cataphoric-teaser-saturated-section",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes all three cataphoric teaser openers: \"Here's the part nobody tells you\", \"here's where it gets interesting\", and \"here's what most people get wrong\".",
+        "Preserves the concrete content — the postmortem that gets written while the alert stays unchanged, and alert tuning as recurring rather than one-time work — instead of deleting it along with the teasers.",
+        "Does not substitute another forward-pointing hook (\"But there's a catch\", \"The real problem?\", \"What happens next\") or an X-not-Y cadence in the rewrite."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "teaser-removal",
+          "scale": "1-5",
+          "rubric": "5 = all three teasers gone and none replaced by another forward hook; 3 = one survives or one is swapped for a different hook; 1 = the teaser scaffolding is preserved or restyled."
+        },
+        {
+          "name": "content-preservation",
+          "scale": "1-5",
+          "rubric": "5 = both concrete claims survive the cut; 3 = one is lost or blurred; 1 = the rewrite keeps the shape and drops the content."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
+      ]
+    },
+    {
+      "id": "pre-announced-significance-rewrite",
+      "suite": "rewrite-evals.json",
+      "split": "tune",
+      "pair_id": "pre-announced-significance-rewrite",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Removes the \"What surprised me most\" pre-announcement rather than keeping it on the grounds that the following sentences discharge it.",
+        "Preserves both the budgeted-week against forty-minutes contrast and the feature-flag mechanism that explains it.",
+        "Does not substitute another forward-pointing frame (\"Here's the surprising part\", \"The kicker?\", \"And then something unexpected happened\") and does not add a detail the source does not supply."
+      ],
+      "graded_dimensions": [
+        {
+          "name": "frame-removal",
+          "scale": "1-5",
+          "rubric": "5 = the significance announcement is gone and nothing forward-pointing replaces it; 3 = softened or swapped for a different frame; 1 = kept because it was discharged."
+        },
+        {
+          "name": "content-preservation",
+          "scale": "1-5",
+          "rubric": "5 = week-vs-forty-minutes and the feature flag both survive; 3 = one is lost or blurred; 1 = the rewrite keeps the frame's shape and drops the specifics."
+        },
+        {
+          "name": "length-control",
+          "scale": "1-5",
+          "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+        }
+      ]
+    },
+    {
+      "id": "earned-cataphoric-enumeration-label",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "earned-cataphoric-enumeration-label",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not flag \"We report three robustness checks:\" as a cataphoric teaser, engagement bait, or artificial suspense.",
+        "Names that the promise is discharged in the same sentence by the three specific checks.",
+        "Does not recommend removing the colon or expanding the enumeration into prose."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "earned-cataphoric-question-discharged",
+      "suite": "adversarial.json",
+      "split": "holdout",
+      "pair_id": "earned-cataphoric-question-discharged",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not flag the opening question as a cataphoric teaser, clickbait, or artificial suspense.",
+        "Names that the following two sentences discharge the question with a specific cause and a measured effect.",
+        "Does not recommend converting the question into a declarative topic sentence merely to remove the forward reference."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "back-pointing-label-not-cataphoric",
+      "suite": "adversarial.json",
+      "split": "tune",
+      "pair_id": "back-pointing-label-not-cataphoric",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not classify \"That last one is the counterintuitive one.\" as a cataphoric teaser, forward reference, or withheld payoff; if it flags the line at all, it identifies it as pointing back at an item already named.",
+        "Does not flag \"We tried three fixes:\" — the colon is discharged by the enumeration in the same sentence.",
+        "Notes that the following sentence supplies the mechanism (idle-worker cost against the noisy-neighbour stall), so any flag on the label concerns redundancy rather than a missing payload."
+      ],
+      "graded_dimensions": []
+    },
+    {
+      "id": "earned-discourse-deixis-roadmap",
+      "suite": "adversarial.json",
+      "split": "holdout",
+      "pair_id": "earned-discourse-deixis-roadmap",
+      "fact_condition": "no_additional_facts",
+      "assertions": [
+        "Does not flag the line as a cataphoric teaser, engagement bait, manufactured suspense, or throat-clearing.",
+        "Names that although the sentence points at the document rather than at content, the promise is discharged in the same sentence by the three named failure modes.",
+        "Distinguishes it from an undischarged signpost such as \"Read on to find out what went wrong,\" instead of treating roadmap sentences as slop by shape."
+      ],
+      "graded_dimensions": []
+    }
+  ]
+}

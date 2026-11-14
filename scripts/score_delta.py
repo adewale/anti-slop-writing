@@ -128,6 +128,20 @@ def sign_flip_p_value(deltas: list[float], iters: int, rng: random.Random) -> fl
 
 def independent_deltas(records: list[dict], cluster_field: str | None) -> list[float]:
     """Equal-weight cluster means; trials and near-copy cases are not extra N."""
+    pair_units: dict[str, str] = {}
+    for record in records:
+        if "pair_id" not in record:
+            continue
+        pair_id = record["pair_id"]
+        if not isinstance(pair_id, str) or not pair_id.strip():
+            sys.exit(f"FAIL: {record['id']}: pair_id must be a non-empty string")
+        unit = record.get(cluster_field) if cluster_field else record["id"]
+        if pair_id in pair_units and pair_units[pair_id] != unit:
+            sys.exit(
+                f"FAIL: pair_id {pair_id} spans independent units; aggregate first or "
+                "use --cluster-field pair_id (or a broader family)"
+            )
+        pair_units[pair_id] = unit
     if cluster_field is None:
         return [r["after"] - r["before"] for r in records]
     groups: dict[str, list[float]] = defaultdict(list)

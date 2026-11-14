@@ -125,7 +125,11 @@ Keep applicable failure notes, before/after cards, result data, rejected edits, 
 and changelog entries. Every new case has a split. A detector needs an earned-use guard.
 A review or rewrite case with `facts: []` that passes only by asking or cutting needs a
 `paired_with` twin in the same split that supplies those facts and fails an ask or a cut.
-Without the twin, a model that always asks for more facts scores well.
+Mark that original with `requires_fact_pair: true`; validation then rejects deleting
+its twin. Without the twin, a model that always asks for more facts scores well.
+Preserve `pair_id` and `fact_condition` from judge worklists through scoring. Report
+both conditions separately; pooled comparisons must cluster the two conditions of
+each task together. A supported answer may also ask about genuinely missing facts.
 For grader/oracle/validator changes add known-good, known-bad, and near-miss inputs.
 
 Run before every commit:

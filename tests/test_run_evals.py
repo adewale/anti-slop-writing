@@ -141,6 +141,84 @@ class Cli(unittest.TestCase):
         for p in (apply, judge):
             self.assertIn("The retry waits ten seconds.", p.read_text())
 
+    def test_fact_pairs_survive_prepare_grade_join_and_clustered_gate(self) -> None:
+        # Five independent tasks, each asked with and without additional facts:
+        # ten rows must still count as five independent units. Judgments here
+        # are synthetic arithmetic fixtures, not generated model results.
+        cases = []
+        for i in range(5):
+            base = {
+                "id": f"p{i}",
+                "split": "holdout",
+                "prompt": "Rewrite the draft.",
+                "facts": [],
+                "assertions": ["fidelity", "task fulfilled"],
+            }
+            cases.extend(
+                [
+                    base,
+                    {
+                        **base,
+                        "id": f"p{i}-facts",
+                        "paired_with": f"p{i}",
+                        "facts": ["The scheduler retries after ten seconds."],
+                    },
+                ]
+            )
+        src = self.tmp / "cases.json"
+        src.write_text(json.dumps({"evals": cases}))
+        apply, judge = self.tmp / "apply.json", self.tmp / "judge.json"
+        prepared = run_script(
+            "scripts/run_evals.py", "prepare", src, "--out", apply, "--judge-out", judge
+        )
+        self.assertEqual(prepared.returncode, 0, prepared.stderr)
+        for unit in json.loads(apply.read_text())["units"]:
+            self.assertNotIn("pair_id", unit)
+            self.assertNotIn("fact_condition", unit)
+        units = json.loads(judge.read_text())["units"]
+        self.assertEqual({u["pair_id"] for u in units}, {f"p{i}" for i in range(5)})
+        self.assertEqual(
+            {u["fact_condition"] for u in units}, {"supplied", "no_additional_facts"}
+        )
+        for u in units:
+            self.assertIn(f'"pair_id": "{u["pair_id"]}"', u["judge_prompt"])
+        scores = []
+        for arm, passes in [("before", [True, False]), ("after", [True, True])]:
+            records = []
+            for u in units:
+                r = judgment(u["id"], passes)
+                r.update(pair_id=u["pair_id"], fact_condition=u["fact_condition"])
+                records.append(r)
+            judgments = write_jsonl(self.tmp / f"{arm}-judgments.jsonl", records)
+            out = self.tmp / f"{arm}-scores.jsonl"
+            graded = run_script(
+                "scripts/run_evals.py", "grade", judgments, "--out", out
+            )
+            self.assertEqual(graded.returncode, 0, graded.stderr)
+            scores.append(out)
+        delta = self.tmp / "delta.jsonl"
+        joined = run_script(
+            "scripts/run_evals.py",
+            "join",
+            "--before",
+            scores[0],
+            "--after",
+            scores[1],
+            "--out",
+            delta,
+        )
+        self.assertEqual(joined.returncode, 0, joined.stderr)
+        unclustered = run_script("scripts/score_delta.py", delta)
+        self.assertNotEqual(unclustered.returncode, 0)
+        self.assertIn("spans independent units", unclustered.stderr)
+        clustered = run_script(
+            "scripts/score_delta.py", delta, "--cluster-field", "pair_id"
+        )
+        self.assertEqual(clustered.returncode, 2, clustered.stdout + clustered.stderr)
+        self.assertIn("Cases:         10", clustered.stdout)
+        self.assertIn("Clusters:      5", clustered.stdout)
+        self.assertIn("UNDERPOWERED", clustered.stdout)
+
     def test_prepare_rejects_overlapping_role_files(self) -> None:
         dest = self.tmp / "same.json"
         result = run_script(
@@ -187,19 +265,34 @@ class Cli(unittest.TestCase):
         # instruction. Known-good: neutral statement. Known-bad: the old coaching
         # sentence. Near-miss: a task prompt that itself says "ask" stays intact.
         cases = [
-            {"id": "empty", "split": "tune", "prompt": "Rewrite the draft.",
-             "facts": [], "assertions": ["a", "b"]},
-            {"id": "task-asks", "split": "tune",
-             "prompt": "Rewrite this, or ask for the missing relation.",
-             "facts": [], "assertions": ["a", "b"]},
+            {
+                "id": "empty",
+                "split": "tune",
+                "prompt": "Rewrite the draft.",
+                "facts": [],
+                "assertions": ["a", "b"],
+            },
+            {
+                "id": "task-asks",
+                "split": "tune",
+                "prompt": "Rewrite this, or ask for the missing relation.",
+                "facts": [],
+                "assertions": ["a", "b"],
+            },
         ]
         src = self.tmp / "cases.json"
         src.write_text(json.dumps({"evals": cases}))
         for flags in ([], ["--no-skill"]):
             apply, judge = self.tmp / "apply.json", self.tmp / "judge.json"
             result = run_script(
-                "scripts/run_evals.py", "prepare", src,
-                "--out", apply, "--judge-out", judge, *flags,
+                "scripts/run_evals.py",
+                "prepare",
+                src,
+                "--out",
+                apply,
+                "--judge-out",
+                judge,
+                *flags,
             )
             self.assertEqual(result.returncode, 0, result.stderr)
             units = {u["id"]: u for u in json.loads(apply.read_text())["units"]}
@@ -338,9 +431,21 @@ class Cli(unittest.TestCase):
         self.assertIn("duplicate id", result.stderr)
 
     def test_join_rejects_differing_split_or_cluster(self) -> None:
-        row = {"id": "x", "split": "tune", "score": 1, "family": "a"}
+        row = {
+            "id": "x",
+            "split": "tune",
+            "score": 1,
+            "family": "a",
+            "pair_id": "p",
+            "fact_condition": "supplied",
+        }
         a = write_jsonl(self.tmp / "a.jsonl", [row])
-        for change in [{"split": "holdout"}, {"family": "b"}]:
+        for change in [
+            {"split": "holdout"},
+            {"family": "b"},
+            {"pair_id": "other"},
+            {"fact_condition": "no_additional_facts"},
+        ]:
             b = write_jsonl(self.tmp / "b.jsonl", [{**row, **change}])
             with self.subTest(change=change):
                 result = run_script(

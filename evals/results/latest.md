@@ -1,6 +1,6 @@
 # Latest eval results
 
-Updated: 2026-11-13
+Updated: 2026-11-14
 
 Whether the current skill improves writing over no skill remains unmeasured in this
 repository. The 2026-05-31 statistical-proof claim is withdrawn: removing a
@@ -24,3 +24,7 @@ Standing baseline: 38/38 cases scored 1.0 in
 No new model outputs or efficacy scores were generated during the November repairs.
 The current work and access limits are in
 [the review report](2026-11-13-eval-integrity.md).
+
+The [2026-11-14 fact-pair review](2026-11-14-fact-pair-review/README.md) audits the
+nineteen supplied-fact twins added in `69ade5d`, corrects graded-rubric and pair-unit
+handling, and retains old/new case records. No new model outputs were generated.

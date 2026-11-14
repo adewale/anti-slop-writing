@@ -16,8 +16,12 @@ and committed before generating outputs. The instrument PR must land first.
    every apply model, both judges scoring every output. At least three trials per
    case/arm/model are required; choose final N by simulating power on case means.
 3. Then compare no skill/current skill on both splits of the corrected rewrite suite
-   and rewrite-shaped review cases. Explicitly score factual invention, report
-   per-case rates, and cluster related cases. Preserve the no-skill task and facts
+   and rewrite-shaped review cases. Explicitly score factual invention and task
+   fulfillment; report skill versus no skill separately for each fact condition.
+   Retain pair IDs, aggregate trials to per-case rates, and cluster by pair ID
+   (or broader pre-registered family) for pooled comparisons. Procedure artifacts
+   such as a flattening demonstration are diagnostics rather than primary efficacy
+   outcomes. Preserve the no-skill task and facts
    verbatim; omit only the skill instruction.
 4. Audit isolated trial contexts and blind template fields before scoring. Report
    mean raw/judged word differences beside scores and agreement per apply family.

@@ -162,3 +162,10 @@ follow-up commit.
 The follow-up also stops the runbook relying on the one-off handoff for spending
 authority, and the bare-`so` hinge check no longer passes "so-called" or intensifier "so".
 
+
+## Pair review — 2026-11-14
+
+The [fact-pair audit](2026-11-14-fact-pair-review/README.md) reviews all nineteen twins,
+preserves their facts/prompts, corrects remaining graded-rubric inconsistencies, and
+keeps pairs together through scoring. It records grading clarifications made before
+new scoring, including the five holdout twins. No doctrine or model result changed.

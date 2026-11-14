@@ -49,7 +49,8 @@
           "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "product-tour-hinge",
@@ -78,7 +79,8 @@
         "Invents no product capability or benefit.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "carrier-bound-ending",
@@ -114,7 +116,7 @@
         {
           "name": "self-detector-use",
           "scale": "1-5",
-          "rubric": "5 = Rewrite check catches or avoids X-not-Y, dash antithesis, invented facts; 1 = rewrite repeats flagged cadence without self-check."
+          "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
         }
       ],
       "facts": []
@@ -163,7 +165,7 @@
         {
           "name": "rewrite-self-audit",
           "scale": "1-5",
-          "rubric": "5 = Rewrite check explicitly audits the produced rewrite and fixes any failed detector; 1 = no self-audit or decorative closer remains."
+          "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
         }
       ],
       "facts": []
@@ -180,7 +182,8 @@
         "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "fake-precision-rewrite-finance",
@@ -201,7 +204,7 @@
         {
           "name": "provenance",
           "scale": "1-5",
-          "rubric": "5 = source, baseline, and population named; 1 = number preserved without context."
+          "rubric": "5 = asks for source, baseline, and population or cuts the unsupported outcome claim; 3 = asks only for a source; 1 = invents provenance or retains the number as an established result."
         },
         {
           "name": "length-control",
@@ -209,7 +212,8 @@
           "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "product-tour-rewrite-developer-tools",
@@ -255,10 +259,11 @@
         {
           "name": "mechanism-specificity",
           "scale": "1-5",
-          "rubric": "5 = concrete step-level retry/preserved-output/state/resume mechanism; 1 = prestige abstraction."
+          "rubric": "5 = precisely asks for the missing durability mechanism or justifies cutting the claim; 3 = generic request for detail; 1 = invents a workflow or substitutes a prestige abstraction."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "copula-displacement-to-is",
@@ -275,10 +280,11 @@
         {
           "name": "concrete-verb",
           "scale": "1-5",
-          "rubric": "5 = specific action verb and coordination mechanism; 3 = plain copula with partial detail; 1 = new prestige verb."
+          "rubric": "5 = uses a plain source-supported description or precisely asks what coordination job the library performs; a justified cut also earns 5. 3 = removes one inflated verb but leaves vague content; 1 = invents a coordination mechanism or substitutes prestige verbs."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "hedged-symmetry-commit",
@@ -295,10 +301,11 @@
         {
           "name": "tradeoff-commitment",
           "scale": "1-5",
-          "rubric": "5 = clear priority/use case; 3 = weaker but less symmetric; 1 = both-sides hedge remains."
+          "rubric": "5 = asks which reader and priority the facts support, or justifies cutting; 3 = removes some symmetry but stays vague; 1 = invents linter behavior or preserves the all-readers hedge."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "outline-conclusion-carrier-bound",
@@ -315,16 +322,17 @@
         {
           "name": "carrier-specificity",
           "scale": "1-5",
-          "rubric": "5 = named challenge/carrier/next step; 3 = one concrete element; 1 = outline template remains."
+          "rubric": "5 = precisely asks for a documented challenge, concrete example, or next step, or justifies cutting; 3 = vague request for an example; 1 = invents a project/customer result or keeps the outline template."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "holdout-ask-author-ai-tooling",
       "split": "holdout",
       "prompt": "Review this paragraph using the Critique output format. It comes from a launch post draft, and no source notes are available beyond the paragraph.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.",
-      "expected_output": "A review that does not invent the assistant name, does not preserve the unsupported before/after timing, and uses ask-author or cuts until the missing source facts are supplied. Any fallback must pass Rewrite check.",
+      "expected_output": "A review that does not invent the assistant name, does not preserve the unsupported before/after timing, and uses ask-author or cuts until the missing source facts are supplied. Any fallback must preserve the supplied facts and avoid the criticized cadence; no named self-check field is required.",
       "assertions": [
         "Does not name a specific assistant or model because the source paragraph does not provide one.",
         "Treats 'quarter-long' and 'one-week' as unsupported unless source/provenance is named, and either asks for the measurement or removes the timing claim.",
@@ -341,10 +349,11 @@
         {
           "name": "rewrite-check-integrity",
           "scale": "1-5",
-          "rubric": "5 = Rewrite check explicitly covers invented facts and cadence; 1 = absent or false pass."
+          "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "tweet-taste-as-model",
@@ -557,9 +566,10 @@
       "assertions": [
         "Removes the empty two-part 'The point is not X. The point is Y.' contrast.",
         "States how the map serves the drill using the facts: leaders mark the pier reached, and organisers compare the maps to find piers no team reached in time.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "safe-essay-cut-or-concretize-with-facts",
@@ -576,9 +586,10 @@
         "Removes the era/disruption framing and the 'transformative offerings' abstraction.",
         "The rewrite names Shiftboard, nurses swapping shifts from their phones, and charge-nurse approval.",
         "Does not add adoption numbers, time savings, or other benefits beyond replacing paper swap forms.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "multi-issue-output-manifest-with-facts",
@@ -594,9 +605,10 @@
         "Addresses both input lines rather than only the first or a general summary.",
         "The line 1 rewrite replaces the importance/robust-experience language with `deploy init` writing a working config file on first run.",
         "The line 2 rewrite replaces the contrast with the dashboard grouping alerts that share a root cause into one incident.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "emphasis-source-flatten-with-facts",
@@ -613,9 +625,10 @@
         "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
         "States what goes beyond retrying using the facts: state saved after every step and resumption from the last saved step after a crash.",
         "Supports any 'programming model' claim with the sequential-code fact, or drops that claim.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "copula-displacement-to-is-with-facts",
@@ -631,9 +644,10 @@
         "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb.",
         "Says what the library does using the facts: one worker per job, reassignment when heartbeats stop.",
         "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "hedged-symmetry-commit-with-facts",
@@ -649,9 +663,10 @@
         "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
         "Commits to the supplied position: by default the linter fails the build on unhandled promise rejections in production code.",
         "If prototypes are mentioned, states the distinct behavior (warnings instead of failures) rather than claiming the linter suits everyone equally.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "outline-conclusion-carrier-bound-with-facts",
@@ -668,9 +683,10 @@
         "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
         "Ends on the supplied March example: runs paused during the regional outage and resumed from their last completed step.",
         "Any forward-looking sentence names the per-step timeouts release instead of a 'pivotal role'.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "fake-precision-rewrite-finance-with-facts",
@@ -687,9 +703,11 @@
         "Keeps 18.4% only with its definition (median reduction in maximum drawdown) and source (the 2025 backtest).",
         "Replaces 'most institutional clients' with the backtest population: 31 pension-fund portfolios, 2015 to 2024.",
         "Does not present the figure as a measured result for live clients.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
-        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+        "Attributes the reduction to the backtest report and invents no comparator portfolio, risk-free benchmark, or live-client result; it may flag the unspecified comparator while still rewriting the supplied report."
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "holdout-ask-author-ai-tooling-with-facts",
@@ -706,9 +724,11 @@
         "Replaces 'quarter-long slog' and 'one-week project' with the tracked durations: eleven weeks and six working days.",
         "Names Patchwright as the assistant and does not name any other tool or model.",
         "Does not credit the assistant alone; keeps the supplied fact that engineers reviewed every proposed change.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
-        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+        "Reports the tracked durations and the use of Patchwright without claiming that the tracker proves the assistant caused the duration difference."
+      ],
+      "source_kind": "synthetic"
     }
   ]
 }

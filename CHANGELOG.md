@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-14 — Review facts-supplied eval pairs
+
+- Reviewed all 19 new pairs, including five holdout twins, before model scoring. Kept their prompts and facts fixed; labeled the added scenarios synthetic. Missing-fact graded rubrics now accept precise questions or justified cuts, and no graded dimension requires a named self-check field.
+- Clarified supplied-fact grading: a substantive supported answer can ask about an unknown detail, while an answer that only asks or cuts still fails. Timing, caching, and backtest claims must stay within their observed evidence.
+- Preserve pair IDs and fact conditions in judge worklists, grades, and joins. The statistical gate rejects splitting a known pair across independent units. Original cases requiring a twin are marked so deletion of that twin fails validation.
+- The review, old/new case records, and validation logs are under `evals/results/2026-11-14-fact-pair-review/`. No doctrine changes or new model results.
+
 ## 2026-11-13 — Repair evaluation validity
 
 - Retracted the 2026-05-31 statistical-proof claim after removing a version-specific field assertion (N=42, p≈0.126) and checking seven family means (p≈0.245). Original outputs and scores remain archived; reproduction commands and old/new case records are in `evals/results/2026-11-13-review-reproduction.md`.

@@ -91,6 +91,31 @@ class GateVerdicts(unittest.TestCase):
         self.assertIn("missing non-empty cluster field", result.stderr)
         self.assertNotEqual(result.returncode, 0)
 
+    def test_six_fact_pairs_can_pass_as_six_independent_units(self) -> None:
+        records = rows([0.25] * 12)
+        for i, record in enumerate(records):
+            record["pair_id"] = f"pair-{i // 2}"
+        result = self.gate(records, "--cluster-field", "pair_id")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("Clusters:      6", result.stdout)
+
+    def test_broader_family_must_keep_each_fact_pair_together(self) -> None:
+        records = rows([0.25] * 12)
+        for i, record in enumerate(records):
+            record.update(pair_id=f"pair-{i // 2}", family=f"family-{i // 2}")
+        self.assertEqual(self.gate(records, "--cluster-field", "family").returncode, 0)
+        records[0]["family"] = "different-family"
+        result = self.gate(records, "--cluster-field", "family")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("spans independent units", result.stderr)
+
+    def test_distinct_pair_ids_allow_legacy_case_level_scoring(self) -> None:
+        records = rows([0.25] * 8)
+        for record in records:
+            record["pair_id"] = record["id"]
+        result = self.gate(records)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_non_numeric_or_nonfinite_scores_are_errors(self) -> None:
         for value in ["0.5", True, float("nan"), float("inf")]:
             records = rows([0.25] * 8)

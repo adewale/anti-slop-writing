@@ -100,7 +100,8 @@ class Validate(unittest.TestCase):
 
     def test_fact_twin_with_a_dangling_partner_fails(self) -> None:
         self.edit_json(
-            "evals/evals.json", lambda d: self.twin(d).update(paired_with="no-such-case")
+            "evals/evals.json",
+            lambda d: self.twin(d).update(paired_with="no-such-case"),
         )
         self.assert_fails_with("paired_with names no other case")
 
@@ -121,6 +122,34 @@ class Validate(unittest.TestCase):
         self.edit_json("evals/rewrite-evals.json", reword)
         result = self.validate()
         self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_required_fact_twin_cannot_be_deleted(self) -> None:
+        def remove_twin(d):
+            twin_id = self.twin(d)["id"]
+            d["evals"] = [c for c in d["evals"] if c["id"] != twin_id]
+
+        self.edit_json("evals/evals.json", remove_twin)
+        self.assert_fails_with("requires_fact_pair but has no facts-supplied twin")
+
+    def test_unpaired_source_sufficient_case_remains_valid(self) -> None:
+        # An exporter case already supplies its mechanism and needs no ask-side twin.
+        self.edit_json(
+            "evals/evals.json", lambda d: d["evals"][0].update(requires_fact_pair=False)
+        )
+        result = self.validate()
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_pair_reference_must_be_a_string(self) -> None:
+        self.edit_json(
+            "evals/evals.json", lambda d: self.twin(d).update(paired_with=[])
+        )
+        self.assert_fails_with("paired_with must be a non-empty string")
+
+    def test_pair_requirement_is_boolean(self) -> None:
+        self.edit_json(
+            "evals/evals.json", lambda d: d["evals"][0].update(requires_fact_pair="yes")
+        )
+        self.assert_fails_with("requires_fact_pair must be boolean")
 
     def test_copied_eight_word_example_fails(self) -> None:
         def leak(d):

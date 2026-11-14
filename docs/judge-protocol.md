@@ -53,7 +53,11 @@ scores; the current scripts record counts but implement no automatic length adju
 ## Judgment and score files
 
 Write one JSON object per trial, using a unique `id` for the slot. Record `case_id` for
-repeats and `family` when cases share an input mechanism. For example:
+repeats and `family` when cases share an input mechanism. `prepare` also puts
+`pair_id` and `fact_condition` in judge units and the requested judgment schema;
+keep these out of apply units. Each facts-supplied twin and its original share a
+`pair_id`. Unpaired cases use their own ID. Preserve these fields in judgments.
+For example:
 
 ```json
 {"id":"case-a-trial-01","case_id":"case-a","family":"missing-source","suite":"evals.json","split":"tune","word_count":42,"assertions":[{"index":1,"pass":true,"evidence":"<quote>"}],"graded_dimensions":[{"name":"fidelity","score":5,"evidence":"<quote>"}]}
@@ -68,7 +72,7 @@ python3 scripts/score_delta.py delta.jsonl --holdout-only --cluster-field family
 
 Use separate directories for each judge and apply model. The grader averages binary
 assertions per record. `--include-graded` also averages each 1–5 dimension normalized
-by 5 with those assertion values. Family, case ID, and word-count metadata survive
+by 5 with those assertion values. Family, case ID, fact-pair ID, fact condition, and word-count metadata survive
 grading and joining. `join` rejects duplicate IDs, differing splits, and inconsistent
 case/family labels; it warns about missing slots, which the audit must resolve before
 any inference. Aggregate trials to per-case rates before a case-level test, or use
@@ -78,3 +82,29 @@ means prevent extra trials or near-copies from inflating N. Retain all raw trial
 Trigger queries measure routing rather than prose quality. They use independent
 routing decisions compared with `should_trigger`, with tune/holdout and near-miss
 negative accuracy reported separately.
+
+## Fact-pair analyses
+
+Report the no-additional-facts and supplied-facts conditions separately, comparing
+skill versus no skill within each condition. A gain on one side can hide a loss on
+the other in a pooled average. The fact condition describes the additional facts
+block; a source paragraph can itself contain usable facts even when that block is empty.
+
+For a pooled analysis, use `score_delta.py --cluster-field pair_id` after aggregating
+trials to case rates, or a broader pre-registered family that keeps each pair together.
+The gate rejects a repeated `pair_id` split across independent units. Two conditions
+of one task do not supply two independent tasks. Legacy score files without pair
+metadata still need a manual dependence audit before inference.
+
+Graded dimensions assess what the source makes possible. A precise question or
+justified cut can earn full marks when a required fact is absent. With sufficient
+facts, use them in the requested answer; an answer that only asks or cuts fails.
+Additional questions about a genuinely unspecified comparator or causal explanation
+may accompany a grounded rewrite. Before/after timing or cost observations do not
+establish a cause. A named `Rewrite check` field is never evidence of writing quality.
+
+Pre-register rewrite fidelity and task fulfillment as primary outcomes for an efficacy
+claim. Report procedure compliance (for example, producing a flattened residual claim)
+as a diagnostic, separately from writing quality. An aggregate gain driven only by
+such artifacts cannot establish better writing. `grade` still averages the assertions
+it receives; the scoring/audit script must implement the pre-registered outcome split.

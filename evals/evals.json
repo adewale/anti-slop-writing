@@ -41,7 +41,8 @@
         "Asks what the map contributes to the drill, or recommends cutting; does not invent the relationship.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "weak-conclusion",
@@ -83,7 +84,8 @@
         "Invents no product capability or benefit.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "fake-precision-unnamed-source",
@@ -100,10 +102,11 @@
         {
           "name": "provenance",
           "scale": "1-5",
-          "rubric": "5 = names source, baseline, and conditions; 1 = restates the unsupported number."
+          "rubric": "5 = asks for source, baseline, and workload or removes the unsupported outcome claim; 3 = asks only for a source; 1 = repeats the figures as established facts or invents provenance."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "stacked-rule-of-three",
@@ -133,10 +136,11 @@
         {
           "name": "nominalization-reduction",
           "scale": "1-5",
-          "rubric": "5 = abstract nouns replaced by verbs and named actors; 1 = added more abstractions."
+          "rubric": "5 = identifies the abstractions and asks for the missing operator/action/compute facts or justifies cutting; 3 = changes wording without resolving the unknowns; 1 = invents implementation details or adds abstractions."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "borrowed-emphasis",
@@ -158,10 +162,11 @@
         {
           "name": "mechanism-specificity",
           "scale": "1-5",
-          "rubric": "5 = rewrite names a concrete durable-execution behavior; 3 = partial mechanism or generic actor; 1 = another prestige abstraction."
+          "rubric": "5 = precisely asks which durability mechanism supports the claim, or justifies cutting it; 3 = vague request for detail; 1 = invents a mechanism or retains prestige abstraction."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "paragraph-scale-borrowed-emphasis",
@@ -183,10 +188,11 @@
         {
           "name": "rewrite-mechanism",
           "scale": "1-5",
-          "rubric": "5 = rewrite names an observability design mechanism such as schema, cardinality budget, sampling, span attributes, or team action; 1 = preserves tiered abstraction."
+          "rubric": "5 = removes the hierarchy and precisely asks which design decision is evidenced, or justifies cutting; 3 = vague request for detail; 1 = invents an instrumentation decision or keeps the hierarchy."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "copula-displacement",
@@ -203,10 +209,11 @@
         {
           "name": "verb-concreteness",
           "scale": "1-5",
-          "rubric": "5 = replaces displaced copulas with concrete action verbs and named objects; 3 = uses plain 'is' but still vague; 1 = preserves serves/stands/represents inflation."
+          "rubric": "5 = uses source-supported plain language or precisely asks what the dashboard does; a justified cut also earns 5. 3 = drops an inflated verb but keeps vague content; 1 = invents capabilities or keeps inflated copulas."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "hedged-symmetry",
@@ -223,10 +230,11 @@
         {
           "name": "commitment",
           "scale": "1-5",
-          "rubric": "5 = chooses a specific reader/use case and a concrete tradeoff; 3 = removes the hedge but remains broad; 1 = preserves both-sides symmetry."
+          "rubric": "5 = asks which reader and use case the evidence supports, or justifies cutting the ungrounded claim; 3 = removes the hedge but stays vague; 1 = invents a target reader or retains the all-readers claim."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "outline-conclusion-template",
@@ -246,7 +254,8 @@
           "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = removes one template but keeps generic future language; 1 = preserves outline closure."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "em-dash-cluster",
@@ -291,7 +300,8 @@
           "rubric": "5 = asks precisely which release gate/artifact is evidenced, or justifies cutting; 1 = invents a gate or leaves prestige abstraction."
         }
       ],
-      "facts": []
+      "facts": [],
+      "requires_fact_pair": true
     },
     {
       "id": "holdout-copula-hedged-outline-combo",
@@ -332,9 +342,10 @@
       "assertions": [
         "Recognizes that the facts evidence both sides of the contrast and does not call it unsupported or decorative.",
         "Either keeps the line or rewrites it to state the supplied relation: the map assigned meeting points, and the exercise timed how long boat owners took to reach them.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "safe-essay-voice-with-facts",
@@ -351,9 +362,10 @@
         "Removes the era/disruption framing and the 'transformative offerings' abstraction.",
         "The rewrite names Tallyroom, small charities, and at least one supplied capability (statement import with campaign tags, or the one-step donor report).",
         "Adds no capability, customer count, or benefit beyond the facts.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "borrowed-emphasis-with-facts",
@@ -370,9 +382,10 @@
         "Demonstrates the emphasis-source test by flattening the cadence and noting that the flattened claim alone is generic.",
         "Rewrites using the supplied mechanism: the step log, replay after a crash, and continuing from the first unfinished step.",
         "States the contrast with retry through the facts (retry reruns the whole function) rather than through 'isn't just X. It is Y'.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "paragraph-scale-borrowed-emphasis-with-facts",
@@ -389,9 +402,10 @@
         "Identifies the three-step 'X teams treat it as Y problem' escalation as borrowed-pattern emphasis carried by structure.",
         "Replaces the status hierarchy with the supplied design decision: every new service attaches a request ID passed to every downstream call.",
         "Gives the supplied reason: a failed payment that could not be traced across five services.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "copula-displacement-with-facts",
@@ -407,9 +421,10 @@
         "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation.",
         "Rewrites with a plain verb and the supplied content: last login, open support tickets, and unpaid invoices on one page, opened by support agents before replying.",
         "Drops or questions the 'testament to the platform's capabilities' claim, which the facts do not support.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "hedged-symmetry-with-facts",
@@ -426,9 +441,10 @@
         "Flags the all-readers/all-values framing.",
         "Commits to restaurant accountants and names the supplied job: reconciling daily point-of-sale exports against supplier invoices.",
         "Drops the weekend-cooks reader, which the facts contradict; any price stated is $40 per month per location.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "outline-conclusion-template-with-facts",
@@ -445,9 +461,10 @@
         "Flags the generic obstacle and future-significance templates.",
         "Names the supplied obstacle and response: finding night-shift drivers, addressed with a night-shift premium.",
         "Replaces 'destined to reshape the sector' with the planned refrigerated vans, or drops it.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "abstract-system-noun-stack-with-facts",
@@ -463,9 +480,10 @@
       "assertions": [
         "Identifies the nominalization stack (orchestration, observability, optimization, utilization) as the failure mechanism.",
         "Rewrites with the supplied actor and actions: the Kubernetes scheduler extension reads GPU memory every 30 seconds and moves batch jobs off nodes above 90% onto idle nodes.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "holdout-borrowed-emphasis-release-safety-with-facts",
@@ -481,9 +499,10 @@
         "Writes a flattened version of the claim with the cadence removed and judges whether it names a mechanism.",
         "Rewrites with the three supplied gates: 1% staged rollout, automatic rollback if the error rate doubles, and on-call lead sign-off.",
         "States the supplied rule that a release cannot reach all users until all three gates pass.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
         "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+      ],
+      "source_kind": "synthetic"
     },
     {
       "id": "fake-precision-unnamed-source-with-facts",
@@ -498,9 +517,11 @@
       "assertions": [
         "Keeps 47% only with its page (product catalogue), metric (median load time), and measurement (two weeks of production traffic before and after).",
         "Restates the cost claim as monthly database spend falling from $9,000 to $6,100, rather than infrastructure costs in general.",
-        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
-        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
-      ]
+        "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+        "Attributes the figures to the supplied before/after traffic measurements and cloud bills; does not claim those observations establish that caching caused the changes or that all pages/workloads improve by 47%."
+      ],
+      "source_kind": "synthetic"
     }
   ]
 }

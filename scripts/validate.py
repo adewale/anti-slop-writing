@@ -339,19 +339,39 @@ def validate_fact_pairs(path: Path, evals: list[dict]) -> None:
     """
     rel = path.relative_to(ROOT)
     by_id = {case["id"]: case for case in evals}
+    paired_parents: set[str] = set()
     for case in evals:
+        if not isinstance(case.get("requires_fact_pair", False), bool):
+            fail(f"{rel} eval {case['id']} requires_fact_pair must be boolean")
         partner_id = case.get("paired_with")
         if partner_id is None:
             continue
+        if not isinstance(partner_id, str) or not partner_id.strip():
+            fail(f"{rel} eval {case['id']} paired_with must be a non-empty string")
         partner = by_id.get(partner_id)
         if partner is None or partner is case:
-            fail(f"{rel} eval {case['id']} paired_with names no other case: {partner_id}")
+            fail(
+                f"{rel} eval {case['id']} paired_with names no other case: {partner_id}"
+            )
         if partner.get("split") != case.get("split"):
-            fail(f"{rel} eval {case['id']} paired_with {partner_id} has a different split")
+            fail(
+                f"{rel} eval {case['id']} paired_with {partner_id} has a different split"
+            )
         if partner.get("facts") != []:
-            fail(f"{rel} eval {case['id']} paired_with {partner_id}, which must have facts: []")
+            fail(
+                f"{rel} eval {case['id']} paired_with {partner_id}, which must have facts: []"
+            )
         if not case.get("facts"):
             fail(f"{rel} eval {case['id']} is a paired_with twin and must supply facts")
+        paired_parents.add(partner_id)
+    for case in evals:
+        if case.get("requires_fact_pair"):
+            if case.get("facts") != []:
+                fail(f"{rel} eval {case['id']} requires_fact_pair must have facts: []")
+            if case["id"] not in paired_parents:
+                fail(
+                    f"{rel} eval {case['id']} requires_fact_pair but has no facts-supplied twin"
+                )
 
 
 def validate_skill_evals() -> None:

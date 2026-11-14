@@ -98,6 +98,7 @@ JUDGE_TEMPLATE = (
     "against the prompt and facts, and do not reward extra length on its own.\n\n"
     "Emit one JSON object: "
     '{{"id": "{id}", "suite": "{suite}", "split": "{split}", '
+    '"pair_id": {pair_id}, "fact_condition": {fact_condition}, '
     '"assertions": [{{"index": 1, "pass": true, "evidence": "<quote>"}}, ...], '
     '"graded_dimensions": [{{"name": "<name>", "score": 5, "evidence": "<quote>"}}, ...]}}'
 )
@@ -166,6 +167,14 @@ def cmd_prepare(args: argparse.Namespace) -> int:
                 "id": case["id"],
                 "split": case.get("split", "unknown"),
             }
+            pair_id = case.get("paired_with", case["id"])
+            fact_condition = (
+                "supplied"
+                if case.get("facts")
+                else "no_additional_facts"
+                if "facts" in case
+                else "not_declared"
+            )
             apply_prompt = (
                 "Complete the TASK below. Produce exactly the requested critique and/or rewrite "
                 "— no preamble, no meta-commentary.\n\nTASK:\n" + prompt
@@ -176,6 +185,8 @@ def cmd_prepare(args: argparse.Namespace) -> int:
             judge_units.append(
                 {
                     **identity,
+                    "pair_id": pair_id,
+                    "fact_condition": fact_condition,
                     "judge_prompt": JUDGE_TEMPLATE.format(
                         prompt=prompt,
                         expected=case.get("expected_output", ""),
@@ -189,6 +200,8 @@ def cmd_prepare(args: argparse.Namespace) -> int:
                         id=case["id"],
                         suite=path.name,
                         split=case.get("split", "unknown"),
+                        pair_id=json.dumps(pair_id),
+                        fact_condition=json.dumps(fact_condition),
                     ),
                     "assertions": assertions,
                     "graded_dimensions": graded_dimensions,
@@ -356,7 +369,7 @@ def case_score(
         "n_passed": passed,
         "n_assertions": n,
     }
-    for field in ("family", "case_id", "word_count"):
+    for field in ("family", "case_id", "pair_id", "fact_condition", "word_count"):
         if field in record:
             result[field] = record[field]
     if include_graded or graded_values:
@@ -446,7 +459,7 @@ def cmd_join(args: argparse.Namespace) -> int:
         if a.get("split", split) != split:
             die(f"{cid}: split differs between before and after")
         row = {"id": cid, "split": split, "before": b["score"], "after": a["score"]}
-        for field in ("family", "case_id"):
+        for field in ("family", "case_id", "pair_id", "fact_condition"):
             if field in a or field in b:
                 if a.get(field) != b.get(field):
                     die(f"{cid}: {field} differs between before and after")

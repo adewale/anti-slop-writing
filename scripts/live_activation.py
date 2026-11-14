@@ -28,6 +28,14 @@ import subscription_baseline as base
 
 MODELS = {"pi": "gpt-6.1-sol", "claude": "claude-sonnet-5-5"}
 SEED = 261116
+# Built-in skills observed in the first native CLI pilot, not user/project resources.
+CLAUDE_BUILTINS = {
+    "deep-research", "design", "design-sync", "dataviz", "update-config", "verify",
+    "debug", "code-review", "simplify", "batch", "fewer-permission-prompts", "doctor",
+    "loop", "schedule", "claude-api", "workflow-authoring", "run", "run-skill-generator",
+    "plugin-authoring",
+}
+CLAUDE_TARGETS = {"anti-slop-writing", "local-writing:anti-slop-writing"}
 
 
 def body(text: str) -> str:
@@ -95,8 +103,11 @@ def classify_claude(events: list[dict], skill: str, canonical: str) -> dict:
     init, result = inits[0], results[0]
     if result.get("is_error") or result.get("subtype") != "success" or set(result.get("modelUsage", {})) != {MODELS["claude"]}:
         raise ValueError("Claude model/completion mismatch")
-    if init.get("skills") != ["anti-slop-writing"] or set(init.get("tools", [])) - {"Read", "Skill"} or init.get("mcp_servers"):
+    inventory = set(init.get("skills", []))
+    if len(inventory & CLAUDE_TARGETS) != 1 or inventory - CLAUDE_TARGETS - CLAUDE_BUILTINS or set(init.get("tools", [])) - {"Read", "Skill"} or init.get("mcp_servers"):
         raise ValueError("unexpected Claude skill/tool/MCP inventory")
+    if any(p.get("source") != "builtin" and p.get("name") != "local-writing" for p in init.get("plugins", [])):
+        raise ValueError("unexpected external Claude plugin")
     calls, successes, failures = {}, {}, []
     delivered_context = []
     for e in events:
@@ -109,7 +120,7 @@ def classify_claude(events: list[dict], skill: str, canonical: str) -> dict:
                 name, arguments = c["name"], c.get("input", {})
                 if name not in ("Skill", "Read"):
                     raise ValueError("unexpected Claude tool")
-                match = name == "Skill" and arguments.get("skill") == "anti-slop-writing"
+                match = name == "Skill" and arguments.get("skill") in CLAUDE_TARGETS
                 match |= name == "Read" and same_file(arguments.get("file_path", ""), canonical, init.get("cwd", str(Path(canonical).parent)))
                 if match:
                     calls[c["id"]] = name
@@ -144,10 +155,10 @@ def prepare(dest: Path) -> None:
                 slots.append({"id": base.sha(f"route-v1|{client}|{q['id']}|{trial}")[:24],
                               "client": client, "query_id": q["id"], "trial": trial})
     random.Random(SEED).shuffle(slots)
-    base.dump(dest / "manifest.json", {"seed": SEED, "models": MODELS, "slots": slots,
+    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 2, "models": MODELS, "slots": slots,
         "queries_sha256": base.sha((dest / "queries.json").read_text()),
         "skill_hashes": {str(p.relative_to(dest / "frozen-skill")): base.sha(p.read_text()) for p in (dest / "frozen-skill").rglob("*.md")},
-        "clients": {"pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)", "claude": "Claude Code 2.1.323 restricted CLI"},
+        "clients": {"pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)", "claude": "Claude Code 2.1.323 restricted CLI with explicit local-writing plugin"},
         "unavailable": {"codex": "0.145.0: recorded subscription probe rejects gpt-6.1-sol; no model substitution preregistered", "opencode": "Not installed on PATH or checked conventional locations; not installed by this study"}})
     base.dump(dest / "frozen-sources.json", {str(p.relative_to(ROOT)): base.sha(p.read_text()) for p in (
         ROOT / "scripts/live_activation.py", ROOT / "scripts/activation_model.mjs", ROOT / "scripts/subscription_model.mjs")})
@@ -158,8 +169,11 @@ def run_one(dest: Path, client: str, query: str, output: Path, forced: bool = Fa
     with tempfile.TemporaryDirectory(prefix="r-" + uuid.uuid4().hex[:8] + "-") as directory:
         workspace = Path(directory).resolve() / "workspace"
         workspace.mkdir()
-        skill_root = workspace / ".claude/skills/anti-slop-writing" if client == "claude" else workspace / "resources/anti-slop-writing"
+        plugin_root = workspace / "resources/local-writing"
+        skill_root = plugin_root / "skills/anti-slop-writing" if client == "claude" else workspace / "resources/anti-slop-writing"
         shutil.copytree(dest / "frozen-skill", skill_root)
+        if client == "claude":
+            base.dump(plugin_root / ".claude-plugin/plugin.json", {"name": "local-writing", "version": "1.0.0", "description": "Local writing instructions"})
         canonical = str(skill_root / "SKILL.md")
         if forced:
             query = f"Read {canonical} in full, then state its first heading. Do not edit any file."
@@ -172,7 +186,7 @@ def run_one(dest: Path, client: str, query: str, output: Path, forced: bool = Fa
             command = ["claude", "--print", "--restricted", "--tools", "Read,Skill",
                        "--allowedTools", "Read", "Skill", "--permission-mode", "dontAsk", "--permission-prompts", "none",
                        "--setting-sources", "", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}',
-                       "--no-session-persistence", "--session-id", str(uuid.uuid4()),
+                       "--no-session-persistence", "--session-id", str(uuid.uuid4()), "--plugin-dir", str(plugin_root),
                        "--model", MODELS[client], "--effort", "low", "--output-format", "stream-json", "--verbose"]
             stdin = query
         env = os.environ.copy()

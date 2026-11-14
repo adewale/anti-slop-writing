@@ -66,6 +66,13 @@ class Activation(unittest.TestCase):
             {"type": "result", "subtype": "success", "is_error": False, "modelUsage": {"claude-sonnet-5-5": {}}},
         ]
         self.assertTrue(study.classify_claude(events, TEXT, FILE)["activated"])
+        namespaced = copy.deepcopy(events)
+        namespaced[0]["skills"] = [*sorted(study.CLAUDE_BUILTINS), "local-writing:anti-slop-writing"]
+        namespaced[1]["message"]["content"][0]["input"]["skill"] = "local-writing:anti-slop-writing"
+        self.assertTrue(study.classify_claude(namespaced, TEXT, FILE)["activated"])
+        namespaced[0]["skills"].append("foreign-user-skill")
+        with self.assertRaises(ValueError):
+            study.classify_claude(namespaced, TEXT, FILE)
         absent = events[:3] + events[4:]
         self.assertFalse(study.classify_claude(absent, TEXT, FILE)["activated"])
         spoof = copy.deepcopy(absent)

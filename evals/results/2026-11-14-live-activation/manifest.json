@@ -1,5 +1,6 @@
 {
   "seed": 261116,
+  "instrument_revision": 2,
   "models": {
     "pi": "gpt-6.1-sol",
     "claude": "claude-sonnet-5-5"
@@ -1059,7 +1060,7 @@
   },
   "clients": {
     "pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)",
-    "claude": "Claude Code 2.1.323 restricted CLI"
+    "claude": "Claude Code 2.1.323 restricted CLI with explicit local-writing plugin"
   },
   "unavailable": {
     "codex": "0.145.0: recorded subscription probe rejects gpt-6.1-sol; no model substitution preregistered",

@@ -54,7 +54,7 @@ async function main() {
     model,
     thinkingLevel: "low",
     resourceLoader,
-    tools: [],
+    tools: ["read"],
     customTools: [readTool],
     sessionManager: sdk.SessionManager.inMemory(request.cwd),
     settingsManager: sdk.SettingsManager.inMemory({
@@ -69,6 +69,7 @@ async function main() {
       skills: found.skills.map(({ name, description, filePath }) => ({ name, description, filePath })),
       tools, systemPrompt: session.systemPrompt,
     }));
+    if (request.inspectOnly) return;
     let assistantTurns = 0;
     session.subscribe((event) => {
       if (["message_end", "tool_execution_start", "tool_execution_end", "agent_settled"].includes(event.type)) {

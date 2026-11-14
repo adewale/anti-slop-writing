@@ -1,0 +1,2010 @@
+[
+  {
+    "id": "generic-importance",
+    "split": "tune",
+    "prompt": "Review and rewrite this export-tool claim: Reliable batch processing represents a cornerstone of data operations.",
+    "expected_output": "Replaces the importance claim with the supplied batch-save and restart behavior, without adding guarantees.",
+    "assertions": [
+      "Flags the unsupported cornerstone/importance framing.",
+      "Describes the saved batch number and where processing resumes after a crash.",
+      "Adds no new guarantees, tools, numbers, or performance claims.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "specificity",
+        "scale": "1-5",
+        "rubric": "5 = names a concrete inspectable mechanism; 3 = swaps one abstraction for another; 1 = restates importance. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      },
+      {
+        "name": "mechanism-presence",
+        "scale": "1-5",
+        "rubric": "5 = retry/checkpoint/receipt/lease/idempotency named; 1 = no mechanism at all. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      }
+    ],
+    "facts": [
+      "The exporter saves the number of the most recently completed batch.",
+      "After a crash, restarting the exporter begins with the next batch; completed batches remain on disk."
+    ],
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "generic-importance",
+    "family": "batch-checkpoint",
+    "task": "Review and rewrite this export-tool claim: Reliable batch processing represents a cornerstone of data operations.\n\nFacts available:\n- The exporter saves the number of the most recently completed batch.\n- After a crash, restarting the exporter begins with the next batch; completed batches remain on disk.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "decorative-contrast",
+    "split": "tune",
+    "prompt": "Review this line: The point is not the harbor map. The point is the drill.",
+    "expected_output": "Flags the unsupported map/drill contrast and asks what relationship is evidenced, or recommends cutting it.",
+    "assertions": [
+      "Does not reject every short contrast as a rule.",
+      "Recognizes that neither side has supporting context.",
+      "Asks what the map contributes to the drill, or recommends cutting; does not invent the relationship.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "decorative-contrast",
+    "family": "pelican-relation",
+    "task": "Review this line: The point is not the harbor map. The point is the drill.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "weak-conclusion",
+    "split": "tune",
+    "prompt": "Review this ending:\n\nThe replay bundle holds the shell commands, the rendered map, the revision IDs, and the reviewer comments. A reader can rerun those commands and compare the new map with the saved one.\n\nInspectable runs make better evaluations.",
+    "expected_output": "Cuts the redundant final claim or ends using the supplied replay-bundle rerun and map-comparison facts.",
+    "assertions": [
+      "Recognizes that the last sentence repeats a general claim.",
+      "Connects an ending to the replay bundle already described, or recommends cutting the redundant final sentence.",
+      "Uses only the supplied rerun-and-compare relation; adds no animal example or new artifact.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [],
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "weak-conclusion",
+    "family": "replay-bundle-ending",
+    "task": "Review this ending:\n\nThe replay bundle holds the shell commands, the rendered map, the revision IDs, and the reviewer comments. A reader can rerun those commands and compare the new map with the saved one.\n\nInspectable runs make better evaluations.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "product-tour-flow",
+    "split": "tune",
+    "prompt": "Turn this list-like tool description into a connected explanation:\n\nRoster lists active shifts.\n\nIncident Panel opens one alert.\n\nRevision Log compares alert-rule versions.",
+    "expected_output": "Connects on-call staffing, an individual alert, and changes to its rule without inventing an automated workflow.",
+    "assertions": [
+      "Recognizes or repairs the list-like sequence.",
+      "Connects staffing, one alert, and changes to its rule using the supplied facts.",
+      "Preserves the distinct jobs of Roster, Incident Panel, and Revision Log without inventing automation.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [
+      "These views support on-call alert response.",
+      "Roster establishes who is on call; Incident Panel shows an individual alert; Revision Log shows changes to its alert rule."
+    ],
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "product-tour-flow",
+    "family": "product-tour",
+    "task": "Turn this list-like tool description into a connected explanation:\n\nRoster lists active shifts.\n\nIncident Panel opens one alert.\n\nRevision Log compares alert-rule versions.\n\nFacts available:\n- These views support on-call alert response.\n- Roster establishes who is on call; Incident Panel shows an individual alert; Revision Log shows changes to its alert rule.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "safe-essay-voice",
+    "split": "tune",
+    "prompt": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.",
+    "expected_output": "Flags inflated framing and asks for the missing offering, actor, and result, or cuts the sentence.",
+    "assertions": [
+      "Removes the era/disruption framing.",
+      "Asks for the offering, actor, or concrete result, or recommends cutting.",
+      "Invents no product capability or benefit.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "safe-essay-voice",
+    "family": "thin-marketing-content",
+    "task": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "fake-precision-unnamed-source",
+    "split": "holdout",
+    "prompt": "Review this product update sentence: The new caching layer delivers 47% faster page loads and reduces infrastructure costs by approximately a third.",
+    "expected_output": "A critique that flags unsupported specificity and asks for provenance, baseline, and the workload the numbers were measured on.",
+    "assertions": [
+      "Treats the 47% and one-third figures as unsupported until source, baseline, and workload are named.",
+      "Asks for the measurement: which page, which population, which traffic mix, which prior baseline.",
+      "Asks for source, baseline, and workload, or removes the unsupported outcome claim; replacing exact figures with an unverified qualitative improvement also fails.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "provenance",
+        "scale": "1-5",
+        "rubric": "5 = asks for source, baseline, and workload or removes the unsupported outcome claim; 3 = asks only for a source; 1 = repeats the figures as established facts or invents provenance."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "fake-precision-unnamed-source",
+    "family": "provenance",
+    "task": "Review this product update sentence: The new caching layer delivers 47% faster page loads and reduces infrastructure costs by approximately a third.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "stacked-rule-of-three",
+    "split": "holdout",
+    "prompt": "Review this paragraph for AI rhythm tells: We instrumented the pipeline, we tightened the rubric, and we shipped a new judge. We measured before, we measured after, and we measured the gap. The result is a system that learns from its own runs, scales with the workload, and improves with each iteration.",
+    "expected_output": "A critique that flags the stacked rule-of-three rhythm and asks whether each triplet earns its own structure, then rewrites with varied rhythm.",
+    "assertions": [
+      "Flags the repeated three-clause structure as decorative rhythm rather than earned parallelism.",
+      "Distinguishes the operational triplet (instrument, rubric, judge) from the empty closing triplet (learns, scales, improves).",
+      "Rewrites by breaking the rhythm where the parallelism is decorative and keeping it only where the items are genuinely coordinate.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [],
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "stacked-rule-of-three",
+    "family": "cadence",
+    "task": "Review this paragraph for AI rhythm tells: We instrumented the pipeline, we tightened the rubric, and we shipped a new judge. We measured before, we measured after, and we measured the gap. The result is a system that learns from its own runs, scales with the workload, and improves with each iteration.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "abstract-system-noun-stack",
+    "split": "holdout",
+    "prompt": "Review this sentence: The orchestration layer provides observability primitives that enable optimization of resource utilization across heterogeneous compute environments.",
+    "expected_output": "Names the abstraction stack and asks for its actor, action, and compute context, or cuts unsupported claims.",
+    "assertions": [
+      "Identifies the nominalization stack (orchestration, observability, optimization, utilization) as the failure mechanism.",
+      "Asks who runs the orchestration, what it observes, what optimization is performed, on which compute.",
+      "Uses only source-supported actions, asks who operates the system and what it does, or recommends cutting; does not invent an operator or compute detail.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "nominalization-reduction",
+        "scale": "1-5",
+        "rubric": "5 = identifies the abstractions and asks for the missing operator/action/compute facts or justifies cutting; 3 = changes wording without resolving the unknowns; 1 = invents implementation details or adds abstractions."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "abstract-system-noun-stack",
+    "family": "nominalization-copula",
+    "task": "Review this sentence: The orchestration layer provides observability primitives that enable optimization of resource utilization across heterogeneous compute environments.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "borrowed-emphasis",
+    "prompt": "Review and rewrite this line: Durable execution isn't just retry logic. It is a new programming model.",
+    "expected_output": "Flattens the emphasis claim, identifies the absent durability mechanism, and asks for that fact or cuts the unsupported claim.",
+    "assertions": [
+      "Demonstrates the emphasis-source test by flattening the cadence (e.g., 'Durable execution is a new programming model') and noting that the remaining claim is generic.",
+      "Identifies what is missing as actor, mechanism, or limit, not just an additional adjective or stronger noun.",
+      "Rewrites using supplied facts only, or asks which durability mechanism supports the claim or recommends cutting it; adds no unsupplied mechanism.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "split": "tune",
+    "graded_dimensions": [
+      {
+        "name": "flatten-artifact",
+        "scale": "1-5",
+        "rubric": "5 = writes the flattened claim and judges whether it still names actor/mechanism/limit; 3 = mentions flattening without showing it; 1 = no flatten artifact."
+      },
+      {
+        "name": "mechanism-specificity",
+        "scale": "1-5",
+        "rubric": "5 = precisely asks which durability mechanism supports the claim, or justifies cutting it; 3 = vague request for detail; 1 = invents a mechanism or retains prestige abstraction."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "borrowed-emphasis",
+    "family": "borrowed-emphasis",
+    "task": "Review and rewrite this line: Durable execution isn't just retry logic. It is a new programming model.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "paragraph-scale-borrowed-emphasis",
+    "prompt": "Review and rewrite this paragraph:\n\nMost teams treat observability as a tool problem. Better teams treat it as a culture problem. The best teams treat it as a design problem. Each shift moves observability earlier in the system lifecycle, until the question becomes how to design systems that can be inspected at all.",
+    "expected_output": "Identifies the status escalation, flattens its claim, and asks for the missing design decision or cuts; invents no implementation.",
+    "assertions": [
+      "Identifies the three-step cross-sentence escalation ('X teams treat it as Y problem' repeated with rising adjectives) as borrowed-pattern emphasis carried by structure, not by any individual sentence's antithesis.",
+      "Demonstrates flattening the escalation and showing the remaining claim is generic — for example, 'observability should be considered during system design, not only during incident response' — with no actor, mechanism, or limit.",
+      "Removes the status hierarchy and asks which concrete design decision supports the claim, or cuts it; does not invent an instrumentation decision.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "split": "tune",
+    "graded_dimensions": [
+      {
+        "name": "ladder-flattening",
+        "scale": "1-5",
+        "rubric": "5 = flattens the whole good/better/best ladder to the plain residual claim and evaluates it; 3 = flags escalation but no residual claim; 1 = treats the ladder as earned without evidence."
+      },
+      {
+        "name": "rewrite-mechanism",
+        "scale": "1-5",
+        "rubric": "5 = removes the hierarchy and precisely asks which design decision is evidenced, or justifies cutting; 3 = vague request for detail; 1 = invents an instrumentation decision or keeps the hierarchy."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "paragraph-scale-borrowed-emphasis",
+    "family": "borrowed-emphasis",
+    "task": "Review and rewrite this paragraph:\n\nMost teams treat observability as a tool problem. Better teams treat it as a culture problem. The best teams treat it as a design problem. Each shift moves observability earlier in the system lifecycle, until the question becomes how to design systems that can be inspected at all.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "copula-displacement",
+    "split": "tune",
+    "prompt": "Review this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.",
+    "expected_output": "Flags inflated copulas and uses only source-supported information, or asks what the dashboard does or cuts.",
+    "assertions": [
+      "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation rather than concrete description.",
+      "Notes that 'serves as the central hub' hides the plain copula 'is' or a more specific action verb the sentence is avoiding.",
+      "Replaces inflated copulas with a plain source-supported description, asks what the dashboard does, or cuts; invents no content or capability.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "verb-concreteness",
+        "scale": "1-5",
+        "rubric": "5 = uses source-supported plain language or precisely asks what the dashboard does; a justified cut also earns 5. 3 = drops an inflated verb but keeps vague content; 1 = invents capabilities or keeps inflated copulas."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "copula-displacement",
+    "family": "nominalization-copula",
+    "task": "Review this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "hedged-symmetry",
+    "split": "tune",
+    "prompt": "Review this opening: From weekend cooks to restaurant accountants, our ledger accommodates every need. Affordability counts, but sophistication matters too.",
+    "expected_output": "Flags the all-readers/all-values opening and asks which ledger reader, use case, and tradeoff are supported, or cuts.",
+    "assertions": [
+      "Flags the all-readers/all-values framing.",
+      "Identifies the missing reader, use case, or tradeoff.",
+      "Asks which reader and tradeoff are supported, or cuts the ungrounded claims.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "commitment",
+        "scale": "1-5",
+        "rubric": "5 = asks which reader and use case the evidence supports, or justifies cutting the ungrounded claim; 3 = removes the hedge but stays vague; 1 = invents a target reader or retains the all-readers claim."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "hedged-symmetry",
+    "family": "hedged-symmetry",
+    "task": "Review this opening: From weekend cooks to restaurant accountants, our ledger accommodates every need. Affordability counts, but sophistication matters too.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "outline-conclusion-template",
+    "split": "tune",
+    "prompt": "Review this ending: In spite of persistent obstacles, the service grows ever stronger. In the years to come it is destined to reshape the sector.",
+    "expected_output": "Flags the generic obstacle and future-significance claims, and asks for supporting facts or cuts.",
+    "assertions": [
+      "Flags the generic obstacle-and-future-significance templates.",
+      "Notes that no obstacle, future action, or supporting result is supplied.",
+      "Asks for those facts or cuts both claims; invents no next step.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "carrier-bound-ending",
+        "scale": "1-5",
+        "rubric": "5 = cuts the template or returns to a concrete carrier and named next step; 3 = removes one template but keeps generic future language; 1 = preserves outline closure."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "outline-conclusion-template",
+    "family": "outline-marketing-ending",
+    "task": "Review this ending: In spite of persistent obstacles, the service grows ever stronger. In the years to come it is destined to reshape the sector.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "em-dash-cluster",
+    "split": "tune",
+    "prompt": "Review the cadence: Our route planner is nimble — astonishingly nimble — and safe — in all conditions — with elegant controls — for every journey — without compromise.",
+    "expected_output": "A critique that flags the decorative em-dash cluster as cadence-as-emphasis, distinguishes it from earned parenthetical or appositive use, and rewrites by removing decorative dashes while keeping any earned ones.",
+    "assertions": [
+      "Flags the repeated em-dashes as decorative cadence-for-emphasis rather than earned parenthetical or appositive insertion.",
+      "Does not claim em-dashes are always slop; names the specific failure as overuse-for-emphasis in a cluster, not the punctuation mark itself.",
+      "Rewrites by reducing the dash count, replacing decorative dashes with commas or periods, and keeping at most one dash insertion or paired parenthetical where it carries a real aside or appositive.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "dash-calibration",
+        "scale": "1-5",
+        "rubric": "5 = flags only the decorative cluster and preserves earned dash use; 3 = removes dashes mechanically; 1 = either bans all dashes or leaves the cluster intact."
+      }
+    ],
+    "facts": [],
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "em-dash-cluster",
+    "family": "cadence",
+    "task": "Review the cadence: Our route planner is nimble — astonishingly nimble — and safe — in all conditions — with elegant controls — for every journey — without compromise.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "holdout-borrowed-emphasis-release-safety",
+    "split": "holdout",
+    "prompt": "Review and rewrite this launch sentence: The safety review is not just a checklist. It is how we prove the release is ready.",
+    "expected_output": "Flattens the contrast and asks which release-readiness mechanism or review artifact is evidenced, or cuts the claim.",
+    "assertions": [
+      "Writes a flattened version of the claim with cadence removed and judges whether it still names a mechanism.",
+      "Identifies the missing release-readiness mechanism: what the checklist verifies, blocks, signs off, or records.",
+      "Asks which review artifact or gate supports release readiness, or recommends cutting; invents no test, owner, sign-off, or metric.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "flatten-artifact",
+        "scale": "1-5",
+        "rubric": "5 = explicit flattened claim plus residual-generic judgment; 3 = flags borrowed emphasis without showing the flatten; 1 = no flatten."
+      },
+      {
+        "name": "release-mechanism",
+        "scale": "1-5",
+        "rubric": "5 = asks precisely which release gate/artifact is evidenced, or justifies cutting; 1 = invents a gate or leaves prestige abstraction."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "holdout-borrowed-emphasis-release-safety",
+    "family": "borrowed-emphasis",
+    "task": "Review and rewrite this launch sentence: The safety review is not just a checklist. It is how we prove the release is ready.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "holdout-copula-hedged-outline-combo",
+    "split": "holdout",
+    "prompt": "Review this product page ending: The analytics console serves as a unified hub for operational excellence. Whether you're a startup founder or an enterprise leader, it scales with your needs. Despite ongoing challenges in the data landscape, the platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in decision-making.",
+    "expected_output": "A critique that catches the displaced copula, hedged symmetry, and outline-shaped conclusion, then cuts or rewrites around a concrete user/action/result.",
+    "assertions": [
+      "Identifies 'serves as a unified hub' as copula displacement or equivalent verb inflation, not concrete product behavior.",
+      "Identifies 'Whether you're a startup founder or an enterprise leader' as hedged symmetry that avoids choosing a reader/use case.",
+      "Identifies the 'Despite ongoing challenges' and 'Looking ahead ... pivotal role' sentences as outline-shaped conclusions without a named challenge, carrier, or next step.",
+      "Rewrites by choosing a specific user/use case and naming what the console shows, routes, or alerts on; or recommends cutting unsupported sentences.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "multi-detector-coverage",
+        "scale": "1-5",
+        "rubric": "5 = catches all three mechanisms and keeps their boundaries distinct; 3 = catches one or two; 1 = generic marketing critique only."
+      },
+      {
+        "name": "specific-rewrite",
+        "scale": "1-5",
+        "rubric": "5 = named user/action/result or cut recommendation; 3 = partially concrete; 1 = new marketing fog."
+      }
+    ],
+    "facts": [],
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "holdout-copula-hedged-outline-combo",
+    "family": "outline-marketing-ending",
+    "task": "Review this product page ending: The analytics console serves as a unified hub for operational excellence. Whether you're a startup founder or an enterprise leader, it scales with your needs. Despite ongoing challenges in the data landscape, the platform continues to thrive. Looking ahead, it will play an increasingly pivotal role in decision-making.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "decorative-contrast-with-facts",
+    "split": "tune",
+    "paired_with": "decorative-contrast",
+    "prompt": "Review this line: The point is not the harbor map. The point is the drill.",
+    "facts": [
+      "The line closes a post about a fire-safety exercise at a marina.",
+      "The post's earlier paragraphs say the harbor map was used only to assign meeting points, and that the exercise measured how long boat owners took to reach them."
+    ],
+    "expected_output": "Recognizes that the supplied context evidences both sides, so the contrast is earned; keeps it or states the relation (map assigned meeting points; the exercise timed how long owners took to reach them).",
+    "assertions": [
+      "Recognizes that the facts evidence both sides of the contrast and does not call it unsupported or decorative.",
+      "Either keeps the line or rewrites it to state the supplied relation: the map assigned meeting points, and the exercise timed how long boat owners took to reach them.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "decorative-contrast",
+    "family": "pelican-relation",
+    "task": "Review this line: The point is not the harbor map. The point is the drill.\n\nFacts available:\n- The line closes a post about a fire-safety exercise at a marina.\n- The post's earlier paragraphs say the harbor map was used only to assign meeting points, and that the exercise measured how long boat owners took to reach them.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "safe-essay-voice-with-facts",
+    "split": "tune",
+    "paired_with": "safe-essay-voice",
+    "prompt": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.",
+    "facts": [
+      "The sentence opens a brochure for Tallyroom, bookkeeping software for small charities.",
+      "Tallyroom imports bank statements and tags each donation with the campaign it came from.",
+      "Treasurers can export a year-end donor report in one step."
+    ],
+    "expected_output": "Cuts the era/disruption framing and rewrites around Tallyroom: imported bank statements, donations tagged by campaign, a one-step year-end donor report.",
+    "assertions": [
+      "Removes the era/disruption framing and the 'transformative offerings' abstraction.",
+      "The rewrite names Tallyroom, small charities, and at least one supplied capability (statement import with campaign tags, or the one-step donor report).",
+      "Adds no capability, customer count, or benefit beyond the facts.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "safe-essay-voice",
+    "family": "thin-marketing-content",
+    "task": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.\n\nFacts available:\n- The sentence opens a brochure for Tallyroom, bookkeeping software for small charities.\n- Tallyroom imports bank statements and tags each donation with the campaign it came from.\n- Treasurers can export a year-end donor report in one step.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "borrowed-emphasis-with-facts",
+    "split": "tune",
+    "paired_with": "borrowed-emphasis",
+    "prompt": "Review and rewrite this line: Durable execution isn't just retry logic. It is a new programming model.",
+    "facts": [
+      "The runtime records each completed step in a log.",
+      "After a crash it replays the log to rebuild the workflow's variables, then continues from the first unfinished step.",
+      "Plain retry logic reruns the whole function from the start."
+    ],
+    "expected_output": "Flattens the cadence, then rewrites the claim with the supplied mechanism: a step log replayed after a crash so the workflow continues from the first unfinished step, unlike a retry that reruns everything.",
+    "assertions": [
+      "Demonstrates the emphasis-source test by flattening the cadence and noting that the flattened claim alone is generic.",
+      "Rewrites using the supplied mechanism: the step log, replay after a crash, and continuing from the first unfinished step.",
+      "States the contrast with retry through the facts (retry reruns the whole function) rather than through 'isn't just X. It is Y'.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "borrowed-emphasis",
+    "family": "borrowed-emphasis",
+    "task": "Review and rewrite this line: Durable execution isn't just retry logic. It is a new programming model.\n\nFacts available:\n- The runtime records each completed step in a log.\n- After a crash it replays the log to rebuild the workflow's variables, then continues from the first unfinished step.\n- Plain retry logic reruns the whole function from the start.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "paragraph-scale-borrowed-emphasis-with-facts",
+    "split": "tune",
+    "paired_with": "paragraph-scale-borrowed-emphasis",
+    "prompt": "Review and rewrite this paragraph:\n\nMost teams treat observability as a tool problem. Better teams treat it as a culture problem. The best teams treat it as a design problem. Each shift moves observability earlier in the system lifecycle, until the question becomes how to design systems that can be inspected at all.",
+    "facts": [
+      "The paragraph is from an engineering guide written by a payments team.",
+      "The team now requires every new service to attach a request ID that is passed to every downstream call.",
+      "They added the rule after an incident in which they could not trace a failed payment across five services."
+    ],
+    "expected_output": "Identifies the status escalation and replaces it with the supplied design rule (request IDs passed to every downstream call) and its reason (an untraceable failed payment across five services).",
+    "assertions": [
+      "Identifies the three-step 'X teams treat it as Y problem' escalation as borrowed-pattern emphasis carried by structure.",
+      "Replaces the status hierarchy with the supplied design decision: every new service attaches a request ID passed to every downstream call.",
+      "Gives the supplied reason: a failed payment that could not be traced across five services.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "paragraph-scale-borrowed-emphasis",
+    "family": "borrowed-emphasis",
+    "task": "Review and rewrite this paragraph:\n\nMost teams treat observability as a tool problem. Better teams treat it as a culture problem. The best teams treat it as a design problem. Each shift moves observability earlier in the system lifecycle, until the question becomes how to design systems that can be inspected at all.\n\nFacts available:\n- The paragraph is from an engineering guide written by a payments team.\n- The team now requires every new service to attach a request ID that is passed to every downstream call.\n- They added the rule after an incident in which they could not trace a failed payment across five services.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "copula-displacement-with-facts",
+    "split": "tune",
+    "paired_with": "copula-displacement",
+    "prompt": "Review this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.",
+    "facts": [
+      "The dashboard lists each user's last login, open support tickets, and unpaid invoices on one page.",
+      "Support agents open it before replying to a customer."
+    ],
+    "expected_output": "Replaces the inflated copulas with what the dashboard shows and who uses it; drops the testament claim, which no fact supports.",
+    "assertions": [
+      "Identifies 'serves as' and 'stands as a testament' as copula displacement plus prestige inflation.",
+      "Rewrites with a plain verb and the supplied content: last login, open support tickets, and unpaid invoices on one page, opened by support agents before replying.",
+      "Drops or questions the 'testament to the platform's capabilities' claim, which the facts do not support.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "copula-displacement",
+    "family": "nominalization-copula",
+    "task": "Review this sentence: The dashboard serves as the central hub for user activity and stands as a testament to the platform's capabilities.\n\nFacts available:\n- The dashboard lists each user's last login, open support tickets, and unpaid invoices on one page.\n- Support agents open it before replying to a customer.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "hedged-symmetry-with-facts",
+    "split": "tune",
+    "paired_with": "hedged-symmetry",
+    "prompt": "Review this opening: From weekend cooks to restaurant accountants, our ledger accommodates every need. Affordability counts, but sophistication matters too.",
+    "facts": [
+      "The ledger is built for restaurant accountants: it reconciles daily point-of-sale exports against supplier invoices.",
+      "It costs $40 per month per location.",
+      "It has no recipe or home-budget features."
+    ],
+    "expected_output": "Flags the all-readers opening, commits to restaurant accountants with the point-of-sale reconciliation, and drops weekend cooks, whom the product does not serve.",
+    "assertions": [
+      "Flags the all-readers/all-values framing.",
+      "Commits to restaurant accountants and names the supplied job: reconciling daily point-of-sale exports against supplier invoices.",
+      "Drops the weekend-cooks reader, which the facts contradict; any price stated is $40 per month per location.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "hedged-symmetry",
+    "family": "hedged-symmetry",
+    "task": "Review this opening: From weekend cooks to restaurant accountants, our ledger accommodates every need. Affordability counts, but sophistication matters too.\n\nFacts available:\n- The ledger is built for restaurant accountants: it reconciles daily point-of-sale exports against supplier invoices.\n- It costs $40 per month per location.\n- It has no recipe or home-budget features.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "outline-conclusion-template-with-facts",
+    "split": "tune",
+    "paired_with": "outline-conclusion-template",
+    "prompt": "Review this ending: In spite of persistent obstacles, the service grows ever stronger. In the years to come it is destined to reshape the sector.",
+    "facts": [
+      "The service is a same-day courier network for pharmacies.",
+      "Its main obstacle has been finding drivers for night shifts; it now pays a night-shift premium.",
+      "Next year it plans to add refrigerated vans for temperature-sensitive medicines."
+    ],
+    "expected_output": "Flags both templates and ends on the named obstacle (night-shift drivers, now paid a premium) and the planned refrigerated vans; drops 'reshape the sector'.",
+    "assertions": [
+      "Flags the generic obstacle and future-significance templates.",
+      "Names the supplied obstacle and response: finding night-shift drivers, addressed with a night-shift premium.",
+      "Replaces 'destined to reshape the sector' with the planned refrigerated vans, or drops it.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "outline-conclusion-template",
+    "family": "outline-marketing-ending",
+    "task": "Review this ending: In spite of persistent obstacles, the service grows ever stronger. In the years to come it is destined to reshape the sector.\n\nFacts available:\n- The service is a same-day courier network for pharmacies.\n- Its main obstacle has been finding drivers for night shifts; it now pays a night-shift premium.\n- Next year it plans to add refrigerated vans for temperature-sensitive medicines.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "abstract-system-noun-stack-with-facts",
+    "split": "holdout",
+    "paired_with": "abstract-system-noun-stack",
+    "prompt": "Review this sentence: The orchestration layer provides observability primitives that enable optimization of resource utilization across heterogeneous compute environments.",
+    "facts": [
+      "The orchestration layer is the team's extension to the Kubernetes scheduler.",
+      "It reads GPU memory use on each node every 30 seconds.",
+      "It moves batch jobs off nodes above 90% GPU memory and onto idle nodes."
+    ],
+    "expected_output": "Names the nominalization stack and rewrites with the supplied actor and actions: a scheduler extension that reads GPU memory every 30 seconds and moves batch jobs off nodes above 90%.",
+    "assertions": [
+      "Identifies the nominalization stack (orchestration, observability, optimization, utilization) as the failure mechanism.",
+      "Rewrites with the supplied actor and actions: the Kubernetes scheduler extension reads GPU memory every 30 seconds and moves batch jobs off nodes above 90% onto idle nodes.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "abstract-system-noun-stack",
+    "family": "nominalization-copula",
+    "task": "Review this sentence: The orchestration layer provides observability primitives that enable optimization of resource utilization across heterogeneous compute environments.\n\nFacts available:\n- The orchestration layer is the team's extension to the Kubernetes scheduler.\n- It reads GPU memory use on each node every 30 seconds.\n- It moves batch jobs off nodes above 90% GPU memory and onto idle nodes.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "holdout-borrowed-emphasis-release-safety-with-facts",
+    "split": "holdout",
+    "paired_with": "holdout-borrowed-emphasis-release-safety",
+    "prompt": "Review and rewrite this launch sentence: The safety review is not just a checklist. It is how we prove the release is ready.",
+    "facts": [
+      "The safety review has three gates: a staged rollout to 1% of users, an automatic rollback if the error rate doubles, and sign-off from the on-call lead.",
+      "A release cannot reach all users until all three gates pass."
+    ],
+    "expected_output": "Flattens the contrast and rewrites with the three supplied gates and the rule that a release reaches all users only after all three pass.",
+    "assertions": [
+      "Writes a flattened version of the claim with the cadence removed and judges whether it names a mechanism.",
+      "Rewrites with the three supplied gates: 1% staged rollout, automatic rollback if the error rate doubles, and on-call lead sign-off.",
+      "States the supplied rule that a release cannot reach all users until all three gates pass.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "holdout-borrowed-emphasis-release-safety",
+    "family": "borrowed-emphasis",
+    "task": "Review and rewrite this launch sentence: The safety review is not just a checklist. It is how we prove the release is ready.\n\nFacts available:\n- The safety review has three gates: a staged rollout to 1% of users, an automatic rollback if the error rate doubles, and sign-off from the on-call lead.\n- A release cannot reach all users until all three gates pass.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "fake-precision-unnamed-source-with-facts",
+    "split": "holdout",
+    "paired_with": "fake-precision-unnamed-source",
+    "prompt": "Review this product update sentence: The new caching layer delivers 47% faster page loads and reduces infrastructure costs by approximately a third.",
+    "facts": [
+      "The 47% figure is the drop in median load time for the product catalogue page, measured on two weeks of production traffic before and after the change.",
+      "The cost figure comes from the cloud bill: monthly database spend fell from $9,000 to $6,100."
+    ],
+    "expected_output": "Keeps 47% with its page, metric, and measurement window, and restates the cost claim as database spend falling from $9,000 to $6,100 a month.",
+    "assertions": [
+      "Keeps 47% only with its page (product catalogue), metric (median load time), and measurement (two weeks of production traffic before and after).",
+      "Restates the cost claim as monthly database spend falling from $9,000 to $6,100, rather than infrastructure costs in general.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+      "Attributes the figures to the supplied before/after traffic measurements and cloud bills; does not claim those observations establish that caching caused the changes or that all pages/workloads improve by 47%."
+    ],
+    "source_kind": "synthetic",
+    "suite": "evals.json",
+    "group": "review-rewrite",
+    "pair_id": "fake-precision-unnamed-source",
+    "family": "provenance",
+    "task": "Review this product update sentence: The new caching layer delivers 47% faster page loads and reduces infrastructure costs by approximately a third.\n\nFacts available:\n- The 47% figure is the drop in median load time for the product catalogue page, measured on two weeks of production traffic before and after the change.\n- The cost figure comes from the cloud bill: monthly database spend fell from $9,000 to $6,100.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "durable-execution-mechanism",
+    "split": "tune",
+    "prompt": "Review and rewrite this export-tool claim: Reliable batch processing represents a cornerstone of data operations.",
+    "expected_output": "Replaces the importance claim with the supplied batch-save and restart behavior, without adding guarantees.",
+    "assertions": [
+      "Flags the unsupported cornerstone/importance framing.",
+      "Describes the saved batch number and where processing resumes after a crash.",
+      "Adds no new guarantees, tools, numbers, or performance claims.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "specificity",
+        "scale": "1-5",
+        "rubric": "5 = names retry/checkpoint/receipt with the failure mode; 1 = generic 'durable' restatement. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      },
+      {
+        "name": "length-control",
+        "scale": "1-5",
+        "rubric": "5 = same or shorter word count than input; 1 = inflated rewrite."
+      }
+    ],
+    "facts": [
+      "The exporter saves the number of the most recently completed batch.",
+      "After a crash, restarting the exporter begins with the next batch; completed batches remain on disk."
+    ],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "durable-execution-mechanism",
+    "family": "batch-checkpoint",
+    "task": "Review and rewrite this export-tool claim: Reliable batch processing represents a cornerstone of data operations.\n\nFacts available:\n- The exporter saves the number of the most recently completed batch.\n- After a crash, restarting the exporter begins with the next batch; completed batches remain on disk.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "pelican-process-relation",
+    "split": "tune",
+    "prompt": "Rewrite this unsupported closer, or ask for the missing relation: The point is not the harbor map. The point is the drill.",
+    "expected_output": "An explicit question about the map-to-drill relation, or a cut recommendation.",
+    "assertions": [
+      "Removes the empty two-part contrast.",
+      "Asks which part of the drill the map demonstrates, or recommends cutting.",
+      "Does not invent a relationship between the map and drill.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "relation-clarity",
+        "scale": "1-5",
+        "rubric": "5 = names the relation explicitly (carries, exposes, makes inspectable); 1 = preserves rhythm without relation. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "pelican-process-relation",
+    "family": "pelican-relation",
+    "task": "Rewrite this unsupported closer, or ask for the missing relation: The point is not the harbor map. The point is the drill.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "product-tour-hinge",
+    "split": "tune",
+    "prompt": "Turn this list-like tool description into a connected explanation:\n\nRoster lists active shifts.\n\nIncident Panel opens one alert.\n\nRevision Log compares alert-rule versions.",
+    "expected_output": "Connects on-call staffing, an individual alert, and changes to its rule without inventing an automated workflow.",
+    "assertions": [
+      "Recognizes or repairs the list-like sequence.",
+      "Connects staffing, one alert, and changes to its rule using the supplied facts.",
+      "Preserves the distinct jobs of Roster, Incident Panel, and Revision Log without inventing automation.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [
+      "These views support on-call alert response.",
+      "Roster establishes who is on call; Incident Panel shows an individual alert; Revision Log shows changes to its alert rule."
+    ],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "product-tour-hinge",
+    "family": "product-tour",
+    "task": "Turn this list-like tool description into a connected explanation:\n\nRoster lists active shifts.\n\nIncident Panel opens one alert.\n\nRevision Log compares alert-rule versions.\n\nFacts available:\n- These views support on-call alert response.\n- Roster establishes who is on call; Incident Panel shows an individual alert; Revision Log shows changes to its alert rule.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "safe-essay-cut-or-concretize",
+    "split": "tune",
+    "prompt": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.",
+    "expected_output": "Flags inflated framing and asks for the missing offering, actor, and result, or cuts the sentence.",
+    "assertions": [
+      "Removes the era/disruption framing.",
+      "Asks for the offering, actor, or concrete result, or recommends cutting.",
+      "Invents no product capability or benefit.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "safe-essay-cut-or-concretize",
+    "family": "thin-marketing-content",
+    "task": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "carrier-bound-ending",
+    "split": "tune",
+    "prompt": "Tighten the final sentence using the example already supplied: The replay bundle holds shell commands and the resulting map. A reader can rerun those commands and compare maps. This is why reproducibility is essential.",
+    "expected_output": "Returns to rerunning and comparing the supplied map, or cuts the redundant final claim.",
+    "assertions": [
+      "Removes the generic essential/reproducibility closer.",
+      "Uses the map and recorded commands as the supplied concrete example, or cuts the redundant closer.",
+      "Does not invent a different project or artifact.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "carrier-bound-ending",
+    "family": "replay-bundle-ending",
+    "task": "Tighten the final sentence using the example already supplied: The replay bundle holds shell commands and the resulting map. A reader can rerun those commands and compare maps. This is why reproducibility is essential.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "rewrite-reuses-flagged-pattern",
+    "split": "tune",
+    "prompt": "Review this draft in the Critique output format. It describes a personal site.\n\nThe visitors were remarkably authentic. Makers, teachers, people curious about publishing. Their interest was beyond commerce. It was about community.\n\nThe site stores articles in a repository that the owner can copy to another host. That portability was no accident. It was the plan.",
+    "expected_output": "Asks for evidence of the community characterization and design intent, and preserves only supplied portability facts.",
+    "assertions": [
+      "Does not invent participants, events, projects, or counts.",
+      "Recognizes that copying articles establishes portability but does not establish intent; asks for that evidence or cuts the intent claim.",
+      "Does not reuse an unsupported short contrast as the repair.",
+      "Any fallback stays within the supplied site and portability facts.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "non-invention",
+        "scale": "1-5",
+        "rubric": "5 = no invented people/projects/counts/timing/tools; 3 = ambiguous specificity; 1 = confident unsupported specifics."
+      },
+      {
+        "name": "self-detector-use",
+        "scale": "1-5",
+        "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "rewrite-reuses-flagged-pattern",
+    "family": "self-audit",
+    "task": "Review this draft in the Critique output format. It describes a personal site.\n\nThe visitors were remarkably authentic. Makers, teachers, people curious about publishing. Their interest was beyond commerce. It was about community.\n\nThe site stores articles in a repository that the owner can copy to another host. That portability was no accident. It was the plan.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "rewrite-asks-or-cuts-when-fact-missing",
+    "split": "tune",
+    "prompt": "Review this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nThe actual implementation took about a working day. Hugo for static site generation, Cloudflare Pages for hosting, and Sequoia to handle the ATproto publishing step. The pipeline: write a post, push to GitHub, CI publishes the ATproto record, builds the site, deploys it.\n\nCurrent coding tools made it practical to add features that would otherwise get cut. The cover images on each post (the 1200x630 cards used for social previews and Bluesky thumbnails) are generated by a Node.js script using Satori and the same brand fonts as the site. Title and description go in, image comes out, with a sidecar file so they can be regenerated if the branding changes. Without good tooling that kind of thing stays on the 'someday' list.",
+    "expected_output": "A per-item critique using the format from SKILL.md. The topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.' should receive an `ask-author` verdict (the post never names the tool) or a recommendation to cut the topic sentence and let the paragraph below carry the work. The review should not name a specific tool (Claude Code, Cursor, Copilot, Aider, etc.) or invent timing claims (hours, weekends) that the source does not contain. Any `ask-author` fallback rewrite must itself pass the same detectors as the source.",
+    "assertions": [
+      "Does not assert a specific tool name (for example, Claude Code, Cursor, Copilot, Aider, Sonnet, Codex) anywhere in the Concrete rewrite for the topic sentence, because the source paragraph does not name a tool.",
+      "For the topic sentence 'Current coding tools made it practical to add features that would otherwise get cut.', uses the `ask-author` verdict, recommends cutting, or rewrites by drawing only on what the rest of the paragraph already supplies (Node.js, Satori, sidecar file).",
+      "Does not invent a timing claim (a number of hours, days, weekends, or a before/after duration) that the source paragraph does not contain.",
+      "Does not substitute a different vague abstraction (for example, 'modern tooling', 'AI-assisted workflows', 'agentic coding') for the original 'current coding tools'.",
+      "Any `ask-author` fallback rewrite does not itself use rule-of-three, X-not-Y cadence, or invented specifics.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "ask-or-cut-discipline",
+        "scale": "1-5",
+        "rubric": "5 = asks for the missing tool or cuts/uses only supplied facts; 1 = invents a tool or timing claim."
+      },
+      {
+        "name": "fallback-cleanliness",
+        "scale": "1-5",
+        "rubric": "5 = fallback has no invented specifics or flagged cadence; 1 = fallback repeats the failure."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "rewrite-asks-or-cuts-when-fact-missing",
+    "family": "self-audit",
+    "task": "Review this paragraph using the Critique output format. The piece is a personal blog post by Joe Beda about publishing his blog over ATproto.\n\nThe actual implementation took about a working day. Hugo for static site generation, Cloudflare Pages for hosting, and Sequoia to handle the ATproto publishing step. The pipeline: write a post, push to GitHub, CI publishes the ATproto record, builds the site, deploys it.\n\nCurrent coding tools made it practical to add features that would otherwise get cut. The cover images on each post (the 1200x630 cards used for social previews and Bluesky thumbnails) are generated by a Node.js script using Satori and the same brand fonts as the site. Title and description go in, image comes out, with a sidecar file so they can be regenerated if the branding changes. Without good tooling that kind of thing stays on the 'someday' list.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "rewrite-passes-own-slop-detectors",
+    "split": "tune",
+    "prompt": "Review this paragraph (the ending of the same Joe Beda post) using the Critique output format. The post fails the Conclusion test: it ends on a colophon and license line without returning to the concrete carrier the title set up ('a URL I own'). Pay attention to the requirement that any Concrete rewrite must itself pass the same detectors as the source, including the Avoid-by-default phrases list and the rule-of-three / em-dash / decorative-closure patterns.\n\nThere's a colophon page that documents everything: fonts, colors, cover image spec, how the ATproto pipeline works. It's an old web tradition I'm glad to revive. The source is also on GitHub, dual-licensed: infrastructure under CC0, content under CC BY-NC-ND 4.0.",
+    "expected_output": "Proposes a closing rewrite grounded only in the supplied title (a URL I own), colophon, and source/license facts. Avoids decorative closure and invented infrastructure; no named template field is required.",
+    "assertions": [
+      "No Concrete rewrite ends on a banned decorative closure phrase ('That was the point', 'In conclusion', 'Overall', 'Ultimately', 'I hope this helps').",
+      "No Concrete rewrite uses an em-dash rule-of-three list as a final closer (for example, '— Hugo, standard.site, my PDS —' followed by a summary sentence).",
+      "The rewrite or fallback avoids invented facts and the cadence criticized in the source; no named output field is required.",
+      "Any closing rewrite uses only the supplied URL title, colophon, GitHub source, and license details; invents no PDS, standard.site, or other stack element.",
+      "Every list item in a rewrite comes from the supplied paragraph or title; no unseen larger post may be treated as evidence.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "rewrite-self-audit",
+        "scale": "1-5",
+        "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "rewrite-passes-own-slop-detectors",
+    "family": "self-audit",
+    "task": "Review this paragraph (the ending of the same Joe Beda post) using the Critique output format. The post fails the Conclusion test: it ends on a colophon and license line without returning to the concrete carrier the title set up ('a URL I own'). Pay attention to the requirement that any Concrete rewrite must itself pass the same detectors as the source, including the Avoid-by-default phrases list and the rule-of-three / em-dash / decorative-closure patterns.\n\nThere's a colophon page that documents everything: fonts, colors, cover image spec, how the ATproto pipeline works. It's an old web tradition I'm glad to revive. The source is also on GitHub, dual-licensed: infrastructure under CC0, content under CC BY-NC-ND 4.0.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "multi-issue-output-manifest",
+    "split": "tune",
+    "prompt": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.",
+    "expected_output": "A response that handles both numbered inputs, flags each distinct failure mechanism, and provides a concrete rewrite for each line.",
+    "assertions": [
+      "Addresses both input lines rather than only the first or a general summary.",
+      "For line 1, removes inflated importance/robust-experience language and asks for or supplies a concrete mechanism.",
+      "For line 2, flags the unsupported contrast and asks how the dashboard yields insight, or cuts; does not invent that relation.",
+      "Includes at least two concrete rewrites or explicitly says one line should be cut because evidence is missing.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "multi-issue-output-manifest",
+    "family": "multi-item-review",
+    "task": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "fake-precision-rewrite-finance",
+    "split": "holdout",
+    "prompt": "Rewrite this without preserving unsupported precision: Our risk model improves portfolio outcomes by 18.4% on average across most institutional clients.",
+    "expected_output": "Asks for source, baseline, and population, or cuts the unsupported outcome claim. A vague unmeasured improvement is still unsupported.",
+    "assertions": [
+      "Asks for the provenance of 18.4% or removes the unsupported outcome claim; does not retain it as an established fact.",
+      "Asks which population was measured or removes the unsupported most-clients claim; invents no population.",
+      "Does not substitute another bare number or a vaguer prestige phrase.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "dynamic_rubric": {
+      "instruction": "Before grading, draft 3-5 case-specific criteria from the brief above. Sample criteria: provenance named, baseline stated, population specified, time window given, alternative-cause acknowledged.",
+      "minimum_criteria": 3
+    },
+    "graded_dimensions": [
+      {
+        "name": "provenance",
+        "scale": "1-5",
+        "rubric": "5 = asks for source, baseline, and population or cuts the unsupported outcome claim; 3 = asks only for a source; 1 = invents provenance or retains the number as an established result."
+      },
+      {
+        "name": "length-control",
+        "scale": "1-5",
+        "rubric": "5 = same or shorter than input; 1 = significantly longer rewrite."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "fake-precision-rewrite-finance",
+    "family": "provenance",
+    "task": "Rewrite this without preserving unsupported precision: Our risk model improves portfolio outcomes by 18.4% on average across most institutional clients.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "product-tour-rewrite-developer-tools",
+    "split": "holdout",
+    "prompt": "Rewrite this section so it stops reading like a product tour:\n\nWebhook Sink receives events.\n\nReplay Console re-runs stored events.\n\nTimeline View shows event order.",
+    "expected_output": "A rewrite that names the relation among the three surfaces (e.g. capture, re-execution, ordering of the same event stream).",
+    "assertions": [
+      "Names the shared object the three surfaces operate on (the event stream).",
+      "Identifies the relation: capture, re-execution, ordering — or equivalent.",
+      "Does not preserve the bullet-or-paragraph product-tour cadence.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "dynamic_rubric": {
+      "instruction": "Generate 3-5 per-instance criteria. Sample: shared object named, relation type identified, hinge sentence supplied, no marketing fog introduced, three surfaces still distinguishable.",
+      "minimum_criteria": 3
+    },
+    "graded_dimensions": [
+      {
+        "name": "relation-clarity",
+        "scale": "1-5",
+        "rubric": "5 = relation explicit and accurate; 1 = list rewritten as another list. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "product-tour-rewrite-developer-tools",
+    "family": "product-tour",
+    "task": "Rewrite this section so it stops reading like a product tour:\n\nWebhook Sink receives events.\n\nReplay Console re-runs stored events.\n\nTimeline View shows event order.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "emphasis-source-flatten",
+    "prompt": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.",
+    "expected_output": "Removes the borrowed cadence and asks for the missing durability mechanism or cuts the ungrounded claim.",
+    "assertions": [
+      "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
+      "Uses only supplied durability facts, or asks for the missing mechanism or recommends cutting; does not invent a workflow.",
+      "Does not substitute another inflated abstraction such as 'paradigm shift', 'fundamental rethink', or 'new way of thinking'.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "split": "tune",
+    "graded_dimensions": [
+      {
+        "name": "cadence-removal",
+        "scale": "1-5",
+        "rubric": "5 = removes not-just / less-more / antithesis cadence entirely; 3 = weakly reduces it; 1 = preserves or substitutes another contrast cadence."
+      },
+      {
+        "name": "mechanism-specificity",
+        "scale": "1-5",
+        "rubric": "5 = precisely asks for the missing durability mechanism or justifies cutting the claim; 3 = generic request for detail; 1 = invents a workflow or substitutes a prestige abstraction."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "emphasis-source-flatten",
+    "family": "borrowed-emphasis",
+    "task": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "copula-displacement-to-is",
+    "split": "tune",
+    "prompt": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.",
+    "expected_output": "Uses a plain copula within the supplied description, or asks for the concrete coordination job or cuts.",
+    "assertions": [
+      "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb describing what the library actually does.",
+      "Asks what coordination job the library performs, keeps only the supplied description, or cuts; does not invent leasing, routing, or another concrete job.",
+      "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "concrete-verb",
+        "scale": "1-5",
+        "rubric": "5 = uses a plain source-supported description or precisely asks what coordination job the library performs; a justified cut also earns 5. 3 = removes one inflated verb but leaves vague content; 1 = invents a coordination mechanism or substitutes prestige verbs."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "copula-displacement-to-is",
+    "family": "nominalization-copula",
+    "task": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "hedged-symmetry-commit",
+    "split": "tune",
+    "prompt": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.",
+    "expected_output": "Removes the all-readers hedge and asks which reader and speed/correctness tradeoff the facts support, or cuts.",
+    "assertions": [
+      "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
+      "Asks which priority or tradeoff is supported, or cuts the claim; does not invent linter behavior.",
+      "Asks which reader or use case the source supports, or cuts; does not assert a new target reader.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "tradeoff-commitment",
+        "scale": "1-5",
+        "rubric": "5 = asks which reader and priority the facts support, or justifies cutting; 3 = removes some symmetry but stays vague; 1 = invents linter behavior or preserves the all-readers hedge."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "hedged-symmetry-commit",
+    "family": "hedged-symmetry",
+    "task": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "outline-conclusion-carrier-bound",
+    "split": "tune",
+    "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.",
+    "expected_output": "Cuts the unsupported conclusion or asks for its challenge, concrete example, and next step; invents none.",
+    "assertions": [
+      "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+      "Asks for a documented challenge or example, or cuts; invents no customer, feature, or result.",
+      "Asks which workflow and durability behavior are supported, or cuts; invents no workflow.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "carrier-specificity",
+        "scale": "1-5",
+        "rubric": "5 = precisely asks for a documented challenge, concrete example, or next step, or justifies cutting; 3 = vague request for an example; 1 = invents a project/customer result or keeps the outline template."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "outline-conclusion-carrier-bound",
+    "family": "outline-marketing-ending",
+    "task": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "holdout-ask-author-ai-tooling",
+    "split": "holdout",
+    "prompt": "Review this paragraph using the Critique output format. It comes from a launch post draft, and no source notes are available beyond the paragraph.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.",
+    "expected_output": "A review that does not invent the assistant name, does not preserve the unsupported before/after timing, and uses ask-author or cuts until the missing source facts are supplied. Any fallback must preserve the supplied facts and avoid the criticized cadence; no named self-check field is required.",
+    "assertions": [
+      "Does not name a specific assistant or model because the source paragraph does not provide one.",
+      "Treats 'quarter-long' and 'one-week' as unsupported unless source/provenance is named, and either asks for the measurement or removes the timing claim.",
+      "Uses `ask-author` or a cut/qualified rewrite for the missing tool and timing facts rather than filling the Concrete rewrite slot with confident specifics.",
+      "The rewrite or fallback avoids invented facts and the cadence criticized in the source; no named output field is required.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "non-invention",
+        "scale": "1-5",
+        "rubric": "5 = no tool/model/timing invention; 3 = hedged but still implies unsupported facts; 1 = invents specifics."
+      },
+      {
+        "name": "rewrite-check-integrity",
+        "scale": "1-5",
+        "rubric": "5 = the rewrite or fallback preserves supplied facts and avoids the cadence criticized in the source; 3 = minor cadence repetition without factual invention; 1 = invented facts or the criticized pattern remains. No named self-check field is required."
+      }
+    ],
+    "facts": [],
+    "requires_fact_pair": true,
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "holdout-ask-author-ai-tooling",
+    "family": "missing-tooling-provenance",
+    "task": "Review this paragraph using the Critique output format. It comes from a launch post draft, and no source notes are available beyond the paragraph.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "tweet-taste-as-model",
+    "split": "tune",
+    "prompt": "Apply the anti-slop-writing skill to the long-form X thread stored verbatim in evals/fixtures/tweet-taste-as-model/input.md (an essay arguing that research taste is a trainable model). Read that file, then produce a targeted critique and revision: keep the strong concrete material, but fix the two structural weaknesses and do not regress fidelity. Use the skill's judgment about what to keep versus revise rather than rewriting every sentence.",
+    "expected_output": "A critique-plus-targeted-revision that (1) breaks the monotonous section-closing cadence where nearly every section lands on a parallel antithetical aphorism, (2) stops presenting the central 'taste is a trainable model' conceit as proven by the anecdotes and marks at least one place (especially the fast-feedback-to-slow-feedback transfer claim) as a chosen bet rather than a demonstrated finding, and (3) preserves the real anecdotes and the actionable mechanism without inventing facts or overstating Fermi's crude ~10kt estimate. The revision must not reuse the flagged cadence in its own prose.",
+    "assertions": [
+      "Identifies the repeated section-closing 'Not X. Y.' / antithetical-aphorism cadence (for example 'that's an rss feed', 'same cognitive hardware, opposite training loop', 'you're the model being trained') as overused structure, and the revised prose varies at least some of those closers rather than landing every section on a parallel snap-line.",
+      "Flags that the central 'taste is a model you train' framing is asserted rather than demonstrated by the chess/Fermi/Tetlock anecdotes, and explicitly marks the fast-to-slow-feedback transfer ('the judgment transfers upward') as a chosen bet or open question rather than a proven result.",
+      "Preserves the concrete carriers (de Groot / Chase-Simon, Fermi at Trinity, Tetlock / Good Judgment Project, Murphy-Winkler weather calibration, Kahneman-Klein, Sutton / Radford, AlexNet, Hamming) and the actionable mechanism of writing a numbered prediction before looking and scoring it afterward.",
+      "Introduces no studies, names, or numbers absent from the source, and does not upgrade Fermi's crude estimate (~10 kt vs ~20 kt actual) into a precision win.",
+      "The critique's own Concrete rewrite passes the skill's self-detectors: it does not reproduce decorative em-dash antithesis, an 'X is the design, not Y' / 'X, not Y' closer, a rule-of-three substituting for relation, or banned avoid-by-default phrases.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "cadence-variety",
+        "scale": "1-5",
+        "rubric": "5 = section closers and sentence rhythm are deliberately varied; 3 = a couple of closers softened but the antithetical-aphorism pattern still dominates; 1 = every section still lands on a parallel snap-line."
+      },
+      {
+        "name": "conceit-honesty",
+        "scale": "1-5",
+        "rubric": "5 = the ML-model framing is held as an organizing analogy and the unevidenced transfer claim is openly marked as a bet; 3 = the seam is acknowledged once but the prose still leans on the metaphor as proof; 1 = the analogy is presented as a derivation from the anecdotes."
+      },
+      {
+        "name": "fidelity",
+        "scale": "1-5",
+        "rubric": "5 = all real anecdotes preserved and accurate, no invented facts, Fermi estimate not overstated; 3 = minor drift or one softened-but-imprecise claim; 1 = invents a study/number or overstates a source."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "tweet-taste-as-model",
+    "family": "longform-transfer",
+    "task": "Apply the anti-slop-writing skill to the long-form X thread stored verbatim in evals/fixtures/tweet-taste-as-model/input.md (an essay arguing that research taste is a trainable model). Read that file, then produce a targeted critique and revision: keep the strong concrete material, but fix the two structural weaknesses and do not regress fidelity. Use the skill's judgment about what to keep versus revise rather than rewriting every sentence.\n\nSOURCE (evals/fixtures/tweet-taste-as-model/input.md):\nSource: https://x.com/itsreallyvivek/status/2065477778125062177\nAuthor: @itsreallyvivek\nCaptured: 2026-06-13\nForm: long-form X thread (single essay), pasted verbatim by the repo owner because x.com gates unauthenticated fetches (HTTP 402).\n\nOriginal:\n\nnobody flinches when you call debugging a skill. call taste a skill and the room gets uncomfortable, because taste is the one part of research we've agreed to treat as fate. you have it or you don't, and the people who have it were apparently issued it at birth, along with the right advisor. it's a comforting story, and it's wrong. taste is a model in your head that predicts which ideas will work before you've paid for them, and like every model, it's exactly as good as its training data and its training loop. both of those are under your control.\n\nlook at what taste is made of\n\nin 1946, adriaan de groot showed chess grandmasters a midgame position for a few seconds and asked them to rebuild it from memory. they placed over ninety percent of the pieces. club players placed a fraction of that. the obvious conclusion is that masters have better memory, so chase and simon reran the experiment in the seventies with one change: the pieces were scattered at random. the grandmasters collapsed to nearly novice level.\n\nthe masters never had better memory. they had a library of tens of thousands of real positions, and a random board matched none of them. what looked like perception was retrieval. what looked like a gift was inventory.\n\nthat's the whole secret. when a senior researcher glances at your method and says \"this won't survive a strong baseline,\" they're not channeling anything. they're matching your idea against a few thousand stored failures that rhyme with it. taste is a library, and a library is built by shelving, which is the one part of the job anyone can do.\n\npredict before you peek\n\nat the trinity test, enrico fermi stood in the observation bunker dropping scraps of paper. when the blast wave arrived, he watched how far it pushed them and estimated the yield at around ten kilotons, weeks before the instrument readings came back. the estimate was crude and roughly right, but the point was never accuracy. fermi made a guess before every measurement, on principle, because a measurement you predicted teaches you something a measurement you merely received never can: it grades your model of the world.\n\nthe original piece said to predict every experiment before you run it. the part that makes it work is writing the prediction down, with a number, before you look. an unwritten prediction is worthless, because your memory will quietly rewrite it to match the result, and you'll walk away feeling confirmed by an experiment that should have stung. psychologists call it hindsight bias. researchers call it \"yeah, that's about what i expected,\" said after every result, forever.\n\nso make it mechanical. before the run: expected delta, confidence, one sentence of reasoning. after the run: what actually happened, and which part of your reasoning broke. when you read a paper, stop at the end of the methods section and write down the numbers you expect in the tables. you will be wrong constantly. that's the product. each miss is a labeled example, and you're the model being trained.\n\nkeep score\n\nphilip tetlock spent two decades scoring expert predictions and found most experts performed near chance. the interesting part came later, in the good judgment project, where ordinary volunteers who practiced forecasting with strict scoring beat intelligence analysts who had access to classified information, by around thirty percent. the winners weren't smarter. they made granular predictions, got scored, and updated. judgment improved like a trained skill because it was treated like one.\n\nthe cleanest natural experiment is the weather. murphy and winkler found that when american forecasters say seventy percent chance of rain, it rains close to seventy percent of the time. meteorologists are among the best-calibrated professionals ever measured, and the reason is boring: they predict daily, in numbers, and reality grades them by morning. a pundit predicting elections gets feedback twice a decade and never writes the number down. same cognitive hardware, opposite training loop.\n\nyour research judgment is currently living one of these two lives. if you call which of this month's releases will matter and check the ledger a year later, you're the meteorologist. if you just have opinions in group chats, you're the pundit.\n\nshrink the bet\n\nthere's a real objection here. kahneman and klein wrote a rare adversarial collaboration in 2009 asking when intuition can be trusted at all, and their answer was: only in environments with stable regularities and fast, clear feedback. firefighters and chess players develop real intuition. stock pickers develop confident noise. research looks like bad terrain for taste, because the feedback on a research bet can take two years to arrive and shows up confounded with compute, execution, and luck.\n\nthe answer isn't to give up on the loop. it's to shrink the bet until the loop closes. you can't get fast feedback on \"is mechanistic interpretability the right decade-long direction,\" but you can get same-day feedback on \"this ablation will cost two points,\" and same-week feedback on \"this paper's gains won't replicate at larger scale.\" small predictions share machinery with big ones. calibrate where reality answers quickly, and the judgment transfers upward to the bets reality grades slowly.\n\ntrace the calls, not the credentials\n\nwhen sutton wrote the bitter lesson, it read less like a prediction than a confession of one principle: general methods that ride compute beat clever methods that ride human insight, every time, eventually. when alec radford bet on generative pretraining for gpt-1, the field's energy was in task-specific supervised models, and the bet looked unfashionable. both calls came from the same place, and it wasn't a hunch. it was a small set of load-bearing beliefs, held explicitly, with a clear sense of what evidence would break them.\n\nthis is the upper floor of taste. the library gets you pattern-matching: this idea smells like the ones that died. principles get you the calls patterns can't reach, the ones about things nobody has tried yet. so when you study a great call, don't study the person. reconstruct the principle that generated it, then ask what your own load-bearing beliefs are. most researchers, asked to list them, produce the consensus of their timeline. that's not taste. that's an rss feed.\n\nretrain on fresh data\n\nin 2012, plenty of researchers with excellent judgment dismissed alexnet. their taste wasn't broken. it was trained on a decade where neural networks genuinely didn't work, and it kept predicting that decade after the data changed. taste is a model, and models drift. the better your library served you in the last regime, the more confidently it will fail you in the next one, which is why the people loudest about what can't work are so often the ones who were right last time.\n\nthe maintenance is the same as the training. keep predicting, keep scoring, and treat a string of surprises as a fire alarm rather than noise: when reality keeps beating your model, the model is stale, no matter how distinguished its past. hamming said knowledge compounds like interest. so does calibration, with one difference. interest never has to be marked down. your taste does, and the researchers who last are the ones who do the markdown themselves, before the field does it for them.\n\nstart the ledger this week. it will be embarrassing for six months. it was always going to be embarrassing for six months. the only question is whether you collect the data.\n\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "parataxis-pervasive-closers",
+    "split": "tune",
+    "prompt": "Review and tighten this passage. Each paragraph ends on a short two-part contrast.\n\nThe cache survived the migration. The index did not.\n\nWe doubled the workers. The latency held.\n\nThe model got bigger. The errors stayed.\n\nThe team shipped fast. The users stayed away.",
+    "expected_output": "A critique that identifies the document-level over-reliance on the same paratactic two-part contrast as a closer, then converts most of the closers into relation-naming (hypotactic) constructions while keeping at most one earned paratactic line. The rewrite must not itself read as another stack of 'X. Y.' antitheses.",
+    "assertions": [
+      "Identifies that every paragraph leans on the same paratactic two-part contrast as its closer (a document-level over-reliance), not merely that one isolated line is short.",
+      "Converts at least two of the closers into a construction that names the relation with a connective or subordinate clause (because, although, even though, yet, so, which means) instead of leaving the relation implied by juxtaposition.",
+      "Does not subordinate every line into one identical connective shape; preserves rhythm variety and may keep one genuinely earned contrast.",
+      "The rewrite does not reproduce the flagged 'X. Y.' paratactic-antithesis cadence under new words.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "parataxis-density-repair",
+        "scale": "1-5",
+        "rubric": "5 = names the over-reliance AND converts most closers to hypotaxis; 3 = converts one or two but mostly defends the pattern; 1 = defends each line individually and changes nothing structural."
+      },
+      {
+        "name": "relation-clarity",
+        "scale": "1-5",
+        "rubric": "5 = the rewritten closers state cause/contrast/consequence explicitly; 1 = relations remain implied by juxtaposition. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "parataxis-pervasive-closers",
+    "family": "parataxis",
+    "task": "Review and tighten this passage. Each paragraph ends on a short two-part contrast.\n\nThe cache survived the migration. The index did not.\n\nWe doubled the workers. The latency held.\n\nThe model got bigger. The errors stayed.\n\nThe team shipped fast. The users stayed away.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "parataxis-unstated-relation",
+    "split": "tune",
+    "prompt": "Rewrite to state the contrast: The staging test passed. The customer deployment failed.",
+    "expected_output": "Connects the passing staging test with the failed customer deployment using a contrast; invents no cause or reliability conclusion.",
+    "assertions": [
+      "Identifies that the two sentences are placed side by side with the relation (contrast and/or consequence) left unstated.",
+      "Rewrites with an explicit connective or subordinate clause (although, yet, because, so, which means) that names the relation.",
+      "Does not preserve the bare two-sentence juxtaposition or swap it for another equally relation-free pair.",
+      "Does not invent a specific cause, metric, or product detail the prompt does not supply.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "relation-clarity",
+        "scale": "1-5",
+        "rubric": "5 = relation named explicitly and correctly (contrast + consequence); 3 = a connective added but the relation stays vague; 1 = juxtaposition preserved. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "parataxis-unstated-relation",
+    "family": "parataxis",
+    "task": "Rewrite to state the contrast: The staging test passed. The customer deployment failed.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "parataxis-coordination-hides-cause",
+    "split": "tune",
+    "prompt": "Tighten this without inventing a cause: We opened the help desk. We published the hours. Nobody came.",
+    "expected_output": "Connects opening and publicizing the help desk with the lack of visitors; invents no explanation for the absence.",
+    "assertions": [
+      "Recognizes the contrast between opening/publicizing the help desk and nobody coming.",
+      "Names the relation with subordination or a connective (although, even though, yet, so) rather than leaving three flat coordinate clauses.",
+      "Does not invent a reason nobody came; keeps the cause unknown or asks for it.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "relation-clarity",
+        "scale": "1-5",
+        "rubric": "5 = the effort-versus-stall contrast is named and the cause is left honestly open; 3 = relation partly named; 1 = flat coordination preserved or a cause invented. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "parataxis-coordination-hides-cause",
+    "family": "parataxis",
+    "task": "Tighten this without inventing a cause: We opened the help desk. We published the hours. Nobody came.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "parataxis-chained-and",
+    "split": "tune",
+    "prompt": "Revise this sentence: The pipeline pulls the data and it cleans the rows and it trains the model and it ships the weights and nobody can tell which step regressed.",
+    "expected_output": "A rewrite that keeps the concrete steps but breaks the chained coordination so the final clause's relation (contrast/consequence) is subordinated or connected, not just one more 'and'.",
+    "assertions": [
+      "Identifies the chained 'and' coordination as parataxis that flattens a sequence and buries the final clause's contrast.",
+      "Rewrites so the final clause's relation (contrast or consequence) is marked with a connective or subordination (yet, but, so, once, because) rather than another 'and'.",
+      "Preserves the concrete steps (pull data, clean rows, train model, ship weights) and does not invent a specific mechanism (such as a named missing checkpoint) unless it is flagged as a hypothesis.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "relation-clarity",
+        "scale": "1-5",
+        "rubric": "5 = the buried contrast is surfaced with a connective and the steps are preserved; 3 = partly de-chained; 1 = still a flat 'and' chain or steps lost. When the required facts are absent, a precise ask-author request naming the missing fact or a justified cut earns 5; invented specifics earn 1."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "parataxis-chained-and",
+    "family": "parataxis",
+    "task": "Revise this sentence: The pipeline pulls the data and it cleans the rows and it trains the model and it ships the weights and nobody can tell which step regressed.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "parataxis-earned-but-pervasive",
+    "split": "tune",
+    "prompt": "Review and tighten this passage.\n\nWe measured the cache cold and warm. Cold, every request hit Postgres and p99 sat at 800ms. Warm, the same requests came from Redis at 12ms. The disk was the bottleneck. The cache was the fix.\n\nThe job failed nine times in the first hour. Every failure was a timeout to the same host, and every retry fired instantly. We added a two-second backoff and failures dropped to one an hour. The retries were the load. The backoff was the relief.\n\nThe report query scanned four million rows in six seconds. We added an index on the timestamp column and the same query returned in forty milliseconds. The scan was the cost. The index was the cure.\n\nThe 3am rollout broke with no owner online. We added a health check that auto-reverts on a 5xx spike, and the next bad deploy rolled itself back in ninety seconds. The manual step was the gap. The health check closed it.",
+    "expected_output": "A critique that (a) acknowledges each two-part closer is individually earned because the preceding sentences in its own section evidence both sides, yet (b) flags the document-level over-reliance — the same paratactic 'X was the problem. Y was the fix.' antithesis closes all four sections — and recommends varying or converting most of the closers (keeping at most one) rather than keeping all four. It must not call any individual closer decorative or expand the earned contrasts into bland connective-heavy prose. This case is the discriminator for the parataxis-density rule: a per-sentence staccato test passes every closer, so only a document-level check catches the repetition.",
+    "assertions": [
+      "Acknowledges that each closer is individually earned: the preceding sentences in its own section evidence both sides of the contrast (the before/after numbers), so no single closer is decorative or compressed.",
+      "Flags the document-level over-reliance: the same paratactic 'X was the problem. Y was the fix.' antithesis closes every one of the four sections, so the passage leans on repeated rhythm even though each instance passes a per-sentence test.",
+      "Recommends varying or converting most of the repeated closers (to a named relation, or by cutting some), keeping at most one paratactic closer, rather than keeping all four because each is individually earned.",
+      "Does not recommend deleting the earned contrasts or expanding them into bland connective-heavy prose, and does not wrongly reclassify any individual earned closer as decorative; the fix is variety/de-duplication at the document level.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "document-density-detection",
+        "scale": "1-5",
+        "rubric": "5 = explicitly names that all four sections repeat the same earned paratactic closer and treats that repetition itself as the problem; 3 = notes some repetition but still endorses keeping all four; 1 = evaluates each closer in isolation and keeps them all, missing the document-level pattern."
+      },
+      {
+        "name": "earned-instance-respect",
+        "scale": "1-5",
+        "rubric": "5 = correctly classifies each individual closer as earned by its own evidence; 3 = hedges on whether the individual lines are earned; 1 = wrongly flags an individual earned closer as decorative or guts it."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "parataxis-earned-but-pervasive",
+    "family": "parataxis",
+    "task": "Review and tighten this passage.\n\nWe measured the cache cold and warm. Cold, every request hit Postgres and p99 sat at 800ms. Warm, the same requests came from Redis at 12ms. The disk was the bottleneck. The cache was the fix.\n\nThe job failed nine times in the first hour. Every failure was a timeout to the same host, and every retry fired instantly. We added a two-second backoff and failures dropped to one an hour. The retries were the load. The backoff was the relief.\n\nThe report query scanned four million rows in six seconds. We added an index on the timestamp column and the same query returned in forty milliseconds. The scan was the cost. The index was the cure.\n\nThe 3am rollout broke with no owner online. We added a health check that auto-reverts on a 5xx spike, and the next bad deploy rolled itself back in ninety seconds. The manual step was the gap. The health check closed it.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "stopslop-thin-content-cut-or-ask",
+    "split": "holdout",
+    "source": "Derived from hardikpandya/stop-slop references/examples.md (MIT, (c) 2025 Hardik Pandya). Target is ours, not stop-slop's.",
+    "prompt": "Rewrite without AI slop, or cut if there is no real content: It turns out that most teams struggle with alignment. The uncomfortable truth is that nobody wants to admit they're confused.",
+    "expected_output": "Removes the throat-clearing ('It turns out that', 'The uncomfortable truth is that') and either compresses to the plain claim or, because the source supplies no mechanism or evidence, marks the missing specifics as ask-author rather than inventing them.",
+    "assertions": [
+      "Removes the throat-clearing openers ('It turns out that', 'The uncomfortable truth is that') and the hedge 'most'.",
+      "Does not invent a specific cause, number, team, or mechanism the source never supplies; either keeps the plain claim or flags the missing specifics (ask-author / cut).",
+      "Does not substitute a new punchy aphorism (e.g. 'Nobody admits confusion.') that adds cadence without adding a named mechanism or evidence.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "non-invention",
+        "scale": "1-5",
+        "rubric": "5 = adds no cause/number/team/mechanism absent from the source; 3 = one borderline added specific; 1 = fabricates content to sound concrete."
+      },
+      {
+        "name": "slop-removal",
+        "scale": "1-5",
+        "rubric": "5 = all throat-clearing and the hedge removed with no new aphorism substituted; 3 = partial; 1 = swaps one slop pattern for another."
+      }
+    ],
+    "facts": [],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "stopslop-thin-content-cut-or-ask",
+    "family": "thin-marketing-content",
+    "task": "Rewrite without AI slop, or cut if there is no real content: It turns out that most teams struggle with alignment. The uncomfortable truth is that nobody wants to admit they're confused.\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "holdout-alert-triage-transfer",
+    "split": "holdout",
+    "prompt": "Rewrite the practice-inbox essay in evals/fixtures/alert-triage-transfer/input.md. Preserve its factual limits and first-person voice, repair unsupported reasoning, and vary repetitive section endings. Produce the revised essay.",
+    "facts": [],
+    "expected_output": "Keeps the twelve-ticket, one-pass practice and both ticket examples; marks transfer to live incidents as untested; varies closers and ends on the notebook comparison.",
+    "assertions": [
+      "Preserves twelve tickets and one completed pass without inventing success rates.",
+      "Preserves the upload/body-limit and blank-page/blocked-script examples and their original guesses.",
+      "Treats transfer to live incidents as untested because no live-incident measurements exist.",
+      "Varies or removes repeated two-part metaphor closers and the engineering-excellence ending.",
+      "Ends using the dated notebook and ticket-resolution comparison, or another supplied concrete detail.",
+      "Introduces no fact absent from the source and facts block."
+    ],
+    "graded_dimensions": [
+      {
+        "name": "fidelity",
+        "scale": "1-5",
+        "rubric": "5 = preserves facts and uncertainty; 1 = invents a measured transfer result."
+      },
+      {
+        "name": "structure",
+        "scale": "1-5",
+        "rubric": "5 = varied closers and source-grounded ending; 1 = repeated decorative closure."
+      }
+    ],
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "holdout-alert-triage-transfer",
+    "family": "longform-transfer",
+    "task": "Rewrite the practice-inbox essay in evals/fixtures/alert-triage-transfer/input.md. Preserve its factual limits and first-person voice, repair unsupported reasoning, and vary repetitive section endings. Produce the revised essay.\n\nSOURCE (evals/fixtures/alert-triage-transfer/input.md):\nThe practice inbox\n\nI use an archive of resolved support tickets to practice incident triage. I hide the resolution, write my first diagnostic action, and then uncover what the responder actually did. The archive has twelve tickets; I have completed one pass.\n\nOne ticket describes a failed file upload. The responder checked the request body limit, found that the file exceeded it, and asked for a smaller file. I had written down a database check. The mismatch gave me a specific question to revisit. The ticket was the mirror. My guess was the reflection.\n\nAnother ticket reports a page that looks empty. The responder inspected the browser console and found a blocked script. I had suggested refreshing the page. The next time I practiced that archived ticket, I wrote down a console check first. The archive was the teacher. Repetition was the lesson.\n\nThat proves the practice transfers to a live outage. A familiar ticket with a known resolution is enough to train judgment for an unfamiliar production incident. I have no live-incident measurements yet.\n\nThe archive is stored in a folder. My guesses go into a dated notebook beside the ticket ID. I keep the original guesses so that I can compare them with the resolutions later. This marks an exciting new chapter in the evolution of engineering excellence.\n\n\nFacts available:\nNo additional facts beyond the source text.",
+    "fact_condition": "no_additional_facts"
+  },
+  {
+    "id": "pelican-process-relation-with-facts",
+    "split": "tune",
+    "paired_with": "pelican-process-relation",
+    "prompt": "Rewrite this unsupported closer, or ask for the missing relation: The point is not the harbor map. The point is the drill.",
+    "facts": [
+      "During the evacuation drill, each team leader marks on the harbor map the pier their team reached.",
+      "Afterwards the organisers compare the marked maps to find piers no team reached in time."
+    ],
+    "expected_output": "Replaces the empty contrast with the supplied relation: leaders mark piers reached on the map, and organisers compare maps to find piers nobody reached in time.",
+    "assertions": [
+      "Removes the empty two-part 'The point is not X. The point is Y.' contrast.",
+      "States how the map serves the drill using the facts: leaders mark the pier reached, and organisers compare the maps to find piers no team reached in time.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "pelican-process-relation",
+    "family": "pelican-relation",
+    "task": "Rewrite this unsupported closer, or ask for the missing relation: The point is not the harbor map. The point is the drill.\n\nFacts available:\n- During the evacuation drill, each team leader marks on the harbor map the pier their team reached.\n- Afterwards the organisers compare the marked maps to find piers no team reached in time.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "safe-essay-cut-or-concretize-with-facts",
+    "split": "tune",
+    "paired_with": "safe-essay-cut-or-concretize",
+    "prompt": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.",
+    "facts": [
+      "The sentence opens the sales page for Shiftboard, a staff scheduling app for hospitals.",
+      "Shiftboard lets nurses swap shifts from their phones; a charge nurse approves each swap.",
+      "Hospitals that use it no longer circulate paper swap forms."
+    ],
+    "expected_output": "Cuts the era/disruption framing and rewrites around Shiftboard: nurses swap shifts by phone, a charge nurse approves, paper swap forms go away.",
+    "assertions": [
+      "Removes the era/disruption framing and the 'transformative offerings' abstraction.",
+      "The rewrite names Shiftboard, nurses swapping shifts from their phones, and charge-nurse approval.",
+      "Does not add adoption numbers, time savings, or other benefits beyond replacing paper swap forms.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "safe-essay-cut-or-concretize",
+    "family": "thin-marketing-content",
+    "task": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.\n\nFacts available:\n- The sentence opens the sales page for Shiftboard, a staff scheduling app for hospitals.\n- Shiftboard lets nurses swap shifts from their phones; a charge nurse approves each swap.\n- Hospitals that use it no longer circulate paper swap forms.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "multi-issue-output-manifest-with-facts",
+    "split": "tune",
+    "paired_with": "multi-issue-output-manifest",
+    "prompt": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.",
+    "facts": [
+      "Line 1 is about the team's CLI: `deploy init` now writes a working config file on first run, so new users no longer edit YAML by hand.",
+      "Line 2 is about the incident dashboard: it groups alerts that share a root cause, so on-call engineers see one incident instead of dozens of alerts."
+    ],
+    "expected_output": "Two concrete rewrites: line 1 says `deploy init` writes a working config on first run; line 2 says the dashboard groups alerts by shared root cause into one incident.",
+    "assertions": [
+      "Addresses both input lines rather than only the first or a general summary.",
+      "The line 1 rewrite replaces the importance/robust-experience language with `deploy init` writing a working config file on first run.",
+      "The line 2 rewrite replaces the contrast with the dashboard grouping alerts that share a root cause into one incident.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "multi-issue-output-manifest",
+    "family": "multi-item-review",
+    "task": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.\n\nFacts available:\n- Line 1 is about the team's CLI: `deploy init` now writes a working config file on first run, so new users no longer edit YAML by hand.\n- Line 2 is about the incident dashboard: it groups alerts that share a root cause, so on-call engineers see one incident instead of dozens of alerts.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "emphasis-source-flatten-with-facts",
+    "split": "tune",
+    "paired_with": "emphasis-source-flatten",
+    "prompt": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.",
+    "facts": [
+      "In this framework a workflow's state is saved after every step.",
+      "If the process crashes, the workflow resumes from the last saved step instead of starting over.",
+      "Developers write the workflow as ordinary sequential code; the framework does the saving and resuming."
+    ],
+    "expected_output": "Drops the isn't-just cadence and states the relation: state saved after each step lets a crashed workflow resume from the last saved step, while developers write plain sequential code.",
+    "assertions": [
+      "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
+      "States what goes beyond retrying using the facts: state saved after every step and resumption from the last saved step after a crash.",
+      "Supports any 'programming model' claim with the sequential-code fact, or drops that claim.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "emphasis-source-flatten",
+    "family": "borrowed-emphasis",
+    "task": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.\n\nFacts available:\n- In this framework a workflow's state is saved after every step.\n- If the process crashes, the workflow resumes from the last saved step instead of starting over.\n- Developers write the workflow as ordinary sequential code; the framework does the saving and resuming.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "copula-displacement-to-is-with-facts",
+    "split": "tune",
+    "paired_with": "copula-displacement-to-is",
+    "prompt": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.",
+    "facts": [
+      "The library assigns each background job to exactly one worker.",
+      "It reassigns a job when that worker stops sending heartbeats."
+    ],
+    "expected_output": "A plain-verb rewrite: the library assigns each background job to one worker and reassigns it when the worker's heartbeats stop.",
+    "assertions": [
+      "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb.",
+      "Says what the library does using the facts: one worker per job, reassignment when heartbeats stop.",
+      "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "copula-displacement-to-is",
+    "family": "nominalization-copula",
+    "task": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.\n\nFacts available:\n- The library assigns each background job to exactly one worker.\n- It reassigns a job when that worker stops sending heartbeats.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "hedged-symmetry-commit-with-facts",
+    "split": "tune",
+    "paired_with": "hedged-symmetry-commit",
+    "prompt": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.",
+    "facts": [
+      "The linter's default rules are written for production code: they fail the build on unhandled promise rejections.",
+      "A prototype mode turns those failures into printed warnings."
+    ],
+    "expected_output": "Commits to production code as the default reader and names the unhandled-rejection rule; mentions prototype mode only as a stated branch with its own behavior.",
+    "assertions": [
+      "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
+      "Commits to the supplied position: by default the linter fails the build on unhandled promise rejections in production code.",
+      "If prototypes are mentioned, states the distinct behavior (warnings instead of failures) rather than claiming the linter suits everyone equally.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "hedged-symmetry-commit",
+    "family": "hedged-symmetry",
+    "task": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.\n\nFacts available:\n- The linter's default rules are written for production code: they fail the build on unhandled promise rejections.\n- A prototype mode turns those failures into printed warnings.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "outline-conclusion-carrier-bound-with-facts",
+    "split": "tune",
+    "paired_with": "outline-conclusion-carrier-bound",
+    "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.",
+    "facts": [
+      "The platform is a durable-execution service.",
+      "In March a customer's invoice workflow ran through a regional outage: its runs paused during the outage and resumed from their last completed step afterwards.",
+      "The next release adds per-step timeouts."
+    ],
+    "expected_output": "Replaces both templates with the March invoice-workflow example (paused, then resumed from the last completed step) and, if a forward look is kept, the per-step timeouts release.",
+    "assertions": [
+      "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+      "Ends on the supplied March example: runs paused during the regional outage and resumed from their last completed step.",
+      "Any forward-looking sentence names the per-step timeouts release instead of a 'pivotal role'.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "outline-conclusion-carrier-bound",
+    "family": "outline-marketing-ending",
+    "task": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.\n\nFacts available:\n- The platform is a durable-execution service.\n- In March a customer's invoice workflow ran through a regional outage: its runs paused during the outage and resumed from their last completed step afterwards.\n- The next release adds per-step timeouts.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "fake-precision-rewrite-finance-with-facts",
+    "split": "holdout",
+    "paired_with": "fake-precision-rewrite-finance",
+    "prompt": "Rewrite this without preserving unsupported precision: Our risk model improves portfolio outcomes by 18.4% on average across most institutional clients.",
+    "facts": [
+      "The 18.4% figure is the median reduction in maximum drawdown in the firm's 2025 backtest.",
+      "The backtest covered 31 pension-fund portfolios from 2015 to 2024.",
+      "No live client results have been measured yet."
+    ],
+    "expected_output": "Keeps 18.4% only as a median drawdown reduction in a 2025 backtest of 31 pension-fund portfolios (2015-2024), and does not present it as a live client outcome.",
+    "assertions": [
+      "Keeps 18.4% only with its definition (median reduction in maximum drawdown) and source (the 2025 backtest).",
+      "Replaces 'most institutional clients' with the backtest population: 31 pension-fund portfolios, 2015 to 2024.",
+      "Does not present the figure as a measured result for live clients.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+      "Attributes the reduction to the backtest report and invents no comparator portfolio, risk-free benchmark, or live-client result; it may flag the unspecified comparator while still rewriting the supplied report."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "fake-precision-rewrite-finance",
+    "family": "provenance",
+    "task": "Rewrite this without preserving unsupported precision: Our risk model improves portfolio outcomes by 18.4% on average across most institutional clients.\n\nFacts available:\n- The 18.4% figure is the median reduction in maximum drawdown in the firm's 2025 backtest.\n- The backtest covered 31 pension-fund portfolios from 2015 to 2024.\n- No live client results have been measured yet.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "holdout-ask-author-ai-tooling-with-facts",
+    "split": "holdout",
+    "paired_with": "holdout-ask-author-ai-tooling",
+    "prompt": "Review this paragraph using the Critique output format. It comes from a launch post draft; the author's notes are in the facts block.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.",
+    "facts": [
+      "The assistant is the company's internal tool, Patchwright.",
+      "The project tracker shows the previous migration took eleven weeks and this one took six working days.",
+      "Engineers reviewed every change Patchwright proposed before it was merged."
+    ],
+    "expected_output": "A review that replaces 'quarter-long' and 'one-week' with the tracked eleven weeks and six working days, names Patchwright, and keeps engineer review in the account of who did the work.",
+    "assertions": [
+      "Replaces 'quarter-long slog' and 'one-week project' with the tracked durations: eleven weeks and six working days.",
+      "Names Patchwright as the assistant and does not name any other tool or model.",
+      "Does not credit the assistant alone; keeps the supplied fact that engineers reviewed every proposed change.",
+      "Uses the supplied facts to complete the requested review or rewrite; merely asking for more facts or discarding all supported content fails. Does not treat supplied information as unknown. A question about genuinely missing information may accompany a supported answer.",
+      "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed.",
+      "Reports the tracked durations and the use of Patchwright without claiming that the tracker proves the assistant caused the duration difference."
+    ],
+    "source_kind": "synthetic",
+    "suite": "rewrite-evals.json",
+    "group": "review-rewrite",
+    "pair_id": "holdout-ask-author-ai-tooling",
+    "family": "missing-tooling-provenance",
+    "task": "Review this paragraph using the Critique output format. It comes from a launch post draft; the author's notes are in the facts block.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.\n\nFacts available:\n- The assistant is the company's internal tool, Patchwright.\n- The project tracker shows the previous migration took eleven weeks and this one took six working days.\n- Engineers reviewed every change Patchwright proposed before it was merged.",
+    "fact_condition": "supplied"
+  },
+  {
+    "id": "neg-earned-antithesis-archive",
+    "split": "tune",
+    "kind": "adversarial",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe migration took eleven months. Every record moved: 2.1 million files, checksums matched, the new catalogue answered queries in milliseconds. In the same months the two curators who knew why each box had been kept retired, and nobody wrote down what the undated photographs show or who the people in them were.\n\nSentence under review: \"We saved the data and lost the memory.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+    ],
+    "assertions": [
+      "Keep the supported contrast without rewriting it."
+    ],
+    "tags": [
+      "over-application",
+      "earned-antithesis",
+      "replication"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "extended",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "neg-earned-antithesis-archive",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe migration took eleven months. Every record moved: 2.1 million files, checksums matched, the new catalogue answered queries in milliseconds. In the same months the two curators who knew why each box had been kept retired, and nobody wrote down what the undated photographs show or who the people in them were.\n\nSentence under review: \"We saved the data and lost the memory.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it.",
+    "deterministic_assertions": [
+      {
+        "name": "keeps-earned-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+        "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+      },
+      {
+        "name": "no-revise-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "A hedged answer that also votes REVISE fails."
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Human essay tolerance",
+          "Does not rewrite an earned contrast"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neg-earned-antithesis-bridge",
+    "split": "tune",
+    "kind": "adversarial",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe engineers' report is thorough: the new bridge carries twice the rated load, and the deck passed every vibration test. The redesign also removed the footpath, so the children who used to walk the 400 metres to school now ride a bus on a 6-kilometre loop.\n\nSentence under review: \"The bridge passed its inspection and failed the town.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+    ],
+    "assertions": [
+      "Keep the supported contrast without rewriting it."
+    ],
+    "tags": [
+      "over-application",
+      "earned-antithesis",
+      "replication"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "extended",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "neg-earned-antithesis-bridge",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe engineers' report is thorough: the new bridge carries twice the rated load, and the deck passed every vibration test. The redesign also removed the footpath, so the children who used to walk the 400 metres to school now ride a bus on a 6-kilometre loop.\n\nSentence under review: \"The bridge passed its inspection and failed the town.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it.",
+    "deterministic_assertions": [
+      {
+        "name": "keeps-earned-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+        "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+      },
+      {
+        "name": "no-revise-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "A hedged answer that also votes REVISE fails."
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Human essay tolerance",
+          "Does not rewrite an earned contrast"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neg-earned-antithesis-growth",
+    "split": "tune",
+    "kind": "adversarial",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nIn twelve months paid acquisition tripled our sign-ups and doubled revenue. Over the same months nine of our fourteen engineers left, the on-call rota fell to two people, and our runway shrank from thirty months to eleven.\n\nSentence under review: \"We grew the numbers and shrank the company.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+    ],
+    "assertions": [
+      "Keep the supported contrast without rewriting it."
+    ],
+    "tags": [
+      "over-application",
+      "earned-antithesis",
+      "replication"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "extended",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "neg-earned-antithesis-growth",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nIn twelve months paid acquisition tripled our sign-ups and doubled revenue. Over the same months nine of our fourteen engineers left, the on-call rota fell to two people, and our runway shrank from thirty months to eleven.\n\nSentence under review: \"We grew the numbers and shrank the company.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it.",
+    "deterministic_assertions": [
+      {
+        "name": "keeps-earned-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+        "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+      },
+      {
+        "name": "no-revise-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "A hedged answer that also votes REVISE fails."
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Human essay tolerance",
+          "Does not rewrite an earned contrast"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neg-earned-antithesis-syllabus",
+    "split": "tune",
+    "kind": "adversarial",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nShe finished all fourteen units on schedule, and every lesson plan was signed off. By June, three students had stopped coming and the class average had fallen twelve points; she noticed the absences only when the attendance report arrived.\n\nSentence under review: \"She taught the syllabus and missed the class.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+    ],
+    "assertions": [
+      "Keep the supported contrast without rewriting it."
+    ],
+    "tags": [
+      "over-application",
+      "earned-antithesis",
+      "replication"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "extended",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "neg-earned-antithesis-syllabus",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nShe finished all fourteen units on schedule, and every lesson plan was signed off. By June, three students had stopped coming and the class average had fallen twelve points; she noticed the absences only when the attendance report arrived.\n\nSentence under review: \"She taught the syllabus and missed the class.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it.",
+    "deterministic_assertions": [
+      {
+        "name": "keeps-earned-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+        "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+      },
+      {
+        "name": "no-revise-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "A hedged answer that also votes REVISE fails."
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Human essay tolerance",
+          "Does not rewrite an earned contrast"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neg-earned-antithesis-translation",
+    "split": "tune",
+    "kind": "adversarial",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe poem's last line puns on two meanings of the verb for 'to fall': falling asleep and falling in love. The published translation renders each word exactly and adds a footnote explaining the double meaning, which readers now meet only after the poem has ended.\n\nSentence under review: \"The translation kept every word and lost the joke.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+    ],
+    "assertions": [
+      "Keep the supported contrast without rewriting it."
+    ],
+    "tags": [
+      "over-application",
+      "earned-antithesis",
+      "replication"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "extended",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "neg-earned-antithesis-translation",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThe poem's last line puns on two meanings of the verb for 'to fall': falling asleep and falling in love. The published translation renders each word exactly and adds a footnote explaining the double meaning, which readers now meet only after the poem has ended.\n\nSentence under review: \"The translation kept every word and lost the joke.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it.",
+    "deterministic_assertions": [
+      {
+        "name": "keeps-earned-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+        "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+      },
+      {
+        "name": "no-revise-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "A hedged answer that also votes REVISE fails."
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Human essay tolerance",
+          "Does not rewrite an earned contrast"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neg-earned-antithesis-fence",
+    "split": "tune",
+    "kind": "adversarial",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nAfter the storm he rebuilt the fence between the two gardens post by post and matched the old paint. He never answered his brother's letter about who had let it rot, and the brothers still go in and out of their own gates without speaking.\n\nSentence under review: \"He mended the fence and never mended the quarrel.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it."
+    ],
+    "assertions": [
+      "Keep the supported contrast without rewriting it."
+    ],
+    "tags": [
+      "over-application",
+      "earned-antithesis",
+      "replication"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "extended",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "neg-earned-antithesis-fence",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nAfter the storm he rebuilt the fence between the two gardens post by post and matched the old paint. He never answered his brother's letter about who had let it rot, and the brothers still go in and out of their own gates without speaking.\n\nSentence under review: \"He mended the fence and never mended the quarrel.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Both sides of the contrast are evidenced in the context: an earned antithesis. Keep it; do not flag it as slop or rewrite it.",
+    "deterministic_assertions": [
+      {
+        "name": "keeps-earned-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b",
+        "description": "Verdict line keeps the earned contrast (the harness study saw with_skill revise it 4/5 times)."
+      },
+      {
+        "name": "no-revise-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "A hedged answer that also votes REVISE fails."
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Human essay tolerance",
+          "Does not rewrite an earned contrast"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pos-decorative-antithesis-readme",
+    "split": "tune",
+    "kind": "rewrite",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThis README introduces a command-line tool that renames files in bulk. The next section lists the three flags it accepts and shows one example command.\n\nSentence under review: \"It's not just a tool; it's a movement.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Neither side of the contrast is evidenced: a decorative antithesis. Revise or cut it."
+    ],
+    "assertions": [
+      "Revise or cut the unsupported contrast using the source facts."
+    ],
+    "tags": [
+      "over-application",
+      "decorative-antithesis",
+      "replication-control"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "core",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "pos-decorative-antithesis-readme",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nThis README introduces a command-line tool that renames files in bulk. The next section lists the three flags it accepts and shows one example command.\n\nSentence under review: \"It's not just a tool; it's a movement.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Neither side of the contrast is evidenced: a decorative antithesis. Revise or cut it.",
+    "deterministic_assertions": [
+      {
+        "name": "revises-decorative-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "Control for the over-application cases: the skill must still flag an unearned contrast."
+      },
+      {
+        "name": "no-keep-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b"
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Flags the decorative contrast",
+          "Rewrite states the actual claim"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pos-decorative-antithesis-changelog",
+    "split": "tune",
+    "kind": "rewrite",
+    "prompt": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nVersion 2.3.1 fixes a crash when the config file is empty and bumps one dependency. There are no other changes.\n\nSentence under review: \"This release isn't about code. It's about people.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "expected_behavior": [
+      "Neither side of the contrast is evidenced: a decorative antithesis. Revise or cut it."
+    ],
+    "assertions": [
+      "Revise or cut the unsupported contrast using the source facts."
+    ],
+    "tags": [
+      "over-application",
+      "decorative-antithesis",
+      "replication-control"
+    ],
+    "domain": "writing-quality",
+    "difficulty": "core",
+    "success_goals": [
+      "outcome"
+    ],
+    "suite": "shared-benchmark.json",
+    "group": "antithesis",
+    "pair_id": "pos-decorative-antithesis-changelog",
+    "family": "antithesis-calibration",
+    "task": "Review one sentence from a human-written essay, in context, and decide whether the author should keep it or revise it.\n\nContext:\nVersion 2.3.1 fixes a crash when the config file is empty and bumps one dependency. There are no other changes.\n\nSentence under review: \"This release isn't about code. It's about people.\"\n\nStart with exactly one line, VERDICT: KEEP or VERDICT: REVISE, then give one short reason. If you choose REVISE, give the rewrite.",
+    "fact_condition": "source_only",
+    "expected_output": "Neither side of the contrast is evidenced: a decorative antithesis. Revise or cut it.",
+    "deterministic_assertions": [
+      {
+        "name": "revises-decorative-antithesis",
+        "type": "regex",
+        "pattern": "(?im)^\\W*verdict\\W*revise\\b",
+        "description": "Control for the over-application cases: the skill must still flag an unearned contrast."
+      },
+      {
+        "name": "no-keep-verdict",
+        "type": "not_regex",
+        "pattern": "(?im)^\\W*verdict\\W*keep\\b"
+      },
+      {
+        "name": "qualitative-review",
+        "type": "judge",
+        "rubric": [
+          "Flags the decorative contrast",
+          "Rewrite states the actual claim"
+        ]
+      }
+    ]
+  }
+]

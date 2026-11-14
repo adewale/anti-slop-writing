@@ -24,7 +24,7 @@ Subcommands:
 Examples:
 
   python3 scripts/run_evals.py prepare evals/evals.json --split holdout --out apply.json --judge-out judge.json
-  python3 scripts/run_evals.py grade judgments/*.jsonl --out scores.jsonl
+  python3 scripts/run_evals.py grade judgments/*.jsonl --worklist judge.json --out scores.jsonl
   python3 scripts/run_evals.py join --before base.jsonl --after round2.jsonl --out delta.jsonl
 """
 
@@ -316,6 +316,93 @@ def cmd_blind(args: argparse.Namespace) -> int:
 # --- grade -------------------------------------------------------------------
 
 
+def load_judge_worklist(path: Path) -> dict[str, dict]:
+    """Load the frozen grading contract, not a model-supplied denominator."""
+    data = load_json(path)
+    if not isinstance(data, dict) or data.get("role") != "judge":
+        die(f"{path}: --worklist requires a judge worklist from prepare")
+    units = data.get("units")
+    if not isinstance(units, list) or not units:
+        die(f"{path}: judge worklist needs non-empty units")
+    out = {}
+    for unit in units:
+        if not isinstance(unit, dict):
+            die(f"{path}: worklist unit must be an object")
+        for field in ("id", "suite", "split", "pair_id", "fact_condition"):
+            if not isinstance(unit.get(field), str) or not unit[field].strip():
+                die(f"{path}: worklist unit needs non-empty {field}")
+        cid = unit["id"]
+        if cid in out:
+            die(f"{path}: duplicate worklist id: {cid}")
+        if unit["split"] not in VALID_SPLITS:
+            die(f"{path}: {cid}: invalid split")
+        assertions = unit.get("assertions")
+        if (
+            not isinstance(assertions, list)
+            or not assertions
+            or not all(isinstance(a, str) and a.strip() for a in assertions)
+        ):
+            die(f"{path}: {cid}: worklist needs non-empty assertions")
+        dims = unit.get("graded_dimensions", [])
+        if not isinstance(dims, list):
+            die(f"{path}: {cid}: worklist graded_dimensions must be a list")
+        names = set()
+        for dim in dims:
+            if (
+                not isinstance(dim, dict)
+                or not isinstance(dim.get("name"), str)
+                or not dim["name"].strip()
+                or dim["name"] in names
+            ):
+                die(f"{path}: {cid}: invalid or duplicate worklist dimension name")
+            names.add(dim["name"])
+        out[cid] = unit
+    return out
+
+
+def validate_judgment(record: dict, units: dict[str, dict], location: str) -> str:
+    """Require every assertion/dimension exactly once, with identity and evidence."""
+    if not isinstance(record, dict):
+        die(f"{location}: judgment must be an object")
+    cid = record.get("case_id", record.get("id"))
+    if not isinstance(cid, str) or cid not in units:
+        die(f"{location}: unknown worklist case: {cid}")
+    unit = units[cid]
+    for field in ("suite", "split", "pair_id", "fact_condition"):
+        if record.get(field) != unit[field]:
+            die(f"{location}: {cid}: {field} differs from worklist")
+    for field, key, expected in (
+        ("assertions", "index", set(range(1, len(unit["assertions"]) + 1))),
+        (
+            "graded_dimensions",
+            "name",
+            {d["name"] for d in unit.get("graded_dimensions", [])},
+        ),
+    ):
+        values = record.get(field, [])
+        if not isinstance(values, list):
+            die(f"{location}: {cid}: {field} must be a list")
+        seen = set()
+        for value in values:
+            if not isinstance(value, dict):
+                die(f"{location}: {cid}: {field} entries must be objects")
+            label = value.get(key)
+            valid_type = (
+                type(label) is int if key == "index" else isinstance(label, str)
+            )
+            if not valid_type or label not in expected or label in seen:
+                die(f"{location}: {cid}: invalid or duplicate {field} {key}: {label}")
+            evidence = value.get("evidence")
+            if not isinstance(evidence, str) or not evidence.strip():
+                die(f"{location}: {cid}: {field} {label}: missing evidence")
+            seen.add(label)
+        if seen != expected:
+            die(
+                f"{location}: {cid}: incomplete {field}; missing {sorted(expected - seen)}"
+            )
+    return cid
+
+
 def normalized_graded_scores(record: dict, path: Path, line_no: int) -> list[float]:
     dims = record.get("graded_dimensions", [])
     if dims in (None, []):
@@ -327,7 +414,11 @@ def normalized_graded_scores(record: dict, path: Path, line_no: int) -> list[flo
         if not isinstance(dim, dict):
             die(f"{path}:{line_no}: graded_dimensions[{i}] must be an object")
         raw = dim.get("score")
-        if not isinstance(raw, (int, float)) or not 1 <= float(raw) <= 5:
+        if (
+            isinstance(raw, bool)
+            or not isinstance(raw, (int, float))
+            or not 1 <= raw <= 5
+        ):
             die(f"{path}:{line_no}: graded_dimensions[{i}].score must be in [1,5]")
         scores.append(float(raw) / 5)
     return scores
@@ -336,6 +427,10 @@ def normalized_graded_scores(record: dict, path: Path, line_no: int) -> list[flo
 def case_score(
     record: dict, path: Path, line_no: int, include_graded: bool = False
 ) -> dict:
+    if not isinstance(record, dict):
+        die(f"{path}:{line_no}: judgment must be an object")
+    if not isinstance(record.get("id"), str) or not record["id"].strip():
+        die(f"{path}:{line_no}: record missing non-empty string 'id'")
     assertions = record.get("assertions")
     if not isinstance(assertions, list) or not assertions:
         die(
@@ -358,8 +453,6 @@ def case_score(
         assertion_values + graded_values if include_graded else assertion_values
     )
     split = record.get("split", "unknown")
-    if "id" not in record:
-        die(f"{path}:{line_no}: record missing 'id'")
     result = {
         "id": record["id"],
         "split": split,
@@ -383,6 +476,12 @@ def case_score(
 
 
 def cmd_grade(args: argparse.Namespace) -> int:
+    units = load_judge_worklist(Path(args.worklist)) if args.worklist else None
+    if units is None:
+        print(
+            "warning: no --worklist; legacy grading cannot verify coverage",
+            file=sys.stderr,
+        )
     paths: list[Path] = []
     for raw in args.judgments:
         matches = [raw] if Path(raw).is_file() else sorted(glob.glob(raw))
@@ -391,7 +490,13 @@ def cmd_grade(args: argparse.Namespace) -> int:
         paths.extend(Path(p) for p in matches)
     scores: list[dict] = []
     seen: set[str] = set()
+    covered: set[str] = set()
     for path, line_no, record in iter_lines(paths):
+        cid = (
+            validate_judgment(record, units, f"{path}:{line_no}")
+            if units is not None
+            else None
+        )
         s = case_score(record, path, line_no, include_graded=args.include_graded)
         if s["id"] in seen:
             die(f"duplicate id across judgment files: {s['id']}")
@@ -399,7 +504,13 @@ def cmd_grade(args: argparse.Namespace) -> int:
         if args.split != "all" and s["split"] != args.split:
             continue
         scores.append(s)
+        if cid is not None:
+            covered.add(cid)
 
+    if units is not None:
+        expected = {u["id"] for u in select(list(units.values()), args.split)}
+        if missing := expected - covered:
+            die(f"missing judgments for worklist cases: {sorted(missing)}")
     if not scores:
         die("no judgments matched")
 
@@ -447,6 +558,11 @@ def cmd_join(args: argparse.Namespace) -> int:
         die("no shared ids between before and after scores")
     only_before = sorted(set(before) - set(after))
     only_after = sorted(set(after) - set(before))
+    if (only_before or only_after) and not args.allow_partial:
+        die(
+            f"case sets differ; only in before: {only_before}; only in after: {only_after}. "
+            "Resolve missing slots before inference; --allow-partial is for inspection only"
+        )
     if only_before:
         print(f"warning: ids only in before: {only_before}", file=sys.stderr)
     if only_after:
@@ -524,6 +640,10 @@ def main() -> int:
     p_grade.add_argument("--split", choices=["tune", "holdout", "all"], default="all")
     p_grade.add_argument("--out")
     p_grade.add_argument(
+        "--worklist",
+        help="Frozen judge worklist from prepare; verify identity, coverage, and evidence.",
+    )
+    p_grade.add_argument(
         "--include-graded",
         action="store_true",
         help="Include optional 1-5 graded_dimensions in the emitted score.",
@@ -536,6 +656,11 @@ def main() -> int:
     p_join.add_argument("--before", required=True)
     p_join.add_argument("--after", required=True)
     p_join.add_argument("--out")
+    p_join.add_argument(
+        "--allow-partial",
+        action="store_true",
+        help="Inspect shared slots only, with warnings; not for inference.",
+    )
     p_join.set_defaults(func=cmd_join)
 
     args = parser.parse_args()

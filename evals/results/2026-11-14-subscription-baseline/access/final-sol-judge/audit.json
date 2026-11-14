@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "usage": {
+    "input": 26,
+    "output": 6,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 32,
+    "cost": {
+      "input": 5.2e-05,
+      "output": 6.000000000000001e-05,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.00011200000000000001
+    }
+  }
+}

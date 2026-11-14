@@ -1,0 +1,6448 @@
+{
+  "seed": 261114,
+  "trials": 3,
+  "apply_models": {
+    "sonnet": "claude-sonnet-5-5",
+    "sol": "gpt-6.1-sol"
+  },
+  "judges": {
+    "opus": "claude-opus-5-5",
+    "sol": "gpt-6.1-sol"
+  },
+  "slots": [
+    {
+      "id": "7e08c34f8c55d1f23157959e",
+      "case_id": "hedged-symmetry",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "41d4d44f75936dc70fe1857a",
+      "case_id": "product-tour-hinge",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3c190dca1277ca692208fdfa",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2bd17e9d626af7252c774f35",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1f2374a3a7497326da66b293",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5849acd1434153c97fcc5d53",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8cd137ba07b1d412c3000e5c",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "27592b93c4295509bbb94ccf",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d29625d1934628fdfe8d17be",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b4e464b847fd4bf7688a52e6",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5f5a95a501cdf90bb311c561",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "677bc2c1d016e04033128520",
+      "case_id": "emphasis-source-flatten",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2da312ce5e1887d6c2c4e360",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "da50b93573ef362432cf6727",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ab0e0203f7732f99f817f53b",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "79a384eb6aa86da958a8a125",
+      "case_id": "safe-essay-voice",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2bcf5035948e0cedd9405c4c",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4454b72f0930e41a63bbd17a",
+      "case_id": "em-dash-cluster",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0b1062bd88fbbc23fd36b131",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0d24c3d9680b9f679412b2a0",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "62bb347f09e239a37a685d10",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "44fe553c0af0dc2485363afc",
+      "case_id": "parataxis-chained-and",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4aba2673a88d180eeea2a9c4",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "f41181bbf01c9f9981b0964f",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "2933c99baa05062859a8d2d4",
+      "case_id": "weak-conclusion",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4402d1ac3b13a1f982f1440b",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ccc9283f13305bf33b15e8ac",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "412e97e766b1961786fbc9ef",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "779b49278636595415e50c85",
+      "case_id": "product-tour-hinge",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a0dbc986e6ba43482d951375",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "fabdbe5b47f94e2699ef5312",
+      "case_id": "parataxis-chained-and",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2fc8b76c7fe252788bbfea65",
+      "case_id": "copula-displacement-to-is",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ad549d5ef1d49f86c9e1956c",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "75a82d019976abf799c3744b",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "51bf97c34e18019bcff5df19",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "59fa06939f5fb69003070cd0",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1689609f04d1c7e523d94c38",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "45d9f0f868f1e833d1405d68",
+      "case_id": "stacked-rule-of-three",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3d4d396e7de7cf47ad247ecd",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "506a38a0989bfe9f80c01760",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "a3dd3dc99e7d8c71c1495d70",
+      "case_id": "product-tour-hinge",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "887b97fe30dd1867786bc215",
+      "case_id": "emphasis-source-flatten",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "eb76c4491046f1bf6fef830e",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a011fa2a427796c9938e723f",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1f8d2d2a58c3b82f6160aace",
+      "case_id": "pelican-process-relation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "621c5eeffc2462c3ab325614",
+      "case_id": "pelican-process-relation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "22b4edc8a7d2ff94c0178e7d",
+      "case_id": "carrier-bound-ending",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4926bdad7e72bc83d7318f5b",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "aae5b30e4159dd334cabfc17",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c79c710bd77ef97905b41a90",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5dd41687307a2e2f7a26e7bc",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5f5df178610d73c9ed156995",
+      "case_id": "carrier-bound-ending",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d71391fa5b30af649d96d3c6",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "d56ae801767e55e93d4045b5",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "07bb2604ed085bfbacd3f47e",
+      "case_id": "stacked-rule-of-three",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "025fc3be67fae2f3b097e23e",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "b0f600a20d6392046cb004fa",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3e76f311b10e9ba7bf72eecc",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ad3b220346431a2aa45d426b",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b920e2b899dea97286015366",
+      "case_id": "stacked-rule-of-three",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e0e57d8fc89419db28544c9a",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "efbb232c50ca90ff37f4b160",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d5f5b8c4a2b91695faee3c6f",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fce6de3a73533b7589306a73",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7c04d536334ca400023e9add",
+      "case_id": "generic-importance",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4b1a65483a9876e2e6853dec",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d7d567caacf625f388c78659",
+      "case_id": "pelican-process-relation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d7ef0760ed17fdbb3fe5814f",
+      "case_id": "copula-displacement",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "da39c855c82c12524899adbb",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a85989c6ff537c0f31e984c1",
+      "case_id": "carrier-bound-ending",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "888e2b7835b04380b477ce3e",
+      "case_id": "pelican-process-relation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "18f8508bdef63a9204330b22",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3c479d430ab691228606824e",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9e893fc9a243973181e78ce3",
+      "case_id": "product-tour-hinge",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "39ac5531af6c050527893f0d",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c59a8a0c550eeecd7100c768",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ae7b32e2a94a38167c38b782",
+      "case_id": "decorative-contrast",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f16ef6151d5f363d1d9762b5",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ae8191ae06e57b780c83ece2",
+      "case_id": "em-dash-cluster",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ba7b924f38b7eca8b978bb78",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5f409e6561293e2d31770957",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3cdd003bfc9f7f1764129a0a",
+      "case_id": "decorative-contrast",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "383bbeb1d2358c8da9a66929",
+      "case_id": "generic-importance",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cd2d6362ed0e471a9fbbc09c",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "f2a3aef62d674a8c88276fab",
+      "case_id": "safe-essay-voice",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2ea859566cd9d82c3bae9a0e",
+      "case_id": "product-tour-flow",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "437e46f318b088926378f58d",
+      "case_id": "carrier-bound-ending",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8067480f879be2e7f23cbe5c",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9126b5de46bdf40050bc1b09",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "30204f845038ef88095b4e34",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "acfdb857746445800e7ceb83",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a12c8b51e9d8d9b856e1717f",
+      "case_id": "tweet-taste-as-model",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a8070bf4fb4a6a11dfcfb2c9",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3e7face0339e66848f68e098",
+      "case_id": "emphasis-source-flatten",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "335fc0f4dd188e6febe3bd0f",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2d631aeb1f2e8e4c2497d4b4",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "001ad12b2904382c9590245d",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "47fbeb0202dda8ee1cea38ac",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "109aeace41a9ab5a27ececc3",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5d9e8b7f5720a647e4c37a82",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "c3beccd4f634d0e6b6d3d833",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "099e0ade4381d6ae5f0cc40b",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "84041172decdcb158d9d44f0",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2f9de3c36f1caf80a4f98331",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "fc4d43b84d4beb46063f7d8a",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9ce57d39b83bca0ee10f42da",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "0f37104cf65493d9ecc72965",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "470ce9a94f64e7a1192778b4",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5f3af8ac9942ab4a567862a5",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "9a7b30adcfa5ebbd82c77e7c",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ce57bcb80de6d3f8457140c9",
+      "case_id": "em-dash-cluster",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "510a0a1a442572ad2a386988",
+      "case_id": "parataxis-chained-and",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a2c61fbd60277291448e3fa2",
+      "case_id": "stacked-rule-of-three",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "18e7894602d2d65cc80930af",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "82390dec97677376374e4c06",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8a750eb0713f70e4e61d3b75",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "abe8b6db65128993ef4727a3",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "7a374ba87e00063c1d2d5b9c",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8b3a4dfa0a9ef0b8d2a27dbb",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "38f2e87867ce07ae7fd509e6",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c9fff1cff63034b243d17759",
+      "case_id": "copula-displacement-to-is",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "575c95f71d210488953af451",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d1726e14dcfe4229ea88f5b2",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "195c55c699bb1c0c2c9c98ce",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "be0df6452da14592cff32fb4",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "73c23584c585d7be038d1f7e",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "dcc5d38bd1f5ff8128706ef1",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f63543fca1150febf495de3f",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "c8c539b69550f42659ca4734",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d122fb68f3f59374e6125a22",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6ec282a58f28a85fac3bbdc0",
+      "case_id": "copula-displacement-to-is",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "dc63d413909e18a077539714",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0da7af7bd38ddb740649f142",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6e99e96696044070e798ec52",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5993dae7d27b6ce3434fa65c",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b8fe791dfb6d9e1ca4513bef",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "409a6f30cc2fa00591cbe99d",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "23e807d2bd65569a628f0815",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c0b6191c57f243dbf3738e43",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d8670d1398de67c0c6031d68",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "647d345372c229de738fd349",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "aa0388c7dfa96eb933926155",
+      "case_id": "copula-displacement",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "561efeb50c6e4b5285fa9dc9",
+      "case_id": "copula-displacement",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9755365fca751b00622c7ced",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7e44a2873579e8ebba6a6bb2",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a00fcd38dba7b9b548d0f2f7",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a25e9182282e773a56f3c55a",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b78840ca1448d66d60edca04",
+      "case_id": "product-tour-flow",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "90c4c2f8e7f3ec6fbb93c3d3",
+      "case_id": "emphasis-source-flatten",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d751bf67ae7d42fcfbf64e24",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7b671f1817f96e813a7e0112",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f5b37d0289a1eaf69aadcb36",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c75c4708f6340aa9c7a0b26d",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3d768734ddbb9c705171ea21",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8769b0696663ad057e8170f0",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "4e1e897534824cf08fe9aa1a",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8e07b84a3b32bf95f7fa4584",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "73593f8986a45a3f9a29cb21",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "13a34f67850d177312c6b5ac",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5fabeb9fe9835da47f11286a",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "7ab2454c368faefa30998b6a",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "52ac221fb1dfac3752d997fd",
+      "case_id": "outline-conclusion-template",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "bd44967b0cb3cbefa2ba6386",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7405a39b01e6f4d6beee2399",
+      "case_id": "tweet-taste-as-model",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "697b1109290b1bd190433e07",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "507a8cf93f952ed56960437c",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f66574475fd5179dede56ea2",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a585e1d7f4a9b6722698c404",
+      "case_id": "durable-execution-mechanism",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "442022ff60d149e5f8f7440c",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ae2319f2316eaf5d4da53742",
+      "case_id": "copula-displacement-to-is",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5559c855e0e969744f132653",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ba9e82da1020b1d7c360bf12",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d9fc69f4283dd462f72deec3",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "d42125969f7bb9f8d3fedc53",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7a5f1e95fb4ed4040e2a7a67",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4370a76b7fd91a4623add9bd",
+      "case_id": "stacked-rule-of-three",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e1f2096177670cafb2479ff2",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "14400e2ffa0901a1f63f10ef",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e304f5e80bd57090a44f243e",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7fdbbe9ed2c78ba49c059c94",
+      "case_id": "generic-importance",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "298731f13eff3e36a1b92504",
+      "case_id": "product-tour-flow",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "70e7507ed71be7bb5330c18d",
+      "case_id": "tweet-taste-as-model",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "52b77340e1263211bec7adc9",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "feca3ada529647dc37381cc7",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c5a55a6bc8d3d6e842987bec",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "af4a4553875ec1906eb5e960",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0ab677a04c80d7d167743a8a",
+      "case_id": "hedged-symmetry",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0fee2efaa543768eeb4e9a64",
+      "case_id": "copula-displacement",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f5d7687c5ed65d6fcccdc0c3",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e524c06a86aeeb54fa5b5f15",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8d1c2eb79085bc0555abbcb1",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1ebdd801c93ab378ca4bdd53",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4395df9e083a888305a46c6b",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5e5bc275d78ce186076bc16f",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "66327dffb72580635eef36f9",
+      "case_id": "safe-essay-voice",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "69627f6befc303f2849f2ab4",
+      "case_id": "safe-essay-voice",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e5c2f7673adcc399a4be544d",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d947a8447ad3ca5e05fbd3fa",
+      "case_id": "em-dash-cluster",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7d90ff7749c7011115345b4b",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "43ae26d9abb272d179e51890",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "49128d043b304497e2dc2f3c",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e77155a857cba2fb6ca5bfbf",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3982b73e925d996c7811fb30",
+      "case_id": "outline-conclusion-template",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a7f54a9b2da042200d0cf9d9",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "485e53e2d432340a488de8c8",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a2036eeee9ddf75bee6d8ff0",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "53c5d1d9a6e6a53a4e25f71c",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "25241bc7834a1d3013fa3e92",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e4bf1200273c000a684a271d",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f5186b7c627f09e988206bed",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "da16b7f3d8f38dfa63f6443a",
+      "case_id": "decorative-contrast",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "58bacc28c582487ca0683c6b",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3a8f729d1a9550b6a281e059",
+      "case_id": "durable-execution-mechanism",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "db899d2d6c028382868336a8",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "3980986d27fcc88e7c2d593a",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7e81e0cf5855ed9eac8e1209",
+      "case_id": "weak-conclusion",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f49efacc80ac8de092db7184",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7cbe7cb88b17c2ae8d730e18",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8da1a0906a1cf49d48842fda",
+      "case_id": "product-tour-flow",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "36a59bab22cc5d97b46ccc13",
+      "case_id": "copula-displacement-to-is",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cfb208a3438414ee1a0719d9",
+      "case_id": "product-tour-flow",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5b6e961286297189313898c7",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a40f9770d4f83c85fef6dd94",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e2b2c77fcddf4d3b24c973ad",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "afff205032658cf95d279143",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "1abcf28d1e228820846aff94",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f8bfa45ce331e9129a571840",
+      "case_id": "generic-importance",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "35be4652e7caf6bca0ff39b1",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e143b4c92ee054e503d5193b",
+      "case_id": "parataxis-chained-and",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7930012581ff9696f665030a",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a798578c1a22cf04a10a8ccd",
+      "case_id": "carrier-bound-ending",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "97463a329dbf74b2003fbc40",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3b9517f6a6fad36251f960d3",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a838560376b254051af262f0",
+      "case_id": "borrowed-emphasis",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "43aa83176a3a9472e41ecdda",
+      "case_id": "safe-essay-voice",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "694d91a55d1914eacd9467bf",
+      "case_id": "borrowed-emphasis",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b1974ef675f511ec6ecfe148",
+      "case_id": "safe-essay-voice",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "31e13d3815a43e7ec22cda7c",
+      "case_id": "durable-execution-mechanism",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9272568db7ec1218318d86db",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "9f033d19ee81e4fc75f65700",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d0ef7e0ac00b32d82ad7e3b9",
+      "case_id": "product-tour-hinge",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "29cb4b05a59c2624f99a3208",
+      "case_id": "product-tour-flow",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c7862e42696f682d3c2f7f93",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "93d813a7dbd8cc1d80900666",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a21a8596931db0951c124323",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e8e62f2fd2aff215f7a90dd3",
+      "case_id": "parataxis-chained-and",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d03fa234dec6fc90bd3c68f4",
+      "case_id": "stacked-rule-of-three",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "42fb60bac3240232a61b0ad2",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c76ac3327b8149693851e8f3",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d2044bee5df1961fb79d4e3a",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "81ede655c435afb875f8fb43",
+      "case_id": "pelican-process-relation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "df66c730eee52a4596f2b471",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "395c3de154d1e0bd80427737",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f15fb3d839f0c9d2d94cd66d",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "9fd0cb749f5b4ecd9d42bc45",
+      "case_id": "product-tour-flow",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "96e2fd7ef6539579ca8e0a0e",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "10d53d4ef4530a3c2f75ddd1",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "235f7b62552cc47e15571500",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "16d1de66a2d0347148611adc",
+      "case_id": "durable-execution-mechanism",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b63746e33cd23fc19005e9bd",
+      "case_id": "pelican-process-relation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1f572622deda9bdfa83beadb",
+      "case_id": "tweet-taste-as-model",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d4f8d6d81b988b918d34f3c4",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6d7b96139d170912ce3ec578",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a67a25e256611b824e194e89",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "c8609fb995904b3bf40890eb",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "a2ea344499e0c160507c4fab",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fcfd3be1630741bc62b27b52",
+      "case_id": "carrier-bound-ending",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b86622a90df2441219b3fc2f",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "034f062820397493d72cb7c2",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "6511abe196e046a1adb2bf45",
+      "case_id": "em-dash-cluster",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a15e1adbcc6cf2524c5321f6",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9c6e11a1122a80a82e62710c",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "825c8968a0ea2060fda5a5e2",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ee117da5b30562fcc5bdd3ae",
+      "case_id": "weak-conclusion",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1259375b371fbd887767020e",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5c28880d4d7d687469fe618e",
+      "case_id": "pelican-process-relation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "75f0b9682a6e39d9fce2b411",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e8571b2a6ef1095a9fab891c",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5100e4c23768ceeab9745d4b",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d5b4fc7586d5238785c33328",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "eaf8086beebdf3a9a8bd1d26",
+      "case_id": "borrowed-emphasis",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4b0a45fdc44cd525cfa5c9bd",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d41bf8206aaf3f06cbca8787",
+      "case_id": "generic-importance",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ceb04826a16b0f52767d7305",
+      "case_id": "borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cc515f5997e5b8ce3d3ebd1c",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "75540f13c524e7fc16d0c463",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "efc82af4ffa739372fecdb33",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cd7a37b1d51883b2c6af7106",
+      "case_id": "copula-displacement",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "af925247d3cd282c27229cf5",
+      "case_id": "outline-conclusion-template",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f1fc1fc75f6999f7a2195034",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "21bee4bad2a50cff88377cfc",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f929fd31d3f2b63aa9e30b54",
+      "case_id": "tweet-taste-as-model",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e16463ba4cf52c4630d70b27",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1f4f4fc665f8bd7781fc4b04",
+      "case_id": "safe-essay-voice",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "96d692a25565bf4a5015676c",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fb3cfa0a1d1b89adb721671d",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "839095fab2de01d8ce0e513b",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8e7830e991ad6ad0178bf5a3",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f886d9f17435a6b03adc227d",
+      "case_id": "hedged-symmetry",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "912138677da0d26e1d278ff5",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3b3084138d583ff42018565a",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "648704208d729a9f562c6a3d",
+      "case_id": "copula-displacement-to-is",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f175f4ff1dc9762bade872bb",
+      "case_id": "decorative-contrast",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3048857ac1ae10c35236560a",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9fdfe6d0c26e965cb874c09d",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "25653952564c1db6d3c29d18",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f302d48f192192582003dd56",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "3d6cc2bbbdf0469133822cf8",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d38c88ca23b15e53bd9d218c",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a0435f73d736a8e2fe1f769d",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "1f6827db5ec1b0150a375884",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "2c5a4cac7c54a1de059af3e6",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "89ff966f201d388ae3a94de8",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "66b98af940c41d727489fbc4",
+      "case_id": "tweet-taste-as-model",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7b01ca7eca23ce41a8e47542",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b78cc0eceafa0975c51fff8b",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "59411bad57e0f0cf5164541f",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "188b56b9f894aeb212f33ef0",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c7938e3a7c45aa823e4d793a",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "67fe4516b858c563c9f14bbb",
+      "case_id": "durable-execution-mechanism",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8ae263f446141246435712fb",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a6d8d7dcf79e813f9b050f53",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6e9408e144be924e02f07be8",
+      "case_id": "copula-displacement-to-is",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9014720968e22d722621bd9d",
+      "case_id": "decorative-contrast",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "89578ee359bc0eb57a689916",
+      "case_id": "borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3a54c87db687e9221a70c20b",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fbb962eb88c90410eb018f07",
+      "case_id": "stacked-rule-of-three",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b5cb9234ee848450e6d53dca",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d2aab9152e75b934eb8c59a3",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "289fb925e5850b6ec61fe626",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2e9c52990d9240ac20ec872c",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2601a4f3f7a730ef1d5277fd",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "88e2fba5297e9eec61ef21ac",
+      "case_id": "carrier-bound-ending",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9cd9945feda7a20acfe79be6",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "96b9e7fee649a81a648ddd54",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "ac727ad371b573bb4225a098",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3ecbb7a363770d45d23bd1db",
+      "case_id": "tweet-taste-as-model",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "44c3c77b911560684430ba0c",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c973ecf36103216bd203d1aa",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "360b744aca9425b3b6ddfdb1",
+      "case_id": "weak-conclusion",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7b08338fcb633afd1fbe7dbc",
+      "case_id": "borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "dbd0aadac9369d849607d8f1",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "9ed76037b6508989b6b59b02",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "638d495aa8494968067944ea",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "170ad6f86a392b2c702cfc3c",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "67746d768376ad920518b20c",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d81073fe1bfdc13683214021",
+      "case_id": "em-dash-cluster",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1ce0383206f487515c44cc60",
+      "case_id": "product-tour-hinge",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6ebe035911114b435ee47547",
+      "case_id": "durable-execution-mechanism",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2c0c5bb5f37800fdc9517696",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "292e9368cee36df67dc6c819",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "daf7f6f84c27f74f05ca1e50",
+      "case_id": "emphasis-source-flatten",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "94f53888a43323e572000363",
+      "case_id": "tweet-taste-as-model",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "64c2d2b3a3c1758de423e04e",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "7f9e7700020f0c3e351c5c78",
+      "case_id": "decorative-contrast",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cc360e0a1f4debcc8b2946f0",
+      "case_id": "weak-conclusion",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "41ee5c5d6718167aa0d166d0",
+      "case_id": "hedged-symmetry",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "aec25e419b5da97f648d7b4b",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "64ee63cb1c8038276680cd3b",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "af44438e815bd599191a8b3a",
+      "case_id": "durable-execution-mechanism",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1c254dca77ea0779d38b3e1d",
+      "case_id": "hedged-symmetry",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8e2777e77bc74f3eed845a45",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "823536761f255f6eb093da4e",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "261b86f2e89d969e13e371f8",
+      "case_id": "weak-conclusion",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "31cd08b41edb64fd30d61f05",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "76ce9a81215a669580bb17fb",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5985b4e5aaa6f611cfcf3848",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3cc5ae35e2b32a26d479690a",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "6f04ee8086d0176c8d305a94",
+      "case_id": "copula-displacement",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "87059b008a960cc511039aa6",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "523ab8d7359d00cf3fd1135c",
+      "case_id": "durable-execution-mechanism",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2e7820dfe73c57141b855c14",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6afabfeccf70b2e65affda65",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fe1373c2b6fed43593227ba3",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a95ef6d465c25fe07a4f3125",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ba511f27d2e9ece3d6fddba7",
+      "case_id": "stacked-rule-of-three",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0c6c2043e6cd05e72c642711",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3f68b68e6c98ac0e35de38f6",
+      "case_id": "tweet-taste-as-model",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b6c5b573b5bd29b61605b1bd",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b9ad5f4fbc219b7e55160aef",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7826978d4a9d8d4ac00a37df",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "625fa093cfa3efcd7fcbaf55",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8dba0d227ad4019ca4489e65",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ab721a396b24ac14b2fc6400",
+      "case_id": "hedged-symmetry",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a66d14d29b7b3c501c7e7ff1",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c78b3ad31fbc0abbd3e368c5",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f0773ea8dbebcb6a2f355db9",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9c59398f7381a81317b30a13",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8878b959bd530dde1c9ac713",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cc356ea1c6eb63a543f9b37d",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9e58fa2d2091e8e569ed2521",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "722d41c10c27627d02f9a07f",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "7c733908b94eddfad3f36bb5",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1b2d90b5eac0dce5f2f5ad3c",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2daac4336af10b53b9050e19",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ba9857b55f5e942d304eb2c6",
+      "case_id": "carrier-bound-ending",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8ae344ff4e2dd6a60f55b2a8",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "983e4672d73c3d0c1c897875",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "2da30a5a08ae381bc948d53e",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d936cb321290a7be47ea060d",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "093ffef15a3e98df81b1a68c",
+      "case_id": "outline-conclusion-template",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6a30c682116ae2a3ac8ae742",
+      "case_id": "product-tour-hinge",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a655a29c3b3a460e5b7465b5",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "07cb370eab7f3815e338bdd2",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "db758e07ff226e1e35c9a5e3",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9869bd06aac46d83c9014b86",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "03308014389e939ba0537448",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e2d0eb2f658434664bb71715",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "45548ce0ebbc029de2b54af0",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "319bc5eb711ea6b989ff0a25",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "d7eaff42e568fd5c356647fd",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "694fd62ace37d1aaacaa32a1",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "65b823313d25af72d44e4f90",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "df01073aee3fa708185fd768",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "aa5889c8078bdb51364ff91b",
+      "case_id": "product-tour-flow",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9274f769d293cc05a5b0be49",
+      "case_id": "em-dash-cluster",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6ce2318eaf3a9d3d2ad841b9",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "dd2d79be1733a8b5d2667234",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "96bd87a9eb8513764d64ef86",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "dc4ce03a34851549b27cf7e6",
+      "case_id": "outline-conclusion-template",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "87561178a454f2df3133a328",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6e5b8bcfc7024678184309ce",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f5d5896f586876bbf0578935",
+      "case_id": "durable-execution-mechanism",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "541a7bd3a02618058b7a0f8f",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "17785e76daafbd6357908543",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fa7701e975a291b3c462d690",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "14bb583158229f2432e4e85a",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c1c9f1be4efb80536adda75b",
+      "case_id": "tweet-taste-as-model",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "47636eac60e7cdc426369c52",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "51ceb4b7c6ac93c9532cbd24",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3d06ef59893e1540576900eb",
+      "case_id": "parataxis-chained-and",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "248708876fc4640b023bcdd5",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1af7cd0753b65a6e896b7a23",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a45ca85c28a98c3956d3a8b5",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e2f96ceda919e887dd0e9110",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b847fb4e512dae0fbeb88f98",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "a8110ea171265baf2eb9112b",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1682ace6acb5cae07c3fc1e0",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7724879970f70f4a5daa1529",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2c6da23343242d72ceb2ceec",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4aef98827867b4fe9bb4d5c8",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "605aea77ea73057ce463050c",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "658e842acf00643de39d0ea7",
+      "case_id": "copula-displacement",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3b4cab5bbca2f803982de6d2",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "db9f7bd1a310a1e6b2c2ed99",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "983df77abdcca31535ce63ab",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "999e8c9808fa5e1224fcf4c3",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "edde59301eff2153477e5a97",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8f1fbfa7d96e6d2ba2436dde",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3112ac913dab1d2cc6eb2298",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4780fab215b0828dd31ef122",
+      "case_id": "generic-importance",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a8ddfa09f7647b3c624fcfd7",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a174fe091a350e9ed89eee7a",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4d1c1f569b7cf85bcb5236d1",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9aa4ff8b390a031d099f846f",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7af7d6d7f82108955f5f5839",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "54f170ef9104f15c18cbec8b",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0ab06ffc25b00806c2bf16de",
+      "case_id": "safe-essay-voice",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3e13cd04e2d7eb61ea98b318",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ee7686ef14b2ffbfe822ba5e",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "724101f5b7b72a5fbf240107",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a688aeb4cb5a7963e4dd820e",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3d493c437cc9a842b4a41dac",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "2ddf54321dae08708cd20970",
+      "case_id": "decorative-contrast",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d3601727a785a38a2a3e417e",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8decce9fb34644b41a3fc068",
+      "case_id": "pelican-process-relation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c677a45095fa117d1e5fe695",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "83f5ac4915fe878ed4b9de61",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a0648dfafeb71ac261039da6",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "2b725f6ba55d5e713e1d935b",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "222e6e80db0c0bd31d71a9fe",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2f69da20fd9c83699fe40abb",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2a2eef7247eed019398c273b",
+      "case_id": "safe-essay-cut-or-concretize",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "48184cf71444bb5554b98e67",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f7d3528043773b6628c87677",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a378c64e6a1f1cb4bd2379a1",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6d3da76424a915c6f328bb00",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "24d05690bf6d4907ce6d1445",
+      "case_id": "carrier-bound-ending",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ac4e793a4098b23df346e7ee",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "044bedb8202ff8eb82cab111",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "be7c3758d4c58a7aea5aca1e",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1340f4f13c266f9a493cd908",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "d29c6a5c111948b19f45aab8",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8fb89e495f8e90356a2bcd83",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e5d5bc42573655b5d4c98d2c",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "67e404436a60c7be8901ebe7",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c9a3aa8fc3b4994d04556dda",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5012ae433097ce79a44e01da",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c993659df272eaacfaa30260",
+      "case_id": "copula-displacement",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f2d20f345c261580b9c20b7b",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "41c81af873a2993a9a2006b9",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3b50918fae27884d369cdf8e",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0a6f38ac4e3ac218bf6c147f",
+      "case_id": "em-dash-cluster",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8ae2c06cc5ef68f627ff4a84",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7758dc02ef33f69585d86ef2",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d5c3bf9ef0d7667fb0315fca",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2ea313580d0baa7d40030370",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3d15d73c9e60b6319c16067a",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "408f52287d37b41294272f57",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "582a9aca0e376e437f1e917e",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ab17e9d1595217e9cc56ebd7",
+      "case_id": "weak-conclusion",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "262090417c21345dacac3ce8",
+      "case_id": "product-tour-flow",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "743add51277c55b3fad82682",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "87ce231e657f52e227c1e602",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8850f4045ff2670925b1c529",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "68f64eaf96f1e512eb8f2b2d",
+      "case_id": "hedged-symmetry",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2e26389fbd00bff4b2136973",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "770f05075cc55e7e3a5ee0d3",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "205afa2373d5d59d17d073be",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "66eb8d95802508eb2691aae1",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6c2026582f43a465f630b8d3",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "91fe4c00e4dad776c25fdbdb",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "84578d67843800266b5f67c8",
+      "case_id": "pelican-process-relation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "98a0159d1d69a75debeb44cb",
+      "case_id": "safe-essay-voice",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f0ef4d83b71db0e885e4d2e8",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5f7bd25dcb8008bba71fa4b1",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "40d80c0eae9fa1d9631bb7c4",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2f45feef55e5ba32d1ab8bcc",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "ff5386372e06a3bf24210dbb",
+      "case_id": "safe-essay-voice",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c43d91bb039e5a0460ca5caf",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2f24bc77ce279ad8f040a4f2",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3a5b2cccfcf69ee3ca6e1476",
+      "case_id": "carrier-bound-ending",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a443d2dfc1a72d76dbac2a48",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "146a17ff48a9545db98ff7b2",
+      "case_id": "weak-conclusion",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4ff73511721aa825955203c2",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "faee92792bb0b0759221460f",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ebea79147dc72c123d2bc5fa",
+      "case_id": "copula-displacement",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6af5a1d34a496636e461a13a",
+      "case_id": "carrier-bound-ending",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4c7aec5932f3802529916e47",
+      "case_id": "emphasis-source-flatten",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3986d6d215978af25979970b",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "555f8cbaff1df4c8df2286b9",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "3094dc998567ede8c306eb37",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "962a0a7ba0a9ea116bb4d1c1",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1f56f034f800e3f1734cd4c4",
+      "case_id": "hedged-symmetry-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "49db81a9b11223964fe94d99",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "97aa2c7ad42eb250d1d0284a",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "46de3c1770a040e4289a3e18",
+      "case_id": "generic-importance",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "948c10501bd71a85afd12d47",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "49bf7d4252b38b6f93459fbd",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2791e764c1604c215a7d0936",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "269f03df545b7cf1f2ec8002",
+      "case_id": "generic-importance",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2964b168120c310c3f3fbc1c",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "a8e72233955de5f45c80ad0e",
+      "case_id": "borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0dded58453227cea4367448b",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "78151229338ef35c5d6bf8ea",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a7f7becc663be764728af0a5",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0942e3b299a4277e5f0812bc",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "1fa595b2323a6e7c2858f9a3",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8e4ca3efe9c1b8489c46865f",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "39df3c701c171fca737aa9a1",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a68eca7999f4ac79c87657c8",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0e0accd58a8bbfd3d09e24f0",
+      "case_id": "copula-displacement-to-is",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6451d1f8f68385cec786a5aa",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6169774f26a71d5e7faafec3",
+      "case_id": "product-tour-hinge",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "128a1068da46c5e2d644ad73",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "67e1682f8ea10093aefd4acc",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fd38d3d7f3186c3a259afaf5",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "3f2724681ebb5051282ab94b",
+      "case_id": "product-tour-hinge",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "95935cbd28c875264e0f85cc",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1f2e658ce859cc9683430053",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ec06c3592803180997a6a411",
+      "case_id": "generic-importance",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5ce96db4f38615f0ad4e726f",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3ecea437faeb079eb4befca4",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c27ef71122debcdcd06a1c83",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "c074644cc7d50ee66c900e76",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7bb7232a5d2182e8b3e8b921",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "05650ab94aca5d5f8235b772",
+      "case_id": "decorative-contrast",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "94c63dec5dbfbb7c66428678",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "356d3be444db013c9f4089ed",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1828017a156aad2bc2cef3d7",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f3b449659bc468d42c853146",
+      "case_id": "hedged-symmetry",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c16632c0f19b73498f881090",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fdae30ffd56861f01bdc3437",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "06cc209c8c60c6cfc81a0087",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e6fbdfa735c83b7f8ccb326d",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5878438e15e271aa78fb9ef2",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "320b401fa8eb70bea24ec270",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "68b35a59a00b3525be3b3f23",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "58ac339f7b6cfba54546adff",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6aebd9fe6c301ffbad1c5372",
+      "case_id": "copula-displacement",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0e7dd4f25b0a0b36512a78c3",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3ddbb2abc48765e6776f84c5",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6a1e8b5aeb9d2ec7cba22f47",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "47f66b4a13b5b96b5a5f155a",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "6b0dcff270541a9e86256adc",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a293b7ae6a9cd60250906977",
+      "case_id": "outline-conclusion-template",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "86abac1f2aae5f5e2875aafb",
+      "case_id": "outline-conclusion-template",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e6d0a104e5a31094e27d600c",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "b5e6bbbb14502de705c954a6",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "fbfea7645b004bd75f5b77b8",
+      "case_id": "product-tour-hinge",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b8e89a942e2ba6fb82e9dac2",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c7288d4cc6a77f4ee7a2e3ef",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "ee5d601bb5807e86f130ce81",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6545212a65af18edf242cd8c",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b6c3372662d67d0deeadfadf",
+      "case_id": "weak-conclusion",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2bccd96fa808aec4d2d88e68",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5d909b3d16af21a7e0c31d0d",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6c0c590db898bf9c026f0d15",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "f6071e98955c52e9e1e53e6d",
+      "case_id": "stacked-rule-of-three",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ab6796fcc8f9d39cf1e47463",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2d023d33040278b5be056e8f",
+      "case_id": "product-tour-hinge",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "84d99b5e9d1e4a0351c71109",
+      "case_id": "parataxis-earned-but-pervasive",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "05b4fb673efe2952ded74695",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c47b4ca4d6cfc577cacb8ff1",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "82e724e4552ab6044ce4af7f",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "67cfe914361bcacb958b3654",
+      "case_id": "decorative-contrast",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7e557b128d4944ecb4b3d54f",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7ae6d554ce6109ead410f8d3",
+      "case_id": "borrowed-emphasis",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0937af75b82c9e4392533f8e",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b95ca9779d7ae53516448dbc",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c0ad442435bb6e46c06efeff",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a4c5daf6c94288019e26fca1",
+      "case_id": "borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e98634468c5f6caf6d4e61d7",
+      "case_id": "borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0bcb1d1f9ade3daaba598919",
+      "case_id": "hedged-symmetry",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "155c5587806cb13e10a81f11",
+      "case_id": "stacked-rule-of-three",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b37ea6798f0237f019d72d65",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "e5093d20d94a42bd86b52249",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6e59a848bf5ad3c7507f02f2",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a9a696bca5559de9dded936a",
+      "case_id": "parataxis-chained-and",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b1fc2800984ca3ebb31f3a31",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "9f31ab6a54d74987c045b5c7",
+      "case_id": "tweet-taste-as-model",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "dcc00ff51c481fd73ebe184b",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9f01837877e64f56cc1ff66e",
+      "case_id": "emphasis-source-flatten",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "67e6855319420d4254a2e817",
+      "case_id": "parataxis-chained-and",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2a384fb772cdc4cada5fd027",
+      "case_id": "outline-conclusion-template",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6ba42143bf0d0990c341cd8b",
+      "case_id": "carrier-bound-ending",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1d442ab74c7026658ca1bfbb",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "b80c489edd910a8d02027868",
+      "case_id": "pelican-process-relation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "237e7b25293814e4f530d7b2",
+      "case_id": "hedged-symmetry",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5423eb8516ac72421437a585",
+      "case_id": "stacked-rule-of-three",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d80dc4761d6aeced7c41950b",
+      "case_id": "emphasis-source-flatten",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c77618c9b1b90dc413a7b1f4",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "82f248c44f48d7bfe240a84d",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "abff323f66e1c27ab0c0ae5f",
+      "case_id": "em-dash-cluster",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0a71359c66649ba46b3224b1",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ed570744bf4ade8e7d3dd9f2",
+      "case_id": "multi-issue-output-manifest-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "eaac2b0c325b108862ba6de8",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7dba56575645b6735baa9302",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a066c613bd4a3e2218085d52",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "02258c91099a27faa5ae74a4",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a5521974dbce17947fb2a832",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7654b7526d205015902f6d05",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6a254a2a8321a33bf1177d1f",
+      "case_id": "parataxis-chained-and",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ecc3bc98467f52a1f240df33",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "129d90e0d0969d591dd9cdf8",
+      "case_id": "durable-execution-mechanism",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2656fce88e6b751fd68a5012",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "f216a8a282abf62281541397",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "07a0eaee29ceed1203af33df",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "762c65d23c3200b1140c54c3",
+      "case_id": "product-tour-flow",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "bd8d7a6d6714601325810b08",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b0b9ac576834d031d22bccf8",
+      "case_id": "outline-conclusion-template",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "648dc5a50e59562c6f2cb9f3",
+      "case_id": "emphasis-source-flatten",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "10aebfc8660cc74e26d3b041",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "797060a8c4913ec39223bace",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "73fdba22448c2a9dfcc01f3b",
+      "case_id": "durable-execution-mechanism",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f7b2a2f50d8563865deba29f",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "933ffedea3725b6bcd7680f6",
+      "case_id": "decorative-contrast",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a80b8eb4e7e12829c666caf1",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ae2279b6b5c52eabfd1b8c82",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "41a7e69f520c24777395cf9f",
+      "case_id": "decorative-contrast",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d5dd106f938f0e2160462a11",
+      "case_id": "em-dash-cluster",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e803e6f4024a54207c7c15e7",
+      "case_id": "parataxis-chained-and",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b8ee5024ce95637f7af18c24",
+      "case_id": "copula-displacement-to-is",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "43fb3cccf6c0e909890ddfb4",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f07d0deea6f8646ce72d5ad8",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "de2e0476cda03df9e9545dc8",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "22da5d816d14492607fce82e",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f09c5d31fbbd60be7d24a63c",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "721058cdeada241e794a92ac",
+      "case_id": "generic-importance",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7569ff2808a59299d2293a54",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "5d64ae97e886697535bf8d39",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cbee2676789605f80c8febe4",
+      "case_id": "product-tour-flow",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "084814c80fc71039d4182db1",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "72a4df51cc4042d644e4a371",
+      "case_id": "product-tour-rewrite-developer-tools",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b9985ddecf88233691bf344c",
+      "case_id": "product-tour-hinge",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2d96d5d3d76d54a4912d1223",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "150c95352037d6c36a3a4c2e",
+      "case_id": "borrowed-emphasis",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "07293a3e39a3de306f151b6b",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5537799d16e1e61b732423ff",
+      "case_id": "multi-issue-output-manifest",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a7d24859ee8e2183de64af56",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a46e198865c3b81e7a43a270",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "42d21a27a726761d6d73f6d2",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "a55b440dafeaabaf2f13a1c3",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "788f4c4565a6d7649a157b4f",
+      "case_id": "borrowed-emphasis-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "be1ef3e907221ca14dc4dee6",
+      "case_id": "outline-conclusion-template",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "92c6efabd5aff49d7bd010aa",
+      "case_id": "emphasis-source-flatten",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e2eb30f6e4066c52ac4d1926",
+      "case_id": "outline-conclusion-template",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "59f9fe2785386c5b23e395db",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "453fa6310dc35986bdf0f9fd",
+      "case_id": "hedged-symmetry",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "aeeba462ff3b97c652ca7708",
+      "case_id": "parataxis-chained-and",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e18ca7fb289fbe2a34f17e55",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9d3a9a7fe5f1da83229e1449",
+      "case_id": "holdout-alert-triage-transfer",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2c50397b25b662e3cd5ea761",
+      "case_id": "copula-displacement",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a249f677e1d94d6ac9f30a78",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "eb7da1e56b9f74fd93a07311",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "a4c76dfc2d0ccc55105d37ff",
+      "case_id": "pelican-process-relation-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e9fb42ce7e31bf24c3dfe92a",
+      "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fa520d98f1feb85addf4fa60",
+      "case_id": "pelican-process-relation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "bea1d3125e2d4d4a88d1cc83",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ace003f25d3d84e4700a1f85",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "20185649cdf50b6f98a05db5",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7ee8cfab26a8a81ab296cc1a",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "64e5ee9e34b515f6072ec7b1",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e7c6d10b895ebabf8a43ab8b",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3b6406db8b54428643994b57",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "a8620811b3d6efa99c00513f",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "586cdfc4046f6608724b58d2",
+      "case_id": "borrowed-emphasis",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b58c76205e0ef0fa71e1ba3a",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "136eeec88adb345703a599bf",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c85d4a4ca006483a07543da2",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "ea16bf1ab49b5c9ecb8ad024",
+      "case_id": "em-dash-cluster",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ed32d49544dc141f850f75da",
+      "case_id": "em-dash-cluster",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "8983e087e291ea53cc986f5b",
+      "case_id": "copula-displacement-to-is",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "dd73a655a23d96b91c5d0fe5",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "759da980e8e5f553783f6100",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "29d5f24cd2be02b62550d9ac",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "8f4e8694e1616d48f311adac",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "edd85d466ef168a15b6cde80",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "b465290644158cd2ad86995c",
+      "case_id": "product-tour-flow",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e465171211e3f8d277eefeba",
+      "case_id": "copula-displacement-to-is",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "73effa8d040e0deb741035d3",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "895afcad771babae91c64033",
+      "case_id": "generic-importance",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0a604cdccb72b6d692b6029a",
+      "case_id": "safe-essay-voice",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "1417c8d289e2dd12862ff817",
+      "case_id": "parataxis-pervasive-closers",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "9f2d356e20e38d47af7c5dc1",
+      "case_id": "stopslop-thin-content-cut-or-ask",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c34180f402d8c8f24ce5860c",
+      "case_id": "pelican-process-relation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5ad05379f38376cf1a6d1374",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "bfa5464f5104f39d7d10171a",
+      "case_id": "copula-displacement-to-is",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a12afe2c1d8c2df838deda1e",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "68e48c61ff22b3661a59551a",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f74013f92eb04951d04c6611",
+      "case_id": "generic-importance",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2f767c4cdd4e9be9a7cd66e1",
+      "case_id": "parataxis-unstated-relation",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ea4e5c52476d6c4faca7f064",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7ca782d380bdbf8af17bc927",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ccd451018a90bf96b1c623a8",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "548af90a85959e91f63af71e",
+      "case_id": "abstract-system-noun-stack-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "4fccf7d212b1b347ce93b2da",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "fb8586be5f2224ca317845d2",
+      "case_id": "neg-earned-antithesis-translation",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "180b9dd3af099e09e92233c1",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e29e53558d5acdc6c5f7df2d",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "17358572d8e7eb33350ca9b9",
+      "case_id": "parataxis-coordination-hides-cause",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "749d3b041f0033da7c105709",
+      "case_id": "decorative-contrast",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "94f9dde3dbf07faf544eead4",
+      "case_id": "emphasis-source-flatten",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f2247232a5f12c423481a145",
+      "case_id": "weak-conclusion",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0470767e45b8627837afbde5",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "378e98b3b5a01bf31246c2cb",
+      "case_id": "outline-conclusion-template-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d6c272fe36cd5abcd7bca539",
+      "case_id": "fake-precision-unnamed-source-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "aa67a4fd1d5de94f9a9a4ae1",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "388963dc7443c3ee3db36d40",
+      "case_id": "weak-conclusion",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6bfd91c5a507193d9ede498c",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "01dc40bbe1f8d1d8deab0d8c",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7070536bd4b7873e4fe4aaae",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f5aff8b8f941eb3f2dd8e560",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "52dd8fa83e18d6560dac977b",
+      "case_id": "copula-displacement-to-is-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d42930ed0b306341f129a796",
+      "case_id": "outline-conclusion-carrier-bound",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "aef0f6fdaddf0d67efa7afc9",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "ebe4d4d3867cbb7fcc0fab40",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e40bc5e00371d0d4931fb215",
+      "case_id": "tweet-taste-as-model",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c0009f24522bc69815ff5750",
+      "case_id": "safe-essay-cut-or-concretize-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "38d7989f1e64ef90072d4bb3",
+      "case_id": "durable-execution-mechanism",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e5bb439a2a00b6510e8f3c67",
+      "case_id": "emphasis-source-flatten",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "812de720e277c22f1ec1221b",
+      "case_id": "decorative-contrast-with-facts",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "594e7630f8be6a8675959dea",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "08c81fc1ae25cae933398eb1",
+      "case_id": "fake-precision-unnamed-source",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "cac9937b2036afb1f52e17c3",
+      "case_id": "hedged-symmetry-commit",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b70467e69826c8933fffe106",
+      "case_id": "holdout-copula-hedged-outline-combo",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "102a889dd448a201645bbc49",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "6a533796eb74b76cf83128cd",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "37e30b74d2cac8c1505b0c5f",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "018ec6845271475da0a6dcb0",
+      "case_id": "holdout-borrowed-emphasis-release-safety",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5e0c6e76b652e041613b585c",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "51a5739f81acb80d9275be53",
+      "case_id": "pos-decorative-antithesis-readme",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "89a8d8cf17c7a29a423d28f5",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e118dd57380fb9c80aed16f7",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "adb5035fcdb1ece37b8b14a0",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e51f35d072a1d75242dbf685",
+      "case_id": "safe-essay-voice-with-facts",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "3cb9960c1f76c95d13fafaf4",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "49bc3a774c8a62ad62b9538d",
+      "case_id": "abstract-system-noun-stack",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "d7361c2e0d9d88b66c9060ca",
+      "case_id": "stacked-rule-of-three",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "2e8a1553e661af8c0bdcf5b7",
+      "case_id": "safe-essay-voice",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "84acabe91e4ed1bbefc07044",
+      "case_id": "neg-earned-antithesis-bridge",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "20365e8fb2a23289ad4bd04d",
+      "case_id": "pos-decorative-antithesis-changelog",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "antithesis"
+    },
+    {
+      "id": "319d4ec206eb33ce91687fde",
+      "case_id": "fake-precision-rewrite-finance-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "55de73d0cbeb13064fcf112a",
+      "case_id": "copula-displacement-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "198b2b094d84ae84c63e5843",
+      "case_id": "copula-displacement",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "214404070d5347c070704227",
+      "case_id": "holdout-ask-author-ai-tooling",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "be20355c30d002dddd8e93bb",
+      "case_id": "neg-earned-antithesis-fence",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "antithesis"
+    },
+    {
+      "id": "0954162b802f1ed07e68e5c5",
+      "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "c9c2a8fd30df0f8eb99f06bb",
+      "case_id": "holdout-ask-author-ai-tooling-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "78e433ba0f65557822a064b3",
+      "case_id": "rewrite-reuses-flagged-pattern",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "5d5516066286582f48024847",
+      "case_id": "neg-earned-antithesis-archive",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "0b31ae7123cadae641ada708",
+      "case_id": "hedged-symmetry-commit-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a4d89c5c24d590d5ecafe334",
+      "case_id": "outline-conclusion-template",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "f5d65e49c18b58e9b3a69e21",
+      "case_id": "neg-earned-antithesis-syllabus",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "56de76b53337a4b32e4c346f",
+      "case_id": "parataxis-chained-and",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "b8298d5b293125b9d62bfbe1",
+      "case_id": "rewrite-passes-own-slop-detectors",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "a7a3e865ac143c71393958e9",
+      "case_id": "paragraph-scale-borrowed-emphasis",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "abde32ba1a7d7cb5035e071e",
+      "case_id": "weak-conclusion",
+      "model": "sonnet",
+      "arm": "skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "7c61838b87d3cb2113481cd5",
+      "case_id": "neg-earned-antithesis-growth",
+      "model": "sol",
+      "arm": "skill",
+      "trial": 2,
+      "group": "antithesis"
+    },
+    {
+      "id": "232a174e83f05ac9f18d8f53",
+      "case_id": "emphasis-source-flatten-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "60b7a57998f96948bfd03655",
+      "case_id": "fake-precision-rewrite-finance",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 2,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "e0314a884ba4e2e999c46d01",
+      "case_id": "hedged-symmetry",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 1,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "6e62170de57b1d04e78195df",
+      "case_id": "outline-conclusion-carrier-bound-with-facts",
+      "model": "sonnet",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    },
+    {
+      "id": "0e43fe8e65d44f9607d5f7e1",
+      "case_id": "holdout-borrowed-emphasis-release-safety-with-facts",
+      "model": "sol",
+      "arm": "no-skill",
+      "trial": 3,
+      "group": "review-rewrite"
+    }
+  ],
+  "cases_sha256": "7235f77bb09626b705558a116b0a3aa3f5e0eb0f0cc4099b9e3160b89cf900af",
+  "skill_sha256": "3e70adc7fab8d491d934c6c2370b15a3eca379e8da00b475a6009311e5b9972b"
+}

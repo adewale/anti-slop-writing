@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14 — Verify grading coverage against frozen worklists
+
+- Added `grade --worklist` to check complete assertion and dimension coverage, unique indices/names, non-empty evidence, and case metadata against the judge file from `prepare`. Missing cases in the selected split fail before scores are written. Legacy grading remains available with a warning; trial-count audits remain separate.
+- `join` now rejects unequal slot sets rather than silently comparing their intersection. `--allow-partial` is an explicit inspection-only escape hatch. Boolean dimension scores are rejected.
+- Added regression tests for truncated/duplicated judgments, missing cases, changed metadata, reordered assertions, repeated-trial case IDs, and missing comparison slots. No eval content, installable skill files, or model results changed.
+
 ## 2026-11-14 — Review facts-supplied eval pairs
 
 - Reviewed all 19 new pairs, including five holdout twins, before model scoring. Kept their prompts and facts fixed; labeled the added scenarios synthetic. Missing-fact graded rubrics now accept precise questions or justified cuts, and no graded dimension requires a named self-check field.

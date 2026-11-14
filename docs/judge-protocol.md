@@ -60,23 +60,39 @@ keep these out of apply units. Each facts-supplied twin and its original share a
 For example:
 
 ```json
-{"id":"case-a-trial-01","case_id":"case-a","family":"missing-source","suite":"evals.json","split":"tune","word_count":42,"assertions":[{"index":1,"pass":true,"evidence":"<quote>"}],"graded_dimensions":[{"name":"fidelity","score":5,"evidence":"<quote>"}]}
+{"id":"case-a-trial-01","case_id":"case-a","family":"missing-source","suite":"evals.json","split":"tune","pair_id":"case-a","fact_condition":"no_additional_facts","word_count":42,"assertions":[{"index":1,"pass":true,"evidence":"<quote>"}],"graded_dimensions":[{"name":"fidelity","score":5,"evidence":"<quote>"}]}
 ```
 
 ```bash
-python3 scripts/run_evals.py grade judgments/*.jsonl --out scores.jsonl
+python3 scripts/run_evals.py grade judgments/*.jsonl \
+  --worklist /tmp/private/judge.json --out scores.jsonl
 python3 scripts/run_evals.py join --before baseline/scores.jsonl \
   --after candidate/scores.jsonl --out delta.jsonl
 python3 scripts/score_delta.py delta.jsonl --holdout-only --cluster-field family
 ```
 
+Use `--worklist` for all new studies, pointing to the frozen judge file from `prepare`.
+Each record must contain every assertion index and requested dimension name exactly
+once, with non-empty evidence. Suite, split, pair ID, and fact condition must match
+the worklist. Assertion order is immaterial. For repeated trials, `case_id` selects
+the worklist case while `id` identifies the unique slot; without `case_id`, `id`
+selects the case. Every worklist case in the selected `--split` must have a judgment.
+These checks run before writing scores, even when dimensions are not included in
+the aggregate. Evidence presence is checked, not its truth or quotation accuracy.
+The study audit must still verify the pre-registered number of trials per case,
+models, judges, exclusions, and outcome separation; a case worklist is not a trial
+slot manifest. Omitting `--worklist` retains legacy archive grading with a warning
+and cannot establish complete assertion or case coverage.
+
 Use separate directories for each judge and apply model. The grader averages binary
 assertions per record. `--include-graded` also averages each 1–5 dimension normalized
 by 5 with those assertion values. Family, case ID, fact-pair ID, fact condition, and word-count metadata survive
-grading and joining. `join` rejects duplicate IDs, differing splits, and inconsistent
-case/family labels; it warns about missing slots, which the audit must resolve before
-any inference. Aggregate trials to per-case rates before a case-level test, or use
-`--cluster-field case_id`; use family clusters for dependent cases. Equal-weight family
+grading and joining. `join` rejects duplicate IDs, differing splits, inconsistent
+case/family labels, and unequal slot sets. Resolve missing slots before inference.
+`--allow-partial` explicitly permits an intersection with warnings for inspection
+only; it is not a valid study comparison. Aggregate trials to per-case rates before
+a case-level test, or use `--cluster-field case_id`; use family clusters for dependent
+cases. Equal-weight family
 means prevent extra trials or near-copies from inflating N. Retain all raw trial data.
 
 Trigger queries measure routing rather than prose quality. They use independent

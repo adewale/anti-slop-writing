@@ -1,0 +1,11 @@
+{
+  "model": "claude-sonnet-5-5",
+  "provider": "claude",
+  "effort": "low",
+  "prompt_sha256": "50a98f6c01057a5a2c83b572710db72e404d37f8ae28d462598e360ca7a54f76",
+  "started": 1794623410.792685,
+  "seconds": 3.1824629306793213,
+  "returncode": 0,
+  "tools": [],
+  "system_prompt": "You are a helpful assistant."
+}

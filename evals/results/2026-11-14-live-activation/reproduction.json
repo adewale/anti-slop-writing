@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "model_calls": 0,
+  "published_checksums_verified": 26,
+  "byte_identical_reproduced_files": [
+    "rates.json",
+    "summary.json"
+  ],
+  "independent_activation_counts": {
+    "pi": {
+      "positive_queries": 12,
+      "true_positive": 7,
+      "negative_queries": 17,
+      "true_negative": 16
+    },
+    "claude": {
+      "positive_queries": 12,
+      "true_positive": 7,
+      "negative_queries": 17,
+      "true_negative": 17
+    }
+  }
+}

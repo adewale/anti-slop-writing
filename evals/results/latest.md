@@ -2,7 +2,31 @@
 
 Updated: 2026-11-14
 
-## Completed: subscription-backed skill versus no skill
+## Completed: candidate screens and observed initial-turn activation
+
+The [candidate study](2026-11-14-candidate-studies/README.md) completed **1,122 outputs
+and 2,244 valid judgments**, with 16 retained/replaced schema-invalid Opus judgments.
+Neither compound nor teaser cleared any of its eight standing-holdout co-primary
+contrasts; five of 64 fact-condition point guards failed. Compound's one-scaffold
+panel was directionally positive, teaser mixed; neither was promoted. Twitter and
+highlighter are coverage-only comparisons, not new doctrine. Raw archives and
+byte-identical offline reproduction are published; the installed package stayed fixed.
+
+The [live activation study](2026-11-14-live-activation/README.md) completed **174 scored
+sessions** across 29 queries and three fresh contexts per query/client. Query-majority
+sensitivity was **7/12** for both controlled Pi/GPT and guarded Claude/Sonnet; specificity
+was **16/17** and **17/17** respectively. Material post-start instrument amendments,
+excluded observations and all pilots are retained. These are initial-turn body-loading
+rates, not stock-client behavior or writing efficacy. The registered native Codex model
+was unsupported on the subscription; OpenCode was absent, so neither has a claimed rate.
+
+[Follow-through](2026-11-14-followthrough/README.md): #22 and case-only #28 merged;
+#17 was superseded by #28. Eleven audited stale remote branches were deleted with
+expected-head leases; three archive tags preserve unmatched historical source history.
+The [18-item blind fidelity packet](2026-11-14-fidelity-calibration/README.md) is ready,
+but **human adjudication is still pending**. No model stands in for that human review.
+
+## Completed earlier: subscription-backed skill versus no skill
 
 The [new baseline](2026-11-14-subscription-baseline/README.md) completed **804 outputs
 and 1,608 cross-family judgments**: all 59 review/rewrite cases plus eight
@@ -30,8 +54,9 @@ fields but did not eliminate the length difference or possible style cues.
 The linked report retains the preregistration, transport amendment, raw model data,
 failed/interrupted attempts, complete slot/receipt verification, fact-condition and
 matched-pair analyses, judge disagreement, saturation, usage, and limitations.
-No doctrine or active eval content changed. Candidate-branch studies and live
-trigger/activation rates remain unrun.
+That baseline changed no doctrine or active eval content. The subsequent candidate
+and live-activation studies above are separate registrations and do not retroactively
+change its failed joint criterion.
 
 ## Earlier evidence and validity repairs
 

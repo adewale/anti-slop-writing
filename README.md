@@ -75,6 +75,7 @@ Notes:
 
 - Codex plugin packaging is not included; direct skill-folder installation works for local/project use.
 - OpenCode also discovers Claude-compatible and `.agents/skills` locations.
+- Install compatibility is not measured activation. The [controlled live study](evals/results/2026-11-14-live-activation/README.md) observed initial-turn loading in Pi and guarded Claude Code, not stock defaults; the registered Codex model was unsupported on the native subscription and OpenCode was absent at preflight.
 - The `name` matches the directory, uses lowercase hyphenated form, and stays under 64 characters.
 - The `description` is under 1024 characters and front-loads the trigger words Codex/OpenCode/Claude use for skill selection.
 
@@ -87,6 +88,7 @@ evals/evals.json                      Repo-only output evals (tune + holdout spl
 evals/adversarial.json                Repo-only over-flagging evals (tune + holdout split)
 evals/rewrite-evals.json              Repo-only rewrite quality evals (with dynamic_rubric and graded_dimensions)
 evals/meta-evals.json                 Repo-only eval-suite health checks (tune + holdout split)
+evals/twitter-evals.json              Repo-only targeted historical coverage; one source family
 evals/trigger-queries.json            Repo-only trigger accuracy queries with near-neg- near-miss negatives
 evals/cases.md                        Human-readable regression cases
 evals/failures/                       Curated failure corpus behind the doctrine
@@ -107,6 +109,9 @@ scripts/score_delta.py                Paired-bootstrap / sign-flip gate for acce
 scripts/run_evals.py                  Execution runner: prepare / grade / join over eval suites
 scripts/saturation_index.py           Repo-only saturation/overlap analysis
 scripts/subscription_baseline.py      Opt-in repo-only subscription model study runner
+scripts/candidate_studies.py          Frozen repo-only candidate screen, not doctrine promotion
+scripts/live_activation.py            Controlled live-client body-loading measurement
+evals/oracles/slop_lint.py            Triage-only spans/counts; see docs/slop-lint.md
 scripts/check_install_boundary.py     CI check that keeps evals/results out of the installable skill
 skills.sh.json                        Repo-only skills.sh display grouping, used after telemetry sees the repo
 .github/workflows/validate.yml        GitHub Actions validation
@@ -121,18 +126,21 @@ Latest recorded results are in `evals/results/latest.md`. Each eval suite is spl
 
 | Eval set | Tune cases | Holdout cases |
 |---|---:|---:|
-| Machine-readable assertions (`evals/evals.json`) | 18 | 8 |
+| Machine-readable assertions (`evals/evals.json`) | 20 | 8 |
 | Adversarial false-positive checks (`evals/adversarial.json`) | 18 | 11 |
 | Rewrite quality checks (`evals/rewrite-evals.json`) | 26 | 7 |
 | Eval-suite health checks (`evals/meta-evals.json`) | 6 | 4 |
 | Trigger-query sanity check (`evals/trigger-queries.json`) | 17 | 12 |
-| Manual regression cases (`evals/cases.md`) | 10 cases | n/a |
+| Targeted Twitter coverage (`evals/twitter-evals.json`) | 5 | 3 |
+| Manual regression cases (`evals/cases.md`) | 10 numbered + 2 maintenance cases | n/a |
 
 A full scored baseline for the 2026-05-29 suite is in `evals/results/2026-05-29-baseline.md`, produced with `scripts/run_evals.py` and the sub-agent protocol in `docs/judge-protocol.md`. Later doctrine branches added harder paired cases, graded dimensions, and fresh holdout cases; the newest status and no-regression notes are in `evals/results/latest.md`.
 
 The standing suite checks regressions; ceiling cases establish only no regression. A claim of improvement needs a pre-registered, powered comparison with a no-skill arm on cases where the current skill sometimes fails. `scripts/score_delta.py` rejects duplicate IDs and tests case or family means with paired bootstrap and sign-flip permutation. The protocol is in `runbooks/hillclimb-skill.md` and `docs/hillclimb-improvements.md`.
 
 The 2026-05-31 statistical-proof claim was withdrawn on 2026-11-13: a template-only assertion favored the newer skill and the cases shared seven families. Removing that assertion gives p≈0.126; testing family means gives p≈0.245. See `evals/results/2026-11-13-review-reproduction.md`. The [2026-11-14 subscription baseline](evals/results/2026-11-14-subscription-baseline/README.md) completed 804 skill/no-skill outputs and 1,608 cross-family judgments. It did not meet its joint improvement criterion: task-fulfillment estimates favored the skill, fidelity estimates depended on the judge, and outputs were longer. This estimation/coverage study does not establish general writing efficacy.
+
+The separate [candidate screen](evals/results/2026-11-14-candidate-studies/README.md) completed 1,122 outputs and 2,244 valid judgments. Neither candidate cleared its standing-holdout co-primary criterion; five fact-condition point guards failed. No doctrine was promoted. Public historical holdout labels do not make cases unseen; the new Twitter suite is targeted regression coverage, not eight independent validations. An [18-item human fidelity-calibration packet](evals/results/2026-11-14-fidelity-calibration/README.md) is ready and awaits actual human scoring.
 
 ## Contributing
 

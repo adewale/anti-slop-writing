@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "required_gates": 7,
+  "unit_tests": 133,
+  "assertion_example_gradings": 39,
+  "model_calls_during_validation_and_replay": 0,
+  "installed_package_unchanged_from_frozen_92d3702": true,
+  "archive_reproduction": {
+    "candidate": "passed",
+    "activation": "passed"
+  },
+  "notes": "Pinned skills-ref 0.1.1, Ruff 0.16.0, skill-eval-harness 0.6.0. Raw logs alongside this file."
+}

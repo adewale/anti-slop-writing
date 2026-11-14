@@ -1,0 +1,1730 @@
+[
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.8257575757575758,
+    "after": 0.8390151515151515,
+    "delta": 0.013257575757575756,
+    "ci95": [
+      -0.0606060606060606,
+      0.08522727272727272
+    ],
+    "sign_flip_p": 0.78125,
+    "ci90": [
+      -0.04924242424242424,
+      0.07386363636363637
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.1590909090909091,
+    "after": 0.13636363636363635,
+    "delta": -0.022727272727272728,
+    "ci95": [
+      -0.06818181818181818,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.06818181818181818,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.743014705882353,
+    "after": 0.7740196078431373,
+    "delta": 0.031004901960784315,
+    "ci95": [
+      -0.02475490196078431,
+      0.08700980392156864
+    ],
+    "sign_flip_p": 0.31556844315568444,
+    "ci90": [
+      -0.015563725490196079,
+      0.07549019607843138
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.15882352941176472,
+    "after": 0.029411764705882353,
+    "delta": -0.12941176470588237,
+    "ci95": [
+      -0.29411764705882354,
+      0.01764705882352941
+    ],
+    "sign_flip_p": 0.19388061193880612,
+    "ci90": [
+      -0.2647058823529412,
+      -0.005882352941176472
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.8257575757575758,
+    "after": 0.8333333333333333,
+    "delta": 0.007575757575757575,
+    "ci95": [
+      -0.08712121212121213,
+      0.09469696969696971
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.06818181818181818,
+      0.07954545454545454
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.1590909090909091,
+    "after": 0.06818181818181818,
+    "delta": -0.09090909090909091,
+    "ci95": [
+      -0.3181818181818182,
+      0.09090909090909091
+    ],
+    "sign_flip_p": 0.75,
+    "ci90": [
+      -0.2727272727272727,
+      0.09090909090909091
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.743014705882353,
+    "after": 0.7348039215686275,
+    "delta": -0.00821078431372549,
+    "ci95": [
+      -0.06887254901960785,
+      0.056372549019607844
+    ],
+    "sign_flip_p": 0.8153184681531847,
+    "ci90": [
+      -0.058823529411764705,
+      0.04448529411764706
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.15882352941176472,
+    "after": 0.029411764705882353,
+    "delta": -0.12941176470588237,
+    "ci95": [
+      -0.27647058823529413,
+      -0.011764705882352941
+    ],
+    "sign_flip_p": 0.12408759124087591,
+    "ci90": [
+      -0.24705882352941178,
+      -0.029411764705882353
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.75,
+    "after": 0.75,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.75,
+    "after": 0.9027777777777778,
+    "delta": 0.15277777777777776,
+    "ci95": [
+      0.15277777777777776,
+      0.15277777777777776
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.15277777777777776,
+      0.15277777777777776
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.3333333333333333,
+    "after": 0.0,
+    "delta": -0.3333333333333333,
+    "ci95": [
+      -0.3333333333333333,
+      -0.3333333333333333
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.3333333333333333,
+      -0.3333333333333333
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.7916666666666667,
+    "after": 0.8333333333333333,
+    "delta": 0.04166666666666663,
+    "ci95": [
+      0.04166666666666663,
+      0.04166666666666663
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.04166666666666663,
+      0.04166666666666663
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.16666666666666666,
+    "after": 0.5,
+    "delta": 0.33333333333333337,
+    "ci95": [
+      0.33333333333333337,
+      0.33333333333333337
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.33333333333333337,
+      0.33333333333333337
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": false
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.7,
+    "after": 0.7416666666666667,
+    "delta": 0.04166666666666667,
+    "ci95": [
+      0.04166666666666667,
+      0.04166666666666667
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.04166666666666667,
+      0.04166666666666667
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.13333333333333333,
+    "after": 0.0,
+    "delta": -0.13333333333333333,
+    "ci95": [
+      -0.13333333333333333,
+      -0.13333333333333333
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.13333333333333333,
+      -0.13333333333333333
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.8276515151515151,
+    "after": 0.8238636363636364,
+    "delta": -0.0037878787878787884,
+    "ci95": [
+      -0.045454545454545456,
+      0.03787878787878787
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.03787878787878788,
+      0.0303030303030303
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.2727272727272727,
+    "after": 0.2727272727272727,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.6392156862745099,
+    "after": 0.7289215686274509,
+    "delta": 0.08970588235294118,
+    "ci95": [
+      0.012499999999999999,
+      0.17058823529411765
+    ],
+    "sign_flip_p": 0.044795520447955206,
+    "ci90": [
+      0.027205882352941177,
+      0.15588235294117647
+    ],
+    "equivalence_005": false,
+    "verdict": "ACCEPT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.39509803921568626,
+    "after": 0.425,
+    "delta": 0.029901960784313723,
+    "ci95": [
+      -0.16519607843137257,
+      0.21078431372549017
+    ],
+    "sign_flip_p": 0.7746225377462254,
+    "ci90": [
+      -0.128921568627451,
+      0.18137254901960784
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.8276515151515151,
+    "after": 0.8276515151515151,
+    "delta": 0.0,
+    "ci95": [
+      -0.056818181818181816,
+      0.056818181818181816
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.045454545454545456,
+      0.045454545454545456
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.2727272727272727,
+    "after": 0.30303030303030304,
+    "delta": 0.0303030303030303,
+    "ci95": [
+      -0.10606060606060606,
+      0.16666666666666666
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.09090909090909091,
+      0.1515151515151515
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.6392156862745099,
+    "after": 0.71875,
+    "delta": 0.07953431372549019,
+    "ci95": [
+      -0.02389705882352941,
+      0.20526960784313728
+    ],
+    "sign_flip_p": 0.21847815218478153,
+    "ci90": [
+      -0.006740196078431374,
+      0.17990196078431372
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.39509803921568626,
+    "after": 0.35245098039215683,
+    "delta": -0.04264705882352942,
+    "ci95": [
+      -0.28284313725490196,
+      0.18382352941176472
+    ],
+    "sign_flip_p": 0.7191280871912809,
+    "ci90": [
+      -0.23970588235294119,
+      0.14362745098039215
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.8333333333333334,
+    "after": 0.75,
+    "delta": -0.08333333333333337,
+    "ci95": [
+      -0.08333333333333337,
+      -0.08333333333333337
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.08333333333333337,
+      -0.08333333333333337
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": false
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.75,
+    "after": 0.8472222222222222,
+    "delta": 0.09722222222222222,
+    "ci95": [
+      0.09722222222222222,
+      0.09722222222222222
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.09722222222222222,
+      0.09722222222222222
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.3888888888888889,
+    "after": 0.27777777777777773,
+    "delta": -0.11111111111111112,
+    "ci95": [
+      -0.11111111111111112,
+      -0.11111111111111112
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.11111111111111112,
+      -0.11111111111111112
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.7083333333333333,
+    "after": 0.75,
+    "delta": 0.041666666666666685,
+    "ci95": [
+      0.041666666666666685,
+      0.041666666666666685
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.041666666666666685,
+      0.041666666666666685
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.5,
+    "after": 0.5,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.725,
+    "after": 0.7583333333333333,
+    "delta": 0.03333333333333334,
+    "ci95": [
+      0.03333333333333334,
+      0.03333333333333334
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.03333333333333334,
+      0.03333333333333334
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sonnet",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.4,
+    "after": 0.4,
+    "delta": 1.1102230246251566e-17,
+    "ci95": [
+      1.1102230246251566e-17,
+      1.1102230246251566e-17
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      1.1102230246251566e-17,
+      1.1102230246251566e-17
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.8693181818181818,
+    "after": 0.8825757575757577,
+    "delta": 0.013257575757575758,
+    "ci95": [
+      -0.032196969696969696,
+      0.056818181818181816
+    ],
+    "sign_flip_p": 0.625,
+    "ci90": [
+      -0.02462121212121212,
+      0.05113636363636364
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.7595588235294117,
+    "after": 0.7705882352941176,
+    "delta": 0.011029411764705883,
+    "ci95": [
+      -0.034313725490196074,
+      0.058823529411764705
+    ],
+    "sign_flip_p": 0.7135286471352865,
+    "ci90": [
+      -0.026960784313725488,
+      0.051470588235294115
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.029411764705882353,
+    "after": 0.029411764705882353,
+    "delta": 0.0,
+    "ci95": [
+      -0.08823529411764706,
+      0.08823529411764706
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.058823529411764705,
+      0.058823529411764705
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.8693181818181818,
+    "after": 0.8920454545454546,
+    "delta": 0.022727272727272728,
+    "ci95": [
+      -0.022727272727272728,
+      0.07954545454545454
+    ],
+    "sign_flip_p": 0.75,
+    "ci90": [
+      -0.022727272727272728,
+      0.06818181818181818
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.7595588235294117,
+    "after": 0.7854166666666667,
+    "delta": 0.0258578431372549,
+    "ci95": [
+      -0.02928921568627451,
+      0.08272058823529412
+    ],
+    "sign_flip_p": 0.40145985401459855,
+    "ci90": [
+      -0.020588235294117647,
+      0.07303921568627451
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.029411764705882353,
+    "after": 0.029411764705882353,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.8333333333333334,
+    "after": 0.75,
+    "delta": -0.08333333333333337,
+    "ci95": [
+      -0.08333333333333337,
+      -0.08333333333333337
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.08333333333333337,
+      -0.08333333333333337
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": false
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.5416666666666666,
+    "after": 0.6805555555555555,
+    "delta": 0.13888888888888887,
+    "ci95": [
+      0.13888888888888887,
+      0.13888888888888887
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.13888888888888887,
+      0.13888888888888887
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.38888888888888884,
+    "after": 0.16666666666666666,
+    "delta": -0.2222222222222222,
+    "ci95": [
+      -0.2222222222222222,
+      -0.2222222222222222
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.2222222222222222,
+      -0.2222222222222222
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.875,
+    "after": 0.9166666666666667,
+    "delta": 0.041666666666666685,
+    "ci95": [
+      0.041666666666666685,
+      0.041666666666666685
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.041666666666666685,
+      0.041666666666666685
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.75,
+    "after": 0.7833333333333333,
+    "delta": 0.03333333333333333,
+    "ci95": [
+      0.03333333333333333,
+      0.03333333333333333
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.03333333333333333,
+      0.03333333333333333
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "opus",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.06666666666666667,
+    "after": 0.06666666666666667,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.9715909090909091,
+    "after": 1.0,
+    "delta": 0.028409090909090908,
+    "ci95": [
+      0.0,
+      0.0625
+    ],
+    "sign_flip_p": 0.25,
+    "ci90": [
+      0.005681818181818182,
+      0.056818181818181816
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.8066176470588236,
+    "after": 0.8036764705882353,
+    "delta": -0.002941176470588236,
+    "ci95": [
+      -0.055392156862745096,
+      0.048039215686274506
+    ],
+    "sign_flip_p": 0.8931106889311069,
+    "ci90": [
+      -0.04509803921568628,
+      0.03872549019607843
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.13431372549019607,
+    "after": 0.18137254901960786,
+    "delta": 0.047058823529411764,
+    "ci95": [
+      -0.023529411764705882,
+      0.13529411764705881
+    ],
+    "sign_flip_p": 0.5036496350364964,
+    "ci90": [
+      -0.011764705882352941,
+      0.11764705882352941
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.9715909090909091,
+    "after": 0.9602272727272727,
+    "delta": -0.011363636363636364,
+    "ci95": [
+      -0.03409090909090909,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.03409090909090909,
+      0.0
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 23,
+    "clusters": 11,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": true,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.8066176470588236,
+    "after": 0.7980392156862745,
+    "delta": -0.00857843137254902,
+    "ci95": [
+      -0.10294117647058823,
+      0.08455882352941177
+    ],
+    "sign_flip_p": 0.8777122287771223,
+    "ci90": [
+      -0.0857843137254902,
+      0.06985294117647059
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": true
+  },
+  {
+    "panel": "standing",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 46,
+    "clusters": 17,
+    "cluster_field": "family",
+    "before": 0.13431372549019607,
+    "after": 0.2519607843137255,
+    "delta": 0.11764705882352941,
+    "ci95": [
+      0.0,
+      0.2647058823529412
+    ],
+    "sign_flip_p": 0.25677432256774324,
+    "ci90": [
+      0.029411764705882353,
+      0.23529411764705882
+    ],
+    "equivalence_005": false,
+    "verdict": "REJECT",
+    "guard_pass": false
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 1.0,
+    "after": 0.9166666666666666,
+    "delta": -0.08333333333333337,
+    "ci95": [
+      -0.08333333333333337,
+      -0.08333333333333337
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.08333333333333337,
+      -0.08333333333333337
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": false
+  },
+  {
+    "panel": "compound",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 1,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.0,
+    "after": 0.0,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "rewrite_quality",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.5,
+    "after": 0.7083333333333334,
+    "delta": 0.20833333333333334,
+    "ci95": [
+      0.20833333333333334,
+      0.20833333333333334
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.20833333333333334,
+      0.20833333333333334
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "compound",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "compound",
+    "outcome": "unsupported",
+    "cases": 6,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.6666666666666666,
+    "after": 0.3888888888888889,
+    "delta": -0.2777777777777778,
+    "ci95": [
+      -0.2777777777777778,
+      -0.2777777777777778
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      -0.2777777777777778,
+      -0.2777777777777778
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.9583333333333333,
+    "after": 0.9583333333333333,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "supplied",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 2,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.16666666666666666,
+    "after": 0.16666666666666666,
+    "delta": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "rewrite_quality",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.8166666666666667,
+    "after": 0.825,
+    "delta": 0.008333333333333326,
+    "ci95": [
+      0.008333333333333326,
+      0.008333333333333326
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.008333333333333326,
+      0.008333333333333326
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  },
+  {
+    "panel": "teaser",
+    "selection": "no_additional_facts",
+    "model": "sol",
+    "judge": "sol",
+    "before_arm": "current",
+    "after_arm": "teaser",
+    "outcome": "unsupported",
+    "cases": 10,
+    "clusters": 1,
+    "cluster_field": "family",
+    "before": 0.1,
+    "after": 0.13333333333333333,
+    "delta": 0.03333333333333334,
+    "ci95": [
+      0.03333333333333334,
+      0.03333333333333334
+    ],
+    "sign_flip_p": 1.0,
+    "ci90": [
+      0.03333333333333334,
+      0.03333333333333334
+    ],
+    "equivalence_005": false,
+    "verdict": "UNDERPOWERED",
+    "guard_pass": true
+  }
+]

@@ -1,0 +1,95 @@
+routing 10/174
+routing 20/174
+routing 30/174
+routing 40/174
+routing 50/174
+routing 60/174
+routing 70/174
+routing 80/174
+routing 90/174
+routing 100/174
+routing 110/174
+routing 120/174
+routing 130/174
+routing 140/174
+routing 150/174
+routing 160/174
+routing 170/174
+routing 174/174
+{
+  "summaries": [
+    {
+      "client": "pi",
+      "selection": "all",
+      "queries": 29,
+      "complete_queries": 29,
+      "sensitivity": 0.5833333333333334,
+      "specificity": 0.9411764705882353
+    },
+    {
+      "client": "pi",
+      "selection": "tune",
+      "queries": 17,
+      "complete_queries": 17,
+      "sensitivity": 0.42857142857142855,
+      "specificity": 1.0
+    },
+    {
+      "client": "pi",
+      "selection": "holdout",
+      "queries": 12,
+      "complete_queries": 12,
+      "sensitivity": 0.8,
+      "specificity": 0.8571428571428571
+    },
+    {
+      "client": "pi",
+      "selection": "near-negative",
+      "queries": 6,
+      "complete_queries": 6,
+      "sensitivity": null,
+      "specificity": 0.8333333333333334
+    },
+    {
+      "client": "claude",
+      "selection": "all",
+      "queries": 29,
+      "complete_queries": 29,
+      "sensitivity": 0.5833333333333334,
+      "specificity": 1.0
+    },
+    {
+      "client": "claude",
+      "selection": "tune",
+      "queries": 17,
+      "complete_queries": 17,
+      "sensitivity": 0.7142857142857143,
+      "specificity": 1.0
+    },
+    {
+      "client": "claude",
+      "selection": "holdout",
+      "queries": 12,
+      "complete_queries": 12,
+      "sensitivity": 0.4,
+      "specificity": 1.0
+    },
+    {
+      "client": "claude",
+      "selection": "near-negative",
+      "queries": 6,
+      "complete_queries": 6,
+      "sensitivity": null,
+      "specificity": 1.0
+    }
+  ],
+  "pilot_eligibility": {
+    "pi": true,
+    "claude": true
+  },
+  "unavailable": {
+    "codex": "0.145.0: recorded subscription probe rejects gpt-6.1-sol; no model substitution preregistered",
+    "opencode": "Not installed on PATH or checked conventional locations; not installed by this study"
+  },
+  "interpretation": "Initial-turn activation in controlled read-only contexts, not writing efficacy, default-client behavior or complete workflows. Repeats are not independent queries."
+}

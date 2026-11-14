@@ -1,0 +1,5 @@
+Split:         holdout-only
+Cases:         4
+Clusters:      1 (family)
+Power:         UNDERPOWERED (fewer than 6 independent units).
+Verdict:       REJECT (UNDERPOWERED; N=4, clusters=1; use --allow-small to inspect).

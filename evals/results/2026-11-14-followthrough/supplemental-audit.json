@@ -1,0 +1,33 @@
+{
+  "archive_safety": {
+    "candidate-studies": {
+      "symlinks": [],
+      "credential_file_names": [],
+      "obvious_credential_value_marker_matches": [],
+      "scope": "Marker scan plus source/capability audit; not a general secret detector."
+    },
+    "live-activation": {
+      "symlinks": [],
+      "credential_file_names": [],
+      "obvious_credential_value_marker_matches": [],
+      "scope": "Marker scan plus source/capability audit; not a general secret detector."
+    }
+  },
+  "cross_study_response_identity": {
+    "previous_baseline_selected_ids": 2412,
+    "candidate_selected_ids": 3366,
+    "overlap": 0,
+    "algorithm": "Read selected attempt raw responses; SDK result.responseId / native assistant message.id. Compare sets. All raw inputs are in their respective published archives."
+  },
+  "quarantined_claude_cohort": {
+    "observed_tool_names": [
+      "Read",
+      "Skill",
+      "Write"
+    ],
+    "native_subagents_spawned_values": [
+      0
+    ],
+    "included_in_rates": false
+  }
+}

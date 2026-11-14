@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "apply_slots": 1122,
+  "valid_judgments": 2244,
+  "failed_attempts": [
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "86aa6a26c8eb4314a1ff9676",
+      "arm": "teaser",
+      "error": "Expecting ',' delimiter: line 1 column 556 (char 555)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "4e475510561b133f3c0107d5",
+      "arm": "compound",
+      "error": "Expecting ',' delimiter: line 1 column 539 (char 538)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "6453b67dc2680a40543084ce",
+      "arm": "compound",
+      "error": "Expecting ',' delimiter: line 1 column 770 (char 769)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "cf14ae561ee967c018d35eff",
+      "arm": "no-skill",
+      "error": "Expecting ',' delimiter: line 1 column 544 (char 543)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "312e9f246d8b90df977b0955",
+      "arm": "current",
+      "error": "Expecting ',' delimiter: line 1 column 752 (char 751)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "382924ca8ba6016d0321e0af",
+      "arm": "current",
+      "error": "Expecting ',' delimiter: line 1 column 531 (char 530)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "909c4dc7958ffaa6931e7fdd",
+      "arm": "compound",
+      "error": "Expecting ',' delimiter: line 1 column 752 (char 751)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "34ba78e99a3d1b4df6b24994",
+      "arm": "teaser",
+      "error": "Expecting ',' delimiter: line 1 column 550 (char 549)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "229a7a0e9cde87bf6bc4addb",
+      "arm": "compound",
+      "error": "incomplete primary_dimensions",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "5303f93be9f0917e3f730b86",
+      "arm": "teaser",
+      "error": "Expecting ',' delimiter: line 1 column 537 (char 536)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "8932f41f7d44ff4b5891fc7a",
+      "arm": "current",
+      "error": "Expecting ',' delimiter: line 1 column 561 (char 560)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "20c317a8c01b90bf050d8235",
+      "arm": "compound",
+      "error": "Extra data: line 2 column 1 (char 3511)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "2fa7d721af37b2ac23b83a7f",
+      "arm": "current",
+      "error": "Expecting ',' delimiter: line 1 column 534 (char 533)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "2fa7d721af37b2ac23b83a7f",
+      "arm": "current",
+      "error": "Expecting ',' delimiter: line 1 column 625 (char 624)",
+      "attempt": 2
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "b50b201f22a2ab58006f6417",
+      "arm": "current",
+      "error": "Expecting ',' delimiter: line 1 column 548 (char 547)",
+      "attempt": 1
+    },
+    {
+      "stage": "judge",
+      "actor": "opus",
+      "slot": "3bac66827f25e2933cef9367",
+      "arm": "current",
+      "error": "Expecting ',' delimiter: line 17 column 181 (char 1374)",
+      "attempt": 1
+    }
+  ],
+  "checks": [
+    "exact slots/models/prompts",
+    "complete tool-free provider results",
+    "raw-to-blinded identity",
+    "word counts",
+    "all assertion/dimension labels/evidence",
+    "trusted worklist metadata",
+    "no missing/extra completions"
+  ]
+}

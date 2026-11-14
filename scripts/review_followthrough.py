@@ -127,16 +127,53 @@ def packet(source: Path, dest: Path) -> None:
           "status": "AWAITING HUMAN REVIEW", "limits": "Deliberately selected, not representative; families may overlap; public inspected holdouts remain frozen. Another model is not a human adjudicator."})
 
 
+def twitter(dest: Path) -> None:
+    original = read(ROOT / "evals/results/2026-11-14-candidate-studies/historical-cases.json")
+    selected = [r for r in original if r["panel"] == "twitter"]
+    if len(selected) != 8:
+        raise ValueError("Twitter source panel changed")
+    cases = [{**r["case"], "facts": r["case"].get("facts", []), "source_kind": "synthetic", "original_suite": r["suite"]} for r in selected]
+    write(dest, {"skill_name": "anti-slop-writing", "provenance": {
+        "pull_request": 17, "branch_head": "3aa3f72dcabac82873c1ecb0d972e397198d5462",
+        "exposure": "Public historical cases, not fresh sealed holdout. Original splits and all behavioral fields retained.",
+        "dependence": "One conservative source/scaffold family; eight cases are not eight independent replications."
+    }, "evals": cases})
+
+
+def tables(dest: Path) -> None:
+    rows = read(dest / "comparisons.json")
+    text = ["# Candidate model/judge tables\n", "Normalized after−before deltas. Full intervals, exact tests and all fact/target/guard selections remain in comparisons.json. One-family panels are UNDERPOWERED; their bootstrap intervals do not establish precision.\n"]
+    groups = sorted({(r["panel"], r["before_arm"], r["after_arm"]) for r in rows})
+    for panel, before, after in groups:
+        for selection in ("all", "holdout"):
+            chosen = [r for r in rows if (r["panel"], r["before_arm"], r["after_arm"], r["selection"]) == (panel, before, after, selection)]
+            if not chosen:
+                continue
+            text.extend([f"## {panel}: {before} → {after}, {selection}\n", "| Apply | Judge | Cases | Families | Δ fidelity | Δ task | Δ rewrite quality | Fidelity gate | Task gate |", "|---|---|---:|---:|---:|---:|---:|---|---|"])
+            for model in ("sonnet", "sol"):
+                for judge in ("opus", "sol"):
+                    outcomes = {r["outcome"]: r for r in chosen if r["model"] == model and r["judge"] == judge}
+                    fidelity, task, quality = [outcomes[n] for n in ("factual_fidelity", "task_fulfillment", "rewrite_quality")]
+                    deltas = [f"{0 if abs(r['delta']) < 0.0005 else r['delta']:+.3f}" for r in (fidelity, task, quality)]
+                    text.append(f"| {model} | {judge} | {fidelity['cases']} | {fidelity['clusters']} | {' | '.join(deltas)} | {fidelity['verdict']} | {task['verdict']} |")
+            text.append("")
+    (dest / "MODEL-TABLES.md").write_text("\n".join(text) + "\n")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("branches", "packet"))
+    parser.add_argument("command", choices=("branches", "packet", "twitter", "tables"))
     parser.add_argument("--dest", type=Path, required=True)
     parser.add_argument("--baseline", type=Path, default=ROOT / "eval-workspace/subscription-baseline")
     args = parser.parse_args()
     if args.command == "branches":
         branches(args.dest)
-    else:
+    elif args.command == "packet":
         packet(args.baseline, args.dest)
+    elif args.command == "twitter":
+        twitter(args.dest)
+    else:
+        tables(args.dest)
 
 
 if __name__ == "__main__":

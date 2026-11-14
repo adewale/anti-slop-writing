@@ -1,0 +1,226 @@
+[
+  {
+    "panel": "compound",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "outputs": 21,
+    "raw_words": 221.0,
+    "judged_words": 221.0
+  },
+  {
+    "panel": "compound",
+    "model": "sonnet",
+    "arm": "current",
+    "outputs": 21,
+    "raw_words": 304.14285714285717,
+    "judged_words": 266.2857142857143
+  },
+  {
+    "panel": "compound",
+    "model": "sonnet",
+    "arm": "compound",
+    "outputs": 21,
+    "raw_words": 318.8095238095238,
+    "judged_words": 275.42857142857144
+  },
+  {
+    "panel": "compound",
+    "model": "sol",
+    "arm": "no-skill",
+    "outputs": 21,
+    "raw_words": 86.76190476190476,
+    "judged_words": 86.76190476190476
+  },
+  {
+    "panel": "compound",
+    "model": "sol",
+    "arm": "current",
+    "outputs": 21,
+    "raw_words": 148.28571428571428,
+    "judged_words": 122.04761904761905
+  },
+  {
+    "panel": "compound",
+    "model": "sol",
+    "arm": "compound",
+    "outputs": 21,
+    "raw_words": 177.71428571428572,
+    "judged_words": 145.66666666666666
+  },
+  {
+    "panel": "highlighter",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "outputs": 33,
+    "raw_words": 193.42424242424244,
+    "judged_words": 193.42424242424244
+  },
+  {
+    "panel": "highlighter",
+    "model": "sonnet",
+    "arm": "current",
+    "outputs": 33,
+    "raw_words": 426.72727272727275,
+    "judged_words": 369.90909090909093
+  },
+  {
+    "panel": "highlighter",
+    "model": "sol",
+    "arm": "no-skill",
+    "outputs": 33,
+    "raw_words": 98.72727272727273,
+    "judged_words": 98.72727272727273
+  },
+  {
+    "panel": "highlighter",
+    "model": "sol",
+    "arm": "current",
+    "outputs": 33,
+    "raw_words": 165.75757575757575,
+    "judged_words": 137.6969696969697
+  },
+  {
+    "panel": "standing",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "outputs": 69,
+    "raw_words": 123.02898550724638,
+    "judged_words": 123.02898550724638
+  },
+  {
+    "panel": "standing",
+    "model": "sonnet",
+    "arm": "current",
+    "outputs": 69,
+    "raw_words": 321.42028985507244,
+    "judged_words": 266.0869565217391
+  },
+  {
+    "panel": "standing",
+    "model": "sonnet",
+    "arm": "compound",
+    "outputs": 69,
+    "raw_words": 328.6811594202899,
+    "judged_words": 270.3333333333333
+  },
+  {
+    "panel": "standing",
+    "model": "sonnet",
+    "arm": "teaser",
+    "outputs": 69,
+    "raw_words": 312.15942028985506,
+    "judged_words": 260.69565217391306
+  },
+  {
+    "panel": "standing",
+    "model": "sol",
+    "arm": "no-skill",
+    "outputs": 69,
+    "raw_words": 79.82608695652173,
+    "judged_words": 79.82608695652173
+  },
+  {
+    "panel": "standing",
+    "model": "sol",
+    "arm": "current",
+    "outputs": 69,
+    "raw_words": 143.0144927536232,
+    "judged_words": 119.73913043478261
+  },
+  {
+    "panel": "standing",
+    "model": "sol",
+    "arm": "compound",
+    "outputs": 69,
+    "raw_words": 138.7826086956522,
+    "judged_words": 116.31884057971014
+  },
+  {
+    "panel": "standing",
+    "model": "sol",
+    "arm": "teaser",
+    "outputs": 69,
+    "raw_words": 138.7246376811594,
+    "judged_words": 116.44927536231884
+  },
+  {
+    "panel": "teaser",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "outputs": 36,
+    "raw_words": 180.22222222222223,
+    "judged_words": 180.22222222222223
+  },
+  {
+    "panel": "teaser",
+    "model": "sonnet",
+    "arm": "current",
+    "outputs": 36,
+    "raw_words": 338.19444444444446,
+    "judged_words": 286.0833333333333
+  },
+  {
+    "panel": "teaser",
+    "model": "sonnet",
+    "arm": "teaser",
+    "outputs": 36,
+    "raw_words": 338.02777777777777,
+    "judged_words": 289.25
+  },
+  {
+    "panel": "teaser",
+    "model": "sol",
+    "arm": "no-skill",
+    "outputs": 36,
+    "raw_words": 68.91666666666667,
+    "judged_words": 68.91666666666667
+  },
+  {
+    "panel": "teaser",
+    "model": "sol",
+    "arm": "current",
+    "outputs": 36,
+    "raw_words": 150.69444444444446,
+    "judged_words": 117.91666666666667
+  },
+  {
+    "panel": "teaser",
+    "model": "sol",
+    "arm": "teaser",
+    "outputs": 36,
+    "raw_words": 149.13888888888889,
+    "judged_words": 117.88888888888889
+  },
+  {
+    "panel": "twitter",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "outputs": 24,
+    "raw_words": 156.16666666666666,
+    "judged_words": 156.16666666666666
+  },
+  {
+    "panel": "twitter",
+    "model": "sonnet",
+    "arm": "current",
+    "outputs": 24,
+    "raw_words": 334.75,
+    "judged_words": 280.8333333333333
+  },
+  {
+    "panel": "twitter",
+    "model": "sol",
+    "arm": "no-skill",
+    "outputs": 24,
+    "raw_words": 62.041666666666664,
+    "judged_words": 62.041666666666664
+  },
+  {
+    "panel": "twitter",
+    "model": "sol",
+    "arm": "current",
+    "outputs": 24,
+    "raw_words": 150.41666666666666,
+    "judged_words": 126.08333333333333
+  }
+]

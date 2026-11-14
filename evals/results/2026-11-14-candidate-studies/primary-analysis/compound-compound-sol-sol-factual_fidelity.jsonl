@@ -1,0 +1,3 @@
+{"id": "holdout-coined-compound-label", "split": "holdout", "pair_id": "holdout-coined-compound-label", "family": "historical-compound-scaffold", "before": 0.5, "after": 1.0}
+{"id": "holdout-coined-label-defined-in-place", "split": "holdout", "pair_id": "holdout-coined-label-defined-in-place", "family": "historical-compound-scaffold", "before": 1.0, "after": 0.8333333333333334}
+{"id": "holdout-earned-domain-compound", "split": "holdout", "pair_id": "holdout-earned-domain-compound", "family": "historical-compound-scaffold", "before": 0.5, "after": 0.5}

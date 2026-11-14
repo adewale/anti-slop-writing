@@ -1,0 +1,78 @@
+{
+  "pi": {
+    "results": [
+      {
+        "control": "positive",
+        "advertised": true,
+        "attempted": false,
+        "activated": false,
+        "valid": true,
+        "successful_loads": [],
+        "failed_loads": [],
+        "assistant_requests": 1
+      },
+      {
+        "control": "negative",
+        "advertised": true,
+        "attempted": false,
+        "activated": false,
+        "valid": true,
+        "successful_loads": [],
+        "failed_loads": [],
+        "assistant_requests": 1
+      },
+      {
+        "control": "forced",
+        "advertised": true,
+        "attempted": true,
+        "activated": true,
+        "valid": true,
+        "successful_loads": [
+          "call_51807273a05a4881b67a5900f7d4c810|fc_0759cea45d235df7016af82954950087d29d2a492365dfe3b9"
+        ],
+        "failed_loads": [],
+        "assistant_requests": 2
+      }
+    ],
+    "eligible": true
+  },
+  "claude": {
+    "results": [
+      {
+        "control": "positive",
+        "advertised": true,
+        "attempted": true,
+        "activated": true,
+        "valid": true,
+        "successful_loads": [
+          "toolu_01TLkLAveyj2A9kDrZuDBis6"
+        ],
+        "failed_loads": [],
+        "assistant_requests": 3
+      },
+      {
+        "control": "negative",
+        "advertised": true,
+        "attempted": false,
+        "activated": false,
+        "valid": true,
+        "successful_loads": [],
+        "failed_loads": [],
+        "assistant_requests": 1
+      },
+      {
+        "control": "forced",
+        "advertised": true,
+        "attempted": true,
+        "activated": true,
+        "valid": true,
+        "successful_loads": [
+          "toolu_01J6E2PPjegis4HVQG3FWuYz"
+        ],
+        "failed_loads": [],
+        "assistant_requests": 2
+      }
+    ],
+    "eligible": true
+  }
+}

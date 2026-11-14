@@ -1,0 +1,326 @@
+[
+  {
+    "human_id": "H01",
+    "slot": "0937af75b82c9e4392533f8e",
+    "case_id": "holdout-borrowed-emphasis-release-safety",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "difference": 2,
+    "opus_score": 4,
+    "sol_score": 2,
+    "judge_evidence": {
+      "opus": "The critique and questions invent no tests, owners, or metrics. The examples are inside questions (\"for example, which failure modes or test categories?\"). One minor stretch: Fallback 2, \"The safety review decides whether the release ships,\" turns \"how we prove the release is ready\" into a gating or decision power the source does not state. The response hedges this (\"If the review has no power to block a release, the sentence is wrong\"), so it is not a material fabrication. Still, it is slightly stronger than the source.",
+      "sol": "The proposed fallback, \"The safety review decides whether the release ships,\" invents decision-making authority absent from the source. Calling it a version that \"adds no facts\" and claiming it \"only restates what the source implies\" compounds the error: demonstrating readiness does not establish authority to approve or block shipment. The subsequent caveat acknowledges uncertainty but does not make the proposed rewrite source-supported."
+    },
+    "selection": "disagreement",
+    "family": "borrowed-emphasis",
+    "split": "holdout"
+  },
+  {
+    "human_id": "H02",
+    "slot": "0a6f38ac4e3ac218bf6c147f",
+    "case_id": "em-dash-cluster",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "difference": 2,
+    "opus_score": 5,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "No new facts are introduced. The critique frames gaps as questions (\"What makes the planner nimble?\", \"What conditions support the safety claim?\"). The final rewrite, \"Our route planner helps you plan a route,\" asserts nothing beyond the source. It labels the unsupported claims as unsupported rather than inventing support for them.",
+      "sol": "The final rewrite, “Our route planner helps you plan a route,” introduces no material invented feature, but discards the source’s substantive descriptions and qualifications. Calling the performance, safety, and usability claims “unsupported” confuses the absence of additional evidence with a license to remove the supplied content from a cadence edit."
+    },
+    "selection": "disagreement",
+    "family": "cadence",
+    "split": "tune"
+  },
+  {
+    "human_id": "H03",
+    "slot": "485e53e2d432340a488de8c8",
+    "case_id": "parataxis-pervasive-closers",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "difference": 0,
+    "opus_score": 5,
+    "sol_score": 5,
+    "judge_evidence": {
+      "opus": "The rewrite adds no new facts. Every line restates the source claims, such as \"The cache survived the migration, but the index did not\" and \"Although the team shipped fast, the users stayed away.\" The added phrase \"held where it was\" paraphrases \"The latency held\" without a new claim. The critique says \"without inventing details.\"",
+      "sol": "The rewrite preserves all four source outcomes without adding causes or details. “Latency held where it was” reasonably paraphrases “The latency held,” and “Although the team shipped fast, the users stayed away” expresses the existing contrast without claiming causation."
+    },
+    "selection": "agreement-control",
+    "family": "parataxis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H04",
+    "slot": "07cb370eab7f3815e338bdd2",
+    "case_id": "fake-precision-unnamed-source",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "difference": 0,
+    "opus_score": 3,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "The response invents no new facts. However, the critique says \"the figures cannot be verified,\" yet the rewrite restates them as established fact: \"The new caching layer delivers 47% faster page loads and reduces infrastructure costs by about one-third.\" It also keeps the causal claim (\"delivers\") with no support. This is a material unsupported assertion carried into the proposed prose.",
+      "sol": "The critique correctly states, “With no additional facts, the figures cannot be verified.” However, the proposed rewrite asserts that the layer “delivers 47% faster page loads and reduces infrastructure costs by about one-third” without qualification, presenting the unsupported outcomes as established."
+    },
+    "selection": "agreement-control",
+    "family": "provenance",
+    "split": "holdout"
+  },
+  {
+    "human_id": "H05",
+    "slot": "541a7bd3a02618058b7a0f8f",
+    "case_id": "hedged-symmetry-commit",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "difference": 2,
+    "opus_score": 5,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "The response adds no new facts about the linter or its users. \"Move fast, but don't compromise on correctness\" turns the source's \"correctness is also important\" into a stronger imperative. That is a stance the task asked for, not a factual claim. \"Our linter helps\" repeats the source's own unspecified claim and adds no behavior.",
+      "sol": "“Don’t compromise on correctness” elevates correctness from an important consideration to a nonnegotiable priority, which the source does not support. The claim that the linter helps with prototype or production code remains source-supported."
+    },
+    "selection": "disagreement",
+    "family": "hedged-symmetry",
+    "split": "tune"
+  },
+  {
+    "human_id": "H06",
+    "slot": "0da7af7bd38ddb740649f142",
+    "case_id": "paragraph-scale-borrowed-emphasis",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "difference": 0,
+    "opus_score": 2,
+    "sol_score": 2,
+    "judge_evidence": {
+      "opus": "The rewrite adds several mechanisms that the source never states. It says the first group 'buy a platform and wire it in after the system ships.' It says the second group build 'habits of instrumentation, on-call review, and shared ownership.' It dates the design stage to 'before the first line is written.' The critique also gives its own lifecycle mapping as fact: 'Tools come after deployment, culture during operation, design before build.' These are several material invented details, not one minor implication.",
+      "sol": "The rewrite invents material implementation details: teams 'buy a platform and wire it in after the system ships' and build 'habits of instrumentation, on-call review, and shared ownership.' It also supplies an unsupported lifecycle mapping, 'from after deployment, to during operation, to before the first line is written.' None of these details is provided by the source."
+    },
+    "selection": "agreement-control",
+    "family": "borrowed-emphasis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H07",
+    "slot": "47636eac60e7cdc426369c52",
+    "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "difference": 2,
+    "opus_score": 5,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "Every factual claim in the rewrite traces to the facts block. \"After we could not trace a failed payment across five services\" matches the incident. \"Requiring every new service to attach a request ID and pass it to every downstream call\" matches the rule. Using \"we\" fits a guide written by the payments team. The closing contrast, \"rather than something we try to add during an incident,\" is interpretive framing that follows from the incident, not a new factual claim. The critique's remark that the approaches \"can reinforce one another\" is labeled editorial judgment. No numbers, tools or outcomes are invented.",
+      "sol": "The rewrite accurately preserves the requirement that “every new service” attach a request ID and pass it to “every downstream call,” and the failed payment across five services. However, “rather than something we try to add during an incident” implies an unsupported team practice: the facts establish an inability to trace the payment, not an attempt to add tracing during the incident."
+    },
+    "selection": "disagreement",
+    "family": "borrowed-emphasis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H08",
+    "slot": "fe1373c2b6fed43593227ba3",
+    "case_id": "parataxis-coordination-hides-cause",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "difference": 0,
+    "opus_score": 5,
+    "sol_score": 5,
+    "judge_evidence": {
+      "opus": "The rewrite \"We opened the help desk and published the hours, but nobody came.\" keeps only the three source facts: opened, published hours, nobody came. It adds no new facts and no cause.",
+      "sol": "“We opened the help desk and published the hours, but nobody came” preserves all three source facts without adding a reason for the absence."
+    },
+    "selection": "agreement-control",
+    "family": "parataxis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H09",
+    "slot": "188b56b9f894aeb212f33ef0",
+    "case_id": "parataxis-earned-but-pervasive",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "difference": 2,
+    "opus_score": 4,
+    "sol_score": 2,
+    "judge_evidence": {
+      "opus": "No new numbers, systems, or events are invented. The rewrite's added relations mostly come from the source's own closers. \"so the retries kept adding load to the host that was timing out\" restates \"The retries were the load.\" \"because reverting it needed a person to do a manual step\" restates \"The manual step was the gap.\" \"so serving from the cache took the disk out of the request path\" is a mild extension of \"The disk was the bottleneck,\" though Postgres reads coming off disk is implied. The critique rightly notes \"The closers imply causal proof the paragraphs only half argue.\" The rewrite still asserts causal relations with \"so\" and \"because.\" Minor imprecision, no material fabrication.",
+      "sol": "The rewrite introduces unsupported causal and architectural details: “serving from the cache took the disk out of the request path” is not established by the supplied measurements, and “The 3am rollout broke ... because reverting it needed a person” turns a recovery limitation into a cause of rollout failure. The numerical observations are otherwise preserved."
+    },
+    "selection": "disagreement",
+    "family": "parataxis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H10",
+    "slot": "0a604cdccb72b6d692b6029a",
+    "case_id": "safe-essay-voice",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "difference": 2,
+    "opus_score": 5,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "The response makes no unsupported factual assertion about the product, actor, or result. Concrete items appear only inside questions: \"What friction (approval queues, deploy time, handoffs, data access)?\" It explicitly declines to invent: \"The source supplies no facts, so any rewrite here would invent a buyer, a pain point, or a number.\" The remark \"'Frictionless' is also an absolute no real product can meet\" critiques the wording; it asserts nothing about the subject.",
+      "sol": "The author questions and fallback cut do not invent source details. However, “'Frictionless' is also an absolute no real product can meet” introduces an unsupported universal claim about real products. The source supports identifying an unsubstantiated benefit, not declaring that benefit universally impossible."
+    },
+    "selection": "disagreement",
+    "family": "thin-marketing-content",
+    "split": "tune"
+  },
+  {
+    "human_id": "H11",
+    "slot": "21bee4bad2a50cff88377cfc",
+    "case_id": "rewrite-reuses-flagged-pattern",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "difference": -2,
+    "opus_score": 3,
+    "sol_score": 5,
+    "judge_evidence": {
+      "opus": "The response invents no new facts. It correctly flags the community-motive claims: \"With no supporting details available, these claims should be qualified or omitted.\" It also narrows scope precisely: \"the text establishes that the articles are portable, not necessarily the entire site.\" However, it leaves the unsupported design-intent claim in place. It says \"It was the plan\" merely \"largely repeats\" \"That portability was no accident\" and proposes \"Combining those sentences,\" which keeps the intent assertion. It also calls the portability detail \"a concrete explanation of the site's design,\" implicitly endorsing intent. That is one material unsupported implication.",
+      "sol": "The critique introduces no unsupported factual details. It accurately limits the portability claim: “the text establishes that the articles are portable, not necessarily the entire site.” Its failure to challenge design intent is a review omission, rather than a new factual assertion."
+    },
+    "selection": "disagreement",
+    "family": "self-audit",
+    "split": "tune"
+  },
+  {
+    "human_id": "H12",
+    "slot": "eb76c4491046f1bf6fef830e",
+    "case_id": "parataxis-pervasive-closers",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "difference": 2,
+    "opus_score": 5,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "The rewrite stays within the source and adds no new claims. 'Doubling the workers left latency unchanged' is a fair reading of 'We doubled the workers. The latency held.' 'Persisted' preserves 'stayed.' The critique keeps the uncertainty explicit: 'The source supplies no cause for any outcome, so tightening should preserve that uncertainty' and 'No available fact supports adding a causal hinge.' It does not imply causation anywhere.",
+      "sol": "Most observations remain source-faithful, but “Doubling the workers left latency unchanged” implies that doubling the workers produced the unchanged latency. The source juxtaposes the observations without establishing causation. This also conflicts with the response’s accurate caution that “The source supplies no cause for any outcome.”"
+    },
+    "selection": "disagreement",
+    "family": "parataxis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H13",
+    "slot": "128a1068da46c5e2d644ad73",
+    "case_id": "fake-precision-unnamed-source",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "difference": 2,
+    "opus_score": 5,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "The response asserts no new facts. Cache types appear only as possibilities ('It could be a CDN, an application cache, or a database cache') or as questions ('What does the layer cache (API responses, rendered pages, database queries)'). It says outright 'Do not fill in the metric, the cache type, or the cost basis.' The template uses bracketed placeholders and applies only 'Once the author supplies them.' Its causal framing ('Because fewer requests reach [origin component]') sits inside that conditional template. It also warns that 'a cache could cut load time without cutting cost, or the reverse', so it does not assume causation. One small presumption: 'compared with which previous release' assumes the baseline is a prior release. This is inside a question and is not material.",
+      "sol": "Most additions are questions or examples rather than asserted facts. However, the proposed template changes “47% faster page loads” into “[metric] ... dropped 47%,” which is not necessarily the same numerical claim. It also supplies the unsupported causal explanation “Because fewer requests reach [origin component]”; the requested information would not necessarily establish that mechanism."
+    },
+    "selection": "disagreement",
+    "family": "provenance",
+    "split": "holdout"
+  },
+  {
+    "human_id": "H14",
+    "slot": "7ae6d554ce6109ead410f8d3",
+    "case_id": "borrowed-emphasis",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "difference": 0,
+    "opus_score": 5,
+    "sol_score": 5,
+    "judge_evidence": {
+      "opus": "The response introduces no unsupplied mechanism or fact. The fallback \"Durable execution involves more than retry logic\" restates the source's own narrower claim (\"isn't just retry logic\"). The response flags the novelty claim as unsupported (\"claims novelty without evidence\") rather than inventing support for it.",
+      "sol": "Introduces no durability mechanism or other unsupported technical fact. The fallback, “Durable execution involves more than retry logic,” preserves the source’s narrower assertion, while the response explicitly notes that it “still needs an explanation in the surrounding text.”"
+    },
+    "selection": "agreement-control",
+    "family": "borrowed-emphasis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H15",
+    "slot": "155c5587806cb13e10a81f11",
+    "case_id": "stacked-rule-of-three",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "difference": 2,
+    "opus_score": 5,
+    "sol_score": 3,
+    "judge_evidence": {
+      "opus": "The response introduces no new facts. It says the closing claim is \"unsupported by the preceding sentences\" and that \"a single before/after measurement\" is \"evidence for one improvement, not for continuous learning, scaling, or iterative gains,\" which correctly declines to infer causation or continuity. Its fallback template uses bracketed slots and says \"do not fill them.\" The phrase \"one-time change\" is a fair reading of the past-tense source, not a material new claim.",
+      "sol": "Most missing details are appropriately framed as questions, but the response says the before/after measurement 'is evidence for one improvement.' The source supplies neither measurement values nor a finding of improvement from that comparison. The proposed 'Because [change], [metric] moved from [before] to [after]' also requests a causal framing that before/after values alone would not establish."
+    },
+    "selection": "disagreement",
+    "family": "cadence",
+    "split": "holdout"
+  },
+  {
+    "human_id": "H16",
+    "slot": "0954162b802f1ed07e68e5c5",
+    "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "difference": 2,
+    "opus_score": 4,
+    "sol_score": 2,
+    "judge_evidence": {
+      "opus": "The response mostly stays within the source. The verdict is ask-author. The tool names appear only as a question ('Which coding tool? Cursor, Claude Code, Copilot, Aider, other?'). 'ten minutes or four hours' is framed as something the reader cannot know, not as a claim. The fallback reuses the source sentences verbatim. One minor slip: the 'Optional' template puts an unbracketed, invented before-duration and activity in a proposed sentence: 'cost [time] instead of an afternoon of font and layout debugging.' This is gated on the author supplying facts, so it stays minor rather than material.",
+      "sol": "The main fallback reproduces supplied facts accurately, and the specificity questions are permissible questions rather than factual assertions. However, the optional rewrite introduces material unsupported details: '[tool] wrote most of the Satori script,' 'which I would have skipped,' and 'instead of an afternoon of font and layout debugging.' Making this optional once the author supplies a tool name does not establish those additional claims; the instruction about bracketed slots does not cover the unbracketed afternoon or debugging scenario."
+    },
+    "selection": "disagreement",
+    "family": "self-audit",
+    "split": "tune"
+  },
+  {
+    "human_id": "H17",
+    "slot": "099e0ade4381d6ae5f0cc40b",
+    "case_id": "emphasis-source-flatten-with-facts",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "difference": -1,
+    "opus_score": 4,
+    "sol_score": 5,
+    "judge_evidence": {
+      "opus": "All three facts appear accurately: \"saves state after every step\", \"after a crash, resumes from the last saved step instead of starting over\", and \"write workflows as ordinary sequential code\". The response adds no new facts. There are two minor imprecisions. First, it generalizes \"in this framework\" to \"Durable execution\" in general. Second, the causal \"because\" asserts that saving state is what lets developers write sequential code. The facts only say developers write sequential code while \"the framework does the saving and resuming\", so the causal link is a reasonable inference but goes slightly beyond what is stated.",
+      "sol": "The response preserves all supplied facts: developers write workflows as “ordinary sequential code,” the framework “saves state after every step,” and after a crash it “resumes from the last saved step instead of starting over.” It introduces no unsupported factual claims."
+    },
+    "selection": "disagreement",
+    "family": "borrowed-emphasis",
+    "split": "tune"
+  },
+  {
+    "human_id": "H18",
+    "slot": "ff5386372e06a3bf24210dbb",
+    "case_id": "safe-essay-voice",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "difference": 0,
+    "opus_score": 5,
+    "sol_score": 5,
+    "judge_evidence": {
+      "opus": "The response makes no unsupported claims. Its flattened paraphrase, “Organizations need offerings that help them progress,” restates the source without adding anything. It also says outright that “With no additional facts, a substantive rewrite would require invention.” It names no product, organization, disruption, or benefit.",
+      "sol": "Introduces no unsupported facts about any organization or offering. The statement “With no additional facts, a substantive rewrite would require invention” accurately identifies the source limitation. The flattened sentence is explicitly a paraphrase of the source claim, not a newly asserted product benefit."
+    },
+    "selection": "agreement-control",
+    "family": "thin-marketing-content",
+    "split": "tune"
+  }
+]

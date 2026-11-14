@@ -4,14 +4,29 @@ from __future__ import annotations
 
 import copy
 import json
+import subprocess
 import unittest
 
-from _support import load_script
+from _support import ROOT, load_script
 
 study = load_script("scripts/subscription_baseline.py")
 
 
 class Audit(unittest.TestCase):
+    def test_node_transport_reads_large_nonblocking_stdin_without_provider_call(self):
+        module = (ROOT / "scripts/subscription_model.mjs").as_uri()
+        code = f"import {{ readRequest }} from {json.dumps(module)}; console.log(JSON.stringify(await readRequest()));"
+        payload = {"prompt": "large skill text " * 20000, "model": "transport-only"}
+        result = subprocess.run(
+            ["node", "--input-type=module", "-e", code],
+            input=json.dumps(payload),
+            text=True,
+            capture_output=True,
+            timeout=10,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), payload)
+
     def test_accepts_complete_openai_text_and_rejects_tools_or_model_drift(self):
         good = {
             "result": {

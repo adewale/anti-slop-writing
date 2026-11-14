@@ -43,7 +43,7 @@ def body(text: str) -> str:
 
 
 def normalized(text: str) -> str:
-    text = re.sub(r"(?m)^\s*\d+→", "", text)
+    text = re.sub(r"(?m)^\s*\d+(?:→|\t)", "", text)
     return " ".join(text.split())
 
 
@@ -160,7 +160,7 @@ def prepare(dest: Path) -> None:
                 slots.append({"id": base.sha(f"route-v1|{client}|{q['id']}|{trial}")[:24],
                               "client": client, "query_id": q["id"], "trial": trial})
     random.Random(SEED).shuffle(slots)
-    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 3, "models": MODELS, "slots": slots,
+    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 4, "models": MODELS, "slots": slots,
         "queries_sha256": base.sha((dest / "queries.json").read_text()),
         "skill_hashes": {str(p.relative_to(dest / "frozen-skill")): base.sha(p.read_text()) for p in (dest / "frozen-skill").rglob("*.md")},
         "clients": {"pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)", "claude": "Claude Code 2.1.323 restricted CLI with explicit local-writing plugin"},

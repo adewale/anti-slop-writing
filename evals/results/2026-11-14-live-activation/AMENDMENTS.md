@@ -58,3 +58,18 @@ native Skill-body delivery after a successful invocation. Resume only its two no
 launched controls. Keep the original observer failure beside the successful reparse,
 plus revision-2 source hashes. No scored routing slot has run yet. Commit this parser
 amendment before the remaining pilot controls or full runs.
+
+## Revision 4 — native Read line-number syntax, before scored routing runs
+
+After resuming the preserved pilot, Claude's forced control successfully read all 339
+lines, but its result prefixes were `1<TAB>...`, not the observer's supported `1→...`.
+The raw result contained the full body (16,338 characters). Add TAB as a permitted
+line-number separator alongside the arrow; do not strip numbered prose or alter
+activation's full-body requirement. A new real-shape regression test failed for TAB
+and passed for arrow before this one-line parser fix.
+
+Again there is no change to generation, queries, labels, models, metadata or native
+commands. Reparse all six existing revision-2/3 pilot requests; regenerate none. Keep
+revision-3 source hashes. With both forced full-load controls observable, the original
+174 scored routing slots can proceed only after this amendment is committed. Every
+pilot response remains excluded from scored rates.

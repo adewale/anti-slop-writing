@@ -82,6 +82,18 @@ class Activation(unittest.TestCase):
         failed[2]["message"]["content"][0]["is_error"] = True
         self.assertFalse(study.classify_claude(failed, TEXT, FILE)["activated"])
 
+    def test_claude_read_body_accepts_native_tab_or_arrow_line_prefixes(self):
+        for separator in ("\t", "→"):
+            numbered = "\n".join(f"{i}{separator}{line}" for i, line in enumerate(TEXT.splitlines(), 1))
+            events = [
+                {"type": "system", "subtype": "init", "skills": ["anti-slop-writing"], "tools": ["Read", "Skill"], "mcp_servers": []},
+                {"type": "assistant", "message": {"content": [{"type": "tool_use", "id": "r1", "name": "Read", "input": {"file_path": FILE}}]}},
+                {"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": "r1", "content": numbered}]}},
+                {"type": "result", "subtype": "success", "is_error": False, "modelUsage": {"claude-sonnet-5-5": {}}},
+            ]
+            with self.subTest(separator=separator):
+                self.assertTrue(study.classify_claude(events, TEXT, FILE)["activated"])
+
     def test_guarded_read_resolves_symlink_escapes_before_opening(self):
         module = (ROOT / "scripts/activation_model.mjs").as_uri()
         with tempfile.TemporaryDirectory() as directory:

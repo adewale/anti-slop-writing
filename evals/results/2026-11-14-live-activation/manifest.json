@@ -1,6 +1,6 @@
 {
   "seed": 261116,
-  "instrument_revision": 2,
+  "instrument_revision": 3,
   "models": {
     "pi": "gpt-6.1-sol",
     "claude": "claude-sonnet-5-5"

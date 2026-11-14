@@ -16,14 +16,33 @@ from pathlib import Path
 from _support import ROOT, run_script
 
 
+def copy_validation_fixture(source: Path, destination: Path) -> None:
+    shutil.copytree(source, destination, ignore=shutil.ignore_patterns(
+        ".git", "__pycache__", "eval-workspace", ".ruff_cache", ".venv",
+    ))
+
+
+class FixtureIsolation(unittest.TestCase):
+    def test_excludes_runtime_and_caches_but_keeps_validation_inputs(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "source"
+            for name in ("eval-workspace", ".ruff_cache", ".venv", "evals"):
+                (source / name).mkdir(parents=True)
+                (source / name / "canary").write_text(name)
+            destination = Path(directory) / "copy"
+            copy_validation_fixture(source, destination)
+            self.assertEqual((destination / "evals/canary").read_text(), "evals")
+            for name in ("eval-workspace", ".ruff_cache", ".venv"):
+                with self.subTest(name=name):
+                    self.assertFalse((destination / name).exists())
+
+
 class Validate(unittest.TestCase):
     def setUp(self) -> None:
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         self.root = Path(tmp.name) / "repo"
-        shutil.copytree(
-            ROOT, self.root, ignore=shutil.ignore_patterns(".git", "__pycache__")
-        )
+        copy_validation_fixture(ROOT, self.root)
 
     def validate(self):
         return run_script("scripts/validate.py", cwd=self.root)

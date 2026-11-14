@@ -59,7 +59,7 @@ class Activation(unittest.TestCase):
 
     def test_claude_native_skill_requires_success_and_body_delivery_not_just_launch(self):
         events = [
-            {"type": "system", "subtype": "init", "skills": ["anti-slop-writing"], "tools": ["Read", "Skill"], "mcp_servers": []},
+            {"type": "system", "subtype": "init", "skills": ["anti-slop-writing"], "tools": ["Read", "Skill"], "mcp_servers": [], "plugins": [{"name": "cc-plugin-agents-md", "path": "builtin", "source": "cc-plugin-agents-md@builtin"}]},
             {"type": "assistant", "message": {"content": [{"type": "tool_use", "id": "s1", "name": "Skill", "input": {"skill": "anti-slop-writing"}}]}},
             {"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": "s1", "content": "Launching skill: anti-slop-writing"}]}},
             {"type": "user", "message": {"content": [{"type": "text", "text": study.body(TEXT)}]}},

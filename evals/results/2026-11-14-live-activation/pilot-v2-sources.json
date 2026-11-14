@@ -1,0 +1,5 @@
+{
+  "scripts/live_activation.py": "a7db7ac2a30bda4dabf30966b4e72b1da10277cc9f0c97644b61b37f681b7a1b",
+  "scripts/activation_model.mjs": "615386e34cf59e06443a4cbdaee41d27fdd96bdc940e7b1c6317299f362e79cd",
+  "scripts/subscription_model.mjs": "66e6766d9297d2867446bab4c4a3443b47c6edd684bc7897f7e7f51bfeb4b55a"
+}

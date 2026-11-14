@@ -106,8 +106,13 @@ def classify_claude(events: list[dict], skill: str, canonical: str) -> dict:
     inventory = set(init.get("skills", []))
     if len(inventory & CLAUDE_TARGETS) != 1 or inventory - CLAUDE_TARGETS - CLAUDE_BUILTINS or set(init.get("tools", [])) - {"Read", "Skill"} or init.get("mcp_servers"):
         raise ValueError("unexpected Claude skill/tool/MCP inventory")
-    if any(p.get("source") != "builtin" and p.get("name") != "local-writing" for p in init.get("plugins", [])):
-        raise ValueError("unexpected external Claude plugin")
+    builtin_plugins = {"cc-plugin-agents-md", "cc-plugin-telemetry", "cc-plugin-privacy", "cc-plugin-plugin-authoring"}
+    for plugin in init.get("plugins", []):
+        name = plugin.get("name")
+        builtin = name in builtin_plugins and plugin.get("path") == "builtin" and plugin.get("source") == f"{name}@builtin"
+        local = name == "local-writing" and plugin.get("path") == str(Path(canonical).parents[2]) and plugin.get("source") == "local-writing@inline"
+        if not (builtin or local):
+            raise ValueError("unexpected external Claude plugin")
     calls, successes, failures = {}, {}, []
     delivered_context = []
     for e in events:
@@ -155,7 +160,7 @@ def prepare(dest: Path) -> None:
                 slots.append({"id": base.sha(f"route-v1|{client}|{q['id']}|{trial}")[:24],
                               "client": client, "query_id": q["id"], "trial": trial})
     random.Random(SEED).shuffle(slots)
-    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 2, "models": MODELS, "slots": slots,
+    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 3, "models": MODELS, "slots": slots,
         "queries_sha256": base.sha((dest / "queries.json").read_text()),
         "skill_hashes": {str(p.relative_to(dest / "frozen-skill")): base.sha(p.read_text()) for p in (dest / "frozen-skill").rglob("*.md")},
         "clients": {"pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)", "claude": "Claude Code 2.1.323 restricted CLI with explicit local-writing plugin"},
@@ -224,6 +229,15 @@ def validate_frozen(dest: Path) -> dict:
     return manifest
 
 
+def saved_result(dest: Path, client: str, folder: Path) -> dict:
+    request = base.read_json(folder / "request.json")
+    if base.read_json(folder / "process.json")["returncode"] != 0:
+        raise ValueError("saved client process did not complete")
+    events = [json.loads(line) for line in (folder / "stdout.jsonl").read_text().splitlines() if line.strip()]
+    classify = classify_pi if client == "pi" else classify_claude
+    return classify(events, (dest / "frozen-skill/SKILL.md").read_text(), request["canonical_skill"])
+
+
 def pilot(dest: Path) -> None:
     validate_frozen(dest)
     queries = {q["id"]: q for q in base.read_json(dest / "queries.json")["queries"]}
@@ -233,7 +247,11 @@ def pilot(dest: Path) -> None:
         for name, qid, forced in (("positive", "pos-readme-polish", False), ("negative", "neg-em-dash-mechanical", False), ("forced", "pos-readme-polish", True)):
             path = dest / "pilot" / client / name
             try:
-                result = run_one(dest, client, queries[qid]["query"], path, forced)
+                if path.exists():
+                    result = saved_result(dest, client, path)
+                    base.dump(path / "complete.json", result)
+                else:
+                    result = run_one(dest, client, queries[qid]["query"], path, forced)
                 results.append({"control": name, **result})
             except (ValueError, OSError) as exc:
                 base.dump(path / "failure.json", {"error": str(exc)})

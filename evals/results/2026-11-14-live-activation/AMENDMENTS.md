@@ -36,3 +36,25 @@ its inventory, completion and forced-full-load checks become eligible for the or
 pilot series. Commit this amendment and instrument changes before additional pilot or
 scored calls. The existing exact model panel, queries, trial counts, majority threshold,
 raw-evidence definition and no-API-billing restriction remain unchanged.
+
+## Revision 3 — native plugin-origin parser, before scored routing runs
+
+Revision 2's model-free Pi inspect passed: active tools were exactly `[read]`, its
+single advertised skill was the intended copy, and no full body was preloaded. Pi's
+three pilot controls then completed, including a successful forced full read.
+
+Claude revision 2 successfully advertised `local-writing:anti-slop-writing`, but the
+observer rejected a built-in plugin's source field. The native shape is
+`{name: cc-plugin-agents-md, path: builtin, source: cc-plugin-agents-md@builtin}`, not
+`source: builtin`. A regression test using that actual field shape failed before the
+parser repair. Accept only the four observed built-in names with matching `@builtin`
+source and `path: builtin`, or the exact explicit local plugin path with
+`source: local-writing@inline`. Foreign resources remain rejected.
+
+No invocation flags, models, queries, labels, metadata, read permissions or activation
+criteria change in this revision. Reparse the already completed revision-2 pilot
+requests; **do not regenerate them**. The cached Claude positive has observable full
+native Skill-body delivery after a successful invocation. Resume only its two not-yet-
+launched controls. Keep the original observer failure beside the successful reparse,
+plus revision-2 source hashes. No scored routing slot has run yet. Commit this parser
+amendment before the remaining pilot controls or full runs.

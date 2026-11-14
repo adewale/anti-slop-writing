@@ -108,6 +108,19 @@ class Validate(unittest.TestCase):
         self.edit_json("evals/rewrite-evals.json", lambda d: d["evals"][0].pop("facts"))
         self.assert_fails_with("facts must be a list")
 
+    def test_twitter_case_requires_explicit_facts(self) -> None:
+        self.edit_json("evals/twitter-evals.json", lambda d: d["evals"][0].pop("facts"))
+        self.assert_fails_with("facts must be a list")
+
+    def test_twitter_case_rejects_blank_fact(self) -> None:
+        self.edit_json("evals/twitter-evals.json", lambda d: d["evals"][0].update(facts=[" "]))
+        self.assert_fails_with("facts must be a list")
+
+    def test_twitter_source_in_prompt_may_have_no_additional_facts(self) -> None:
+        self.edit_json("evals/twitter-evals.json", lambda d: d["evals"][0].update(facts=[]))
+        result = self.validate()
+        self.assertEqual(result.returncode, 0, result.stdout)
+
     def twin(self, data: dict) -> dict:
         return next(c for c in data["evals"] if c.get("paired_with"))
 

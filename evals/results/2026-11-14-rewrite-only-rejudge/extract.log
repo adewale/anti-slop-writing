@@ -1,0 +1,26 @@
+extract: 20/488 {'completed': 20} failures=0
+extract: 40/488 {'completed': 40} failures=0
+extract: 60/488 {'completed': 60} failures=0
+extract: 80/488 {'completed': 80} failures=0
+extract: 100/488 {'completed': 100} failures=0
+extract: 120/488 {'completed': 120} failures=0
+extract: 140/488 {'completed': 140} failures=0
+extract: 160/488 {'completed': 160} failures=0
+extract: 180/488 {'completed': 180} failures=0
+extract: 200/488 {'completed': 200} failures=0
+extract: 220/488 {'completed': 220} failures=0
+extract: 240/488 {'completed': 240} failures=0
+extract: 260/488 {'completed': 260} failures=0
+extract: 280/488 {'completed': 280} failures=0
+extract: 300/488 {'completed': 300} failures=0
+extract: 320/488 {'completed': 320} failures=0
+extract: 340/488 {'completed': 340} failures=0
+extract: 360/488 {'completed': 360} failures=0
+extract: 380/488 {'completed': 380} failures=0
+extract: 400/488 {'completed': 400} failures=0
+extract: 420/488 {'completed': 420} failures=0
+extract: 440/488 {'completed': 440} failures=0
+extract: 460/488 {'completed': 460} failures=0
+extract: 480/488 {'completed': 480} failures=0
+extract: 488/488 {'completed': 488} failures=0
+{'counts': {'completed': 488}, 'failures': [], 'jobs': 488}

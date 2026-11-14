@@ -2,6 +2,18 @@
 
 Updated: 2026-11-14
 
+## Rewrite-only measurement: extraction audit blocked writing judgments
+
+The [rewrite-only checkpoint](2026-11-14-rewrite-only-rejudge/README.md) completed
+488 valid extractions and 444 independent instrument audits. The model auditor
+flagged 93/444 primary extractions, so the prospective gate stopped the study before
+any of its 1,776 writing judgments. **There is no rewrite-only efficacy or critique-effect
+result.** Flags are not human-confirmed defects; some may reflect ambiguous role labels
+or auditor overreach. All 932 selected provider responses, raw data and model-free
+reproduction are retained; no successful extraction was regenerated or substituted.
+A 130-item blinded instrument-review packet is ready. That review does not replace
+the separate human fidelity-judge calibration, which is still pending.
+
 ## Completed: candidate screens and observed initial-turn activation
 
 The [candidate study](2026-11-14-candidate-studies/README.md) completed **1,122 outputs

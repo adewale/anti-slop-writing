@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "model_calls": 0,
+  "published_checksums_verified": 38,
+  "byte_identical_reproduced_files": [
+    "checkpoint.json",
+    "receipts.json",
+    "reliability.json",
+    "REVIEW-PACKET.md",
+    "REVIEW-ANSWERS.template.json",
+    "REVIEW-PRIVATE-KEY.json",
+    "review-selection.json"
+  ]
+}

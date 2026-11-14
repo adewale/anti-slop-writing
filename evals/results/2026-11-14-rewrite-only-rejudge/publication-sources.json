@@ -1,0 +1,8 @@
+{
+  "scripts/rewrite_rejudge.py": "39a3c295fb475ea2e7f759f987fc6466a06f1673d7d7ed44a8831967cdef7fce",
+  "scripts/subscription_baseline.py": "08b3346f03f97d531b8d04791823131d6e4531941e8d52400abc3e5922f13d06",
+  "scripts/subscription_model.mjs": "66e6766d9297d2867446bab4c4a3443b47c6edd684bc7897f7e7f51bfeb4b55a",
+  "scripts/score_delta.py": "e20ba181ce86c9a17382ffae88c999400633821a128a566ddd13279b56914005",
+  "scripts/run_evals.py": "7754f0e41d6f083c9f30c164861a526dab1ef4b130543c5e969c55d0fe38e703",
+  "scripts/review_rewrite_rejudge.py": "b74809eca13ddd3973e5d4b54b552ec716de0c071d540e20d7f35a4b1e98fdba"
+}

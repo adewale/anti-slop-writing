@@ -4,6 +4,7 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 
 ## Blocked — needs a human
 
+- [ ] **Resolve the rewrite-only extraction boundary.** Revision 2 stopped before writing judgments: the independent model audit flagged 93/444 extractions. Review role labels, qualification context and possible auditor false alarms in `evals/results/2026-11-14-rewrite-only-rejudge/REVIEW-PACKET.md` (130 blinded items including preselected controls). Freeze answers before opening its key. Any later repair requires a visible amendment; do not regenerate successful extractions until the flags disappear. This is separate from human fidelity-judge calibration.
 - [ ] **Real discourse-layer failure examples.** 3–5 pieces of multi-paragraph prose (~500+ words) that use no banned phrases and read fine at the sentence level but are still slop: over-explained takeaway, flat paragraph escalation (siblings at the same altitude), or single-track structure with no counter-evidence. These cannot be synthesized here without circularity (drafting the rule then writing examples to fit it) or contamination (public long-form may be in training data). See `Lessons_learned.md` → "Doctrine reaches the surface layer." Until these land, the discourse-layer doctrine work in `SKILL.md` stays blocked.
   - Acceptance: each example added to `evals/failures/`, plus `tune` cases in an eval file and at least one `holdout` case in the same vein.
 
@@ -16,7 +17,7 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 ## Open — buildable without the blocked item
 
 - [ ] Calibrate the subscription baseline's fidelity disagreement with human review before any promotion claim. The 18-item blinded packet and blank answers are ready in `evals/results/2026-11-14-fidelity-calibration/`; actual human scoring is pending. Keep existing holdouts frozen; later doctrine changes need tune cases and their own study.
-- [ ] Run revision 2 of the pre-registered rewrite-only re-judging in `evals/results/2026-11-14-rewrite-only-rejudge/` (488 extraction, up to 444 audit and 1,776 judge calls; ~$80 list-price equivalent, authorized existing subscriptions only). Retain empty deliverables, audit extraction faithfulness before judging, and stop for review on any negative audit. Publish view sensitivity and uncertainty as registered; this is not a pure causal critique effect or human fidelity calibration.
+- [ ] Complete the rewrite-only comparison only after instrument review. Revision 2's 488 extraction calls and 444 independent audits are published; 93 audit flags blocked all 1,776 planned writing judgments. Returned counters were $13.36 list-price equivalent, subscription-only. No view-sensitivity or writing-efficacy result is available; see the blocked item above.
 - [ ] Complete live-client coverage for **native Codex and OpenCode**. Pi and guarded Claude Code now have 29 queries × three valid fresh sessions each. Codex's registered native model was unsupported on the subscription; a different model needs a separately fixed instrument. OpenCode was absent and was not installed. Do not invent rates or substitute the old routing classifier.
 
 ## Open — 2026-11-13 review

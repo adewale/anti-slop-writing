@@ -1,8 +1,10 @@
 # Changelog
 
-## 2026-11-14 — Prepare rewrite-only re-judging (not run)
+## 2026-11-14 — Stop rewrite-only measurement at its extraction-audit gate
 
-- Added `scripts/rewrite_rejudge.py` and froze its design in `evals/results/2026-11-14-rewrite-only-rejudge/`. The baseline's skill responses averaged 359 words (Sonnet) and 158 (GPT), but their `Concrete rewrite` fields averaged 82 and 49, against 137 and 87 for whole no-skill responses, so judges mostly read extra critique. The study re-judges the 444 baseline outputs for the 37 cases that ask for rewritten prose, in two views: the full response and the verbatim deliverable alone. Its difference-in-differences measures sensitivity to removing surrounding material, not a pure causal critique effect. One fixed extractor serves both arms, and every span must be a verbatim substring of the original response. Revision 2 prospectively retains empty deliverables, counts case-wide attrition, adds an independent extraction-audit gate, exports original-versus-rescored and fact-condition contrasts, and avoids treating a zero-crossing interval as equivalence. The estimate is ~$80 list-price equivalent with audits, subscription-only. No model call has run and no result is claimed.
+- Prepared the 37-case/444-output baseline re-judging and prospectively repaired outcome exclusions, case-wide attrition, uncertainty labels, original-versus-rescored exports and qualification-aware extraction. Committed revision 2 before calls, with an independent audit required before writing judgments. No installed skill or original baseline score changed.
+- Completed 488 valid extractions and 444 Opus instrument audits (932 unique provider responses). The auditor flagged 93/444 primary extractions; all 1,776 planned writing judgments remain unrun. Flags include potential extraction/label-removal problems and possible auditor overreach, not human-confirmed defects or a skill result. No successful response was regenerated or substituted.
+- Published raw traces, exact request/response audits, $13.36 returned list-price counters (not an invoice), model-free reproduction and a 130-item blinded extraction-review packet in `evals/results/2026-11-14-rewrite-only-rejudge/`. Instrument review and the separate human fidelity-judge calibration remain pending.
 
 ## 2026-11-14 — Complete candidate screens and controlled live activation
 

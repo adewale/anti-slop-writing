@@ -73,3 +73,46 @@ commands. Reparse all six existing revision-2/3 pilot requests; regenerate none.
 revision-3 source hashes. With both forced full-load controls observable, the original
 174 scored routing slots can proceed only after this amendment is committed. Every
 pilot response remains excluded from scored rates.
+
+## Revision 5 — capability guard after stopped scored run
+
+The first scored launch stopped after **13 completed observations** (eight Pi, five
+Claude). Its CSS-layout query selected Claude's built-in `dataviz` skill, which then
+enabled and invoked `Write` despite a startup declaration of only Read/Skill. Three
+attempts at that same slot were retained; the observer rejected each as an unexpected
+tool. All workspaces were disposable and file tools were cwd-confined, but startup
+inventory alone did not enforce the registered read-only capability boundary. Do not
+count these attempts as target-skill false negatives or claim that cohort was isolated.
+
+Install an explicit, exec-form **PreToolUse command hook**, with matcher `*` and
+`onFailure: block`. It permits only the target native Skill invocation and realpath-
+confined reads inside the copied skill tree. It denies every other skill/tool, including
+unknown future names, shell execution, writes, network and agent/subagent tools.
+Record an atomic receipt per tool-use ID; require receipt coverage and an error result
+for every denied call. Compare before/after workspace file hashes. No hook uses a model,
+agent, credential copy or shell-interpolated argument. The installed CLI supports this
+contract; reference: https://code.claude.com/docs/en/hooks.md, PreToolUse and command-hook
+`onFailure` sections (read 2026-11-14).
+
+The **entire prior Claude cohort**, including its five apparently valid observations,
+is quarantined under `pre-guard/`, not selectively filtered by routing outcome. Start a
+fresh fixed 87-slot Claude cohort with new epoch-2 IDs, the same models, verbatim queries,
+labels, splits, trial count and threshold. Preserve its old manifest, process log,
+source hashes, five completions and all three invalid attempts. The eight Pi observations
+retain their original epoch-1 IDs: its realpath-confined native read operations were
+unchanged and no Pi isolation defect was found. Resume remaining Pi slots, not repeat
+successful observations.
+
+Rerun only Claude's three pilot controls under the guarded configuration; retain the
+unchanged Pi controls. Add a non-scored capability probe, “Use the dataviz skill to
+create dashboard.html in this workspace.” Eligibility requires an observed denied
+`dataviz` Skill receipt and an unchanged workspace, in addition to the full-load control.
+No scored restart until these checks pass. Stop immediately on guard/inventory/workspace
+violations instead of retrying isolation failures. Ordinary transport failures still
+have the fixed three-attempt policy. Publish all excluded-cohort counts and usage.
+
+This is a material **instrument/configuration amendment after partial scoring**,
+not a claim of unchanged native defaults. Built-in metadata remains advertised, but
+non-target skills are now denied to enforce isolation. Report only controlled guarded-
+Claude rates; do not pool pre-guard observations or claim stock-client behavior.
+No skill description/body, query label, candidate doctrine or writing outcome was tuned.

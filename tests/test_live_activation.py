@@ -66,6 +66,12 @@ class Activation(unittest.TestCase):
             {"type": "result", "subtype": "success", "is_error": False, "modelUsage": {"claude-sonnet-5-5": {}}},
         ]
         self.assertTrue(study.classify_claude(events, TEXT, FILE)["activated"])
+        with self.assertRaises(ValueError):
+            study.classify_claude(events, TEXT, FILE, [])
+        receipt = {"tool_use_id": "s1", "tool_name": "Skill", "allowed": True, "requested_skill": "anti-slop-writing"}
+        self.assertTrue(study.classify_claude(events, TEXT, FILE, [receipt])["activated"])
+        with self.assertRaises(ValueError):
+            study.classify_claude(events, TEXT, FILE, [{**receipt, "allowed": False}])
         namespaced = copy.deepcopy(events)
         namespaced[0]["skills"] = [*sorted(study.CLAUDE_BUILTINS), "local-writing:anti-slop-writing"]
         namespaced[1]["message"]["content"][0]["input"]["skill"] = "local-writing:anti-slop-writing"

@@ -95,7 +95,7 @@ def classify_pi(events: list[dict], skill: str, canonical: str) -> dict:
             "assistant_requests": len(assistants)}
 
 
-def classify_claude(events: list[dict], skill: str, canonical: str) -> dict:
+def classify_claude(events: list[dict], skill: str, canonical: str, guard_receipts: list[dict] | None = None) -> dict:
     inits = [e for e in events if e.get("type") == "system" and e.get("subtype") == "init"]
     results = [e for e in events if e.get("type") == "result"]
     if len(inits) != 1 or len(results) != 1:
@@ -114,6 +114,7 @@ def classify_claude(events: list[dict], skill: str, canonical: str) -> dict:
         if not (builtin or local):
             raise ValueError("unexpected external Claude plugin")
     calls, successes, failures = {}, {}, []
+    all_calls, tool_errors = {}, {}
     delivered_context = []
     for e in events:
         role = e.get("type")
@@ -123,14 +124,17 @@ def classify_claude(events: list[dict], skill: str, canonical: str) -> dict:
                 if c.get("type") != "tool_use":
                     continue
                 name, arguments = c["name"], c.get("input", {})
-                if name not in ("Skill", "Read"):
+                if name not in ("Skill", "Read") and guard_receipts is None:
                     raise ValueError("unexpected Claude tool")
+                all_calls[c["id"]] = name
                 match = name == "Skill" and arguments.get("skill") in CLAUDE_TARGETS
                 match |= name == "Read" and same_file(arguments.get("file_path", ""), canonical, init.get("cwd", str(Path(canonical).parent)))
                 if match:
                     calls[c["id"]] = name
         if role == "user":
             for c in blocks:
+                if c.get("type") == "tool_result":
+                    tool_errors[c.get("tool_use_id")] = bool(c.get("is_error"))
                 if c.get("type") == "tool_result" and c.get("tool_use_id") in calls:
                     if c.get("is_error"):
                         failures.append(c["tool_use_id"])
@@ -138,6 +142,16 @@ def classify_claude(events: list[dict], skill: str, canonical: str) -> dict:
                         successes[c["tool_use_id"]] = content_text(c.get("content", ""))
                 if c.get("type") == "text":
                     delivered_context.append(c.get("text", ""))
+    if guard_receipts is not None:
+        receipts = {r["tool_use_id"]: r for r in guard_receipts}
+        if len(receipts) != len(guard_receipts) or receipts.keys() != all_calls.keys():
+            raise ValueError("missing or duplicate tool guard receipts")
+        for cid, name in all_calls.items():
+            receipt = receipts[cid]
+            if receipt["tool_name"] != name or not receipt["allowed"] and tool_errors.get(cid) is not True:
+                raise ValueError("denied tool executed or guard receipt mismatched")
+            if receipt["allowed"] and (name not in ("Read", "Skill") or name == "Skill" and receipt.get("requested_skill") not in CLAUDE_TARGETS):
+                raise ValueError("tool guard allowed an unauthorized capability")
     target = normalized(body(skill))
     delivered = [cid for cid, text in successes.items() if target in normalized(text)
                  or calls[cid] == "Skill" and any(target in normalized(t) for t in delivered_context)]
@@ -157,16 +171,17 @@ def prepare(dest: Path) -> None:
     for client in MODELS:
         for q in data["queries"]:
             for trial in range(1, data["runs_per_query"] + 1):
-                slots.append({"id": base.sha(f"route-v1|{client}|{q['id']}|{trial}")[:24],
-                              "client": client, "query_id": q["id"], "trial": trial})
+                epoch = 2 if client == "claude" else 1
+                slots.append({"id": base.sha(f"route-v{epoch}|{client}|{q['id']}|{trial}")[:24],
+                              "client": client, "query_id": q["id"], "trial": trial, "epoch": epoch})
     random.Random(SEED).shuffle(slots)
-    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 4, "models": MODELS, "slots": slots,
+    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 5, "models": MODELS, "slots": slots,
         "queries_sha256": base.sha((dest / "queries.json").read_text()),
         "skill_hashes": {str(p.relative_to(dest / "frozen-skill")): base.sha(p.read_text()) for p in (dest / "frozen-skill").rglob("*.md")},
         "clients": {"pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)", "claude": "Claude Code 2.1.323 restricted CLI with explicit local-writing plugin"},
         "unavailable": {"codex": "0.145.0: recorded subscription probe rejects gpt-6.1-sol; no model substitution preregistered", "opencode": "Not installed on PATH or checked conventional locations; not installed by this study"}})
     base.dump(dest / "frozen-sources.json", {str(p.relative_to(ROOT)): base.sha(p.read_text()) for p in (
-        ROOT / "scripts/live_activation.py", ROOT / "scripts/activation_model.mjs", ROOT / "scripts/subscription_model.mjs")})
+        ROOT / "scripts/live_activation.py", ROOT / "scripts/activation_model.mjs", ROOT / "scripts/activation_guard.py", ROOT / "scripts/subscription_model.mjs")})
 
 
 def run_one(dest: Path, client: str, query: str, output: Path, forced: bool = False) -> dict:
@@ -180,15 +195,21 @@ def run_one(dest: Path, client: str, query: str, output: Path, forced: bool = Fa
         if client == "claude":
             base.dump(plugin_root / ".claude-plugin/plugin.json", {"name": "local-writing", "version": "1.0.0", "description": "Local writing instructions"})
         canonical = str(skill_root / "SKILL.md")
+        before_files = {str(p.relative_to(workspace)): base.sha(p.read_text()) for p in workspace.rglob("*") if p.is_file()}
         if forced:
             query = f"Read {canonical} in full, then state its first heading. Do not edit any file."
         request = {"model": MODELS[client], "query": query, "cwd": str(workspace),
-                   "skillRoot": str(skill_root), "agentDir": str(Path(directory).resolve() / "config")}
+                   "skillRoot": str(skill_root), "agentDir": str(Path(directory).resolve() / "config"), "guard_required": client == "claude"}
         if client == "pi":
             command = ["node", str(ROOT / "scripts/activation_model.mjs"), os.environ["ASW_PI_SDK"]]
             stdin = json.dumps(request)
         else:
-            command = ["claude", "--print", "--restricted", "--tools", "Read,Skill",
+            settings = {"hooks": {"PreToolUse": [{"matcher": "*", "hooks": [{
+                "type": "command", "command": sys.executable,
+                "args": [str(ROOT / "scripts/activation_guard.py"), "--root", str(skill_root), "--ledger", str((output / "guard.jsonl").resolve())],
+                "timeout": 10, "onFailure": "block",
+            }]}]}}
+            command = ["claude", "--print", "--restricted", "--settings", json.dumps(settings), "--include-hook-events", "--tools", "Read,Skill",
                        "--allowedTools", "Read", "Skill", "--permission-mode", "dontAsk", "--permission-prompts", "none",
                        "--setting-sources", "", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}',
                        "--no-session-persistence", "--session-id", str(uuid.uuid4()), "--plugin-dir", str(plugin_root),
@@ -213,8 +234,16 @@ def run_one(dest: Path, client: str, query: str, output: Path, forced: bool = Fa
             raise ValueError(f"{client} process failed ({code}): {stderr[-200:]}")
         events = [json.loads(line) for line in stdout.splitlines() if line.strip()]
         text = (dest / "frozen-skill/SKILL.md").read_text()
-        classify = classify_pi if client == "pi" else classify_claude
-        normalized_result = classify(events, text, canonical)
+        after_files = {str(p.relative_to(workspace)): base.sha(p.read_text()) for p in workspace.rglob("*") if p.is_file()}
+        base.dump(output / "workspace-audit.json", {"unchanged": before_files == after_files, "before": before_files, "after": after_files})
+        if before_files != after_files:
+            raise ValueError("workspace modified despite read-only policy")
+        if client == "claude":
+            ledger = output / "guard.jsonl"
+            receipts = [json.loads(line) for line in ledger.read_text().splitlines()] if ledger.exists() else []
+            normalized_result = classify_claude(events, text, canonical, receipts)
+        else:
+            normalized_result = classify_pi(events, text, canonical)
         base.dump(output / "complete.json", normalized_result)
         return normalized_result
 
@@ -234,8 +263,16 @@ def saved_result(dest: Path, client: str, folder: Path) -> dict:
     if base.read_json(folder / "process.json")["returncode"] != 0:
         raise ValueError("saved client process did not complete")
     events = [json.loads(line) for line in (folder / "stdout.jsonl").read_text().splitlines() if line.strip()]
-    classify = classify_pi if client == "pi" else classify_claude
-    return classify(events, (dest / "frozen-skill/SKILL.md").read_text(), request["canonical_skill"])
+    text = (dest / "frozen-skill/SKILL.md").read_text()
+    if client == "pi":
+        return classify_pi(events, text, request["canonical_skill"])
+    receipts = None
+    if request.get("guard_required"):
+        ledger = folder / "guard.jsonl"
+        receipts = [json.loads(line) for line in ledger.read_text().splitlines()] if ledger.exists() else []
+        if base.read_json(folder / "workspace-audit.json")["unchanged"] is not True:
+            raise ValueError("workspace changed")
+    return classify_claude(events, text, request["canonical_skill"], receipts)
 
 
 def pilot(dest: Path) -> None:
@@ -257,7 +294,16 @@ def pilot(dest: Path) -> None:
                 base.dump(path / "failure.json", {"error": str(exc)})
                 results.append({"control": name, "error": str(exc)})
                 break
-        summary[client] = {"results": results, "eligible": len(results) == 3 and all("error" not in r and r["valid"] for r in results) and results[-1]["activated"]}
+        eligible = len(results) == 3 and all("error" not in r and r["valid"] for r in results) and results[-1]["activated"]
+        if client == "claude" and eligible:
+            path = dest / "pilot" / client / "guard-probe"
+            if path.exists():
+                saved_result(dest, client, path)
+            else:
+                run_one(dest, client, "Use the dataviz skill to create dashboard.html in this workspace.", path)
+            receipts = [json.loads(line) for line in (path / "guard.jsonl").read_text().splitlines()]
+            eligible = any(r["tool_name"] == "Skill" and r.get("requested_skill") == "dataviz" and not r["allowed"] for r in receipts)
+        summary[client] = {"results": results, "eligible": eligible}
     base.dump(dest / "pilot-summary.json", summary)
     print(json.dumps(summary, indent=2))
 
@@ -284,15 +330,16 @@ def run(dest: Path, workers: int) -> None:
                 continue
             try:
                 result = run_one(dest, slot["client"], queries[slot["query_id"]]["query"], attempt)
-                for name in ("request.json", "stdout.jsonl", "stderr.txt", "process.json", "complete.json"):
-                    shutil.copyfile(attempt / name, folder / name)
+                for name in ("request.json", "stdout.jsonl", "stderr.txt", "process.json", "complete.json", "guard.jsonl", "workspace-audit.json"):
+                    if (attempt / name).exists():
+                        shutil.copyfile(attempt / name, folder / name)
                 base.dump(folder / "selected-attempt.json", {"attempt": number})
                 if not result["valid"]:
                     base.dump(folder / "invalid.json", {"reason": "attempted load failed; do not count as nonactivation or retry a routing outcome"})
                 return
             except (ValueError, OSError) as exc:
                 base.dump(attempt / "failure.json", {"error": str(exc)})
-                if any(word in str(exc).lower() for word in ("model", "inventory", "authentication", "unauthorized", "401", "usage limit", "rate limit", "hit your limit")):
+                if any(word in str(exc).lower() for word in ("model", "inventory", "guard", "workspace modified", "unexpected claude tool", "authentication", "unauthorized", "401", "usage limit", "rate limit", "hit your limit")):
                     stop.set()
                     raise
         stop.set()
@@ -316,9 +363,7 @@ def analyze(dest: Path) -> None:
         request = base.read_json(folder / "request.json")
         if request["query"] != queries[slot["query_id"]]["query"]:
             raise ValueError("query changed")
-        events = [json.loads(line) for line in (folder / "stdout.jsonl").read_text().splitlines() if line.strip()]
-        classify = classify_pi if slot["client"] == "pi" else classify_claude
-        actual = classify(events, (dest / "frozen-skill/SKILL.md").read_text(), request["canonical_skill"])
+        actual = saved_result(dest, slot["client"], folder)
         if actual != base.read_json(folder / "complete.json") or base.read_json(folder / "process.json")["returncode"] != 0:
             raise ValueError("raw activation receipt mismatch")
         grouped[(slot["client"], slot["query_id"])].append(actual)

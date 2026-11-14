@@ -116,3 +116,29 @@ not a claim of unchanged native defaults. Built-in metadata remains advertised, 
 non-target skills are now denied to enforce isolation. Report only controlled guarded-
 Claude rates; do not pool pre-guard observations or claim stock-client behavior.
 No skill description/body, query label, candidate doctrine or writing outcome was tuned.
+
+## Revision 6 — classify native unavailable-tool rejection without regeneration
+
+The guarded launch stopped after 54 completed observations when a fully returned Claude
+trace requested **Bash**, which was not registered or enabled. The native client returned
+`<tool_use_error>Error: No such tool available: Bash. Bash is disabled for this session,
+in subagents as well as here.</tool_use_error>` with `is_error: true`; no command ran,
+no PreToolUse event was dispatched, and the workspace hashes were unchanged. Requiring a
+hook receipt for a tool the dispatcher itself rejected was an observer false alarm,
+not evidence of a capability being enabled.
+
+Recognize only this explicit native `No such tool available: <exact name>.` error prefix,
+paired with an error result and absence from the startup tool inventory. Generic command
+failure, successful results and registered Read/Skill calls still require hook receipts.
+Tests include the real shape, a successful-result near miss, a post-execution error, and
+nonzero native subagent execution. Missing/duplicate hook coverage otherwise remains
+fatal; no permission or tool policy is relaxed.
+
+Reparse the retained successful provider trace, preserve its original observer failure,
+and adopt it without a new model call. Reuse all other successful observations. Resume
+only unfinished slots under the **same epoch-2 Claude / epoch-1 Pi allocation**, verbatim
+queries, settings, guard, body-delivery criterion and thresholds. A cached zero-exit
+attempt may be adopted only if the current trace, guard and unchanged-workspace checks
+all pass. Retain revision-5 source hashes. This changes observation of a native rejection,
+not model instructions, availability, doctrine or labels; report rejected-tool attempts
+separately from executed capabilities.

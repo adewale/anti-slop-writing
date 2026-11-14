@@ -100,6 +100,27 @@ class Activation(unittest.TestCase):
             with self.subTest(separator=separator):
                 self.assertTrue(study.classify_claude(events, TEXT, FILE)["activated"])
 
+    def test_native_unavailable_tool_error_is_not_an_executed_capability(self):
+        events = [
+            {"type": "system", "subtype": "init", "skills": ["anti-slop-writing"], "tools": ["Read", "Skill"], "mcp_servers": []},
+            {"type": "assistant", "message": {"content": [{"type": "tool_use", "id": "b1", "name": "Bash", "input": {"command": "pwd"}}]}},
+            {"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": "b1", "is_error": True, "content": "<tool_use_error>Error: No such tool available: Bash. Bash is disabled for this session, in subagents as well as here.</tool_use_error>"}]}},
+            {"type": "result", "subtype": "success", "is_error": False, "modelUsage": {"claude-sonnet-5-5": {}}},
+        ]
+        result = study.classify_claude(events, TEXT, FILE, [])
+        self.assertTrue(result["valid"])
+        self.assertFalse(result["activated"])
+        self.assertEqual(result["client_rejected_tools"], ["Bash"])
+        spawned = copy.deepcopy(events)
+        spawned[-1]["subagent_stats"] = {"spawned": 1}
+        with self.assertRaisesRegex(ValueError, "subagent execution"):
+            study.classify_claude(spawned, TEXT, FILE, [])
+        for update in ({"is_error": False}, {"content": "Command failed after running."}):
+            bad = copy.deepcopy(events)
+            bad[2]["message"]["content"][0].update(update)
+            with self.subTest(update=update), self.assertRaises(ValueError):
+                study.classify_claude(bad, TEXT, FILE, [])
+
     def test_guarded_read_resolves_symlink_escapes_before_opening(self):
         module = (ROOT / "scripts/activation_model.mjs").as_uri()
         with tempfile.TemporaryDirectory() as directory:

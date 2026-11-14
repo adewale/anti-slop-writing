@@ -103,6 +103,8 @@ def classify_claude(events: list[dict], skill: str, canonical: str, guard_receip
     init, result = inits[0], results[0]
     if result.get("is_error") or result.get("subtype") != "success" or set(result.get("modelUsage", {})) != {MODELS["claude"]}:
         raise ValueError("Claude model/completion mismatch")
+    if result.get("subagent_stats", {}).get("spawned", 0):
+        raise ValueError("guard violation: unexpected subagent execution")
     inventory = set(init.get("skills", []))
     if len(inventory & CLAUDE_TARGETS) != 1 or inventory - CLAUDE_TARGETS - CLAUDE_BUILTINS or set(init.get("tools", [])) - {"Read", "Skill"} or init.get("mcp_servers"):
         raise ValueError("unexpected Claude skill/tool/MCP inventory")
@@ -114,7 +116,7 @@ def classify_claude(events: list[dict], skill: str, canonical: str, guard_receip
         if not (builtin or local):
             raise ValueError("unexpected external Claude plugin")
     calls, successes, failures = {}, {}, []
-    all_calls, tool_errors = {}, {}
+    all_calls, tool_errors, tool_contents = {}, {}, {}
     delivered_context = []
     for e in events:
         role = e.get("type")
@@ -135,6 +137,7 @@ def classify_claude(events: list[dict], skill: str, canonical: str, guard_receip
             for c in blocks:
                 if c.get("type") == "tool_result":
                     tool_errors[c.get("tool_use_id")] = bool(c.get("is_error"))
+                    tool_contents[c.get("tool_use_id")] = content_text(c.get("content", ""))
                 if c.get("type") == "tool_result" and c.get("tool_use_id") in calls:
                     if c.get("is_error"):
                         failures.append(c["tool_use_id"])
@@ -142,11 +145,15 @@ def classify_claude(events: list[dict], skill: str, canonical: str, guard_receip
                         successes[c["tool_use_id"]] = content_text(c.get("content", ""))
                 if c.get("type") == "text":
                     delivered_context.append(c.get("text", ""))
+    rejected = {cid for cid, name in all_calls.items() if name not in init.get("tools", [])
+                and tool_errors.get(cid) is True
+                and tool_contents.get(cid, "").startswith(f"<tool_use_error>Error: No such tool available: {name}.")}
     if guard_receipts is not None:
         receipts = {r["tool_use_id"]: r for r in guard_receipts}
-        if len(receipts) != len(guard_receipts) or receipts.keys() != all_calls.keys():
+        if len(receipts) != len(guard_receipts) or receipts.keys() != all_calls.keys() - rejected:
             raise ValueError("missing or duplicate tool guard receipts")
-        for cid, name in all_calls.items():
+        for cid in all_calls.keys() - rejected:
+            name = all_calls[cid]
             receipt = receipts[cid]
             if receipt["tool_name"] != name or not receipt["allowed"] and tool_errors.get(cid) is not True:
                 raise ValueError("denied tool executed or guard receipt mismatched")
@@ -155,9 +162,12 @@ def classify_claude(events: list[dict], skill: str, canonical: str, guard_receip
     target = normalized(body(skill))
     delivered = [cid for cid, text in successes.items() if target in normalized(text)
                  or calls[cid] == "Skill" and any(target in normalized(t) for t in delivered_context)]
-    return {"advertised": True, "attempted": bool(calls), "activated": bool(delivered),
-            "valid": not failures, "successful_loads": delivered, "failed_loads": failures,
-            "assistant_requests": result.get("num_turns")}
+    observation = {"advertised": True, "attempted": bool(calls), "activated": bool(delivered),
+                   "valid": not failures, "successful_loads": delivered, "failed_loads": failures,
+                   "assistant_requests": result.get("num_turns")}
+    if rejected:
+        observation["client_rejected_tools"] = sorted({all_calls[cid] for cid in rejected})
+    return observation
 
 
 def prepare(dest: Path) -> None:
@@ -175,7 +185,7 @@ def prepare(dest: Path) -> None:
                 slots.append({"id": base.sha(f"route-v{epoch}|{client}|{q['id']}|{trial}")[:24],
                               "client": client, "query_id": q["id"], "trial": trial, "epoch": epoch})
     random.Random(SEED).shuffle(slots)
-    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 5, "models": MODELS, "slots": slots,
+    base.dump(dest / "manifest.json", {"seed": SEED, "instrument_revision": 6, "models": MODELS, "slots": slots,
         "queries_sha256": base.sha((dest / "queries.json").read_text()),
         "skill_hashes": {str(p.relative_to(dest / "frozen-skill")): base.sha(p.read_text()) for p in (dest / "frozen-skill").rglob("*.md")},
         "clients": {"pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)", "claude": "Claude Code 2.1.323 restricted CLI with explicit local-writing plugin"},
@@ -326,10 +336,14 @@ def run(dest: Path, workers: int) -> None:
             attempt = folder / f"attempt-{number}"
             if stop.is_set():
                 return
-            if attempt.exists():
-                continue
             try:
-                result = run_one(dest, slot["client"], queries[slot["query_id"]]["query"], attempt)
+                if attempt.exists():
+                    if not (attempt / "process.json").exists() or base.read_json(attempt / "process.json")["returncode"] != 0:
+                        continue
+                    result = saved_result(dest, slot["client"], attempt)
+                    base.dump(attempt / "complete.json", result)
+                else:
+                    result = run_one(dest, slot["client"], queries[slot["query_id"]]["query"], attempt)
                 for name in ("request.json", "stdout.jsonl", "stderr.txt", "process.json", "complete.json", "guard.jsonl", "workspace-audit.json"):
                     if (attempt / name).exists():
                         shutil.copyfile(attempt / name, folder / name)

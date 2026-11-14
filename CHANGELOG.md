@@ -32,6 +32,8 @@ All notable changes to this project are recorded here. This changelog tracks doc
 
 ## [Unreleased]
 
+- Added a synthetic maintenance-audit worked example and tune cases for the existing non-invention rule: distinguish commit history from author intent, and local checks from current-head CI. Includes a source-backed causal explanation that must be preserved. No new detector or measured model improvement is claimed.
+
 ### Doctrine
 
 - Added a `Parataxis and hypotaxis` teaching section to `references/anti-slop-writing-doctrine.md` and a flow-by-relation diagnosis bullet. This names the concept and consolidates existing guidance (the staccato "keep or use once" rule and the symmetrical-structure tell); it is a reference-only addition and does not change gated `SKILL.md` behavior. A stronger `SKILL.md` rule was tried and reverted (see Evals / `evals/rejected-edits.md`).

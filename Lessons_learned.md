@@ -4,6 +4,26 @@ This file records why doctrine changed. Each lesson should point to a concrete f
 
 The per-attempt graveyard of rejected edits lives in `evals/rejected-edits.md`. Use this file for lessons that survived; use that one for the rejects that did not.
 
+## 2026-11-14 — Verbatim extraction is not faithful extraction
+
+The rewrite-only instrument accepted every copied span, but an independent model audit
+flagged 93/444 extracted views. In `d41b29706ebfbae5be83aecf`, a separate `Remembered line`
+was appended to the proposed prose. In `fb9f758af058a9c81245def6`, deterministic rendering
+removed `Fallback:` before a cut instruction. Every remaining word was verbatim; the
+view could still change what was offered or when it applied.
+
+The surviving measurement safeguard is the prospective extraction-audit gate: retain
+empty deliverables as outcomes, verify copied spans, and check completeness and
+qualification context before scoring writing. This run stopped before any writing
+judgments, preserving every successful extraction rather than regenerating until pass.
+See `evals/results/2026-11-14-rewrite-only-rejudge/README.md` and its raw receipts.
+
+Do not turn 93 model flags into 93 confirmed defects or a skill failure rate. Some audit
+flags treat bare author questions as unlabeled prose or impose an unregistered definition
+of `mixed`; these need human review too. A high token-overlap reliability score cannot
+settle the boundary, and no installed doctrine changed. The new instrument-review packet
+is not human fidelity-judge calibration and contains no human answers.
+
 ## 2026-11-14 — A declared tool inventory is not a capability boundary
 
 The first live Claude launch declared only Read/Skill, yet the CSS-layout query invoked

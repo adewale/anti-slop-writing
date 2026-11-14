@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14 — Stop rewrite-only measurement at its extraction-audit gate
+
+- Prepared the 37-case/444-output baseline re-judging and prospectively repaired outcome exclusions, case-wide attrition, uncertainty labels, original-versus-rescored exports and qualification-aware extraction. Committed revision 2 before calls, with an independent audit required before writing judgments. No installed skill or original baseline score changed.
+- Completed 488 valid extractions and 444 Opus instrument audits (932 unique provider responses). The auditor flagged 93/444 primary extractions; all 1,776 planned writing judgments remain unrun. Flags include potential extraction/label-removal problems and possible auditor overreach, not human-confirmed defects or a skill result. No successful response was regenerated or substituted.
+- Published raw traces, exact request/response audits, $13.36 returned list-price counters (not an invoice), model-free reproduction and a 130-item blinded extraction-review packet in `evals/results/2026-11-14-rewrite-only-rejudge/`. Instrument review and the separate human fidelity-judge calibration remain pending.
+
 ## 2026-11-14 — Complete candidate screens and controlled live activation
 
 - Completed 1,122 apply outputs and 2,244 valid cross-family judgments over frozen standing, compound, teaser, Twitter and grounded highlighter panels. Retained 16 schema-invalid Opus judgments and replacements (3,382 unique returned responses total). Neither candidate clears its eight standing-holdout co-primary contrasts; five of 64 fact-condition point guards fail. No doctrine candidate installed.

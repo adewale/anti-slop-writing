@@ -2,29 +2,49 @@
 
 Updated: 2026-11-14
 
-Whether the current skill improves writing over no skill remains unmeasured in this
-repository. The 2026-05-31 statistical-proof claim is withdrawn: removing a
-version-specific template assertion gives p≈0.126, and testing seven family means
-gives p≈0.245. See [the reproduction](2026-11-13-review-reproduction.md).
+## Completed: subscription-backed skill versus no skill
 
-The newest completed model comparison on main is
-[2026-06-14-stop-slop-ablation](2026-06-14-stop-slop-ablation/README.md): current skill
-versus an appended candidate block, three Claude apply models, zero paired score
-deltas on both reported rounds. It contains no no-skill arm and remains subject to
-the validity concerns in the November review. It cannot settle absolute efficacy.
+The [new baseline](2026-11-14-subscription-baseline/README.md) completed **804 outputs
+and 1,608 cross-family judgments**: all 59 review/rewrite cases plus eight
+antithesis/control cases, three fresh trials per arm/apply model. Sonnet 5.5 and
+GPT-6.1 Sol generated outputs; Opus 5.5 and GPT-6.1 Sol each judged every output.
 
-Other completed work includes
-[2026-06-13-parataxis-hillclimb](2026-06-13-parataxis-hillclimb/README.md)
-and [the public tweet anchor](2026-06-13-tweet-best-anchor/README.md).
-The latter is open-book regression coverage; its source was already a tune input.
-The anchor now lives in `evals/ablations/open-book-reference-anchors.json`.
+**The pre-registered joint improvement criterion was not met.** Task-fulfillment
+estimates favored the skill, but fidelity estimates differed by judge. On the
+15-case, nine-family holdout, only three of eight co-primary contrasts met the
+numerical requirements; GPT judging did not confirm them. Some descriptive
+unsupported-claim guards also failed. The outcome-free power simulation did not
+support a powered improvement study, so this run provides estimation/coverage,
+not doctrine promotion or proof of general writing efficacy.
 
-Standing baseline: 38/38 cases scored 1.0 in
-`baseline-2026-05-29/scores.jsonl`. Ceiling results establish only no regression.
-No new model outputs or efficacy scores were generated during the November repairs.
-The current work and access limits are in
-[the review report](2026-11-13-eval-integrity.md).
+Deterministic earned-antithesis preservation was 12/18 → 18/18 for Sonnet and
+15/18 → 18/18 for GPT, without → with skill. Decorative controls passed 6/6 in
+both arms/models. These cases share one conservative scaffold family; the earlier
+directional over-application finding did not recur on this panel, but broad safety
+or equivalence is not established.
 
-The [2026-11-14 fact-pair review](2026-11-14-fact-pair-review/README.md) audits the
-nineteen supplied-fact twins added in `69ade5d`, corrects graded-rubric and pair-unit
-handling, and retains old/new case records. No new model outputs were generated.
+Skill responses were substantially longer: 136.6 → 358.7 raw words for Sonnet,
+87.2 → 157.8 for GPT on the core suites. Blinding removed self-check/remembered-line
+fields but did not eliminate the length difference or possible style cues.
+
+The linked report retains the preregistration, transport amendment, raw model data,
+failed/interrupted attempts, complete slot/receipt verification, fact-condition and
+matched-pair analyses, judge disagreement, saturation, usage, and limitations.
+No doctrine or active eval content changed. Candidate-branch studies and live
+trigger/activation rates remain unrun.
+
+## Earlier evidence and validity repairs
+
+The 2026-05-31 statistical-proof claim remains withdrawn: removing its template-only
+assertion gives p≈.126; testing seven family means gives p≈.245. See
+[the reproduction](2026-11-13-review-reproduction.md).
+
+The [fact-pair review](2026-11-14-fact-pair-review/README.md) repaired the instrument
+before this study. Its nineteen supplied-fact twins and five holdout twins remain
+frozen. Historical scores across assertion changes are not directly comparable.
+
+The [stop-slop ablation](2026-06-14-stop-slop-ablation/README.md) and
+[parataxis hillclimb](2026-06-13-parataxis-hillclimb/README.md) remain archived with
+their original limitations. The [tweet reference anchor](2026-06-13-tweet-best-anchor/README.md)
+is open-book regression coverage in `evals/ablations/open-book-reference-anchors.json`,
+not an unseen holdout. The 38/38 ceiling baseline establishes only no regression.

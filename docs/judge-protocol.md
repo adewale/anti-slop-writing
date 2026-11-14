@@ -1,7 +1,9 @@
 # Judge protocol
 
-The repo does not call a model. `scripts/run_evals.py` builds separate worklists,
-grades judgment files, and joins scores. Follow `runbooks/hillclimb-skill.md` for
+The generic `scripts/run_evals.py` runner does not call a model: it builds separate
+worklists, grades judgment files, and joins scores. The opt-in, repo-only
+`scripts/subscription_baseline.py` supplies CLI/SDK model orchestration for the
+recorded subscription study; it is not part of the installable skill. Follow `runbooks/hillclimb-skill.md` for
 preregistration, model access, fresh contexts, independent units, and promotion.
 
 ## Prepare and apply

@@ -1,4 +1,6 @@
-# No-skill baseline — not run
+# No-skill baseline — historical unrun plan
+
+Superseded by the preregistered, completed [2026-11-14 subscription baseline](../2026-11-14-subscription-baseline/README.md): 804 outputs, 1,608 cross-family judgments, joint improvement criterion not met. The text below records the blocked state on 2026-11-13, not current model access or study status.
 
 No apply model passed the access probe, so there are no trial outputs, judgments,
 scores, intervals, length comparisons, agreement figures, or per-model efficacy results.

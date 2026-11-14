@@ -1,0 +1,8 @@
+{
+  "original_registration_commit": "28e36b2",
+  "transport_amendment_commit": "5293453",
+  "all_original_sources_unchanged_except_registered_transport_amendment": true,
+  "amended_source_sha256": {
+    "scripts/subscription_model.mjs": "66e6766d9297d2867446bab4c4a3443b47c6edd684bc7897f7e7f51bfeb4b55a"
+  }
+}

@@ -1,0 +1,10 @@
+Split:         holdout-only
+Cases:         15
+Clusters:      9 (family)
+Mean delta:    -0.0324
+95% CI:        [-0.0833, +0.0185]
+Sign-flip p:   0.3594
+SESOI:         +/-0.0500
+TOST 90% CI:   [-0.0787, +0.0093]
+Equivalence:   NOT SHOWN (CI exceeds +/-0.0500; cannot rule out an effect this large).
+Verdict:       REJECT (CI overlaps zero; delta is within noise).

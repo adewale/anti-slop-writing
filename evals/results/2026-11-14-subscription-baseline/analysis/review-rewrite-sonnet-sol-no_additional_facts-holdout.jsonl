@@ -1,0 +1,10 @@
+{"id": "abstract-system-noun-stack", "split": "holdout", "pair_id": "abstract-system-noun-stack", "family": "nominalization-copula", "before": 0.38888888888888884, "after": 0.7222222222222222}
+{"id": "fake-precision-rewrite-finance", "split": "holdout", "pair_id": "fake-precision-rewrite-finance", "family": "provenance", "before": 0.27777777777777773, "after": 0.5}
+{"id": "fake-precision-unnamed-source", "split": "holdout", "pair_id": "fake-precision-unnamed-source", "family": "provenance", "before": 0.5, "after": 0.5277777777777778}
+{"id": "holdout-alert-triage-transfer", "split": "holdout", "pair_id": "holdout-alert-triage-transfer", "family": "longform-transfer", "before": 0.8333333333333334, "after": 0.7777777777777777}
+{"id": "holdout-ask-author-ai-tooling", "split": "holdout", "pair_id": "holdout-ask-author-ai-tooling", "family": "missing-tooling-provenance", "before": 0.3888888888888889, "after": 0.6666666666666666}
+{"id": "holdout-borrowed-emphasis-release-safety", "split": "holdout", "pair_id": "holdout-borrowed-emphasis-release-safety", "family": "borrowed-emphasis", "before": 0.5, "after": 0.5277777777777778}
+{"id": "holdout-copula-hedged-outline-combo", "split": "holdout", "pair_id": "holdout-copula-hedged-outline-combo", "family": "outline-marketing-ending", "before": 0.3888888888888889, "after": 0.9444444444444443}
+{"id": "product-tour-rewrite-developer-tools", "split": "holdout", "pair_id": "product-tour-rewrite-developer-tools", "family": "product-tour", "before": 0.611111111111111, "after": 0.3611111111111111}
+{"id": "stacked-rule-of-three", "split": "holdout", "pair_id": "stacked-rule-of-three", "family": "cadence", "before": 0.5833333333333334, "after": 0.3888888888888889}
+{"id": "stopslop-thin-content-cut-or-ask", "split": "holdout", "pair_id": "stopslop-thin-content-cut-or-ask", "family": "thin-marketing-content", "before": 0.5, "after": 0.7222222222222222}

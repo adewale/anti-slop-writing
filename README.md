@@ -106,6 +106,7 @@ scripts/validate.py                   Repo-only validation
 scripts/score_delta.py                Paired-bootstrap / sign-flip gate for accept/reject
 scripts/run_evals.py                  Execution runner: prepare / grade / join over eval suites
 scripts/saturation_index.py           Repo-only saturation/overlap analysis
+scripts/subscription_baseline.py      Opt-in repo-only subscription model study runner
 scripts/check_install_boundary.py     CI check that keeps evals/results out of the installable skill
 skills.sh.json                        Repo-only skills.sh display grouping, used after telemetry sees the repo
 .github/workflows/validate.yml        GitHub Actions validation
@@ -116,7 +117,7 @@ Copy `evals/`, `examples/`, `scripts/`, `.github/`, and `skills.sh.json` only wh
 
 ## Current eval status
 
-Latest recorded smoke results are in `evals/results/latest.md`. Each eval suite is split into `tune` cases (used during iteration) and `holdout` cases (scored at end-of-round and at merge only).
+Latest recorded results are in `evals/results/latest.md`. Each eval suite is split into `tune` cases (used during iteration) and `holdout` cases (scored at end-of-round and at merge only).
 
 | Eval set | Tune cases | Holdout cases |
 |---|---:|---:|
@@ -131,7 +132,7 @@ A full scored baseline for the 2026-05-29 suite is in `evals/results/2026-05-29-
 
 The standing suite checks regressions; ceiling cases establish only no regression. A claim of improvement needs a pre-registered, powered comparison with a no-skill arm on cases where the current skill sometimes fails. `scripts/score_delta.py` rejects duplicate IDs and tests case or family means with paired bootstrap and sign-flip permutation. The protocol is in `runbooks/hillclimb-skill.md` and `docs/hillclimb-improvements.md`.
 
-The 2026-05-31 statistical-proof claim was withdrawn on 2026-11-13: a template-only assertion favored the newer skill and the cases shared seven families. Removing that assertion gives p≈0.126; testing family means gives p≈0.245. See `evals/results/2026-11-13-review-reproduction.md`. Whether the current skill improves writing over no skill remains unmeasured here.
+The 2026-05-31 statistical-proof claim was withdrawn on 2026-11-13: a template-only assertion favored the newer skill and the cases shared seven families. Removing that assertion gives p≈0.126; testing family means gives p≈0.245. See `evals/results/2026-11-13-review-reproduction.md`. The [2026-11-14 subscription baseline](evals/results/2026-11-14-subscription-baseline/README.md) completed 804 skill/no-skill outputs and 1,608 cross-family judgments. It did not meet its joint improvement criterion: task-fulfillment estimates favored the skill, fidelity estimates depended on the judge, and outputs were longer. This estimation/coverage study does not establish general writing efficacy.
 
 ## Contributing
 

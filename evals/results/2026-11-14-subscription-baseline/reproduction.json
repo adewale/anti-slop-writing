@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "method": "Verify every published SHA-256, extract trials.tar.gz into a fresh temporary directory, run verify.py, then subscription_baseline.py analyze",
+  "model_calls": 0,
+  "byte_identical_to_published": [
+    "scores.json",
+    "comparisons.json",
+    "judge-agreement.json",
+    "antithesis-deterministic.json",
+    "saturation.txt",
+    "verification.json",
+    "family-weighted-guards.json"
+  ]
+}

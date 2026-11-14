@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14 — Complete subscription-backed no-skill baselines
+
+- Preregistered and completed 804 outputs and 1,608 cross-family judgments over all 59 review/rewrite cases and eight antithesis/control cases, with three fresh trials per arm/model. Apply: Sonnet 5.5 and GPT-6.1 Sol; judge: Opus 5.5 and GPT-6.1 Sol.
+- The joint improvement criterion failed. Task-fulfillment estimates favored the skill, but fidelity estimates depended on the judge, and skill responses were substantially longer. Earned-antithesis deterministic preservation reached 18/18 per apply model with the skill; this dependent stress family does not establish general efficacy.
+- Preserved preregistration, power limitations, one pre-judging transport amendment, raw responses and failed attempts, fact-condition reports, family-weighted analyses, independent evidence review, and complete slot/receipt verification under `evals/results/2026-11-14-subscription-baseline/`. No doctrine or active eval cases changed.
+
 ## 2026-11-14 — Verify grading coverage against frozen worklists
 
 - Added `grade --worklist` to check complete assertion and dimension coverage, unique indices/names, non-empty evidence, and case metadata against the judge file from `prepare`. Missing cases in the selected split fail before scores are written. Legacy grading remains available with a warning; trial-count audits remain separate.

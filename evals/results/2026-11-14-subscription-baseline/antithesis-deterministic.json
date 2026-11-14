@@ -1,0 +1,962 @@
+[
+  {
+    "id": "0d24c3d9680b9f679412b2a0",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "4aba2673a88d180eeea2a9c4",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "f41181bbf01c9f9981b0964f",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "a0dbc986e6ba43482d951375",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "75a82d019976abf799c3744b",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "51bf97c34e18019bcff5df19",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "3d4d396e7de7cf47ad247ecd",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "506a38a0989bfe9f80c01760",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "d71391fa5b30af649d96d3c6",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "025fc3be67fae2f3b097e23e",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "e0e57d8fc89419db28544c9a",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "cd2d6362ed0e471a9fbbc09c",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "5d9e8b7f5720a647e4c37a82",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "2f9de3c36f1caf80a4f98331",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "9ce57d39b83bca0ee10f42da",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "5f3af8ac9942ab4a567862a5",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "8a750eb0713f70e4e61d3b75",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "abe8b6db65128993ef4727a3",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "195c55c699bb1c0c2c9c98ce",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "f63543fca1150febf495de3f",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "409a6f30cc2fa00591cbe99d",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "d8670d1398de67c0c6031d68",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "8769b0696663ad057e8170f0",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "5fabeb9fe9835da47f11286a",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "d9fc69f4283dd462f72deec3",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "c5a55a6bc8d3d6e842987bec",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "f5186b7c627f09e988206bed",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "db899d2d6c028382868336a8",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "afff205032658cf95d279143",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "9272568db7ec1218318d86db",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "df66c730eee52a4596f2b471",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "f15fb3d839f0c9d2d94cd66d",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "a67a25e256611b824e194e89",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "c8609fb995904b3bf40890eb",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "034f062820397493d72cb7c2",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "f302d48f192192582003dd56",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "a0435f73d736a8e2fe1f769d",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "1f6827db5ec1b0150a375884",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "b78cc0eceafa0975c51fff8b",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "d2aab9152e75b934eb8c59a3",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "2601a4f3f7a730ef1d5277fd",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "96b9e7fee649a81a648ddd54",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "c973ecf36103216bd203d1aa",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "dbd0aadac9369d849607d8f1",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "170ad6f86a392b2c702cfc3c",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "64c2d2b3a3c1758de423e04e",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "823536761f255f6eb093da4e",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "3cc5ae35e2b32a26d479690a",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "722d41c10c27627d02f9a07f",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "983e4672d73c3d0c1c897875",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "319bc5eb711ea6b989ff0a25",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "b847fb4e512dae0fbeb88f98",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "db9f7bd1a310a1e6b2c2ed99",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "3d493c437cc9a842b4a41dac",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "a0648dfafeb71ac261039da6",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "1340f4f13c266f9a493cd908",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "2f45feef55e5ba32d1ab8bcc",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "555f8cbaff1df4c8df2286b9",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "2791e764c1604c215a7d0936",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "2964b168120c310c3f3fbc1c",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "0942e3b299a4277e5f0812bc",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "fd38d3d7f3186c3a259afaf5",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "c27ef71122debcdcd06a1c83",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "47f66b4a13b5b96b5a5f155a",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "e6d0a104e5a31094e27d600c",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "b5e6bbbb14502de705c954a6",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "c7288d4cc6a77f4ee7a2e3ef",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "6c0c590db898bf9c026f0d15",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "82e724e4552ab6044ce4af7f",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "b37ea6798f0237f019d72d65",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "b1fc2800984ca3ebb31f3a31",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "1d442ab74c7026658ca1bfbb",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "2656fce88e6b751fd68a5012",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "797060a8c4913ec39223bace",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "ae2279b6b5c52eabfd1b8c82",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "f07d0deea6f8646ce72d5ad8",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "7569ff2808a59299d2293a54",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "084814c80fc71039d4182db1",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "42d21a27a726761d6d73f6d2",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "eb7da1e56b9f74fd93a07311",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "3b6406db8b54428643994b57",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "a8620811b3d6efa99c00513f",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "c85d4a4ca006483a07543da2",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "29d5f24cd2be02b62550d9ac",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "edd85d466ef168a15b6cde80",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "73effa8d040e0deb741035d3",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "fb8586be5f2224ca317845d2",
+    "case_id": "neg-earned-antithesis-translation",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "102a889dd448a201645bbc49",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "51a5739f81acb80d9275be53",
+    "case_id": "pos-decorative-antithesis-readme",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "3cb9960c1f76c95d13fafaf4",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "84acabe91e4ed1bbefc07044",
+    "case_id": "neg-earned-antithesis-bridge",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "20365e8fb2a23289ad4bd04d",
+    "case_id": "pos-decorative-antithesis-changelog",
+    "model": "sonnet",
+    "arm": "skill",
+    "trial": 3,
+    "group": "antithesis",
+    "earned": false,
+    "pass": true
+  },
+  {
+    "id": "be20355c30d002dddd8e93bb",
+    "case_id": "neg-earned-antithesis-fence",
+    "model": "sonnet",
+    "arm": "no-skill",
+    "trial": 1,
+    "group": "antithesis",
+    "earned": true,
+    "pass": false
+  },
+  {
+    "id": "5d5516066286582f48024847",
+    "case_id": "neg-earned-antithesis-archive",
+    "model": "sol",
+    "arm": "no-skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "f5d65e49c18b58e9b3a69e21",
+    "case_id": "neg-earned-antithesis-syllabus",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  },
+  {
+    "id": "7c61838b87d3cb2113481cd5",
+    "case_id": "neg-earned-antithesis-growth",
+    "model": "sol",
+    "arm": "skill",
+    "trial": 2,
+    "group": "antithesis",
+    "earned": true,
+    "pass": true
+  }
+]

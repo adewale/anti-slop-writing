@@ -1,0 +1,12 @@
+{
+  "scripts/candidate_studies.py": "52a2dcd9384db103eb6d8a7a6404346986930a2939059cc30203d2a6e0d2cd24",
+  "scripts/candidate_power.py": "ab15fb6e8af75252b52f93c26bb970055601c8d97a8a90daad339a70cce87c2f",
+  "scripts/subscription_baseline.py": "08b3346f03f97d531b8d04791823131d6e4531941e8d52400abc3e5922f13d06",
+  "scripts/subscription_model.mjs": "66e6766d9297d2867446bab4c4a3443b47c6edd684bc7897f7e7f51bfeb4b55a",
+  "scripts/run_evals.py": "7754f0e41d6f083c9f30c164861a526dab1ef4b130543c5e969c55d0fe38e703",
+  "scripts/score_delta.py": "e20ba181ce86c9a17382ffae88c999400633821a128a566ddd13279b56914005",
+  "skills/anti-slop-writing/SKILL.md": "1da80fc7bad725d1824a4e59e155a227c8d5da57e659e20c0ed80e5baa18d6f9",
+  "skills/anti-slop-writing/references/anti-slop-writing-doctrine.md": "4145f5dc1e0e820ae26304165978328f0f6ff6ac45b7e4ed264afe2128d3aa56",
+  "skills/anti-slop-writing/references/flow-by-relation.md": "4dfdfc358a9792ad76b414b1e8e3ce2328864662ba39007e020ebf2da11a4dec",
+  "skills/anti-slop-writing/references/rewrite-patterns.md": "a00bf0e0547a6830bd365e8ae22a8b11deac75b20a08481541c97313bee5e526"
+}

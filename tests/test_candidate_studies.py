@@ -60,6 +60,32 @@ class CandidateStudies(unittest.TestCase):
         self.assertEqual(result["verdict"], "UNDERPOWERED")
         self.assertEqual(result["sign_flip_p"], 1.0)
 
+    def test_registered_point_guards_enforce_both_outcomes_and_threshold_boundaries(self):
+        common = {"panel": "compound", "selection": "supplied", "model": "sol", "judge": "opus", "before_arm": "current", "after_arm": "compound"}
+        rows = [{**common, "outcome": "factual_fidelity", "delta": 0.5},
+                {**common, "outcome": "unsupported", "delta": 0.05},
+                {**common, "outcome": "rewrite_quality", "delta": -0.05}]
+        guards = study.guard_results(rows)
+        self.assertEqual(len(guards), 2)
+        self.assertTrue(all(r["guard_pass"] for r in guards))
+        for bad in (rows[:-1], rows + [rows[-1]]):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                study.guard_results(bad)
+        rows[1]["delta"], rows[2]["delta"] = 0.050001, -0.050001
+        self.assertTrue(all(not r["guard_pass"] for r in study.guard_results(rows)))
+
+    def test_every_standing_scored_dimension_decrease_is_listed_without_dilution(self):
+        common = {"case_id": "c", "model": "sol", "judge": "opus", "group": "standing", "rewrite_quality": 0.75}
+        rows = [{**common, "arm": "current", "factual_fidelity": 0.5, "task_fulfillment": 0.5},
+                {**common, "arm": "compound", "factual_fidelity": 0.25, "task_fulfillment": 0.75},
+                {**common, "arm": "teaser", "factual_fidelity": 0.5, "task_fulfillment": 0.5}]
+        regressions = study.standing_regressions(rows)
+        self.assertEqual(len(regressions), 1)
+        self.assertEqual(regressions[0]["outcome"], "factual_fidelity")
+        self.assertEqual(regressions[0]["delta"], -0.25)
+        with self.assertRaises(ValueError):
+            study.standing_regressions(rows[1:])
+
     def test_candidate_sources_do_not_change_the_installed_skill(self):
         files = study.installed_files()
         variants = study.candidates(files)

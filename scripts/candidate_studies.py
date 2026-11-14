@@ -347,6 +347,37 @@ def audit(dest: Path) -> tuple[dict, list[dict], dict, dict]:
     return manifest, list(cases.values()), records, outputs
 
 
+def guard_results(comparisons: list[dict]) -> list[dict]:
+    guards, required = [], defaultdict(list)
+    for row in comparisons:
+        if row["before_arm"] != "current" or row["selection"] not in ("supplied", "no_additional_facts"):
+            continue
+        identity = tuple(row[k] for k in ("panel", "selection", "model", "judge", "before_arm", "after_arm"))
+        required.setdefault(identity, [])
+        if row["outcome"] in ("unsupported", "rewrite_quality"):
+            required[identity].append(row["outcome"])
+            guards.append({**row, "guard_pass": row["delta"] <= 0.05 if row["outcome"] == "unsupported" else row["delta"] >= -0.05})
+    if any(len(names) != 2 or set(names) != {"unsupported", "rewrite_quality"} for names in required.values()):
+        raise ValueError("required fact-condition guard outcome missing or duplicated")
+    return guards
+
+
+def standing_regressions(case_scores: list[dict]) -> list[dict]:
+    scores = {(r["case_id"], r["model"], r["judge"], r["arm"]): r for r in case_scores if r["group"] == "standing"}
+    regressions = []
+    for (cid, model, judge, arm), row in scores.items():
+        if arm not in ("compound", "teaser"):
+            continue
+        baseline = scores.get((cid, model, judge, "current"))
+        if baseline is None:
+            raise ValueError("standing candidate lacks current-arm counterpart")
+        for outcome in base.PRIMARY:
+            delta = row[outcome] - baseline[outcome]
+            if delta < 0:
+                regressions.append({**row, "outcome": outcome, "before": baseline[outcome], "after": row[outcome], "delta": delta})
+    return regressions
+
+
 def analyze(dest: Path) -> None:
     manifest, cases, records, outputs = audit(dest)
     comparison, case_scores = [], []
@@ -414,10 +445,8 @@ def analyze(dest: Path) -> None:
                               "mean_absolute_difference": sum(abs(d) for d in differences) / len(differences)})
     base.dump(dest / "comparisons.json", comparison)
     base.dump(dest / "case-scores.json", case_scores)
-    guards = [dict(r, guard_pass=(r["delta"] <= 0.05 if r["outcome"] == "unsupported" else r["delta"] >= -0.05))
-              for r in comparison if r["before_arm"] == "current" and r["selection"] in ("supplied", "no_additional_facts")
-              and r["outcome"] in ("unsupported", "rewrite_quality")]
-    base.dump(dest / "guard-results.json", guards)
+    base.dump(dest / "guard-results.json", guard_results(comparison))
+    base.dump(dest / "standing-regressions.json", standing_regressions(case_scores))
     base.dump(dest / "lengths.json", lengths)
     base.dump(dest / "judge-agreement.json", agreement)
     base.dump(dest / "decision.json", {"doctrine_promoted": False,

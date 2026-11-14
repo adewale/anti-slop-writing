@@ -1,0 +1,111 @@
+{
+  "generated_at": 1794629091,
+  "manifest": "evals/shared-benchmark.json",
+  "skill_name": "anti-slop-writing",
+  "counts": {
+    "cases": 26,
+    "positive": 9,
+    "negative": 12,
+    "adversarial": 12,
+    "holdout": 1,
+    "holdback": 1,
+    "trigger": 5,
+    "trigger_positive": 2,
+    "trigger_negative": 3,
+    "ablations": 4,
+    "objective_assertions": 40,
+    "process_assertions": 0,
+    "efficiency_assertions": 0,
+    "judge_assertions": 20,
+    "fixture_cases": 1,
+    "input_files": 1,
+    "domain_tagged": 26,
+    "difficulty_tagged": 26,
+    "success_goal_tagged": 26,
+    "trigger_type_tagged": 5
+  },
+  "taxonomy": {
+    "domains": [
+      "writing-quality"
+    ],
+    "difficulties": [
+      "core",
+      "extended"
+    ],
+    "trigger_types": [
+      "implicit",
+      "negative-near-miss"
+    ],
+    "success_goals": [
+      "outcome",
+      "style",
+      "trigger"
+    ]
+  },
+  "findings": [
+    {
+      "kind": "weak-oracle-only",
+      "severity": "recommended",
+      "message": "2 case(s) are graded only by demo/live oracles (no strong deterministic check): ['holdout-fresh-llm-readme-2026-01', 'holdback-human-essay-antithesis-01']. Add a strong-tier assertion, or mark a verified script oracle oracle:\"strong\".",
+      "evidence": [
+        "holdout-fresh-llm-readme-2026-01",
+        "holdback-human-essay-antithesis-01"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "kind": "ablation-plan",
+      "message": "Consider ablations for major skill sections not yet represented exactly by removed_component.",
+      "example": [
+        {
+          "removed_component": "Core principle",
+          "expected_regressions": [
+            "Model stops following Core principle guidance."
+          ]
+        },
+        {
+          "removed_component": "Before writing",
+          "expected_regressions": [
+            "Model stops following Before writing guidance."
+          ]
+        },
+        {
+          "removed_component": "Source-backed detectors",
+          "expected_regressions": [
+            "Model stops following Source-backed detectors guidance."
+          ]
+        },
+        {
+          "removed_component": "Default editing pass",
+          "expected_regressions": [
+            "Model stops following Default editing pass guidance."
+          ]
+        },
+        {
+          "removed_component": "Avoid by default",
+          "expected_regressions": [
+            "Model stops following Avoid by default guidance."
+          ]
+        }
+      ]
+    }
+  ],
+  "recommended_fixture_repos_files": [],
+  "readiness": {
+    "ablations": {
+      "total": 4,
+      "materialized": 4,
+      "instruction_simulated": 0
+    },
+    "leak_saturated_cases": [],
+    "objective_only_cases": [],
+    "adversarial_cases": 12,
+    "judge_only_cases": 2,
+    "base_saturated_cases": [],
+    "qualitative_only_cases": [],
+    "regression_guards_holding": [],
+    "blockers": []
+  },
+  "benchmark": null
+}

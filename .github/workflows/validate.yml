@@ -2,16 +2,21 @@ name: Validate
 
 on:
   push:
+    branches: [main]
   pull_request:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.x'
       - name: Install the Agent Skills reference validator
@@ -22,7 +27,7 @@ jobs:
       # skills-ref install above; that is why the unit tests live in this job.
       - name: Unit tests for eval scripts, oracles and validators
         run: python3 -m unittest discover -s tests -v
-      - uses: astral-sh/setup-uv@v9.0.0
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
       - name: Run model-free harness gate (pinned skill-eval-harness 0.6.0)
         run: |
           uvx --from skill-eval-harness==0.6.0 skill-benchmark validate --strict-leakage --check-ablations evals/shared-benchmark.json

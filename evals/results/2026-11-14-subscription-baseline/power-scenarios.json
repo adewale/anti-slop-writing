@@ -1,0 +1,185 @@
+{
+  "seed": 261114,
+  "simulations_per_scenario": 500,
+  "families": [
+    "borrowed-emphasis",
+    "cadence",
+    "longform-transfer",
+    "missing-tooling-provenance",
+    "nominalization-copula",
+    "outline-marketing-ending",
+    "product-tour",
+    "provenance",
+    "thin-marketing-content"
+  ],
+  "holdout_cases": 15,
+  "bootstrap_iters": 10000,
+  "alpha": 0.05,
+  "sesoi": 0.05,
+  "target_joint_power": 0.8,
+  "results": [
+    {
+      "scenario": "null",
+      "trials": 3,
+      "baseline": 0.75,
+      "latent_effect": 0.0,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.0,
+      "mc_se": 0.0
+    },
+    {
+      "scenario": "central",
+      "trials": 3,
+      "baseline": 0.75,
+      "latent_effect": 0.1,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.016,
+      "mc_se": 0.005611416933360059
+    },
+    {
+      "scenario": "small-effect",
+      "trials": 3,
+      "baseline": 0.75,
+      "latent_effect": 0.05,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.002,
+      "mc_se": 0.0019979989989987483
+    },
+    {
+      "scenario": "near-ceiling",
+      "trials": 3,
+      "baseline": 0.9,
+      "latent_effect": 0.05,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.0,
+      "mc_se": 0.0
+    },
+    {
+      "scenario": "heterogeneous",
+      "trials": 3,
+      "baseline": 0.75,
+      "latent_effect": 0.1,
+      "family_effect_sd": 0.18,
+      "joint_success": 0.014,
+      "mc_se": 0.00525433154644813
+    },
+    {
+      "scenario": "large-effect",
+      "trials": 3,
+      "baseline": 0.5,
+      "latent_effect": 0.15,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.238,
+      "mc_se": 0.01904499934365974
+    },
+    {
+      "scenario": "null",
+      "trials": 5,
+      "baseline": 0.75,
+      "latent_effect": 0.0,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.0,
+      "mc_se": 0.0
+    },
+    {
+      "scenario": "central",
+      "trials": 5,
+      "baseline": 0.75,
+      "latent_effect": 0.1,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.07,
+      "mc_se": 0.011410521460476731
+    },
+    {
+      "scenario": "small-effect",
+      "trials": 5,
+      "baseline": 0.75,
+      "latent_effect": 0.05,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.004,
+      "mc_se": 0.002822764602300376
+    },
+    {
+      "scenario": "near-ceiling",
+      "trials": 5,
+      "baseline": 0.9,
+      "latent_effect": 0.05,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.0,
+      "mc_se": 0.0
+    },
+    {
+      "scenario": "heterogeneous",
+      "trials": 5,
+      "baseline": 0.75,
+      "latent_effect": 0.1,
+      "family_effect_sd": 0.18,
+      "joint_success": 0.036,
+      "mc_se": 0.008331146379700696
+    },
+    {
+      "scenario": "large-effect",
+      "trials": 5,
+      "baseline": 0.5,
+      "latent_effect": 0.15,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.458,
+      "mc_se": 0.022281651644346298
+    },
+    {
+      "scenario": "null",
+      "trials": 10,
+      "baseline": 0.75,
+      "latent_effect": 0.0,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.002,
+      "mc_se": 0.0019979989989987483
+    },
+    {
+      "scenario": "central",
+      "trials": 10,
+      "baseline": 0.75,
+      "latent_effect": 0.1,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.21,
+      "mc_se": 0.01821537811850196
+    },
+    {
+      "scenario": "small-effect",
+      "trials": 10,
+      "baseline": 0.75,
+      "latent_effect": 0.05,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.026,
+      "mc_se": 0.007116740827092132
+    },
+    {
+      "scenario": "near-ceiling",
+      "trials": 10,
+      "baseline": 0.9,
+      "latent_effect": 0.05,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.008,
+      "mc_se": 0.003983967871356395
+    },
+    {
+      "scenario": "heterogeneous",
+      "trials": 10,
+      "baseline": 0.75,
+      "latent_effect": 0.1,
+      "family_effect_sd": 0.18,
+      "joint_success": 0.09,
+      "mc_se": 0.012798437404620925
+    },
+    {
+      "scenario": "large-effect",
+      "trials": 10,
+      "baseline": 0.5,
+      "latent_effect": 0.15,
+      "family_effect_sd": 0.08,
+      "joint_success": 0.746,
+      "mc_se": 0.019467100451787882
+    }
+  ],
+  "decision": "Estimation/coverage study at 3 trials; no robust power guarantee or doctrine promotion."
+}

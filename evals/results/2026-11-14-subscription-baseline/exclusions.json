@@ -1,0 +1,119 @@
+[
+  {
+    "stage": "judge",
+    "apply_model": "sonnet",
+    "arm": "skill",
+    "case_id": "holdout-alert-triage-transfer",
+    "judge": "opus",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sonnet",
+    "arm": "no-skill",
+    "case_id": "carrier-bound-ending",
+    "judge": "opus",
+    "kind": "schema-invalid",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sol",
+    "arm": "no-skill",
+    "case_id": "pelican-process-relation",
+    "judge": "opus",
+    "kind": "schema-invalid",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sol",
+    "arm": "skill",
+    "case_id": "paragraph-scale-borrowed-emphasis-with-facts",
+    "judge": "opus",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sonnet",
+    "arm": "skill",
+    "case_id": "em-dash-cluster",
+    "judge": "opus",
+    "kind": "schema-invalid",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sol",
+    "arm": "skill",
+    "case_id": "hedged-symmetry-commit",
+    "judge": "opus",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sol",
+    "arm": "no-skill",
+    "case_id": "pos-decorative-antithesis-readme",
+    "judge": "opus",
+    "kind": "schema-invalid",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sonnet",
+    "arm": "no-skill",
+    "case_id": "tweet-taste-as-model",
+    "judge": "opus",
+    "kind": "schema-invalid",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sol",
+    "arm": "skill",
+    "case_id": "stacked-rule-of-three",
+    "judge": "sol",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sonnet",
+    "arm": "skill",
+    "case_id": "copula-displacement-to-is-with-facts",
+    "judge": "sol",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sol",
+    "arm": "no-skill",
+    "case_id": "rewrite-reuses-flagged-pattern",
+    "judge": "sol",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sonnet",
+    "arm": "no-skill",
+    "case_id": "product-tour-hinge",
+    "judge": "sol",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  },
+  {
+    "stage": "judge",
+    "apply_model": "sol",
+    "arm": "skill",
+    "case_id": "rewrite-asks-or-cuts-when-fact-missing",
+    "judge": "sol",
+    "kind": "host-interrupted",
+    "attempt": "attempt-1"
+  }
+]

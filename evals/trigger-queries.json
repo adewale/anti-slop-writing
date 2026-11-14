@@ -175,7 +175,7 @@
     {
       "id": "pos-outline-conclusion-template",
       "split": "holdout",
-      "query": "This conclusion ends with 'Despite ongoing challenges' and 'Looking ahead, X will play a pivotal role.' Make it concrete instead.",
+      "query": "Please remove generic future-significance claims from the closing paragraph of my launch post.",
       "should_trigger": true
     }
   ]

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Fixture-backed output oracle for shared Skill Eval Harness script assertions."""
+
 from __future__ import annotations
 
 import json
@@ -8,19 +9,24 @@ import sys
 from pathlib import Path
 
 CHECKS = {
-  "round3-fixture-mechanism-copy": {
-    "all": [
-      "HMAC",
-      "retry receipt"
-    ],
-    "forbid": [
-      "\\b(pivotal|transformative|unlock(s|ed|ing)?|modern productivity|fast-moving teams|collaboration platform)\\b"
-    ]
-  }
+    "round3-fixture-mechanism-copy": {
+        "all": ["HMAC", "retry receipt", "timestamp"],
+        "regex": [
+            "\\breject(?:s|ed)?\\b[^.!?\\n]{0,100}\\bretr(?:y|ies)\\b[^.!?\\n]{0,100}\\b(?:without|unless)\\b[^.!?\\n]{0,100}\\bHMAC\\s+signature\\b|\\b(?:check|checks|verify|verifies)\\b[^.!?\\n]{0,80}\\bHMAC\\s+signature\\b",
+            "\\b(?:record|records|log|logs|save|saves)\\b[^.!?\\n]{0,100}\\bretry receipt(?: ID)?\\b",
+            "\\boriginal\\s+(?:delivery\\s+)?timestamp\\b",
+        ],
+        "forbid": [
+            "\\b(pivotal|transformative|groundbreaking|seamless|unlock(s|ed|ing)?|modern productivity|fast-moving teams|collaboration platform)\\b",
+            "\\b\\d+(?:\\.\\d+)?\\s*%",
+        ],
+    }
 }
+
 
 def contains(text: str, needle: str) -> bool:
     return needle.casefold() in text.casefold()
+
 
 def main() -> int:
     if len(sys.argv) != 3:
@@ -64,6 +70,7 @@ def main() -> int:
         return 1
     print("OK fixture oracle: " + case_id)
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())

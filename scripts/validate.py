@@ -20,6 +20,7 @@ SKILL_EVALS = ROOT / "evals" / "evals.json"
 ADVERSARIAL_EVALS = ROOT / "evals" / "adversarial.json"
 REWRITE_EVALS = ROOT / "evals" / "rewrite-evals.json"
 META_EVALS = ROOT / "evals" / "meta-evals.json"
+TWITTER_EVALS = ROOT / "evals" / "twitter-evals.json"
 TRIGGER_QUERIES = ROOT / "evals" / "trigger-queries.json"
 MANUAL_CASES = ROOT / "evals" / "cases.md"
 SKILLS_SH_CONFIG = ROOT / "skills.sh.json"
@@ -53,6 +54,7 @@ REQUIRED = [
     ADVERSARIAL_EVALS,
     REWRITE_EVALS,
     META_EVALS,
+    TWITTER_EVALS,
     TRIGGER_QUERIES,
     ROOT / "examples" / "pelican-conclusion-before-after.md",
     ROOT / "examples" / "cards" / "generic-importance.md",
@@ -285,7 +287,7 @@ def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> 
                 fail(
                     f"{path.relative_to(ROOT)} eval {case_id} missing non-empty {field}"
                 )
-        if path in (SKILL_EVALS, REWRITE_EVALS):
+        if path in (SKILL_EVALS, REWRITE_EVALS, TWITTER_EVALS):
             facts = case.get("facts")
             if not isinstance(facts, list) or not all(
                 isinstance(f, str) and f.strip() for f in facts
@@ -379,6 +381,7 @@ def validate_skill_evals() -> None:
     validate_eval_file(ADVERSARIAL_EVALS, min_count=15, min_holdout=2)
     validate_eval_file(REWRITE_EVALS, min_count=8, min_holdout=2)
     validate_eval_file(META_EVALS, min_count=7, min_holdout=2)
+    validate_eval_file(TWITTER_EVALS, min_count=8, min_holdout=3)
 
 
 LEAKAGE_WORDS = 8

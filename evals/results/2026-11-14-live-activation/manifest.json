@@ -1,0 +1,1068 @@
+{
+  "seed": 261116,
+  "models": {
+    "pi": "gpt-6.1-sol",
+    "claude": "claude-sonnet-5-5"
+  },
+  "slots": [
+    {
+      "id": "644a2cb04b06c5e87b5f6c9d",
+      "client": "claude",
+      "query_id": "neg-design-layout",
+      "trial": 2
+    },
+    {
+      "id": "d1cdac8a86c22b4b6b073b51",
+      "client": "claude",
+      "query_id": "pos-post",
+      "trial": 2
+    },
+    {
+      "id": "31728638fe5281fb2746dcd8",
+      "client": "pi",
+      "query_id": "neg-grammar-only",
+      "trial": 1
+    },
+    {
+      "id": "412a44fc3f858640c770ba5e",
+      "client": "pi",
+      "query_id": "neg-config-debug",
+      "trial": 1
+    },
+    {
+      "id": "8397cbc637b6714db95ca341",
+      "client": "pi",
+      "query_id": "neg-factual-summary",
+      "trial": 3
+    },
+    {
+      "id": "e18d970ed2ae7afa83067a89",
+      "client": "claude",
+      "query_id": "pos-article-conclusion",
+      "trial": 1
+    },
+    {
+      "id": "f2487fbdd6b5810569794c6a",
+      "client": "pi",
+      "query_id": "pos-devrel",
+      "trial": 3
+    },
+    {
+      "id": "72e9aea44529dddae3c739ac",
+      "client": "claude",
+      "query_id": "neg-factual-summary",
+      "trial": 1
+    },
+    {
+      "id": "a058365e81258594da699d89",
+      "client": "pi",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 2
+    },
+    {
+      "id": "0574c9eb2075f53e2e5dc1d1",
+      "client": "pi",
+      "query_id": "neg-translation",
+      "trial": 1
+    },
+    {
+      "id": "f0d8741f9ffb1ff574c094f8",
+      "client": "claude",
+      "query_id": "neg-factual-summary",
+      "trial": 3
+    },
+    {
+      "id": "afe438ade9d18913e4acb1b9",
+      "client": "claude",
+      "query_id": "pos-devrel",
+      "trial": 3
+    },
+    {
+      "id": "34f37ef92e45ddeaa5489355",
+      "client": "pi",
+      "query_id": "pos-article-conclusion",
+      "trial": 2
+    },
+    {
+      "id": "d163e8c7c47835459cf4e04e",
+      "client": "pi",
+      "query_id": "neg-design-layout",
+      "trial": 1
+    },
+    {
+      "id": "8d443bf93ac7d99c9cf62430",
+      "client": "pi",
+      "query_id": "neg-sql",
+      "trial": 3
+    },
+    {
+      "id": "38c9159702fb04f1bfd6e510",
+      "client": "claude",
+      "query_id": "pos-wiki",
+      "trial": 1
+    },
+    {
+      "id": "e977e6d2d59941aea213b1ed",
+      "client": "claude",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 1
+    },
+    {
+      "id": "fbf47ac22dc1472543c2196a",
+      "client": "pi",
+      "query_id": "pos-tagline",
+      "trial": 3
+    },
+    {
+      "id": "19d38db0cfbe7209df118fbc",
+      "client": "claude",
+      "query_id": "pos-script",
+      "trial": 1
+    },
+    {
+      "id": "3bfda66db916a00e237d2902",
+      "client": "claude",
+      "query_id": "pos-wiki",
+      "trial": 3
+    },
+    {
+      "id": "395c2c2e972303ee830b1d08",
+      "client": "pi",
+      "query_id": "pos-tagline",
+      "trial": 2
+    },
+    {
+      "id": "1e6d88462a9fcce4bc7af868",
+      "client": "pi",
+      "query_id": "neg-translation",
+      "trial": 2
+    },
+    {
+      "id": "e65a7840cce1903f301b221e",
+      "client": "pi",
+      "query_id": "pos-wiki",
+      "trial": 3
+    },
+    {
+      "id": "5427af97076d41e65a8a542b",
+      "client": "pi",
+      "query_id": "neg-code-refactor",
+      "trial": 2
+    },
+    {
+      "id": "1dcade2c89ce9338296ab5e6",
+      "client": "pi",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 1
+    },
+    {
+      "id": "ae20cc4c52b25db966d2f873",
+      "client": "claude",
+      "query_id": "pos-email",
+      "trial": 3
+    },
+    {
+      "id": "d3a5e31aaaf0de95cb4ac290",
+      "client": "claude",
+      "query_id": "near-neg-slides-export",
+      "trial": 1
+    },
+    {
+      "id": "5beff18dabc7002c5dc4cf6f",
+      "client": "pi",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 1
+    },
+    {
+      "id": "f785e2591a58c331ce76067d",
+      "client": "claude",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 3
+    },
+    {
+      "id": "60b44af24514da767b75a168",
+      "client": "pi",
+      "query_id": "near-neg-slides-export",
+      "trial": 2
+    },
+    {
+      "id": "f5b80a13e56f49f38d7bf711",
+      "client": "claude",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 3
+    },
+    {
+      "id": "7a46efac21e80f9a8889eb6c",
+      "client": "claude",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 2
+    },
+    {
+      "id": "aebe5df86ca50c278d45ba6d",
+      "client": "pi",
+      "query_id": "neg-factual-summary",
+      "trial": 1
+    },
+    {
+      "id": "8d8ec51495a7cc6a4f81046e",
+      "client": "claude",
+      "query_id": "neg-unit-tests",
+      "trial": 1
+    },
+    {
+      "id": "52f4ee23fadd4f244b3339aa",
+      "client": "claude",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 1
+    },
+    {
+      "id": "acc4991ca4b74d36ea77fc7a",
+      "client": "claude",
+      "query_id": "pos-readme-polish",
+      "trial": 1
+    },
+    {
+      "id": "53f8150cdda8c52412ad8521",
+      "client": "pi",
+      "query_id": "neg-sql",
+      "trial": 1
+    },
+    {
+      "id": "db3581d4ea026ebbe41befd0",
+      "client": "claude",
+      "query_id": "neg-translation",
+      "trial": 2
+    },
+    {
+      "id": "a389d4b2237e6ba6bfb94568",
+      "client": "claude",
+      "query_id": "pos-tagline",
+      "trial": 1
+    },
+    {
+      "id": "9a6178a4400e941e5d6d6181",
+      "client": "pi",
+      "query_id": "neg-format-json",
+      "trial": 3
+    },
+    {
+      "id": "50eda84f7a86a3ca9da24aa5",
+      "client": "pi",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 3
+    },
+    {
+      "id": "bb79ae88900b786e64667be5",
+      "client": "claude",
+      "query_id": "pos-slide-copy",
+      "trial": 2
+    },
+    {
+      "id": "3f05d95aa5c26758fd04eda1",
+      "client": "pi",
+      "query_id": "neg-grammar-only",
+      "trial": 3
+    },
+    {
+      "id": "9ce3b789e9978acb7e747fde",
+      "client": "claude",
+      "query_id": "pos-email",
+      "trial": 2
+    },
+    {
+      "id": "7931e5d5e34b49ff28bc0017",
+      "client": "claude",
+      "query_id": "pos-script",
+      "trial": 3
+    },
+    {
+      "id": "f6eb832c684e3f63b7bae360",
+      "client": "pi",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 3
+    },
+    {
+      "id": "b3e3d79569f7c28405d13944",
+      "client": "claude",
+      "query_id": "pos-script",
+      "trial": 2
+    },
+    {
+      "id": "01939f565ab9aaf06bc30987",
+      "client": "pi",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 1
+    },
+    {
+      "id": "861ed7efb388d6bf24f5039d",
+      "client": "claude",
+      "query_id": "neg-config-debug",
+      "trial": 1
+    },
+    {
+      "id": "08f85133b71484126d9ed9d8",
+      "client": "claude",
+      "query_id": "pos-email",
+      "trial": 1
+    },
+    {
+      "id": "75918060748890f39ec9c7c8",
+      "client": "pi",
+      "query_id": "pos-flow",
+      "trial": 1
+    },
+    {
+      "id": "785e58908f473de2b0d5ffd6",
+      "client": "pi",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 2
+    },
+    {
+      "id": "1eb6251cc2e2c25ed65d4e55",
+      "client": "pi",
+      "query_id": "pos-tagline",
+      "trial": 1
+    },
+    {
+      "id": "d748d61f89071be0fb98cd73",
+      "client": "claude",
+      "query_id": "neg-format-json",
+      "trial": 1
+    },
+    {
+      "id": "70cd65792a468f04825e6335",
+      "client": "claude",
+      "query_id": "neg-grammar-only",
+      "trial": 3
+    },
+    {
+      "id": "d74ccfe81d1c80a422456f03",
+      "client": "pi",
+      "query_id": "pos-flow",
+      "trial": 2
+    },
+    {
+      "id": "579f6acaf35877c3efe86dce",
+      "client": "claude",
+      "query_id": "pos-post",
+      "trial": 1
+    },
+    {
+      "id": "82f2549b45902898e6ad4e6e",
+      "client": "claude",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 1
+    },
+    {
+      "id": "ef485488da3cb035e1df3b5f",
+      "client": "pi",
+      "query_id": "pos-script",
+      "trial": 3
+    },
+    {
+      "id": "db7489c098b77d4d63f0a14a",
+      "client": "pi",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 2
+    },
+    {
+      "id": "717dbf2553b223145b88788d",
+      "client": "claude",
+      "query_id": "pos-slide-copy",
+      "trial": 3
+    },
+    {
+      "id": "e21c7594705578f3d27018ed",
+      "client": "claude",
+      "query_id": "neg-grammar-only",
+      "trial": 2
+    },
+    {
+      "id": "7969f9ca812b973f9998f7fe",
+      "client": "pi",
+      "query_id": "neg-design-layout",
+      "trial": 3
+    },
+    {
+      "id": "1301dd152474b92f54695852",
+      "client": "claude",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 2
+    },
+    {
+      "id": "1cd64fe84f45f3b29db3de00",
+      "client": "pi",
+      "query_id": "pos-post",
+      "trial": 2
+    },
+    {
+      "id": "6b02bae6620c6c745b1bba5a",
+      "client": "claude",
+      "query_id": "neg-design-layout",
+      "trial": 3
+    },
+    {
+      "id": "a925a7fe73d9c40679dbf15f",
+      "client": "pi",
+      "query_id": "pos-devrel",
+      "trial": 2
+    },
+    {
+      "id": "40af7195b0e2e31c48c6deec",
+      "client": "claude",
+      "query_id": "neg-translation",
+      "trial": 3
+    },
+    {
+      "id": "476137bf470ba8729ff739c0",
+      "client": "claude",
+      "query_id": "neg-format-json",
+      "trial": 3
+    },
+    {
+      "id": "67906f5ea6cc51b5e85ccca3",
+      "client": "pi",
+      "query_id": "pos-readme-polish",
+      "trial": 2
+    },
+    {
+      "id": "0ce2b992176c3527dd5be597",
+      "client": "claude",
+      "query_id": "neg-sql",
+      "trial": 1
+    },
+    {
+      "id": "d85234229d90d508a4550a5f",
+      "client": "claude",
+      "query_id": "near-neg-slides-export",
+      "trial": 2
+    },
+    {
+      "id": "e8d79eeac0c5dabf0b911e47",
+      "client": "claude",
+      "query_id": "neg-data-chart",
+      "trial": 1
+    },
+    {
+      "id": "e1d25e9a141553df866ed439",
+      "client": "claude",
+      "query_id": "neg-data-chart",
+      "trial": 3
+    },
+    {
+      "id": "d6540e2511d103589b43785f",
+      "client": "pi",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 3
+    },
+    {
+      "id": "47e770eef4e24984656cef25",
+      "client": "claude",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 2
+    },
+    {
+      "id": "a9fcfd0d5ebabf66fea1a60f",
+      "client": "claude",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 2
+    },
+    {
+      "id": "4b34ffd6371ce74d09e37069",
+      "client": "claude",
+      "query_id": "pos-article-conclusion",
+      "trial": 3
+    },
+    {
+      "id": "781ded9e267ec7bb91847e80",
+      "client": "claude",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 1
+    },
+    {
+      "id": "827d1640424c811e05a44156",
+      "client": "pi",
+      "query_id": "neg-translation",
+      "trial": 3
+    },
+    {
+      "id": "5dcbcd5940718f9dce8df306",
+      "client": "pi",
+      "query_id": "neg-grammar-only",
+      "trial": 2
+    },
+    {
+      "id": "16c58e80c54312a07f41b9d9",
+      "client": "pi",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 1
+    },
+    {
+      "id": "4664b3af761f0aafd042b7e2",
+      "client": "claude",
+      "query_id": "neg-format-json",
+      "trial": 2
+    },
+    {
+      "id": "9c17535f678c17c31a2f0c4b",
+      "client": "claude",
+      "query_id": "pos-tagline",
+      "trial": 3
+    },
+    {
+      "id": "095917056849c1b8cad0bcd7",
+      "client": "claude",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 3
+    },
+    {
+      "id": "12550112c202263f71cc7f1b",
+      "client": "pi",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 2
+    },
+    {
+      "id": "560d091930224110ebd5e2a4",
+      "client": "claude",
+      "query_id": "pos-readme-polish",
+      "trial": 3
+    },
+    {
+      "id": "5647eb5b62a3efa0986b0089",
+      "client": "claude",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 3
+    },
+    {
+      "id": "dc20ec7daa9884b0245b7051",
+      "client": "pi",
+      "query_id": "neg-unit-tests",
+      "trial": 3
+    },
+    {
+      "id": "515292c9dca105529865f74e",
+      "client": "pi",
+      "query_id": "pos-email",
+      "trial": 3
+    },
+    {
+      "id": "ba0ab2eb6a74c628e67f2773",
+      "client": "pi",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 1
+    },
+    {
+      "id": "653dd1085eb9bfd775ec5390",
+      "client": "claude",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 1
+    },
+    {
+      "id": "cea6cd1797936a4c71278c5e",
+      "client": "pi",
+      "query_id": "pos-readme-polish",
+      "trial": 3
+    },
+    {
+      "id": "b5debbb0655e8fc1fd4d7d5f",
+      "client": "pi",
+      "query_id": "near-neg-slides-export",
+      "trial": 3
+    },
+    {
+      "id": "be5b81bb485bb9881a9d4983",
+      "client": "claude",
+      "query_id": "neg-translation",
+      "trial": 1
+    },
+    {
+      "id": "51909d2819ae375d5357054b",
+      "client": "pi",
+      "query_id": "neg-unit-tests",
+      "trial": 2
+    },
+    {
+      "id": "371b72d3d6edf279e5402873",
+      "client": "claude",
+      "query_id": "near-neg-slides-export",
+      "trial": 3
+    },
+    {
+      "id": "6f2f6be4d40b3448766e5be6",
+      "client": "claude",
+      "query_id": "pos-flow",
+      "trial": 3
+    },
+    {
+      "id": "afc0b8db691be661c9e626cf",
+      "client": "claude",
+      "query_id": "neg-design-layout",
+      "trial": 1
+    },
+    {
+      "id": "ee7a71d9f861f64a5d42bfb4",
+      "client": "pi",
+      "query_id": "pos-email",
+      "trial": 2
+    },
+    {
+      "id": "25968ba64c5c743568c5b4e0",
+      "client": "claude",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 3
+    },
+    {
+      "id": "ffa1d763682475da6c56e72f",
+      "client": "pi",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 3
+    },
+    {
+      "id": "3eeb225ea718da123d448760",
+      "client": "claude",
+      "query_id": "pos-article-conclusion",
+      "trial": 2
+    },
+    {
+      "id": "120b27d3bb753120e7f59757",
+      "client": "pi",
+      "query_id": "pos-hedged-symmetry",
+      "trial": 2
+    },
+    {
+      "id": "e4d4031820f204092160913b",
+      "client": "pi",
+      "query_id": "neg-config-debug",
+      "trial": 2
+    },
+    {
+      "id": "d0312d7004ee183a2562b73d",
+      "client": "pi",
+      "query_id": "neg-unit-tests",
+      "trial": 1
+    },
+    {
+      "id": "a80321b698d60948fd706538",
+      "client": "claude",
+      "query_id": "neg-factual-summary",
+      "trial": 2
+    },
+    {
+      "id": "8f4b488fcf8b2dfd61da9afb",
+      "client": "pi",
+      "query_id": "pos-slide-copy",
+      "trial": 2
+    },
+    {
+      "id": "5a10c9b90208c4c8835f998f",
+      "client": "claude",
+      "query_id": "neg-sql",
+      "trial": 3
+    },
+    {
+      "id": "e41ef963bc6621365b49dc24",
+      "client": "claude",
+      "query_id": "pos-tagline",
+      "trial": 2
+    },
+    {
+      "id": "c3e472f9321e7f2249c8bfc0",
+      "client": "pi",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 3
+    },
+    {
+      "id": "87d2de7503f3bef4ddda3fc5",
+      "client": "pi",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 3
+    },
+    {
+      "id": "c66b599db492b47b5a3b483f",
+      "client": "claude",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 1
+    },
+    {
+      "id": "b2b3525f6019e600b93420b0",
+      "client": "claude",
+      "query_id": "neg-grammar-only",
+      "trial": 1
+    },
+    {
+      "id": "4fee2d0074615273b7614e75",
+      "client": "pi",
+      "query_id": "neg-data-chart",
+      "trial": 3
+    },
+    {
+      "id": "906e8cc9895a1018be5fed25",
+      "client": "claude",
+      "query_id": "pos-flow",
+      "trial": 2
+    },
+    {
+      "id": "c1ea1491c4fed88eb7afbece",
+      "client": "pi",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 2
+    },
+    {
+      "id": "7595c6b6165f7b3f3e7214a7",
+      "client": "claude",
+      "query_id": "neg-code-refactor",
+      "trial": 2
+    },
+    {
+      "id": "13859b8271c2494b84ac8a39",
+      "client": "pi",
+      "query_id": "near-neg-docx-from-dataset",
+      "trial": 2
+    },
+    {
+      "id": "a6387e78281d2652a795ef6b",
+      "client": "claude",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 1
+    },
+    {
+      "id": "a6a8bc642346c6bccfbbd392",
+      "client": "pi",
+      "query_id": "pos-email",
+      "trial": 1
+    },
+    {
+      "id": "1bf035a3f34f7f6f30fb14eb",
+      "client": "claude",
+      "query_id": "neg-sql",
+      "trial": 2
+    },
+    {
+      "id": "d1d611829f740bf2826899c9",
+      "client": "claude",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 3
+    },
+    {
+      "id": "d004cf35c97bc029d9d06997",
+      "client": "claude",
+      "query_id": "pos-post",
+      "trial": 3
+    },
+    {
+      "id": "afc627782cb6a5f1b455d075",
+      "client": "pi",
+      "query_id": "neg-sql",
+      "trial": 2
+    },
+    {
+      "id": "8f71bd63ff171f3a63ee3c19",
+      "client": "claude",
+      "query_id": "neg-config-debug",
+      "trial": 3
+    },
+    {
+      "id": "bbb3584b55f14cfb6033f887",
+      "client": "claude",
+      "query_id": "pos-slide-copy",
+      "trial": 1
+    },
+    {
+      "id": "fae374740f6378e9f0007328",
+      "client": "pi",
+      "query_id": "pos-devrel",
+      "trial": 1
+    },
+    {
+      "id": "69eb11b11b05889a73fa0047",
+      "client": "claude",
+      "query_id": "neg-unit-tests",
+      "trial": 2
+    },
+    {
+      "id": "28e736766b8d075fa3a903dc",
+      "client": "claude",
+      "query_id": "neg-unit-tests",
+      "trial": 3
+    },
+    {
+      "id": "11b456a85e756981734d7524",
+      "client": "claude",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 2
+    },
+    {
+      "id": "ae7675fad8c38f16ca05549d",
+      "client": "claude",
+      "query_id": "pos-wiki",
+      "trial": 2
+    },
+    {
+      "id": "19731e4ca3f688a6f322fb1d",
+      "client": "pi",
+      "query_id": "neg-config-debug",
+      "trial": 3
+    },
+    {
+      "id": "37e1383d059d56f62c8637d2",
+      "client": "pi",
+      "query_id": "neg-data-chart",
+      "trial": 1
+    },
+    {
+      "id": "5815b1b7734884f29c75f0ff",
+      "client": "claude",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 2
+    },
+    {
+      "id": "016da1a9bb3217f5e6f5887b",
+      "client": "claude",
+      "query_id": "pos-outline-conclusion-template",
+      "trial": 3
+    },
+    {
+      "id": "7a38f61297879e7f8269a4f7",
+      "client": "claude",
+      "query_id": "near-neg-draft-status-email",
+      "trial": 2
+    },
+    {
+      "id": "350abfc32f16d5c731122042",
+      "client": "claude",
+      "query_id": "neg-code-refactor",
+      "trial": 3
+    },
+    {
+      "id": "a7bb4a9268e3c16e560a6eea",
+      "client": "pi",
+      "query_id": "pos-readme-polish",
+      "trial": 1
+    },
+    {
+      "id": "9d5564440b32b5e97e04ec89",
+      "client": "pi",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 1
+    },
+    {
+      "id": "ec93d015a95df1de83eb58ef",
+      "client": "pi",
+      "query_id": "pos-post",
+      "trial": 3
+    },
+    {
+      "id": "1e219b1cca53685a29758510",
+      "client": "claude",
+      "query_id": "pos-flow",
+      "trial": 1
+    },
+    {
+      "id": "57b679d30d130c2e0454da9b",
+      "client": "pi",
+      "query_id": "pos-post",
+      "trial": 1
+    },
+    {
+      "id": "5112f5546a5714b78f5045bd",
+      "client": "pi",
+      "query_id": "neg-format-json",
+      "trial": 1
+    },
+    {
+      "id": "c94a260d0da8067d49fcfe58",
+      "client": "pi",
+      "query_id": "near-neg-slides-export",
+      "trial": 1
+    },
+    {
+      "id": "06b094919ee5d71e42a215e8",
+      "client": "claude",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 2
+    },
+    {
+      "id": "ce3f419474d12ebed1910f15",
+      "client": "pi",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 2
+    },
+    {
+      "id": "0c984d3497424ed788e81487",
+      "client": "pi",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 1
+    },
+    {
+      "id": "f76885143104dde03cc22275",
+      "client": "claude",
+      "query_id": "near-neg-storyboard-script",
+      "trial": 3
+    },
+    {
+      "id": "38bb4f8cee8148c750ee5af1",
+      "client": "claude",
+      "query_id": "neg-config-debug",
+      "trial": 2
+    },
+    {
+      "id": "a121fd8e81b94a62720f16e3",
+      "client": "claude",
+      "query_id": "pos-devrel",
+      "trial": 1
+    },
+    {
+      "id": "42f35bc21fcf167b1a57c69d",
+      "client": "pi",
+      "query_id": "pos-article-conclusion",
+      "trial": 3
+    },
+    {
+      "id": "0b50917370257f2098c1c3d7",
+      "client": "pi",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 1
+    },
+    {
+      "id": "075288e21a6d5481fae1fd03",
+      "client": "pi",
+      "query_id": "pos-wiki",
+      "trial": 1
+    },
+    {
+      "id": "73af19bda648be38d1191331",
+      "client": "claude",
+      "query_id": "neg-code-refactor",
+      "trial": 1
+    },
+    {
+      "id": "fea66e6094a5912b0047c1f8",
+      "client": "pi",
+      "query_id": "neg-code-refactor",
+      "trial": 1
+    },
+    {
+      "id": "20712f3db2b51dfbded7cbcc",
+      "client": "pi",
+      "query_id": "near-neg-link-check-readme",
+      "trial": 3
+    },
+    {
+      "id": "3cfe64b3b9fb78dc4a8d9f60",
+      "client": "pi",
+      "query_id": "pos-wiki",
+      "trial": 2
+    },
+    {
+      "id": "3966036a1fee753599104521",
+      "client": "claude",
+      "query_id": "neg-data-chart",
+      "trial": 2
+    },
+    {
+      "id": "7c74c33236780fd0d8e81b2e",
+      "client": "pi",
+      "query_id": "neg-format-json",
+      "trial": 2
+    },
+    {
+      "id": "390a024b69d56e02b04fbc76",
+      "client": "pi",
+      "query_id": "near-neg-fact-check-blog",
+      "trial": 3
+    },
+    {
+      "id": "0e88fed2194540bcd93a1719",
+      "client": "pi",
+      "query_id": "pos-slide-copy",
+      "trial": 1
+    },
+    {
+      "id": "eeba304949c8a02f358b2e85",
+      "client": "pi",
+      "query_id": "pos-slide-copy",
+      "trial": 3
+    },
+    {
+      "id": "ba41f7ae5df1a9a2e98312ec",
+      "client": "claude",
+      "query_id": "pos-readme-polish",
+      "trial": 2
+    },
+    {
+      "id": "5a793c7dfa6859f81bbadbd7",
+      "client": "claude",
+      "query_id": "neg-em-dash-mechanical",
+      "trial": 1
+    },
+    {
+      "id": "2f28108049dc36eea943655d",
+      "client": "pi",
+      "query_id": "neg-design-layout",
+      "trial": 2
+    },
+    {
+      "id": "eaef862508d187abf1add9ac",
+      "client": "pi",
+      "query_id": "neg-factual-summary",
+      "trial": 2
+    },
+    {
+      "id": "cf26e90dbf4642f06a35730b",
+      "client": "pi",
+      "query_id": "pos-script",
+      "trial": 2
+    },
+    {
+      "id": "8071d316c963de02c7713262",
+      "client": "pi",
+      "query_id": "pos-article-conclusion",
+      "trial": 1
+    },
+    {
+      "id": "301b565daa6cabdf013c8f12",
+      "client": "pi",
+      "query_id": "pos-script",
+      "trial": 1
+    },
+    {
+      "id": "f0b56d47930451ed73f41b3b",
+      "client": "pi",
+      "query_id": "neg-data-chart",
+      "trial": 2
+    },
+    {
+      "id": "ce16866e76c9337868560e18",
+      "client": "pi",
+      "query_id": "pos-flow",
+      "trial": 3
+    },
+    {
+      "id": "3d312d90a5708407541fc8f7",
+      "client": "pi",
+      "query_id": "neg-code-refactor",
+      "trial": 3
+    },
+    {
+      "id": "b2834c0c024e1bb6faa9e8ea",
+      "client": "claude",
+      "query_id": "pos-devrel",
+      "trial": 2
+    }
+  ],
+  "queries_sha256": "66473aae0c55af360644c66054f0acf811d4e9a00e2af919346521f4ae8fdb39",
+  "skill_hashes": {
+    "SKILL.md": "1da80fc7bad725d1824a4e59e155a227c8d5da57e659e20c0ed80e5baa18d6f9",
+    "references/rewrite-patterns.md": "a00bf0e0547a6830bd365e8ae22a8b11deac75b20a08481541c97313bee5e526",
+    "references/flow-by-relation.md": "4dfdfc358a9792ad76b414b1e8e3ce2328864662ba39007e020ebf2da11a4dec",
+    "references/anti-slop-writing-doctrine.md": "4145f5dc1e0e820ae26304165978328f0f6ff6ac45b7e4ed264afe2128d3aa56"
+  },
+  "clients": {
+    "pi": "Pi 1.4.0 controlled SDK AgentSession (not stock CLI/TUI)",
+    "claude": "Claude Code 2.1.323 restricted CLI"
+  },
+  "unavailable": {
+    "codex": "0.145.0: recorded subscription probe rejects gpt-6.1-sol; no model substitution preregistered",
+    "opencode": "Not installed on PATH or checked conventional locations; not installed by this study"
+  }
+}

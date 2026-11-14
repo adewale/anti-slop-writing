@@ -182,6 +182,38 @@ class Cli(unittest.TestCase):
             )
             self.assertNotIn("Read skills/", b["apply_prompt"])
 
+    def test_empty_facts_block_does_not_coach_the_expected_behavior(self) -> None:
+        # The no-skill arm must not receive the skill's ask-or-cut behavior as an
+        # instruction. Known-good: neutral statement. Known-bad: the old coaching
+        # sentence. Near-miss: a task prompt that itself says "ask" stays intact.
+        cases = [
+            {"id": "empty", "split": "tune", "prompt": "Rewrite the draft.",
+             "facts": [], "assertions": ["a", "b"]},
+            {"id": "task-asks", "split": "tune",
+             "prompt": "Rewrite this, or ask for the missing relation.",
+             "facts": [], "assertions": ["a", "b"]},
+        ]
+        src = self.tmp / "cases.json"
+        src.write_text(json.dumps({"evals": cases}))
+        for flags in ([], ["--no-skill"]):
+            apply, judge = self.tmp / "apply.json", self.tmp / "judge.json"
+            result = run_script(
+                "scripts/run_evals.py", "prepare", src,
+                "--out", apply, "--judge-out", judge, *flags,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            units = {u["id"]: u for u in json.loads(apply.read_text())["units"]}
+            for unit in units.values():
+                facts_block = unit["apply_prompt"].split("Facts available:\n", 1)[1]
+                self.assertEqual(
+                    facts_block.strip(), "No additional facts beyond the source text."
+                )
+                self.assertNotIn("Ask for missing facts", unit["apply_prompt"])
+                self.assertNotIn("cut unsupported", unit["apply_prompt"])
+            self.assertIn(
+                "or ask for the missing relation", units["task-asks"]["apply_prompt"]
+            )
+
     def test_prepare_embeds_only_fixture_input(self) -> None:
         case = {
             "id": "x",

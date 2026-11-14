@@ -318,6 +318,8 @@ def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> 
         if "reference" in case:
             validate_reference_anchor(path, case_id, case["reference"])
 
+    validate_fact_pairs(path, evals)
+
     if holdout_count < min_holdout:
         fail(
             f"{path.relative_to(ROOT)} must contain at least {min_holdout} holdout cases (found {holdout_count})"
@@ -326,6 +328,30 @@ def validate_eval_file(path: Path, min_count: int = 1, min_holdout: int = 2) -> 
         fail(
             f"{path.relative_to(ROOT)} must contain at least 1 tune case (found {tune_count})"
         )
+
+
+def validate_fact_pairs(path: Path, evals: list[dict]) -> None:
+    """A `paired_with` twin supplies the facts its partner withholds.
+
+    The partner tests asking or cutting when facts are missing; the twin tests
+    using facts when they are present. A pair split across tune and holdout, or a
+    twin without facts, would stop the pair measuring that contrast.
+    """
+    rel = path.relative_to(ROOT)
+    by_id = {case["id"]: case for case in evals}
+    for case in evals:
+        partner_id = case.get("paired_with")
+        if partner_id is None:
+            continue
+        partner = by_id.get(partner_id)
+        if partner is None or partner is case:
+            fail(f"{rel} eval {case['id']} paired_with names no other case: {partner_id}")
+        if partner.get("split") != case.get("split"):
+            fail(f"{rel} eval {case['id']} paired_with {partner_id} has a different split")
+        if partner.get("facts") != []:
+            fail(f"{rel} eval {case['id']} paired_with {partner_id}, which must have facts: []")
+        if not case.get("facts"):
+            fail(f"{rel} eval {case['id']} is a paired_with twin and must supply facts")
 
 
 def validate_skill_evals() -> None:

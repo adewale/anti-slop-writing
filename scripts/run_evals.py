@@ -133,7 +133,7 @@ def case_prompt(case: dict) -> str:
         prompt += "\n\nFacts available:\n" + (
             "\n".join(f"- {f}" for f in facts)
             if facts
-            else "No additional facts beyond the source text. Ask for missing facts or cut unsupported claims."
+            else "No additional facts beyond the source text."
         )
     return prompt
 

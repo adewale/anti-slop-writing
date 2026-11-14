@@ -543,6 +543,172 @@
           "rubric": "5 = varied closers and source-grounded ending; 1 = repeated decorative closure."
         }
       ]
+    },
+    {
+      "id": "pelican-process-relation-with-facts",
+      "split": "tune",
+      "paired_with": "pelican-process-relation",
+      "prompt": "Rewrite this unsupported closer, or ask for the missing relation: The point is not the harbor map. The point is the drill.",
+      "facts": [
+        "During the evacuation drill, each team leader marks on the harbor map the pier their team reached.",
+        "Afterwards the organisers compare the marked maps to find piers no team reached in time."
+      ],
+      "expected_output": "Replaces the empty contrast with the supplied relation: leaders mark piers reached on the map, and organisers compare maps to find piers nobody reached in time.",
+      "assertions": [
+        "Removes the empty two-part 'The point is not X. The point is Y.' contrast.",
+        "States how the map serves the drill using the facts: leaders mark the pier reached, and organisers compare the maps to find piers no team reached in time.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "safe-essay-cut-or-concretize-with-facts",
+      "split": "tune",
+      "paired_with": "safe-essay-cut-or-concretize",
+      "prompt": "Review and rewrite, or cut if unsupported: Amid an era of ceaseless disruption, organizations require transformative offerings that cultivate frictionless progress.",
+      "facts": [
+        "The sentence opens the sales page for Shiftboard, a staff scheduling app for hospitals.",
+        "Shiftboard lets nurses swap shifts from their phones; a charge nurse approves each swap.",
+        "Hospitals that use it no longer circulate paper swap forms."
+      ],
+      "expected_output": "Cuts the era/disruption framing and rewrites around Shiftboard: nurses swap shifts by phone, a charge nurse approves, paper swap forms go away.",
+      "assertions": [
+        "Removes the era/disruption framing and the 'transformative offerings' abstraction.",
+        "The rewrite names Shiftboard, nurses swapping shifts from their phones, and charge-nurse approval.",
+        "Does not add adoption numbers, time savings, or other benefits beyond replacing paper swap forms.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "multi-issue-output-manifest-with-facts",
+      "split": "tune",
+      "paired_with": "multi-issue-output-manifest",
+      "prompt": "Review and rewrite both lines. Do not stop at a summary.\n\n1. This underscores the importance of robust developer experiences.\n2. The point is not the dashboard. The point is the insight.",
+      "facts": [
+        "Line 1 is about the team's CLI: `deploy init` now writes a working config file on first run, so new users no longer edit YAML by hand.",
+        "Line 2 is about the incident dashboard: it groups alerts that share a root cause, so on-call engineers see one incident instead of dozens of alerts."
+      ],
+      "expected_output": "Two concrete rewrites: line 1 says `deploy init` writes a working config on first run; line 2 says the dashboard groups alerts by shared root cause into one incident.",
+      "assertions": [
+        "Addresses both input lines rather than only the first or a general summary.",
+        "The line 1 rewrite replaces the importance/robust-experience language with `deploy init` writing a working config file on first run.",
+        "The line 2 rewrite replaces the contrast with the dashboard grouping alerts that share a root cause into one incident.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "emphasis-source-flatten-with-facts",
+      "split": "tune",
+      "paired_with": "emphasis-source-flatten",
+      "prompt": "Rewrite by replacing borrowed-pattern emphasis with a clarifying relation: Durable execution isn't just retry logic. It is a new programming model.",
+      "facts": [
+        "In this framework a workflow's state is saved after every step.",
+        "If the process crashes, the workflow resumes from the last saved step instead of starting over.",
+        "Developers write the workflow as ordinary sequential code; the framework does the saving and resuming."
+      ],
+      "expected_output": "Drops the isn't-just cadence and states the relation: state saved after each step lets a crashed workflow resume from the last saved step, while developers write plain sequential code.",
+      "assertions": [
+        "Removes the 'isn't just X. It is Y' cadence and does not replace it with another antithesis rhythm such as 'not only / but also' or 'less X, more Y'.",
+        "States what goes beyond retrying using the facts: state saved after every step and resumption from the last saved step after a crash.",
+        "Supports any 'programming model' claim with the sequential-code fact, or drops that claim.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "copula-displacement-to-is-with-facts",
+      "split": "tune",
+      "paired_with": "copula-displacement-to-is",
+      "prompt": "Rewrite without copula displacement: The library serves as a coordination layer that represents a key piece of the platform's infrastructure.",
+      "facts": [
+        "The library assigns each background job to exactly one worker.",
+        "It reassigns a job when that worker stops sending heartbeats."
+      ],
+      "expected_output": "A plain-verb rewrite: the library assigns each background job to one worker and reassigns it when the worker's heartbeats stop.",
+      "assertions": [
+        "Removes 'serves as' and 'represents' in favor of plain 'is' or a specific verb.",
+        "Says what the library does using the facts: one worker per job, reassignment when heartbeats stop.",
+        "Does not replace the displaced copulas with a different prestige verb such as 'powers', 'enables', or 'underpins'.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "hedged-symmetry-commit-with-facts",
+      "split": "tune",
+      "paired_with": "hedged-symmetry-commit",
+      "prompt": "Rewrite by committing to a position: While speed matters, correctness is also important. Whether you're shipping a prototype or production code, our linter helps.",
+      "facts": [
+        "The linter's default rules are written for production code: they fail the build on unhandled promise rejections.",
+        "A prototype mode turns those failures into printed warnings."
+      ],
+      "expected_output": "Commits to production code as the default reader and names the unhandled-rejection rule; mentions prototype mode only as a stated branch with its own behavior.",
+      "assertions": [
+        "Removes the 'While X, Y is also important' and 'Whether X or Y' hedges rather than rephrasing them with synonyms.",
+        "Commits to the supplied position: by default the linter fails the build on unhandled promise rejections in production code.",
+        "If prototypes are mentioned, states the distinct behavior (warnings instead of failures) rather than claiming the linter suits everyone equally.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "outline-conclusion-carrier-bound-with-facts",
+      "split": "tune",
+      "paired_with": "outline-conclusion-carrier-bound",
+      "prompt": "Rewrite this conclusion so it stops sounding like an outline: Despite ongoing challenges in the AI infrastructure landscape, our platform continues to thrive. Looking ahead, durable execution will play an increasingly pivotal role in modern software.",
+      "facts": [
+        "The platform is a durable-execution service.",
+        "In March a customer's invoice workflow ran through a regional outage: its runs paused during the outage and resumed from their last completed step afterwards.",
+        "The next release adds per-step timeouts."
+      ],
+      "expected_output": "Replaces both templates with the March invoice-workflow example (paused, then resumed from the last completed step) and, if a forward look is kept, the per-step timeouts release.",
+      "assertions": [
+        "Removes the 'Despite challenges, X continues to thrive' and 'Looking ahead, X will play a pivotal role' templates.",
+        "Ends on the supplied March example: runs paused during the regional outage and resumed from their last completed step.",
+        "Any forward-looking sentence names the per-step timeouts release instead of a 'pivotal role'.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "fake-precision-rewrite-finance-with-facts",
+      "split": "holdout",
+      "paired_with": "fake-precision-rewrite-finance",
+      "prompt": "Rewrite this without preserving unsupported precision: Our risk model improves portfolio outcomes by 18.4% on average across most institutional clients.",
+      "facts": [
+        "The 18.4% figure is the median reduction in maximum drawdown in the firm's 2025 backtest.",
+        "The backtest covered 31 pension-fund portfolios from 2015 to 2024.",
+        "No live client results have been measured yet."
+      ],
+      "expected_output": "Keeps 18.4% only as a median drawdown reduction in a 2025 backtest of 31 pension-fund portfolios (2015-2024), and does not present it as a live client outcome.",
+      "assertions": [
+        "Keeps 18.4% only with its definition (median reduction in maximum drawdown) and source (the 2025 backtest).",
+        "Replaces 'most institutional clients' with the backtest population: 31 pension-fund portfolios, 2015 to 2024.",
+        "Does not present the figure as a measured result for live clients.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
+    },
+    {
+      "id": "holdout-ask-author-ai-tooling-with-facts",
+      "split": "holdout",
+      "paired_with": "holdout-ask-author-ai-tooling",
+      "prompt": "Review this paragraph using the Critique output format. It comes from a launch post draft; the author's notes are in the facts block.\n\nThe migration used to be a quarter-long slog. The new AI assistant made it a one-week project. It updated the old Terraform modules, rewired the staging deploy, and generated the audit notes the compliance team needed.",
+      "facts": [
+        "The assistant is the company's internal tool, Patchwright.",
+        "The project tracker shows the previous migration took eleven weeks and this one took six working days.",
+        "Engineers reviewed every change Patchwright proposed before it was merged."
+      ],
+      "expected_output": "A review that replaces 'quarter-long' and 'one-week' with the tracked eleven weeks and six working days, names Patchwright, and keeps engineer review in the account of who did the work.",
+      "assertions": [
+        "Replaces 'quarter-long slog' and 'one-week project' with the tracked durations: eleven weeks and six working days.",
+        "Names Patchwright as the assistant and does not name any other tool or model.",
+        "Does not credit the assistant alone; keeps the supplied fact that engineers reviewed every proposed change.",
+        "Does not ask for, or mark as unknown, anything the facts block supplies; an ask-author verdict or a cut in place of the supplied material fails.",
+        "Introduces no fact absent from the prompt, its source input, and the facts block; questions and explicitly marked unknowns are allowed."
+      ]
     }
   ]
 }

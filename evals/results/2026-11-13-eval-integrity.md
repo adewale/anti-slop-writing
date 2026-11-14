@@ -137,3 +137,28 @@ The empty merge/close/delete authorizations prevent backlog mutations; unavailab
 model access prevents the baseline studies. The blank spend ceiling sets a stopping
 boundary after Phase 3, rather than preventing the authorized baseline work. No merger, closure, deletion, or doctrine promotion
 is represented as completed.
+
+## Review follow-up — 2026-11-14
+
+A review of this branch found two problems with the case repair, and both are fixed in a
+follow-up commit.
+
+- **Most cases rewarded asking.** After the repair, 36 of the 40 review and rewrite
+  cases had `facts: []`. About 23 of those could be passed only by asking for facts or
+  cutting, and 4 cases tested turning supplied facts into a concrete rewrite. A model
+  that answered every prompt with "cut it and tell me which workflow you mean" would have
+  passed most of the suite. The follow-up adds 19 `paired_with` twins: 10 in `evals.json`,
+  9 in `rewrite-evals.json`, each in the same split as its partner. A twin gives the same
+  task (or, for `holdout-ask-author-ai-tooling`, a prompt that no longer says no notes
+  exist) plus the facts the partner withholds. It requires those facts in the rewrite and
+  fails an ask-author answer or a cut. The 5 new holdout twins were written by a reviewer
+  who has not tuned doctrine. `validate.py` checks pair integrity.
+- **The apply prompt gave every arm the answer.** With empty facts, `prepare` added "Ask
+  for missing facts or cut unsupported claims." to every apply prompt, including
+  `--no-skill`. The no-skill arm therefore received the skill's key behavior as an
+  instruction. The empty-facts block now reads only "No additional facts beyond the source
+  text."
+
+The follow-up also stops the runbook relying on the one-off handoff for spending
+authority, and the bare-`so` hinge check no longer passes "so-called" or intensifier "so".
+

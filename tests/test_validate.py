@@ -89,6 +89,39 @@ class Validate(unittest.TestCase):
         self.edit_json("evals/rewrite-evals.json", lambda d: d["evals"][0].pop("facts"))
         self.assert_fails_with("facts must be a list")
 
+    def twin(self, data: dict) -> dict:
+        return next(c for c in data["evals"] if c.get("paired_with"))
+
+    def test_fact_twin_without_facts_fails(self) -> None:
+        self.edit_json(
+            "evals/rewrite-evals.json", lambda d: self.twin(d).update(facts=[])
+        )
+        self.assert_fails_with("must supply facts")
+
+    def test_fact_twin_with_a_dangling_partner_fails(self) -> None:
+        self.edit_json(
+            "evals/evals.json", lambda d: self.twin(d).update(paired_with="no-such-case")
+        )
+        self.assert_fails_with("paired_with names no other case")
+
+    def test_fact_pair_split_across_tune_and_holdout_fails(self) -> None:
+        def flip(d):
+            t = self.twin(d)
+            t["split"] = "holdout" if t["split"] == "tune" else "tune"
+
+        self.edit_json("evals/evals.json", flip)
+        self.assert_fails_with("has a different split")
+
+    def test_fact_twin_may_reword_its_prompt(self) -> None:
+        # Near-miss: a twin's prompt may differ from its partner's (for example,
+        # to drop "no source notes are available"); only facts and split are tied.
+        def reword(d):
+            self.twin(d)["prompt"] += " Use the author's notes."
+
+        self.edit_json("evals/rewrite-evals.json", reword)
+        result = self.validate()
+        self.assertEqual(result.returncode, 0, result.stdout)
+
     def test_copied_eight_word_example_fails(self) -> None:
         def leak(d):
             d["evals"][0]["prompt"] = (

@@ -42,10 +42,13 @@
       ],
       "pass": [
         "evals/examples/oracle-integrity/hinge-good.md",
-        "evals/examples/oracle-integrity/hinge-near.md"
+        "evals/examples/oracle-integrity/hinge-near.md",
+        "evals/examples/oracle-integrity/hinge-comma-so.md"
       ],
       "fail": [
-        "evals/examples/oracle-integrity/hinge-bad.md"
+        "evals/examples/oracle-integrity/hinge-bad.md",
+        "evals/examples/oracle-integrity/hinge-so-called.md",
+        "evals/examples/oracle-integrity/hinge-intensifier.md"
       ]
     },
     {

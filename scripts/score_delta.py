@@ -11,7 +11,9 @@ are dramatically too tight at that size — see Bowyer, Aitchison, Ivanova,
 Rule of the runbook: do not accept an edit when the 95% CI on the delta
 overlaps zero. Use --holdout-only to score only the held-out split. A delta
 that clears the noise floor in the negative direction is a regression and is
-REJECTED too: only a significant improvement exits 0.
+REJECTED too: only a significant improvement exits 0. Other REJECTs exit 1;
+an UNDERPOWERED REJECT (fewer than six independent units, no --allow-small)
+exits 2. Treat any nonzero exit as REJECT.
 
 A REJECT here means "no improvement was detected", which is NOT the same as
 "the edit does nothing": a non-significant superiority test can also be an

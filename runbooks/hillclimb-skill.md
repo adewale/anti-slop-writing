@@ -45,11 +45,9 @@ and every arm. If only one family is reachable, use two models, label the result
 "same-family judging", and treat it as coverage evidence. Leave promotion pending
 cross-family or human confirmation. Record disagreements per apply family.
 
-Estimate run cost before launch and stay within the owner's stated ceiling and
-stopping boundary. The November handoff permits work through Phase 3 when its
-ceiling is blank, then requires stopping and reporting cost. Do not carry that
-blank-ceiling authorization into Phase 4. When no ceiling or stopping boundary was
-authorized, prepare the estimate before requesting a spending decision.
+Estimate run cost before launch and stay within the owner's stated spending ceiling.
+When no ceiling was set, prepare the estimate and ask for a spending decision before
+launching the run.
 
 ## Apply, blind, judge, grade
 
@@ -125,6 +123,9 @@ open-book regression set and cannot count as holdouts.
 
 Keep applicable failure notes, before/after cards, result data, rejected edits, lessons,
 and changelog entries. Every new case has a split. A detector needs an earned-use guard.
+A review or rewrite case with `facts: []` that passes only by asking or cutting needs a
+`paired_with` twin in the same split that supplies those facts and fails an ask or a cut.
+Without the twin, a model that always asks for more facts scores well.
 For grader/oracle/validator changes add known-good, known-bad, and near-miss inputs.
 
 Run before every commit:

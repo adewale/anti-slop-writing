@@ -121,8 +121,8 @@
         {
           "name": "has-relation-hinge",
           "type": "regex",
-          "pattern": "(?i)\\b(?:because|so|therefore|as a result|when)\\b",
-          "description": "Whole connective words only; also and someone are not causal hinges."
+          "pattern": "(?im)\\b(?:because|therefore|as a result|when|so that)\\b|(?:^|[,;:]\\s*|[.!?]\\s+)so\\b(?!-)",
+          "description": "Whole connective words only. Bare so counts only as a clause connective (after a comma, semicolon, colon, or sentence start); also, someone, so-called, and intensifier so are not causal hinges."
         },
         {
           "name": "qualitative-review",

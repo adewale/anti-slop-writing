@@ -1,0 +1,6 @@
+{
+  "files_scanned": 5616,
+  "findings": [],
+  "archive_sha256": "872655c9479d442d55e2fd19fedac9e529fd962e140812665221639deed49001",
+  "scope": "No archive links, credential filenames, or selected token-value markers. Bounded scan, not universal secret detection."
+}

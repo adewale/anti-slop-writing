@@ -16,6 +16,8 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 ## Open — buildable without the blocked item
 
 - [ ] Calibrate the subscription baseline's fidelity disagreement with human review before any promotion claim. The 18-item blinded packet and blank answers are ready in `evals/results/2026-11-14-fidelity-calibration/`; actual human scoring is pending. Keep existing holdouts frozen; later doctrine changes need tune cases and their own study.
+- [ ] Independently validate the proposed role-preserving extraction boundary in `docs/structured-deliverable-views.md`: completeness, meaningful labels, qualification scope and auditor specificity. The owner approved an offline design prototype, not human case adjudication. Do not require the owner to classify the whole 130-item packet just to define the policy.
+- [ ] Complete a newly registered rewrite-only comparison only after instrument validation. Revision 2's 488 extraction calls and 444 independent audits remain published; 93 audit flags blocked all 1,776 planned writing judgments. Returned counters were $13.36 list-price equivalent, subscription-only. The offline prototype does not override that gate, relax its stop rule, or create a view-sensitivity/efficacy result.
 - [ ] Complete live-client coverage for **native Codex and OpenCode**. Pi and guarded Claude Code now have 29 queries × three valid fresh sessions each. Codex's registered native model was unsupported on the subscription; a different model needs a separately fixed instrument. OpenCode was absent and was not installed. Do not invent rates or substitute the old routing classifier.
 
 ## Open — 2026-11-13 review
@@ -28,6 +30,7 @@ Tracked work for the `anti-slop-writing` hillclimb loop. Done items stay listed 
 
 ## Done — 2026-11-14
 
+- [x] Implement an offline, unvalidated structured-view prototype with prose, question, decision and conditional-alternative roles; attached exact-source qualifications; common raw-source exposure; and three proposed tune fixtures copied from retained responses. No model calls, human answers, installed changes or edits to the registered runner/results.
 - [x] Complete the frozen candidate screen: 1,122 apply outputs, 2,244 valid judgments, all raw/replacement data retained and analyses reproduced offline. Neither candidate clears its eight standing-holdout co-primary contrasts; five of 64 point guards fail. No promotion.
 - [x] Measure actual initial-turn body loading: 174 valid sessions in controlled Pi and guarded Claude Code. Majority sensitivity 7/12 each; specificity 16/17 and 17/17. Material instrument amendments and excluded cohorts are disclosed, not pooled.
 - [x] Prepare the 18-item blind human fidelity-calibration packet without pretending a model is a human reviewer.

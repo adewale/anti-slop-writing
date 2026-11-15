@@ -1,0 +1,9 @@
+{
+  "seed": 261121,
+  "rule": "all flagged outputs union the originally preregistered 44 reliability outputs, deduplicated",
+  "flagged": 93,
+  "preselected_controls": 44,
+  "overlap": 7,
+  "items": 130,
+  "limits": "Enriched instrument-review sample, not a population error estimate or human writing-judge calibration."
+}

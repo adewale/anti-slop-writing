@@ -1,0 +1,12 @@
+{
+  "checkpoint_complete": true,
+  "study_comparison_complete": false,
+  "extract_complete": true,
+  "audit_complete": true,
+  "audit_gate_passed": false,
+  "writing_judging_started": false,
+  "flagged": 93,
+  "human_review_pending": true,
+  "selected_response_overlap_with_baseline": 0,
+  "baseline_selected_response_ids": 2412
+}

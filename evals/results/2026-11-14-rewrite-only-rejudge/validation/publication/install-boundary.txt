@@ -1,0 +1,1 @@
+OK: installable skill boundary is clean: skills/anti-slop-writing

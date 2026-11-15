@@ -1,0 +1,310 @@
+[
+  {
+    "baseline_id": "2bd17e9d626af7252c774f35",
+    "extraction_id": "003210e1c6f987a49d1e1384",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "1f2374a3a7497326da66b293",
+    "extraction_id": "0328e44843ccf6f6fb6c74a2",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "a3dd3dc99e7d8c71c1495d70",
+    "extraction_id": "0715c37f6427a1a130402c7c",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "9e893fc9a243973181e78ce3",
+    "extraction_id": "0e07999c73c2cd4262f3c3bc",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "383bbeb1d2358c8da9a66929",
+    "extraction_id": "08b9856d261e3a8016121572",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "437e46f318b088926378f58d",
+    "extraction_id": "12aa994f79f287c2d351abf9",
+    "exact": false,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "9126b5de46bdf40050bc1b09",
+    "extraction_id": "158a55b86853c861060ed108",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "c9fff1cff63034b243d17759",
+    "extraction_id": "1a3c7f6e76370308c3485cfc",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "dcc5d38bd1f5ff8128706ef1",
+    "extraction_id": "1a3fce3f4669ca9a1b9176ff",
+    "exact": false,
+    "jaccard": 0.9938271604938271,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "7b671f1817f96e813a7e0112",
+    "extraction_id": "139dd433aad4cf67746dfec3",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "af4a4553875ec1906eb5e960",
+    "extraction_id": "0979aeb76526c647115d77af",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "3a8f729d1a9550b6a281e059",
+    "extraction_id": "00051c4d1e0a264c7197ad3c",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "cfb208a3438414ee1a0719d9",
+    "extraction_id": "0fb4551d9f0f5d8640274df2",
+    "exact": false,
+    "jaccard": 0.7721518987341772,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "a40f9770d4f83c85fef6dd94",
+    "extraction_id": "04065a8d5c4f2602644745f1",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "e143b4c92ee054e503d5193b",
+    "extraction_id": "134b9a8dba3d1b5c7a68bd18",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "29cb4b05a59c2624f99a3208",
+    "extraction_id": "018414655a1b4cfeae711628",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "96e2fd7ef6539579ca8e0a0e",
+    "extraction_id": "04265f006466040f9911b82e",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "a15e1adbcc6cf2524c5321f6",
+    "extraction_id": "003b0378fdfcb7bb4b820042",
+    "exact": false,
+    "jaccard": 0.7023809523809523,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "e16463ba4cf52c4630d70b27",
+    "extraction_id": "147d7df999e80562352e1994",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "8e2777e77bc74f3eed845a45",
+    "extraction_id": "0229440c430238e2166e0e45",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "2e7820dfe73c57141b855c14",
+    "extraction_id": "11fd12b240294bc47c6f27ba",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "7826978d4a9d8d4ac00a37df",
+    "extraction_id": "1c37a9da1498f9fee83547b9",
+    "exact": false,
+    "jaccard": 0.918918918918919,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "db758e07ff226e1e35c9a5e3",
+    "extraction_id": "01fed63b2c784d8c4ba01a57",
+    "exact": false,
+    "jaccard": 0.9137931034482759,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "96bd87a9eb8513764d64ef86",
+    "extraction_id": "0b33db858de2988ef44ee7d0",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "a45ca85c28a98c3956d3a8b5",
+    "extraction_id": "10ee2e53bf697a03c44b8c1c",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "4d1c1f569b7cf85bcb5236d1",
+    "extraction_id": "0ccd23aeb9a18a69da8f248c",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "8decce9fb34644b41a3fc068",
+    "extraction_id": "112b96f897e85b842a086b61",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": false
+  },
+  {
+    "baseline_id": "c677a45095fa117d1e5fe695",
+    "extraction_id": "159ef26669e0a9b36a19c74b",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "67e404436a60c7be8901ebe7",
+    "extraction_id": "0a021bd9be5ef965dc4588ae",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "2e26389fbd00bff4b2136973",
+    "extraction_id": "018b0ce65df6c55ccb058871",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "205afa2373d5d59d17d073be",
+    "extraction_id": "00aa94783f14980bc0c53ba4",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "948c10501bd71a85afd12d47",
+    "extraction_id": "0c17dfcf7a3fba03b939ce70",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "3f2724681ebb5051282ab94b",
+    "extraction_id": "1271d7a04b85fd8c272d0e99",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "58ac339f7b6cfba54546adff",
+    "extraction_id": "185a398c92089b16448dc6ee",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "2d023d33040278b5be056e8f",
+    "extraction_id": "140a91c19c34b1dff098f5d2",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "0a71359c66649ba46b3224b1",
+    "extraction_id": "091e2a19783a6579288e58bc",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "02258c91099a27faa5ae74a4",
+    "extraction_id": "15fba81a1f8f4b4fcfde2697",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "10aebfc8660cc74e26d3b041",
+    "extraction_id": "0cbf60a4fe50d1ea8a88ce19",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "b8ee5024ce95637f7af18c24",
+    "extraction_id": "02a88ed5b6e044bf4386735b",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "cbee2676789605f80c8febe4",
+    "extraction_id": "13946385b1a0fdb00ffaf8b0",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "92c6efabd5aff49d7bd010aa",
+    "extraction_id": "08ebce9d84807a6f4898852e",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "aeeba462ff3b97c652ca7708",
+    "extraction_id": "17bb2fd9b3faf9eb70e3d342",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "68e48c61ff22b3661a59551a",
+    "extraction_id": "03285080d12db53ae34a681a",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  },
+  {
+    "baseline_id": "6e62170de57b1d04e78195df",
+    "extraction_id": "087c5df0145f6f5ff0a3285d",
+    "exact": true,
+    "jaccard": 1.0,
+    "same_disposition": true
+  }
+]

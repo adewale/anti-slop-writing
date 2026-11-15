@@ -1,0 +1,2 @@
+Valid skill: /Users/adewale/Documents/projects/code/anti-slop-writing/skills/anti-slop-writing
+OK: anti-slop-writing project validates

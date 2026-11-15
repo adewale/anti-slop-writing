@@ -1,0 +1,81 @@
+{
+  "id": "conditional-remembered-line",
+  "split": "tune",
+  "annotation_origin": "model_proposed_not_human_adjudication",
+  "provenance": {
+    "archive": "evals/results/2026-11-14-subscription-baseline/trials.tar.gz",
+    "archive_sha256": "ac9a292615299cd5160a08772118f1d76a2d5b273bb5b19e18b589be2c08dd23",
+    "archive_member": "subscription-baseline/apply/sonnet/6ebe035911114b435ee47547/complete.json",
+    "review_item": "R001",
+    "extraction_id": null
+  },
+  "source": "Verdict: revise\n\nSlop tells:\n- \"represents a cornerstone of\" is a displaced copula plus a prestige metaphor. It inflates \"is\" and does no enumerating, defining, or locating.\n- \"Reliable batch processing\" is an abstract noun phrase standing in for the exporter's behavior.\n- \"data operations\" is a vague category. The sentence could open an essay about any pipeline tool.\n- Flattened version: \"Batch processing should be reliable.\" The residual claim names no actor, mechanism, or limit, so the cadence and the metaphor were carrying it.\n\nSpecificity missing:\n- What the exporter records (the number of the most recently completed batch).\n- What happens after a crash (restart begins at the next batch).\n- What survives (completed batches stay on disk).\n\nInflated claim:\n\"Cornerstone of data operations\" asserts importance for the whole field without evidence. The facts support a narrower claim about this exporter: a crash does not force a rerun of finished work.\n\nFlow break:\nAs an opener, the sentence promises a general discussion, then the reader still has to be told what the tool does. The specific behavior should come first, and the importance follows from it.\n\nConcrete rewrite:\nThe exporter saves the number of the most recently completed batch. After a crash, it restarts at the next batch, and the batches already finished stay on disk.\n\nRewrite check: passes self-detectors. It has no rule-of-three, no X-not-Y, no em-dash, no banned phrases, no prestige adjectives, no decorative closure, and every fact comes from the supplied list. It does not claim what happens to a batch that was in progress at the crash, because the facts don't say. Ask author: is a half-written batch discarded or overwritten on restart? If the answer is known, add one sentence on it.\n\nRemembered line:\nA crash costs you only the batch that was in flight.\n\n(Caveat: use this line only once the author confirms the in-progress-batch behavior. Otherwise end on \"the batches already finished stay on disk.\")",
+  "annotation": {
+    "version": 1,
+    "source_sha256": "931a01883562664bce2bd6b33a41e234cda70788c935c50506854d9fc3ebecd8",
+    "items": [
+      {
+        "id": "d1",
+        "role": "prose",
+        "content": {
+          "start": 1189,
+          "end": 1349,
+          "text": "The exporter saves the number of the most recently completed batch. After a crash, it restarts at the next batch, and the batches already finished stay on disk."
+        },
+        "qualifications": []
+      },
+      {
+        "id": "d2",
+        "role": "author_question",
+        "content": {
+          "start": 1667,
+          "end": 1775,
+          "text": "is a half-written batch discarded or overwritten on restart? If the answer is known, add one sentence on it."
+        },
+        "qualifications": []
+      },
+      {
+        "id": "d3",
+        "role": "conditional_alternative",
+        "content": {
+          "start": 1794,
+          "end": 1846,
+          "text": "A crash costs you only the batch that was in flight."
+        },
+        "qualifications": [
+          {
+            "start": 1848,
+            "end": 1995,
+            "text": "(Caveat: use this line only once the author confirms the in-progress-batch behavior. Otherwise end on \"the batches already finished stay on disk.\")"
+          }
+        ]
+      }
+    ],
+    "unresolved": []
+  },
+  "expected_items": [
+    {
+      "id": "d1",
+      "role": "prose",
+      "text": "The exporter saves the number of the most recently completed batch. After a crash, it restarts at the next batch, and the batches already finished stay on disk.",
+      "qualifications": []
+    },
+    {
+      "id": "d2",
+      "role": "author_question",
+      "text": "is a half-written batch discarded or overwritten on restart? If the answer is known, add one sentence on it.",
+      "qualifications": []
+    },
+    {
+      "id": "d3",
+      "role": "conditional_alternative",
+      "text": "A crash costs you only the batch that was in flight.",
+      "qualifications": [
+        {
+          "position": "after",
+          "text": "(Caveat: use this line only once the author confirms the in-progress-batch behavior. Otherwise end on \"the batches already finished stay on disk.\")"
+        }
+      ]
+    }
+  ]
+}

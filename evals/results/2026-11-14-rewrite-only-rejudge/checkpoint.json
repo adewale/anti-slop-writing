@@ -1,0 +1,58 @@
+{
+  "status": "blocked before judging",
+  "registration_commit": "d6cee815f95f3b4300373b83d9fc5306e8bf5c18",
+  "baseline_archive_sha256": "ac9a292615299cd5160a08772118f1d76a2d5b273bb5b19e18b589be2c08dd23",
+  "primary_extractions": 444,
+  "reliability_extractions": 44,
+  "audits": 444,
+  "flagged_outputs": 93,
+  "missing_audits": 0,
+  "writing_judgments": 0,
+  "flagged_by_model_arm": [
+    {
+      "model": "sonnet",
+      "arm": "no-skill",
+      "audited": 111,
+      "flagged": 10
+    },
+    {
+      "model": "sonnet",
+      "arm": "skill",
+      "audited": 111,
+      "flagged": 60
+    },
+    {
+      "model": "sol",
+      "arm": "no-skill",
+      "audited": 111,
+      "flagged": 6
+    },
+    {
+      "model": "sol",
+      "arm": "skill",
+      "audited": 111,
+      "flagged": 17
+    }
+  ],
+  "failed_checks": {
+    "completeness": 27,
+    "deliverable_only": 16,
+    "disposition_correct": 5,
+    "qualification_preservation": 60
+  },
+  "no_deliverable_outputs": 0,
+  "reliability": {
+    "pairs": 44,
+    "exact_rate": 0.8636363636363636,
+    "mean_jaccard": 0.984115273499458,
+    "disposition_agreement": 0.9772727272727273
+  },
+  "selected_provider_responses": 932,
+  "unique_returned_provider_response_ids": 932,
+  "baseline_selected_provider_response_ids": 2412,
+  "response_id_overlap_with_baseline": 0,
+  "returned_list_price_equivalent_usd": 13.361868,
+  "first_request_started": 1794674017.182036,
+  "last_request_ended": 1794675204.082432,
+  "limits": "Model audit flags are not human-confirmed defects or skill outcomes. Counters are not subscription invoices. No new writing-score inference."
+}
